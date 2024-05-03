@@ -1,0 +1,56 @@
+version: "1" # <- Ligne optionnelle (le numéro de version pourra évoluer)
+
+services:
+
+  # <- on va décrire la liste des services
+  bdd:
+    # <- Je déclare un service "bdd" pour... ma base de données 
+    # Ce qui suit est la "configuration" de ce service
+
+    image: "postgres:14-alpine" # on télécharge l'image avec la bonne version de psql
+    ports:
+      - "5433:5432" # on relie le port 5432 du conteneur-service au port 5433 de la vm ubuntu
+    environment:
+      POSTGRES_DB: "skillswap" # optionnelle, car par défaut, l'image va créer une bdd qui a la même nom que POSTGRES_USER
+      POSTGRES_PASSWORD: "notreApp"
+      POSTGRES_USER: "admin"
+    volumes:
+      # sert à stocker les données sur le dd de la vm ubuntu ET à lancer le script pour créer les tables
+      - ./apo-skill-swap/db/migration.sql:/docker-entrypoint-initdb.d/create_tables.sql # va créer les tables dans la bdd
+      - ./psql:/var/lib/postgresql/data
+    user: 1006:1006
+
+  node:
+    # créer un conteneur à partir d'une image qu'on va créer nous-même à partir d'un dockerfile présent dans le projet
+    image: node:18"" # se connecter au service bdd
+
+    environment:
+      - SECRET_POUR_EXPRESS_SESSION=dmfhmidfghmhifgd
+      - PGUSER=admin
+      - PGHOST=bdd
+      - PGPASSWORD=notreApp
+      - PGDATABASE=skillswap
+      - PGPORT=5432
+    ports:
+      - "8080:3000" #rediriger le port 3000 du conteneur vers le port 8080 de la vm ubuntu
+    volumes:
+      - ./apo-skill-swap:/home/server/apo-skill-swap
+      - node_modules:/home/server/apo-skill-swap/node_modules
+    depends_on:
+      - bdd
+
+  adminer:
+    image: adminer # on ira chercher l'image directement sur docker hub
+    ports:
+      - 8081:8080 # le port 8080 de la vm ubuntu est déjà pris par le service nodejs, donc on map le port du container adminer sur le port 8081
+    environment:
+      ADMINER_DEFAULT_SERVER: bdd
+    depends_on:
+      - bdd
+
+command: "npm start"
+
+volumes:
+  node_modules:
+
+
