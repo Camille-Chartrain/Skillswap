@@ -1,0 +1,67 @@
+@use './var';
+@use './global';
+
+//* buttons
+
+@mixin deleteBtn {
+    background-color: var.$redBtn;
+    color: var.$yelloWrite;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+@mixin submitBtn {
+    background-color: var.$blueBtn;
+    color: var.$yelloWrite;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+@mixin seeMoreBtn {
+    background-color: var.$blueBtn;
+    color: var.$yelloWrite;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+@mixin modifyBtn {
+    background-color: var.$orangeBtn;
+    color: var.$yelloWrite;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+@mixin evaluateBtn {
+    background-color: var.$orangeBtn;
+    color: var.$yelloWrite;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+@mixin contactBtn {
+    background-color: var.$yellowBtn;
+    color: var.$blackWrite;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+@mixin inProgressBtn {
+    background-color: var.$yellowBtn;
+    color: var.$blackWrite;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+@mixin notStartingBtn {
+    background-color: var.$whiteBtn;
+    color: var.$blackWrite;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+@mixin finishedBtn {
+    background-color: var.$bgGrey;
+    color: var.$yelloWrite;
+    font-weight: bold;
+    border-radius: 2rem;
+}
