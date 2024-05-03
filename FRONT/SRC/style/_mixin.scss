@@ -1,8 +1,10 @@
 @use './var';
 @use './global';
 
-//* card
 
-// @mixin card {
-
-// }
+//= li 's list
+@mixin skillList {
+    background-color: var.$bgGrey;
+    border-radius: 1rem;
+    color: var.$blackWrite;
+}
