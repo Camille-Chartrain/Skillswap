@@ -1,6 +1,6 @@
 import './index.scss';
 import 'reset.css';
-import App from './components/app/index.js';
+import App from './components/app';
 import { createRoot } from 'react-dom/client';
 
 // container est l'élément qui va contenir l'ensemble de l'app, il récupère une div avec un id donné
