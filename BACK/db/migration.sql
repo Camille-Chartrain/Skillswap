@@ -2,7 +2,7 @@ BEGIN;
 
 SET CLIENT_ENCODING TO 'UTF-8';
 
-DROP TABLE IF EXISTS "user", "skill", "category", "sub_category", "meeting";
+DROP TABLE IF EXISTS "user", "category","sub_category","skill","meeting", "interest";
 
 CREATE TABLE "user" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -17,6 +17,17 @@ CREATE TABLE "user" (
     "swappies" INTEGER
 );
 
+CREATE TABLE "category" ( 
+    "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "picture" TEXT NOT NULL
+);
+
+CREATE TABLE "sub_category" (
+    "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "category_id" INTEGER REFERENCES "category"("id") NOT NULL
+);
 
 CREATE TABLE "skill" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -26,27 +37,12 @@ CREATE TABLE "skill" (
     "mark" INTEGER,
     "level" TEXT NOT NULL,
     "transmission" TEXT,
-    "description" TEXT NOT NULL;
-    "availability"TEXT NOT NULL;
+    "description" TEXT NOT NULL,
+    "availability"TEXT NOT NULL,
     "sub_category_id" INTEGER REFERENCES "sub_category"("id") NOT NULL,
     "category_id" INTEGER REFERENCES "category"("id") NOT NULL,
     "user_id" INTEGER REFERENCES "user"("id") NOT NULL
 ); 
-
-
-CREATE TABLE "category" ( 
-    "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "name" TEXT NOT NULL,
-    "picture" TEXT NOT NULL
-);
-
-
-CREATE TABLE "sub_category" (
-    "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "name" TEXT NOT NULL,
-    "category_id" INTEGER REFERENCES "category"("id") NOT NULL
-);
-
 
 
 CREATE TABLE "meeting" (
