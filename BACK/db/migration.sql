@@ -37,7 +37,7 @@ CREATE TABLE "skill" (
 CREATE TABLE "category" ( 
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
-    "picture" BLOB
+    "picture" TEXT NOT NULL
 );
 
 
