@@ -2,6 +2,16 @@
 //     // font-family: sugo pro display;
 //     src: url("./font/Sugo-Pro-Display-Regular-trial.");
 // }
+:root {
+    --background: #eee;
+    --font-color: #292929;
+}
+
+:root[theme="dark"] {
+    --background: #091022;
+    --font-color: #d3ddff;
+}
+
 
 body {
     font-family: 'prompt', 'sans-serif';
