@@ -2,9 +2,10 @@ import express from 'express';
 import session from 'express-session';
 import * as dotenv from 'dotenv';
 // import router from './app/router.js';
-// import mainController from './app/controllers/mainController.js';
 import https from 'https';
 import fs from "fs";
+import cors from "cors";
+//option possible: activer HSTS (Strict Transport Security HSTS est utilisé pour indiquer aux navigateurs de toujours utiliser HTTPS pour accéder à votre site, même si l'utilisateur saisit http:// dans la barre d'adresse.) 
 
 dotenv.config();
 const app = express();
@@ -14,6 +15,13 @@ const port = process.env.PORT || 3000;
 app.get("/", (req, res) => {
     res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
 });
+
+//gestion des CORS
+app.use(cors({
+    origin: 'https://skillswap.com', // Autoriser les requêtes uniquement à partir de ce domaine
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'] // Autoriser uniquement les méthodes précisées
+}));
+
 
 // Read SSL certificate and key files
 const options = {
@@ -42,7 +50,6 @@ app.use((req, res, next) => {
 
 // app.use(router);
 
-// app.use(mainController.error404)
 
 // app.listen(port, () => {
 //     console.log(`Serveur démarré sur http://localhost:${port}`);
