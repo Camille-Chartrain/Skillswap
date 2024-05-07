@@ -2,7 +2,7 @@ BEGIN;
 
 SET CLIENT_ENCODING TO 'UTF-8';
 
-TRUNCATE TABLE "user", "skill", "category","sub_category","meeting","interest";
+TRUNCATE TABLE "user", "skill", "category","sub_category","meeting","interest" RESTART IDENTITY CASCADE;
 
 INSERT INTO "category"("name", "picture") VALUES
 -- premier categorie
