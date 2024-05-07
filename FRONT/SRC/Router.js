@@ -33,14 +33,10 @@ const Router = createBrowserRouter(
             element: (
                 <>
                     <NavHome /> //-> mise en place du outler et navlink ds cette nav a creer ds le comp. parent
-                    <Home />
+                    <Search />
                 </>),
             errorElement: <PageError />,
             children: [
-                {
-                    path: 'search',
-                    element: <SkillList />
-                },
                 {
                     path: 'registration',
                     element: <RegistrationForm />,
@@ -87,7 +83,6 @@ const Router = createBrowserRouter(
                         },
                     ]
                 },
-
             ]
         },
     ]
