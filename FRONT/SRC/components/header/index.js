@@ -1,21 +1,19 @@
 import React from "react";
+import BannerPc from './pictures/BannerPc.png';
+import Logo from './pictures/Logo.svg';
+
+
 
 
 const Header = () => {
-
     return (
         <header>
-
-            <img src="" alt="banniere du site Skillswap" />
-            <button id="dark" >dark icone jour nuit</button>
-            <a href="/" alt="logo du site" >logo</a>
+            <a href="/" alt="logo du site" ><img src=".p/ictures/Logo.svg " /></a>
             <div>
-                <input type="search" value="" placeholder="Rechercher" />
+                <input type="search" placeholder="rechercher" />
                 <button>loupe</button>
             </div>
-
-            <h1>hello vous</h1>
-        </header>
+        </header >
     )
 }
 export default Header;

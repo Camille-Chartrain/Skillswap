@@ -1,9 +1,9 @@
 import './index.scss';
 import 'reset.css';
 import React from 'react';
-import App from './components/app';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route, Link, RouterProvider, BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
 import Search from "../SRC/components/search";
 import Registration from "../SRC/components/registration";
 import Login from "../SRC/components/login";
@@ -12,9 +12,14 @@ import Profile from "../SRC/components/profile";
 import Learning from "../SRC/components/learning";
 import Statistic from "../SRC/components/statistic";
 import Communication from "../SRC/components/communication";
-import { PageError } from './util';
+import { PageError, ToggleBtn } from './util';
 import Header from './components/header';
 import Footer from './components/footer';
+
+import { DarkModeProvider } from './util';
+
+
+
 
 
 
@@ -34,44 +39,50 @@ const root = createRoot(container);
 //= Routes displayed depending if you are logged or not..
 // const isLogged = false;
 
+
 root.render(
-    <body>
-        <header>
-            <Header />
 
-            <BrowserRouter>
-                <nav>
-                    <>
-                        <Link to="/">search</Link>
-                        <Link to="/registration">registration</Link>
-                        <Link to="/login">login</Link>
-                    </>
-                    {/* {isLogged ? ( */}
-                    <>
-                        <Link to="/dashboard">dashboard</Link>
-                        <Link to="/profile">profile</Link>
-                        <Link to="/learning">learning</Link>
-                        <Link to="/statistic">statistis</Link>
-                        <Link to="/communication">communication</Link>
-                        <Link to="/logout">logout</Link>
-                    </>
-                    {/* ) : (<Link to="/" />) */}
+    <React.StrictMode>
+        <DarkModeProvider>
+            <body>
+                <header>
+                    <Header />
+                    <BrowserRouter>
+                        <nav>
+                            <>
+                                <Link to="/">search</Link>
+                                <Link to="/registration">registration</Link>
+                                <Link to="/login">login</Link>
+                            </>
+                            {/* {isLogged ? ( */}
+                            <>
+                                <Link to="/dashboard">dashboard</Link>
+                                <Link to="/profile">profile</Link>
+                                <Link to="/learning">learning</Link>
+                                <Link to="/statistic">statistis</Link>
+                                <Link to="/communication">communication</Link>
+                                <Link to="/logout">logout</Link>
+                            </>
+                            {/* ) : (<Link to="/" />) */}
 
-                </nav >
+                        </nav >
 
-                <Routes>
-                    <Route path="/" element={<Search />} />
-                    <Route path="/registration" exact element={<Registration />} />
-                    <Route path="/login" exact element={<Login />} />
-                    <Route path="/dashboard" exact element={<Dashboard />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/learning" element={<Learning />} />
-                    <Route path="/statistic" element={<Statistic />} />
-                    <Route path="/communication" element={<Communication />} />
-                    <Route path="*" element={<PageError />} />
-                </Routes>
-            </BrowserRouter>
-        </header>
-        <footer><Footer /></footer>
-    </body >
+                        <Routes>
+                            <Route path="/" element={<Search />} />
+                            <Route path="/registration" exact element={<Registration />} />
+                            <Route path="/login" exact element={<Login />} />
+                            <Route path="/dashboard" exact element={<Dashboard />} />
+                            <Route path="/profile" element={<Profile />} />
+                            <Route path="/learning" element={<Learning />} />
+                            <Route path="/statistic" element={<Statistic />} />
+                            <Route path="/communication" element={<Communication />} />
+                            <Route path="*" element={<PageError />} />
+                        </Routes>
+                    </BrowserRouter>
+                    <ToggleBtn />
+                </header>
+                <footer><Footer /></footer>
+            </body>
+        </DarkModeProvider>
+    </React.StrictMode>
 )
