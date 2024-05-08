@@ -1,4 +1,6 @@
-const Registration = () => {
-    <h1>registration</h1>
+function Registration() {
+    return (
+        <h1>registration</h1>
+    )
 };
 export default Registration;

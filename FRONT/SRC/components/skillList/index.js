@@ -2,8 +2,8 @@ const SkillList = () => {
     return (
         <>
             <article>
-                <h1>SKILLSWAP C'est...</h1>
-                <p>presentation concept</p>
+
+                <p>liste des competence</p>
             </article>
             <section>
 
