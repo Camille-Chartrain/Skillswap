@@ -1,24 +1,30 @@
 import express from 'express';
 import session from 'express-session';
 import * as dotenv from 'dotenv';
-// import router from './app/router.js';
 import https from 'https';
 import fs from "fs";
 import cors from "cors";
 //option possible: activer HSTS (Strict Transport Security HSTS est utilisé pour indiquer aux navigateurs de toujours utiliser HTTPS pour accéder à votre site, même si l'utilisateur saisit http:// dans la barre d'adresse.) 
+import User from './app/models/user.js';
+import sequelize from './app/database.js';
+// import router from './app/router.js';
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Route pour test
+
+// the defined model is the class itself => true
+console.log(User === sequelize.models.User);
+
+// Route to test https
 app.get("/", (req, res) => {
     res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
 });
 
-//gestion des CORS
+//gestion of CORS
 app.use(cors({
-    origin: 'https://skillswap.com', // Autoriser les requêtes uniquement à partir de ce domaine
+    origin: 'https://localhost:3000.com', // Autoriser les requêtes uniquement à partir de ce domaine
     methods: ['GET', 'POST', 'PATCH', 'DELETE'] // Autoriser uniquement les méthodes précisées
 }));
 

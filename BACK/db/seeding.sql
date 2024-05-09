@@ -33,8 +33,7 @@ INSERT INTO "category"("name", "picture") VALUES
 INSERT INTO "sub_category"("name","category_id") VALUES
 
 -- première sub_categorie
-('Langues étrangères (anglais, français, espagnol, etc.)'
-,59), 
+('Langues étrangères (anglais, français, espagnol, etc.)',59), 
 ('Grammaire et orthographe',59),
 ('Langage des signes',59),
 ('Linguistique',59),

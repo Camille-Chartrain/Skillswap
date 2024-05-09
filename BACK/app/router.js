@@ -17,7 +17,7 @@ router.post('/logout', authController.logout);
 //search for members
 router.get('/search', mainController.search);
 
-//profil
+//profile
 router.get('/profile', profileController.profile);
 router.post('/profile', profileController.createProfile);
 router.patch('/profile', profileController.modifProfile);
