@@ -33,51 +33,51 @@ INSERT INTO "category"("name", "picture") VALUES
 INSERT INTO "sub_category"("name","category_id") VALUES
 
 -- première sub_categorie
-('Langues étrangères (anglais, français, espagnol, etc.)',59), 
-('Grammaire et orthographe',59),
-('Langage des signes',59),
-('Linguistique',59),
-('Rédaction créative',59),
-('Traduction et interprétation',59),
+('Langues étrangères (anglais, français, espagnol, etc.)',1), 
+('Grammaire et orthographe',1),
+('Langage des signes',1),
+('Linguistique',1),
+('Rédaction créative',1),
+('Traduction et interprétation',1),
 
 -- deuxième sub_categorie
-('Menuiserie',60), 
-('Électricité domestique',60),
-('Plomberie',60),
-('Peinture et décoration intérieure',60),
-('Jardinage',60),
-('Réparation appareils électroniques',60),
+('Menuiserie',2), 
+('Électricité domestique',2),
+('Plomberie',2),
+('Peinture et décoration intérieure',2),
+('Jardinage',2),
+('Réparation appareils électroniques',2),
 
 -- troisième sub_categorie
-('Fabrication de meubles',61), 
-('Couture et artisanat textile',61),
-('Construction de modèles réduits',61),
-('Conception de bijoux',61),
-('Fabrication de produits de beauté maison',61),
-('Artisanat écologique',61),
+('Fabrication de meubles',3), 
+('Couture et artisanat textile',3),
+('Construction de modèles réduits',3),
+('Conception de bijoux',3),
+('Fabrication de produits de beauté maison',3),
+('Artisanat écologique',3),
 
 -- quatrième sub_categorie
-('Cuisine régionale (italienne, asiatique, mexicaine, etc.)',62), 
-('Pâtisserie et desserts',62),
-('Cuisine végétalienne ou végétarienne',62),
-('Techniques de découpe et de préparation',62),
-('Cuisine rapide et pratique',62),
-('Cuisine pour les régimes spécifiques (sans gluten, sans lactose, etc.)',62),
+('Cuisine régionale (italienne, asiatique, mexicaine, etc.)',4), 
+('Pâtisserie et desserts',4),
+('Cuisine végétalienne ou végétarienne',4),
+('Techniques de découpe et de préparation',4),
+('Cuisine rapide et pratique',4),
+('Cuisine pour les régimes spécifiques (sans gluten, sans lactose, etc.)',4),
 
 -- cinquième sub_categorie
-('Dessin et peinture',63), 
-('Sculpture',63),
-('Photographie',63),
-('Art numérique',63),
-('Artisanat traditionnel (poterie, tissage, etc.)',63),
-('Histoire de l art et appréciation artistique',63),
+('Dessin et peinture',5), 
+('Sculpture',5),
+('Photographie',5),
+('Art numérique',5),
+('Artisanat traditionnel (poterie, tissage, etc.)',5),
+('Histoire de l art et appréciation artistique',5),
 
 -- sixième sub_categorie
-('Mathématiques',64), 
-('Sciences (physique, chimie, biologie)',64),
-('Histoire et géographie',64),
-('Littérature et analyse de texte',64),
-('Préparation aux examens (SAT, ACT, BAC, etc.)',64),
-('Méthodes de travail et organisation scolaire',64);
+('Mathématiques',6), 
+('Sciences (physique, chimie, biologie)',6),
+('Histoire et géographie',6),
+('Littérature et analyse de texte',6),
+('Préparation aux examens (SAT, ACT, BAC, etc.)',6),
+('Méthodes de travail et organisation scolaire',6);
 
 COMMIT;
