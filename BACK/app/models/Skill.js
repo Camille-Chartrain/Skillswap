@@ -26,7 +26,7 @@ Skill.init(
         },
         mark: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         level: {
             type: DataTypes.TEXT,
@@ -54,6 +54,7 @@ Skill.init(
             },
         },
     }, {
+    timestamps: false,
     sequelize,
     modelName: 'Skill',
     tableName: 'skill',
@@ -67,5 +68,7 @@ Category.belongsTo(Skill);
 
 Skill.hasOne(User);
 User.belongsTo(Skill);
+
+// Skill.create({ title: "baston", level: "super fort", transmission: 'presentiel', description: 'apprenez à casser des nez', availability: 'soir et we' });
 
 export default Skill;

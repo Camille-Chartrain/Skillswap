@@ -14,10 +14,10 @@ Interest.init(
     tableName: 'interest',
 });
 
-Interest.hasMany(User);
-User.belongsTo(Interest);
+// Interest.hasMany(User);
+// User.belongsTo(Interest);
 
-Interest.hasMany(Category);
-Category.belongsTo(Interest);
+// Interest.hasMany(Category);
+// Category.belongsTo(Interest);
 
 export default Interest;

@@ -3,6 +3,7 @@ import { Model, DataTypes } from 'sequelize';
 // on importe notre client connecté à la base de données
 import sequelize from '../database.js';
 import bcrypt from 'bcrypt';
+import Category from './Category.js';
 // import Category from './Category.js';
 // import Sub_category from './Sub_category.js';
 // import Meeting from './Meeting.js';
@@ -95,10 +96,28 @@ User.init(
     tableName: 'user', // in which table we want sequelize to put the informations of this model
 });
 
+User.belongsToMany(Category, { through: Interest });
+
+
+// User.create({
+//     firstname: "allez", lastname: "cavamarcher", email: 'csur@gmail.com', hash: 'Mdp'
+// });
+
+// async () => {
+//     try {
+//         await sequelize.sync({ alter: true });
+//         console.log('Tables synchronized with database');
+//     } catch (error) {
+//         console.log("Error syncing the table and model!");
+//         console.log(error);
+//     }
+
+// };
 
 sequelize.sync({ alter: true }).then(() => {
     console.log("table and model synced successfully!")
     // return User.create({ firstname: "bandida", lastname: "lafolita", email: 'null', hash: 'Mdp' });
+    // Skill.create({ title: "baston", level: "super fort", transmission: 'presentiel', description: 'apprenez à casser des nez', availability: 'soir et we' })
 }).then((data) => {
     console.log(data);
 }).catch((err) => {
