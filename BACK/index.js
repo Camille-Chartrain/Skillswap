@@ -13,7 +13,7 @@ import Meeting from './app/models/Meeting.js';
 import Skill from './app/models/skill.js';
 import Interest from './app/models/Interest.js';
 ;
-// import router from './app/router.js';
+import router from './app/router.js';
 
 dotenv.config();
 const app = express();
@@ -75,7 +75,7 @@ app.use((req, res, next) => {
     next();
 })
 
-// app.use(router);
+app.use(router);
 
 
 // app.listen(port, () => {
