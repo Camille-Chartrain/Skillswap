@@ -22,8 +22,8 @@ Sub_category.init(
     tableName: 'sub_category',
 });
 
-Sub_category.hasOne(Category);
-Category.belongsTo(Sub_category);
+Category.hasOne(Sub_category);
+Sub_category.belongsTo(Category);
 
 
 

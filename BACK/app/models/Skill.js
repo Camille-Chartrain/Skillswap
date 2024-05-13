@@ -60,14 +60,14 @@ Skill.init(
     tableName: 'skill',
 });
 
-Skill.hasOne(Sub_category);
-Sub_category.belongsTo(Skill);
+Sub_category.hasOne(Skill);
+Skill.belongsTo(Sub_category);
 
-Skill.hasOne(Category);
-Category.belongsTo(Skill);
+Category.hasOne(Skill);
+Skill.belongsTo(Category);
 
-Skill.hasOne(User);
-User.belongsTo(Skill);
+User.hasOne(Skill);
+Skill.belongsTo(User);
 
 // Skill.create({ title: "baston", level: "super fort", transmission: 'presentiel', description: 'apprenez à casser des nez', availability: 'soir et we' });
 

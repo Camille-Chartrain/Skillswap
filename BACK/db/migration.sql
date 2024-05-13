@@ -26,7 +26,7 @@ CREATE TABLE "category" (
 CREATE TABLE "sub_category" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
-    "category_id" INTEGER REFERENCES "category"("id") NOT NULL
+    "CategoryId" INTEGER REFERENCES "category"("id") NOT NULL
 );
 
 CREATE TABLE "skill" (

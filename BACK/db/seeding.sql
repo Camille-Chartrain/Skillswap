@@ -30,7 +30,7 @@ INSERT INTO "category"("name", "picture") VALUES
 'imageCategory/schoolSkillswap.jpg');
 
 
-INSERT INTO "sub_category"("name","category_id") VALUES
+INSERT INTO "sub_category"("name","CategoryId") VALUES
 
 -- première sub_categorie
 ('Langues étrangères (anglais, français, espagnol, etc.)',1), 

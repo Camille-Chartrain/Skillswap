@@ -4,11 +4,7 @@ import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
 import bcrypt from 'bcrypt';
 import Category from './Category.js';
-// import Category from './Category.js';
-// import Sub_category from './Sub_category.js';
-// import Meeting from './Meeting.js';
-// import Skill from './skill.js';
-// import Interest from './Interest.js';
+import Interest from './Interest.js';
 
 // on définit le modèle qui étend la classe mère et hérite donc de ses méthodes
 class User extends Model { }
@@ -114,16 +110,16 @@ User.belongsToMany(Category, { through: Interest });
 
 // };
 
-sequelize.sync({ alter: true }).then(() => {
-    console.log("table and model synced successfully!")
-    // return User.create({ firstname: "bandida", lastname: "lafolita", email: 'null', hash: 'Mdp' });
-    // Skill.create({ title: "baston", level: "super fort", transmission: 'presentiel', description: 'apprenez à casser des nez', availability: 'soir et we' })
-}).then((data) => {
-    console.log(data);
-}).catch((err) => {
-    console.log("Error syncing the table and model!");
-    console.log(err);
-})
+// sequelize.sync({ alter: true }).then(() => {
+//     console.log("table and model synced successfully!")
+//     // return User.create({ firstname: "bandida", lastname: "lafolita", email: 'null', hash: 'Mdp' });
+//     // Skill.create({ title: "baston", level: "super fort", transmission: 'presentiel', description: 'apprenez à casser des nez', availability: 'soir et we' })
+// }).then((data) => {
+//     console.log(data);
+// }).catch((err) => {
+//     console.log("Error syncing the table and model!");
+//     console.log(err);
+// })
 
 
 

@@ -27,11 +27,11 @@ Meeting.init(
 });
 
 //description of the relation, parent table first, child table next
-Meeting.hasOne(User);
-User.belongsTo(Meeting);
+User.hasOne(Meeting);
+Meeting.belongsTo(User);
 
-Meeting.hasOne(Skill);
-Skill.belongsTo(Meeting);
+Skill.hasOne(Meeting);
+Meeting.belongsTo(Skill);
 
 
 

@@ -31,10 +31,10 @@ sequelize.sync({ alter: true }).then(() => {
 })
 
 // the defined model is the class itself => true
-console.log(User === sequelize.models.User);
-console.log(Skill === sequelize.models.Skill);
 console.log(Category === sequelize.models.Category);
 console.log(Sub_category === sequelize.models.Sub_category);
+console.log(User === sequelize.models.User);
+console.log(Skill === sequelize.models.Skill);
 console.log(Meeting === sequelize.models.Meeting);
 console.log(Interest === sequelize.models.Interest);
 
