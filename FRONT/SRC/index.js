@@ -4,6 +4,10 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './components/app';
 import { DarkModeProvider } from './util';
+import themeClass from '../SRC/components/app/index.js';
+import { BrowserRouter } from 'react-router-dom';
+
+
 
 
 
@@ -16,12 +20,10 @@ const root = createRoot(container);
 
 
 
-
-
 root.render(
     <>
         <React.StrictMode>
-            <DarkModeProvider>
+            <DarkModeProvider value={themeClass}>
                 < App />
             </DarkModeProvider >
         </React.StrictMode >

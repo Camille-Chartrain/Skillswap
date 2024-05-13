@@ -8,3 +8,42 @@
     color: #333;
     transition: background-color 0.3s ease;
 }
+
+
+
+.banner {
+    width: 100%;
+}
+
+
+
+
+header {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+.arianaWire {
+    display: flex;
+
+    .logo {
+        justify-content: start;
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+
+    .search {
+        flex-direction: row;
+        justify-items: center;
+    }
+
+    .navBar {
+        justify-content: end;
+    }
+
+
+
+}

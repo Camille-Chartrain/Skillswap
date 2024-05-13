@@ -3,13 +3,15 @@
 import { createContext, useContext, useState } from "react";
 
 //-> need to create a context
-export const DarkModeContext = createContext();
+
+
+export const DarkModeContext = createContext('light');
 
 //-> to surround my root for the use of the dark theme
 export const DarkModeProvider = ({ children }) => {
-    const [darkMode, setDarkMode] = useState(false);
-    const toggleDarkMode = () => {
-        setDarkMode(darkMode === 'light' ? 'dark' : 'light');
+    const [darkMode, setDarkMode] = useState('light');
+    ; const toggleDarkMode = () => {
+        setDarkMode(prevState => !prevState);
     }
     return (
         <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>

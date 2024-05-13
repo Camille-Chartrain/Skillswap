@@ -22,6 +22,8 @@
 
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: 'prompt', 'sans-serif';
 
 }
