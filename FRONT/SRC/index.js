@@ -5,7 +5,6 @@ import { createRoot } from 'react-dom/client';
 import App from './components/app';
 import { DarkModeProvider } from './util';
 import themeClass from '../SRC/components/app/index.js';
-import { BrowserRouter } from 'react-router-dom';
 
 
 
