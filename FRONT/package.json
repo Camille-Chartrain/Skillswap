@@ -24,6 +24,7 @@
     "@emotion/cache": "^11.11.0",
     "@fontsource/prompt": "^5.0.14",
     "@mui/icons-material": "^5.15.17",
+    "@mui/styled-engine": "^5.15.14",
     "ajax": "^0.0.4",
     "docker": "^1.0.0",
     "jest": "^29.7.0",

@@ -4,12 +4,12 @@ import Footer from '../footer';
 import Home from "../home";
 import Registration from "../registration";
 import Login from "../login";
-// import PersonAddIcon from '@mui/icons-material/PersonAdd';
-// import PersonIcon from '@mui/icons-material/Person';
-import { PageError, ToggleBtn } from '../../util';
+import addUser from '../../style/pictures/search.svg';
+import login from '../../style/pictures/login.svg';
+import { PageError } from '../../util';
 import { DarkModeContext } from '../../util';
 import { useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 
 //* we call render on the container and give it the component for the view.here we placed the router to display the routes to navigate between the components
 
@@ -27,8 +27,8 @@ const App = ({ darkMode }) => {
             <Router className="arianaWire">
 
                 <nav>
-                    <Link to="/registration">{<PersonAddIcon />}</Link>
-                    <Link to="/login">{<PersonIcon />}</Link>
+                    <NavLink to="/registration"><img className="" src={addUser} alt='icone ajout membre' /></NavLink>
+                    <NavLink to="/login"><img className="" src={login} alt='icone connexion' /></NavLink>
                 </nav >
                 <Routes>
                     <Route path="/" element={<Home />} />
