@@ -1,9 +1,9 @@
 import express from 'express';
 import session from 'express-session';
 import * as dotenv from 'dotenv';
-import https from 'https';
-import fs from "fs";
-// import cors from "cors";
+// import https from 'https';
+// import fs from "fs";
+import cors from "cors";
 //option possible: activer HSTS (Strict Transport Security HSTS est utilisé pour indiquer aux navigateurs de toujours utiliser HTTPS pour accéder à votre site, même si l'utilisateur saisit http:// dans la barre d'adresse.) 
 import sequelize from './app/database.js';
 import Category from './app/models/Category.js';
@@ -48,17 +48,17 @@ app.use(cors({
 }));
 
 
-// Read SSL certificate and key files
-const options = {
-    key: fs.readFileSync("key.pem"),
-    cert: fs.readFileSync("cert.pem"),
-};
-// Create HTTPS server
-const server = https.createServer(options, app);
+// // Read SSL certificate and key files
+// const options = {
+//     key: fs.readFileSync("key.pem"),
+//     cert: fs.readFileSync("cert.pem"),
+// };
+// // Create HTTPS server
+// const server = https.createServer(options, app);
 
-server.listen(port, () => {
-    console.log(`App listening on https://localhost:${port}`);
-});
+// server.listen(port, () => {
+//     console.log(`App listening on https://localhost:${port}`);
+// });
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -76,6 +76,6 @@ app.use((req, res, next) => {
 app.use(router);
 
 
-// app.listen(port, () => {
-//     console.log(`Serveur démarré sur http://localhost:${port}`);
-// });
+app.listen(port, () => {
+    console.log(`Serveur démarré sur http://localhost:${port}`);
+});
