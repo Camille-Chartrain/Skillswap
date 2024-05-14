@@ -2,33 +2,16 @@ import React from "react";
 import BannerPc from './pictures/BannerPc.png';
 import logo from './pictures/logo.png';
 import { ToggleBtn } from '../../util';
-import { Link } from "react-router-dom";
 
 //->ariana wire's icones
-// import SearchIcon from '@mui/icons-material/Search';
-// import DashboardIcon from '@mui/icons-material/Dashboard';
-// import PersonAddIcon from '@mui/icons-material/PersonAdd';
-// import PersonIcon from '@mui/icons-material/Person';
-// import PersonOffIcon from '@mui/icons-material/PersonOff';
-// import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-// import CommentIcon from '@mui/icons-material/Comment';
-// import SchoolIcon from '@mui/icons-material/School';
-// import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import dashboard from '../../style/pictures/dashboard.svg';
+import account_icon from '../../style/pictures/account_icon.svg';
+import school from '../../style/pictures/school.svg';
+import statistic from '../../style/pictures/statistic.svg';
+import message from '../../style/pictures/message.svg';
+import logout from '../../style/pictures/logout.svg';
+import search from '../../style/pictures/search.svg';
 
-
-
-const search = async () => {
-    try {
-        const response = await fetch("http://localhost:3000");
-
-        const title = await response.json();
-        console.log(title)
-    }
-    catch (error) {
-        console.error(error.message);
-    }
-}
-search()
 
 
 //= Routes displayed depending if you are logged or not..
@@ -40,30 +23,29 @@ const Header = () => {
             <header>
                 <img className="banner" src={BannerPc} alt='banniere du site Skillswap' />
                 <span className="arianaWire">
-                    <a href="/" alt="logo du site" ><img className="logo" src={logo} alt='blogo du site Skillswap' /></a>
+                    <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' /></a>
                     <div className="search">
                         <input type="search" placeholder="rechercher" />
-                        <button>Level</button>
-                        <button>category</button>
-                        <button>sub-category</button>
-                        <button>loupe</button>
+                        <select>Level</select>
+                        <select>category</select>
+                        <select>sub-category</select>
+                        <button><img className="" src={search} alt=' icone de recherche' /></button>
                     </div>
                     <div>
                         {/* {isLogged ? ( */}
                         <>
-                            {/* <a dashboard">dashboard</Link>
-                            <Link to="/profile">profile</Link>
-                            <Link to="/learning">learning</Link>
-                            <Link to="/statistic">statistis</Link>
-                            <Link to="/communication">communication</Link>
-                            <Link to="/logout">logout</Link> */}
+                            <a href="/dashboard" alt="dashboard du membre" ><img className="" src={dashboard} alt=' icone du tableau de bord ' /></a>
+                            <a href="#profile" alt=" profile du membre" ><img className="" src={account_icon} alt='icone du profil ' /></a>
+                            <a href="#learning" alt=" apprentissage du membre" ><img className="" src={school} alt='icone apprentissage ' /></a>
+                            <a href="#statistic" alt=" statistic " ><img className="" src={statistic} alt='icone des statistiques ' /></a>
+                            <a href="#communication" alt=" communication " ><img className="" src={message} alt='icone de communication ' /></a>
+                            <a href="#logout" alt=" deconnection du site" ><img className="" src={logout} alt='icone de deconnexion' /></a>
+                            {/*
+                            */}
                         </>
-                        {/* ) : (<Link to="/" />)} */}
+                        {/* ) : ( <a href="/" alt="accueil" ></a>)} */}
                     </div>
                     <ToggleBtn />
-
-
-
                 </span>
             </header >
         </>
