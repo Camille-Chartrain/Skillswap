@@ -1,13 +1,13 @@
-import Skill from "../models/skill";
+import Skill from "../models/skill.js";
 
 const homeController = {
 
     home: async function (req, res) {
         try {
-            // Recuperer la liste des sites via une methode presente dans la class Skill
+            // Recuperer la liste des compétences via une methode presente dans la class Skill
             const skill = await Skill.findAll();
             //CHERCHER COMMENT GERER LA REPONSE JSON POUR LA RENVOYER AU FRONT
-            res.render(
+            res.send(
                 skill
             );
         } catch (error) {

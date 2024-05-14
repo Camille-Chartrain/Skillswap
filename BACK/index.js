@@ -3,7 +3,7 @@ import session from 'express-session';
 import * as dotenv from 'dotenv';
 import https from 'https';
 import fs from "fs";
-import cors from "cors";
+// import cors from "cors";
 //option possible: activer HSTS (Strict Transport Security HSTS est utilisé pour indiquer aux navigateurs de toujours utiliser HTTPS pour accéder à votre site, même si l'utilisateur saisit http:// dans la barre d'adresse.) 
 import sequelize from './app/database.js';
 import Category from './app/models/Category.js';
@@ -19,16 +19,14 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-sequelize.sync({ alter: true }).then(() => {
-    console.log("table and model synced successfully!")
-    // return User.create({ firstname: "bandida", lastname: "lafolita", email: 'null', hash: 'Mdp' });
-    // Skill.create({ title: "baston", level: "super fort", transmission: 'presentiel', description: 'apprenez à casser des nez', availability: 'soir et we' })
-}).then((data) => {
-    console.log(data);
-}).catch((err) => {
-    console.log("Error syncing the table and model!");
-    console.log(err);
-})
+// sequelize.sync({ alter: true }).then(() => {
+//     console.log("table and model synced successfully!")
+// }).then((data) => {
+//     console.log(data);
+// }).catch((err) => {
+//     console.log("Error syncing the table and model!");
+//     console.log(err);
+// })
 
 // the defined model is the class itself => true
 console.log(Category === sequelize.models.Category);
@@ -38,14 +36,14 @@ console.log(Skill === sequelize.models.Skill);
 console.log(Meeting === sequelize.models.Meeting);
 console.log(Interest === sequelize.models.Interest);
 
-// Route to test https
-app.get("/", (req, res) => {
-    res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
-});
+// // Route to test https
+// app.get("/", (req, res) => {
+//     res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
+// });
 
 //gestion of CORS
 app.use(cors({
-    origin: 'https://localhost:3000.com', // Autoriser les requêtes uniquement à partir de ce domaine
+    origin: 'http://localhost:1234', // Autoriser les requêtes uniquement à partir de ce domaine
     methods: ['GET', 'POST', 'PATCH', 'DELETE'] // Autoriser uniquement les méthodes précisées
 }));
 
