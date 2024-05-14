@@ -1,5 +1,5 @@
 import './index.scss';
-import 'reset.css';
+//import 'reset.css';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './components/app';
