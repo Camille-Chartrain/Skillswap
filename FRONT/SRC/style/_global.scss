@@ -1,0 +1,37 @@
+// @font-face {
+//     font-family: sugo pro display;
+//     src: url("./font/Sugo-Pro-Display-Regular-trial")format('ttf');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+
+:root {
+    .dark {
+        background: #333;
+        color: fff;
+    }
+
+    .light {
+        background: #fff;
+        color: #333;
+        transition: background-color 0.3s ease;
+    }
+}
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'prompt', 'sans-serif';
+
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'sugo pro display', 'sans-serif';
+}
