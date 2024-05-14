@@ -1,12 +1,7 @@
 
 
 
-
-
-
-
-
-const Search = () => {
+const Home = () => {
     return (
         <main>
             <article>
@@ -19,7 +14,6 @@ const Search = () => {
         </main>
     )
 
-
 }
 
 
@@ -27,4 +21,4 @@ const Search = () => {
 
 
 
-export default Search;
+export default Home;

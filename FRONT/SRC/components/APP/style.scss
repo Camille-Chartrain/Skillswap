@@ -26,8 +26,10 @@ header {
 
 
 
+
 .arianaWire {
     display: flex;
+    flex-direction: row;
 
     .logo {
         justify-content: start;
@@ -40,8 +42,8 @@ header {
         justify-items: center;
     }
 
-    .navBar {
-        justify-content: end;
+    .darkBtn {
+        justify-content: right;
     }
 
 

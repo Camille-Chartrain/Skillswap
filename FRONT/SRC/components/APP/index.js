@@ -1,7 +1,7 @@
 
 import Header from '../header';
 import Footer from '../footer';
-import Search from "../search";
+import Home from "../home";
 import Registration from "../registration";
 import Login from "../login";
 import Dashboard from "../dashboard";
@@ -16,8 +16,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 //* we call render on the container and give it the component for the view.here we placed the router to display the routes to navigate between the components
 
-//= Routes displayed depending if you are logged or not..
-// const isLogged = false;
+
 
 //* components added for the user rendering
 const App = ({ darkMode }) => {
@@ -28,11 +27,11 @@ const App = ({ darkMode }) => {
     return (
         <body className={theme}>
             <Header />
-            <Router className="navbar">
+            <Router className="arianaWire">
 
                 <nav>
                     <>
-                        <Link to="/">search</Link>
+                        {/* <Link to="/">Home</Link> */}
                         <Link to="/registration">registration</Link>
                         <Link to="/login">login</Link>
                     </>
@@ -48,17 +47,18 @@ const App = ({ darkMode }) => {
                     {/* ) : (<Link to="/" />)} */}
                 </nav >
                 <Routes>
-                    <Route path="/" element={<Search />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/registration" exact element={<Registration />} />
                     <Route path="/login" exact element={<Login />} />
-                    <Route path="/dashboard" exact element={<Dashboard />} />
+                    {/* <Route path="/dashboard" exact element={<Dashboard />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/learning" element={<Learning />} />
                     <Route path="/statistic" element={<Statistic />} />
-                    <Route path="/communication" element={<Communication />} />
+                    <Route path="/communication" element={<Communication />} /> */}
                     <Route path="*" element={<PageError />} />
                 </Routes>
             </Router>
+
             <main>
 
             </main>

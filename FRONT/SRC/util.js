@@ -24,7 +24,7 @@ export const DarkModeProvider = ({ children }) => {
 export const ToggleBtn = () => {
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
     console.log(darkMode);
-    return <button onClick={toggleDarkMode}> Dark</button>
+    return <button onClick={toggleDarkMode} className="darkBtn"> Dark</button>
 }
 
 
