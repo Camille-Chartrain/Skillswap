@@ -1,4 +1,4 @@
-version: "1" # <- Ligne optionnelle (le numéro de version pourra évoluer)
+#version: "1" # <- Ligne optionnelle (le numéro de version pourra évoluer)
 
 services:
 
@@ -18,11 +18,12 @@ services:
       # sert à stocker les données sur le dd de la vm ubuntu ET à lancer le script pour créer les tables
       - ./apo-skill-swap/db/migration.sql:/docker-entrypoint-initdb.d/create_tables.sql # va créer les tables dans la bdd
       - ./psql:/var/lib/postgresql/data
-    user: 1006:1006
+    #user: 1006:1006
+    container_name: bddLucileCam
 
   node:
     # créer un conteneur à partir d'une image qu'on va créer nous-même à partir d'un dockerfile présent dans le projet
-    image: node:18"" # se connecter au service bdd
+    image: "node:18" # se connecter au service bdd
 
     environment:
       - SECRET_POUR_EXPRESS_SESSION=dmfhmidfghmhifgd
@@ -38,6 +39,7 @@ services:
       - node_modules:/home/server/apo-skill-swap/node_modules
     depends_on:
       - bdd
+   
 
   adminer:
     image: adminer # on ira chercher l'image directement sur docker hub
@@ -48,9 +50,5 @@ services:
     depends_on:
       - bdd
 
-command: "npm start"
-
 volumes:
   node_modules:
-
-
