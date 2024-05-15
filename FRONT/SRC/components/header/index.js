@@ -14,11 +14,11 @@ import message from '../../style/pictures/message.svg';
 import logout from '../../style/pictures/logout.svg';
 import search from '../../style/pictures/search.svg';
 
+// import { isLogged } from '../../util';
 
 
+//= Routes displayed depending if you are logged or not.. with islogged
 
-//= Routes displayed depending if you are logged or not..
-// const isLogged = false;
 
 const Header = () => {
     return (
