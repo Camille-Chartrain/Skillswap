@@ -1,3 +1,4 @@
+@use './var';
 // @font-face {
 //     font-family: sugo pro display;
 //     src: url("./font/Sugo-Pro-Display-Regular-trial")format('ttf');
@@ -34,4 +35,8 @@ h2,
 h3,
 h4 {
     font-family: 'sugo pro display', 'sans-serif';
+}
+
+.arianaWire {
+    background-color: var.$yelloWrite;
 }
