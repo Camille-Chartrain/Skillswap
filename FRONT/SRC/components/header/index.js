@@ -11,7 +11,7 @@ import statistic from '../../style/pictures/statistic.svg';
 import message from '../../style/pictures/message.svg';
 import logout from '../../style/pictures/logout.svg';
 import search from '../../style/pictures/search.svg';
-//import Registration from "../registration";
+
 
 
 
@@ -49,7 +49,6 @@ const Header = () => {
                     </div>
                     <ToggleBtn />
                 </span>
-
             </header >
         </>
 

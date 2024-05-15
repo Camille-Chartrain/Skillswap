@@ -5,11 +5,15 @@ const authController = {
 
     registration: async function (req, res) {
         try {
-            console.log("ici ma req---------------------------------------------------------")
-            console.log(req);
-            await User.create([
-                { firstname: req.firstname, lastname: req.lastname, email: req.email, hash: req.hash },
-            ]);
+            console.log("ici ma req")
+            console.log(req.body);
+            console.log("log du req.body.firstname");
+            console.log(req.body.firstname);
+
+
+            await User.create(
+                { firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email, hash: req.body.hash },
+            );
             res.send("user okay")
         } catch (error) {
             console.error(error.message);
