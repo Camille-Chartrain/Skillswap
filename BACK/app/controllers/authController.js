@@ -5,9 +5,12 @@ const authController = {
 
     registration: async function (req, res) {
         try {
+            console.log("ici ma req---------------------------------------------------------")
+            console.log(req);
             await User.create([
                 { firstname: req.firstname, lastname: req.lastname, email: req.email, hash: req.hash },
             ]);
+            res.send("user okay")
         } catch (error) {
             console.error(error.message);
             res.render('error');
