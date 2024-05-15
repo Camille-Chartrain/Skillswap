@@ -1,6 +1,4 @@
 import express from 'express';
-// import mainController from './controllers/mainController.js';
-// import authController from './controllers/authController.js';
 import homeController from './controllers/homeController.js';
 const router = express.Router();
 

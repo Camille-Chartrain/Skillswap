@@ -1,12 +1,20 @@
 import Skill from "../models/skill.js";
+import User from "../models/User.js";
 
 const homeController = {
 
     home: async function (req, res) {
         try {
-            // Recuperer la liste des compétences via une methode presente dans la class Skill
-            const skill = await Skill.findAll();
-            //CHERCHER COMMENT GERER LA REPONSE JSON POUR LA RENVOYER AU FRONT
+            // takes list of skill with a method in class Skill
+            const skill = await Skill.findAll({
+                order: [['id', 'DESC']], // order by descent with id
+                limit: 4, // Limit to 4 results
+                include: [{
+                    model: User, // Table to join
+                    attributes: ['firstname', 'lastname', "email", 'grade_level', "presentation"] // Seclect specified attributs of the table Commande
+                }]
+            });
+            //send the answer to the front
             res.send(
                 skill
             );

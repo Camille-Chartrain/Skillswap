@@ -95,20 +95,11 @@ User.init(
 User.belongsToMany(Category, { through: Interest });
 
 
-// User.create({
-//     firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Mdp'
-// });
-// User.create({
-//     firstname: "José", lastname: "Paledire", email: 'chut@gmail.com', hash: 'Mdp'
-// });
-// User.create({
-//     firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Mdp'
-// });
-// User.create({
-//     firstname: "Gus", lastname: "GusLucifer", email: 'estmechant@gmail.com', hash: 'Mdp'
-// });
-
 // await User.bulkCreate([
+//     { firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Mdp' },
+//     { firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Mdp' },
+//     { firstname: "José", lastname: "Paledire", email: 'chut@gmail.com', hash: 'Mdp' },
+//     { firstname: "Gus", lastname: "GusLucifer", email: 'estmechant@gmail.com', hash: 'Mdp' },
 //     { firstname: "Patrick", lastname: "Apéro", email: 'leurequelquepart@gmail.com', hash: 'Mdp' },
 //     { firstname: "Jeanne", lastname: "aipazenvi", email: 'detravailler@gmail.com', hash: 'Mdp' },
 //     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Mdp' },
