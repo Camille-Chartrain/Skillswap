@@ -1,5 +1,7 @@
+import Category from "../models/Category.js";
 import Skill from "../models/skill.js";
 import User from "../models/User.js";
+import Sub_category from "../models/Sub_category.js";
 
 const homeController = {
 
@@ -12,7 +14,14 @@ const homeController = {
                 include: [{
                     model: User, // Table to join
                     attributes: ['firstname', 'lastname', "email", 'grade_level', "presentation"] // Seclect specified attributs of the table Commande
-                }]
+                }, {
+                    model: Category,
+                    attributes: ['picture', 'name']
+                },
+                {
+                    model: Sub_category,
+                    attributes: ['name']
+                }],
             });
             //send the answer to the front
             res.send(
