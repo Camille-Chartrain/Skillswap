@@ -1,7 +1,9 @@
 import React from "react";
 import BannerPc from './pictures/BannerPc.png';
 import logo from './pictures/logo.png';
+import Search from "../search/Search";
 import { ToggleBtn } from '../../util';
+
 
 //->ariana wire's icones
 import dashboard from '../../style/pictures/dashboard.svg';
@@ -12,11 +14,16 @@ import message from '../../style/pictures/message.svg';
 import logout from '../../style/pictures/logout.svg';
 import search from '../../style/pictures/search.svg';
 
+// import { isLogged } from '../../util';
+
+
+//= Routes displayed depending if you are logged or not.. with islogged
 
 
 
 //= Routes displayed depending if you are logged or not..
 // const isLogged = false;
+
 
 const Header = () => {
     return (
@@ -25,15 +32,9 @@ const Header = () => {
                 <img className="banner" src={BannerPc} alt='banniere du site Skillswap' />
                 <span className="arianaWire">
                     <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' /></a>
-                    <div className="search">
-                        <input type="search" placeholder="rechercher" />
-                        <select>Level</select>
-                        <select>category</select>
-                        <select>sub-category</select>
-                        <button><img className="" src={search} alt=' icone de recherche' /></button>
-                    </div>
 
                     <div>
+
                         {/* {isLogged ? ( */}
                         <>
                             <a href="/dashboard" alt="dashboard du membre" ><img className="" src={dashboard} alt=' icone du tableau de bord ' /></a>
@@ -42,13 +43,19 @@ const Header = () => {
                             <a href="#statistic" alt=" statistic " ><img className="" src={statistic} alt='icone des statistiques ' /></a>
                             <a href="#communication" alt=" communication " ><img className="" src={message} alt='icone de communication ' /></a>
                             <a href="#logout" alt=" deconnection du site" ><img className="" src={logout} alt='icone de deconnexion' /></a>
-                            {/*
-                            */}
                         </>
-                        {/* ) : ( <a href="/" alt="accueil" ></a>)} */}
+                        {/* ) : (<a href="/" alt="accueil" ></a>)} */}
                     </div>
+
+
+                </span >
+                <div className="search">
+                    <input type="search" placeholder="rechercher" />
+                    <Search />
+                    <button><img className="" src={search} alt=' icone de recherche' /></button>
                     <ToggleBtn />
-                </span>
+                </div>
+
             </header >
         </>
 

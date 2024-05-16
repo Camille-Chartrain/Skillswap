@@ -35,3 +35,6 @@ export const PageError = () => {
     <h1>Une erreur est survenue</h1>
     console.status(error.message);
 }
+
+//= Routes displayed depending if you are logged or not..
+// export const isLogged = false;

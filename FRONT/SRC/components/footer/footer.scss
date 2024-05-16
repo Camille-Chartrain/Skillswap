@@ -1,0 +1,14 @@
+@use '../../style/var';
+
+a {
+    text-decoration: none;
+
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    background-color: var.$yelloWrite;
+
+}

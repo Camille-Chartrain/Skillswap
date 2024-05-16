@@ -1,7 +1,10 @@
 
+import SkillList from "../skillList";
+
+const Home = ({ skillsList, setSkillsList }) => {
 
 
-const Home = () => {
+
     return (
         <main>
             <article>
@@ -9,7 +12,7 @@ const Home = () => {
                 <p>presentation concept</p>
             </article>
             <section>
-                <p>ici seront mises les 4 dernieres comp crees... essaie pour voir si ca marche</p>
+                < SkillList skillList={skillsList} setSkillsList={setSkillsList} />
             </section>
         </main>
     )

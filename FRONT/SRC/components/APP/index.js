@@ -23,10 +23,11 @@ const App = ({ darkMode }) => {
 
     return (
         <body className={theme}>
-            <Header />
-            <Router className="arianaWire">
 
+            <Router className="arianaWire">
+                <Header />
                 <nav>
+
                     <NavLink to="/registration"><img className="" src={addUser} alt='icone ajout membre' /></NavLink>
                     <NavLink to="/login"><img className="" src={login} alt='icone connexion' /></NavLink>
                 </nav >
