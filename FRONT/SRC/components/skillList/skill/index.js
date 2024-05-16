@@ -32,10 +32,11 @@ const Skill = ({
                 <h4>Note :{mark}</h4>
 
                 <div className="skill-info">
-                         //methode qui structure les descriptions:
-                    //si description est non nul et si sa longeur est inf a 60 alors description normale
+                    {/* //methode qui structure les descriptions:
+                    //si description est non nul et si sa longeur est inf a 60 alors description normale */}
                     <p>{description != null && description.length < 60 && <p>{description}</p>}
- //si description est non nul et si sa longeur est sup a 60 alors description de 0 a 60 caracteres puis 3 points        {description != null && description.length > 60 && <p>`${description.substring(0, 60)}...`</p>}</p>
+                        {/* //si description est non nul et si sa longeur est sup a 60 alors description de 0 a 60 caracteres puis 3 points */}
+                        {description != null && description.length > 60 && <p>{description.substring(0, 60)}...</p>}</p>
                     <h4>Duree : {duration}</h4>
                     <h4>Disponibilite :{availability}</h4>
                     <h4>Transmission :{transmission}</h4>

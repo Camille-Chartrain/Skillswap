@@ -33,9 +33,11 @@ const SkillList = () => {
                     return (
                         <>
                             <Skill
+
+                                // { isLogged ? (
+
+                                //     <>
                                 key={item?.id}
-                                // {isLogged ? (
-                                /* <> */
                                 picture={item?.Category.picture}
                                 title={item?.title}
                                 price={item?.price}
@@ -47,16 +49,16 @@ const SkillList = () => {
                                 availability={item?.availability}
                                 category={item?.category}
                                 subCategory={item?.subCategory}
-                                // </>
-                                // ) : ( * /}
-                                /* <> */
-                                firstname={item?.User.fistname}
-                                lastname={item?.User.lastname}
-                                email={item?.User.email}
-                                grade_level={item?.User.grade_level}
-                                presentation={item?.User.presentation}
-                            // </>
-                            /* ) */
+                            /* </>
+                            ) : (
+                                <> *}
+                            firstname={item?.User.fistname}
+                            lastname={item?.User.lastname}
+                            email={item?.User.email}
+                            grade_level={item?.User.grade_level}
+                            presentation={item?.User.presentation}
+                        {/* </>
+                            )} */
                             />
                         </>
                     )

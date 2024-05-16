@@ -3,6 +3,7 @@ import Header from '../header';
 import Footer from '../footer';
 import Home from "../home";
 import Registration from "../registration";
+import addUser from '../../style/pictures/addUser.svg';
 import Login from "../login";
 import login from '../../style/pictures/login.svg';
 import { PageError } from '../../util';
@@ -26,7 +27,7 @@ const App = ({ darkMode }) => {
             <Router className="arianaWire">
                 <Header />
                 <nav>
-
+                    <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
                     <NavLink to="/login"><img className="" src={login} alt='icone connexion' /></NavLink>
                 </nav >
                 <Routes>
