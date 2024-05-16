@@ -20,6 +20,11 @@ import search from '../../style/pictures/search.svg';
 //= Routes displayed depending if you are logged or not.. with islogged
 
 
+
+//= Routes displayed depending if you are logged or not..
+// const isLogged = false;
+
+
 const Header = () => {
     return (
         <>
@@ -27,6 +32,7 @@ const Header = () => {
                 <img className="banner" src={BannerPc} alt='banniere du site Skillswap' />
                 <span className="arianaWire">
                     <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' /></a>
+
                     <div>
 
                         {/* {isLogged ? ( */}

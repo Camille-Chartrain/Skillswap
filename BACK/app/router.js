@@ -1,15 +1,14 @@
 import express from 'express';
-// import mainController from './controllers/mainController.js';
-// import authController from './controllers/authController.js';
 import homeController from './controllers/homeController.js';
+import authController from './controllers/authController.js';
 const router = express.Router();
 
 // home search visitors
 router.get('/', homeController.home);
 
 // // authorisations membre
-// router.post('/registration', authController.registration);
-// router.post('/login', authController.login);
+router.post('/registration', authController.registration);
+router.post('/login', authController.login);
 // router.post('/logout', authController.logout);
 
 // //search for members
