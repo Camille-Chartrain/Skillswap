@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 
 const Skill = ({
+    id,
     picture,
     title,
     price,
@@ -23,7 +24,7 @@ const Skill = ({
             <a target="_blank" className="skill" href="">
 
                 <span className="skill-entete"></span>
-                <img src={picture} alt="photo de la categorie" />
+                <img key={id} src={picture} alt="photo de la categorie" />
                 <h4>Categorie : {category}</h4>
                 <h4>Sous categorie :{subCategory}</h4>
                 <h4>Competence :{title}</h4>

@@ -15,7 +15,6 @@ const SkillList = () => {
         try {
             const response = await fetch(`http://localhost:3000/`);
             const dataSkill = await response.json();
-            console.log(response);
             setSkillsList(dataSkill);
         }
         catch (error) {
@@ -38,7 +37,7 @@ const SkillList = () => {
 
                                 //     <>
                                 key={item?.id}
-                                picture={item?.Category.picture}
+                                picture={item?.picture}
                                 title={item?.title}
                                 price={item?.price}
                                 mark={item?.mark}
@@ -51,13 +50,13 @@ const SkillList = () => {
                                 subCategory={item?.subCategory}
                             /* </>
                             ) : (
-                                <> *}
+                                <> *
                             firstname={item?.User.fistname}
                             lastname={item?.User.lastname}
                             email={item?.User.email}
                             grade_level={item?.User.grade_level}
                             presentation={item?.User.presentation}
-                        {/* </>
+                        /* </>
                             )} */
                             />
                         </>
