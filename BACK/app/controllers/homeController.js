@@ -7,10 +7,12 @@ const homeController = {
             // Recuperer la liste des compétences via une methode presente dans la class Skill
             const skill = await Skill.findAll();
             //CHERCHER COMMENT GERER LA REPONSE JSON POUR LA RENVOYER AU FRONT
+
             res.send(
                 skill
             );
         } catch (error) {
+            console.log('je suis ds la catch');
             console.error(error.message);
             res.render('error');
         }
