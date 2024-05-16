@@ -2,9 +2,9 @@ import './index.scss';
 //import 'reset.css';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './components/app';
+import App from './components/APP';
 import { DarkModeProvider } from './util';
-import themeClass from '../SRC/components/app/index.js';
+import themeClass from './components/APP';
 
 
 

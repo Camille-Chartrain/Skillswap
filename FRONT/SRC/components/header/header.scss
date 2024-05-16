@@ -1,0 +1,36 @@
+@use '../../style/var';
+
+
+header {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.banner {
+    width: 100%;
+}
+
+.arianaWire {
+    display: flex;
+    flex-direction: row;
+
+    .logo {
+        justify-content: start;
+        width: 18px;
+        height: 18px;
+    }
+
+    .search {
+        flex-direction: row;
+        justify-items: center;
+        background-color: var.$yelloWrite;
+    }
+
+    .darkBtn {
+        justify-content: right;
+    }
+
+
+
+}

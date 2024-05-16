@@ -7,6 +7,7 @@ const homeController = {
 
     home: async function (req, res) {
         try {
+
             // takes list of skill with a method in class Skill
             const skill = await Skill.findAll({
                 order: [['id', 'DESC']], // order by descent with id
@@ -24,10 +25,12 @@ const homeController = {
                 }],
             });
             //send the answer to the front
+
             res.send(
                 skill
             );
         } catch (error) {
+            console.log('je suis ds la catch');
             console.error(error.message);
             res.render('error');
         }
