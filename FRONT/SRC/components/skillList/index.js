@@ -29,7 +29,7 @@ const SkillList = () => {
     return (
         <div className='container'>
             {
-                dataSkill?.map((item) => {
+                skillsList?.map((item) => {
                     return (
                         <>
                             <Skill

@@ -12,7 +12,7 @@ const Home = ({ skillsList, setSkillsList }) => {
                 <p>presentation concept</p>
             </article>
             <section>
-                < SkillList setSkillsListt={setSkillsList} />
+                < SkillList skillList={skillsList} setSkillsList={setSkillsList} />
             </section>
         </main>
     )
