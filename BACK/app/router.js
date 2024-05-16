@@ -5,14 +5,15 @@ const router = express.Router();
 
 // home search visitors
 router.get('/', homeController.home);
+router.get('/searchVisitor/:slug?/:slug?/:slug?/:slug?', homeController.searchVisitor);
 
 // // authorisations membre
 router.post('/registration', authController.registration);
 router.post('/login', authController.login);
 // router.post('/logout', authController.logout);
 
-// //search for members
-// router.get('/search', mainController.search);
+//search for members
+// router.get('/search/:slug?/:slug?/:slug?', mainController.search);
 
 // //profile
 // router.get('/profile', profileController.profile);
