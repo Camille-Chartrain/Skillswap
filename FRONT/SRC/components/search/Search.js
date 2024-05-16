@@ -8,6 +8,10 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
 
     const [input, setSearchInput] = useState('');
 
+    const handleChange = (e) => {
+        e.preventDefault();
+        setSearchInput();
+    }
 
     const handleSubmit = () => {
         e.preventDefault();
@@ -15,10 +19,22 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
         setSearchLevel(e.target.value);
         setSearchCategory(e.target.value);
         setSearchSubCategory(e.target.value);
+        console.log(searchLevel);
     }
 
     const GetSearchInput = async () => {
-        const response = await fetch(`http://localhost:3000/searchVisitor/:${input}?/:${searchLevel}?/:${searchCategory}?/:${searchSubCategory}?`)
+        try {
+            const response = await fetch(`http://localhost:3000/searchVisitor/:${input}?/:${searchLevel}?/:${searchCategory}?/:${searchSubCategory}?`);
+            const dataSearch = await response.json();
+            setSearchInput(dataSearch);
+            setSearchLevel(dataSearch);
+            setSearchCategory(dataSearch);
+            setSearchSubCategory(dataSearch);
+            console.log(dataSearch);
+        }
+        catch (error) {
+            console.log('error.message');
+        }
     }
     useEffect(() => { GetSearchInput(), [input] })
 
@@ -26,7 +42,7 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
 
         <>
             <form className="search" onSubmit={handleSubmit} >
-                <input type="search" placeholder="rechercher" value={input} />
+                <input type="search" placeholder="rechercher" value={input} onChange={handleChange} />
                 <SearchLevel />
                 <SearchCategory />
                 <SearchSubCategory />

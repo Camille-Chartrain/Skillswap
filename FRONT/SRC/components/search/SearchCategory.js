@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const SearchCategory = () => {
 
@@ -9,17 +9,6 @@ const SearchCategory = () => {
         console.log(e.target.value);
         setSearchCategory(e.target.value);
     }
-    const GetCategory = async () => {
-        try {
-            const response = await fetch("http://localhost:3000/search");
-            const dataCategory = await response.json();
-            setSearchCategory(dataCategory)
-        }
-        catch (error) {
-            console.error(error.message);
-        }
-    }
-    useEffect(() => { GetCategory(), [searchCategory] })
 
     return (
         <select id="category" name="category" onChange={handleChange}>
