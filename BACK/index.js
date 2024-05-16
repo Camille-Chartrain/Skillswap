@@ -19,14 +19,14 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// sequelize.sync({ alter: true }).then(() => {
-//     console.log("table and model synced successfully!")
-// }).then((data) => {
-//     console.log(data);
-// }).catch((err) => {
-//     console.log("Error syncing the table and model!");
-//     console.log(err);
-// })
+sequelize.sync({ alter: true }).then(() => {
+    console.log("table and model synced successfully!")
+}).then((data) => {
+    console.log(data);
+}).catch((err) => {
+    console.log("Error syncing the table and model!");
+    console.log(err);
+})
 
 // the defined model is the class itself => true
 console.log(Category === sequelize.models.Category);
