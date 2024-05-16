@@ -20,7 +20,7 @@ const Skill = ({
     presentation }) => {
     return (
         <div id="Skill" >
-            <a target="_blank" className="skill" href={url}>
+            <a target="_blank" className="skill" href="">
 
                 <span className="skill-entete"></span>
                 <img src={picture} alt="photo de la categorie" />
@@ -39,6 +39,7 @@ const Skill = ({
                     <h4>Duree : {duration}</h4>
                     <h4>Disponibilite :{availability}</h4>
                     <h4>Transmission :{transmission}</h4>
+
                     <h4>Professeur :{firstname}{lastname}</h4>
                     <h4>Email :{email}</h4>
                     <h4>Niveau d'etudes : {grade_level}</h4>

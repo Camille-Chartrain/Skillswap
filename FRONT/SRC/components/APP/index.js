@@ -4,7 +4,6 @@ import Footer from '../footer';
 import Home from "../home";
 import Registration from "../registration";
 import Login from "../login";
-import addUser from '../../style/pictures/search.svg';
 import login from '../../style/pictures/login.svg';
 import { PageError } from '../../util';
 import { DarkModeContext } from '../../util';
@@ -28,7 +27,6 @@ const App = ({ darkMode }) => {
                 <Header />
                 <nav>
 
-                    <NavLink to="/registration"><img className="" src={addUser} alt='icone ajout membre' /></NavLink>
                     <NavLink to="/login"><img className="" src={login} alt='icone connexion' /></NavLink>
                 </nav >
                 <Routes>
