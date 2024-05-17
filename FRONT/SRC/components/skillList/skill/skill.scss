@@ -8,16 +8,22 @@
     font-size: 1rem;
     background-color: var.$yellowBtn;
     border-radius: 1rem;
-    border-color: solid 0.2rem var.$orangeBtn;
-    padding: 2rem;
+    border-color: solid 0.2rem var.$yellowBtn;
+    padding: 1rem;
     margin: 1rem;
+    color: rgb(59, 58, 58);
+
+    .skill-header,
+    .skill-info,
+    .skill-teacher {
+        padding: 1rem;
+        flex-direction: column;
+        width: calc(100%/3);
+    }
 }
 
-.skill-entete {
-    flex-direction: row;
-    margin: 2rem;
-}
-
-.skill-info {
-    margin: 2rem;
+h4 {
+    color: var.$blueBtn;
+    font-weight: bold;
+    font-family: 'sugo pro display';
 }

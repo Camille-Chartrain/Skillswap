@@ -2,8 +2,8 @@ import { isLogged } from '../../../util';
 import PropTypes from 'prop-types';
 
 const Skill = ({
-    id,
     Category,
+    picture,
     title,
     price,
     mark,
@@ -13,41 +13,47 @@ const Skill = ({
     description,
     availability,
     Sub_category,
-    User }) => {
-    console.log(Category);
+    firstname,
+    lastname,
+    email,
+    grade_level,
+    presentation,
+}) => {
+
     return (
-        <>
-            <div id="skill" >
-                {!isLogged ? (
-                    <><div className="skill-entete">
-                        <img key={id} src={`http://localhost:3000/Category/{picture}`} alt="photo de la categorie" />
-                        <span></span>
-                        <h4>Categorie : {Category}</h4>
-                        <h4>Sous categorie : {Sub_category}</h4>
-                        <h4>Competence : {title}</h4>
-                        <h4>Niveau : {level}</h4>
-                        <h4>Prix :  {price}</h4>
-                        <h4>Note : {mark}</h4>
-                    </div>
-                        <div className="skill-info">
-                            <p>{description != null && description.length < 40 && <p>{description}</p>}
-                                {description != null && description.length > 40 && <p>{description.substring(0, 40)}...</p>}</p>
-                            <h4>Duree : {duration}</h4>
-                            <h4>Disponibilite :{availability}</h4>
-                            <h4>Transmission :{transmission}</h4>
-                        </div>
-                    </>
-                ) : (
-                    <div >
-                        <h4>Professeur :{firstname}{lastname}</h4>
-                        <h4>Email :{email}</h4>
-                        <h4>Niveau d'etudes : {grade_level}</h4>
-                        <p>Presentation :{presentation}</p>
-                    </div>
-                )
-                }
+
+        <div id="skill" >
+            {/* {!isLogged ? ( */}
+
+            <div className="skill-header">
+                <img src={"http://localhost:3000/{picture}"} alt="photo de la categorie" />
+                <h4>Categorie :</h4> <span>{Category}</span>
+                <h4>Sous categorie :</h4>  <span>{Sub_category}</span>
+                <h4>Competence :</h4><span> {title}</span>
+                <h4>Niveau : </h4><span>{level}</span>
+                <h4>Prix : </h4> <span>{price}</span>
+                <h4>Note : </h4><span>{mark}</span>
+            </div>
+            <div className="skill-info">
+                <h4>Description :</h4> <span>{description}  </span>
+                <h4>Duree :</h4><span>{duration}</span>
+                <h4>Disponibilite :</h4><span>{availability}</span>
+                <h4>Transmission :</h4><span>{transmission}</span>
+            </div>
+
+            {/* ) : ( */}
+
+            <div className='skill-teacher'>
+                <h4>Professeur :</h4> <span> {`${firstname} ${lastname}`}</span>
+                <h4>Email : </h4><span>{email}</span>
+                <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
+                <h4>Presentation :</h4> <span>{presentation}</span>
             </div >
-        </>
+
+            {/* ) */}
+            {/* } */}
+
+        </div>
     )
 };
 
