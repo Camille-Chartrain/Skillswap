@@ -1,0 +1,32 @@
+@use '../../style/var';
+
+.arianaWire {
+    display: flex;
+    flex-direction: column;
+    background-color: var.$yelloWrite;
+    justify-content: right;
+}
+
+.logo {
+    justify-content: start;
+    width: 18px;
+    height: 18px;
+}
+
+
+.searchBar {
+    flex-direction: row;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: var.$yelloWrite;
+    border-radius: 0.3rem;
+}
+
+.darkBtn {
+    justify-content: right;
+}
+
+.nav {
+    background-color: var.$yelloWrite;
+    justify-content: right;
+}

@@ -1,5 +1,6 @@
 
 import Header from '../header';
+import NavBar from '../navBar/NavBar';
 import Footer from '../footer';
 import Home from "../home";
 import Registration from "../registration";
@@ -26,10 +27,11 @@ const App = ({ darkMode }) => {
 
             <Router className="arianaWire">
                 <Header />
-                <nav>
+                <nav className="nav">
                     <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
                     <NavLink to="/login"><img className="" src={login} alt='icone connexion' /></NavLink>
                 </nav >
+                <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/registration" exact element={<Registration />} />

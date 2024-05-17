@@ -16,52 +16,50 @@ const SkillList = () => {
             const response = await fetch(`http://localhost:3000/`);
             const dataSkill = await response.json();
             setSkillsList(dataSkill);
+            console.log(dataSkill);
         }
         catch (error) {
             console.error(error.message);
-
         }
     }
-    useEffect(() => { GetSkillsList(), [skillsList] })
+
+    useEffect(() => { GetSkillsList() }, [])
 
 
     return (
         <div className='container'>
             {
-                skillsList?.map((item) => {
-                    return (
-                        <>
-                            <Skill
+                skillsList?.map((item) => (
 
-                                // { isLogged ? (
 
-                                //     <>
-                                key={item?.id}
-                                picture={item?.picture}
-                                title={item?.title}
-                                price={item?.price}
-                                mark={item?.mark}
-                                level={item?.level}
-                                duration={item?.duration}
-                                transmission={item?.transmission}
-                                description={item.description}
-                                availability={item?.availability}
-                                category={item?.category}
-                                subCategory={item?.subCategory}
-                            /* </>
-                            ) : (
-                                <> *
-                            firstname={item?.User.fistname}
-                            lastname={item?.User.lastname}
-                            email={item?.User.email}
-                            grade_level={item?.User.grade_level}
-                            presentation={item?.User.presentation}
-                        /* </>
-                            )} */
-                            />
-                        </>
-                    )
-                })
+                    < Skill
+
+                        key={
+                            item?.id
+                        }
+                        picture={item?.Category.picture
+                        }
+                        title={item?.title}
+                        price={item?.price}
+                        mark={item?.mark}
+                        level={item?.level}
+                        duration={item?.duration}
+                        transmission={item?.transmission}
+                        description={item.description}
+                        availability={item?.availability}
+                        Category={item.Category.name}
+                        Sub_category={item?.Sub_category?.name}
+
+                        firstname={item?.User.firstname}
+                        lastname={item?.User.lastname}
+                        email={item?.User.email}
+                        grade_level={item?.User.grade_level}
+                        presentation={item?.User.presentation}
+
+                    />
+
+
+                ))
             }
         </div >
     )

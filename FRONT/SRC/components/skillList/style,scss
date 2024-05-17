@@ -1,5 +1,0 @@
-const Skill = () => {
-    return (
-        <p>presentation d1 skill</p>
-    )
-}

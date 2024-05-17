@@ -1,0 +1,11 @@
+@use '../../style/var';
+
+.search {
+    display: flex;
+    justify-content: space-around;
+}
+
+select,
+input {
+    margin: 0.3rem;
+}
