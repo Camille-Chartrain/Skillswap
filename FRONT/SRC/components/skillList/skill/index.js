@@ -14,6 +14,7 @@ const Skill = ({
     availability,
     Sub_category,
     User }) => {
+    console.log(Category);
     return (
         <>
             <div id="skill" >
@@ -38,10 +39,10 @@ const Skill = ({
                     </>
                 ) : (
                     <div >
-                        <h4>Professeur :{User.firstname}{User.lastname}</h4>
-                        <h4>Email :{User.email}</h4>
-                        <h4>Niveau d'etudes : {User.grade_level}</h4>
-                        <p>Presentation :{User.presentation}</p>
+                        <h4>Professeur :{firstname}{lastname}</h4>
+                        <h4>Email :{email}</h4>
+                        <h4>Niveau d'etudes : {grade_level}</h4>
+                        <p>Presentation :{presentation}</p>
                     </div>
                 )
                 }
@@ -52,7 +53,7 @@ const Skill = ({
 
 Skill.propTypes = {
 
-    picture: PropTypes.object,
+    picture: PropTypes.string,
     title: PropTypes.string,
     price: PropTypes.number,
     mark: PropTypes.number,

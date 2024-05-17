@@ -1,5 +1,5 @@
 @use '../../style/var';
-@use '../../style/components/button';
+@use '../../style/mixin';
 
 
 .formLogin {
@@ -11,17 +11,20 @@
 
     label {
         margin: 0.5rem;
+        border-radius: 0.2rem;
     }
 
     Input {
         margin: 0.5rem;
+        border-radius: 0.2rem;
         background-color: var.$yelloWrite;
     }
 
-
-}
-
-button {
-    margin: 0.2rem;
+    button {
+        margin: 0.2rem;
+        border-radius: 0.2rem;
+        border-color: var.$blueBtn;
+        background-color: var.$blueBtn;
+    }
 
 }

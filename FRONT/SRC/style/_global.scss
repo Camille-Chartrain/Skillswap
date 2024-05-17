@@ -1,11 +1,11 @@
 @use './var';
 
-// @font-face {
-//     font-family: sugo pro display;
-//     src: url("./font/Sugo-Pro-Display-Regular-trial")format('ttf');
-//     font-weight: normal;
-//     font-style: normal;
-// }
+@font-face {
+    font-family: 'sugo pro display';
+    src: url('./style/font/Sugo-Pro-Display-Regular-trial.ttf') format(' truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 :root {
@@ -35,10 +35,8 @@ img {
     align-items: end;
 }
 
-h1,
-h2,
-h3,
-h4 {
+
+h1 {
     font-family: 'sugo pro display', 'sans-serif';
 }
 
