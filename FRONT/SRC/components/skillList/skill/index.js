@@ -49,7 +49,6 @@ const Skill = ({
                 <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
                 <h4>Presentation :</h4> <span>{presentation}</span>
 
->>>>>>> 160737f41a03e11273fbcb94bc7a8f712d99db63
             </div >
 
             {/* ) */}
