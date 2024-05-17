@@ -1,0 +1,13 @@
+@use '../../style/var';
+
+h1 {
+    text-align: center;
+}
+
+article {
+    background-color: var.$lightGreyWrite;
+    border-radius: 1rem;
+    border-color: solid 0.2rem grey;
+    padding: 2rem;
+    margin: 2rem;
+}

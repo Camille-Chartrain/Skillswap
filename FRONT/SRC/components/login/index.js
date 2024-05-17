@@ -25,11 +25,11 @@ const Login = ({ input }) => {
         <>
             <h1>Connexion</h1>
 
-            <form action="post" onSubmit={handleSubmit}>
+            <form action="post" onSubmit={handleSubmit} className="formLogin">
                 <label htmlFor="email">Email</label>
-                <input type="email" placeholder="Saisissez votre email" value={input} />
+                <input type="email" placeholder="Saisissez votre email" value={input} size="30" />
                 <label htmlFor="password">Mot de passe</label>
-                <input type="text" placeholder="Saisissez votre mot de passe" value={input} />
+                <input type="text" placeholder="Saisissez votre mot de passe" value={input} size="35" />
                 <button>Valider</button>
             </form>
         </>

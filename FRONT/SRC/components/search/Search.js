@@ -13,7 +13,7 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
         setSearchInput();
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setSearchInput(e.target.value);
         setSearchLevel(e.target.value);
@@ -24,7 +24,7 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
 
     const GetSearchInput = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/searchVisitor/:${input}?/:${searchLevel}?/:${searchCategory}?/:${searchSubCategory}?`);
+            // const response = await fetch(`http://localhost:3000/searchVisitor/:${input}?/:${searchLevel}?/:${searchCategory}?/:${searchSubCategory}?`);
             const dataSearch = await response.json();
             setSearchInput(dataSearch);
             setSearchLevel(dataSearch);

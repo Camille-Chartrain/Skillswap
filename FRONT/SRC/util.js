@@ -37,4 +37,4 @@ export const PageError = () => {
 }
 
 //= Routes displayed depending if you are logged or not..
-// export const isLogged = false;
+export const isLogged = false;

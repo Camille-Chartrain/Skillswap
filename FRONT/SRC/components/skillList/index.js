@@ -37,7 +37,7 @@ const SkillList = () => {
 
                                 //     <>
                                 key={item?.id}
-                                picture={item?.picture}
+                                picture={item?.Category.picture}
                                 title={item?.title}
                                 price={item?.price}
                                 mark={item?.mark}
@@ -46,18 +46,15 @@ const SkillList = () => {
                                 transmission={item?.transmission}
                                 description={item.description}
                                 availability={item?.availability}
-                                category={item?.category}
-                                subCategory={item?.subCategory}
-                            /* </>
-                            ) : (
-                                <> *
-                            firstname={item?.User.fistname}
-                            lastname={item?.User.lastname}
-                            email={item?.User.email}
-                            grade_level={item?.User.grade_level}
-                            presentation={item?.User.presentation}
-                        /* </>
-                            )} */
+                                category={item?.Category?.name}
+                                subCategory={item?.Sub_category?.name}
+
+                                firstname={item?.User.fistname}
+                                lastname={item?.User.lastname}
+                                email={item?.User.email}
+                                grade_level={item?.User.grade_level}
+                                presentation={item?.User.presentation}
+
                             />
                         </>
                     )
