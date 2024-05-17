@@ -36,7 +36,7 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
             console.log('error.message');
         }
     }
-    useEffect(() => { GetSearchInput(), [input] })
+    useEffect(() => { GetSearchInput() }, [input])
 
     return (
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Login = ({ input }) => {
 
@@ -19,6 +19,7 @@ const Login = ({ input }) => {
             console.log(error.message);
         }
     }
+    useEffect(() => { GetIsLogged() }, []);
 
 
     return (
