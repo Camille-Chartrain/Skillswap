@@ -23,7 +23,7 @@ const Skill = ({
             <div id="skill" >
                 {!isLogged ? (
                     <><div className="skill-entete">
-                        <img key={id} src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
+                        <img key={id} src={`http://localhost:3000/${picture}/`} alt="photo de la categorie" />
                         <span></span>
                         <h4>Categorie : {Category}</h4>
                         <h4>Sous categorie : {Sub_category}</h4>
