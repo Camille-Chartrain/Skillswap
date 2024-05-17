@@ -47,6 +47,14 @@ const authController = {
             res.send('error');
         }
     },
+    logout: async function (req, res) {
+        try {
+
+        } catch (error) {
+            console.error(error.message);
+            res.send('error');
+        }
+    },
 };
 
 export default authController;

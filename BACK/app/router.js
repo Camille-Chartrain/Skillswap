@@ -1,6 +1,7 @@
 import express from 'express';
 import homeController from './controllers/homeController.js';
 import authController from './controllers/authController.js';
+import profileController from './controllers/profileController.js';
 const router = express.Router();
 
 // home search visitors
@@ -16,10 +17,9 @@ router.post('/login', authController.login);
 // router.get('/search/:slug?/:slug?/:slug?', mainController.search);
 
 // //profile
-// router.get('/profile', profileController.profile);
-// router.post('/profile', profileController.createProfile);
-// router.patch('/profile', profileController.modifProfile);
-// router.delete('/profile', profileController.deleteProfile);
+router.get('/profile/:id', profileController.profile);
+router.patch('/profile/:id', profileController.modifProfile);
+router.delete('/profile/:id', profileController.deleteProfile);
 
 // router.get('/skill', profileController.competence);
 // router.post('/skill', profileController.createCompetence);
