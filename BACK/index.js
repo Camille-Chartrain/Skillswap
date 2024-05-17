@@ -43,12 +43,13 @@ console.log(Interest === sequelize.models.Interest);
 //     res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
 // });
 
-//gestion of CORS
+// gestion of CORS
 // app.use(cors({
-//     origin: 'http://localhost:1234', // Autoriser les requêtes uniquement à partir de ce domaine
+//     origin: ['http://localhost:1234', 'http://localhost:3000'], // Autoriser les requêtes uniquement à partir de ce domaine
 //     methods: ['GET', 'POST', 'PATCH', 'DELETE'] // Autoriser uniquement les méthodes précisées
 // }));
 
+app.use(cors());
 
 // // Read SSL certificate and key files
 // const options = {
