@@ -1,5 +1,7 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
+// import User from './User.js';
+// import Interest from './Interest.js';
 
 class Category extends Model { }
 
@@ -25,5 +27,6 @@ Category.init(
     tableName: 'category',
 });
 
+// Category.belongsToMany(User, { through: Interest });
 
 export default Category;

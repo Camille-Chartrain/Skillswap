@@ -21,7 +21,7 @@ Skill.init(
             },
         },
         duration: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: true,
         },
         price: {

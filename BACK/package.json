@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
-    "dev": "node-dev index --clear --notify=false"
+    "dev": "node-dev index --notify=false"
   },
   "repository": {
     "type": "git",

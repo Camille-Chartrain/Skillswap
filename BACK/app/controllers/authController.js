@@ -12,7 +12,12 @@ const authController = {
 
 
             await User.create(
-                { firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email, hash: req.body.hash },
+                {
+                    firstname: req.body.firstname,
+                    lastname: req.body.lastname,
+                    email: req.body.email,
+                    hash: req.body.hash
+                },
             );
             res.send("user okay")
         } catch (error) {

@@ -56,11 +56,12 @@ User.init(
         birthday: {
             type: DataTypes.DATE,
             allowNull: true,
-            validate: {
-                isNumeric: {
-                    msg: "Vous devez entrer une date au format JJ/MM/AAAA"
-                }
-            },
+            // validate: {
+            //     isDate: true,
+            //     isNumeric: {
+            //         msg: "Vous devez entrer une date au format JJ/MM/AAAA"
+            //     }
+            // },
         },
         grade_level: {
             type: DataTypes.TEXT,
@@ -92,7 +93,8 @@ User.init(
     tableName: 'user', // in which table we want sequelize to put the informations of this model
 });
 
-User.belongsToMany(Category, { through: Interest });
+User.belongsToMany(Category, { through: Interest, unique: false, });
+Category.belongsToMany(User, { through: Interest, unique: false, });
 
 
 // await User.bulkCreate([
@@ -105,29 +107,6 @@ User.belongsToMany(Category, { through: Interest });
 //     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Mdp' },
 //     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Mdp' },
 // ]);
-
-// async () => {
-//     try {
-//         await sequelize.sync({ alter: true });
-//         console.log('Tables synchronized with database');
-//     } catch (error) {
-//         console.log("Error syncing the table and model!");
-//         console.log(error);
-//     }
-
-// };
-
-// sequelize.sync({ alter: true }).then(() => {
-//     console.log("table and model synced successfully!")
-//     // return User.create({ firstname: "bandida", lastname: "lafolita", email: 'null', hash: 'Mdp' });
-//     // Skill.create({ title: "baston", level: "super fort", transmission: 'presentiel', description: 'apprenez à casser des nez', availability: 'soir et we' })
-// }).then((data) => {
-//     console.log(data);
-// }).catch((err) => {
-//     console.log("Error syncing the table and model!");
-//     console.log(err);
-// })
-
 
 
 export default User;

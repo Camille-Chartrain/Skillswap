@@ -1,12 +1,23 @@
 import User from "../models/User.js";
+import Interest from "../models/Interest.js";
 
 const profileController = {
 
     profile: async function (req, res) {
         try {
+            console.log(req.params);
             // find by primary key
-            const profile = await User.findByPk(req.params.id, {
-                attributes: ['firstname', 'lastname', "email", 'grade_level', "presentation", 'birthday'] // Select specified attributs of the table
+            const profile = await User.findByPk(req.params.userId, {
+                attributes: ['firstname',
+                    'lastname',
+                    "email",
+                    'grade_level',
+                    "presentation",
+                    'birthday'], // Select specified attributs of the table
+                include: [{
+                    model: Interest, // Table to join
+                    attributes: ['CategoryId'] // Select specified attributs of the table Commande
+                }],
             });
             if (profile === null) {
                 console.log('Not found!');
@@ -24,33 +35,58 @@ const profileController = {
 
     modifProfile: async function (req, res) {
         try {
-            // req.params contains all the data
+            // req.params contains data from url
+            //rew.body contains body of request from forms
             console.log(req.body);
-            const profile = await User.findByPk(req.body.id);
-            console.log(profile);
-            await profile.update({
-                attributes: [req.body.firstname, req.body.lastname, req.body.grade_level, req.body.presentation, req.body.birthday] // Select specified attributs of the table
-            },);
-            //profile is updated
-            console.log(profile);
+            console.log(req.params.userId);
+
+            const updateFields = {
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                grade_level: req.body.grade_level,
+                presentation: req.body.presentation,
+            };
+
+            const birthday = req.body.birthday;
+            if (birthday !== "") {
+                updateFields.birthday = req.body.birthday
+            }
+
+            await User.update(
+                updateFields, {
+                where: {
+                    id: req.params.userId
+                }
+            });
+            await Interest.update(
+                { CategoryId: req.body.category }, {
+                where: {
+                    UserId: req.params.userId,
+                }
+            })
+            //profile and interest are updated
             //send the answer to the front
             res.send(
-                profile
+                'update ok'
             );
         } catch (error) {
             console.error(error.message);
             res.render('error');
         }
     },
+
     deleteProfile: async function (req, res) {
         try {
             // req.params contains all the data
             console.log(req.params);
-            const profile = await User.findByPk(req.params.id);
-            await profile.destroy();
+            await User.destroy({
+                where: {
+                    id: req.params.userId
+                }
+            });
             //send the answer to the front
             res.send(
-                profile
+                'deletion completed'
             );
         } catch (error) {
             console.error(error.message);
