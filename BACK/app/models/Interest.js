@@ -28,7 +28,7 @@ Interest.init(
 // Interest.create({
 
 //     UserId: 11,
-//     CategoryId: 5
+//     CategoryId: 6
 // });
 
 

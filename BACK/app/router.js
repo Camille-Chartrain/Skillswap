@@ -4,6 +4,7 @@ import authController from './controllers/authController.js';
 import profileController from './controllers/profileController.js';
 import skillController from './controllers/skillController.js';
 import statisticController from './controllers/statisticController.js';
+import communicationController from './controllers/communicationController.js';
 const router = express.Router();
 
 // home search visitors
@@ -32,8 +33,8 @@ router.delete('/skill/:skillId', skillController.deleteSkill);
 //statistics
 router.get('/statistic/:userId', statisticController.statistic);
 
-// //communication
-// router.get('/communication', communicationController.Communication);
+//communication
+router.get('/communication/:userId', communicationController.communication);
 // router.post('/communication', communicationController.createCommunication);
 // router.patch('/communication', communicationController.modifCommunication)
 // router.delete('/communication', communicationController.deleteCommunication)

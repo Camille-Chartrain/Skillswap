@@ -1,38 +1,42 @@
 import User from "../models/User.js";
 import Interest from "../models/Interest.js";
 import Category from "../models/Category.js";
+import Skill from "../models/skill.js";
 
-const profileController = {
+const communicationController = {
 
-    profile: async function (req, res) {
+    communication: async function (req, res) {
         try {
+            // req.params contains all the data
             console.log(req.params);
-            // find by primary key
-            const profile = await User.findByPk(req.params.userId, {
-                attributes: ['firstname',
-                    'lastname',
-                    "email",
-                    'grade_level',
-                    "presentation",
-                    'birthday'], // Select specified attributs of the table
-                // include: [{
-                //     model: Interest, // Table to join
-                //     attributes: ['CategoryId']
-                // }], //apparently no nedd to include the liaison table sequelize does it on its own
-                include: [{
-                    model: Category, // Table to join
-                    attributes: ['name'] // Select specified attributs of the table Commande
-                }],
+            const skill = await Skill.findAll({
+                order: [['id', 'DESC']], // order by descent with id
+                limit: 4, // Limit to 4 results
+                include: [
+                    // {
+                    //     model: Interest, // Table to join
+                    //     where: {
+                    //         UserId: req.params.userId
+                    //     },
+                    // },
+                    {
+                        model: Category,
+                        attributes: ['picture', 'name'],
+                        include: [
+                            {
+                                model: Interest,
+                                where: {
+                                    UserId: req.params.userId
+                                },
+                            }
+                        ]
+                    },],
             });
-            if (profile === null) {
-                console.log('Not found!');
-            }
             //send the answer to the front
             res.send(
-                profile
+                skill
             );
         } catch (error) {
-            console.log('je suis ds la catch');
             console.error(error.message);
             res.render('error');
         }
@@ -124,4 +128,4 @@ const profileController = {
     },
 };
 
-export default profileController;
+export default communicationController;
