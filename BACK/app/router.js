@@ -1,37 +1,40 @@
 import express from 'express';
 import homeController from './controllers/homeController.js';
 import authController from './controllers/authController.js';
+import profileController from './controllers/profileController.js';
+import skillController from './controllers/skillController.js';
+import statisticController from './controllers/statisticController.js';
+import communicationController from './controllers/communicationController.js';
 const router = express.Router();
 
 // home search visitors
 router.get('/', homeController.home);
-router.get('/searchVisitor/:input?/:level?/:category?/:subCategory?', homeController.searchVisitor);
+//router.get('/searchVisitor/:input?/:level?/:category?/:subCategory?', homeController.searchVisitor);
 
-// // authorisations membre
+// authorisations membre
 router.post('/registration', authController.registration);
 router.post('/login', authController.login);
 // router.post('/logout', authController.logout);
 
 //search for members
-// router.get('/search/:slug?/:slug?/:slug?', mainController.search);
+// router.get('/search/:input?/:level?/:category?/:subCategory?', mainController.search);
 
-// //profile
-// router.get('/profile', profileController.profile);
-// router.post('/profile', profileController.createProfile);
-// router.patch('/profile', profileController.modifProfile);
-// router.delete('/profile', profileController.deleteProfile);
+//profile
+router.get('/profile/:userId', profileController.profile);
+router.patch('/profile/:userId', profileController.modifProfile);
+router.delete('/profile/:userId', profileController.deleteProfile);
 
-// router.get('/skill', profileController.competence);
-// router.post('/skill', profileController.createCompetence);
-// router.patch('/skill', profileController.modifCompetence)
-// router.delete('/skill', profileController.deleteCompetence)
+//skill
+router.get('/skill/:userId', skillController.skill);
+router.post('/skill/:userId', skillController.createSkill);
+router.patch('/skill/:skillId', skillController.modifSkill);
+router.delete('/skill/:skillId', skillController.deleteSkill);
 
-// //statistics
-// router.get('/statistic', statisticController.statistic);
-// router.patch('/statistic', mainController.modifStatistic);
+//statistics
+router.get('/statistic/:userId', statisticController.statistic);
 
-// //communication
-// router.get('/communication', communicationController.Communication);
+//communication
+router.get('/communication/:userId', communicationController.communication);
 // router.post('/communication', communicationController.createCommunication);
 // router.patch('/communication', communicationController.modifCommunication)
 // router.delete('/communication', communicationController.deleteCommunication)
@@ -44,6 +47,7 @@ router.post('/login', authController.login);
 
 // //admin
 // router.get('/admin', adminController.admin);
+// router.patch('/admin/statistic', adminController.modifStatistic);
 
 
 
