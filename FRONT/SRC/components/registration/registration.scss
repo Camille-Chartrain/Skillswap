@@ -1,8 +1,7 @@
 @use '../../style/var';
 @use '../../style/mixin';
 
-
-.formLogin {
+.formRegistration {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,10 +18,11 @@
         margin: 0.5rem;
         border-radius: 0.2rem;
         background-color: var.$yelloWrite;
+
     }
 
     button {
-        @include mixin.buttonStyle(var.$blueBtn);
+        @include mixin.buttonStyle (var.$blueBtn);
     }
 
 }

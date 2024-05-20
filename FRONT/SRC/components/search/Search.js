@@ -3,6 +3,7 @@ import SearchCategory from './SearchCategory';
 import SearchLevel from './SearchLevel';
 import SearchSubCategory from './SearchSubCategory';
 import { useEffect, useState } from 'react';
+import logo from './logo.png';
 
 const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory, setSearchSubCategory, searchSubCategory }) => {
 
@@ -41,12 +42,14 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
     return (
 
         <>
+            <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' role="logo" /></a>
+            {/* {isLogged ? ( */}
             <form className="search" onSubmit={handleSubmit} >
-                <input type="search" placeholder="rechercher" value={input} onChange={handleChange} />
+                <input type="search" placeholder="rechercher" value={input} onChange={handleChange} size="15" aria-label='faite votre recherche' />
                 <SearchLevel />
                 <SearchCategory />
                 <SearchSubCategory />
-                <button><img className="" src={search} alt=' icone de recherche' /></button>
+                <button ><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
             </form >
         </>
     )

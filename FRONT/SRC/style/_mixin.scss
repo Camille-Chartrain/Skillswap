@@ -11,9 +11,14 @@
 
 //* buttons
 
-@mixin buttonStyle($background-color ) {
-    background-color: $background-color;
+@mixin buttonStyle($color ) {
+    background-color: $color;
     color: var.$yelloWrite;
+    width: 6rem;
+    font-family: 'sugo pro display';
     font-weight: bold;
-    border-radius: 2rem;
+    letter-spacing: 0.2rem;
+    border-radius: 1rem;
+    margin: 0.2rem;
+    padding: 0.2rem;
 }

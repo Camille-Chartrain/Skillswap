@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <>
             <header>
-                <img className="banner" src={BannerPc} alt='banniere du site Skillswap' />
+                <img className="banner aria-hidden" src={BannerPc} alt='banniere du site Skillswap' />
             </header >
 
         </>

@@ -13,8 +13,8 @@ const SearchLevel = () => {
 
 
     return (
-        <select id="level" name="level" onChange={handleChange}>
-            <option value="all" selected>choisissez votre niveau</option>
+        <select id="level" name="level" onChange={handleChange} aria-label="selectionner par niveau">
+            <option value="all" selected size="15">Niveau</option>
             {/* {searchLevel?.map((level, index) => {
                 return (
                     <option key={index} value={dataLevel}>{level}</option>

@@ -1,19 +1,11 @@
 @use '../../style/var';
 
-h1,
-h2,
-h3,
-h4 {
-
-    font-family: 'sugo pro display', 'sans-serif';
-}
 
 h1 {
     text-align: center;
 }
 
 article {
-    font-size: 1rem;
     background-color: var.$lightGreyWrite;
     border-radius: 1rem;
     border-color: solid 0.2rem var.$bgGrey;

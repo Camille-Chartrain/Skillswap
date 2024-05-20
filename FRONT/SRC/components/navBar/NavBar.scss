@@ -5,28 +5,55 @@
     flex-direction: column;
     background-color: var.$yelloWrite;
     justify-content: right;
-}
 
-.logo {
-    justify-content: start;
-    width: 18px;
-    height: 18px;
 }
-
 
 .searchBar {
-    flex-direction: row;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: var.$yelloWrite;
     border-radius: 0.3rem;
+
+    .logo {
+        justify-content: start;
+        width: 30px;
+        height: 30px;
+    }
+
+    option {
+        size: 25px;
+    }
+
+    input,
+    select {
+        margin: 0.4rem;
+    }
+
+    button {
+        width: 25px;
+        height: 25px;
+        padding: 0;
+
+        .btnSearch {
+            justify-content: center;
+        }
+    }
+
+    .darkBtn {
+        justify-content: right;
+    }
+
 }
 
-.darkBtn {
-    justify-content: right;
-}
-
+.ancre,
 .nav {
+    display: flex;
+    justify-content: flex-end;
     background-color: var.$yelloWrite;
-    justify-content: right;
+
+    img {
+        margin: 0.5rem;
+    }
+
 }

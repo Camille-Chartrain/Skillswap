@@ -7,7 +7,7 @@ const Home = ({ skillsList, setSkillsList }) => {
 
     return (
         <main>
-            <article>
+            <article  >
                 <h1>SKILLSWAP C'est...</h1>
                 <p>Une plateforme d'échange et d’apprentissage qui permet de mettre en relation des personnes de tout âge et aux profils variés qui souhaitent apprendre ou partager leur compétence et leurs talents avec les autres.
                     Fonctionnant sur le principe que chaque utilisateur est à la fois professeur et élève, elle
