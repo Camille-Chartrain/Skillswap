@@ -25,7 +25,7 @@ const NavBar = () => {
 
                 <div className='ancre'>
                     <>
-                        <a href="/dashboard" alt="dashboard du membre" ><img className="" src={dashboard} alt=' icone du tableau de bord ' /></a>
+                        {/* <a href="/dashboard" alt="dashboard du membre" ><img className="" src={dashboard} alt=' icone du tableau de bord ' /></a> */}
                         <a href="#profile" alt=" profile du membre" ><img className="" src={account_icon} alt='icone du profil ' /></a>
                         <a href="#learning" alt=" apprentissage du membre" ><img className="" src={school} alt='icone apprentissage ' /></a>
                         <a href="#statistic" alt=" statistic " ><img className="" src={statistic} alt='icone des statistiques ' /></a>

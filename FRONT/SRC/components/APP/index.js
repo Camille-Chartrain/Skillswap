@@ -7,8 +7,9 @@ import Registration from "../registration";
 import addUser from '../../style/pictures/addUser.svg';
 import Login from "../login";
 import login from '../../style/pictures/login.svg';
-import { PageError } from '../../util';
-import { DarkModeContext } from '../../util';
+import dashboard from '../../style/pictures/dashboard.svg';
+import Dashboard from '../dashboard';
+import { DarkModeContext, PageError, isLogged } from '../../util';
 import { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 
@@ -30,12 +31,17 @@ const App = ({ darkMode }) => {
                 <nav className="nav">
                     <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
                     <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
+                    {/* {isLogged ? ( */}
+                    <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink>
+                    {/* ) : (<NavLink to="/" alt="accueil" ></NavLink>
+                    )} */}
                 </nav >
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/registration" exact element={<Registration />} />
                     <Route path="/login" exact element={<Login />} />
+                    <Route path="/dashboard" exact element={<Dashboard />} />
                     <Route path="*" element={<PageError />} />
                 </Routes>
             </Router>

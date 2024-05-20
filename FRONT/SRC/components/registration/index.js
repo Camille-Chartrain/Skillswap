@@ -26,7 +26,7 @@ const Registration = ({ input }) => {
 
     return (
         <>
-            <h1>Inscription</h1>
+            <h2>Inscription</h2>
             <div>
                 <form method="POST" onSubmit={handleSubmit} className="formRegistration">
 
