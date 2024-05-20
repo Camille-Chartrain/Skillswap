@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
-import Category from './Category.js';
+// import { Category, Sub_category } from "../models/index.js";
 
 class Sub_category extends Model { }
 
@@ -22,8 +22,8 @@ Sub_category.init(
     tableName: 'sub_category',
 });
 
-Category.hasOne(Sub_category);
-Sub_category.belongsTo(Category);
+// Category.hasOne(Sub_category);
+// Sub_category.belongsTo(Category);
 
 
 

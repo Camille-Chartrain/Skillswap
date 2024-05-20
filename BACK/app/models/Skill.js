@@ -1,8 +1,9 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
-import Sub_category from './Sub_category.js';
-import Category from './Category.js';
-import User from './User.js';
+// import Sub_category from './Sub_category.js';
+// import Category from './Category.js';
+// import User from './User.js';
+// import { User, Category, Skill, Sub_category } from "../models/index.js";
 
 class Skill extends Model { }
 
@@ -85,14 +86,14 @@ Skill.init(
     tableName: 'skill',
 });
 
-Sub_category.hasOne(Skill);
-Skill.belongsTo(Sub_category);
+// Sub_category.hasOne(Skill);
+// Skill.belongsTo(Sub_category);
 
-Category.hasOne(Skill);
-Skill.belongsTo(Category);
+// Category.hasOne(Skill);
+// Skill.belongsTo(Category);
 
-User.hasOne(Skill);
-Skill.belongsTo(User);
+// User.hasOne(Skill);
+// Skill.belongsTo(User);
 
 // await Skill.bulkCreate([
 //     { title: "self-defense", level: "intermediaire", transmission: 'presentiel', description: 'apprenez à vous sortir des pires situations', availability: 'soir et we', CategoryId: 5, SubCategoryId: 29, UserId: 5 },

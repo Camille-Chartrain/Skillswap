@@ -1,7 +1,4 @@
-import User from "../models/User.js";
-import Interest from "../models/Interest.js";
-import Category from "../models/Category.js";
-import Skill from "../models/skill.js";
+import { User, Category, Skill, Interest } from "../models/index.js";
 
 const communicationController = {
 
@@ -13,23 +10,9 @@ const communicationController = {
                 order: [['id', 'DESC']], // order by descent with id
                 limit: 4, // Limit to 4 results
                 include: [
-                    // {
-                    //     model: Interest, // Table to join
-                    //     where: {
-                    //         UserId: req.params.userId
-                    //     },
-                    // },
                     {
                         model: Category,
                         attributes: ['picture', 'name'],
-                        include: [
-                            {
-                                model: Interest,
-                                where: {
-                                    UserId: req.params.userId
-                                },
-                            }
-                        ]
                     },],
             });
             //send the answer to the front

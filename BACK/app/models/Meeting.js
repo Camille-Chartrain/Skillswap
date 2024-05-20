@@ -1,7 +1,8 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
-import User from './User.js';
-import Skill from './skill.js';
+// import User from './User.js';
+// import Skill from './skill.js';
+
 
 class Meeting extends Model { }
 
@@ -27,11 +28,11 @@ Meeting.init(
 });
 
 //description of the relation, parent table first, child table next
-User.hasOne(Meeting);
-Meeting.belongsTo(User);
+// User.hasOne(Meeting);
+// Meeting.belongsTo(User);
 
-Skill.hasOne(Meeting);
-Meeting.belongsTo(Skill);
+// Skill.hasOne(Meeting);
+// Meeting.belongsTo(Skill);
 
 
 

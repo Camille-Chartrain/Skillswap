@@ -1,6 +1,4 @@
-import User from "../models/User.js";
-import Interest from "../models/Interest.js";
-import Category from "../models/Category.js";
+import { User, Category, Interest } from "../models/index.js";
 
 const profileController = {
 
