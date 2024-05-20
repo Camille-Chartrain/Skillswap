@@ -6,17 +6,14 @@ import * as dotenv from 'dotenv';
 import cors from "cors";
 //option possible: activer HSTS (Strict Transport Security HSTS est utilisé pour indiquer aux navigateurs de toujours utiliser HTTPS pour accéder à votre site, même si l'utilisateur saisit http:// dans la barre d'adresse.) 
 import sequelize from './app/database.js';
-
 import Sub_category from './app/models/Sub_category.js';
-
 import Category from './app/models/Category.js';
 import User from './app/models/User.js';
-
 import Meeting from './app/models/Meeting.js';
 import Skill from './app/models/skill.js';
 import Interest from './app/models/Interest.js';
-;
 import router from './app/router.js';
+import addUserData from './app/middlewares.js/addUserData.js';
 
 dotenv.config();
 const app = express();
@@ -78,10 +75,9 @@ app.use((req, res, next) => {
     next();
 })
 
+app.use(addUserData);
 
 app.use(router);
-
-
 
 app.listen(port, () => {
     console.log(`Serveur démarré sur http://localhost:${port}`);

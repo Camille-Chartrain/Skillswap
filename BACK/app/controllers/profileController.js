@@ -7,8 +7,10 @@ const profileController = {
     profile: async function (req, res) {
         try {
             console.log(req.params);
+            console.log("req.session"), req.session;
+            console.log('req.sessions.userId', req.session.userId);
             // find by primary key
-            const profile = await User.findByPk(req.params.userId, {
+            const profile = await User.findByPk(req.session.userId, {
                 attributes: ['firstname',
                     'lastname',
                     "email",
@@ -43,7 +45,6 @@ const profileController = {
             // req.params contains data from url
             //rew.body contains body of request from forms
             console.log(req.body);
-            console.log(req.params.userId);
 
             const updateFields = {
                 firstname: req.body.firstname,
@@ -57,18 +58,19 @@ const profileController = {
             if (birthday !== "") {
                 updateFields.birthday = req.body.birthday
             }
-
+            console.log('log sesssion', req.session.userId);
             await User.update(
+
                 updateFields, {
                 where: {
-                    id: req.params.userId
+                    id: req.session.userId
                 }
             });
 
             //creation or update of interests
             const allInterests = await Interest.findAll({
                 where: {
-                    UserId: req.params.userId
+                    UserId: req.session.userId
                 }
             });
             console.log(allInterests);
@@ -77,7 +79,7 @@ const profileController = {
                 await Interest.create(
                     {
                         CategoryId: req.body.category,
-                        UserId: req.params.userId
+                        UserId: req.session.userId
                     }
                 )
             }
@@ -85,13 +87,13 @@ const profileController = {
                 await Interest.destroy(
                     {
                         where: {
-                            UserId: req.params.userId,
+                            UserId: req.session.userId,
                         }
                     })
                 await Interest.create(
                     {
                         CategoryId: req.body.category,
-                        UserId: req.params.userId
+                        UserId: req.session.userId
                     },
                 )
             };
