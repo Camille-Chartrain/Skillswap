@@ -5,6 +5,7 @@ import profileController from './controllers/profileController.js';
 import skillController from './controllers/skillController.js';
 import statisticController from './controllers/statisticController.js';
 import communicationController from './controllers/communicationController.js';
+import isLogged from './middlewares.js/isLogged.js';
 const router = express.Router();
 
 // home search visitors
@@ -20,21 +21,21 @@ router.post('/login', authController.login);
 // router.get('/search/:input?/:level?/:category?/:subCategory?', mainController.search);
 
 //profile
-router.get('/profile/:userId', profileController.profile);
-router.patch('/profile/:userId', profileController.modifProfile);
-router.delete('/profile/:userId', profileController.deleteProfile);
+router.get('/profile', isLogged, profileController.profile);
+router.patch('/profile', isLogged, profileController.modifProfile);
+router.delete('/profile/:userId', isLogged, profileController.deleteProfile);
 
 //skill
-router.get('/skill/:userId', skillController.skill);
-router.post('/skill/:userId', skillController.createSkill);
-router.patch('/skill/:skillId', skillController.modifSkill);
-router.delete('/skill/:skillId', skillController.deleteSkill);
+router.get('/skill/:userId', isLogged, skillController.skill);
+router.post('/skill/:userId', isLogged, skillController.createSkill);
+router.patch('/skill/:skillId', isLogged, skillController.modifSkill);
+router.delete('/skill/:skillId', isLogged, skillController.deleteSkill);
 
 //statistics
-router.get('/statistic/:userId', statisticController.statistic);
+router.get('/statistic/:userId', isLogged, statisticController.statistic);
 
 //communication
-router.get('/communication/:userId', communicationController.communication);
+router.get('/communication/:userId', isLogged, communicationController.communication);
 // router.post('/communication', communicationController.createCommunication);
 // router.patch('/communication', communicationController.modifCommunication)
 // router.delete('/communication', communicationController.deleteCommunication)
