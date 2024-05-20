@@ -26,7 +26,11 @@ const Skill = ({
             {/* {!isLogged ? ( */}
 
             <div className="skill-header">
-                <img src={"http://localhost:3000/{picture}"} alt="photo de la categorie" />
+                <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
+                <h4>Description :</h4> <span>{description}  </span>
+                <h4>Duree :</h4><span>{duration}</span>
+            </div>
+            <div className="skill-info">
                 <h4>Categorie :</h4> <span>{Category}</span>
                 <h4>Sous categorie :</h4>  <span>{Sub_category}</span>
                 <h4>Competence :</h4><span> {title}</span>
@@ -34,21 +38,16 @@ const Skill = ({
                 <h4>Prix : </h4> <span>{price}</span>
                 <h4>Note : </h4><span>{mark}</span>
             </div>
-            <div className="skill-info">
-                <h4>Description :</h4> <span>{description}  </span>
-                <h4>Duree :</h4><span>{duration}</span>
-                <h4>Disponibilite :</h4><span>{availability}</span>
-                <h4>Transmission :</h4><span>{transmission}</span>
-            </div>
 
             {/* ) : ( */}
 
             <div className='skill-teacher'>
+                <h4>Disponibilite :</h4><span>{availability}</span>
+                <h4>Transmission :</h4><span>{transmission}</span>
                 <h4>Professeur :</h4> <span> {`${firstname} ${lastname}`}</span>
                 <h4>Email : </h4><span>{email}</span>
                 <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
                 <h4>Presentation :</h4> <span>{presentation}</span>
-
             </div >
 
             {/* ) */}

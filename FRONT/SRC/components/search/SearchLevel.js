@@ -14,7 +14,7 @@ const SearchLevel = () => {
 
     return (
         <select id="level" name="level" onChange={handleChange}>
-            <option value="all" selected>choisissez votre niveau</option>
+            <option value="all" selected size="15">Niveau</option>
             {/* {searchLevel?.map((level, index) => {
                 return (
                     <option key={index} value={dataLevel}>{level}</option>

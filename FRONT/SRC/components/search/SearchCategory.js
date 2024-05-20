@@ -12,7 +12,7 @@ const SearchCategory = () => {
 
     return (
         <select id="category" name="category" onChange={handleChange}>
-            <option value="all" selected>choisissez votre categorie</option>
+            <option value="all" size="15" selected>Categorie</option>
 
             {/* {searchCategory?.map((category, index) => {
                 return (

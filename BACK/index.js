@@ -62,7 +62,7 @@ app.use(cors());
 // server.listen(port, () => {
 //     console.log(`App listening on https://localhost:${port}`);
 // });
-app.use(express.static('/imageCategory'));
+app.use(express.static('./imageCategory'));
 
 app.use(session({
     saveUninitialized: true,

@@ -31,14 +31,9 @@ const SkillList = () => {
             {
                 skillsList?.map((item) => (
 
-
                     < Skill
-
-                        key={
-                            item?.id
-                        }
-                        picture={item?.Category.picture
-                        }
+                        key={item?.id}
+                        picture={item?.Category.picture}
                         title={item?.title}
                         price={item?.price}
                         mark={item?.mark}
@@ -49,16 +44,12 @@ const SkillList = () => {
                         availability={item?.availability}
                         Category={item.Category.name}
                         Sub_category={item?.Sub_category?.name}
-
                         firstname={item?.User.firstname}
                         lastname={item?.User.lastname}
                         email={item?.User.email}
                         grade_level={item?.User.grade_level}
                         presentation={item?.User.presentation}
-
                     />
-
-
                 ))
             }
         </div >

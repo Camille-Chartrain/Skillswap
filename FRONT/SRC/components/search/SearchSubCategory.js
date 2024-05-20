@@ -15,7 +15,7 @@ const SearchSubCategory = () => {
     return (
         <>
             <select id="subCategory" name="subCategory" onChange={handleChange}>
-                <option value="all" selected>choisissez votre sous-categorie</option>
+                <option value="all" size="24" selected>Sous-categorie</option>
 
                 {searchSubCategory?.map((subCategory, id) => {
                     return (

@@ -1,4 +1,4 @@
-import logo from './logo.png';
+
 import Search from "../search/Search";
 import { ToggleBtn } from '../../util';
 
@@ -24,9 +24,6 @@ const NavBar = () => {
             <span className="arianaWire">
 
                 <div className='ancre'>
-
-                    {/* <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' /></a> */}
-                    {/* {isLogged ? ( */}
                     <>
                         <a href="/dashboard" alt="dashboard du membre" ><img className="" src={dashboard} alt=' icone du tableau de bord ' /></a>
                         <a href="#profile" alt=" profile du membre" ><img className="" src={account_icon} alt='icone du profil ' /></a>
