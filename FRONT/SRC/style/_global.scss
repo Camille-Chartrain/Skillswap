@@ -37,11 +37,13 @@ h1 {
     font-family: 'sugo pro display', 'sans-serif';
     font-size: 2rem;
     margin: 1rem;
+    padding: 1rem;
 }
 
 h2,
 h3,
-h4 {
+h4,
+label {
     color: var.$blueBtn;
     font-weight: bolder;
     font-family: 'sugo pro display';

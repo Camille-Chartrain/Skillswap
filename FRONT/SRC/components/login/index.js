@@ -11,7 +11,7 @@ const Login = ({ input }) => {
 
     const GetIsLogged = async () => {
         try {
-            const response = await fetch("http://localhost:3000/login");
+            const response = await fetch(`http://localhost:3000/login`);
             const dataIsLogged = await response.json();
             setIsLogged(dataIsLogged)
         }
@@ -26,12 +26,12 @@ const Login = ({ input }) => {
         <>
             <h1>Connexion</h1>
 
-            <form action="post" onSubmit={handleSubmit} className="formLogin">
+            <form method="post" onSubmit={handleSubmit} className="formLogin">
                 <label htmlFor="email">Email</label>
                 <input type="email" placeholder="Saisissez votre email" value={input} size="30" />
                 <label htmlFor="password">Mot de passe</label>
                 <input type="text" placeholder="Saisissez votre mot de passe" value={input} size="35" />
-                <button>Valider</button>
+                <button>VALIDER</button>
             </form>
         </>
     )

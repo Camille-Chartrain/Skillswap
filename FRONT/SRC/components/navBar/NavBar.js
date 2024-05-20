@@ -31,8 +31,8 @@ const NavBar = () => {
                         <a href="#statistic" alt=" statistic " ><img className="" src={statistic} alt='icone des statistiques ' /></a>
                         <a href="#communication" alt=" communication " ><img className="" src={message} alt='icone de communication ' /></a>
                         <a href="#logout" alt=" deconnection du site" ><img className="" src={logout} alt='icone de deconnexion' /></a>
+                        {/* ) : (<a href="/" alt="accueil" ></a>)} */}
                     </>
-                    {/* ) : (<a href="/" alt="accueil" ></a>)} */}
                 </div>
                 <div className='searchBar'>
                     <Search />

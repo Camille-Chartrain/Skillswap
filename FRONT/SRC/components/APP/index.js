@@ -29,7 +29,7 @@ const App = ({ darkMode }) => {
                 <Header />
                 <nav className="nav">
                     <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
-                    <NavLink to="/login"><img className="" src={login} alt='icone connexion' /></NavLink>
+                    <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
                 </nav >
                 <NavBar />
                 <Routes>
