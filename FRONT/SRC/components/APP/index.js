@@ -46,9 +46,6 @@ const App = ({ darkMode }) => {
                 </Routes>
             </Router>
 
-            <main>
-
-            </main>
             <Footer />
         </body >
     )

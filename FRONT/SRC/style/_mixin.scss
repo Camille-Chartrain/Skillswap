@@ -10,16 +10,47 @@
 }
 
 //* buttons
-
-@mixin buttonStyle($color ) {
+@mixin buttonStyle($color, $fontColor) {
     background-color: $color;
-    color: var.$yelloWrite;
+    color: $fontColor;
     width: 6rem;
     font-family: 'sugo pro display';
     font-weight: bold;
     letter-spacing: 0.2rem;
     border-radius: 1rem;
-    margin: 0.2rem;
-    padding: 0.2rem;
+    border-color: var.$bgGrey;
+    margin: 0.4rem;
+    margin: auto;
+    padding: 0.3rem;
+    text-align: center;
+}
 
+//* h2 dashboard
+
+@mixin h2Dashboard {
+    margin: 0rem;
+    background-color: var.$blueBtn;
+    text-align: center;
+    color: var.$yellowBtn;
+    padding: 2rem 20rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+}
+
+@mixin mobileFirst {
+    @media screen and (max-width:50rem) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 85%;
+
+        h2 {
+            padding: 2rem 5rem;
+        }
+
+        buton {
+            font-size: 0.5rem;
+        }
+    }
 }
