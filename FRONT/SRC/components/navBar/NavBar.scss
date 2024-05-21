@@ -28,15 +28,20 @@
     input,
     select {
         margin: 0.4rem;
+        padding: 0.2rem;
+        background-color: var.$orangeBtn;
+        color: var.$yelloWrite;
+        border-color: solid 0.2rem var.$orangeBtn;
     }
 
     button {
         width: 25px;
         height: 25px;
-        padding: 0;
+        background-color: var.$orangeBtn;
 
         .btnSearch {
             justify-content: center;
+
         }
     }
 

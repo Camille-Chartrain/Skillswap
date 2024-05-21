@@ -12,6 +12,19 @@ body {
     font-size: 1rem;
     line-height: 1rem;
 
+    label {
+        margin: 0.5rem;
+        border-radius: 0.2rem;
+    }
+
+
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+        background: var.$orangeBtn;
+    }
+
+
     .dark {
         background: #333;
         color: fff;

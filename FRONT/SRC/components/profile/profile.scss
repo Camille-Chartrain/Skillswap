@@ -1,41 +1,62 @@
 @use '../../style/var';
 @use '../../style/mixin';
 
-fieldset {
+
+form {
+    padding: 0.4rem;
+    border-color: 0.2 solid var.$blueBtn ;
+}
+
+.profile {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     line-height: 1rem;
-    background-color: var.$yellowBtn;
     border-radius: 1rem;
     border-color: solid 0.2rem var.$yellowBtn;
     padding: 1rem;
     margin: 2rem;
     color: rgb(59, 58, 58);
 
-    .formProfileChange {
-        display: flex;
-        flex-direction: column;
-        align-items: left;
-        margin: 1rem;
 
-
-        label {
-            margin: 0.5rem;
-            border-radius: 0.2rem;
-
-        }
-
-        Input {
-            margin: 0.5rem;
-            border-radius: 0.2rem;
-            background-color: var.$yelloWrite;
-
-        }
-
-        button {
-            @include mixin.buttonStyle (var.$blueBtn);
-        }
-
+    Input,
+    select,
+    option,
+    textarea {
+        margin: 0.5rem;
+        border-radius: 0.2rem;
+        background-color: var.$yelloWrite;
+        size: 2rem;
     }
 
+    button {
+        @include mixin.buttonStyle (var.$blueBtn);
+    }
+
+
+}
+
+.redBtn {
+    display: flex;
+    @include mixin.buttonStyle(var.$redBtn);
+    justify-content: center;
+    align-items: center;
+
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin: 1.5rem;
+    padding: 0.8rem;
+
+    .profileChange,
+    .createComp,
+    .addCategory {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
 }
