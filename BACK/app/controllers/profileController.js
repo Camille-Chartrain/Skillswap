@@ -5,10 +5,10 @@ const profileController = {
     profile: async function (req, res) {
         try {
             console.log(req.params);
-            console.log("req.session"), req.session;
+            console.log("req.headers", req.headers);
             console.log('req.sessions.userId', req.session.userId);
             // find by primary key
-            const profile = await User.findByPk(req.session.userId, {
+            const profile = await User.findByPk(req.user.id, {
                 attributes: ['firstname',
                     'lastname',
                     "email",
@@ -25,7 +25,7 @@ const profileController = {
                 }],
             });
             if (profile === null) {
-                console.log('Not found!');
+                console.log('User not found!');
             }
             //send the answer to the front
             res.send(

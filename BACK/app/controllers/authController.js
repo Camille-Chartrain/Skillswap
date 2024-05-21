@@ -1,7 +1,11 @@
-// import User from "../models/User.js";
 import bcrypt from 'bcrypt';
 import validator from "validator";
 import { User } from "../models/index.js";
+import jwt from 'jsonwebtoken';
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+
 
 const authController = {
 
@@ -10,6 +14,12 @@ const authController = {
             console.log("log du req", req.body);
             console.log("log du req.body.firstname", req.body.firstname);
 
+            const checkUser = await User.findOne({
+                where: { email: req.body.email }
+            });
+            if (checkUser) {
+                res.send('Un utilisateur utilise déjà cette adresse email')
+            }
             // validation of password
             const options = { minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
             if (!validator.isStrongPassword(req.body.hash, options)) {
@@ -25,20 +35,45 @@ const authController = {
                 },
             );
             console.log('log du user', user);
-            // to keep the user connected we memorize it in the session
-            req.session.isLogged = true;
 
-            console.log('log de req.session.userId', req.session.userId);
-            console.log("log de user.id", user.id);
-            req.session.userId = user.id;
-            console.log('log de req.session.userId', req.session.userId);
+            // const createTokenFromJson = (jsonData, options = {}) => {
+            //     try {
+            //         const token = jwt.sign(jsonData, process.env.TOKEN_SECRET, options)
+            //         return token;
+            //     }
+            //     catch (error) {
+            //         console.log('Error:', error.message);
+            //         return null;
+            //     }
+            // };
 
-            res.send("user okay")
+            // const token = createTokenFromJson({ user });
+            // console.log('mon user token-----------------s', token);
+            // if (token) {
+            //     res.json({ status: true, token: token })
+            // }
+            // else (
+            //     res.json({ status: false })
+            // );
+
+            const username = {
+                name: req.body.firstname,
+                email: req.body.email,
+                lastname: req.body.lastname,
+                id: user.id
+            }
+
+            const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
+            console.log('accesstoken==================', accessToken);
+            res.json({ accessToken: accessToken })
+
+            //     res.send("user okay")
         } catch (error) {
             console.error(error.message);
             res.render('error');
         }
     },
+
     login: async function (req, res) {
         try {
             // Authentification of the user
@@ -73,6 +108,7 @@ const authController = {
             res.send(error.message);
         }
     },
+
     logout: async function (req, res) {
         try {
             req.session.destroy();
