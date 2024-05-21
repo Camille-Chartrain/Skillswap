@@ -2,61 +2,144 @@
 @use '../../style/mixin';
 
 
-form {
-    padding: 0.4rem;
-    border-color: 0.2 solid var.$blueBtn ;
-}
+.changeProfile {
 
-.profile {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    line-height: 1rem;
-    border-radius: 1rem;
-    border-color: solid 0.2rem var.$yellowBtn;
-    padding: 1rem;
-    margin: 2rem;
-    color: rgb(59, 58, 58);
-
-
-    Input,
-    select,
-    option,
-    textarea {
-        margin: 0.5rem;
-        border-radius: 0.2rem;
-        background-color: var.$yelloWrite;
-        size: 2rem;
-    }
-
-    button {
-        @include mixin.buttonStyle (var.$blueBtn);
-    }
-
-
-}
-
-.redBtn {
-    display: flex;
-    @include mixin.buttonStyle(var.$redBtn);
-    justify-content: center;
-    align-items: center;
-
-}
-
-fieldset {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-around;
-    margin: 1.5rem;
-    padding: 0.8rem;
+    border: solid 0.3rem var.$blueBtn ;
+    border-radius: 1rem;
+    margin: 2rem;
+    justify-content: center;
+    align-items: center;
 
-    .profileChange,
-    .createComp,
-    .addCategory {
+    h2 {
+        @include mixin.h2Dashboard();
+    }
+
+    .profile {
+        @include mixin.mobileFirst();
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        line-height: 1.1rem;
+        border-radius: 1rem;
+        border-color: solid 0.2rem var.$yellowBtn;
+        padding: 2rem;
+        color: rgb(109, 90, 90);
+        width: 90%;
+
+
+        Input,
+        select,
+        option,
+        textarea {
+            margin: 0.5rem;
+            border-radius: 0.2rem;
+            background-color: var.$yelloWrite;
+            size: 2rem;
+        }
+
+        button {
+            @include mixin.buttonStyle (var.$blueBtn, var.$yelloWrite);
+        }
+
+        .profileChange,
+        .createComp,
+        .addCategory,
+        .interest {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            margin: 2.5rem;
+            width: calc(90%/2);
+
+        }
+
+        fieldset,
+        .comp,
+        .addCategory,
+        .interest {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding: 0.8rem;
+            margin: 1.3rem;
+            border-radius: 1rem;
+            width: calc(90%/2);
+        }
+    }
+
+
+    .skillsList {
         display: flex;
         flex-direction: column;
+        flex-wrap: nowrap;
+        padding: 1rem;
+        margin: 3rem;
+        margin: auto;
+        background-color: var.$lightGreyWrite;
+        border-radius: 1rem;
+        border-color: 0.2rem solid;
+        width: 85%;
+
+        h3 {
+            padding: 1rem 1rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0rem;
+
+            span {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                margin: auto;
+                border-radius: 1.8rem;
+                padding: 0.5rem;
+                border-color: 0.2 rem solid var.$bgGrey;
+                width: 98%;
+                background-color: var.$bgGrey;
+
+                .btn {
+                    flex-direction: row;
+                    align-items: flex-end;
+                    width: 45%;
+
+                    .orangeBtn {
+                        @include mixin.buttonStyle(var.$orangeBtn, var.$lightGreyWrite);
+                        width: 52%;
+                        @include mixin.mobileFirst();
+                    }
+
+                    .redBtn {
+                        @include mixin.buttonStyle(var.$redBtn, var.$lightGreyWrite);
+                        width: 52%;
+                        @include mixin.mobileFirst();
+                    }
+
+                }
+
+                li {
+                    color: var.$yelloWrite;
+                    padding: 0.5rem;
+                    border-radius: 1rem;
+                    width: 55%;
+                    justify-content: right;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    .redBtn {
+        @include mixin.buttonStyle(var.$redBtn, var.$lightGreyWrite);
+        width: 20rem;
         margin: 1rem;
     }
+
+    @include mixin.mobileFirst();
 }

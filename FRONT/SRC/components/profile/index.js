@@ -1,8 +1,8 @@
-
+import SkillList from "../skillList";
 import { useState, useEffect } from "react";
 
 
-const Profile = ({ input }) => {
+const Profile = ({ input, skillsList }) => {
 
 
     const [profilChange, setProfilChange] = useState('');
@@ -29,10 +29,10 @@ const Profile = ({ input }) => {
 
     return (
         <>
-            <h2 id="profile">Profil</h2>
-            <div>
-
+            <div className="changeProfile">
+                <h2 id="profile">Profil</h2>
                 <form method="POST" onSubmit={handleSubmit} className="profile">
+
                     <fieldset className="profileChange">
                         <legend><h3>Modifier votre profil</h3></legend>
 
@@ -48,7 +48,6 @@ const Profile = ({ input }) => {
                         <label htmlFor="grade_level">Niveau d'etude:</label>
                         <input type="text" id="grade_level" name="grade_level" value={input} size="25" />
 
-
                         <label htmlFor="presentation">Presentez vous:</label>
                         <textarea id="presentation" name="presentation" value={input} rows="5" cols="33" />
 
@@ -61,7 +60,7 @@ const Profile = ({ input }) => {
                         <label htmlFor="confPassword">Confirmer votre mot de passe :</label>
                         <input type="password" id="confPassword" name="confPassword" value={input} size="35" />
 
-                        <fieldset>
+                        <fieldset className="interest">
                             <legend><h4>Centres d'interets</h4></legend>
                             <div>
                                 <input type="checkbox" value="Language" id="Language" />
@@ -85,38 +84,37 @@ const Profile = ({ input }) => {
                         </fieldset>
                         <button type="submit" >VALIDER</button>
                     </fieldset>
-                    <div>
-                        <fieldset className="createComp">
-                            <legend><h3>Creation de competence</h3></legend>
-                            <label htmlFor="title">Titre:</label>
-                            <input type="text" id="title" name="title" value={input} size="25" />
 
-                            <label htmlFor="duration">Duree :</label>
-                            <input type="text" id="lduration" name="lduration" value={input} size="25" />
+                    <fieldset className="createComp">
+                        <legend><h3>Creation de competence</h3></legend>
+                        <label htmlFor="title">Titre:</label>
+                        <input type="text" id="title" name="title" value={input} size="25" />
 
-                            <label htmlFor="price">Tarif :</label>
-                            <input type="price" id="price" name="price" value={input} size="25" />
+                        <label htmlFor="duration">Duree :</label>
+                        <input type="text" id="lduration" name="lduration" value={input} size="25" />
 
-                            <label htmlFor="level">Niveau :</label>
-                            <select id="level" name="level">
-                                <option value="e" selected>ajoutez un niveau</option>
-                                <option value="debutant" >Debutant</option>
-                                <option value="intermidiare" s>Intermediaire</option>
-                                <option value="avance" >Avance</option>
-                            </select>
+                        <label htmlFor="price">Tarif :</label>
+                        <input type="price" id="price" name="price" value={input} size="25" />
 
-                            <label htmlFor="transmission"> Mode de transmission :</label>
-                            <select id="transmission" name="transmission">
-                                <option value="" selected>mode de transmission</option>
-                                <option value="online">En ligne</option>
-                                <option value="video">Video</option>
-                                <option value="email">Email</option>
-                            </select>
-                            <label htmlFor="description">Descriptif:</label>
-                            <textarea id="description" name="description" value={input} rows="5" cols="33" />
+                        <label htmlFor="level">Niveau :</label>
+                        <select id="level" name="level">
+                            <option value="e" selected>ajoutez un niveau</option>
+                            <option value="debutant" >Debutant</option>
+                            <option value="intermidiare" s>Intermediaire</option>
+                            <option value="avance" >Avance</option>
+                        </select>
+                        <label htmlFor="transmission"> Mode de transmission :</label>
+                        <select id="transmission" name="transmission">
+                            <option value="" selected>mode de transmission</option>
+                            <option value="online">En ligne</option>
+                            <option value="video">Video</option>
+                            <option value="email">Email</option>
+                        </select>
+                        <label htmlFor="description">Descriptif:</label>
+                        <textarea id="description" name="description" value={input} rows="5" cols="33" />
 
-                            <button>VALIDER</button>
-                        </fieldset>
+                        <button>VALIDER</button>
+
                         <fieldset className="addCategory">
                             <legend><h4>Ajouter categorie/sous-categorie</h4>  </legend>
                             <p>
@@ -129,9 +127,32 @@ const Profile = ({ input }) => {
                             </p>
                             <button className="btn">AJOUTER</button>
                         </fieldset>
-                    </div>
+                    </fieldset>
+
                 </form>
-                <button type="reset" className="redBtn">SUPPRIMER LE COMPTE</button>
+                <div className="skillsList">
+                    <h3>Liste des competences</h3>
+                    <ul>
+                        <span>
+                            <li>
+                                {skillsList?.map((item) => (
+                                    < Skill
+                                        key={item?.id}
+                                        title={item?.title}
+                                    />
+                                ))
+                                }
+                                test de visuel
+                            </li>
+                            <span className="btn">
+                                <button className="orangeBtn">MODIFIER</button>
+                                <button type="reset" className="redBtn">SUPPRIMER</button>
+                            </span>
+                        </span>
+                    </ul>
+
+                </div>
+                <button type="reset" className="redBtn" size="30">SUPPRIMER LE COMPTE</button>
             </div >
         </>
     )

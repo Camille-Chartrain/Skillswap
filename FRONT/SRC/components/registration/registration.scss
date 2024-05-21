@@ -22,7 +22,7 @@
     }
 
     button {
-        @include mixin.buttonStyle (var.$blueBtn);
+        @include mixin.buttonStyle (var.$blueBtn, var.$yelloWrite);
     }
 
 }

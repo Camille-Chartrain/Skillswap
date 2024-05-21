@@ -11,7 +11,7 @@ const Registration = ({ input }) => {
 
     const GetRegistration = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/registration`);
+            const response = await fetch("http://localhost:3000/registration");
             const dataRegistration = await response.json();
             setRegistration(dataRegistration)
             console.log(dataRegistration);
