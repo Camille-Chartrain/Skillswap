@@ -23,19 +23,19 @@ router.post('/login', authController.login);
 //profile
 router.get('/profile', isLogged, profileController.profile);
 router.patch('/profile', isLogged, profileController.modifProfile);
-router.delete('/profile/:userId', isLogged, profileController.deleteProfile);
+router.delete('/profile', isLogged, profileController.deleteProfile);
 
 //skill
-router.get('/skill/:userId', isLogged, skillController.skill);
-router.post('/skill/:userId', isLogged, skillController.createSkill);
+router.get('/skill', isLogged, skillController.skill);
+router.post('/skill', isLogged, skillController.createSkill);
 router.patch('/skill/:skillId', isLogged, skillController.modifSkill);
 router.delete('/skill/:skillId', isLogged, skillController.deleteSkill);
 
 //statistics
-router.get('/statistic/:userId', statisticController.statistic);
+router.get('/statistic', isLogged, statisticController.statistic);
 
 //communication
-router.get('/communication/:userId', communicationController.communication);
+router.get('/communication', isLogged, communicationController.communication);
 // router.post('/communication', communicationController.createCommunication);
 // router.patch('/communication', communicationController.modifCommunication)
 // router.delete('/communication', communicationController.deleteCommunication)
