@@ -1,4 +1,4 @@
-import Skill from "../models/skill.js";
+import { Skill } from "../models/index.js";
 
 const skillController = {
 

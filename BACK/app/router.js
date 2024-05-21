@@ -32,10 +32,10 @@ router.patch('/skill/:skillId', isLogged, skillController.modifSkill);
 router.delete('/skill/:skillId', isLogged, skillController.deleteSkill);
 
 //statistics
-router.get('/statistic/:userId', isLogged, statisticController.statistic);
+router.get('/statistic/:userId', statisticController.statistic);
 
 //communication
-router.get('/communication/:userId', isLogged, communicationController.communication);
+router.get('/communication/:userId', communicationController.communication);
 // router.post('/communication', communicationController.createCommunication);
 // router.patch('/communication', communicationController.modifCommunication)
 // router.delete('/communication', communicationController.deleteCommunication)

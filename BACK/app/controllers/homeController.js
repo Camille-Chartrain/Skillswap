@@ -1,8 +1,7 @@
 import { Op } from "sequelize";
-import Category from "../models/Category.js";
-import Skill from "../models/skill.js";
-import User from "../models/User.js";
-import Sub_category from "../models/Sub_category.js";
+import { User, Category, Skill, Sub_category } from "../models/index.js";
+
+// import Sub_category from "../models/Sub_category.js";
 
 const homeController = {
 
