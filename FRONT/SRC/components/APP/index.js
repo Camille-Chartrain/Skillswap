@@ -12,16 +12,24 @@ import Dashboard from '../dashboard';
 import { DarkModeContext, PageError, isLogged } from '../../util';
 import { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import { useForm, formState, errors } from 'react-hook-form';
+
 
 //* we call render on the container and give it the component for the view.here we placed the router to display the routes to navigate between the components
 
 
 
 //* components added for the user rendering
-const App = ({ darkMode }) => {
+const App = ({ darkMode, data, setData }) => {
+
+    //-> create un dark theme in useContext for using in all app
     const themeClass = useContext(DarkModeContext);
     const theme = darkMode === 'light' ? 'dark' : 'light';
     console.log('je suis ds app, theme:', theme);
+
+    //-> hook form create to post datas
+    const { handleSubmit, register, formState, errors } = useForm({ mode: 'onTouched' });
+    const { isSubmissing, isSubmitSuccessful } = formState;
 
     return (
         <body className={theme}>
@@ -39,7 +47,7 @@ const App = ({ darkMode }) => {
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/registration" exact element={<Registration />} />
+                    <Route path="/registration" element={<Registration handleSubmit={handleSubmit} register={register} errors={errors} formState={formState} isSubmissing={isSubmissing} isSubmitSuccessful={isSubmitSuccessful} data={data} setData={setData} />} />
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/dashboard" exact element={<Dashboard />} />
                     <Route path="*" element={<PageError />} />
