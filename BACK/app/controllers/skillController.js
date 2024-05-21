@@ -8,7 +8,7 @@ const skillController = {
             // find by primary key
             const profile = await Skill.findAll({
                 where: {
-                    UserId: req.params.userId
+                    UserId: req.session.userId
                 }
             });
             console.log(profile);
@@ -40,10 +40,10 @@ const skillController = {
                 availability: req.body.availability,
                 SubCategoryId: req.body.SubCategoryId,
                 CategoryId: req.body.CategoryId,
-                UserId: req.params.userId
+                UserId: req.session.userId
             }, {
                 where: {
-                    UserId: req.params.userId
+                    UserId: req.session.userId
                 }
             }
             );

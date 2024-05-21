@@ -6,7 +6,7 @@ const statisticController = {
         try {
             const statistic = await Skill.findAll({
                 where: {
-                    UserId: req.params.userId
+                    UserId: req.session.userId
                 },
                 attributes: ['title', 'description', 'mark'],
                 order: [['id']], // order ASC id

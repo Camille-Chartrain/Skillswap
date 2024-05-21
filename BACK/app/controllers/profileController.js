@@ -110,7 +110,7 @@ const profileController = {
             console.log(req.params);
             await User.destroy({
                 where: {
-                    id: req.params.userId
+                    id: req.session.userId
                 }
             });
             //send the answer to the front
