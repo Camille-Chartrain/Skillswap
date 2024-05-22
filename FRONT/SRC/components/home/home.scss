@@ -1,5 +1,5 @@
 @use '../../style/var';
-
+@use '../../style/mixin';
 
 h1 {
     text-align: center;
@@ -11,4 +11,8 @@ article {
     border-color: solid 0.2rem var.$bgGrey;
     padding: 2rem;
     margin: 1rem;
+}
+
+home {
+    @include mixin.focus();
 }

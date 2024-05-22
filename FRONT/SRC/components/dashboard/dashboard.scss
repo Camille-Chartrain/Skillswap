@@ -1,0 +1,6 @@
+@use '../../style/mixin';
+@use '../../style/var';
+
+dashboard {
+    @include mixin.focus();
+}

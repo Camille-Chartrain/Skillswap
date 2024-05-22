@@ -9,6 +9,17 @@
     color: var.$blackWrite;
 }
 
+//* focus for help and accessibility
+@mixin focus {
+
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    button:focus-visible {
+        background: var.$orangeBtn;
+    }
+}
+
 //* buttons
 @mixin buttonStyle($color, $fontColor) {
     background-color: $color;

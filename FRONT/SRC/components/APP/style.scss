@@ -1,4 +1,8 @@
 @use '../../style/var';
+@use '../../style/mixin';
+
+
+@include mixin.focus();
 
 .dark {
     background: #333;

@@ -1,16 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
 
 
 const Registration = ({ handleSubmit, register, errors, formState, isSubmissing, isSubmitSuccessful }) => {
 
-
+    //->state about post datas
     const [data, setData] = useState('');
-    const onSubmit = async (data) => {
+
+    //-> function to send datas in the back
+    const onSubmit = (data) => {
         setData(data);
         console.log(data);
+        console.log(errors);
     }
-    console.log(data);
-    console.log(errors);
+
+    //-> api's call
+    const GetRegister = async () => {
+        try {
+            const response = await fetch("http://localhost:3000/registration", {
+                method: "post",
+                body: JSON.stringify(data)
+            })
+            const dataRegister = await response.json();
+            console.log(dataRegister);
+        }
+        catch (error) {
+            console.error('Erreur lors de la soumission du formulaire :', error);
+        };
+    }
+
+
+    useEffect(() => { GetRegister() }, []);
 
 
 
@@ -24,7 +44,7 @@ const Registration = ({ handleSubmit, register, errors, formState, isSubmissing,
                 <form method="POST" onSubmit={handleSubmit(onSubmit)} className="formRegistration">
 
                     <label htmlFor="firstname">Prénom :</label>
-                    <input type="text" id="firstname" name="firstname" {...register('firtname', { required: 'Ce champs est requis' })} size="25" />
+                    <input type="text" id="firstname" name="firstname" {...register('firstname', { required: 'Ce champs est requis' })} size="25" />
                     {<span>{errors?.firstname?.message}</span>}
 
                     <label htmlFor="lastname">Nom :</label>

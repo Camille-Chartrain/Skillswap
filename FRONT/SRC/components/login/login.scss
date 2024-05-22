@@ -25,4 +25,5 @@
         @include mixin.buttonStyle(var.$blueBtn, var.$yelloWrite);
     }
 
+    @include mixin.focus();
 }
