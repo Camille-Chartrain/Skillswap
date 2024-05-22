@@ -5,10 +5,10 @@ const profileController = {
     profile: async function (req, res) {
         try {
             console.log(req.params);
-            console.log("req.session"), req.session;
+            console.log("req.headers", req.headers);
             console.log('req.sessions.userId', req.session.userId);
             // find by primary key
-            const profile = await User.findByPk(req.session.userId, {
+            const profile = await User.findByPk(req.user.id, {
                 attributes: ['firstname',
                     'lastname',
                     "email",
@@ -25,7 +25,7 @@ const profileController = {
                 }],
             });
             if (profile === null) {
-                console.log('Not found!');
+                console.log('User not found!');
             }
             //send the answer to the front
             res.send(
@@ -61,14 +61,14 @@ const profileController = {
 
                 updateFields, {
                 where: {
-                    id: req.session.userId
+                    id: req.user.id
                 }
             });
 
             //creation or update of interests
             const allInterests = await Interest.findAll({
                 where: {
-                    UserId: req.session.userId
+                    UserId: req.user.id
                 }
             });
             console.log(allInterests);
@@ -77,7 +77,7 @@ const profileController = {
                 await Interest.create(
                     {
                         CategoryId: req.body.category,
-                        UserId: req.session.userId
+                        UserId: req.user.id,
                     }
                 )
             }
@@ -85,13 +85,13 @@ const profileController = {
                 await Interest.destroy(
                     {
                         where: {
-                            UserId: req.session.userId,
+                            UserId: req.user.id,
                         }
                     })
                 await Interest.create(
                     {
                         CategoryId: req.body.category,
-                        UserId: req.session.userId
+                        UserId: req.user.id
                     },
                 )
             };
@@ -110,7 +110,7 @@ const profileController = {
             console.log(req.params);
             await User.destroy({
                 where: {
-                    id: req.session.userId
+                    id: req.user.id
                 }
             });
             //send the answer to the front

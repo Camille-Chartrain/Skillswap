@@ -14,12 +14,13 @@ import cors from "cors";
 // import Interest from './app/models/Interest.js';
 import router from './app/router.js';
 import addUserData from './app/middlewares.js/addUserData.js';
+import { json } from 'sequelize';
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.json())
 // sequelize.sync({ alter: true }).then(() => {
 //     console.log("table and model synced successfully!")
 // }).then((data) => {

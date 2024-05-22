@@ -6,6 +6,8 @@ import skillController from './controllers/skillController.js';
 import statisticController from './controllers/statisticController.js';
 import communicationController from './controllers/communicationController.js';
 import isLogged from './middlewares.js/isLogged.js';
+import verifyToken from './middlewares.js/verifyToken.js';
+
 const router = express.Router();
 
 // home search visitors
@@ -21,9 +23,9 @@ router.post('/login', authController.login);
 // router.get('/search/:input?/:level?/:category?/:subCategory?', mainController.search);
 
 //profile
-router.get('/profile', isLogged, profileController.profile);
-router.patch('/profile', isLogged, profileController.modifProfile);
-router.delete('/profile', isLogged, profileController.deleteProfile);
+router.get('/profile', verifyToken, profileController.profile);
+router.patch('/profile', verifyToken, profileController.modifProfile);
+router.delete('/profile', verifyToken, profileController.deleteProfile);
 
 //skill
 router.get('/skill', isLogged, skillController.skill);
