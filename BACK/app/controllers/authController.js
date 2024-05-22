@@ -29,13 +29,13 @@ const authController = {
 
             if (!validator.isStrongPassword(req.body.password, options)) {
 
-                res.status(400).send('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial')
+                // res.status(400).send('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial')
 
 
                 // return res.send('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
 
                 // if (!validator.isStrongPassword(req.body.password, options)) {
-                // throw new Error('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
+                throw new Error('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
 
             }
 
@@ -82,8 +82,9 @@ const authController = {
 
             //     res.send("user okay")
         } catch (error) {
-            console.error(error.message);
-            res.render(error.message);
+            res.status(400).json({ error: error.message });
+            // console.error(error.message);
+            // res.render(error.message);
 
         }
     },
