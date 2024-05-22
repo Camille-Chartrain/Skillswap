@@ -7,33 +7,23 @@ const Registration = ({ handleSubmit, register, errors, formState, isSubmissing,
     //->state about post datas
     const [data, setData] = useState('');
 
-    //-> function to send datas in the back
-    const onSubmit = (data) => {
-        setData(data);
-        console.log(data);
-        console.log(errors);
-    }
+    //-> function to send datas in the back and api's call
+    const onSubmit = async (e) => {
+        e.preventDefault();
 
-    //-> api's call
-    const GetRegister = async () => {
+        console.log(data);
         try {
             const response = await fetch("http://localhost:3000/registration", {
                 method: "post",
-                body: JSON.stringify(data)
+                body: data
             })
-            const dataRegister = await response.json();
-            console.log(dataRegister);
+            console.log("response:", response);
+            console.log("responce data:", response.data);
         }
         catch (error) {
             console.error('Erreur lors de la soumission du formulaire :', error);
         };
     }
-
-
-    useEffect(() => { GetRegister() }, []);
-
-
-
 
 
     return (
