@@ -14,7 +14,7 @@ import cors from "cors";
 // import Interest from './app/models/Interest.js';
 import router from './app/router.js';
 import addUserData from './app/middlewares.js/addUserData.js';
-import { json } from 'sequelize';
+
 
 dotenv.config();
 const app = express();
