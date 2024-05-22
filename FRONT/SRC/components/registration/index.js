@@ -5,24 +5,26 @@ import React, { useEffect, useState } from "react";
 const Registration = ({ handleSubmit, register, errors, formState, isSubmissing, isSubmitSuccessful }) => {
 
     //->state about post datas
-    const [data, setData] = useState([]);
-    console.log('state data :', data);
+    // const [data, setData] = useState([]);
+    // console.log('state data :', data);
     //-> function to send datas in the back and api's call
     const onSubmit = async (data) => {
-        setData(data)
+        // setData(data)
         console.log('onsubmit data:', data);
         try {
             console.log('try data:', data);
             const response = await fetch('http://localhost:3000/registration', {
                 method: "post",
-                body: data
-            })
-
-            console.log(" try response:", response);
-            console.log("try responce data:", response.data);
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            console.log("log de response:", response);
         }
         catch (error) {
             console.error('Erreur lors de la soumission du formulaire :', error);
+            console.log("erreur", error);
         };
     }
 

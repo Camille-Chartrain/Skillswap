@@ -47,7 +47,9 @@ const App = ({ darkMode, data, setData }) => {
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/registration" element={<Registration handleSubmit={handleSubmit} register={register} errors={errors} formState={formState} isSubmissing={isSubmissing} isSubmitSuccessful={isSubmitSuccessful} data={data} setData={setData} />} />
+                    <Route path="/registration" element={<Registration handleSubmit={handleSubmit} register={register} errors={errors} formState={formState} isSubmissing={isSubmissing} isSubmitSuccessful={isSubmitSuccessful}
+                    // data={data} setData={setData}
+                    />} />
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/dashboard" exact element={<Dashboard />} />
                     <Route path="*" element={<PageError />} />
