@@ -11,8 +11,8 @@ const authController = {
 
     registration: async function (req, res) {
         try {
-            // console.log("log du req", req.body);
-            // console.log("log du req.body.firstname", req.body.firstname);
+            console.log("log du req", req.body);
+            console.log("log du req.body.firstname", req.body.firstname);
 
             const checkUser = await User.findOne({
                 where: { email: req.body.email }
