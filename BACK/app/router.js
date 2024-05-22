@@ -24,8 +24,8 @@ router.post('/login', authController.login);
 
 //profile
 router.get('/profile', verifyToken, profileController.profile);
-router.patch('/profile', isLogged, profileController.modifProfile);
-router.delete('/profile', isLogged, profileController.deleteProfile);
+router.patch('/profile', verifyToken, profileController.modifProfile);
+router.delete('/profile', verifyToken, profileController.deleteProfile);
 
 //skill
 router.get('/skill', isLogged, skillController.skill);
