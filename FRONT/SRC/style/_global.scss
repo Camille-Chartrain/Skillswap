@@ -41,6 +41,19 @@ body {
         font-style: normal;
     }
 
+
+    .alert-success {
+        text-align: center;
+        background-color: rgba(108, 249, 131, 0.415);
+        color: var.$yellowBtn;
+    }
+
+
+    .error {
+        text-align: center;
+        background-color: rgba(242, 129, 101, 0.266);
+        color: var.$yellowBtn;
+    }
 }
 
 
