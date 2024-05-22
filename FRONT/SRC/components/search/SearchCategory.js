@@ -12,7 +12,7 @@ const SearchCategory = () => {
 
     return (
         <select id="category" value="all" name="category" onChange={handleChange} aria-label="selectionner par categorie">
-            <option value="all" size="15" >Categorie</option>
+            <option value="all" >Categorie</option>
 
             {/* {searchCategory?.map((category, index) => {
                 return (

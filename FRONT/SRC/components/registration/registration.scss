@@ -2,6 +2,7 @@
 @use '../../style/mixin';
 
 .formRegistration {
+    @include mixin.focus(var.$orangeBtn);
     display: flex;
     flex-direction: column;
     align-items: center;

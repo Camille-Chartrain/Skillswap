@@ -19,6 +19,7 @@
 
     .profile {
         @include mixin.mobileFirst();
+        @include mixin.focus(var.$orangeBtn);
         display: flex;
         flex-direction: row;
         justify-content: center;

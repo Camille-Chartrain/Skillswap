@@ -2,7 +2,7 @@
 @use '../../style/var';
 
 dashboard {
-    @include mixin.focus();
+    @include mixin.focus(var.$orangeBtn);
 
     h1 {
         padding: 1rem;

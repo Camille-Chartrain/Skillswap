@@ -37,15 +37,11 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
             console.log("erreur", error);
         };
     }
-    useEffect(() => {
-        if (isSubmitSuccessful) {
-            setError('');
-        }
-    }, [isSubmitSuccessful]);
-
-
-
-
+    // useEffect(() => {
+    //     if (isSubmitSuccessful) {
+    //         setError('');
+    //     }
+    // }, [isSubmitSuccessful]);
 
 
     return (

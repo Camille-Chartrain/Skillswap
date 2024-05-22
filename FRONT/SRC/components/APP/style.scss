@@ -2,7 +2,7 @@
 @use '../../style/mixin';
 
 
-@include mixin.focus();
+@include mixin.focus(var.$orangeBtn);
 
 .dark {
     background: #333;

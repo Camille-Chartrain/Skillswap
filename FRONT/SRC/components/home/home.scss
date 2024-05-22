@@ -14,5 +14,5 @@ article {
 }
 
 home {
-    @include mixin.focus();
+    @include mixin.focus(var.$orangeBtn);
 }
