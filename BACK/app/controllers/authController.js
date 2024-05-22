@@ -26,12 +26,17 @@ const authController = {
             // validation of password
             const options = { minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
 
+
             if (!validator.isStrongPassword(req.body.password, options)) {
 
                 res.status(400).send('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial')
 
 
                 // return res.send('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
+
+                // if (!validator.isStrongPassword(req.body.password, options)) {
+                // throw new Error('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
+
             }
 
             const user = await User.create(

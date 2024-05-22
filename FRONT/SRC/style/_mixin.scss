@@ -15,7 +15,8 @@
     input:focus-visible,
     textarea:focus-visible,
     select:focus-visible,
-    button:focus-visible {
+    button:focus-visible,
+    link:focus-visible {
         background: var.$orangeBtn;
     }
 }

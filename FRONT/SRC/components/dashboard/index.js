@@ -13,7 +13,7 @@ const Dashboard = () => {
 
         <>
             <main>
-                <h1>Tableau de bord</h1>
+                <h1>TABLEAU DE BORD</h1>
                 <Profile />
                 <Learning />
                 <Statistic />
