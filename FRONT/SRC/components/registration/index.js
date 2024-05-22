@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
 
 
 
-const Registration = ({ handleSubmit, register, errors, formState, isSubmissing, isSubmitSuccessful }) => {
+const Registration = ({ handleSubmit, register, errors, formState: { isValid }, isSubmitSuccessful }) => {
 
-    //->state about post datas
-    const [data, setData] = useState([]);
-    console.log('state data :', data);
+
     //-> function to send datas in the back and api's call
     const onSubmit = async (data) => {
-        setData(data)
+
         console.log('onsubmit data:', data);
         try {
             console.log('try data:', data);
             const response = await fetch('http://localhost:3000/registration', {
                 method: "post",
-                body: data
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
             })
-
+            const dataFetch = await response.json();
             console.log(" try response:", response);
-            console.log("try responce data:", response.data);
+            console.log("try responce data:", dataFetch);
         }
         catch (error) {
             console.error('Erreur lors de la soumission du formulaire :', error);
@@ -47,16 +47,19 @@ const Registration = ({ handleSubmit, register, errors, formState, isSubmissing,
                     {<span>{errors?.email?.message}</span>}
 
                     <label htmlFor="password">Mot de passe :</label>
-                    <input type="password" id="password" name="password" {...register('password', { required: 'Mot de passe obligatoire' })} size="35" placeholder="  12 caracteres minimun" />
+                    <input type="password" id="password" name="password" className="isValid"{...register('password', {
+                        required: 'Le mot de passe doit comporter au moins 12 caracteres et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractere special'
+                    })} size="35" placeholder="  12 caracteres minimun" />
                     {<span>{errors?.password?.message}</span>}
 
                     <label htmlFor="confPassword">Confirmer votre mot de passe :</label>
                     <input type="password" id="confPassword" name="confPassword" {...register('confPassword', { required: 'Confirmation mot de passe obligatoire' })} size="35" />
                     {<span>{errors?.confPassword?.message}</span>}
 
-                    <button type="submit" disabled={isSubmissing}>VALIDER</button>
+                    <button type="submit" disabled={!isValid}> VALIDER</button>
                 </form>
-            </div>
+
+            </div >
         </>
     )
 }

@@ -7,7 +7,7 @@ TRUNCATE TABLE "user", "skill", "category","sub_category","meeting","interest" R
 INSERT INTO "category"("name", "picture") VALUES
 -- premier categorie
 ('Langage', 
-'imageCategory/languageSkillswap.jpg'),
+'db/imageCategory/languageSkillswap.jpg'),
 
 -- deuxième categorie
 ('Bricolage',

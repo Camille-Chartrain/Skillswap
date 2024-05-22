@@ -22,7 +22,7 @@ const authController = {
             }
             // validation of password
             const options = { minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
-            if (!validator.isStrongPassword(req.body.hash, options)) {
+            if (!validator.isStrongPassword(req.body.password, options)) {
                 throw new Error('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
             }
 
@@ -31,7 +31,7 @@ const authController = {
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
                     email: req.body.email,
-                    hash: req.body.hash
+                    hash: req.body.password
                 },
             );
             console.log('log du user', user);

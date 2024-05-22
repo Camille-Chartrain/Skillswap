@@ -2,42 +2,58 @@
 
 .arianaWire {
     display: flex;
-    flex-direction: column;
-    background-color: var.$yelloWrite;
-    justify-content: right;
-
-}
-
-.searchBar {
-    display: flex;
     flex-direction: row;
-    justify-content: space-around;
     background-color: var.$yelloWrite;
-    border-radius: 0.3rem;
+    justify-content: flex-end;
+    width: auto;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+
+    .searchBar {
+        display: flex;
+        flex-direction: row;
+        align-content: left;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: var.$yelloWrite;
+        border-radius: 0.3rem;
+        margin-bottom: 1rem;
+
+    }
+
 
     .logo {
         justify-content: start;
-        width: 30px;
-        height: 30px;
+        width: 4.5rem;
+        height: 4.5rem;
     }
 
-    option {
-        size: 25px;
-    }
+    // option,
+    // input,
+    // select {
+    //     size: 3rem;
+    // }
 
     input,
-    select {
+    select,
+    option {
         margin: 0.4rem;
         padding: 0.2rem;
         background-color: var.$orangeBtn;
         color: var.$yelloWrite;
         border-color: solid 0.2rem var.$orangeBtn;
+        size: 6rem;
+        height: 4rem;
+
     }
 
     button {
-        width: 25px;
-        height: 25px;
+        width: 7rem;
+        height: 4rem;
         background-color: var.$orangeBtn;
+        margin: 0.4rem;
+        padding: 0.2rem;
 
         .btnSearch {
             justify-content: center;
@@ -59,6 +75,8 @@
 
     img {
         margin: 0.5rem;
+        width: 3rem;
+        height: 3rem;
     }
 
 }

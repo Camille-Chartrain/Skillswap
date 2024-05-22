@@ -15,6 +15,7 @@ import cors from "cors";
 import router from './app/router.js';
 import addUserData from './app/middlewares.js/addUserData.js';
 import { json } from 'sequelize';
+import path from 'path';
 
 dotenv.config();
 const app = express();
@@ -63,7 +64,7 @@ app.use(cors());
 // server.listen(port, () => {
 //     console.log(`App listening on https://localhost:${port}`);
 // });
-app.use(express.static('./imageCategory'));
+app.use(express.static('./public'));
 
 app.use(session({
     saveUninitialized: true,

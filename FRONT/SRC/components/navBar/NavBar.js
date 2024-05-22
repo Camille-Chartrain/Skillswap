@@ -22,7 +22,10 @@ const NavBar = () => {
     return (
         <>
             <span className="arianaWire">
-
+                <div className='searchBar'>
+                    <Search />
+                    <ToggleBtn />
+                </div>
                 <div className='ancre'>
                     <>
                         {/* <a href="/dashboard" alt="dashboard du membre" ><img className="" src={dashboard} alt=' icone du tableau de bord ' /></a> */}
@@ -34,10 +37,7 @@ const NavBar = () => {
                         {/* ) : (<a href="/" alt="accueil" ></a>)} */}
                     </>
                 </div>
-                <div className='searchBar'>
-                    <Search />
-                    <ToggleBtn />
-                </div>
+
             </span >
         </>
     )
