@@ -9,8 +9,10 @@ const Registration = ({ handleSubmit, register, errors, formState: { isValid }, 
     //-> errors from front
     const { errors } = useForm();
 
+
     //-> function to send datas in the back and api's call
     const onSubmit = async (data) => {
+
 
         try {
             console.log('try data:', data);
@@ -19,23 +21,27 @@ const Registration = ({ handleSubmit, register, errors, formState: { isValid }, 
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data),
+
+                body: JSON.stringify(data)
             });
+            console.log("log de response:", response);
             const dataFetch = await response.json();
             console.log(" try response:", dataFetch);
 
             //->in case ,fetch back's errors  for show it to user
-
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(errorData.error);
             }
+
         }
         catch (error) {
             setError(error.message);
             console.error('Erreur lors de la soumission du formulaire :', error);
-        }
-    };
+            console.log("erreur", error);
+        };
+    }
+
 
 
     return (

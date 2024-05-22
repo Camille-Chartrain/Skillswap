@@ -11,19 +11,32 @@ const authController = {
 
     registration: async function (req, res) {
         try {
+            // console.log("log de req:", req);
             console.log("log du req", req.body);
             console.log("log du req.body.firstname", req.body.firstname);
 
             const checkUser = await User.findOne({
                 where: { email: req.body.email }
             });
+            console.log('nous sommes apres le checkuser');
             if (checkUser) {
-                res.send('Un utilisateur utilise déjà cette adresse email')
+                return res.send('Un utilisateur utilise déjà cette adresse email')
             }
+            console.log('nous sommes apres le checkuser');
             // validation of password
             const options = { minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
+
+
             if (!validator.isStrongPassword(req.body.password, options)) {
-                throw new Error('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
+
+                res.status(400).send('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial')
+
+
+                // return res.send('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
+
+                // if (!validator.isStrongPassword(req.body.password, options)) {
+                // throw new Error('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
+
             }
 
             const user = await User.create(
@@ -70,7 +83,8 @@ const authController = {
             //     res.send("user okay")
         } catch (error) {
             console.error(error.message);
-            res.render('error');
+            res.render(error.message);
+
         }
     },
 
@@ -94,11 +108,12 @@ const authController = {
                     console.log(req.session.userId);
                 }
                 else {
-                    res.render('login', { alert: 'Mauvais couple identifiant/mot de passe' });
+                    res.send('login', { alert: 'Mauvais couple identifiant/mot de passe' });
                 }
             }
             else {
-                throw new Error('Mauvais couple identifiant/mot de passe');
+
+                res.send('login', { alert: '2Mauvais couple identifiant/mot de passe' });
             }
 
             res.send("user connected");
