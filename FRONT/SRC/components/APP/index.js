@@ -31,7 +31,7 @@ const App = ({ darkMode }) => {
     const { handleSubmit, register, formState: { isSubmissing, isSubmitSuccessful, errors } } = useForm({ mode: 'onTouched' });
 
     return (
-        <main className={theme}>
+        <div className={theme}>
 
             <Router className="arianaWire">
                 <Header />
@@ -53,7 +53,7 @@ const App = ({ darkMode }) => {
                 </Routes>
             </Router>
             <Footer />
-        </main>
+        </div>
     )
 }
 export default App;
