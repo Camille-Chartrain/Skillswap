@@ -32,6 +32,7 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
             setError(dataFetch.error);
             setToken(dataFetch.token);
             console.log("tout va bien :", dataFetch);
+            console.log("datafetch accesstoken", dataFetch.accessToken);
 
         }
         catch (error) {
