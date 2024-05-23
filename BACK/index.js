@@ -15,8 +15,6 @@ import cors from "cors";
 import router from './app/router.js';
 import addUserData from './app/middlewares.js/addUserData.js';
 
-import { json } from 'sequelize';
-import path from 'path';
 
 dotenv.config();
 const app = express();

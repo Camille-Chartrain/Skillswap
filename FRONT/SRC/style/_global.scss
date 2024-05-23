@@ -9,6 +9,8 @@ body {
     font-family: 'prompt', 'sans-serif';
     font-size: 1.5rem;
     line-height: 2rem;
+    width: 100%;
+
 
     form {
         display: flex;
@@ -61,6 +63,7 @@ body {
 }
 
 
+
 h1,
 h2 {
     text-align: center;
@@ -87,13 +90,12 @@ label {
 
 input,
 select,
-option {
-    height: 4rem;
-    width: 18rem;
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 0.4rem;
-    padding: 0.2rem;
-
+{
+height: 2.5rem;
+width: 25rem;
+font-size: 1.5rem;
+text-align: justify;
+margin: 0.4rem;
+padding: 0.2rem;
 
 }

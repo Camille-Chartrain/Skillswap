@@ -28,7 +28,7 @@ const Profile = ({ input, skillsList }) => {
 
 
     return (
-        <>
+        <main>
             <div className="changeProfile">
                 <h2 id="profile">Profil</h2>
                 <form method="POST" onSubmit={handleSubmit} className="profile">
@@ -154,7 +154,7 @@ const Profile = ({ input, skillsList }) => {
                 </div>
                 <button type="reset" className="redBtn" size="30">SUPPRIMER LE COMPTE</button>
             </div >
-        </>
+        </main>
     )
 
 };
