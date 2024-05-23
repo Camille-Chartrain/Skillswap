@@ -24,7 +24,7 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
             const dataFetch = await response.json();
             console.log(" try response:", dataFetch);
 
-            // //->in case ,fetch back's errors  for show it to user
+            //->in case ,fetch back's errors  for show it to user
             {
                 if (!response.ok) {
                     const errorData = await response.json();

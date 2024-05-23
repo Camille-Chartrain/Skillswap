@@ -34,6 +34,7 @@ const App = ({ darkMode }) => {
     return (
         <div className={theme}>
 
+
             <Router className="arianaWire">
                 <Header />
                 <nav className="nav">
@@ -47,7 +48,6 @@ const App = ({ darkMode }) => {
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/dashboard" exact element={<Dashboard />} />
@@ -55,6 +55,7 @@ const App = ({ darkMode }) => {
                 </Routes>
             </Router>
             <Footer />
+
         </div>
     )
 }
