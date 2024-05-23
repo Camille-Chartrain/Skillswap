@@ -18,7 +18,8 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
             const response = await fetch('http://localhost:3000/registration', {
                 method: "post",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'accessToken',
                 },
                 body: JSON.stringify(data)
 
@@ -53,15 +54,8 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
     return (
         <main>
             <h2>Inscription</h2>
-<<<<<<< HEAD
-
-            {/* show back'serror */}
-            {/* {error && <div className="error">{error}</div>} */}
-
-=======
             <div className="error">
                 {error === 'Le mot de passe doit comporter au moins 12 caracteres et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractere special' || 'Un utilisateur utilise déjà cette adresse email' ? error : ("")}</div>
->>>>>>> 81057fa93e2237ba35f5468445702f21d1de5d72
             <div>
                 {token === "accessToken" ? "Merci de votre iscription" : ("")}
 
