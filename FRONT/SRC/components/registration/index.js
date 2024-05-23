@@ -51,9 +51,8 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
     return (
         <>
             <h2>Inscription</h2>
-            {isSubmitSuccessful && <div className="alert-success">Merci pour votre inscription</div>}
 
-            //= show back'serror
+            {/* show back'serror */}
             {/* {error && <div className="error">{error}</div>} */}
 
             <div>
