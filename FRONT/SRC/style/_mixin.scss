@@ -10,14 +10,14 @@
 }
 
 //* focus for help and accessibility
-@mixin focus {
+@mixin focus ($color) {
 
     input:focus-visible,
     textarea:focus-visible,
     select:focus-visible,
     button:focus-visible,
     link:focus-visible {
-        background: var.$orangeBtn;
+        background: $color;
     }
 }
 

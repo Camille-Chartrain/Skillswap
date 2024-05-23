@@ -14,8 +14,8 @@ const SearchSubCategory = () => {
 
     return (
         <>
-            <select id="subCategory" name="subCategory" onChange={handleChange} aria-label="selectionner par sous-categorie">
-                <option value="all" size="24" selected>Sous-categorie</option>
+            <select id="subCategory" value="all" name="subCategory" onChange={handleChange} aria-label="selectionner par sous-categorie">
+                <option value="all" >Sous-categorie</option>
 
                 {searchSubCategory?.map((subCategory, id) => {
                     return (
@@ -23,8 +23,8 @@ const SearchSubCategory = () => {
                     )
                 })}
 
-                {/* <select id="subCategories" name="subCategories"> */}
-                <option value="" selected>choisissez votre sous-categorie</option>
+                {/* <select id="subCategories" name="subCategories" value="all"> */}
+                <option value="all" >choisissez votre sous-categorie</option>
 
                 <option value="">---------------sous-categorie Language---------------</option>
 

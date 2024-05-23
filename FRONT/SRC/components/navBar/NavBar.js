@@ -13,7 +13,7 @@ import logout from '../../style/pictures/logout.svg';
 
 
 // import { isLogged } from '../../util';
-
+// {isLogged?():()}
 
 //= Routes displayed depending if you are logged or not.. with islogged
 

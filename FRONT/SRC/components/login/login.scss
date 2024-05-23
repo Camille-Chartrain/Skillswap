@@ -19,11 +19,15 @@
         margin: 0.5rem;
         border-radius: 0.2rem;
         background-color: var.$yelloWrite;
+        width: 30rem;
     }
 
     button {
         @include mixin.buttonStyle(var.$blueBtn, var.$yelloWrite);
+        width: 10rem;
+        height: 2rem;
+        margin: 1.5rem;
     }
 
-    @include mixin.focus();
+    @include mixin.focus(var.$orangeBtn);
 }

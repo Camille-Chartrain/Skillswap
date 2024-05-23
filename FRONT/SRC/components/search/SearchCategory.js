@@ -11,8 +11,8 @@ const SearchCategory = () => {
     }
 
     return (
-        <select id="category" name="category" onChange={handleChange} aria-label="selectionner par categorie">
-            <option value="all" size="15" selected>Categorie</option>
+        <select id="category" value="all" name="category" onChange={handleChange} aria-label="selectionner par categorie">
+            <option value="all" >Categorie</option>
 
             {/* {searchCategory?.map((category, index) => {
                 return (
@@ -20,14 +20,14 @@ const SearchCategory = () => {
                 )
             })} */}
 
-            {/* {/* <select id="categories" name="categories" > */}
-            {/* <option value="" selected >choisissez votre categorie</option>
+            {/* {/* <select id="categories" name="categories"  value="all">  */}
+            <option value="all" >choisissez votre categorie</option>
             <option value="Language" >Language</option>
             <option value="Bricolage" >Bricolage</option>
             <option value="DIY" >Produits DIY</option>
             <option value="Cuisine" >Cuisine</option>
             <option value="Art" >Art</option>
-            <option value="Scolaire" >Scolaire</option> */}
+            <option value="Scolaire" >Scolaire</option>
         </select>
 
 

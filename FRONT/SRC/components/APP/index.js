@@ -12,7 +12,7 @@ import Dashboard from '../dashboard';
 import { DarkModeContext, PageError, isLogged } from '../../util';
 import { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import { useForm, formState, errors } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 
 //* we call render on the container and give it the component for the view.here we placed the router to display the routes to navigate between the components
@@ -28,11 +28,10 @@ const App = ({ darkMode }) => {
     console.log('je suis ds app, theme:', theme);
 
     //-> hook form create to post datas
-    const { handleSubmit, register, formState, errors } = useForm({ mode: 'onTouched' });
-    const { isSubmissing, isSubmitSuccessful } = formState;
+    const { handleSubmit, register, formState: { isSubmissing, isSubmitSuccessful, errors } } = useForm({ mode: 'onTouched' });
 
     return (
-        <body className={theme}>
+        <main className={theme}>
 
             <Router className="arianaWire">
                 <Header />
@@ -47,18 +46,14 @@ const App = ({ darkMode }) => {
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-
-
-                    <Route path="/registration" element={<Registration handleSubmit={handleSubmit} register={register} errors={errors} formState={formState} isSubmissing={isSubmissing} isSubmitSuccessful={isSubmitSuccessful} />} />
-
+                    <Route path="/registration" element={<Registration handleSubmit={handleSubmit} register={register} errors={errors} isSubmissing={isSubmissing} isSubmitSuccessful={isSubmitSuccessful} />} />
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/dashboard" exact element={<Dashboard />} />
                     <Route path="*" element={<PageError />} />
                 </Routes>
             </Router>
-
             <Footer />
-        </body >
+        </main>
     )
 }
 export default App;

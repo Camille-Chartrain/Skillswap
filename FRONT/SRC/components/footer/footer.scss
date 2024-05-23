@@ -7,7 +7,7 @@ a {
 }
 
 .footer {
-    @include mixin.focus();
+    @include mixin.focus(var.$orangeBtn);
     display: flex;
     justify-content: space-around;
     align-content: space-around;
@@ -15,5 +15,3 @@ a {
     padding: 2rem;
     color: var.$blackWrite;
 }
-
-// footer {}
