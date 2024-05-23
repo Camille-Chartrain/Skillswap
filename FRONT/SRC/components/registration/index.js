@@ -6,7 +6,7 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
 
     //-> show error from back{
     const [error, setError] = useState([]);
-    const [token, setToken] = useState(null);
+    const [token, setToken] = useState([]);
 
     const url = "/dashboard";
 
@@ -18,7 +18,8 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
             const response = await fetch('http://localhost:3000/registration', {
                 method: "post",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'accessToken',
                 },
                 body: JSON.stringify(data)
 
@@ -27,10 +28,10 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
             const dataFetch = await response.json();
             console.log(" try response:", dataFetch);
             console.log(dataFetch.error);
-
+            console.log("tout va bien :", dataFetch.accessToken);
             setError(dataFetch.error);
-            setToken(dataFetch.token);
-            console.log("tout va bien :", dataFetch);
+            setToken(dataFetch.accessToken);
+
 
         }
         catch (error) {
@@ -42,11 +43,10 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
         };
     }
 
-    // useEffect(() => {
-    //     if (isSubmitSuccessful) {
-    //         setError('');
-    //     }
-    // }, [isSubmitSuccessful]);
+
+
+
+
 
 
 
@@ -56,7 +56,7 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
             <div className="error">
                 {error === 'Le mot de passe doit comporter au moins 12 caracteres et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractere special' || 'Un utilisateur utilise déjà cette adresse email' ? error : ("")}</div>
             <div>
-                {token === "accessToken" ? "Merci de votre iscription" : ("")}
+                {token === "accessToken" ? "Merci de votre iscription" : "Veuillez vous connecter"}
 
 
                 <form method="POST" onSubmit={handleSubmit(onSubmit)} className="formRegistration">
