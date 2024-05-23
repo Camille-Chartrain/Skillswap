@@ -27,10 +27,6 @@ const authController = {
             const options = { minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
 
             if (!validator.isStrongPassword(req.body.password, options)) {
-
-                // res.status(400).send('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial')
-                // return res.send('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
-                // if (!validator.isStrongPassword(req.body.password, options)) {
                 throw new Error('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
             }
 
@@ -65,14 +61,14 @@ const authController = {
             // );
 
             const username = {
-                name: req.body.firstname,
+                // name: req.body.firstname,
                 email: req.body.email,
-                lastname: req.body.lastname,
+                // lastname: req.body.lastname,
                 id: user.id
             }
 
             const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
-            console.log('accesstoken==================', accessToken);
+            console.log('token crée dans registration=================', accessToken);
             res.json({ accessToken: accessToken })
 
             //     res.send("user okay")
@@ -86,35 +82,58 @@ const authController = {
 
     login: async function (req, res) {
         try {
-            // Authentification of the user
+            // Authentification of the user, check if a mating user is founded in the db
             const user = await User.findOne({ where: { email: req.body.email } });
-            console.log('log de user', user);
-            //check if a mating user is founded in the db
+            console.log('infos du user:',
+                user.id,
+                user.firstname,
+                user.lastname,
+                user.email,
+                user.role);
+
+            //if a user is founded, we check his password with the hash in the db
             if (user !== null) {
-                // Verify password
-                console.log('nous sommes dans le if', user);
-                console.log(user.hash);
-                const result = await bcrypt.compare(req.body.hash, user.hash);
-                console.log("result", result);
+                console.log('nous sommes dans le if, un user existe bien avec cet email');
+                const result = await bcrypt.compare(req.body.password, user.hash);
+                console.log("result du bcrypt.compare", result);
+
+                // if the email and the password match, then we check if the user has a token already or not
                 if (result) {
-                    console.log('dans le result');
-                    // si c'est ok on est connecté
-                    req.session.isLogged = true;
-                    req.session.userId = user.id;
-                    console.log(req.session.userId);
+                    console.log('dans le result, la comparaison du mot de passe est ok');
+                    const authHeader = req.headers['authorization'];
+                    // console.log("req.headers['authorization']:", req.headers);
+                    const token = authHeader && authHeader.split(' ')[1]
+
+                    if (token) {
+                        jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+                            if (err) {
+                                throw new Error('Token invalide')
+                            }
+                            req.user = user;
+                            console.log("req.user", req.user);
+                        });
+                    }
+
+                    // if the user doesn't have a token we create one and we sent it to him
+                    else if (token == null) {
+                        const username = {
+                            email: req.body.email,
+                            id: user.id
+                        }
+                        const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
+                        console.log('token crée dans login==================', accessToken);
+                        res.json({ accessToken: accessToken })
+                    }
                 }
                 else {
-                    res.send('login', { alert: 'Mauvais couple identifiant/mot de passe' });
+                    throw new Error('Mauvais couple identifiant/mot de passe');
                 }
             }
             else {
-
-                res.send('login', { alert: '2Mauvais couple identifiant/mot de passe' });
+                throw new Error('2Mauvais couple identifiant/mot de passe');
             }
-
-            res.send("user connected");
-
-        } catch (error) {
+        }
+        catch (error) {
             console.error(error.message);
             res.send(error.message);
         }

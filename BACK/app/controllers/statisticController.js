@@ -6,13 +6,13 @@ const statisticController = {
         try {
             const statistic = await Skill.findAll({
                 where: {
-                    UserId: req.session.userId
+                    UserId: req.user.id
                 },
                 attributes: ['title', 'description', 'mark'],
                 order: [['id']], // order ASC id
                 include: [{
                     model: User, // Table to join
-                    attributes: ['firstname', 'lastname'] // Select specified attributs of the table Commande
+                    attributes: ['firstname', 'lastname', 'swappies'] // Select specified attributs of the table Commande
                 }, {
                     model: Category,
                     attributes: ['picture', 'name']
@@ -34,3 +34,25 @@ const statisticController = {
 };
 
 export default statisticController;
+
+// requête sql:
+
+// SELECT "Skill"."id",
+// "Skill"."title",
+// "Skill"."description",
+// "Skill"."mark",
+// "User"."id" AS "User.id",
+// "User"."firstname" AS "User.firstname",
+// "User"."lastname" AS "User.lastname",
+// "User"."swappies" AS "User.swappies",
+// "Category"."id" AS "Category.id",
+// "Category"."picture" AS "Category.picture",
+// "Category"."name" AS "Category.name",
+// "Sub_category"."id" AS "Sub_category.id",
+// "Sub_category"."name" AS "Sub_category.name"
+// FROM "skill" AS "Skill"
+// LEFT OUTER JOIN "user" AS "User"
+// ON "Skill"."UserId" = "User"."id"
+// LEFT OUTER JOIN "category" AS "Category" ON "Skill"."CategoryId" = "Category"."id"
+// LEFT OUTER JOIN "sub_category" AS "Sub_category" ON "Skill"."SubCategoryId" = "Sub_category"."id"
+// WHERE "Skill"."UserId" = 54 ORDER BY "Skill"."id";
