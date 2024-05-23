@@ -28,7 +28,7 @@ const App = ({ darkMode }) => {
     console.log('je suis ds app, theme:', theme);
 
     //-> hook form create to post datas
-    const { handleSubmit, register, formState: { isSubmissing, isSubmitSuccessful }, errors } = useForm({ mode: 'onTouched' });
+    const { handleSubmit, register, formState: { isSubmissing, isSubmitSuccessful, errors } } = useForm({ mode: 'onTouched' });
 
     return (
         <main className={theme}>
@@ -53,7 +53,6 @@ const App = ({ darkMode }) => {
                     <Route path="*" element={<PageError />} />
                 </Routes>
             </Router>
-
             <Footer />
         </main>
     )
