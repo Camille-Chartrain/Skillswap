@@ -11,8 +11,9 @@ import dashboard from '../../style/pictures/dashboard.svg';
 import Dashboard from '../dashboard';
 import { DarkModeContext, PageError, isLogged } from '../../util';
 import { useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink, Form } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+
 
 
 //* we call render on the container and give it the component for the view.here we placed the router to display the routes to navigate between the components
@@ -28,10 +29,10 @@ const App = ({ darkMode }) => {
     console.log('je suis ds app, theme:', theme);
 
     //-> hook form create to post datas
-    const { handleSubmit, register, formState: { isSubmissing, isSubmitSuccessful, errors } } = useForm({ mode: 'onTouched' });
+    const { handleSubmit, register, formState, isSubmissing, isSubmitSuccessful, errors } = useForm({ mode: 'onTouched' });
 
     return (
-        <main className={theme}>
+        <div className={theme}>
 
             <Router className="arianaWire">
                 <Header />
@@ -47,14 +48,14 @@ const App = ({ darkMode }) => {
                 <Routes>
                     <Route path="/" element={<Home />} />
 
-                    <Route path="/registration" element={<Registration handleSubmit={handleSubmit} register={register} errors={errors} isSubmissing={isSubmissing} isSubmitSuccessful={isSubmitSuccessful} />} />
+                    <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/dashboard" exact element={<Dashboard />} />
                     <Route path="*" element={<PageError />} />
                 </Routes>
             </Router>
             <Footer />
-        </main>
+        </div>
     )
 }
 export default App;

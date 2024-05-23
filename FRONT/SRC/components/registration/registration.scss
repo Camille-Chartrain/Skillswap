@@ -12,18 +12,20 @@
     label {
         margin: 0.5rem;
         border-radius: 0.2rem;
-
     }
 
     Input {
         margin: 0.5rem;
-        border-radius: 0.2rem;
+        border-radius: 0.8rem;
         background-color: var.$yelloWrite;
 
     }
 
     button {
         @include mixin.buttonStyle (var.$blueBtn, var.$yelloWrite);
+        width: 10rem;
+        height: 2.3rem;
+        margin: 1.5rem;
     }
 
 }

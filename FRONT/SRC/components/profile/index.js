@@ -54,11 +54,11 @@ const Profile = ({ input, skillsList }) => {
                         <label htmlFor="email">Email :</label>
                         <input type="email" id="email" name="email" value={input} size="35" placeholder="  monadresse@gmail.com" />
 
-                        <label htmlFor="password">Mot de passe :</label>
-                        <input type="password" id="password" name="password" value={input} size="35" placeholder="  12 caracteres minimun" />
+                        {/* <label htmlFor="password">Modifier mot de passe :</label>
+                        <input type="newPassword" id="newPassword" name="newPassword" value={input} size="35" placeholder="  12 caracteres minimun" />
 
                         <label htmlFor="confPassword">Confirmer votre mot de passe :</label>
-                        <input type="password" id="confPassword" name="confPassword" value={input} size="35" />
+                        <input type="password" id="confPassword" name="confPassword" value={input} size="35" /> */}
 
                         <fieldset className="interest">
                             <legend><h4>Centres d'interets</h4></legend>

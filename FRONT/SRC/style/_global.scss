@@ -9,25 +9,16 @@ body {
     font-family: 'prompt', 'sans-serif';
     font-size: 1.5rem;
     line-height: 2rem;
-    width: 100%;
 
 
     form {
         display: flex;
     }
 
-
-    label {
-        margin: 0.5rem;
-        border-radius: 0.2rem;
-    }
-
     span {
         text-align: justify;
         line-height: 1.8rem;
     }
-
-
 
     .dark {
         background: #333;
@@ -86,16 +77,17 @@ label {
     line-height: 3rem;
     letter-spacing: 0.1rem;
     padding: 0.2rem;
+    margin: 0.5rem;
 }
 
 input,
-select,
-{
-height: 2.5rem;
-width: 25rem;
-font-size: 1.5rem;
-text-align: justify;
-margin: 0.4rem;
-padding: 0.2rem;
+select {
+    height: 2.5rem;
+    width: 25rem;
+    font-size: 1.5rem;
+    text-align: justify;
+    margin: 0.4rem;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
 
 }
