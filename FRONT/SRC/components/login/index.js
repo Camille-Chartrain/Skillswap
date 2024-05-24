@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Cookies from 'js-cookie';
+import { useState } from "react";
 
 const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSubmitSuccessful }) => {
 
@@ -28,8 +29,6 @@ const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSub
             console.log(error.message);
         }
     }
-
-
 
     return (
         <>

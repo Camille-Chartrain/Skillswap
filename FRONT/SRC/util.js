@@ -1,9 +1,6 @@
 
 //= create dark mode context
 import { createContext, useContext, useState } from "react";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import *as yup from "yup";
-
 import sunAndMoon from './style/pictures/sunAndMoon.svg';
 //-> need to create a context
 
@@ -42,10 +39,3 @@ export const PageError = () => {
 //= Routes displayed depending if you are logged or not..
 export const isLogged = false;
 
-// export const schema = yup.object().shape({
-//     firstname: yup.string().required(),
-//     lastname: yup.string().required(),
-//     email: yup.string().required(),
-//     password: yup.string().required(),
-//     newPassword: yup.string().required(),
-// });

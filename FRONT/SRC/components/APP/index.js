@@ -15,9 +15,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-// import { yupResolver } from '@hookform/resolvers/yup';
-// import * as yup from "yup";
-// import { schema } from '../../util';
+
 
 
 
@@ -36,11 +34,7 @@ const App = ({ darkMode }) => {
     console.log('je suis ds app, theme:', theme);
 
     //-> hook form create to post datas
-    const { handleSubmit, register, formState: { errors, isValid, isSubmitSuccessful } } = useForm({ mode: 'onSubmit' });
-
-    //-> tokens manage and storage 
-    // const [token, setToken] = useState('');
-
+    const { handleSubmit, register, formState } = useForm({ mode: 'onSubmit' });
 
     return (
         <div className={theme}>
