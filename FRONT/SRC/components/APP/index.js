@@ -11,8 +11,13 @@ import dashboard from '../../style/pictures/dashboard.svg';
 import Dashboard from '../dashboard';
 import { DarkModeContext, PageError, isLogged } from '../../util';
 import { useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink, Form } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import * as yup from "yup";
+// import { schema } from '../../util';
+
+
 
 
 
@@ -29,7 +34,7 @@ const App = ({ darkMode }) => {
     console.log('je suis ds app, theme:', theme);
 
     //-> hook form create to post datas
-    const { handleSubmit, register, formState, isSubmissing, isSubmitSuccessful, errors } = useForm({ mode: 'onTouched' });
+    const { handleSubmit, register, formState: { errors, isValid, isSubmitSuccessful } } = useForm({ mode: 'onSubmit' });
 
     return (
         <div className={theme}>
