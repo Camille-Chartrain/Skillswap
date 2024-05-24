@@ -30,8 +30,7 @@ const Registration = ({ handleSubmit, register, isValid, setToken, token }) => {
             const dataFetch = await response.json();
 
             console.log(" try response:", dataFetch);
-            console.log(dataFetch.error);
-
+            console.log("error?:", dataFetch.error);
             setError(dataFetch.error);
 
             console.log("tout va bien :", dataFetch.accessToken);
