@@ -8,7 +8,7 @@ const skillController = {
             // find by primary key
             const profile = await Skill.findAll({
                 where: {
-                    UserId: req.session.userId
+                    UserId: req.user.id
                 }
             });
             console.log(profile);
@@ -22,7 +22,7 @@ const skillController = {
         } catch (error) {
             console.log('je suis ds la catch');
             console.error(error.message);
-            res.render('error');
+            res.render('error:', error);
         }
     },
 
@@ -40,17 +40,17 @@ const skillController = {
                 availability: req.body.availability,
                 SubCategoryId: req.body.SubCategoryId,
                 CategoryId: req.body.CategoryId,
-                UserId: req.session.userId
+                UserId: req.user.id
             }, {
                 where: {
-                    UserId: req.session.userId
+                    UserId: req.user.id
                 }
             }
             );
             res.send("skill added to the user")
         } catch (error) {
             console.error(error.message);
-            res.render('error, skill not added');
+            res.render('error, skill not added', error);
         }
     },
 
@@ -86,7 +86,7 @@ const skillController = {
             );
         } catch (error) {
             console.error(error.message);
-            res.render('error');
+            res.render('error:', error);
         }
     },
 

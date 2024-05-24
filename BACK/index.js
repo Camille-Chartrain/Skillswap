@@ -1,5 +1,4 @@
 import express from 'express';
-import session from 'express-session';
 import * as dotenv from 'dotenv';
 // import https from 'https';
 // import fs from "fs";
@@ -13,14 +12,13 @@ import cors from "cors";
 // import Skill from './app/models/skill.js';
 // import Interest from './app/models/Interest.js';
 import router from './app/router.js';
-import addUserData from './app/middlewares.js/addUserData.js';
-
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
+
 // sequelize.sync({ alter: true }).then(() => {
 //     console.log("table and model synced successfully!")
 // }).then((data) => {
@@ -64,19 +62,6 @@ app.use(cors());
 //     console.log(`App listening on https://localhost:${port}`);
 // });
 app.use(express.static('./public'));
-
-app.use(session({
-    saveUninitialized: true,
-    resave: true,
-    secret: process.env.SECRET
-}));
-
-app.use((req, res, next) => {
-    res.locals.isLogged = req.session.isLogged;
-    next();
-})
-
-app.use(addUserData);
 
 app.use(router);
 

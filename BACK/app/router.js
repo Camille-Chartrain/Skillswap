@@ -5,7 +5,6 @@ import profileController from './controllers/profileController.js';
 import skillController from './controllers/skillController.js';
 import statisticController from './controllers/statisticController.js';
 import communicationController from './controllers/communicationController.js';
-import isLogged from './middlewares.js/isLogged.js';
 import verifyToken from './middlewares.js/verifyToken.js';
 
 const router = express.Router();
@@ -28,16 +27,16 @@ router.patch('/profile', verifyToken, profileController.modifProfile);
 router.delete('/profile', verifyToken, profileController.deleteProfile);
 
 //skill
-router.get('/skill', isLogged, skillController.skill);
-router.post('/skill', isLogged, skillController.createSkill);
-router.patch('/skill/:skillId', isLogged, skillController.modifSkill);
-router.delete('/skill/:skillId', isLogged, skillController.deleteSkill);
+router.get('/skill', verifyToken, skillController.skill);
+router.post('/skill', verifyToken, skillController.createSkill);
+router.patch('/skill/:skillId', verifyToken, skillController.modifSkill);
+router.delete('/skill/:skillId', verifyToken, skillController.deleteSkill);
 
 //statistics
-router.get('/statistic', isLogged, statisticController.statistic);
+router.get('/statistic', verifyToken, statisticController.statistic);
 
 //communication
-router.get('/communication', isLogged, communicationController.communication);
+router.get('/communication', verifyToken, communicationController.communication);
 // router.post('/communication', communicationController.createCommunication);
 // router.patch('/communication', communicationController.modifCommunication)
 // router.delete('/communication', communicationController.deleteCommunication)

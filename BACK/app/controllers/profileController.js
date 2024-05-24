@@ -4,9 +4,8 @@ const profileController = {
 
     profile: async function (req, res) {
         try {
-            console.log(req.params);
             console.log("req.headers", req.headers);
-            console.log('req.sessions.userId', req.session.userId);
+            console.log('req.user.id', req.user.id);
             // find by primary key
             const profile = await User.findByPk(req.user.id, {
                 attributes: ['firstname',
@@ -56,7 +55,7 @@ const profileController = {
             if (birthday !== "") {
                 updateFields.birthday = req.body.birthday
             }
-            console.log('log sesssion', req.session.userId);
+            console.log('user id', req.user.id);
             await User.update(
 
                 updateFields, {
@@ -119,7 +118,7 @@ const profileController = {
             );
         } catch (error) {
             console.error(error.message);
-            res.render('error');
+            res.render('error:', error);
         }
     },
 };
