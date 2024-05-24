@@ -4,12 +4,7 @@ import { useForm } from "react-hook-form";
 const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSubmitSuccessful }) => {
 
     const [isLogged, setIsLogged] = useState(true);
-    // const [token, setToken] = useState(null);
 
-    // const handleSubmit = (e) => {
-    //     e.eventDefault();
-    //     setIsLogged();
-    // }
 
     const GetIsLogged = async (data) => {
 
@@ -19,24 +14,22 @@ const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSub
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `accessToken ${token}`,
-                    'location': '/dashboard',
+                    'Authorization': token,
                 },
                 body: JSON.stringify(data)
             })
 
             const dataIsLogged = await response.json();
-            // setIsLogged(dataIsLogged)
             console.log('try :', dataIsLogged)
-            setToken(dataIsLogged.accessToken);
 
+            setToken(dataIsLogged.accessToken);
             console.log("comment ca se passe:", dataIsLogged.accessToken)
         }
         catch (error) {
             console.log(error.message);
         }
     }
-    // useEffect(() => { GetIsLogged() }, []);
+
 
 
     return (
@@ -57,7 +50,7 @@ const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSub
                 <input id="password" type="password" name="password" placeholder="Saisissez votre mot de passe" {...register('password', { required: "Mot de passe requis" })} size="35" />
                 {errors?.password?.type === 'required' && (<p role="alert" className="error">{errors?.password?.message}</p>)}
 
-                <button diseable={isValid, isSubmitSuccessful}>VALIDER</button>
+                <button diseable={isValid}>VALIDER</button>
             </form>
         </>
     )

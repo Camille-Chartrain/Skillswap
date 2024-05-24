@@ -11,8 +11,6 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
     //-> show error from back{
     const [error, setError] = useState([]);
 
-    const url = "/dashboard";
-
     //-> function to send datas in the back and api's call
     const onSubmit = async (data) => {
 
@@ -24,24 +22,22 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'accessToken',
-                    'location': '/dashboard',
                 },
                 body: JSON.stringify(data)
             });
 
-
-            const fetchStatus = response.status;
-            console.log('response.status:', fetchStatus);
-
             const dataFetch = await response.json();
             console.log(" try response:", dataFetch);
             console.log(dataFetch.error);
-            console.log(dataFetch.status);
 
             setError(dataFetch.error);
             setToken(dataFetch.accessToken);
 
             console.log("tout va bien :", dataFetch.accessToken);
+            console.log("retour status:", response.status);
+
+
+
 
         }
         catch (error) {
@@ -85,7 +81,7 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
                     {errors?.newPassword && (<small className="error">{errors?.newPassword?.message}</small>)}
 
 
-                    <button type="submit" disabled={isValid, isSubmitSuccessful} > VALIDER</button>
+                    <button type="submit" disabled={isValid} > VALIDER</button>
                 </form>
 
             </div >
