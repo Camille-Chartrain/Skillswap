@@ -17,7 +17,6 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json())
 
 // sequelize.sync({ alter: true }).then(() => {
 //     console.log("table and model synced successfully!")
@@ -43,12 +42,23 @@ app.use(express.json())
 // });
 
 // gestion of CORS
-// app.use(cors({
-//     origin: ['http://localhost:1234', 'http://localhost:3000'], // Autoriser les requêtes uniquement à partir de ce domaine
-//     methods: ['GET', 'POST', 'PATCH', 'DELETE'] // Autoriser uniquement les méthodes précisées
-// }));
+app.use(cors({
+    origin: ['http://localhost:1234', 'http://localhost:3000'], // Autoriser les requêtes uniquement à partir de ce domaine
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
+    credentials: true
+}));
 
-app.use(cors());
+// app.use(cors());
+
+
+
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:1234');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//     next();
+// });
+
 
 // // Read SSL certificate and key files
 // const options = {
@@ -61,6 +71,7 @@ app.use(cors());
 // server.listen(port, () => {
 //     console.log(`App listening on https://localhost:${port}`);
 // });
+app.use(express.json())
 app.use(express.static('./public'));
 
 app.use(router);

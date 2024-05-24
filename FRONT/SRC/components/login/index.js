@@ -1,29 +1,28 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import Cookies from 'js-cookie';
 
 const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSubmitSuccessful }) => {
 
     const [isLogged, setIsLogged] = useState(true);
 
-
     const GetIsLogged = async (data) => {
 
         try {
+            const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/login`, {
                 method: "post",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': token,
+                    'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(data),
+                credentials: 'include'
             })
-
+            console.log("response avant .json", response);
             const dataIsLogged = await response.json();
-            console.log('try :', dataIsLogged)
-
-            setToken(dataIsLogged.accessToken);
-            console.log("comment ca se passe:", dataIsLogged.accessToken)
+            console.log('reponse apres .json :', dataIsLogged)
         }
         catch (error) {
             console.log(error.message);

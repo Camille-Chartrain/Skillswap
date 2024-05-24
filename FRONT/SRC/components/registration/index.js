@@ -2,11 +2,12 @@ import { useEffect, useState } from "react"
 import { useForm } from 'react-hook-form';
 // import { schema } from '../../util';
 // import { yupResolver } from "@hookform/resolvers/yup";
+import Cookies from 'js-cookie';
 
 
 
 
-const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccessful, setToken }) => {
+const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccessful, setToken, }) => {
 
     //-> show error from back{
     const [error, setError] = useState([]);
@@ -27,18 +28,16 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
 
             });
             console.log('response.status:', response.status);
+
             const dataFetch = await response.json();
-            console.log(" try response:", dataFetch);
+            console.log(" response apres .json:", dataFetch);
+
+            const token = dataFetch.accessToken;
+            console.log("token", token);
+            Cookies.set('token', token);
+
             console.log("error?:", dataFetch.error);
             setError(dataFetch.error);
-            setToken(dataFetch.accessToken);
-
-            console.log("tout va bien :", dataFetch.accessToken);
-            console.log("retour status:", response.status);
-
-
-
-
         }
         catch (error) {
             console.log("erreur", error);

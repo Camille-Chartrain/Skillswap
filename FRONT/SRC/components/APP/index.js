@@ -39,14 +39,14 @@ const App = ({ darkMode }) => {
     const { handleSubmit, register, formState: { errors, isValid, isSubmitSuccessful } } = useForm({ mode: 'onSubmit' });
 
     //-> tokens manage and storage 
-    const [token, setToken] = useState(null);
+    // const [token, setToken] = useState('');
 
 
     return (
         <div className={theme}>
 
             <Router className="arianaWire">
-                {token ? <Navigate to="/dashboard" /> : null}
+                {/* {token ? <Navigate to="/dashboard" /> : null} */}
                 <Header />
                 <nav className="nav">
                     <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
@@ -59,9 +59,9 @@ const App = ({ darkMode }) => {
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} setToken={setToken} token={token} />} />
+                    <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
 
-                    <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} setToken={setToken} token={token} />} />
+                    <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} />} />
                     <Route path="/dashboard" exact element={<Dashboard />} />
                     <Route path="*" element={<PageError />} />
 

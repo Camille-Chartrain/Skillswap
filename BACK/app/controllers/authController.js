@@ -6,23 +6,21 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 
-
 const authController = {
 
     registration: async function (req, res) {
         try {
-            // console.log("log de req:", req);
             console.log("log du req", req.body);
-            console.log("log du req.body.firstname", req.body.firstname);
 
             const checkUser = await User.findOne({
                 where: { email: req.body.email }
             });
-            console.log('nous sommes apres le checkuser');
+            console.log('Un user avec ce mail existe déjà');
+
             if (checkUser) {
                 throw new Error('Un utilisateur utilise déjà cette adresse email')
             }
-            console.log('nous sommes apres le checkuser');
+            console.log('nous sommes apres le check du mail');
             // validation of password
             const options = { minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
 
@@ -38,46 +36,19 @@ const authController = {
                     hash: req.body.password
                 },
             );
-            console.log('log du user', user);
-
-            // const createTokenFromJson = (jsonData, options = {}) => {
-            //     try {
-            //         const token = jwt.sign(jsonData, process.env.TOKEN_SECRET, options)
-            //         return token;
-            //     }
-            //     catch (error) {
-            //         console.log('Error:', error.message);
-            //         return null;
-            //     }
-            // };
-
-            // const token = createTokenFromJson({ user });
-            // console.log('mon user token-----------------s', token);
-            // if (token) {
-            //     res.json({ status: true, token: token })
-            // }
-            // else (
-            //     res.json({ status: false })
-            // );
+            console.log('log du user', user.firstname, user.lastname, user.email);
 
             const username = {
-                // name: req.body.firstname,
                 email: req.body.email,
-                // lastname: req.body.lastname,
                 id: user.id
             }
 
             const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
             console.log('token crée dans registration=================', accessToken);
-            // res.status(200).json({ accessToken: accessToken })
             res.status(200).json({ accessToken: accessToken })
-
-            //     res.send("user okay")
-        } catch (error) {
+        }
+        catch (error) {
             res.status(400).json({ error: error.message });
-            // console.error(error.message);
-            // res.render(error.message);
-
         }
     },
 
@@ -111,12 +82,13 @@ const authController = {
                                 throw new Error('Token invalide')
                             }
                             req.user = user;
-                            console.log("req.user", req.user);
+                            console.log("notre user apres validation du token -req.user-", req.user);
+                            res.status(200).json('token validé !!')
                         });
                     }
 
                     // if the user doesn't have a token we create one and we sent it to him
-                    else if (token == null) {
+                    else if (token === '') {
                         const username = {
                             email: req.body.email,
                             id: user.id

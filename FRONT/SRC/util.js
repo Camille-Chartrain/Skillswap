@@ -1,8 +1,8 @@
 
 //= create dark mode context
 import { createContext, useContext, useState } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
-import *as yup from "yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import *as yup from "yup";
 
 import sunAndMoon from './style/pictures/sunAndMoon.svg';
 //-> need to create a context
