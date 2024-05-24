@@ -13,6 +13,7 @@ import { DarkModeContext, PageError, isLogged } from '../../util';
 import { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 // import { yupResolver } from '@hookform/resolvers/yup';
 // import * as yup from "yup";
 // import { schema } from '../../util';
@@ -36,6 +37,10 @@ const App = ({ darkMode }) => {
     //-> hook form create to post datas
     const { handleSubmit, register, formState: { errors, isValid, isSubmitSuccessful } } = useForm({ mode: 'onSubmit' });
 
+    //-> tokens manage and storage 
+    const [token, setToken] = useState(null);
+
+
     return (
         <div className={theme}>
 
@@ -53,8 +58,8 @@ const App = ({ darkMode }) => {
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
-                    <Route path="/login" exact element={<Login />} />
+                    <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} setToken={setToken} token={token} />} />
+                    <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} setToken={setToken} token={token} />} />
                     <Route path="/dashboard" exact element={<Dashboard />} />
                     <Route path="*" element={<PageError />} />
                 </Routes>

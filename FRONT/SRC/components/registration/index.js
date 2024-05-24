@@ -6,11 +6,10 @@ import { useForm } from 'react-hook-form';
 
 
 
-const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccessful }) => {
+const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccessful, setToken }) => {
 
     //-> show error from back{
     const [error, setError] = useState([]);
-    const [token, setToken] = useState(null);
 
     const url = "/dashboard";
 
@@ -26,12 +25,13 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
                     'Content-Type': 'application/json',
                     'Authorization': 'accessToken',
                     'location': '/dashboard',
-
                 },
                 body: JSON.stringify(data)
-
             });
 
+
+            const fetchStatus = response.status;
+            console.log('response.status:', fetchStatus);
 
             const dataFetch = await response.json();
             console.log(" try response:", dataFetch);
@@ -56,7 +56,7 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
             <div className="error">
                 {error === true ? 'Le mot de passe doit comporter au moins 12 caracteres et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractere special' || 'Un utilisateur utilise déjà cette adresse email' : ("")}</div>
 
-            {isSubmitSuccessful === 'accessToken' && ("Bienvenue")}
+            {/* {fetchStatus === 200 && ("Bienvenue")} */}
             <div>
 
                 <form method="POST" onSubmit={handleSubmit(onSubmit)} className="formRegistration">
