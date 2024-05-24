@@ -69,7 +69,8 @@ const authController = {
 
             const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
             console.log('token crée dans registration=================', accessToken);
-            res.json({ accessToken: accessToken })
+            // res.status(200).json({ accessToken: accessToken })
+            res.status(200).json({ accessToken: accessToken })
 
             //     res.send("user okay")
         } catch (error) {
@@ -122,7 +123,7 @@ const authController = {
                         }
                         const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
                         console.log('token crée dans login==================', accessToken);
-                        res.json({ accessToken: accessToken })
+                        res.status(200).json({ accessToken: accessToken })
                     }
                 }
                 else {

@@ -21,17 +21,18 @@ const Registration = ({ handleSubmit, register, errors, isValid, isSubmitSuccess
                     'Content-Type': 'application/json',
                     'Authorization': 'accessToken',
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(data),
 
             });
-
+            console.log('response.status:', response.status);
             const dataFetch = await response.json();
             console.log(" try response:", dataFetch);
-            console.log(dataFetch.error);
+            console.log("error?:", dataFetch.error);
             setError(dataFetch.error);
             setToken(dataFetch.accessToken);
 
             console.log("tout va bien :", dataFetch.accessToken);
+            console.log("status? :", dataFetch.status);
 
 
         }
