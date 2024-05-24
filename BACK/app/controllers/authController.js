@@ -105,6 +105,7 @@ const authController = {
                     const token = authHeader && authHeader.split(' ')[1]
 
                     if (token) {
+                        console.log("back token: ", token);
                         jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
                             if (err) {
                                 throw new Error('Token invalide')
@@ -115,7 +116,7 @@ const authController = {
                     }
 
                     // if the user doesn't have a token we create one and we sent it to him
-                    else if (token == null) {
+                    else if (token === "") {
                         const username = {
                             email: req.body.email,
                             id: user.id

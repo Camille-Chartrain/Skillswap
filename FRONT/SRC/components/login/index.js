@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useState } from "react";
+
 
 const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSubmitSuccessful }) => {
 
@@ -14,16 +14,15 @@ const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSub
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': token,
+                    'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(data)
             })
+            // setToken(response.accessToken);
+            // const dataIsLogged = await response.json();
+            console.log("Token :", token);
 
-            const dataIsLogged = await response.json();
-            console.log('try :', dataIsLogged)
 
-            setToken(dataIsLogged.accessToken);
-            console.log("comment ca se passe:", dataIsLogged.accessToken)
         }
         catch (error) {
             console.log(error.message);
