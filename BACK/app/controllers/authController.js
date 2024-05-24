@@ -89,7 +89,7 @@ const authController = {
                     }
 
                     // if the user doesn't have a token we create one and we sent it to him
-                    else if (token === "") {
+                    else if (token == null) {
                         const username = {
                             email: req.body.email,
                             id: user.id

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Cookies from 'js-cookie';
 import { useState } from "react";
 
-const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSubmitSuccessful }) => {
+const Login = ({ handleSubmit, register, errors, isValid, isSubmitSuccessful }) => {
 
     const [isLogged, setIsLogged] = useState(true);
 
@@ -21,6 +21,7 @@ const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSub
                 body: JSON.stringify(data),
                 credentials: 'include'
             })
+
             console.log("response avant .json", response);
             const dataIsLogged = await response.json();
             console.log('reponse apres .json :', dataIsLogged)
