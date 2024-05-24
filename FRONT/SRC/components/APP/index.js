@@ -11,8 +11,15 @@ import dashboard from '../../style/pictures/dashboard.svg';
 import Dashboard from '../dashboard';
 import { DarkModeContext, PageError, isLogged } from '../../util';
 import { useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink, Form } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import * as yup from "yup";
+// import { schema } from '../../util';
+
+
 
 
 
@@ -29,13 +36,17 @@ const App = ({ darkMode }) => {
     console.log('je suis ds app, theme:', theme);
 
     //-> hook form create to post datas
-    const { handleSubmit, register, formState, isSubmissing, isSubmitSuccessful, errors } = useForm({ mode: 'onTouched' });
+    const { handleSubmit, register, formState: { errors, isValid, isSubmitSuccessful } } = useForm({ mode: 'onSubmit' });
+
+    //-> tokens manage and storage 
+    const [token, setToken] = useState(null);
+
 
     return (
         <div className={theme}>
 
-
             <Router className="arianaWire">
+                {token ? <Navigate to="/dashboard" /> : null}
                 <Header />
                 <nav className="nav">
                     <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
@@ -48,10 +59,12 @@ const App = ({ darkMode }) => {
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
-                    <Route path="/login" exact element={<Login />} />
+                    <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} setToken={setToken} token={token} />} />
+
+                    <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} setToken={setToken} token={token} />} />
                     <Route path="/dashboard" exact element={<Dashboard />} />
                     <Route path="*" element={<PageError />} />
+
                 </Routes>
             </Router>
             <Footer />

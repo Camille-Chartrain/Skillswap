@@ -1,37 +1,56 @@
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 
-const Login = ({ input }) => {
+const Login = ({ setToken, token, handleSubmit, register, errors, isValid, isSubmitSuccessful }) => {
 
     const [isLogged, setIsLogged] = useState(true);
 
-    const handleSubmit = (e) => {
-        e.eventDefault();
-        setIsLogged();
-    }
 
-    const GetIsLogged = async () => {
+    const GetIsLogged = async (data) => {
+
         try {
-            const response = await fetch(`http://localhost:3000/login`);
+            const response = await fetch(`http://localhost:3000/login`, {
+                method: "post",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token,
+                },
+                body: JSON.stringify(data)
+            })
+
             const dataIsLogged = await response.json();
-            setIsLogged(dataIsLogged)
+            console.log('try :', dataIsLogged)
+
+            setToken(dataIsLogged.accessToken);
+            console.log("comment ca se passe:", dataIsLogged.accessToken)
         }
         catch (error) {
             console.log(error.message);
         }
     }
-    useEffect(() => { GetIsLogged() }, []);
+
 
 
     return (
         <>
             <h2>Connexion</h2>
 
-            <form method="post" onSubmit={handleSubmit} className="formLogin">
+            <form method="POST" onSubmit={handleSubmit(GetIsLogged)} className="formLogin">
+
+                {isSubmitSuccessful ? ("Bienvenue") : ('')}
+
                 <label htmlFor="email">Email</label>
-                <input type="email" placeholder="Saisissez votre email" value={input} size="30" />
+                <input id="email" type="email" name="email" placeholder="Saisissez votre email" {...register('email', { required: 'Email requis' })} size="30" />
+                {errors?.email?.type === 'required' && (<p role="alert" className="error">{errors?.email?.message}</p>)}
+
+
+
                 <label htmlFor="password">Mot de passe</label>
-                <input type="text" placeholder="Saisissez votre mot de passe" value={input} size="35" />
-                <button>VALIDER</button>
+                <input id="password" type="password" name="password" placeholder="Saisissez votre mot de passe" {...register('password', { required: "Mot de passe requis" })} size="35" />
+                {errors?.password?.type === 'required' && (<p role="alert" className="error">{errors?.password?.message}</p>)}
+
+                <button diseable={isValid}>VALIDER</button>
             </form>
         </>
     )
