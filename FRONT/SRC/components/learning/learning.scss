@@ -10,8 +10,8 @@
     border: solid 0.3rem var.$blueBtn ;
     border-radius: 1rem;
     margin: 2rem;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
 
     h2 {
         @include mixin.h2Dashboard();
@@ -33,12 +33,13 @@
         width: 90%;
     }
 
-    .profileChange {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: column;
-        margin: 2.5rem;
-        width: calc(90%/2);
+    .learning-section {
+
+        flex-direction: row;
+        margin: 1rem;
+        width: 95%;
+
+
     }
 
     .skillsList {
@@ -47,11 +48,10 @@
         flex-wrap: nowrap;
         padding: 1rem;
         margin: 3rem;
-        margin: auto;
         background-color: var.$lightGreyWrite;
         border-radius: 1rem;
         border-color: 0.2rem solid;
-        width: 85%;
+        width: 50%;
 
         h3 {
             padding: 1rem 1rem;
@@ -69,27 +69,14 @@
                 border-radius: 1.8rem;
                 padding: 0.5rem;
                 border-color: 0.2 rem solid var.$bgGrey;
-                width: 98%;
                 background-color: var.$bgGrey;
 
                 .btn {
+
                     @include mixin.focus(var.$blueBtn);
-                    flex-direction: row;
-                    align-items: flex-end;
-                    width: 45%;
-
-                    // .orangeBtn {
-                    //     @include mixin.buttonStyle(var.$orangeBtn, var.$lightGreyWrite);
-                    //     width: 52%;
-                    //     height: 2rem;
-                    //     @include mixin.mobileFirst();
-                    // }
-
-                    .redBtn {
-                        @include mixin.buttonStyle(var.$redBtn, var.$lightGreyWrite);
-                        width: 52%;
-                        @include mixin.mobileFirst();
-                    }
+                    @include mixin.buttonStyle (var.$lightGreyWrite, var.$blueBtn);
+                    width: 10rem;
+                    height: 2.5rem;
                 }
 
                 li {

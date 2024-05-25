@@ -38,47 +38,50 @@ const Learning = ({ handleSubmit, register, isValid, skillsList }) => {
 
             <div className="learning">
                 <h2 id="learning-id">Apprentissage</h2>
-                <div className="skillsList">
-                    <h3>Apprentissage en cours</h3>
-                    <ul>
-                        <span>
-                            <li>
-                                {skillsList?.map((item) => (
-                                    < Skill
-                                        key={item?.id}
-                                        title={item?.title}
-                                    />
-                                ))
-                                }
-                                test de visuel learning
-                            </li>
+                <span classname="learning-section">
+                    <div className="skillsList">
+                        <h3>Apprentissage en cours</h3>
+                        <ul>
                             <span>
-                                <button type="reset" className="redBtn">NON DEMARRE</button>
+                                <li>
+                                    {skillsList?.map((item) => (
+                                        < Skill
+                                            key={item?.id}
+                                            title={item?.title}
+                                        />
+                                    ))
+                                    }
+                                    test de visuel learning
+                                </li>
+                                <span>
+                                    <button className="btn">NON DEMARRE</button>
+                                </span>
                             </span>
-                        </span>
 
-                    </ul>
-                </div>
-                <div className="skillsList">
-                    <h3>Cours dispenses</h3>
-                    <ul>
-                        <span>
-                            <li>
-                                {skillsList?.map((item) => (
-                                    < Skill
-                                        key={item?.id}
-                                        title={item?.title}
-                                    />
-                                ))
-                                }
-                                test de visuel teacher
-                            </li>
+                        </ul>
+                    </div>
+                    <div className="skillsList">
+                        <h3>Cours dispenses</h3>
+                        <ul>
                             <span>
-                                <button type="reset" className="redBtn">NON DEMARRE</button>
+                                <li>
+                                    {skillsList?.map((item) => (
+                                        < Skill
+                                            key={item?.id}
+                                            title={item?.title}
+                                        />
+                                    ))
+                                    }
+                                    test de visuel teacher
+                                </li>
+                                <span>
+                                    <button className="btn">NON DEMARRE</button>
+                                </span>
                             </span>
-                        </span>
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
+                </span>
+
             </div >
         </main >
     )

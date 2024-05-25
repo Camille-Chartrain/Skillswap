@@ -35,7 +35,8 @@
 
         Input,
         option,
-        textarea {
+        textarea,
+        checkout {
             margin: 0.5rem;
             border-radius: 0.8rem;
             background-color: var.$yelloWrite;
@@ -77,6 +78,7 @@
 
             input {
                 width: 4rem;
+                border-radius: 0.8rem;
             }
 
             div {
