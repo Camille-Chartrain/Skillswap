@@ -1,8 +1,7 @@
 @use './var';
-@use './global';
 
 
-//= li 's list
+//* li's list
 @mixin skillList {
     background-color: var.$bgGrey;
     border-radius: 1rem;
@@ -50,6 +49,7 @@
 
 }
 
+//*media query mobile first
 @mixin mobileFirst {
     @media screen and (max-width:50rem) {
         display: flex;
@@ -61,8 +61,17 @@
             padding: 2rem 5rem;
         }
 
-        buton {
+        button {
             font-size: 0.5rem;
         }
     }
+}
+
+//*show message error and success
+@mixin showMessage($color) {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: $color;
+    color: var.$yellowBtn;
 }
