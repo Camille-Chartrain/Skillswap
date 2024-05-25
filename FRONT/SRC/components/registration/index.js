@@ -1,9 +1,9 @@
 import { useState } from "react"
 import Cookies from 'js-cookie';
-import { useState } from "react"
 
 
-const Registration = ({ handleSubmit, register, isValid, isSubmitSuccessful, }) => {
+
+const Registration = ({ handleSubmit, register, isValid }) => {
 
     //= show error from back{
     const [error, setError] = useState([]);

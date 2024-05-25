@@ -42,7 +42,6 @@ const App = ({ darkMode, token }) => {
 
                 {token ? <Navigate to="/dashboard" /> : null}
                 <Header />
-
                 <nav className="nav">
                     <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
                     <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
@@ -54,15 +53,19 @@ const App = ({ darkMode, token }) => {
                     )} */}
                 </nav >
                 <NavBar />
+
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
                     <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} />} />
-                    <Route path="/dashboard" exact element={<Dashboard />} />
+                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} />} />
                     <Route path="*" element={<PageError />} />
-
                 </Routes>
+
             </Router>
+            <div>
+
+            </div>
             <Footer />
         </div>
     )

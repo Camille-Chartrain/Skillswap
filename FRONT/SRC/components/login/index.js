@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Cookies from 'js-cookie';
-import { useState } from "react";
 
-const Login = ({ handleSubmit, register, isValid, isSubmitSuccessful }) => {
+const Login = ({ handleSubmit, register, isValid }) => {
 
     const [isLogged, setIsLogged] = useState(true);
 
@@ -22,12 +21,13 @@ const Login = ({ handleSubmit, register, isValid, isSubmitSuccessful }) => {
                 credentials: 'include'
             })
 
+            //=traduct api response in Json
             console.log("response avant .json", response);
             const dataIsLogged = await response.json();
             console.log('reponse apres .json :', dataIsLogged)
 
             {/* //= manage and show error for user */ }
-            if (dataIsLogged) { return ("Bienvenue") }
+            if (isLogged) { return ("Bienvenue") }
             else { <div className="error">return({error?.message})</div> };
         }
         catch (error) {

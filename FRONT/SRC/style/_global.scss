@@ -6,11 +6,15 @@
 }
 
 body {
-    display: flex;
+
     font-family: 'prompt', 'sans-serif';
     font-size: 1.5rem;
     line-height: 2rem;
 
+    main {
+        display: flex;
+        flex-direction: column;
+    }
 
     form {
         display: flex;

@@ -1,64 +1,83 @@
 import SkillList from "../skillList";
-import { useState, useEffect } from "react";
 
 
-const Profile = ({ input, skillsList }) => {
 
 
-    const [profilChange, setProfilChange] = useState('');
+const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
 
-    const handleSubmit = (e) => {
-        e.eventDefault();
-        setProfilChange();
-    }
 
-    const GetProfileChange = async () => {
+    const GetProfileChange = async (data) => {
         try {
-            const response = await fetch(`http://localhost:3000/profile`);
-            const dataRegistration = await response.json();
-            setProfilChange(dataProfile)
-            console.log(dataProfile);
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/profile', {
+                method: "post",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataProfile = await response.json();
+            console.log(" response apres .json:", dataProfile);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataProfile.error);
+            setError(dataProfile.error);
+
+            {/* //= manage and show error for user */ }
+            if (dataProfile) {
+                return (<div className="success"> "Votre profile a ete modifie" </div>)
+            }
+            else { <div className="error">return({error?.message})</div> }
         }
         catch (error) {
-            console.log(error.message);
+            console.log("erreur cath :", error);
         }
     }
-    useEffect(() => { GetProfileChange() }, []);
-
 
 
     return (
-        <main>
+        <>
             <div className="changeProfile">
                 <h2 id="profile">Profil</h2>
-                <form method="POST" onSubmit={handleSubmit} className="profile">
+
+                <form method="POST" onSubmit={handleSubmit(GetProfileChange)} className="profile">
 
                     <fieldset className="profileChange">
                         <legend><h3>Modifier votre profil</h3></legend>
 
                         <label htmlFor="firstname">Prénom :</label>
-                        <input type="text" id="firstname" name="firstname" value={input} size="25" />
+                        <input type="text" id="firstname" name="firstname" {...register("firstname")} size="25" required />
 
                         <label htmlFor="lastname">Nom :</label>
-                        <input type="text" id="lastname" name="lastname" value={input} size="25" />
+                        <input type="text" id="lastname" name="lastname"{...register("lastname")} size="25" required />
 
-                        <label htmlFor="bday">Date de naissance :</label>
-                        <input type="date" id="bday" name="bday" value={input} size="25" />
+                        <label htmlFor="birthday">Date de naissance :</label>
+                        <input type="date" id="birthday" name="birthday" {...register("birthday")} size="25" />
 
                         <label htmlFor="grade_level">Niveau d'etude:</label>
-                        <input type="text" id="grade_level" name="grade_level" value={input} size="25" />
+                        <input type="text" id="grade_level" name="grade_level" {...register("grade_level")} size="25" />
 
                         <label htmlFor="presentation">Presentez vous:</label>
-                        <textarea id="presentation" name="presentation" value={input} rows="5" cols="33" />
+                        <textarea id="presentation" name="presentation" {...register("presentation")} rows="5" cols="33" />
 
                         <label htmlFor="email">Email :</label>
-                        <input type="email" id="email" name="email" value={input} size="35" placeholder="  monadresse@gmail.com" />
+                        <input type="email" id="email" name="email" {...register("email")} size="35" placeholder="  monadresse@gmail.com" required />
 
-                        {/* <label htmlFor="password">Modifier mot de passe :</label>
-                        <input type="newPassword" id="newPassword" name="newPassword" value={input} size="35" placeholder="  12 caracteres minimun" />
-
-                        <label htmlFor="confPassword">Confirmer votre mot de passe :</label>
-                        <input type="password" id="confPassword" name="confPassword" value={input} size="35" /> */}
+                        {/* //=section in place for later version 2
+                        <>
+                            <label htmlFor="password">Modifier mot de passe :</label>
+                            <input type="newPassword" id="newPassword" name="newPassword" {...register("newPassword")} size="35" placeholder="  12 caracteres minimun" />
+                            <label htmlFor="confPassword">Confirmer votre mot de passe :</label>
+                            <input type="password" id="confPassword" name="confPassword" {...register("confPassword")} size="35" />
+                        </> */}
 
                         <fieldset className="interest">
                             <legend><h4>Centres d'interets</h4></legend>
@@ -82,39 +101,40 @@ const Profile = ({ input, skillsList }) => {
                                 <label htmlFor="school">Scolaire</label>
                             </div>
                         </fieldset>
-                        <button type="submit" >VALIDER</button>
+                        <button type="submit" disabled={isValid} >VALIDER</button>
                     </fieldset>
 
                     <fieldset className="createComp">
                         <legend><h3>Creation de competence</h3></legend>
                         <label htmlFor="title">Titre:</label>
-                        <input type="text" id="title" name="title" value={input} size="25" />
+                        <input type="text" id="title" name="title" {...register("title")} size="25" required />
 
                         <label htmlFor="duration">Duree :</label>
-                        <input type="text" id="lduration" name="lduration" value={input} size="25" />
+                        <input type="text" id="duration" name="duration" {...register("duration")} size="25" required />
 
                         <label htmlFor="price">Tarif :</label>
-                        <input type="price" id="price" name="price" value={input} size="25" />
+                        <input type="price" id="price" name="price" {...register("price")} size="25" required />
 
                         <label htmlFor="level">Niveau :</label>
-                        <select id="level" name="level">
+                        <select id="level" name="level" required >
                             <option value="e" selected>ajoutez un niveau</option>
                             <option value="debutant" >Debutant</option>
                             <option value="intermidiare" s>Intermediaire</option>
                             <option value="avance" >Avance</option>
                         </select>
                         <label htmlFor="transmission"> Mode de transmission :</label>
-                        <select id="transmission" name="transmission">
+                        <select id="transmission" name="transmission" required >
                             <option value="" selected>mode de transmission</option>
                             <option value="online">En ligne</option>
                             <option value="video">Video</option>
                             <option value="email">Email</option>
                         </select>
                         <label htmlFor="description">Descriptif:</label>
-                        <textarea id="description" name="description" value={input} rows="5" cols="33" />
+                        <textarea id="description" name="description" {...register("description")} rows="5" cols="33" required />
 
-                        <button>VALIDER</button>
+                        <button disabled={isValid} >VALIDER</button>
 
+                        {/* //= section in place for later version2
                         <fieldset className="addCategory">
                             <legend><h4>Ajouter categorie/sous-categorie</h4>  </legend>
                             <p>
@@ -125,8 +145,9 @@ const Profile = ({ input, skillsList }) => {
                                 <label htmlFor="addSubCategory"></label>
                                 <input id="addSubCategory" type="text" placeholder="ajouter la sous-categorie" />
                             </p>
-                            <button className="btn">AJOUTER</button>
-                        </fieldset>
+                            <button className="btn" disabled={isValid} >AJOUTER</button>
+                        </fieldset> */}
+
                     </fieldset>
 
                 </form>
@@ -152,9 +173,9 @@ const Profile = ({ input, skillsList }) => {
                     </ul>
 
                 </div>
-                <button type="reset" className="redBtn" size="30">SUPPRIMER LE COMPTE</button>
+                <button type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
             </div >
-        </main>
+        </>
     )
 
 };
