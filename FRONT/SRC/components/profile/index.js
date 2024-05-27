@@ -53,23 +53,23 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
                     <fieldset className="profileChange">
                         <legend><h3>Modifier votre profil</h3></legend>
 
-                        <label htmlFor="firstname">Prénom :</label>
+                        <label htmlFor="firstname">Prénom* :</label>
                         <input type="text" id="firstname" name="firstname" {...register("firstname")} size="25" required />
 
-                        <label htmlFor="lastname">Nom :</label>
+                        <label htmlFor="lastname ">Nom* :</label>
                         <input type="text" id="lastname" name="lastname"{...register("lastname")} size="25" required />
 
                         <label htmlFor="birthday">Date de naissance :</label>
                         <input type="date" id="birthday" name="birthday" {...register("birthday")} size="25" />
 
-                        <label htmlFor="grade_level">Niveau d'etude:</label>
+                        <label htmlFor="grade_level">Niveau d'etude :</label>
                         <input type="text" id="grade_level" name="grade_level" {...register("grade_level")} size="25" />
 
-                        <label htmlFor="presentation">Presentez vous:</label>
+                        <label htmlFor="presentation">Presentez vous :</label>
                         <textarea id="presentation" name="presentation" {...register("presentation")} rows="5" cols="33" />
 
-                        <label htmlFor="email">Email :</label>
-                        <input type="email" id="email" name="email" {...register("email")} size="35" placeholder="  monadresse@gmail.com" required />
+                        {/* <label htmlFor="email">Email * :</label>
+                        <input type="email" id="email" name="email" {...register("email")} size="35" placeholder="  monadresse@gmail.com" required /> */}
 
                         {/* //=section in place for later version 2
                         <>
@@ -106,30 +106,32 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
 
                     <fieldset className="createComp">
                         <legend><h3>Creation de competence</h3></legend>
-                        <label htmlFor="title">Titre:</label>
+                        <div></div>
+                        <label htmlFor="title">Titre * :</label>
+                        <small> Merci de donner un titre explicite</small>
                         <input type="text" id="title" name="title" {...register("title")} size="25" required />
 
-                        <label htmlFor="duration">Duree :</label>
+                        <label htmlFor="duration">Duree * :</label>
                         <input type="text" id="duration" name="duration" {...register("duration")} size="25" required />
 
                         <label htmlFor="price">Tarif :</label>
                         <input type="price" id="price" name="price" {...register("price")} size="25" required />
 
-                        <label htmlFor="level">Niveau :</label>
+                        <label htmlFor="level">Niveau * :</label>
                         <select id="level" name="level" required >
                             <option value="e" selected>ajoutez un niveau</option>
                             <option value="debutant" >Debutant</option>
                             <option value="intermidiare" s>Intermediaire</option>
                             <option value="avance" >Avance</option>
                         </select>
-                        <label htmlFor="transmission"> Mode de transmission :</label>
+                        <label htmlFor="transmission"> Mode de transmission * :</label>
                         <select id="transmission" name="transmission" required >
                             <option value="" selected>mode de transmission</option>
                             <option value="online">En ligne</option>
                             <option value="video">Video</option>
                             <option value="email">Email</option>
                         </select>
-                        <label htmlFor="description">Descriptif:</label>
+                        <label htmlFor="description">Descriptif * :</label>
                         <textarea id="description" name="description" {...register("description")} rows="5" cols="33" required />
 
                         <button disabled={isValid} >VALIDER</button>
@@ -153,6 +155,7 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
                 </form>
                 <div className="skillsList">
                     <h3>Liste des competences</h3>
+
                     <ul>
                         <span>
                             <li>

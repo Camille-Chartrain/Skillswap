@@ -38,22 +38,22 @@ const App = ({ darkMode, token }) => {
         <div className={theme}>
             {/*//->create a router to deserve all front page s and add a navigate function for redirect user if he logged */}
 
-            <Router className="arianaWire">
+            <Router >
+                <div className='headerSite'>
+                    {token ? <Navigate to="/dashboard" /> : null}
+                    <Header />
+                    <nav className="nav">
+                        <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
+                        <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
 
-                {token ? <Navigate to="/dashboard" /> : null}
-                <Header />
-                <nav className="nav">
-                    <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
-                    <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
-
-                    {/* //-> this page appear ony if the user is logged */}
-                    {/* {isLogged ? ( */}
-                    <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink>
-                    {/* ) : (<NavLink to="/" alt="accueil" ></NavLink>
+                        {/* //-> this page appear ony if the user is logged */}
+                        {/* {isLogged ? ( */}
+                        <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink>
+                        {/* ) : (<NavLink to="/" alt="accueil" ></NavLink>
                     )} */}
-                </nav >
-                <NavBar />
-
+                    </nav >
+                    <NavBar />
+                </div>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />

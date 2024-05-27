@@ -44,7 +44,9 @@ const Learning = () => {
                                     test de visuel learning
                                 </li>
                                 <span>
-                                    <button className="btn">NON DEMARRE</button>
+                                    <button className="btn">EN ATTENTE</button>
+                                    {/* // passe en valider a l'acceptation du prof puis en terminer pour finir */}
+
                                 </span>
                             </span>
 
@@ -65,7 +67,9 @@ const Learning = () => {
                                     test de visuel teacher
                                 </li>
                                 <span>
-                                    <button className="btn">NON DEMARRE</button>
+                                    <button className="btn">EN ATTENTE</button>
+                                    {/* // passe en valider a l'acceptation du prof puis en terminer pour finir */}
+
                                 </span>
                             </span>
                         </ul>

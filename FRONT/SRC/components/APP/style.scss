@@ -4,7 +4,9 @@
 
 @include mixin.focus(var.$orangeBtn);
 
-
+.headerSite {
+    position: static;
+}
 
 .dark {
     background: #333;

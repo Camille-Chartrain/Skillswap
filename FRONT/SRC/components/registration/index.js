@@ -56,19 +56,20 @@ const Registration = ({ handleSubmit, register, isValid }) => {
 
                 {/* //= with register from useForm, it possible to fetch or send values to the back */}
 
-                <label htmlFor="firstname">Prénom :</label>
+                <label htmlFor="firstname">Prénom * :</label>
                 <input type="text" id="firstname" name="firstname" {...register('firstname')} size="25" required />
 
-                <label htmlFor="lastname">Nom :</label>
+                <label htmlFor="lastname">Nom * :</label>
                 <input type="text" id="lastname" name="lastname" required {...register('lastname')} size="25" />
 
-                <label htmlFor="email">Email :</label>
+                <label htmlFor="email">Email * :</label>
                 <input type="email" id="email" name="email" required {...register('email')} size="35" placeholder="  monadresse@gmail.com" />
 
-                <label htmlFor="password">Mot de passe :</label>
+                <label htmlFor="password">Mot de passe * :</label>
+                <small>Minimum 12 caracteres (dont au moins : 1 maj, 1 min, 1 chiffre, 1 caractere special)</small>
                 <input type="password" id="password" name="password" className="isValid" required {...register('password')} size="35" placeholder="  12 caracteres minimun" />
 
-                <label htmlFor="newPassword">Confirmer votre mot de passe :</label>
+                <label htmlFor="newPassword">Confirmer votre mot de passe * :</label>
                 <input type="password" id="newPassword" name="newPassword" required {...register('newPassword')} size="35" />
 
                 <button type="submit" disabled={isValid} > VALIDER</button>

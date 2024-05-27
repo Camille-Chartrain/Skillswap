@@ -4,7 +4,7 @@ import Skill from "../skillList";
 const Statistic = () => {
 
     const [money, setMoney] = useState([]);
-    const [courseList, setCourseList] = useState([]);
+    const [courseMark, setCourseMark] = useState([]);
 
     const GetStatistic = async (data) => {
         try {
@@ -13,7 +13,7 @@ const Statistic = () => {
             console.log(dataSkill);
 
             setMoney(dataSkill);
-            setCourseList(dataSkill)
+            setCourseMark(dataSkill)
         }
         catch (error) {
             console.error(error.message);
@@ -40,11 +40,11 @@ const Statistic = () => {
                         </ul>
                     </div>
                     <div className="skillsList">
-                        <h3>Cours les plus demandes</h3>
+                        <h3>Notations competences</h3>
                         <ul>
                             <span>
                                 <li>
-                                    {courseList?.map((item) => (
+                                    {courseMark?.map((item) => (
                                         < Skill
                                             key={item?.id}
                                             title={item?.title}
