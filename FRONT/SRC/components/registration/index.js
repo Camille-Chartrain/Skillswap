@@ -1,12 +1,12 @@
 import { useState } from "react"
 import Cookies from 'js-cookie';
-
-
+import { useNavigate } from "react-router-dom";
 
 const Registration = ({ handleSubmit, register, isValid }) => {
 
     //= show error from back{
     const [error, setError] = useState([]);
+    const navigate = useNavigate();
 
     //= function to send datas in the back and api's call
     const onSubmit = async (data) => {
@@ -37,8 +37,9 @@ const Registration = ({ handleSubmit, register, isValid }) => {
             setError(dataFetch.error);
 
             {/* //= manage and show error for user */ }
-            if (dataFetch) {
-                return (<div className="success"> "Vous etes inscrit.e" </div>)
+            if (dataFetch.accessToken) {
+                navigate("/dashboard");
+                // return (<div className="success"> "Vous etes inscrit.e" </div>)
             }
             else { <div className="error">return({error?.message})</div> }
         }

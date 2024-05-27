@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ handleSubmit, register, isValid }) => {
 
     const [isLogged, setIsLogged] = useState(true);
+    const navigate = useNavigate();
 
     //-> api's call    
     const GetIsLogged = async (data) => {
@@ -27,7 +29,9 @@ const Login = ({ handleSubmit, register, isValid }) => {
             console.log('reponse apres .json :', dataIsLogged)
 
             {/* //= manage and show error for user */ }
-            if (isLogged) { return ("Bienvenue") }
+            if (dataIsLogged) {
+                navigate("/dashboard");
+            }
             else { <div className="error">return({error?.message})</div> };
         }
         catch (error) {
