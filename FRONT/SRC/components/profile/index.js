@@ -296,10 +296,10 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                         <fieldset className="interest">
                             <legend><h4>Centres d'interets</h4></legend>
                             <div>
-                                <input type="checkbox" name="name" id="1" {...register("name")} />
+                                <input type="checkbox" value="language" id="1" />
                                 <label htmlFor="1">Language</label>
                             </div><div>
-                                <input type="checkbox" name="2" id="2" {...register("id")} />
+                                <input type="checkbox" name="name" id="2" {...register("name")} />
                                 <label htmlFor="2">Bricolage</label>
                             </div>  <div>
                                 <input type="checkbox" name="3" id="3" {...register("id")} />

@@ -56,12 +56,12 @@ const authController = {
         try {
             // Authentification of the user, check if a mating user is founded in the db
             const user = await User.findOne({ where: { email: req.body.email } });
-            console.log('infos du user:',
-                user.id,
-                user.firstname,
-                user.lastname,
-                user.email,
-                user.role);
+            // console.log('infos du user:',
+            //     user.id,
+            //     user.firstname,
+            //     user.lastname,
+            //     user.email,
+            //     user.role);
 
             //if a user is founded, we check his password with the hash in the db
             if (user !== null) {
