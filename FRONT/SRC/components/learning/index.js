@@ -38,6 +38,7 @@ const Learning = () => {
                                         < Skill
                                             key={item?.id}
                                             title={item?.title}
+
                                         />
                                     ))
                                     }

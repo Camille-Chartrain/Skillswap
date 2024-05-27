@@ -1,4 +1,5 @@
 import SkillList from "../skillList";
+import Skill from "../skillList/skill";
 
 
 
@@ -34,6 +35,147 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
             {/* //= manage and show error for user */ }
             if (dataProfile) {
                 return (<div className="success"> "Votre profile a ete modifie" </div>)
+            }
+            else { <div className="error">return({error?.message})</div> }
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+    const GetProfileDelete = async (data) => {
+        try {
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/profile', {
+                method: "delete",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataProfile = await response.json();
+            console.log(" response apres .json:", dataProfile);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataProfile.error);
+            setError(dataProfile.error);
+
+            {/* //= manage and show error for user */ }
+            if (dataProfile) {
+                return (<div className="success"> "Votre profile a ete modifie" </div>)
+            }
+            else { <div className="error">return({error?.message})</div> }
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+
+    const GetCompetence = async (data) => {
+        try {
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/skill', {
+                method: "post",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataCompetence = await response.json();
+            console.log(" response apres .json:", dataCompetence);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataCompetence.error);
+            setError(dataCompetence.error);
+
+            {/* //= manage and show error for user */ }
+            if (dataCompetence) {
+                return (<div className="success"> "La competence a ete cree" </div>)
+            }
+            else { <div className="error">return({error?.message})</div> }
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+    const GetCompUpdate = async (data) => {
+        try {
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch(`{http://localhost:3000/skill/:${item?.id}}`, {
+                method: "patch",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataCompetence = await response.json();
+            console.log(" response apres .json:", dataCompetence);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataCompetence.error);
+            setError(dataCompetence.error);
+
+            {/* //= manage and show error for user */ }
+            if (dataCompetence) {
+                return (<div className="success"> "La competence a ete cree" </div>)
+            }
+            else { <div className="error">return({error?.message})</div> }
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+    const GetCompDelete = async (data) => {
+        try {
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/skill/:${item?.id}`, {
+                method: "delete",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataCompetence = await response.json();
+            console.log(" response apres .json:", dataCompetence);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataCompetence.error);
+            setError(dataCompetence.error);
+
+            {/* //= manage and show error for user */ }
+            if (dataCompetence) {
+                return (<div className="success"> "La competence a ete cree" </div>)
             }
             else { <div className="error">return({error?.message})</div> }
         }
@@ -103,13 +245,24 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
                         </fieldset>
                         <button type="submit" disabled={isValid} >VALIDER</button>
                     </fieldset>
-
+                </form>
+                <form method="POST" onSubmit={handleSubmit(GetCompetence)} className="competence">
                     <fieldset className="createComp">
                         <legend><h3>Creation de competence</h3></legend>
                         <div></div>
                         <label htmlFor="title">Titre * :</label>
                         <small> Merci de donner un titre explicite</small>
                         <input type="text" id="title" name="title" {...register("title")} size="25" required />
+
+                        <select id="categories" name="categories" value="all">
+                            <option value="all" name="category">choisissez votre categorie</option>
+                            <option value="1" >Language</option>
+                            <option value="2" >Bricolage</option>
+                            <option value="3" >Produits DIY</option>
+                            <option value="4" >Cuisine</option>
+                            <option value="5" >Art</option>
+                            <option value="6" >Scolaire</option>
+                        </select>
 
                         <label htmlFor="duration">Duree * :</label>
                         <input type="text" id="duration" name="duration" {...register("duration")} size="25" required />
@@ -151,8 +304,8 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
                         </fieldset> */}
 
                     </fieldset>
-
                 </form>
+
                 <div className="skillsList">
                     <h3>Liste des competences</h3>
 
@@ -169,14 +322,14 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
                                 test de visuel
                             </li>
                             <span className="btn">
-                                <button className="orangeBtn">MODIFIER</button>
-                                <button type="reset" className="redBtn">SUPPRIMER</button>
+                                <button onSubmit={handleSubmit(GetCompUpdate)} className="orangeBtn">MODIFIER</button>
+                                <button onSubmit={handleSubmit(GetCompDelete)} type="reset" className="redBtn">SUPPRIMER</button>
                             </span>
                         </span>
                     </ul>
 
                 </div>
-                <button type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
+                <button onSubmit={handleSubmit(GetProfileDelete)} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
             </div >
         </>
     )

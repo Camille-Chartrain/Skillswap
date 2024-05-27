@@ -20,14 +20,14 @@ const SearchCategory = () => {
                 )
             })} */}
 
-            {/* {/* <select id="categories" name="categories"  value="all">  */}
-            <option value="all" >choisissez votre categorie</option>
-            <option value="Language" >Language</option>
-            <option value="Bricolage" >Bricolage</option>
-            <option value="DIY" >Produits DIY</option>
-            <option value="Cuisine" >Cuisine</option>
-            <option value="Art" >Art</option>
-            <option value="Scolaire" >Scolaire</option>
+            {/* <select id="categories" name="categories" value="all">
+                <option value="all" >choisissez votre categorie</option>
+                <option value="1" >Language</option>
+                <option value="2" >Bricolage</option>
+                <option value="3" >Produits DIY</option>
+                <option value="4" >Cuisine</option>
+                <option value="5" >Art</option>
+                <option value="6" >Scolaire</option> */}
         </select>
 
 

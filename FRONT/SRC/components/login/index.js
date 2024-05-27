@@ -10,7 +10,7 @@ const Login = ({ handleSubmit, register, isValid }) => {
         //= send the token stocked to login
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/login`, {
+            const response = await fetch("http://localhost:3000/login", {
                 method: "post",
                 status: 200,
                 headers: {

@@ -19,12 +19,13 @@ import { useForm } from 'react-hook-form';
 
 
 
+
 //* we call render on the container and give it the component for the view.here we placed the router to display the routes to navigate between the components
 
 
 
 //* components added for the user rendering
-const App = ({ darkMode, token }) => {
+const App = ({ darkMode }) => {
 
     //-> create un dark theme in useContext for using in all app
     const themeClass = useContext(DarkModeContext);
@@ -34,13 +35,15 @@ const App = ({ darkMode, token }) => {
     // -> hook form create to post datas
     const { handleSubmit, register, formState } = useForm({ mode: 'onSubmit' });
 
+
+
     return (
         <div className={theme}>
             {/*//->create a router to deserve all front page s and add a navigate function for redirect user if he logged */}
 
             <Router >
                 <div className='headerSite'>
-                    {token ? <Navigate to="/dashboard" /> : null}
+                    {/* {token ? <Navigate to="/dashboard" /> : null} */}
                     <Header />
                     <nav className="nav">
                         <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
