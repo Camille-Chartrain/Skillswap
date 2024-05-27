@@ -16,7 +16,7 @@ const SearchCategory = () => {
 
             {/* {searchCategory?.map((category, index) => {
                 return (
-                    <option key={index} value={dataCategory}>{category}</option>
+                    <option key={Category.id} value={dataCategory}>{Category}</option>
                 )
             })} */}
 

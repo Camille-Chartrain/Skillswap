@@ -22,9 +22,9 @@ router.post('/login', authController.login);
 // router.get('/search/:input?/:level?/:category?/:subCategory?', mainController.search);
 
 //profile
-router.get('/profile', verifyToken, profileController.profile);
-router.patch('/profile', verifyToken, profileController.modifProfile);
-router.delete('/profile', verifyToken, profileController.deleteProfile);
+router.get('/profile', profileController.profile);
+router.patch('/profile', profileController.modifProfile);
+router.delete('/profile', profileController.deleteProfile);
 
 //skill
 router.get('/skill', verifyToken, skillController.skill);

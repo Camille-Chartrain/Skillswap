@@ -1,13 +1,14 @@
-import SkillList from "../skillList";
 import Skill from "../skillList/skill";
+import Cookies from 'js-cookie';
 
 
 
 
-const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
 
+const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
 
-    const GetProfileChange = async (data) => {
+    //=post method to send info
+    const GetProfilePost = async (data) => {
         try {
             console.log('try data:', data);
             const token = Cookies.get('token');
@@ -77,7 +78,6 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
             console.log("erreur cath :", error);
         }
     }
-
     const GetCompetence = async (data) => {
         try {
             console.log('try data:', data);
@@ -184,34 +184,106 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
         }
     }
 
+    //= get metho to show info
+
+    const GetProfile = async (data) => {
+        try {
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/profile', {
+                method: "get",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataProfile = await response.json();
+            console.log(" response apres .json:", dataProfile);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataProfile.error);
+            setError(dataProfile.error);
+
+            {/* //= manage and show error for user */ }
+            if (dataProfile) {
+                return (<div className="success"> "Votre profile a ete modifie" </div>)
+            }
+            else { <div className="error">return({error?.message})</div> }
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+    const CompetenceGet = async (data) => {
+        try {
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/skill', {
+                method: "get",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataCompetence = await response.json();
+            console.log(" response apres .json:", dataCompetence);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataCompetence.error);
+            setError(dataCompetence.error);
+
+            {/* //= manage and show error for user */ }
+            if (dataCompetence) {
+                return (<div className="success"> "La competence a ete cree" </div>)
+            }
+            else { <div className="error">return({error?.message})</div> }
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
 
     return (
         <>
             <div className="changeProfile">
                 <h2 id="profile">Profil</h2>
 
-                <form method="POST" onSubmit={handleSubmit(GetProfileChange)} className="profile">
+                <form method="POST" onSubmit={handleSubmit(GetProfilePost)} className="profile">
 
                     <fieldset className="profileChange">
                         <legend><h3>Modifier votre profil</h3></legend>
 
                         <label htmlFor="firstname">Prénom* :</label>
-                        <input type="text" id="firstname" name="firstname" {...register("firstname")} size="25" required />
+                        <input type="text" id="firstname" name="firstname" {...register("firstname")} size="25" autoComplete={"firstname"} required />
 
                         <label htmlFor="lastname ">Nom* :</label>
-                        <input type="text" id="lastname" name="lastname"{...register("lastname")} size="25" required />
+                        <input type="text" id="lastname" name="lastname"{...register("lastname")} size="25" autoComplete="lastname" required />
 
                         <label htmlFor="birthday">Date de naissance :</label>
-                        <input type="date" id="birthday" name="birthday" {...register("birthday")} size="25" />
+                        <input type="date" id="birthday" name="birthday" {...register("birthday")} size="25" autoComplete="birthday" />
 
                         <label htmlFor="grade_level">Niveau d'etude :</label>
-                        <input type="text" id="grade_level" name="grade_level" {...register("grade_level")} size="25" />
+                        <input type="text" id="grade_level" name="grade_level" {...register("grade_level")} size="25" autoComplete="grade_level" />
 
                         <label htmlFor="presentation">Presentez vous :</label>
-                        <textarea id="presentation" name="presentation" {...register("presentation")} rows="5" cols="33" />
+                        <textarea id="presentation" name="presentation" {...register("presentation")} rows="5" cols="33" autoComplete="presentation" />
 
                         {/* <label htmlFor="email">Email * :</label>
-                        <input type="email" id="email" name="email" {...register("email")} size="35" placeholder="  monadresse@gmail.com" required /> */}
+                        <input type="email" id="email" name="email" {...register("email")} size="35" placeholder="  monadresse@gmail.com" autoComplete="password" required /> */}
 
                         {/* //=section in place for later version 2
                         <>
@@ -224,35 +296,36 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
                         <fieldset className="interest">
                             <legend><h4>Centres d'interets</h4></legend>
                             <div>
-                                <input type="checkbox" value="Language" id="Language" />
-                                <label htmlFor="Language">Language</label>
+                                <input type="checkbox" name="name" id="1" {...register("name")} />
+                                <label htmlFor="1">Language</label>
                             </div><div>
-                                <input type="checkbox" value="Bricolage" id="Bricolage" />
-                                <label htmlFor="bricolage">Bricolage</label>
+                                <input type="checkbox" name="2" id="2" {...register("id")} />
+                                <label htmlFor="2">Bricolage</label>
                             </div>  <div>
-                                <input type="checkbox" value="DIY" id="DIY" />
-                                <label htmlFor="DIY">DIY</label>
+                                <input type="checkbox" name="3" id="3" {...register("id")} />
+                                <label htmlFor="3">DIY</label>
                             </div> <div>
-                                <input type="checkbox" value="Cuisine" id="cooking" />
-                                <label htmlFor="cooking">Cuisine</label>
+                                <input type="checkbox" name="4" id="4" {...register("id")} />
+                                <label htmlFor="4">Cuisine</label>
                             </div><div>
-                                <input type="checkbox" value="Art" id="art" />
-                                <label htmlFor="art">Art</label>
+                                <input type="checkbox" name="5" id="5"  {...register("id")} />
+                                <label htmlFor="5">Art</label>
                             </div> <div>
-                                <input type="checkbox" value="Scolaire" id="school" />
-                                <label htmlFor="school">Scolaire</label>
+                                <input type="checkbox" name="6" id="6"  {...register("id")} />
+                                <label htmlFor="6">Scolaire</label>
                             </div>
                         </fieldset>
                         <button type="submit" disabled={isValid} >VALIDER</button>
                     </fieldset>
                 </form>
+
                 <form method="POST" onSubmit={handleSubmit(GetCompetence)} className="competence">
                     <fieldset className="createComp">
                         <legend><h3>Creation de competence</h3></legend>
                         <div></div>
                         <label htmlFor="title">Titre * :</label>
                         <small> Merci de donner un titre explicite</small>
-                        <input type="text" id="title" name="title" {...register("title")} size="25" required />
+                        <input type="text" id="title" name="title" {...register("title")} size="25" autoComplete="title" required />
 
                         <select id="categories" name="categories" value="all">
                             <option value="all" name="category">choisissez votre categorie</option>
@@ -264,11 +337,66 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
                             <option value="6" >Scolaire</option>
                         </select>
 
+                        <select id="subCategories" name="subCategories" value="all">
+                            <option value="all" >choisissez votre sous-categorie</option>
+
+                            <option value="">---------------sous-categorie Language---------------</option>
+
+                            <option value="2" >Grammaire et orthographe</option>
+                            <option value="3" >Langage des signes</option>
+                            <option value="1" >Langues etrangeres</option>
+                            <option value="4" >Linguistique</option>
+                            <option value="5" >Redaction creative</option>
+                            <option value="6" >Traduction et interpretation</option>
+
+                            <option value="">---------------sous-categorie Bricolage---------------</option>
+
+                            <option value="2" >Electricite domestique</option>
+                            <option value="11">Jardinage</option>
+                            <option value="7" >Menuiserie</option>
+                            <option value="10">Peinture et decoration intérieure</option>
+                            <option value="9">Plomberie</option>
+                            <option value="12">Reparation appareils electroniques</option>
+
+                            <option value="">---------------sous-categorie DIY---------------</option>
+                            <option value="18" >Artisanat ecologique (produits maison...)</option>
+                            <option value="15" >Construction de modeles réduits</option>
+                            <option value="14" >Couture et artisanat textile</option>
+                            <option value="16" >Creation de bijoux</option>
+                            <option value="13" >Fabrication de meubles</option>
+                            <option value="17" >Produits de beaute maison</option>
+
+                            <option value="">--------------- sous-categorie Cuisine---------------</option>
+                            <option value="20" >Patisserie et desserts</option>
+                            <option value="23">Rapide et pratique</option>
+                            <option value="24">Regimes specifiques (sans gluten, etc.)</option>
+                            <option value="19" >Regionale (italienne, etc.)</option>
+                            <option value="22" >Techniques de decoupe et de preparation</option>
+                            <option value="21">Vegetalien ou vegetarien</option>
+
+                            <option value="">--------------- sous-categorie Art---------------</option>
+                            <option value="28" >Art numérique</option>
+                            <option value="29" >Artisanat traditionnel (poterie, tissage, etc.)</option>
+                            <option value="30" >Histoire  et appreciation artistique</option>
+                            <option value="25">Dessin et peinture</option>
+                            <option value="27" >Photographie</option>
+                            <option value="26" >Sculpture</option>
+
+                            <option value="">--------------- sous-categorie Scolaire ---------------</option>
+                            <option value="33">Histoire et geographie</option>
+                            <option value="34">Litterature et analyse de texte</option>
+                            <option value="31">Mathematiques</option>
+                            <option value="36">Methodes de travail et organisation scolaire </option>
+                            <option value="35" >Preparation aux examens (SAT, ACT, BAC, etc.)</option >
+                            <option value="32">Sciences (physique, chimie, biologie)</option>
+
+                        </select >
+
                         <label htmlFor="duration">Duree * :</label>
-                        <input type="text" id="duration" name="duration" {...register("duration")} size="25" required />
+                        <input type="text" id="duration" name="duration" {...register("duration")} size="25" autoComplete="duration" required />
 
                         <label htmlFor="price">Tarif :</label>
-                        <input type="price" id="price" name="price" {...register("price")} size="25" required />
+                        <input type="price" id="price" name="price" {...register("price")} size="25" autoComplete="price" required />
 
                         <label htmlFor="level">Niveau * :</label>
                         <select id="level" name="level" required >
@@ -285,7 +413,7 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
                             <option value="email">Email</option>
                         </select>
                         <label htmlFor="description">Descriptif * :</label>
-                        <textarea id="description" name="description" {...register("description")} rows="5" cols="33" required />
+                        <textarea id="description" name="description" {...register("description")} rows="5" cols="33" autoComplete="description" required />
 
                         <button disabled={isValid} >VALIDER</button>
 
@@ -308,7 +436,6 @@ const Profile = ({ handleSubmit, register, isValid, skillsList }) => {
 
                 <div className="skillsList">
                     <h3>Liste des competences</h3>
-
                     <ul>
                         <span>
                             <li>

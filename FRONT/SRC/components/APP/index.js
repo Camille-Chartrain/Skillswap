@@ -10,9 +10,10 @@ import login from '../../style/pictures/login.svg';
 import dashboard from '../../style/pictures/dashboard.svg';
 import Dashboard from '../dashboard';
 import { DarkModeContext, PageError, isLogged } from '../../util';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+
 
 
 
@@ -35,7 +36,8 @@ const App = ({ darkMode }) => {
     // -> hook form create to post datas
     const { handleSubmit, register, formState } = useForm({ mode: 'onSubmit' });
 
-
+    const [profile, setProfile] = useState([]);
+    const [skillsList, setSkillsList] = useState([]);
 
     return (
         <div className={theme}>
@@ -61,7 +63,7 @@ const App = ({ darkMode }) => {
                     <Route path="/" element={<Home />} />
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
                     <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} />} />
-                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} />} />
+                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} setSkillsList={setSkillsList} setProfile={setProfile} />} />
                     <Route path="*" element={<PageError />} />
                 </Routes>
 
