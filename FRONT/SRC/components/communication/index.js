@@ -29,10 +29,10 @@ const Communication = () => {
         <main>
 
             <div className="communication">
-                <h2 id="communication">Apprentissage</h2>
+                <h2 id="communication">COMMUNICATION</h2>
                 <span classname="communication-section">
                     <div className="skillsList">
-                        <h3>Apprentissage en cours</h3>
+                        <h3>Notifications</h3>
                         <ul>
                             <span>
                                 <li>
@@ -67,7 +67,7 @@ const Communication = () => {
                                     test de visuel teacher
                                 </li>
                                 <span>
-                                    <button type="reset" className="btn">NSUPPRIMER</button>
+                                    <button type="reset" className="btn">SUPPRIMER</button>
                                 </span>
                             </span>
                         </ul>

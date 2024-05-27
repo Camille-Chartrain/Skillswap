@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Skill from "../skillList";
+
 const Statistic = () => {
 
     const [money, setMoney] = useState([]);
@@ -9,8 +10,9 @@ const Statistic = () => {
         try {
             const response = await fetch(`http://localhost:3000/statistic`);
             const dataSkill = await response.json();
-            setMoney(dataSkill);
             console.log(dataSkill);
+
+            setMoney(dataSkill);
             setCourseList(dataSkill)
         }
         catch (error) {
@@ -31,7 +33,7 @@ const Statistic = () => {
                         <h3>Coffre au tresor</h3>
                         <ul>
                             <span>
-                                <li> Swappies totals : </li>
+                                <li> Swappies totals : { }</li>
                                 <li> Swappies recus: </li>
                                 <li> Swappies donnes : </li>
                             </span>
