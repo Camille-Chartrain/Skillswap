@@ -42,6 +42,14 @@
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\profile\\",
             "color": "foldercolorizer.LightPink"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\",
+            "color": "foldercolorizer.LightPink"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\",
+            "color": "foldercolorizer.LightPink"
         }
     ]
 }

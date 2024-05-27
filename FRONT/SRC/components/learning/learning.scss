@@ -17,7 +17,7 @@
         @include mixin.h2Dashboard();
     }
 
-    .learning-id {
+    #learning {
         @include mixin.mobileFirst();
         @include mixin.focus(var.$orangeBtn);
         display: flex;

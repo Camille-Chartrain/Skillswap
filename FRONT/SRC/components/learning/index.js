@@ -1,50 +1,40 @@
-const Learning = ({ handleSubmit, register, isValid, skillsList }) => {
+import { useState, useEffect } from "react";
+import Skill from "../skillList";
 
+const Learning = () => {
+    const [seeList, setSeeList] = useState([]);
+
+    const [courseList, setCourseList] = useState([]);
 
     const GetLearning = async (data) => {
         try {
-            console.log('try data:', data);
-            const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/profile', {
-                method: "post",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                credentials: 'include'
-            })
-            console.log('response.status:', response.status);
-
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataLearning = await response.json();
-            console.log(" response apres .json:", dataLearning);
-
-            //=fetch back side's errors
-            console.log("error?:", dataLearning.error);
-            setError(dataLearning.error);
-
+            const response = await fetch(`http://localhost:3000/learning`);
+            const dataSkill = await response.json();
+            setSeeList(dataSkill);
+            console.log(dataSkill);
+            setCourseList(dataSkill)
         }
         catch (error) {
-            console.log("erreur cath :", error);
+            console.error(error.message);
         }
+
+        useEffect(() => { GetLearning() }, []);
     }
+
 
 
     return (
         <main>
 
             <div className="learning">
-                <h2 id="learning-id">Apprentissage</h2>
+                <h2 id="learning">Apprentissage</h2>
                 <span classname="learning-section">
                     <div className="skillsList">
                         <h3>Apprentissage en cours</h3>
                         <ul>
                             <span>
                                 <li>
-                                    {skillsList?.map((item) => (
+                                    {seeList?.map((item) => (
                                         < Skill
                                             key={item?.id}
                                             title={item?.title}
@@ -65,7 +55,7 @@ const Learning = ({ handleSubmit, register, isValid, skillsList }) => {
                         <ul>
                             <span>
                                 <li>
-                                    {skillsList?.map((item) => (
+                                    {courseList?.map((item) => (
                                         < Skill
                                             key={item?.id}
                                             title={item?.title}

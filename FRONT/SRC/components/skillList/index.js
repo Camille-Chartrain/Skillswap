@@ -25,7 +25,6 @@ const SkillList = () => {
 
     useEffect(() => { GetSkillsList() }, [])
 
-
     return (
         <div className='container'>
             {
