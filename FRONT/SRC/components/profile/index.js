@@ -8,41 +8,36 @@ import Cookies from 'js-cookie';
 const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
 
     //=post method to send info
-    const GetProfilePost = async (data) => {
+    async function GetProfile() {
         try {
-            console.log('try data:', data);
+
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
-                method: "post",
-                status: 200,
+                method: "get",
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data),
+                // body: JSON.stringify(data),
                 credentials: 'include'
             })
-            console.log('response.status:', response.status);
+
+
+
+            // console.log('response.status:', response.status);
 
             //=traduct api response in Json
-            console.log("response avant .json", response);
+            console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
             const dataProfile = await response.json();
-            console.log(" response apres .json:", dataProfile);
-
-            //=fetch back side's  errors
-            console.log("error?:", dataProfile.error);
-            setError(dataProfile.error);
-
-            {/* //= manage and show error for user */ }
-            if (dataProfile) {
-                return (<div className="success"> "Votre profile a ete modifie" </div>)
-            }
-            else { <div className="error">return({error?.message})</div> }
+            console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
         }
         catch (error) {
-            console.log("erreur cath :", error);
+            console.log("erreur :", error);
         }
     }
+
+    GetProfile();
+
     const GetProfileDelete = async (data) => {
         try {
             console.log('try data:', data);
@@ -62,7 +57,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
             //=traduct api response in Json
             console.log("response avant .json", response);
             const dataProfile = await response.json();
-            console.log(" response apres .json:", dataProfile);
+            console.log("response apres .json:", dataProfile);
 
             //=fetch back side's  errors
             console.log("error?:", dataProfile.error);
@@ -186,83 +181,84 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
 
     //= get metho to show info
 
-    const GetProfile = async (data) => {
-        try {
-            console.log('try data:', data);
-            const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/profile', {
-                method: "get",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                credentials: 'include'
-            })
-            console.log('response.status:', response.status);
+    // const GetProfile = async (data) => {
+    // try {
+    //     console.log('try data:', data);
+    //     const token = Cookies.get('token');
+    //     const response = await fetch('http://localhost:3000/profile', {
+    //         method: "get",
+    //         status: 200,
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${token}`,
+    //         },
+    //         body: JSON.stringify(data),
+    //         credentials: 'include'
+    //     })
+    //     console.log('response.status:', response.status);
 
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataProfile = await response.json();
-            console.log(" response apres .json:", dataProfile);
+    //     //=traduct api response in Json
+    //     console.log("response avant .json", response);
+    //     const dataProfile = await response.json();
+    //     console.log(" response apres .json:", dataProfile);
 
-            //=fetch back side's  errors
-            console.log("error?:", dataProfile.error);
-            setError(dataProfile.error);
+    //     //=fetch back side's  errors
+    //     console.log("error?:", dataProfile.error);
+    //     setError(dataProfile.error);
 
-            {/* //= manage and show error for user */ }
-            if (dataProfile) {
-                return (<div className="success"> "Votre profile a ete modifie" </div>)
-            }
-            else { <div className="error">return({error?.message})</div> }
-        }
-        catch (error) {
-            console.log("erreur cath :", error);
-        }
-    }
+    //     {/* //= manage and show error for user */ }
+    //     if (dataProfile) {
+    //         return (<div className="success"> "Votre profile a ete modifie" </div>)
+    //     }
+    //     else { <div className="error">return({error?.message})</div> }
+    // }
+    //     catch (error) {
+    //     console.log("erreur cath :", error);
+    // }
+    // }
     const CompetenceGet = async (data) => {
-        try {
-            console.log('try data:', data);
-            const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/skill', {
-                method: "get",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                credentials: 'include'
-            })
-            console.log('response.status:', response.status);
+        //     try {
+        //         console.log('try data:', data);
+        //         const token = Cookies.get('token');
+        //         const response = await fetch('http://localhost:3000/skill', {
+        //             method: "get",
+        //             status: 200,
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //                 'Authorization': `Bearer ${token}`,
+        //             },
+        //             body: JSON.stringify(data),
+        //             credentials: 'include'
+        //         })
+        //         console.log('response.status:', response.status);
 
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataCompetence = await response.json();
-            console.log(" response apres .json:", dataCompetence);
+        //         //=traduct api response in Json
+        //         console.log("response avant .json", response);
+        //         const dataCompetence = await response.json();
+        //         console.log(" response apres .json:", dataCompetence);
 
-            //=fetch back side's  errors
-            console.log("error?:", dataCompetence.error);
-            setError(dataCompetence.error);
+        //         //=fetch back side's  errors
+        //         console.log("error?:", dataCompetence.error);
+        //         setError(dataCompetence.error);
 
-            {/* //= manage and show error for user */ }
-            if (dataCompetence) {
-                return (<div className="success"> "La competence a ete cree" </div>)
-            }
-            else { <div className="error">return({error?.message})</div> }
-        }
-        catch (error) {
-            console.log("erreur cath :", error);
-        }
+        //         {/* //= manage and show error for user */ }
+        //         if (dataCompetence) {
+        //             return (<div className="success"> "La competence a ete cree" </div>)
+        //         }
+        //         else { <div className="error">return({error?.message})</div> }
+        //     }
+        //     catch (error) {
+        //         console.log("erreur cath :", error);
+        //     }
     }
+
 
     return (
         <>
             <div className="changeProfile">
                 <h2 id="profile">Profil</h2>
 
-                <form method="POST" onSubmit={handleSubmit(GetProfilePost)} className="profile">
+                <form method="POST" onSubmit={handleSubmit(GetProfile)} className="profile">
 
                     <fieldset className="profileChange">
                         <legend><h3>Modifier votre profil</h3></legend>
