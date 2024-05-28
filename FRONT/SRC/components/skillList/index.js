@@ -10,8 +10,45 @@ const SkillList = () => {
 
     const [skillsList, setSkillsList] = useState([]);
 
+    // const GetAllSkill = async (data) => {
+    //     try {
+    //         console.log('try data:', data);
+    //         const token = Cookies.get('token');
+    //         const response = await fetch('http://localhost:3000/', {
+    //             method: "get",
+    //             status: 200,
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': `Bearer ${token}`,
+    //             },
+    //             body: JSON.stringify(data),
+    //             credentials: 'include'
+    //         })
+    //         console.log('response.status:', response.status);
 
-    const GetSkillsList = async () => {
+    //         //=traduct api response in Json
+    //         console.log("response avant .json", response);
+    //         const dataSkill = await response.json();
+    //         console.log(" response apres .json:", dataSkill);
+    //         setSkillsList(dataSkill);
+
+    //         //=fetch back side's  errors
+    //         console.log("error?:", dataSkill.error);
+    //         // setError(dataSkill.error);
+
+    //         {/* //= manage and show error for user */ }
+    //         if (dataSkill.error) {
+    //             return <div className="error">{dataSkill.error.message}</div>;
+    //         } else {
+    //             return <div className="success">Votre profile a été modifié</div>;
+    //         }
+    //     }
+    //     catch (error) {
+    //         console.error(error.message);
+    //     }
+    // }
+
+    const GetSkillsList = async (data) => {
         try {
             const response = await fetch(`http://localhost:3000/`);
             const dataSkill = await response.json();

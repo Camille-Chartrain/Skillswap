@@ -47,10 +47,10 @@ const Login = ({ handleSubmit, register, isValid }) => {
             <form method="POST" onSubmit={handleSubmit(GetIsLogged)} className="formLogin">
 
                 <label htmlFor="email">Email</label>
-                <input id="email" type="email" name="email" placeholder="Saisissez votre email" required {...register('email')} size="30" />
+                <input id="email" type="email" name="email" placeholder="Saisissez votre email" required {...register('email')} size="30" autoComplete="on" />
 
                 <label htmlFor="password">Mot de passe</label>
-                <input id="password" type="password" name="password" placeholder="Saisissez votre mot de passe" required {...register('password')} size="35" />
+                <input id="password" type="password" name="password" placeholder="Saisissez votre mot de passe" required {...register('password')} size="35" data-np-autofill-field-type="password" autoComplete="on" />
 
                 <button diseable={isValid}>VALIDER</button>
             </form>
