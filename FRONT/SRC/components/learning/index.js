@@ -28,7 +28,7 @@ const Learning = () => {
 
             <div className="learning">
                 <h2 id="learning">Apprentissage</h2>
-                <span classname="learning-section">
+                <span className="learning-section">
                     <div className="skillsList">
                         <h3>Apprentissage en cours</h3>
                         <ul>

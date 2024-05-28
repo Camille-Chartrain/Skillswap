@@ -28,7 +28,7 @@ const Statistic = () => {
         <main>
             <div className="statistic">
                 <h2 id="statistic">STATISTIQUES</h2>
-                <span classname="statistic-section">
+                <span className="statistic-section">
                     <div className="skillsList">
                         <h3>Coffre au tresor</h3>
                         <ul>

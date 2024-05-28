@@ -30,7 +30,7 @@ const Communication = () => {
 
             <div className="communication">
                 <h2 id="communication">COMMUNICATION</h2>
-                <span classname="communication-section">
+                <span className="communication-section">
                     <div className="skillsList">
                         <h3>Notifications</h3>
                         <ul>

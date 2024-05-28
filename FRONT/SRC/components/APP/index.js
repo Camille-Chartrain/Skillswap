@@ -28,6 +28,8 @@ import { useForm } from 'react-hook-form';
 //* components added for the user rendering
 const App = ({ darkMode }) => {
 
+    const [error, setError] = useState([]);
+
     //-> create un dark theme in useContext for using in all app
     const themeClass = useContext(DarkModeContext);
     const theme = darkMode === 'light' ? 'dark' : 'light';
@@ -43,7 +45,6 @@ const App = ({ darkMode }) => {
 
             <Router >
                 <div className='headerSite'>
-                    {/* {token ? <Navigate to="/dashboard" /> : null} */}
                     <Header />
                     <nav className="nav">
                         <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
@@ -61,7 +62,7 @@ const App = ({ darkMode }) => {
                     <Route path="/" element={<Home />} />
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
                     <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} />} />
-                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} />} />
+                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} setError={setError} error={error} />} />
                     <Route path="*" element={<PageError />} />
                 </Routes>
 
