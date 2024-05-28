@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Skill from "../skillList/skill";
 import Cookies from 'js-cookie';
 
@@ -8,9 +8,30 @@ import Cookies from 'js-cookie';
 
 const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
 
+
+
+
     //= to fetch select's datas
-    const [selectValue, setSelectValue] = useState('');
-    const handleChange = (e) => { setSelectValue(e.target.value) };
+    const [selectCat, setSelectCat] = useState('');
+    const handleChangeCat = (e) => { setSelectCat(e.target.value) };
+    const [selectSubCat, setSelectSubCat] = useState('');
+    const handleChangeSubCat = (e) => { setSelectSubCat(e.target.value) };
+    const [selectLevel, setSelectLevel] = useState('');
+    const handleChangeLevel = (e) => { setSelectLevel(e.target.value) };
+    const [selectTrans, setSelectTrans] = useState('');
+    const handleChangeTransm = (e) => { setSelectTrans(e.target.value) };
+    const [interests, setInterests] = useState([]);
+    const handleInterestChange = (e) => {
+        const { value, checked } = e.target;
+        if (checked) {
+            //-> if ok add to the list
+            setInterests((prevInterests) => [...prevInterests, value]);
+        } else {
+            //-> else delete the choice
+            setInterests((prevInterests) => prevInterests.filter((interest) => interest !== value));
+        }
+    };
+
 
     //=post method to send info
     const GetProfilePost = async (data) => {
@@ -25,7 +46,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                     'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(data),
-                credentials: 'include'
+                credentials: 'include',
             })
             console.log('response.status:', response.status);
 
@@ -39,10 +60,11 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
             setError(dataProfile.error);
 
             {/* //= manage and show error for user */ }
-            if (dataProfile) {
-                return (<div className="success"> "Votre profile a ete modifie" </div>)
+            if (dataProfile.error) {
+                return <div className="error">{dataProfile.error.message}</div>;
+            } else {
+                return <div className="success">Votre profile a été modifié</div>;
             }
-            else { <div className="error">return({error?.message})</div> }
         }
         catch (error) {
             console.log("erreur cath :", error);
@@ -74,10 +96,11 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
             setError(dataProfile.error);
 
             {/* //= manage and show error for user */ }
-            if (dataProfile) {
-                return (<div className="success"> "Votre profile a ete modifie" </div>)
+            if (dataProfile.error) {
+                return <div className="error">{dataProfile.error.message}</div>;
+            } else {
+                return <div className="success">Votre profile a été modifié</div>;
             }
-            else { <div className="error">return({error?.message})</div> }
         }
         catch (error) {
             console.log("erreur cath :", error);
@@ -101,18 +124,19 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
 
             //=traduct api response in Json
             console.log("response avant .json", response);
-            const dataCompetence = await response.json();
-            console.log(" response apres .json:", dataCompetence);
+            const dataInterest = await response.json();
+            console.log(" response apres .json:", dataInterest);
 
             //=fetch back side's  errors
-            console.log("error?:", dataCompetence.error);
-            setError(dataCompetence.error);
+            console.log("error?:", dataInterest.error);
+            setError(dataInterest.error);
 
             {/* //= manage and show error for user */ }
-            if (dataCompetence) {
-                return (<div className="success"> "La competence a ete cree" </div>)
+            if (dataInterest.error) {
+                return <div className="error">{dataInterest.error.message}</div>;
+            } else {
+                return <div className="success">Votre profile a été modifié</div>;
             }
-            else { <div className="error">return({error?.message})</div> }
         }
         catch (error) {
             console.log("erreur cath :", error);
@@ -122,7 +146,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
         try {
             console.log('try data:', data);
             const token = Cookies.get('token');
-            const response = await fetch(`{http://localhost:3000/skill/:${item?.id}}`, {
+            const response = await fetch(`{http://localhost:3000/skill/:id}`, {
                 method: "patch",
                 status: 200,
                 headers: {
@@ -136,18 +160,19 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
 
             //=traduct api response in Json
             console.log("response avant .json", response);
-            const dataCompetence = await response.json();
-            console.log(" response apres .json:", dataCompetence);
+            const dataInterest = await response.json();
+            console.log(" response apres .json:", dataInterest);
 
             //=fetch back side's  errors
-            console.log("error?:", dataCompetence.error);
-            setError(dataCompetence.error);
+            console.log("error?:", dataInterest.error);
+            setError(dataInterest.error);
 
             {/* //= manage and show error for user */ }
-            if (dataCompetence) {
-                return (<div className="success"> "La competence a ete cree" </div>)
+            if (dataInterest.error) {
+                return <div className="error">{dataInterest.error.message}</div>;
+            } else {
+                return <div className="success">Votre profile a été modifié</div>;
             }
-            else { <div className="error">return({error?.message})</div> }
         }
         catch (error) {
             console.log("erreur cath :", error);
@@ -157,7 +182,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
         try {
             console.log('try data:', data);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/:${item?.id}`, {
+            const response = await fetch(`http://localhost:3000/skill/:id`, {
                 method: "delete",
                 status: 200,
                 headers: {
@@ -171,32 +196,30 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
 
             //=traduct api response in Json
             console.log("response avant .json", response);
-            const dataCompetence = await response.json();
-            console.log(" response apres .json:", dataCompetence);
+            const dataInterest = await response.json();
+            console.log(" response apres .json:", dataInterest);
 
             //=fetch back side's  errors
-            console.log("error?:", dataCompetence.error);
-            setError(dataCompetence.error);
+            console.log("error?:", dataInterest.error);
+            setError(dataInterest.error);
 
             {/* //= manage and show error for user */ }
-            if (dataCompetence) {
-                return (<div className="success"> "La competence a ete cree" </div>)
+            if (dataInterest.error) {
+                return <div className="error">{dataInterest.error.message}</div>;
+            } else {
+                return <div className="success">Votre profile a été modifié</div>;
             }
-            else { <div className="error">return({error?.message})</div> }
         }
         catch (error) {
             console.log("erreur cath :", error);
         }
     }
-
-    //= get metho to show info
-
-    const GetProfile = async (data) => {
+    const GetInterest = async (data) => {
         try {
             console.log('try data:', data);
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/profile', {
-                method: "get",
+            const response = await fetch(`http://localhost:3000/interest`, {
+                method: "delete",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
@@ -209,59 +232,97 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
 
             //=traduct api response in Json
             console.log("response avant .json", response);
-            const dataProfile = await response.json();
-            console.log(" response apres .json:", dataProfile);
+            const dataInterest = await response.json();
+            console.log(" response apres .json:", dataInterest);
 
             //=fetch back side's  errors
-            console.log("error?:", dataProfile.error);
-            setError(dataProfile.error);
+            console.log("error?:", dataInterest.error);
+            setError(dataInterest.error);
 
             {/* //= manage and show error for user */ }
-            if (dataProfile) {
-                return (<div className="success"> "Votre profile a ete modifie" </div>)
+            if (dataInterest.error) {
+                return <div className="error">{dataInterest.error.message}</div>;
+            } else {
+                return <div className="success">Votre profile a été modifié</div>;
             }
-            else { <div className="error">return({error?.message})</div> }
         }
         catch (error) {
-            console.log("erreur cath :", error);
-        }
-    }
-    const CompetenceGet = async (data) => {
-        try {
-            console.log('try data:', data);
-            const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/skill', {
-                method: "get",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                credentials: 'include'
-            })
-            console.log('response.status:', response.status);
-
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataCompetence = await response.json();
-            console.log(" response apres .json:", dataCompetence);
-
-            //=fetch back side's  errors
-            console.log("error?:", dataCompetence.error);
-            setError(dataCompetence.error);
-
-            {/* //= manage and show error for user */ }
-            if (dataCompetence) {
-                return (<div className="success"> "La competence a ete cree" </div>)
-            }
-            else { <div className="error">return({error?.message})</div> }
-        }
-        catch (error) {
-            console.log("erreur cath :", error);
+            console.log("erreur interest :", error);
         }
     }
 
+
+    //= get method to show info & autocomplete
+    // const [profileData, setProfileData] = useState({
+    //     firstname: '', lastname: '', birthday: '', grade_level: '', presentation: ''
+
+    // });
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = Cookies.get('token');
+                const response = await fetch('http://localhost:3000/profile', {
+                    method: "get",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    credentials: 'include'
+                });
+
+
+                if (response) {
+                    console.log('reponse fetch:', response);
+                    const profile = await response.json();
+                    console.log("reponse en json:", profile);
+                    // setProfileData(profile);
+
+                } else {
+                    console.error('Erreur lors de la récupération des données du profil');
+                }
+            } catch (error) {
+                console.error('Erreur lors de la récupération des données du profil :', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    // const [skillData, setSkillData] = useState({
+    //     title: '',
+    //     Category: '',
+    //     Sub_category: '',
+    //     duration: '',
+    //     price: '',
+    //     level: '',
+    //     transmission: '',
+    //     description: '',
+    // });
+    useEffect(() => {
+        const CompetenceGet = async (data) => {
+            try {
+                const token = Cookies.get('token');
+                const response = await fetch('http://localhost:3000/skill', {
+                    method: "get",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    credentials: 'include'
+                });
+                if (response) {
+                    console.log("reponse competenceGet", response);
+                    const profile = await response.json();
+                    // setSkillData(profile);
+                } else {
+                    console.error('Erreur lors de la récupération des données du profil');
+                }
+            } catch (error) {
+                console.error('Erreur lors de la récupération des données du profil :', error);
+            }
+        };
+        CompetenceGet();
+    }, []);
     return (
         <>
             <div className="changeProfile">
@@ -273,22 +334,22 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                         <legend><h3>Modifier votre profil</h3></legend>
 
                         <label htmlFor="firstname">Prénom* :</label>
-                        <input type="text" id="firstname" name="firstname" {...register("firstname")} size="25" autoComplete={"firstname"} required />
+                        <input type="text" id="firstname" name="firstname" {...register("firstname")} size="25" autoComplete="on" required />
 
                         <label htmlFor="lastname ">Nom* :</label>
-                        <input type="text" id="lastname" name="lastname"{...register("lastname")} size="25" autoComplete="lastname" required />
+                        <input type="text" id="lastname" name="lastname"{...register("lastname")} size="25" autoComplete="on" required />
 
                         <label htmlFor="birthday">Date de naissance :</label>
                         <input type="date" id="birthday" name="birthday" {...register("birthday")} size="25" autoComplete="birthday" />
 
                         <label htmlFor="grade_level">Niveau d'etude :</label>
-                        <input type="text" id="grade_level" name="grade_level" {...register("grade_level")} size="25" autoComplete="grade_level" />
+                        <input type="text" id="grade_level" name="grade_level" {...register("grade_level")} size="25" autoComplete="on" />
 
                         <label htmlFor="presentation">Presentez vous :</label>
-                        <textarea id="presentation" name="presentation" {...register("presentation")} rows="5" cols="33" autoComplete="presentation" />
+                        <textarea id="presentation" name="presentation" {...register("presentation")} rows="5" cols="33" autoComplete="on" />
 
                         {/* <label htmlFor="email">Email * :</label>
-                        <input type="email" id="email" name="email" {...register("email")} size="35" placeholder="  monadresse@gmail.com" autoComplete="password" required /> */}
+                        <input type="email" id="email" name="email" {...register("email")} size="35" placeholder="  monadresse@gmail.com" autoComplete="on" required /> */}
 
                         {/* //=section in place for later version 2
                         <>
@@ -298,28 +359,35 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                             <input type="password" id="confPassword" name="confPassword" {...register("confPassword")} size="35" />
                         </> */}
 
-                        <fieldset className="interest">
+                        <fieldset className="interest" onSubmit={handleSubmit(GetInterest)} >
                             <legend><h4>Centres d'interets</h4></legend>
                             <div>
-                                <input type="checkbox" value="language" id="1" />
+                                <input type="checkbox" value="language"  {...register("1")} checked={interests.includes("language")}
+                                    onChange={handleInterestChange} />
                                 <label htmlFor="1">Language</label>
                             </div><div>
-                                <input type="checkbox" name="name" id="2" {...register("name")} />
+                                <input type="checkbox" value="2"  {...register("bricolage")} checked={interests.includes("2")}
+                                    onChange={handleInterestChange} />
                                 <label htmlFor="2">Bricolage</label>
                             </div>  <div>
-                                <input type="checkbox" name="3" id="3" {...register("id")} />
+                                <input type="checkbox" value="3"  {...register("DIY")} checked={interests.includes("3")}
+                                    onChange={handleInterestChange} />
                                 <label htmlFor="3">DIY</label>
                             </div> <div>
-                                <input type="checkbox" name="4" id="4" {...register("id")} />
+                                <input type="checkbox" value="4" {...register("cooking")} checked={interests.includes("4")}
+                                    onChange={handleInterestChange} />
                                 <label htmlFor="4">Cuisine</label>
                             </div><div>
-                                <input type="checkbox" name="5" id="5"  {...register("id")} />
+                                <input type="checkbox" value="5"   {...register("art")} checked={interests.includes("5")}
+                                    onChange={handleInterestChange} />
                                 <label htmlFor="5">Art</label>
                             </div> <div>
-                                <input type="checkbox" name="6" id="6"  {...register("id")} />
+                                <input type="checkbox" value="6"   {...register("school")} checked={interests.includes("6")}
+                                    onChange={handleInterestChange} />
                                 <label htmlFor="6">Scolaire</label>
                             </div>
                         </fieldset>
+
                         <button type="submit" disabled={isValid} >VALIDER</button>
                     </fieldset>
                 </form>
@@ -330,9 +398,9 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                         <div></div>
                         <label htmlFor="title">Titre * :</label>
                         <small> Merci de donner un titre explicite</small>
-                        <input type="text" id="title" name="title" {...register("title")} size="25" autoComplete="title" required />
+                        <input type="text" id="title" name="title" {...register("title")} size="25" autoComplete="on" required />
 
-                        <select id="categories" name="categories" value={selectValue} onChange={handleChange}>
+                        <select id="categories" name="categories" value={selectCat} onChange={handleChangeCat}>
                             <option value="all" name="category">choisissez votre categorie</option>
                             <option value="1" >Language</option>
                             <option value="2" >Bricolage</option>
@@ -342,7 +410,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                             <option value="6" >Scolaire</option>
                         </select>
 
-                        <select id="subCategories" name="subCategories" value={selectValue} onChange={handleChange}>
+                        <select id="subCategories" name="subCategories" value={selectSubCat} onChange={handleChangeSubCat}>
                             <option value="all" >choisissez votre sous-categorie</option>
 
                             <option value="">---------------sous-categorie Language---------------</option>
@@ -401,24 +469,24 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                         <input type="text" id="duration" name="duration" {...register("duration")} size="25" autoComplete="duration" required />
 
                         <label htmlFor="price">Tarif :</label>
-                        <input type="price" id="price" name="price" {...register("price")} size="25" autoComplete="price" required />
+                        <input type="price" id="price" name="price" {...register("price")} size="25" autoComplete="on" required />
 
                         <label htmlFor="level">Niveau * :</label>
-                        <select id="level" name="level" value={selectValue} required onChange={handleChange}>
+                        <select id="level" name="level" value={selectLevel} required onChange={handleChangeLevel}>
                             <option value="" selected>ajoutez un niveau</option>
                             <option value="debutant" >Debutant</option>
                             <option value="intermidiare" s>Intermediaire</option>
                             <option value="avance" >Avance</option>
                         </select>
                         <label htmlFor="transmission"> Mode de transmission * :</label>
-                        <select id="transmission" name="transmission" value={selectValue} onChange={handleChange} required >
+                        <select id="transmission" name="transmission" value={selectTrans} onChange={handleChangeTransm} required >
                             <option value="" selected>mode de transmission</option>
                             <option value="online">En ligne</option>
                             <option value="video">Video</option>
                             <option value="email">Email</option>
                         </select>
                         <label htmlFor="description">Descriptif * :</label>
-                        <textarea id="description" name="description" {...register("description")} rows="5" cols="33" autoComplete="description" required />
+                        <textarea id="description" name="description" {...register("description")} rows="5" cols="33" autoComplete="on" required />
 
                         <button disabled={isValid} >VALIDER</button>
 
