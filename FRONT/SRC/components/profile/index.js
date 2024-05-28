@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Skill from "../skillList/skill";
 import Cookies from 'js-cookie';
 
@@ -6,6 +7,10 @@ import Cookies from 'js-cookie';
 
 
 const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
+
+    //= to fetch select's datas
+    const [selectValue, setSelectValue] = useState('');
+    const handleChange = (e) => { setSelectValue(e.target.value) };
 
     //=post method to send info
     const GetProfilePost = async (data) => {
@@ -327,7 +332,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                         <small> Merci de donner un titre explicite</small>
                         <input type="text" id="title" name="title" {...register("title")} size="25" autoComplete="title" required />
 
-                        <select id="categories" name="categories" value="all">
+                        <select id="categories" name="categories" value={selectValue} onChange={handleChange}>
                             <option value="all" name="category">choisissez votre categorie</option>
                             <option value="1" >Language</option>
                             <option value="2" >Bricolage</option>
@@ -337,7 +342,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                             <option value="6" >Scolaire</option>
                         </select>
 
-                        <select id="subCategories" name="subCategories" value="all">
+                        <select id="subCategories" name="subCategories" value={selectValue} onChange={handleChange}>
                             <option value="all" >choisissez votre sous-categorie</option>
 
                             <option value="">---------------sous-categorie Language---------------</option>
@@ -399,14 +404,14 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                         <input type="price" id="price" name="price" {...register("price")} size="25" autoComplete="price" required />
 
                         <label htmlFor="level">Niveau * :</label>
-                        <select id="level" name="level" required >
-                            <option value="e" selected>ajoutez un niveau</option>
+                        <select id="level" name="level" value={selectValue} required onChange={handleChange}>
+                            <option value="" selected>ajoutez un niveau</option>
                             <option value="debutant" >Debutant</option>
                             <option value="intermidiare" s>Intermediaire</option>
                             <option value="avance" >Avance</option>
                         </select>
                         <label htmlFor="transmission"> Mode de transmission * :</label>
-                        <select id="transmission" name="transmission" required >
+                        <select id="transmission" name="transmission" value={selectValue} onChange={handleChange} required >
                             <option value="" selected>mode de transmission</option>
                             <option value="online">En ligne</option>
                             <option value="video">Video</option>
