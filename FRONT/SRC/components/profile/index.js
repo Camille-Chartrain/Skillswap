@@ -24,6 +24,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
         try {
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
+                method: "get",
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
