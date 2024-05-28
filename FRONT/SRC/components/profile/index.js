@@ -35,6 +35,9 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
             console.log('reponse fetch:', response);
             const dataProfile = await response.json();
             console.log("c ici qu'on veut:", dataProfile);
+            // console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
+            // const dataProfile = await response.json();
+            // console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
 
         }
         catch (error) {
@@ -61,7 +64,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
     //=post method to send info
     const ProfilePost = async (data) => {
         try {
-            console.log('try data:', data);
+
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
                 method: "post",
@@ -73,7 +76,10 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                 body: JSON.stringify(data),
                 credentials: 'include',
             })
-            console.log('response.status:', response.status);
+
+
+
+            // console.log('response.status:', response.status);
 
             //=traduct api response in Json
             console.log("response post profile avant .json", response);
@@ -85,9 +91,12 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
 
         }
         catch (error) {
-            console.log("erreur cath :", error);
+            console.log("erreur :", error);
         }
     }
+
+
+
     const GetProfileDelete = async (data) => {
         try {
             console.log('try data:', data);
@@ -107,7 +116,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
             //=traduct api response in Json
             console.log("response avant .json", response);
             const dataProfile = await response.json();
-            console.log(" response apres .json:", dataProfile);
+            console.log("response apres .json:", dataProfile);
 
             //=fetch back side's  errors
             console.log("error?:", dataProfile.error);
@@ -124,6 +133,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
             console.log("erreur cath :", error);
         }
     }
+
 
 
     return (

@@ -71,12 +71,27 @@ const authController = {
 
                 // if the email and the password match, then we check if the user has a token already or not
                 if (result) {
+
+                    //verifier si il y a un cookie
                     console.log('dans le result, la comparaison du mot de passe est ok');
                     const authHeader = req.headers['authorization'];
                     // console.log("req.headers['authorization']:", req.headers);
+                    console.log('token 1: ', token);
                     const token = authHeader && authHeader.split(' ')[1]
+                    console.log('token 1: ', token);
 
-                    if (token) {
+                    if (token == 'undefined') {
+                        console.log('verif du null ou undefined: ', token);
+
+                        const username = {
+                            email: req.body.email,
+                            id: user.id
+                        }
+                        const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
+                        console.log('token crée dans login==================', accessToken);
+                        res.status(200).json({ accessToken: accessToken })
+                    }
+                    else if (token) {
                         console.log("back token: ", token);
                         jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
                             if (err) {
@@ -89,15 +104,15 @@ const authController = {
                     }
 
                     // if the user doesn't have a token we create one and we sent it to him
-                    else if (token == null) {
-                        const username = {
-                            email: req.body.email,
-                            id: user.id
-                        }
-                        const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
-                        console.log('token crée dans login==================', accessToken);
-                        res.status(200).json({ accessToken: accessToken })
-                    }
+                    // else if (token == null || undefined) {
+                    //     const username = {
+                    //         email: req.body.email,
+                    //         id: user.id
+                    //     }
+                    //     const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
+                    //     console.log('token crée dans login==================', accessToken);
+                    //     res.status(200).json({ accessToken: accessToken })
+                    // }
                 }
                 else {
                     throw new Error('Mauvais couple identifiant/mot de passe');

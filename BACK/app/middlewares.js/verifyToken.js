@@ -6,6 +6,8 @@ function verifyToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     // console.log("req.headers['authorization']:", req.headers);
     const token = authHeader && authHeader.split(' ')[1]
+    console.log('dans le middleware verifytoken');
+    console.log('token dans middleware', token);
 
     try {
         if (token == null) {
