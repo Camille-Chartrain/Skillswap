@@ -49,6 +49,7 @@ const authController = {
             res.status(200).json({ accessToken: accessToken })
         }
         catch (error) {
+            console.log('erreur:', error);
             res.status(400).json({ error: error.message });
         }
     },
@@ -125,18 +126,19 @@ const authController = {
         }
         catch (error) {
             console.error(error.message);
-            res.send(error.message);
+            // res.send(error.message);
+            res.status(400).json({ error: error.message });
         }
     },
 
-    logout: async function (req, res) {
-        try {
-            req.session.destroy();
-        } catch (error) {
-            console.error(error.message);
-            res.send('error');
-        }
-    },
+    // logout: async function (req, res) {
+    //     try {
+    //         req.session.destroy();
+    //     } catch (error) {
+    //         console.error(error.message);
+    //         res.send('error');
+    //     }
+    // },
 };
 
 export default authController;

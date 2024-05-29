@@ -85,7 +85,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
 
         }
         catch (error) {
-            console.log("erreur :", error);
+            console.log("erreur : ", error);
         }
     }
 
@@ -133,10 +133,10 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                     <legend><h3>Modifier votre profil</h3></legend>
 
                     <label htmlFor="firstname">Prénom* :</label>
-                    <input id="firstname" type="text" name="firstname" {...register("firstname")} size="25" autoComplete="on" required />
+                    <input id="firstname" type="text" name="firstname" {...register("firstname")} size="25" autoComplete="off" required />
 
                     <label htmlFor="lastname ">Nom* :</label>
-                    <input id="lastname" type="text" name="lastname"{...register("lastname")} size="25" autoComplete="on" required />
+                    <input id="lastname" type="text" name="lastname"{...register("lastname")} size="25" autoComplete="off" required />
 
                     <label htmlFor="birthday">Date de naissance :</label>
                     <input id="birthday" type="date" name="birthday" {...register("birthday")} size="25" autoComplete="birthday" />
