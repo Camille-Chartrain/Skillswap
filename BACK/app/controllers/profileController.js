@@ -73,7 +73,7 @@ const profileController = {
             console.log("interets:", allInterests);
 
             if (Object.keys(allInterests).length === 0) {
-                for (eachCategory of req.body.interests) {
+                for (const eachCategory of req.body.interests) {
                     console.log(eachCategory);
                     await Interest.create(
                         {
@@ -90,17 +90,19 @@ const profileController = {
                             UserId: req.user.id,
                         }
                     })
-                await Interest.create(
-                    {
-                        CategoryId: req.body.category,
-                        UserId: req.user.id
-                    },
-                )
+                for (const eachCategory of req.body.interests) {
+                    console.log(eachCategory);
+                    await Interest.create(
+                        {
+                            CategoryId: eachCategory.interest,
+                            UserId: req.user.id,
+                        }
+                    )
+                }
             };
-            res.send(
-                'update ok'
-            );
-        } catch (error) {
+            res.status(200).json('update ok');
+        }
+        catch (error) {
             console.error(error.message);
             res.render('error');
         }

@@ -62,7 +62,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             console.log('data envoyees:', data);
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
-                method: "patch",
+                method: 'PATCH',
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             console.log(" response apres .json:", dataProfile);
 
             //=fetch back side's  errors
-            console.log("error?:", dataProfile.error);
+            // console.log("error?:", dataProfile.error);
 
         }
         catch (error) {
