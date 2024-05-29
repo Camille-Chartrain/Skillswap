@@ -61,7 +61,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             console.log('data envoyees:', data);
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
-                method: "post",
+                method: "patch",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
