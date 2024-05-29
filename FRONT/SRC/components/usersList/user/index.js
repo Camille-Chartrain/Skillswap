@@ -1,10 +1,11 @@
-import { isLogged } from '../../../util';
+
 import PropTypes from 'prop-types';
 
 
 const User = ({
     firstname,
     lastname,
+    birthday,
     email,
     grade_level,
     presentation,
@@ -16,35 +17,16 @@ const User = ({
     return (
         <>
             <div id="user" >
-                {/* {!isLogged ? ( */}
 
-                <div className="skill-header">
-                    <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
-                    <h4>Description :</h4> <span>{description}  </span>
-                    <h4>Duree :</h4><span>{duration}</span>
-                </div>
-                <div className="skill-info">
-                    <h4>Categorie :</h4> <span>{Category}</span>
-                    <h4>Sous categorie :</h4>  <span>{Sub_category}</span>
-                    <h4>Competence :</h4><span> {title}</span>
-                    <h4>Niveau : </h4><span>{level}</span>
-                    <h4>Prix : </h4> <span>{price}</span>
-                    <h4>Note : </h4><span>{mark}</span>
-                </div>
-
-                {/* ) : ( */}
-
-                <div className='skill-teacher'>
-                    <h4>Disponibilite :</h4><span>{availability}</span>
-                    <h4>Transmission :</h4><span>{transmission}</span>
-                    <h4>Professeur :</h4> <span> {`${firstname} ${lastname}`}</span>
+                <div className="user-info">
+                    <h4>Prenom : </h4> <span>{firstname}</span>
+                    <h4>Nom : </h4><span>{lastname}</span>
+                    <h4>Date de naissance : </h4><span>{birthday}</span>
                     <h4>Email : </h4><span>{email}</span>
                     <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
                     <h4>Presentation :</h4> <span>{presentation}</span>
+                    <h4>Interets : </h4><span>{interests}</span>
                 </div >
-
-                {/* ) */}
-                {/* } */}
 
             </div>
         </>
@@ -52,22 +34,13 @@ const User = ({
 };
 
 Skill.propTypes = {
-
-    picture: PropTypes.string,
-    title: PropTypes.string,
-    price: PropTypes.number,
-    mark: PropTypes.number,
-    level: PropTypes.string,
-    duration: PropTypes.string,
-    transmission: PropTypes.string,
-    availability: PropTypes.string,
-    category: PropTypes.string,
-    subCategory: PropTypes.string,
     firstname: PropTypes.string,
     lastname: PropTypes.string,
+    birthday: PropTypes.date,
     email: PropTypes.string,
     grade_level: PropTypes.string,
     presentation: PropTypes.string,
+    interests: PropTypes.string,
 
 }
 

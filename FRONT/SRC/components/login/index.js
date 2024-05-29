@@ -19,7 +19,7 @@ const Login = ({ handleSubmit, register, isValid }) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(data)
                 // credentials: 'include'
             })
 
@@ -42,7 +42,7 @@ const Login = ({ handleSubmit, register, isValid }) => {
             else { <div className="error">return({error?.message})</div> };
         }
         catch (error) {
-            console.log(error.message);
+            console.log('erreur :', error);
         }
 
     }
