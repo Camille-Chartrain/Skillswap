@@ -77,7 +77,6 @@ const authController = {
                     //verifier si il y a un cookie
                     console.log('dans le result, la comparaison du mot de passe est ok');
                     const authHeader = req.headers['authorization'];
-                    // console.log("req.headers['authorization']:", req.headers);
                     console.log("req.headers['authorization'] ", authHeader);
                     const token = authHeader && authHeader.split(' ')[1]
                     console.log('token 1: ', token);
