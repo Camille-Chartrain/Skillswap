@@ -1,12 +1,12 @@
-import '../profile.scss';
+
 import { useEffect, useState } from "react";
-import Skill from "../../skillList/skill";
+import Skill from "../skillList/skill";
 import Cookies from 'js-cookie';
 
 
 
 
-const CreateSkill = ({ handleSubmit, register, errors, control, skillsList, isValid }) => {
+const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
 
 
     //= to fetch select's datas
