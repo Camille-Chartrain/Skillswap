@@ -11,7 +11,7 @@ const Login = ({ handleSubmit, register, isValid }) => {
     const GetIsLogged = async (data) => {
         //= send the token stocked to login
         try {
-            console.log(data);
+            console.log('données envoyées req login', data);
             const token = Cookies.get('token');
             const response = await fetch("http://localhost:3000/login", {
                 method: "post",
@@ -40,10 +40,10 @@ const Login = ({ handleSubmit, register, isValid }) => {
                 console.log("redirection vers dashboard sans nouveau token");
                 navigate("/dashboard");
             }
-            else { <div className="error">return({error?.message})</div> };
+            // else { <div className="error">return({error?.message})</div> };
         }
         catch (error) {
-            console.log('erreur :', error);
+            console.log('erreur: ', error);
         }
 
     }

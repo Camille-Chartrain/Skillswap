@@ -81,12 +81,11 @@ const skillController = {
             //profile is updated
 
             //send the answer to the front
-            res.send(
-                'update ok'
-            );
-        } catch (error) {
+            res.status(200).json("update du skill ok")
+        }
+        catch (error) {
             console.error(error.message);
-            res.render('error:', error);
+            res.send('error update skill:', error);
         }
     },
 
@@ -100,14 +99,14 @@ const skillController = {
                 }
             });
             //send the answer to the front
-            res.send(
-                'skill deletion completed'
-            );
-        } catch (error) {
+            res.status(200).json('skill deletion completed');
+        }
+        catch (error) {
             console.error(error.message);
-            res.render('error');
+            res.send('error delete skill', error);
         }
     },
+
 };
 
 export default skillController;

@@ -75,10 +75,9 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid, Skill }) => 
                 body: JSON.stringify(data)
                 // credentials: 'include'
             })
-            console.log('response.status:', response.status);
 
             //=traduct api response in Json
-            console.log("response avant .json", response);
+            // console.log("response avant .json", response);
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
 

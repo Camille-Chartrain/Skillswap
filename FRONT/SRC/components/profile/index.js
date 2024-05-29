@@ -85,7 +85,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
 
         }
         catch (error) {
-            console.log("erreur :", error);
+            console.log("erreur : ", error);
         }
     }
 
