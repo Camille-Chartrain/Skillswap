@@ -41,8 +41,8 @@ const profileController = {
         try {
             // req.params contains data from url
             //rew.body contains body of request from forms
-            console.log(req.body);
-
+            console.log("req.body", req.body);
+            console.log("req.body.interests", req.body.interests);
             const updateFields = {
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
@@ -70,15 +70,18 @@ const profileController = {
                     UserId: req.user.id
                 }
             });
-            console.log(allInterests);
+            console.log("interets:", allInterests);
 
             if (Object.keys(allInterests).length === 0) {
-                await Interest.create(
-                    {
-                        CategoryId: req.body.category,
-                        UserId: req.user.id,
-                    }
-                )
+                for (eachCategory of req.body.interests) {
+                    console.log(eachCategory);
+                    await Interest.create(
+                        {
+                            CategoryId: eachCategory.interest,
+                            UserId: req.user.id,
+                        }
+                    )
+                }
             }
             else if (Object.keys(allInterests).length != 0) {
                 await Interest.destroy(
