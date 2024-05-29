@@ -11,6 +11,7 @@ const Login = ({ handleSubmit, register, isValid }) => {
     const GetIsLogged = async (data) => {
         //= send the token stocked to login
         try {
+            console.log(data);
             const token = Cookies.get('token');
             const response = await fetch("http://localhost:3000/login", {
                 method: "post",

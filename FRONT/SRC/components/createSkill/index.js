@@ -6,7 +6,20 @@ import Cookies from 'js-cookie';
 
 
 
-const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
+const CreateSkill = ({ handleSubmit, register, skillsList, isValid, Skill }) => {
+
+    const [createSkill, setDataCreateSkill] = useState({
+        title: '',
+        Category: '',
+        Sub_category: '',
+        duration: '',
+        level: '',
+        price: '',
+        transmission: '',
+        description: '',
+        availability: '',
+        mark: '',
+    });
 
 
     //= to fetch select's datas
@@ -19,8 +32,35 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
     const [selectTrans, setSelectTrans] = useState('');
     const handleChangeTransm = (e) => { setSelectTrans(e.target.value) };
 
-    //=post method to send info
+    const GetCreateSkill = async () => {
+        try {
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/skill', {
+                method: "get",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                // credentials: 'include'
+            });
 
+            console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
+            const dataCreateSkill = await response.json();
+            console.log("ICI QUON VEUT LES DATA response apres .json:", dataCreateSkill);
+            setDataCreateSkill(dataCreateSkill);
+            console.log('donnees profile data du state:', dataCreateSkill);
+
+        }
+        catch (error) {
+            console.error("error catch:", error.message);
+        }
+    }
+
+    useEffect(() => { GetCreateSkill() }, [])
+
+
+
+    //=post method to send info
     const PostCompetence = async (data) => {
         try {
             console.log('try data:', data);
@@ -225,7 +265,6 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
                 </fieldset>
             </form>
             < div className="skillsList" >
-
                 <h3>Liste des competences</h3>
                 <ul>
                     <span>
@@ -240,8 +279,8 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
                             test de visuel
                         </li>
                         <span className="btn">
-                            <button onSubmit={handleSubmit(PostSkillUpdate)} className="orangeBtn">MODIFIER</button>
-                            <button onSubmit={handleSubmit(PostSkillDelete)} type="reset" className="redBtn">SUPPRIMER</button>
+                            <button onClick={handleSubmit(PostSkillUpdate)} className="orangeBtn">MODIFIER</button>
+                            <button onClick={handleSubmit(PostSkillDelete)} type="reset" className="redBtn">SUPPRIMER</button>
                         </span>
                     </span>
                 </ul>
