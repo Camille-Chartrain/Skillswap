@@ -28,15 +28,15 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                credentials: 'include'
+                // credentials: 'include'
             });
 
-            console.log('reponse fetch:', response);
-            const dataProfile = await response.json();
-            console.log("c ici qu'on veut:", dataProfile);
-            // console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
+            // console.log('reponse fetch:', response);
             // const dataProfile = await response.json();
-            // console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
+            // console.log("c ici qu'on veut:", dataProfile);
+            console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
+            const dataProfile = await response.json();
+            console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
 
         }
         catch (error) {

@@ -10,7 +10,8 @@ const authController = {
 
     registration: async function (req, res) {
         try {
-            console.log("log du req", req.body);
+            console.log("registration req.body", req.body);
+            console.log("registration req.headers", req.headers);
 
             const checkUser = await User.findOne({
                 where: { email: req.body.email }
@@ -71,16 +72,17 @@ const authController = {
 
                 // if the email and the password match, then we check if the user has a token already or not
                 if (result) {
-
+                    console.log("login req.body", req.body);
+                    console.log("login req.headers", req.headers);
                     //verifier si il y a un cookie
                     console.log('dans le result, la comparaison du mot de passe est ok');
                     const authHeader = req.headers['authorization'];
                     // console.log("req.headers['authorization']:", req.headers);
-                    console.log('token 1: ', token);
+                    console.log("req.headers['authorization'] ", authHeader);
                     const token = authHeader && authHeader.split(' ')[1]
                     console.log('token 1: ', token);
 
-                    if (token == 'undefined') {
+                    if (token === null || token === "undefined") {
                         console.log('verif du null ou undefined: ', token);
 
                         const username = {

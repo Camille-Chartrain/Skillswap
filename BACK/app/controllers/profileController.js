@@ -33,7 +33,7 @@ const profileController = {
         } catch (error) {
             console.log('je suis ds la catch');
             console.error(error.message);
-            res.send('error', error);
+            res.status(400).send('error', error);
         }
     },
 

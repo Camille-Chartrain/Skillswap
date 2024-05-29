@@ -20,13 +20,21 @@ const Login = ({ handleSubmit, register, isValid }) => {
                     'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(data),
-                credentials: 'include'
+                // credentials: 'include'
             })
 
             //=traduct api response in Json
-            console.log("response avant .json", response);
+            console.log("login response avant .json", response);
             const dataIsLogged = await response.json();
-            console.log('reponse apres .json :', dataIsLogged)
+            console.log('login reponse apres .json :', dataIsLogged)
+
+            //= check if there is a new token associated with the user and store it with Cookies.set
+            if (dataIsLogged.accessToken) {
+                const newToken = dataIsLogged.accessToken;
+                console.log("token", newToken);
+                Cookies.set('token', newToken);
+                navigate("/dashboard");
+            }
 
             {/* //= manage and show error for user */ }
             if (dataIsLogged) {
