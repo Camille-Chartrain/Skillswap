@@ -28,14 +28,10 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                 // credentials: 'include'
             });
 
-            console.log('reponse avant json:', response);
+            console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
             const dataProfile = await response.json();
+            console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
             setProfileData(dataProfile);
-            console.log("data apres json:", dataProfile);
-
-            // console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
-            // const dataProfile = await response.json();
-            // console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
 
         }
         catch (error) {
