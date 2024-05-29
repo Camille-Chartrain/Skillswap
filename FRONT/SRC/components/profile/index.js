@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
-import CreateSkill from "./createSkill";
 
 
 
-
-const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
+const Profile = ({ handleSubmit, register, isValid }) => {
 
     //= get method to show info & autocomplete
     const [profileData, setProfileData] = useState({
@@ -14,8 +12,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
         birthday: '',
         grade_level: '',
         presentation: '',
-        interest: [],
-        skill: []
+        interests: []
     });
 
     const GetProfile = async () => {
@@ -34,6 +31,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
             const dataProfile = await response.json();
             console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
             setProfileData(dataProfile);
+            console.log('donnees profile data du state:', profileData);
 
         }
         catch (error) {
@@ -60,7 +58,7 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
     //=post method to send info
     const ProfilePost = async (data) => {
         try {
-
+            console.log('data envoyees:', data);
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
                 method: "post",
@@ -72,7 +70,6 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                 body: JSON.stringify(data),
                 // credentials: 'include',
             })
-
 
 
             // console.log('response.status:', response.status);
@@ -160,30 +157,30 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                             <input  id="password" type="password" name="confPassword" {...register("confPassword")} size="35" />
                         </> */}
 
-                    <fieldset className="interest"  >
+                    <fieldset className="interest" {...register("interests")} value={interests} >
                         <legend><h4>Centres d'interets</h4></legend>
                         <div>
-                            <input id="1" type="checkbox" value="language"  {...register("1")} checked={interests.includes("language")}
+                            <input id="1" type="checkbox" value="1"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("1")}
                                 onChange={handleInterestChange} />
                             <label htmlFor="1">Language</label>
                         </div><div>
-                            <input id="2" type="checkbox" value="2"  {...register("bricolage")} checked={interests.includes("2")}
+                            <input id="2" type="checkbox" value="2"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("2")}
                                 onChange={handleInterestChange} />
                             <label htmlFor="2">Bricolage</label>
                         </div>  <div>
-                            <input id="3" type="checkbox" value="3"  {...register("DIY")} checked={interests.includes("3")}
+                            <input id="3" type="checkbox" value="3"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("3")}
                                 onChange={handleInterestChange} />
                             <label htmlFor="3">DIY</label>
                         </div> <div>
-                            <input id="4" type="checkbox" value="4" {...register("cooking")} checked={interests.includes("4")}
+                            <input id="4" type="checkbox" value="4" {...register("interests")} checked={profileData.interests && profileData.interests.includes("4")}
                                 onChange={handleInterestChange} />
                             <label htmlFor="4">Cuisine</label>
                         </div><div>
-                            <input id="5" type="checkbox" value="5"   {...register("art")} checked={interests.includes("5")}
+                            <input id="5" type="checkbox" value="5"   {...register("interests")} checked={profileData.interests && profileData.interests.includes("5")}
                                 onChange={handleInterestChange} />
                             <label htmlFor="5">Art</label>
                         </div> <div>
-                            <input id="6" type="checkbox" value="6"   {...register("school")} checked={interests.includes("6")}
+                            <input id="6" type="checkbox" value="6"   {...register("interests")} checked={profileData.interests && profileData.interests.includes("6")}
                                 onChange={handleInterestChange} />
                             <label htmlFor="6">Scolaire</label>
                         </div>
@@ -192,7 +189,9 @@ const Profile = ({ handleSubmit, register, skillsList, isValid }) => {
                     <button type="submit" disabled={isValid} >VALIDER</button>
                 </fieldset>
             </form>
-            <CreateSkill handleSubmit={handleSubmit} register={register} />
+
+
+            <button onSubmit={handleSubmit(GetProfileDelete)} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
         </div >
 
     )

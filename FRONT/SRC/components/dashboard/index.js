@@ -1,5 +1,6 @@
 import { useForm, isValid } from "react-hook-form";
 import Profile from "../profile";
+import CreateSkill from "../createSkill";
 import Learning from '../learning';
 import Statistic from '../statistic';
 import Communication from '../communication';
@@ -51,6 +52,7 @@ const Dashboard = ({ handleSubmit, register, isValid }) => {
             <main>
                 <h1>TABLEAU DE BORD</h1>
                 <Profile handleSubmit={handleSubmit} register={register} />
+                <CreateSkill handleSubmit={handleSubmit} register={register} />
                 <Learning handleSubmit={handleSubmit} register={register} />
                 <Statistic handleSubmit={handleSubmit} register={register} />
                 <Communication handleSubmit={handleSubmit} register={register} />
