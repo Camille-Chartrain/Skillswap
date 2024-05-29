@@ -120,7 +120,7 @@ const CreateSkill = ({ handleSubmit, register, errors, control, skillsList, isVa
                     <small> Merci de donner un titre explicite</small>
                     <input id="title" type="text" name="title" {...register("title")} size="25" autoComplete="on" required />
 
-                    <select name="categories" {...register("categories")} value={selectCat} onChange={handleChangeCat}>
+                    <select name="CategoryId" {...register("CategoryId")} value={selectCat} onChange={handleChangeCat}>
                         <option value="all" name="category">choisissez votre categorie</option>
                         <option value="1" >Language</option>
                         <option value="2" >Bricolage</option>
@@ -130,7 +130,7 @@ const CreateSkill = ({ handleSubmit, register, errors, control, skillsList, isVa
                         <option value="5" >Scolaire</option>
                     </select>
 
-                    <select name="subCategories" {...register("subCategories")} value={selectSubCat} onChange={handleChangeSubCat}>
+                    <select name="SubCategoryId" {...register("SubCategoryId")} value={selectSubCat} onChange={handleChangeSubCat}>
                         <option value="all" >choisissez votre sous-categorie</option>
 
                         <option value="">---------------sous-categorie Language---------------</option>
@@ -208,6 +208,9 @@ const CreateSkill = ({ handleSubmit, register, errors, control, skillsList, isVa
                     <label htmlFor="description">Descriptif * :</label>
                     <textarea id="description" name="description" {...register("description")} rows="5" cols="33" autoComplete="on" required />
 
+                    <label htmlFor="availability">Disponibilite * :</label>
+                    <input id="availability" type="availability" name="availability" {...register("availability")} size="25" autoComplete="on" required />
+
                     <button disabled={isValid} >VALIDER</button>
 
                     {/* //= section in place for later version2
@@ -247,8 +250,6 @@ const CreateSkill = ({ handleSubmit, register, errors, control, skillsList, isVa
                         </span>
                     </span>
                 </ul>
-
-                {/* <button onSubmit={handleSubmit(GetProfileDelete)} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button> */}
             </div >
         </>
     )
