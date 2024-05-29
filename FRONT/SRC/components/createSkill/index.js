@@ -32,7 +32,7 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(data)
                 // credentials: 'include'
             })
             console.log('response.status:', response.status);
@@ -42,8 +42,6 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
 
-            //=fetch back side's  errors
-            console.log("error?:", dataSkill.error);
 
         }
         catch (error) {
@@ -187,9 +185,6 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
 
                     <label htmlFor="duration">Duree * :</label>
                     <input id="duration" type="text" name="duration" {...register("duration")} size="25" autoComplete="duration" required />
-
-                    <label htmlFor="price">Tarif :</label>
-                    <input id="price" type="price" name="price" {...register("price")} size="25" autoComplete="on" required />
 
                     <label htmlFor="level">Niveau * :</label>
                     <select name="level" {...register("level")} value={selectLevel} required onChange={handleChangeLevel}>

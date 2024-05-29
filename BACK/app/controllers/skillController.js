@@ -47,10 +47,10 @@ const skillController = {
                 }
             }
             );
-            res.send("skill added to the user")
+            res.status(400).send("skill added to the user")
         } catch (error) {
-            console.error(error.message);
-            res.render('error, skill not added', error);
+            console.log('erreur catch createSkill:', error);
+            res.send('error, skill not added', error);
         }
     },
 

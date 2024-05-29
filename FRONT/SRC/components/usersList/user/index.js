@@ -32,7 +32,7 @@ const User = ({
     )
 };
 
-Skill.propTypes = {
+User.propTypes = {
     firstname: PropTypes.string,
     lastname: PropTypes.string,
     birthday: PropTypes.date,
@@ -43,4 +43,4 @@ Skill.propTypes = {
 
 }
 
-export default Skill;
+export default User;
