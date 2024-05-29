@@ -36,7 +36,7 @@ const App = ({ darkMode }) => {
     console.log('je suis ds app, theme:', theme);
 
     // -> hook form create to post datas
-    const { handleSubmit, register, formState } = useForm({ mode: 'onSubmit' });
+    const { handleSubmit, register, control, errors } = useForm({ mode: 'onSubmit' });
 
 
     return (

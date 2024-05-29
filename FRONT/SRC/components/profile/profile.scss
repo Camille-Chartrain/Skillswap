@@ -5,8 +5,8 @@
 .changeProfile {
 
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     border: solid 0.3rem var.$blueBtn ;
     border-radius: 1rem;
     margin: 2rem;
@@ -17,7 +17,8 @@
         @include mixin.h2Dashboard();
     }
 
-    .profile {
+    .profile,
+    .skill {
         @include mixin.mobileFirst();
         @include mixin.focus(var.$orangeBtn);
         display: flex;
@@ -35,8 +36,7 @@
 
         Input,
         option,
-        textarea,
-        checkout {
+        textarea {
             margin: 0.5rem;
             border-radius: 0.8rem;
             background-color: var.$yelloWrite;
@@ -52,7 +52,7 @@
         }
 
         .profileChange,
-        .createComp,
+        .skill,
         .addCategory {
             display: flex;
             flex-wrap: nowrap;

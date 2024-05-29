@@ -1,10 +1,12 @@
+import '../profile.scss';
 import { useEffect, useState } from "react";
 import Skill from "../../skillList/skill";
 import Cookies from 'js-cookie';
 
 
 
-const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
+
+const CreateSkill = ({ handleSubmit, register, errors, control, skillsList, isValid }) => {
 
 
     //= to fetch select's datas
@@ -19,7 +21,7 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
 
     //=post method to send info
 
-    const GetCompetence = async (data) => {
+    const PostCompetence = async (data) => {
         try {
             console.log('try data:', data);
             const token = Cookies.get('token');
@@ -31,31 +33,24 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
                     'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(data),
-                credentials: 'include'
+                // credentials: 'include'
             })
             console.log('response.status:', response.status);
 
             //=traduct api response in Json
             console.log("response avant .json", response);
-            const dataInterest = await response.json();
-            console.log(" response apres .json:", dataInterest);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
 
             //=fetch back side's  errors
-            console.log("error?:", dataInterest.error);
-            setError(dataInterest.error);
+            console.log("error?:", dataSkill.error);
 
-            {/* //= manage and show error for user */ }
-            if (dataInterest.error) {
-                return <div className="error">{dataInterest.error.message}</div>;
-            } else {
-                return <div className="success">Votre profile a été modifié</div>;
-            }
         }
         catch (error) {
             console.log("erreur cath :", error);
         }
     }
-    const GetCompUpdate = async (data) => {
+    const PostSkillUpdate = async (data) => {
         try {
             console.log('try data:', data);
             const token = Cookies.get('token');
@@ -67,31 +62,24 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
                     'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(data),
-                credentials: 'include'
+                // credentials: 'include'
             })
             console.log('response.status:', response.status);
 
             //=traduct api response in Json
             console.log("response avant .json", response);
-            const dataInterest = await response.json();
-            console.log(" response apres .json:", dataInterest);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
 
             //=fetch back side's  errors
-            console.log("error?:", dataInterest.error);
-            setError(dataInterest.error);
+            console.log("error?:", dataSkill.error);
 
-            {/* //= manage and show error for user */ }
-            if (dataInterest.error) {
-                return <div className="error">{dataInterest.error.message}</div>;
-            } else {
-                return <div className="success">Votre profile a été modifié</div>;
-            }
         }
         catch (error) {
             console.log("erreur cath :", error);
         }
     }
-    const GetCompDelete = async (data) => {
+    const PostSkillDelete = async (data) => {
         try {
             console.log('try data:', data);
             const token = Cookies.get('token');
@@ -103,25 +91,18 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
                     'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(data),
-                credentials: 'include'
+                // credentials: 'include'
             })
             console.log('response.status:', response.status);
 
             //=traduct api response in Json
             console.log("response avant .json", response);
-            const dataInterest = await response.json();
-            console.log(" response apres .json:", dataInterest);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
 
             //=fetch back side's  errors
-            console.log("error?:", dataInterest.error);
-            setError(dataInterest.error);
-
-            {/* //= manage and show error for user */ }
-            if (dataInterest.error) {
-                return <div className="error">{dataInterest.error.message}</div>;
-            } else {
-                return <div className="success">Votre profile a été modifié</div>;
-            }
+            console.log("error?:", dataSkill.error);
+            setError(dataSkill.error);
         }
         catch (error) {
             console.log("erreur cath :", error);
@@ -131,25 +112,25 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
     return (
 
         <>
-            {/* <form method="POST" onSubmit={handleSubmit(GetCompetence)} className="competence">
-                <fieldset className="createComp">
+            <form method="POST" onSubmit={handleSubmit(PostCompetence)} className="skill">
+                <fieldset className="createSkill">
                     <legend><h3>Creation de competence</h3></legend>
                     <div></div>
                     <label htmlFor="title">Titre * :</label>
                     <small> Merci de donner un titre explicite</small>
                     <input id="title" type="text" name="title" {...register("title")} size="25" autoComplete="on" required />
 
-                    <select name="categories" value={selectCat} onChange={handleChangeCat}>
+                    <select name="categories" {...register("categories")} value={selectCat} onChange={handleChangeCat}>
                         <option value="all" name="category">choisissez votre categorie</option>
                         <option value="1" >Language</option>
                         <option value="2" >Bricolage</option>
                         <option value="3" >Produits DIY</option>
                         <option value="4" >Cuisine</option>
                         <option value="5" >Art</option>
-                        <option value="6" >Scolaire</option>
+                        <option value="5" >Scolaire</option>
                     </select>
 
-                    <select name="subCategories" value={selectSubCat} onChange={handleChangeSubCat}>
+                    <select name="subCategories" {...register("subCategories")} value={selectSubCat} onChange={handleChangeSubCat}>
                         <option value="all" >choisissez votre sous-categorie</option>
 
                         <option value="">---------------sous-categorie Language---------------</option>
@@ -211,14 +192,14 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
                     <input id="price" type="price" name="price" {...register("price")} size="25" autoComplete="on" required />
 
                     <label htmlFor="level">Niveau * :</label>
-                    <select name="level" value={selectLevel} required onChange={handleChangeLevel}>
+                    <select name="level" {...register("level")} value={selectLevel} required onChange={handleChangeLevel}>
                         <option value="all" >ajoutez un niveau</option>
                         <option value="debutant" >Debutant</option>
                         <option value="intermidiare" >Intermediaire</option>
                         <option value="avance" >Avance</option>
                     </select>
                     <label htmlFor="transmission"> Mode de transmission * :</label>
-                    <select name="transmission" value={selectTrans} onChange={handleChangeTransm} required >
+                    <select name="transmission" {...register("transmission")} value={selectTrans} onChange={handleChangeTransm} required >
                         <option value="all" >mode de transmission</option>
                         <option value="online">En ligne</option>
                         <option value="video">Video</option>
@@ -229,7 +210,7 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
 
                     <button disabled={isValid} >VALIDER</button>
 
-                 //= section in place for later version2
+                    {/* //= section in place for later version2
                     <fieldset className="addCategory">
                         <legend><h4>Ajouter categorie/sous-categorie</h4>  </legend>
                         <p>
@@ -241,10 +222,10 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
                             <input id="addSubCategory" type="text" placeholder="ajouter la sous-categorie" />
                         </p>
                         <button className="btn" disabled={isValid} >AJOUTER</button>
-                    </fieldset>
+                    </fieldset> */}
 
                 </fieldset>
-            </form> */}
+            </form>
             < div className="skillsList" >
 
                 <h3>Liste des competences</h3>
@@ -261,8 +242,8 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid }) => {
                             test de visuel
                         </li>
                         <span className="btn">
-                            {/* <button onSubmit={handleSubmit(GetCompUpdate)} className="orangeBtn">MODIFIER</button>
-                            <button onSubmit={handleSubmit(GetCompDelete)} type="reset" className="redBtn">SUPPRIMER</button> */}
+                            <button onSubmit={handleSubmit(PostSkillUpdate)} className="orangeBtn">MODIFIER</button>
+                            <button onSubmit={handleSubmit(PostSkillDelete)} type="reset" className="redBtn">SUPPRIMER</button>
                         </span>
                     </span>
                 </ul>

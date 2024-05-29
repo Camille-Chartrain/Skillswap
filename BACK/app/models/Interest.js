@@ -7,11 +7,11 @@ class Interest extends Model { }
 
 Interest.init(
     {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-        },
+        // id: {
+        //     type: DataTypes.INTEGER,
+        //     primaryKey: true,
+        //     autoIncrement: true,
+        // },
         UserId: {
             type: DataTypes.INTEGER,
         },
