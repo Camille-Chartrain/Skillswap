@@ -35,9 +35,8 @@ const Login = ({ handleSubmit, register, isValid }) => {
                 Cookies.set('token', newToken);
                 navigate("/dashboard");
             }
-
-            {/* //= manage and show error for user */ }
-            if (dataIsLogged) {
+            else if (dataIsLogged === "token validé !!") {
+                console.log("redirection vers dashboard sans nouveau token");
                 navigate("/dashboard");
             }
             else { <div className="error">return({error?.message})</div> };

@@ -42,8 +42,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // gestion of CORS
 app.use(cors({
+    // origin: ['http://localhost:1234', 'http://localhost:3000'], // Autoriser les requêtes uniquement à partir de ce domaine
     origin: '*',
-    // ['http://localhost:1234', 'http://localhost:3000'], // Autoriser les requêtes uniquement à partir de ce domaine
     methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
     credentials: true
 }));
