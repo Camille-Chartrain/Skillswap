@@ -10,7 +10,6 @@ const User = ({
     grade_level,
     presentation,
     interests
-
 }) => {
 
 

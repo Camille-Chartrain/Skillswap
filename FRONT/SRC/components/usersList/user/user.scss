@@ -1,7 +1,7 @@
 @use '../../../style/var';
 
 
-#user {
+#skill {
     display: flex;
     flex-direction: row;
     justify-items: right;
@@ -13,12 +13,16 @@
     margin: 1rem;
     color: rgb(59, 58, 58);
 
-
-    .skill-info {
+    .skill-header,
+    .skill-info,
+    .skill-teacher {
         padding: 1rem;
         flex-direction: column;
         width: calc(100%/3);
     }
 
-
+    img {
+        width: 30rem;
+        height: 30rem;
+    }
 }

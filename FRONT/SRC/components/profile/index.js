@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
+import User from '../usersList/user';
 
 
 
@@ -67,7 +68,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(data)
                 // credentials: 'include',
             })
 
