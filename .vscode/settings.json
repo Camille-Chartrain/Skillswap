@@ -25,7 +25,7 @@
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\navBar\\",
-            "color": "foldercolorizer.LightPink"
+            "color": "foldercolorizer.LightYellow"
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\footer\\",
@@ -37,11 +37,11 @@
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\dashboard\\",
-            "color": "foldercolorizer.LightPink"
+            "color": "foldercolorizer.LightYellow"
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\profile\\",
-            "color": "foldercolorizer.LightPink"
+            "color": "foldercolorizer.LightYellow"
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\",
@@ -49,6 +49,10 @@
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\",
+            "color": "foldercolorizer.LightPink"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\createSkill\\",
             "color": "foldercolorizer.LightPink"
         }
     ]

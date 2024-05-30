@@ -1,10 +1,8 @@
 
 import Search from "../search/Search";
-import { ToggleBtn, isLogged } from '../../util';
+import { ToggleBtn } from '../../util';
 
 
-//= for manage link:visible only when the user is logged
-import { isLogged } from '../../util';
 
 
 //= Routes displayed depending if you are logged or not.. with islogged

@@ -44,7 +44,6 @@ const Dashboard = ({ handleSubmit, register, isValid }) => {
                     <a href="#learning" alt=" apprentissage du membre" ><img className="" src={school} alt='icone apprentissage ' /></a>
                     <a href="#statistic" alt=" statistic " ><img className="" src={statistic} alt='icone des statistiques ' /></a>
                     <a href="#communication" alt=" communication " ><img className="" src={message} alt='icone de communication ' /></a>
-                    {/* <a href="#logout" alt=" deconnection du site" ><img className="" src={logout} alt='icone de deconnexion' /></a> */}
                     <img className="" src={logout} alt='icone de deconnexion' onClick={handleClick} />
                 </>
             </div>

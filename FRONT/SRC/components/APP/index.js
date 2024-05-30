@@ -26,7 +26,7 @@ import { useForm } from 'react-hook-form';
 
 
 //* components added for the user rendering
-const App = ({ darkMode }) => {
+const App = ({ darkMode, isLogged }) => {
 
     const [error, setError] = useState([]);
 
@@ -47,14 +47,15 @@ const App = ({ darkMode }) => {
                 <div className='headerSite'>
                     <Header />
                     <nav className="nav">
-                        <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
-                        <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
+                        {isLogged && isLogged ? null :
+                            <>
+                                <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
+                                <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
+                            </>
+                        }
+                        {/* //-> this page appear when the user is logged  keep only for maintenance */}
+                        {/* <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink> */}
 
-                        {/* //-> this page appear ony if the user is logged */}
-                        {/* {isLogged ? ( */}
-                        <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink>
-                        {/* ) : (<NavLink to="/" alt="accueil" ></NavLink>
-                    )} */}
                     </nav >
                     <NavBar />
                 </div>

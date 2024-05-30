@@ -36,13 +36,11 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             setProfileData(dataProfile);
             console.log('donnees profile data du state:', profileData);
 
-
             //= to transform us'date into french's date
             const dateUs = dataProfile.birthday;
             const dateObj = new Date(dateUs);
             const dateFr = dateObj.toLocaleDateString('fr-FR');
             console.log("date en francais:", dateFr);
-
         }
         catch (error) {
             console.error("error catch:", error.message);
@@ -63,8 +61,6 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             setInterests((prevInterests) => prevInterests.filter((interest) => interest !== value));
         }
     };
-
-
 
     //=post method to send info
     const ProfilePost = async (data) => {
