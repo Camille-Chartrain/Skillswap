@@ -6,9 +6,10 @@ const communicationController = {
         try {
             // req.params contains all the data
             console.log(req.params);
+
             const skill = await Skill.findAll({
-                order: [['id', 'ASC']], // order by descent with id
-                limit: 3, // Limit to 4 results
+
+                order: [['id', 'ASC']], // Order by ascending id
                 include: [
                     {
                         model: Category,
@@ -19,21 +20,61 @@ const communicationController = {
                                 attributes: ['firstname', 'lastname'],
                                 through: {
                                     model: Interest,
-                                },
-                                where: {
-                                    id: req.user.id
+                                    where: {
+                                        UserId: req.user.id
+                                    }
                                 }
                             }
                         ]
-                    },],
+                    }
+                ],
+
             });
+            //     order: [['id', 'ASC']], // order by descent with id
+            //     // Limit to 4 results
+            //     include: [
+            //         {
+            //             model: Category,
+            //             attributes: ['picture', 'name'],
+            //             through: {
+            //                 model: Interest,
+            //                 where: {
+            //                     UserId: req.user.id
+            //                 }
+            //             },
+            //         },],
+
+            // order: [['id', 'ASC']], // order by descent with id
+            // // Limit to 4 results
+            // include: [
+            //     {
+            //         model: Category,
+            //         attributes: ['picture', 'name'],
+            //         include: [
+            //             {
+            //                 model: User,
+            //                 attributes: ['firstname', 'lastname'],
+            //                 through: {
+            //                     model: Interest,
+            //                     where: {
+            //                         UserId: req.user.id
+            //                     }
+            //                 },
+            //                 where: {
+            //                     id: req.user.id
+            //                 }
+            //             }
+            //         ]
+            //     },],
+
+            // });
             //send the answer to the front
             res.send(
                 skill
             );
         } catch (error) {
             console.error(error.message);
-            res.render('error');
+            res.status(400).send(error);
         }
     },
 
