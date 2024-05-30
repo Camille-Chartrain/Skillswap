@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
+import CreateSkill from "../createSkill";
 import User from '../usersList/user';
 
 
@@ -8,13 +9,14 @@ const Profile = ({ handleSubmit, register, isValid }) => {
 
     //= get method to show info & autocomplete
     const [profileData, setProfileData] = useState({
-        firstname: '',
-        lastname: '',
-        birthday: '',
-        grade_level: '',
-        presentation: '',
+        firstname: (''),
+        lastname: (''),
+        birthday: (''),
+        grade_level: (''),
+        presentation: (''),
         interests: []
     });
+
 
     const GetProfile = async () => {
         try {
@@ -33,6 +35,13 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
             setProfileData(dataProfile);
             console.log('donnees profile data du state:', profileData);
+
+
+            //= to transform us'date into french's date
+            const dateUs = dataProfile.birthday;
+            const dateObj = new Date(dateUs);
+            const dateFr = dateObj.toLocaleDateString('fr-FR');
+            console.log("date en francais:", dateFr);
 
         }
         catch (error) {
@@ -56,6 +65,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
     };
 
 
+
     //=post method to send info
     const ProfilePost = async (data) => {
         try {
@@ -71,7 +81,6 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                 body: JSON.stringify(data)
                 // credentials: 'include',
             })
-
 
             // console.log('response.status:', response.status);
 
@@ -133,19 +142,19 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                     <legend><h3>Modifier votre profil</h3></legend>
 
                     <label htmlFor="firstname">Prénom* :</label>
-                    <input id="firstname" type="text" name="firstname" {...register("firstname")} size="25" autoComplete="off" required />
+                    <input id="firstname" type="text" name="firstname" {...register("firstname")} value={profileData.firstname} size="25" autoComplete="on" required />
 
-                    <label htmlFor="lastname ">Nom* :</label>
-                    <input id="lastname" type="text" name="lastname"{...register("lastname")} size="25" autoComplete="off" required />
+                    <label htmlFor="lastname">Nom* :</label>
+                    <input id="lastname" type="text" name="lastname"{...register("lastname")} value={profileData.lastname} size="25" autoComplete="on" required />
 
                     <label htmlFor="birthday">Date de naissance :</label>
-                    <input id="birthday" type="date" name="birthday" {...register("birthday")} size="25" autoComplete="birthday" />
+                    <input id="birthday" type="date" name="birthday" {...register("birthday")} value={profileData.birthday} size="25" autoComplete="on" />
 
                     <label htmlFor="grade_level">Niveau d'etude :</label>
-                    <input id="grade_level" type="text" name="grade_level" {...register("grade_level")} size="25" autoComplete="on" />
+                    <input id="grade_level" type="text" name="grade_level" {...register("grade_level")} value={profileData.grade_level} size="25" autoComplete="on" />
 
                     <label htmlFor="presentation">Presentez vous :</label>
-                    <textarea id="presentation" name="presentation" {...register("presentation")} rows="5" cols="33" autoComplete="on" />
+                    <textarea id="presentation" name="presentation" {...register("presentation")} value={profileData.presentation} rows="5" cols="33" autoComplete="on" />
 
                     {/* <label htmlFor="email">Email * :</label>
                         <input  id="email" type="email"  name="email" {...register("email")} size="35" placeholder="  monadresse@gmail.com" autoComplete="on" required /> */}
@@ -191,7 +200,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                 </fieldset>
             </form>
 
-
+            <CreateSkill handleSubmit={handleSubmit} register={register} />
             <button onSubmit={handleSubmit(GetProfileDelete)} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
         </div >
 

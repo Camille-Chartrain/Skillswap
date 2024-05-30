@@ -4,32 +4,32 @@ import Skill from "../skillList/skill";
 import Cookies from 'js-cookie';
 
 
-
-
 const CreateSkill = ({ handleSubmit, register, skillsList, isValid, Skill }) => {
 
     const [createSkill, setDataCreateSkill] = useState({
-        title: '',
-        Category: '',
-        Sub_category: '',
-        duration: '',
-        level: '',
-        price: '',
-        transmission: '',
-        description: '',
-        availability: '',
-        mark: '',
+        title: (''),
+        Category: (''),
+        Sub_category: (''),
+        duration: (''),
+        level: (''),
+        price: (''),
+        transmission: (''),
+        description: (''),
+        availability: (''),
+        mark: (''),
     });
 
 
+
+
     //= to fetch select's datas
-    const [selectCat, setSelectCat] = useState('');
+    const [selectCat, setSelectCat] = useState((''));
     const handleChangeCat = (e) => { setSelectCat(e.target.value) };
-    const [selectSubCat, setSelectSubCat] = useState('');
+    const [selectSubCat, setSelectSubCat] = useState((''));
     const handleChangeSubCat = (e) => { setSelectSubCat(e.target.value) };
-    const [selectLevel, setSelectLevel] = useState('');
+    const [selectLevel, setSelectLevel] = useState((''));
     const handleChangeLevel = (e) => { setSelectLevel(e.target.value) };
-    const [selectTrans, setSelectTrans] = useState('');
+    const [selectTrans, setSelectTrans] = useState((''));
     const handleChangeTransm = (e) => { setSelectTrans(e.target.value) };
 
     const GetCreateSkill = async () => {
@@ -226,14 +226,14 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid, Skill }) => 
                     <input id="duration" type="text" name="duration" {...register("duration")} size="25" autoComplete="duration" required />
 
                     <label htmlFor="level">Niveau * :</label>
-                    <select name="level" {...register("level")} value={selectLevel} required onChange={handleChangeLevel}>
+                    <select id="level'" name="level" {...register("level")} value={selectLevel} required onChange={handleChangeLevel}>
                         <option value="all" >ajoutez un niveau</option>
                         <option value="debutant" >Debutant</option>
                         <option value="intermidiare" >Intermediaire</option>
                         <option value="avance" >Avance</option>
                     </select>
                     <label htmlFor="transmission"> Mode de transmission * :</label>
-                    <select name="transmission" {...register("transmission")} value={selectTrans} onChange={handleChangeTransm} required >
+                    <select id="transmission" name="transmission" {...register("transmission")} value={selectTrans} onChange={handleChangeTransm} required >
                         <option value="all" >mode de transmission</option>
                         <option value="online">En ligne</option>
                         <option value="video">Video</option>
