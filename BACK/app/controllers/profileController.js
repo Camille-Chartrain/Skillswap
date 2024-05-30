@@ -90,14 +90,17 @@ const profileController = {
                             UserId: req.user.id,
                         }
                     })
-                for (const eachCategory of req.body.interests) {
-                    console.log(eachCategory);
-                    await Interest.create(
-                        {
-                            CategoryId: eachCategory.interest,
-                            UserId: req.user.id,
-                        }
-                    )
+                if (req.body.interests) {
+                    console.log("req.body.interests 2", req.body.interests);
+                    for (const eachCategory of req.body.interests) {
+                        console.log(eachCategory);
+                        await Interest.create(
+                            {
+                                CategoryId: eachCategory.interest,
+                                UserId: req.user.id,
+                            }
+                        )
+                    }
                 }
             };
             res.status(200).json('update ok');
