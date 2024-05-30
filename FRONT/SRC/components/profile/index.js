@@ -138,10 +138,10 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                     <legend><h3>Modifier votre profil</h3></legend>
 
                     <label htmlFor="firstname">Prénom* :</label>
-                    <input id="firstname" type="text" name="firstname" {...register("firstname")} value={profileData.firstname} size="25" autoComplete="on" required />
+                    <input id="firstname" type="text" name="firstname" {...register("firstname")} value={profileData.firstname} size="25" autoComplete="off" required />
 
                     <label htmlFor="lastname">Nom* :</label>
-                    <input id="lastname" type="text" name="lastname"{...register("lastname")} value={profileData.lastname} size="25" autoComplete="on" required />
+                    <input id="lastname" type="text" name="lastname"{...register("lastname")} value={profileData.lastname} size="25" autoComplete="off" required />
 
                     <label htmlFor="birthday">Date de naissance :</label>
                     <input id="birthday" type="date" name="birthday" {...register("birthday")} value={profileData.birthday} size="25" autoComplete="on" />
