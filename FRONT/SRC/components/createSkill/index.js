@@ -1,10 +1,9 @@
 
 import { useEffect, useState } from "react";
-import Skill from "../skillList/skill";
 import Cookies from 'js-cookie';
 
 
-const CreateSkill = ({ handleSubmit, register, skillsList, isValid, Skill }) => {
+const CreateSkill = ({ handleSubmit, register, isValid }) => {
 
     const [createSkill, setDataCreateSkill] = useState({
         title: (''),
@@ -21,7 +20,6 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid, Skill }) => 
 
 
 
-
     //= to fetch select's datas
     const [selectCat, setSelectCat] = useState((''));
     const handleChangeCat = (e) => { setSelectCat(e.target.value) };
@@ -31,6 +29,7 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid, Skill }) => 
     const handleChangeLevel = (e) => { setSelectLevel(e.target.value) };
     const [selectTrans, setSelectTrans] = useState((''));
     const handleChangeTransm = (e) => { setSelectTrans(e.target.value) };
+
 
     const GetCreateSkill = async () => {
         try {
@@ -57,7 +56,6 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid, Skill }) => 
     }
 
     useEffect(() => { GetCreateSkill() }, [])
-
 
 
     //=post method to send info
@@ -87,64 +85,7 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid, Skill }) => 
             console.log("erreur cath :", error);
         }
     }
-    const PostSkillUpdate = async (data) => {
-        try {
-            console.log('try data:', data);
-            const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${id}`, {
-                method: "patch",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                // credentials: 'include'
-            })
-            console.log('response.status:', response.status);
 
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
-
-            //=fetch back side's  errors
-            console.log("error?:", dataSkill.error);
-
-        }
-        catch (error) {
-            console.log("erreur cath :", error);
-        }
-    }
-    const PostSkillDelete = async (data) => {
-        try {
-            console.log('try data:', data);
-            const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${id}`, {
-                method: "delete",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                // credentials: 'include'
-            })
-            console.log('response.status:', response.status);
-
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
-
-            //=fetch back side's  errors
-            console.log("error?:", dataSkill.error);
-            setError(dataSkill.error);
-        }
-        catch (error) {
-            console.log("erreur cath :", error);
-        }
-    }
 
     return (
 
@@ -263,27 +204,6 @@ const CreateSkill = ({ handleSubmit, register, skillsList, isValid, Skill }) => 
 
                 </fieldset>
             </form>
-            < div className="skillsList" >
-                <h3>Liste des competences</h3>
-                <ul>
-                    <span>
-                        <li>
-                            {skillsList?.map((item) => (
-                                < Skill
-                                    key={item?.id}
-                                    title={item?.title}
-                                />
-                            ))
-                            }
-                            test de visuel
-                        </li>
-                        <span className="btn">
-                            <button onClick={handleSubmit(PostSkillUpdate)} className="orangeBtn">MODIFIER</button>
-                            <button onClick={handleSubmit(PostSkillDelete)} type="reset" className="redBtn">SUPPRIMER</button>
-                        </span>
-                    </span>
-                </ul>
-            </div >
         </>
     )
 }

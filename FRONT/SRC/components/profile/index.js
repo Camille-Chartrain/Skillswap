@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import useForm from './react-hook-form';
+// import useForm from './react-hook-form';
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
-import User from '../usersList/user';
+import User from '../admin/user/index';
 
 
 
@@ -15,15 +15,128 @@ const Profile = ({ handleSubmit, register, isValid }) => {
         birthday: '',
         grade_level: '',
         presentation: '',
-        interests: []
+        interests: [],
+        skill: [],
     });
+
+
+
+    //= manage skill's list user
+    const [skillsUser, setSkillsUser] = useState([]);
+    const GetAllSkillUser = async (data) => {
+        try {
+            console.log("skillUser before fetch:", data)
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/skill', {
+                method: "get",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                // credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("skillUser avant .json", response);
+            const dataListSkill = await response.json();
+            console.log(" response apres .json:", dataListSkill);
+            setSkillsUser(dataListSkill);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataListSkill.error);
+            // setError(dataSkill.error);
+
+        }
+        catch (error) {
+            console.error(error.message);
+        }
+    }
+    useEffect(() => { GetAllSkillUser() }, [])
+
+    const PatchSkillUpdate = async (id) => {
+        console.log(id);
+        try {
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
+                method: "patch",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                // credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataSkill.error);
+
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+
+    const PostSkillDelete = async (data) => {
+        try {
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/skill/${id}`, {
+                method: "delete",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                // credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataSkill.error);
+            setError(dataSkill.error);
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+
+    //= to fetch select's datas
+    const [interests, setInterests] = useState([]);
+    const handleInterestChange = (e) => {
+        const { value, checked } = e.target;
+        if (checked) {
+            //-> if ok add to the list
+            setInterests((prevInterests) => [...prevInterests, value]);
+        } else {
+            //-> else delete the choice
+            setInterests((prevInterests) => prevInterests.filter((interest) => interest !== value));
+        }
+    };
+
 
     //= to refresh the profileData state between two changes
     const handleChangeProfile = (e) => {
         const { name, value } = e.target;
         setProfileData((prevProfileData) => ({ ...prevProfileData, [name]: value }));
     }
-
     const GetProfile = async () => {
         try {
             const token = Cookies.get('token');
@@ -54,19 +167,6 @@ const Profile = ({ handleSubmit, register, isValid }) => {
     }
     useEffect(() => { GetProfile() }, []);
 
-
-    //= to fetch select's datas
-    const [interests, setInterests] = useState([]);
-    const handleInterestChange = (e) => {
-        const { value, checked } = e.target;
-        if (checked) {
-            //-> if ok add to the list
-            setInterests((prevInterests) => [...prevInterests, value]);
-        } else {
-            //-> else delete the choice
-            setInterests((prevInterests) => prevInterests.filter((interest) => interest !== value));
-        }
-    };
 
     //=post method to send info
     const ProfilePatch = async (data) => {
@@ -203,6 +303,31 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             </form>
 
             <CreateSkill handleSubmit={handleSubmit} register={register} />
+
+            < div className="skillsList" >
+                <h3>Liste des competences</h3>
+                <ul>
+                    <span>
+
+                        {skillsUser?.map((skill,) => (
+                            <li key={skill?.id}>
+                                <>
+                                    <span>
+                                        <p>{skill?.title}</p>
+                                    </span>
+                                    <span className="btn">
+                                        <button onClick={PatchSkillUpdate(skill?.id)} className="orangeBtn">MODIFIER</button>
+                                        <button onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
+                                    </span>
+                                </>
+                            </li >
+                        ))
+                        }
+
+
+                    </span>
+                </ul>
+            </div >
             <button onClick={GetProfileDelete} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
         </div >
 
