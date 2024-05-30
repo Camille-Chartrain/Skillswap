@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+// import useForm from './react-hook-form';
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
-import User from '../usersList/user';
+import User from '../admin/user/index';
 
 
 
@@ -9,15 +10,133 @@ const Profile = ({ handleSubmit, register, isValid }) => {
 
     //= get method to show info & autocomplete
     const [profileData, setProfileData] = useState({
-        firstname: (''),
-        lastname: (''),
-        birthday: (''),
-        grade_level: (''),
-        presentation: (''),
-        interests: []
+        firstname: '',
+        lastname: '',
+        birthday: '',
+        grade_level: '',
+        presentation: '',
+        interests: [],
+        skill: [],
     });
 
 
+
+    //= manage skill's list user
+    const [skillsUser, setSkillsUser] = useState([]);
+    const GetAllSkillUser = async (data) => {
+        try {
+            console.log("skillUser before fetch:", data)
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/skill', {
+                method: "get",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                // credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("skillUser avant .json", response);
+            const dataListSkill = await response.json();
+            console.log(" response apres .json:", dataListSkill);
+            setSkillsUser(dataListSkill);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataListSkill.error);
+            // setError(dataSkill.error);
+
+        }
+        catch (error) {
+            console.error(error.message);
+        }
+    }
+    useEffect(() => { GetAllSkillUser() }, [])
+
+    const PatchSkillUpdate = async (id) => {
+        console.log(id);
+        try {
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
+                method: "patch",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                // credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataSkill.error);
+
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+
+    const PostSkillDelete = async (data) => {
+        try {
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/skill/${id}`, {
+                method: "delete",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                // credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataSkill.error);
+            setError(dataSkill.error);
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+
+    //= to fetch select's datas
+    const [interests, setInterests] = useState([]);
+    const handleInterestChange = (e) => {
+        const { value, checked } = e.target;
+        if (checked) {
+            //-> if ok add to the list
+            setInterests((prevInterests) => [...prevInterests, value]);
+        } else {
+            //-> else delete the choice
+            setInterests((prevInterests) => prevInterests.filter((interest) => interest !== value));
+        }
+    };
+
+
+    //= to refresh the profileData state between two changes
+    const handleChangeProfile = (e) => {
+        const { name, value } = e.target;
+        setProfileData((prevProfileData) => ({ ...prevProfileData, [name]: value }));
+    }
     const GetProfile = async () => {
         try {
             const token = Cookies.get('token');
@@ -36,11 +155,11 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             setProfileData(dataProfile);
             console.log('donnees profile data du state:', profileData);
 
-            //= to transform us'date into french's date
-            const dateUs = dataProfile.birthday;
-            const dateObj = new Date(dateUs);
-            const dateFr = dateObj.toLocaleDateString('fr-FR');
-            console.log("date en francais:", dateFr);
+            // //= to transform us'date into french's date
+            // const dateUs = dataProfile.birthday;
+            // const dateObj = new Date(dateUs);
+            // const dateFr = dateObj.toLocaleDateString('fr-FR');
+            // console.log("date en francais:", dateFr);
         }
         catch (error) {
             console.error("error catch:", error.message);
@@ -49,21 +168,8 @@ const Profile = ({ handleSubmit, register, isValid }) => {
     useEffect(() => { GetProfile() }, []);
 
 
-    //= to fetch select's datas
-    const [interests, setInterests] = useState([]);
-    const handleInterestChange = (e) => {
-        const { value, checked } = e.target;
-        if (checked) {
-            //-> if ok add to the list
-            setInterests((prevInterests) => [...prevInterests, value]);
-        } else {
-            //-> else delete the choice
-            setInterests((prevInterests) => prevInterests.filter((interest) => interest !== value));
-        }
-    };
-
     //=post method to send info
-    const ProfilePost = async (data) => {
+    const ProfilePatch = async (data) => {
         try {
             console.log('data envoyees:', data);
             const token = Cookies.get('token');
@@ -131,36 +237,36 @@ const Profile = ({ handleSubmit, register, isValid }) => {
         <div className="changeProfile">
             <h2 id="profile">Profil</h2>
             <form method="POST"
-                onSubmit={handleSubmit(ProfilePost)}
+                onSubmit={handleSubmit(ProfilePatch)}
                 className="profile">
 
                 <fieldset className="profileChange">
                     <legend><h3>Modifier votre profil</h3></legend>
 
                     <label htmlFor="firstname">Prénom* :</label>
-                    <input id="firstname" type="text" name="firstname" {...register("firstname")} value={profileData.firstname} size="25" autoComplete="off" />
+                    <input id="firstname" type="text" name="firstname" {...register("firstname")} value={profileData.firstname} onChange={handleChangeProfile} size="25" required />
 
                     <label htmlFor="lastname">Nom* :</label>
-                    <input id="lastname" type="text" name="lastname"{...register("lastname")} value={profileData.lastname} size="25" autoComplete="off" />
+                    <input id="lastname" type="text" name="lastname"{...register("lastname")} value={profileData.lastname} onChange={handleChangeProfile} size="25" required />
 
                     <label htmlFor="birthday">Date de naissance :</label>
-                    <input id="birthday" type="date" name="birthday" {...register("birthday")} value={profileData.birthday} size="25" autoComplete="on" />
+                    <input id="birthday" type="date" name="birthday" {...register("birthday")} value={profileData.birthday} onChange={handleChangeProfile} size="25" />
 
                     <label htmlFor="grade_level">Niveau d'etude :</label>
-                    <input id="grade_level" type="text" name="grade_level" {...register("grade_level")} value={profileData.grade_level} size="25" autoComplete="on" />
+                    <input id="grade_level" type="text" name="grade_level" {...register("grade_level")} value={profileData.grade_level} onChange={handleChangeProfile} size="25" />
 
                     <label htmlFor="presentation">Presentez vous :</label>
-                    <textarea id="presentation" name="presentation" {...register("presentation")} value={profileData.presentation} rows="5" cols="33" autoComplete="on" />
+                    <textarea id="presentation" name="presentation" {...register("presentation")} value={profileData.presentation} onChange={handleChangeProfile} rows="5" cols="33" />
 
                     {/* <label htmlFor="email">Email * :</label>
-                        <input  id="email" type="email"  name="email" {...register("email")} size="35" placeholder="  monadresse@gmail.com" autoComplete="on" required /> */}
+                        <input  id="email" type="email"  name="email" {...register("email")}  onChange={handleChangeProfile}size="35" placeholder="  monadresse@gmail.com" required /> */}
 
                     {/* //=section in place for later version 2
                         <>
                             <label htmlFor="password">Modifier mot de passe :</label>
-                            <input id="password" type="password"  name="password" {...register("newPassword")} size="35" placeholder="  12 caracteres minimun" />
+                            <input id="password" type="password"  name="password" {...register("newPassword")}  onChange={handleChangeProfile}size="35" placeholder="  12 caracteres minimun" />
                             <label htmlFor="confPassword">Confirmer votre mot de passe :</label>
-                            <input  id="password" type="password" name="confPassword" {...register("confPassword")} size="35" />
+                            <input  id="password" type="password" name="confPassword" {...register("confPassword")}  onChange={handleChangeProfile}size="35" />
                         </> */}
 
                     <fieldset className="interest" {...register("interests")} value={interests} >
@@ -197,7 +303,32 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             </form>
 
             <CreateSkill handleSubmit={handleSubmit} register={register} />
-            <button onSubmit={handleSubmit(GetProfileDelete)} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
+
+            < div className="skillsList" >
+                <h3>Liste des competences</h3>
+                <ul>
+                    <span>
+
+                        {skillsUser?.map((skill,) => (
+                            <li key={skill?.id}>
+                                <>
+                                    <span>
+                                        <p>{skill?.title}</p>
+                                    </span>
+                                    <span className="btn">
+                                        <button onClick={PatchSkillUpdate(skill?.id)} className="orangeBtn">MODIFIER</button>
+                                        <button onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
+                                    </span>
+                                </>
+                            </li >
+                        ))
+                        }
+
+
+                    </span>
+                </ul>
+            </div >
+            <button onClick={GetProfileDelete} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
         </div >
 
     )
