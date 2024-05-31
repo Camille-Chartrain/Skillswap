@@ -38,9 +38,7 @@ router.get('/statistic', verifyToken, statisticController.statistic);
 
 //communication
 router.get('/communication', verifyToken, communicationController.communication);
-// router.post('/communication', communicationController.createCommunication);
-// router.patch('/communication', communicationController.modifCommunication)
-// router.delete('/communication', communicationController.deleteCommunication)
+router.patch('/communication/:skillId', communicationController.rateSkill)
 
 // //learning
 // router.get('/learning', learningController.learning);

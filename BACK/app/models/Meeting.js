@@ -21,6 +21,10 @@ Meeting.init(
                 notEmpty: true,
             },
         },
+        status: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        }
     }, {
     sequelize,
     modelName: 'Meeting',
