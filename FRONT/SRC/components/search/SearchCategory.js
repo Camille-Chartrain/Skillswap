@@ -1,35 +1,23 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+const SearchCategory = ({ register }) => {
 
-const SearchCategory = () => {
-
-    const [searchCategory, setSearchCategory] = useState('all');
-
-
-    const handleChange = (e) => {
-        console.log(e.target.value);
-        setSearchCategory(e.target.value);
-    }
+    //= to fetch select's datas and datas bdd
+    const [selectCat, setSelectCat] = useState((''));
+    const handleChangeCat = (e) => { setSelectCat(e.target.value) };
 
     return (
-        <select id="category" value="all" name="category" onChange={handleChange} aria-label="selectionner par categorie">
-            <option value="all" >Categorie</option>
 
-            {/* {searchCategory?.map((category, index) => {
-                return (
-                    <option key={Category.id} value={dataCategory}>{Category}</option>
-                )
-            })} */}
 
-            {/* <select id="categories" name="categories" value="all">
-                <option value="all" >choisissez votre categorie</option>
-                <option value="1" >Language</option>
-                <option value="2" >Bricolage</option>
-                <option value="3" >Produits DIY</option>
-                <option value="4" >Cuisine</option>
-                <option value="5" >Art</option>
-                <option value="6" >Scolaire</option> */}
+        <select select id="CategoryId" name="CategoryId" {...register("CategoryId")} value={selectCat} onChange={handleChangeCat} >
+            <option id="CategoryId" value="all" name="category" selected>choisissez votre categorie</option>
+            <option id="CategoryId" value="1" >Language</option>
+            <option id="CategoryId" value="2" >Bricolage</option>
+            <option id="CategoryId" value="3" >Produits DIY</option>
+            <option id="CategoryId" value="4" >Cuisine</option>
+            <option id="CategoryId" value="5" >Art</option>
+            <option id="CategoryId" value="5" >Scolaire</option>
         </select>
-
 
 
     )

@@ -2,30 +2,21 @@
 import { useState } from "react";
 
 
-const SearchLevel = () => {
+const SearchLevel = ({ register }) => {
 
-    const [searchLevel, setSearchLevel] = useState('all');
+    //= to fetch select's datas and datas bdd
 
-    const handleChange = (e) => {
-        console.log(e.target.value);
-        setSearchLevel(e.target.value);
-    }
+    const [selectLevel, setSelectLevel] = useState((''));
+    const handleChangeLevel = (e) => { setSelectLevel(e.target.value) };
+
 
 
     return (
-        <select id="level" value="all" name="level" onChange={handleChange} aria-label="selectionner par niveau">
-            <option value="all"
-            >Niveau</option>
-            {/* {searchLevel?.map((level, index) => {
-                return (
-                    <option key={index} value={dataLevel}>{level}</option>
-                )
-            })} */}
-            {/* <select id="level" name="level" onChange={handleChange} value="default"> */}
-            <option value="all" >choisissez votre niveau</option>
-            <option value="" >Debutant</option>
-            <option value="" >Intermediaire</option>
-            <option value="" >Avance</option>
+        <select id="level" name="level" {...register("level")} value={selectLevel} required onChange={handleChangeLevel}>
+            <option id="level" value="all" selected>ajoutez un niveau</option>
+            <option id="level" value="debutant" >Debutant</option>
+            <option id="level" value="intermidiare" >Intermediaire</option>
+            <option id="level" value="avance" >Avance</option>
         </select>
     )
 }
