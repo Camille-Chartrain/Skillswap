@@ -6,14 +6,35 @@ const communicationController = {
         try {
             // req.params contains all the data
             console.log(req.params);
+
             const skill = await Skill.findAll({
-                order: [['id', 'DESC']], // order by descent with id
-                limit: 4, // Limit to 4 results
+                limit: 5,
+                // order: [['id', 'ASC']], // Order by ascending id
                 include: [
                     {
                         model: Category,
                         attributes: ['picture', 'name'],
-                    },],
+                        include: [
+                            {
+                                model: User,
+                                attributes: ['firstname', 'lastname'],
+                                through: {
+                                    model: Interest,
+                                    // where: {
+                                    //     UserId: req.user.id
+                                    // },
+                                    // required: true
+
+                                }
+                            }
+                        ]
+                    }
+                ],
+
+                // order: [['id', 'ASC']], // Tri par ordre croissant d'identifiants
+                where: {
+                    '$Category.Users.Interest.UserId$': req.user.id // filter to get only categories linked to the user trough interest 
+                },
             });
             //send the answer to the front
             res.send(
@@ -21,7 +42,7 @@ const communicationController = {
             );
         } catch (error) {
             console.error(error.message);
-            res.render('error');
+            res.status(400).send(error);
         }
     },
 

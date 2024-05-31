@@ -93,10 +93,10 @@ const profileController = {
                 if (req.body.interests) {
                     console.log("req.body.interests 2", req.body.interests);
                     for (const eachCategory of req.body.interests) {
-                        console.log(eachCategory);
+                        console.log("eachCategory", eachCategory);
                         await Interest.create(
                             {
-                                CategoryId: eachCategory.interest,
+                                CategoryId: eachCategory,
                                 UserId: req.user.id,
                             }
                         )

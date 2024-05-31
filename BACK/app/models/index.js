@@ -5,6 +5,8 @@ import Interest from "./Interest.js";
 import Sub_category from "./Sub_category.js";
 import Meeting from "./Meeting.js";
 
+console.log('on est dans les associations=============================================================================================================================================')
+
 
 //association many to manu category user
 User.belongsToMany(Category, { through: Interest, });
