@@ -8,8 +8,6 @@ const communicationController = {
             console.log(req.params);
 
             const skill = await Skill.findAll({
-                limit: 5,
-                // order: [['id', 'ASC']], // Order by ascending id
                 include: [
                     {
                         model: Category,
@@ -20,22 +18,51 @@ const communicationController = {
                                 attributes: ['firstname', 'lastname'],
                                 through: {
                                     model: Interest,
-                                    // where: {
-                                    //     UserId: req.user.id
-                                    // },
-                                    // required: true
-
-                                }
+                                    attributes: [], // Omet les attributs de la table de jonction
+                                    where: {
+                                        UserId: req.user.id
+                                    }
+                                },
+                                required: true // Assure que seulement les catégories associées à cet utilisateur sont incluses
                             }
-                        ]
+                        ],
+                        required: true // Assure que seulement les catégories associées à cet utilisateur sont incluses
                     }
                 ],
-
-                // order: [['id', 'ASC']], // Tri par ordre croissant d'identifiants
-                where: {
-                    '$Category.Users.Interest.UserId$': req.user.id // filter to get only categories linked to the user trough interest 
-                },
+                limit: 5, // Limite à 5 résultats
+                order: [['id', 'DESC']] // Tri par ordre croissant d'identifiants
             });
+            // where: {
+            //     '$Category.Users.Interest.UserId$': req.user.id // filter to get only categories linked to the user trough interest 
+            // },
+            // limit: 5,
+            // // order: [['id', 'ASC']], // Order by ascending id
+            // include: [
+            //     {
+            //         model: Category,
+            //         attributes: ['picture', 'name'],
+            //         include: [
+            //             {
+            //                 model: User,
+            //                 attributes: ['firstname', 'lastname'],
+            //                 through: {
+            //                     model: Interest,
+            //                     where: {
+            //                         UserId: req.user.id
+            //                     },
+            //                     required: true
+
+            //                 }
+            //             }
+            //         ]
+            //     }
+            // ],
+
+            // order: [['id', 'ASC']], // Tri par ordre croissant d'identifiants
+            // where: {
+            //     '$Category.Users.Interest.UserId$': req.user.id // filter to get only categories linked to the user trough interest 
+            // },
+            // });
             //send the answer to the front
             res.send(
                 skill
