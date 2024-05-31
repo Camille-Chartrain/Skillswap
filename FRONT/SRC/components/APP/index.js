@@ -10,7 +10,7 @@ import login from '../../style/pictures/login.svg';
 import dashboard from '../../style/pictures/dashboard.svg';
 import Dashboard from '../dashboard';
 import { DarkModeContext, PageError, isLogged } from '../../util';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -36,7 +36,7 @@ const App = ({ darkMode, isLogged }) => {
     console.log('je suis ds app, theme:', theme);
 
     // -> hook form create to post datas
-    const { handleSubmit, register, control, errors } = useForm({ mode: 'onSubmit' });
+    const { handleSubmit, register } = useForm({ mode: 'onSubmit' });
 
 
     return (

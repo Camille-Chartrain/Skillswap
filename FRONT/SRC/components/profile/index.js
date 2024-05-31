@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import useForm from './react-hook-form';
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
 import User from '../admin/user/index';
@@ -57,36 +56,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
     }
     useEffect(() => { GetAllSkillUser() }, [])
 
-    const PatchSkillUpdate = async (id) => {
-        console.log(id);
-        try {
-            console.log('try data:', data);
-            const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
-                method: "patch",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                // credentials: 'include'
-            })
-            console.log('response.status:', response.status);
 
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
-
-            //=fetch back side's  errors
-            console.log("error?:", dataSkill.error);
-
-        }
-        catch (error) {
-            console.log("erreur cath :", error);
-        }
-    }
 
     const PostSkillDelete = async (data) => {
         try {
@@ -156,10 +126,10 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             console.log('donnees profile data du state:', profileData);
 
             // //= to transform us'date into french's date
-            // const dateUs = dataProfile.birthday;
-            // const dateObj = new Date(dateUs);
-            // const dateFr = dateObj.toLocaleDateString('fr-FR');
-            // console.log("date en francais:", dateFr);
+            const dateUs = dataProfile.birthday;
+            const dateObj = new Date(dateUs);
+            const dateFr = dateObj.toLocaleDateString('fr-FR');
+            console.log("date en francais:", dateFr);
         }
         catch (error) {
             console.error("error catch:", error.message);
@@ -308,23 +278,20 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                 <h3>Liste des competences</h3>
                 <ul>
                     <span>
-
-                        {skillsUser?.map((skill,) => (
+                        {skillsUser?.map((skill) => (
                             <li key={skill?.id}>
                                 <>
                                     <span>
                                         <p>{skill?.title}</p>
                                     </span>
                                     <span className="btn">
-                                        <button onClick={PatchSkillUpdate(skill?.id)} className="orangeBtn">MODIFIER</button>
-                                        <button onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
+                                        <a href="#skillUpDate" alt="bouton modifier competence"><button className="orangeBtn" >MODIFIER</button></a>
+                                        <button aria-label="bouton supprimer competence" onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
                                     </span>
                                 </>
                             </li >
                         ))
                         }
-
-
                     </span>
                 </ul>
             </div >
