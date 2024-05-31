@@ -11,7 +11,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
 
     //= to fetch datas
     const [skillUpdate, setSkillUpDate] = useState({
-        id: '',
+        id: [],
         level: '',
         duration: '',
         transmission: '',
@@ -25,16 +25,17 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
         presentation: ''
     })
 
-    //= to refresh the Skill Data state between two changes
+    // //= to refresh the Skill Data state between two changes
     const handleChangeSkill = (e) => {
         const { name, value } = e.target;
         setSkillUpDate((prevSkillUpDate) => ({ ...prevSkillUpDate, [name]: value }));
     }
 
-    const GetSkillUpDate = async () => {
+    const GetSkillUpDate = async (skillId) => {
         try {
+            console.log("donnees du state:", skillId);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/oneSkill/${skillUpdate.id}`, {
+            const response = await fetch(`http://localhost:3000/oneSkill/${skillId}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -45,6 +46,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
 
             console.log("recup donnees de la BDD avant .json", response);
             const dataSkillUpDate = await response.json();
+
             console.log("recup donnees  .json:", dataSkillUpDate);
             setSkillUpDate(dataSkillUpDate);
             console.log('donnees Skill data du state:', dataSkillUpDate);
@@ -58,12 +60,12 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
 
 
     //= to change skill
-    const PatchSkillUpdate = async (data) => {
+    const PatchSkillUpdate = async (skillId) => {
         console.log(skillUpdate.id);
         try {
             console.log('try data:', data);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${skillUpdate.id}`, {
+            const response = await fetch(`http://localhost:3000/skill/${skillId}`, {
                 method: "patch",
                 status: 200,
                 headers: {
@@ -85,6 +87,37 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
             console.log("retour back erreur:", error);
 
 
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+
+    //=to delete a skill
+    const PostSkillDelete = async (skillId) => {
+        try {
+            console.log('try data:', skillId);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/skill/${skillId}`, {
+                method: "delete",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                // credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataSkill.error);
+            setError(dataSkill.error);
         }
         catch (error) {
             console.log("erreur cath :", error);

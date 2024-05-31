@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
-import User from '../admin/user/index';
 
 
 
-const Profile = ({ handleSubmit, register, isValid }) => {
+const Profile = ({ handleSubmit, register, isValid, GetSkillUpDate, PostSkillDelete, }) => {
 
     //= get method to show info & autocomplete
     const [profileData, setProfileData] = useState({
@@ -17,76 +16,6 @@ const Profile = ({ handleSubmit, register, isValid }) => {
         interests: [],
         skill: [],
     });
-
-
-
-    //= manage skill's list user
-    const [skillsUser, setSkillsUser] = useState([]);
-    const GetAllSkillUser = async (data) => {
-        try {
-            console.log("skillUser before fetch:", data)
-            console.log('try data:', data);
-            const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/skill', {
-                method: "get",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                // credentials: 'include'
-            })
-            console.log('response.status:', response.status);
-
-            //=traduct api response in Json
-            console.log("skillUser avant .json", response);
-            const dataListSkill = await response.json();
-            console.log(" response apres .json:", dataListSkill);
-            setSkillsUser(dataListSkill);
-
-            //=fetch back side's  errors
-            console.log("error?:", dataListSkill.error);
-            // setError(dataSkill.error);
-
-        }
-        catch (error) {
-            console.error(error.message);
-        }
-    }
-    useEffect(() => { GetAllSkillUser() }, [])
-
-
-
-    const PostSkillDelete = async (data) => {
-        try {
-            console.log('try data:', data);
-            const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${id}`, {
-                method: "delete",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                // credentials: 'include'
-            })
-            console.log('response.status:', response.status);
-
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
-
-            //=fetch back side's  errors
-            console.log("error?:", dataSkill.error);
-            setError(dataSkill.error);
-        }
-        catch (error) {
-            console.log("erreur cath :", error);
-        }
-    }
 
     //= to fetch select's datas
     const [interests, setInterests] = useState([]);
@@ -100,7 +29,6 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             setInterests((prevInterests) => prevInterests.filter((interest) => interest !== value));
         }
     };
-
 
     //= to refresh the profileData state between two changes
     const handleChangeProfile = (e) => {
@@ -201,6 +129,42 @@ const Profile = ({ handleSubmit, register, isValid }) => {
         }
     }
 
+    //= manage skill's list user
+    const [skillsUser, setSkillsUser] = useState([]);
+    const GetAllSkillUser = async (data) => {
+        try {
+            console.log("skillUser before fetch:", data)
+            console.log('try data:', data);
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/skill', {
+                method: "get",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+                // credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("skillUser avant .json", response);
+            const dataListSkill = await response.json();
+            console.log(" response apres .json:", dataListSkill);
+            setSkillsUser(dataListSkill);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataListSkill.error);
+            // setError(dataSkill.error);
+
+        }
+        catch (error) {
+            console.error(error.message);
+        }
+    }
+    useEffect(() => { GetAllSkillUser() }, [])
+
 
 
     return (
@@ -285,8 +249,9 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                                         <p>{skill?.title}</p>
                                     </span>
                                     <span className="btn">
-                                        <a href="#skillUpDate" alt="bouton modifier competence"><button className="orangeBtn" >MODIFIER</button></a>
-                                        <button aria-label="bouton supprimer competence" onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
+                                        <a href="#skillUpDate" alt="bouton modifier competence"><button className="orangeBtn" onSubmit={() => GetSkillUpDate(skill.id)}>MODIFIER</button></a>
+
+                                        <button aria-label="bouton supprimer competence" onClick={() => PostSkillDelete(skill.id)} type="reset" className="redBtn">SUPPRIMER</button>
                                     </span>
                                 </>
                             </li >

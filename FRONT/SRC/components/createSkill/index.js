@@ -10,7 +10,7 @@ import SearchTransmission from '../search/SearchTransmission';
 const CreateSkill = ({ handleSubmit, register, isValid }) => {
 
     const [createSkill, setDataCreateSkill] = useState({
-        id: (''),
+        id: [],
         title: (''),
         Category: (''),
         Sub_category: (''),
