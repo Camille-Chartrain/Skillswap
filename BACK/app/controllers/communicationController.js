@@ -8,8 +8,8 @@ const communicationController = {
             console.log(req.params);
 
             const skill = await Skill.findAll({
-
-                order: [['id', 'ASC']], // Order by ascending id
+                limit: 5,
+                // order: [['id', 'ASC']], // Order by ascending id
                 include: [
                     {
                         model: Category,
@@ -20,54 +20,22 @@ const communicationController = {
                                 attributes: ['firstname', 'lastname'],
                                 through: {
                                     model: Interest,
-                                    where: {
-                                        UserId: req.user.id
-                                    }
+                                    // where: {
+                                    //     UserId: req.user.id
+                                    // },
+                                    // required: true
+
                                 }
                             }
                         ]
                     }
                 ],
 
+                // order: [['id', 'ASC']], // Tri par ordre croissant d'identifiants
+                where: {
+                    '$Category.Users.Interest.UserId$': req.user.id // filter to get only categories linked to the user trough interest 
+                },
             });
-            //     order: [['id', 'ASC']], // order by descent with id
-            //     // Limit to 4 results
-            //     include: [
-            //         {
-            //             model: Category,
-            //             attributes: ['picture', 'name'],
-            //             through: {
-            //                 model: Interest,
-            //                 where: {
-            //                     UserId: req.user.id
-            //                 }
-            //             },
-            //         },],
-
-            // order: [['id', 'ASC']], // order by descent with id
-            // // Limit to 4 results
-            // include: [
-            //     {
-            //         model: Category,
-            //         attributes: ['picture', 'name'],
-            //         include: [
-            //             {
-            //                 model: User,
-            //                 attributes: ['firstname', 'lastname'],
-            //                 through: {
-            //                     model: Interest,
-            //                     where: {
-            //                         UserId: req.user.id
-            //                     }
-            //                 },
-            //                 where: {
-            //                     id: req.user.id
-            //                 }
-            //             }
-            //         ]
-            //     },],
-
-            // });
             //send the answer to the front
             res.send(
                 skill

@@ -28,6 +28,7 @@ router.delete('/profile', verifyToken, profileController.deleteProfile);
 
 //skill
 router.get('/skill', verifyToken, skillController.skill);
+router.get('/oneSkill/:skillId', verifyToken, skillController.oneSkill);
 router.post('/skill', verifyToken, skillController.createSkill);
 router.patch('/skill/:skillId', verifyToken, skillController.modifSkill);
 router.delete('/skill/:skillId', verifyToken, skillController.deleteSkill);

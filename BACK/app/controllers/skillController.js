@@ -6,18 +6,40 @@ const skillController = {
         try {
             console.log(req.params);
             // find by primary key
-            const profile = await Skill.findAll({
+            const skill = await Skill.findAll({
                 where: {
                     UserId: req.user.id
                 }
             });
-            console.log(profile);
-            if (profile === null) {
-                console.log('Not found!');
+            console.log(skill);
+            if (skill === null) {
+                console.log('skills Not found!');
             }
             //send the answer to the front
             res.send(
-                profile
+                skill
+            );
+        } catch (error) {
+            console.log('je suis ds la catch');
+            console.error(error.message);
+            res.render('error:', error);
+        }
+    },
+
+    oneSkill: async function (req, res) {
+        try {
+            console.log("req.params", req.params);
+            console.log("req.params.skillId", req.params.skillId);
+            // console.log("req.body", req.body);
+            // find by primary key
+            const skill = await Skill.findByPk(req.params.skillId);
+            console.log('oneskill:', skill);
+            if (skill === null) {
+                console.log('oneSkill not found!');
+            }
+            //send the answer to the front
+            res.send(
+                skill
             );
         } catch (error) {
             console.log('je suis ds la catch');
