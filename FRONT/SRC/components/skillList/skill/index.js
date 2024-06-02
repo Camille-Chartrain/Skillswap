@@ -1,6 +1,6 @@
 import { isLogged } from '../../../util';
 import PropTypes from 'prop-types';
-
+import SkillRating from '../../statistic/skillRating';
 
 const Skill = ({
     Category,
@@ -39,7 +39,7 @@ const Skill = ({
                             <h4>Competence :</h4><span> {title}</span>
                             <h4>Niveau : </h4><span>{level}</span>
                             <h4>Prix : </h4> <span>{price}</span>
-                            <h4>Note : </h4><span className={addClass}>{addHeart}</span>
+                            <SkillRating />
                         </div>
                     </>
                 ) : (

@@ -1,50 +1,45 @@
 import { useState, useEffect } from "react";
-import Skill from "../skillList";
+import Cookies from 'js-cookie';
 import { Money } from "./money";
-import { transactionMoney } from "./money";
+
 
 const Statistic = () => {
 
-    const [money, setMoney] = useState([]);
+    const [statistic, setStatistic] = useState({});
     const [courseMark, setCourseMark] = useState([]);
 
-
-    //=manage courses'rate
-
-    let addHeart = "";
-    let addClass = "";
-
-    if (typeof (mark) === 'undefined') {
-        addHeart = "Pas encore note";
-        addClass = "norate"
-    } else {
-        for (let i = 0; i < mark; i++) {
-            addHeart += "❤️";
-        };
-        for (let i = 0; i < 5 - mark; i++) {
-            addHeart += "🖤";
-        };
+    //= to refresh the statisticData state between two changes
+    const handleChangeStatistic = (e) => {
+        const { name, value } = e.target;
+        setStatistic((prevStatistic) => ({ ...prevStatistic, [name]: value }));
     }
 
-
-
-    const GetStatistic = async (data) => {
-        console.log(data);
+    const GetStatistic = async () => {
+        console.log();
         try {
-            const response = await fetch(`http://localhost:3000/statistic`);
-            const dataSkill = await response.json();
-            console.log(dataSkill);
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/statistic', {
+                method: "get",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                // credentials: 'include'
+            });
 
-            setMoney(dataSkill);
-            setCourseMark(dataSkill)
+            console.log("les statistic data avant  .json", response);
+            const dataStatistic = await response.json();
+            console.log("les statistic data  apres .json:", dataStatistic);
+            setStatistic(dataStatistic);
+            console.log('donnees statistic data du state:', dataStatistic);
+            setCourseMark(dataStatistic);
+            console.log('donnees setCourseMark:', dataStatistic);
         }
         catch (error) {
-            console.error(error.message);
+            console.log("catch de Get Statistic:", error.message);
         }
-
-        useEffect(() => { GetStatistic() }, []);
     }
-
+    useEffect(() => { GetStatistic() }, []);
 
 
     return (
@@ -56,25 +51,17 @@ const Statistic = () => {
                     <div className="skillsList">
                         <h3>Notations competences</h3>
                         <ul>
-                            <span>
-
-                                {courseMark?.map((item) => (
-
-                                    <li key={item?.id}>
-                                        title={item?.title}
-                                        note={item?.mark}
-                                    </li>
-                                ))
-                                }
-                                test de visuel teacher
-
-                            </span>
+                            {courseMark?.map((item) => (
+                                <li key={item?.id}>
+                                    {item?.title}:{item?.mark}
+                                </li>
+                            ))}
+                            test de visuel teacher
                         </ul>
                     </div>
                 </span>
             </div >
         </main >
     )
-
 };
 export default Statistic;

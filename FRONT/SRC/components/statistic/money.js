@@ -3,8 +3,8 @@ import { useState } from "react";
 export const Money = () => {
 
     const [donatedMoney, setDonatedMoney] = useState(0);
-    const [receivedMoney, setReceivedMoney] = useState(0);
-    const [totalMoney, setTotalMoney] = useState(0);
+    const [receivedMoney, setReceivedMoney] = useState(2);
+    const [totalMoney, setTotalMoney] = useState();
 
 
     const updateReceivedMoney = (amount) => {
