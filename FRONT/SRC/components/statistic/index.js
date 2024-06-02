@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Cookies from 'js-cookie';
 import { Money } from "./money";
-
+import SkillRating from './skillRating'
+    ;
 
 const Statistic = () => {
 
@@ -53,7 +54,7 @@ const Statistic = () => {
                         <ul>
                             {courseMark?.map((item) => (
                                 <li key={item?.id}>
-                                    {item?.title}:{item?.mark}
+                                    {item?.title}:<SkillRating initialRating={item?.mark} />
                                 </li>
                             ))}
                             test de visuel teacher
