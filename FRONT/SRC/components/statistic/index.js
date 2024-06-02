@@ -57,7 +57,6 @@ const Statistic = () => {
                                     {item?.title}:<SkillRating initialRating={item?.mark} />
                                 </li>
                             ))}
-                            test de visuel teacher
                         </ul>
                     </div>
                 </span>

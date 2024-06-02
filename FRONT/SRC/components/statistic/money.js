@@ -4,17 +4,17 @@ export const Money = () => {
 
     const [donatedMoney, setDonatedMoney] = useState(0);
     const [receivedMoney, setReceivedMoney] = useState(2);
-    const [totalMoney, setTotalMoney] = useState();
+    const [totalMoney, setTotalMoney] = useState(2);
 
 
     const updateReceivedMoney = (amount) => {
         setReceivedMoney(receivedMoney + amount);
-        setTotalMoney(totalMoney + amount);
+        setTotalMoney(receivedMoney + donatedMoney + amount);
     }
 
     const updateDonatedMoney = (amount) => {
         setDonatedMoney(donatedMoney + amount);
-        setTotalMoney(totalMoney + amount);
+        setTotalMoney(receivedMoney + donatedMoney + amount);
     }
 
 
