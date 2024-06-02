@@ -48,7 +48,7 @@ const App = ({ darkMode, isLogged }) => {
                 <div className='headerSite'>
                     <Header />
                     <nav className="nav">
-                        {isLogged && isLogged ? null :
+                        {isLogged && isLogged ? { display: 'none' } :
                             <>
                                 <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
                                 <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>

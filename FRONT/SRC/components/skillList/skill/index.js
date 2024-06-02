@@ -39,7 +39,7 @@ const Skill = ({
                             <h4>Competence :</h4><span> {title}</span>
                             <h4>Niveau : </h4><span>{level}</span>
                             <h4>Prix : </h4> <span>{price}</span>
-                            <h4>Note : </h4><span>{mark}</span>
+                            <h4>Note : </h4><span className={addClass}>{addHeart}</span>
                         </div>
                     </>
                 ) : (
@@ -56,7 +56,7 @@ const Skill = ({
                 )
                 }
 
-            </div>
+            </div >
         </>
     )
 };

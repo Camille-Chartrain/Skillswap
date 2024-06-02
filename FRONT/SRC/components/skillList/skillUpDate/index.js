@@ -35,9 +35,9 @@ const SkillUpDate = ({ handleSubmit, register, isValid, skillId }) => {
     const GetSkillUpDate = async () => {
 
         try {
-            console.log("donnees du state:", skillId);
+            console.log('entree try de getSkillUpDate:', skillId);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/oneSkill/${skillId}`, {
+            const response = await fetch(`http://localhost:3000/skill/${skillId}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -62,8 +62,8 @@ const SkillUpDate = ({ handleSubmit, register, isValid, skillId }) => {
 
 
     //= to change skill
-    const PatchSkillUpdate = async (skillId) => {
-        console.log(skillUpdate.id);
+    const PatchSkillUpdate = async (data, skillId) => {
+        console.log(skillId);
         try {
             console.log('try data:', data);
             const token = Cookies.get('token');
@@ -84,14 +84,12 @@ const SkillUpDate = ({ handleSubmit, register, isValid, skillId }) => {
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
 
-
             //=fetch back side's  errors
             console.log("retour back erreur:", error);
 
-
         }
         catch (error) {
-            console.log("erreur cath :", error);
+            console.log("catch de patchSkillUpDate:", error);
         }
     }
 
@@ -128,7 +126,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, skillId }) => {
 
     return (
         <>
-            <form method="POST" onSubmit={handleSubmit(PatchSkillUpdate(skillId))} className="skill">
+            <form method="POST" onSubmit={() => handleSubmit(null, PatchSkillUpdate(skillId))} className="skill">
                 <fieldset className="skillUpDate">
                     <legend><h3>Modification de competence</h3></legend>
                     <div></div>
@@ -174,7 +172,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, skillId }) => {
                     </fieldset> */}
 
                 </fieldset>
-            </form>
+            </form >
         </>
     )
 };

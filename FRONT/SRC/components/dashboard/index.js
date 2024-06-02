@@ -13,7 +13,6 @@ import message from '../../style/pictures/message.svg';
 import logout from '../../style/pictures/logout.svg';
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
-import SkillUpDate from "../skillList/skillUpDate";
 
 
 const Dashboard = ({ handleSubmit, register, isValid }) => {
