@@ -6,7 +6,8 @@ import SearchSubCategory from '../../search/SearchSubCategory';
 import SearchLevel from '../../search/SearchLevel';
 import SearchTransmission from '../../search/SearchTransmission';
 
-const SkillUpDate = ({ handleSubmit, register, isValid }) => {
+
+const SkillUpDate = ({ handleSubmit, register, isValid, skillId }) => {
 
 
     //= to fetch datas
@@ -31,7 +32,8 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
         setSkillUpDate((prevSkillUpDate) => ({ ...prevSkillUpDate, [name]: value }));
     }
 
-    const GetSkillUpDate = async (skillId) => {
+    const GetSkillUpDate = async () => {
+
         try {
             console.log("donnees du state:", skillId);
             const token = Cookies.get('token');
@@ -53,10 +55,10 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
 
         }
         catch (error) {
-            console.error("erreur du catch:", error);
+            console.error("catch de skillUpDate:", error);
         }
     }
-    useEffect(() => { GetSkillUpDate() }, [])
+    useEffect(() => { GetSkillUpDate() }, [skillId])
 
 
     //= to change skill
@@ -126,10 +128,9 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
 
     return (
         <>
-            <h4 id="skillUpDate">Modifier la competence</h4>
-            <form method="POST" onSubmit={handleSubmit(PatchSkillUpdate)} className="skill">
+            <form method="POST" onSubmit={handleSubmit(PatchSkillUpdate(skillId))} className="skill">
                 <fieldset className="skillUpDate">
-                    <legend><h3>Creation de competence</h3></legend>
+                    <legend><h3>Modification de competence</h3></legend>
                     <div></div>
                     <label htmlFor="title">Titre * :</label>
                     <small> Merci de donner un titre explicite</small>

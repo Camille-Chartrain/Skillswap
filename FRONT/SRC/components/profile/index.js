@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
+import { useNavigate } from "react-router-dom";
+import SkillUpDate from "../skillList/skillUpDate";
 
 
 
-const Profile = ({ handleSubmit, register, isValid, GetSkillUpDate, PostSkillDelete, }) => {
+const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
+
 
     //= get method to show info & autocomplete
     const [profileData, setProfileData] = useState({
@@ -165,6 +168,14 @@ const Profile = ({ handleSubmit, register, isValid, GetSkillUpDate, PostSkillDel
     }
     useEffect(() => { GetAllSkillUser() }, [])
 
+    //=redirect for update skill
+    const navigate = useNavigate();
+
+    //=go to skillUpDate component
+    const handlechange = (skillId) => {
+        console.log('HC recup id:', skillId);
+        navigate('/oneSkill/');
+    }
 
 
     return (
@@ -249,9 +260,9 @@ const Profile = ({ handleSubmit, register, isValid, GetSkillUpDate, PostSkillDel
                                         <p>{skill?.title}</p>
                                     </span>
                                     <span className="btn">
-                                        <a href="#skillUpDate" alt="bouton modifier competence"><button className="orangeBtn" onSubmit={() => GetSkillUpDate(skill.id)}>MODIFIER</button></a>
+                                        <button className="orangeBtn" onClick={handlechange.bind(null, skill.id)}>MODIFIER</button>
 
-                                        <button aria-label="bouton supprimer competence" onClick={() => PostSkillDelete(skill.id)} type="reset" className="redBtn">SUPPRIMER</button>
+                                        <button aria-label="bouton supprimer competence" onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
                                     </span>
                                 </>
                             </li >
