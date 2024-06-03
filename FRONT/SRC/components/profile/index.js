@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
-import { useLocation, useNavigate } from "react-router-dom";
-import SkillUpDate from "../skillList/skillUpDate";
+import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -37,7 +37,7 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
     const handleChangeProfile = (e) => {
         const { name, value } = e.target;
         setProfileData((prevProfileData) => ({ ...prevProfileData, [name]: value }));
-    }
+    };
     const GetProfile = async () => {
         try {
             const token = Cookies.get('token');
@@ -171,29 +171,35 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
     //=redirect for update skill
     const navigate = useNavigate();
 
-    //=go to skillUpDate component
+    //= filter and clean skill's datas before go to skillUpDate component
     const handlechange = (skill) => {
-        console.log('HC recup id:', skill);
-        // const location = useLocation();
-        // const id = location.state.id;
+        const skillData = {
+            id: skill.id,
+            Category: skill.Category,
+            picture: skill.icture,
+            title: skill.title,
+            price: skill.price,
+            mark: skill.mark,
+            level: skill.level,
+            duration: skill.duration,
+            transmission: skill.transmission,
+            description: skill.descriptions,
+            availability: skill.availability,
+            Sub_category: skill.Sub_category,
+        }
+
+
+        // //->cleaning
+        const cleanSkill = { ...skillData };
+        cleanSkill.someFunction = undefined;
+        console.log('HC recup id:', skillData);
+        // //->JSON translate
+        const serializedSkill = JSON.stringify(skillData);
         navigate('/oneSkill/', {
-            state: {
-                id: skill.id,
-                title: skill.title,
-                level: skill.level,
-                duration: skill.duration,
-                transmission: skill.transmission,
-                description: skill.description,
-                availability: skill.availability,
-                Sub_category: skill.Sub_category,
-                firstname: skill.firstname,
-                lastname: skill.lastname,
-                email: skill.email,
-                grade_level: skill.grade_level,
-                presentation: skill.presentation
-            }
-        });
-    }
+            state: { skillData: serializedSkill },
+        })
+
+    };
 
 
     return (
@@ -278,7 +284,7 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
                                         <p>{skill?.title}</p>
                                     </span>
                                     <span className="btn">
-                                        <button className="orangeBtn" onClick={handlechange.bind(null, skill)}>MODIFIER</button>
+                                        <button className="orangeBtn" onClick={handlechange}>MODIFIER</button>
 
                                         <button aria-label="bouton supprimer competence" onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
                                     </span>
@@ -295,4 +301,5 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
     )
 
 };
+
 export default Profile;

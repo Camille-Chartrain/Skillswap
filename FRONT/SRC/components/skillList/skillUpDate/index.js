@@ -1,35 +1,20 @@
 
 import { useEffect, useState } from "react";
-import Skill from '../skill';
 import Cookies from 'js-cookie';
 import SearchCategory from '../../search/SearchCategory';
 import SearchSubCategory from '../../search/SearchSubCategory';
 import SearchLevel from '../../search/SearchLevel';
 import SearchTransmission from '../../search/SearchTransmission';
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 
-const SkillUpDate = ({ handleSubmit, register, isValid, skill }) => {
-
+const SkillUpDate = ({ handleSubmit, register, isValid }) => {
+    const { id } = useParams();
+    const location = useLocation();
+    const skill = JSON.parse(location.state?.skill);
 
     // //= to fetch datas
-    const [skillUpdate, setSkillUpDate] = useState({
-
-        skill: {
-            id: [],
-            title: '',
-            level: '',
-            duration: '',
-            transmission: '',
-            description: '',
-            availability: '',
-            Sub_category: '',
-            firstname: '',
-            lastname: '',
-            email: '',
-            grade_level: '',
-            presentation: ''
-        }
-    })
+    const [skillUpdate, setSkillUpDate] = useState({});
 
     // //= to refresh the Skill Data state between two changes
     const handleChangeSkill = (e) => {
@@ -37,132 +22,139 @@ const SkillUpDate = ({ handleSubmit, register, isValid, skill }) => {
         setSkillUpDate((prevSkillUpDate) => ({ ...prevSkillUpDate, [name]: value }));
     }
 
-    const GetSkillUpDate = async (skill) => {
+    const GetSkillUpDate = async () => {
 
         try {
-            // console.log('entree try de getSkillUpDate:', skillId);
-            // const token = Cookies.get('token');
-            // const response = await fetch(`http://localhost:3000/skill/${skillId}`, {
-            //     method: "get",
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         'Authorization': `Bearer ${token}`,
-            //     },
-            //     // credentials: 'include'
-            // });
+            console.log('entree try de getSkillUpDate:', skillUpdate);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/skill/${id}`, {
+                method: "get",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                // credentials: 'include'
+            });
 
-            // console.log("recup donnees de la BDD avant .json", response);
-            // const dataSkillUpDate = await response.json();
+            console.log("recup donnees de la BDD avant .json", response);
+            const dataSkillUpDate = await response.json();
 
             console.log("recup donnees  .json:", skill);
-            setSkillUpDate(skill);
-            console.log('donnees Skill data du state:', skill);
+            setSkillUpDate(dataSkillUpDate);
+            console.log('donnees Skill data du state:', dataSkillUpDate);
 
         }
         catch (error) {
             console.error("catch de skillUpDate:", error);
         }
     }
-    useEffect(() => { GetSkillUpDate() }, [skill])
+    useEffect(() => { GetSkillUpDate() }, [id])
 
+    //=redirect for update skill
+    const navigate = useNavigate();
 
-    //= to change skill
-    const PatchSkillUpdate = async (data, skillId) => {
-        console.log(skillId);
-        try {
-            console.log('try data:', data);
-            const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${skillId}`, {
-                method: "patch",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                // credentials: 'include'
-            })
-            console.log('response.status:', response.status);
+    //=go to skillUpDate component
+    const handlechange = () => {
+        console.log('HC recup id:', skill);
+        navigate('/dashboard')
 
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
+        //= to change skill
+        const PatchSkillUpdate = async (data) => {
+            console.log(skill);
+            try {
+                console.log('try data:', data);
+                const token = Cookies.get('token');
+                const response = await fetch(`http://localhost:3000/skill/${id}`, {
+                    method: "patch",
+                    status: 200,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(data),
+                    // credentials: 'include'
+                })
+                console.log('response.status:', response.status);
 
-            //=fetch back side's  errors
-            console.log("retour back erreur:", error);
+                //=traduct api response in Json
+                console.log("response avant .json", response);
+                const dataSkill = await response.json();
+                console.log(" response apres .json:", dataSkill);
 
+                //=fetch back side's  errors
+                console.log("retour back erreur:", error);
+
+            }
+            catch (error) {
+                console.log("catch de patchSkillUpDate:", error);
+            }
         }
-        catch (error) {
-            console.log("catch de patchSkillUpDate:", error);
+
+        //=to delete a skill
+        const PostSkillDelete = async () => {
+            try {
+                console.log('try data:', skill);
+                const token = Cookies.get('token');
+                const response = await fetch(`http://localhost:3000/skill/${id}`, {
+                    method: "delete",
+                    status: 200,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(data),
+                    // credentials: 'include'
+                })
+                console.log('response.status:', response.status);
+
+                //=traduct api response in Json
+                console.log("response avant .json", response);
+                const dataSkill = await response.json();
+                console.log(" response apres .json:", dataSkill);
+
+                //=fetch back side's  errors
+                console.log("error?:", dataSkill.error);
+                setError(dataSkill.error);
+            }
+            catch (error) {
+                console.log("erreur cath :", error);
+            }
         }
-    }
 
-    //=to delete a skill
-    const PostSkillDelete = async (skillId) => {
-        try {
-            console.log('try data:', skillId);
-            const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${skillId}`, {
-                method: "delete",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                // credentials: 'include'
-            })
-            console.log('response.status:', response.status);
+        return (
+            <>
+                <form method="POST" onSubmit={() => handleSubmit(null, PatchSkillUpdate())} className="skill">
+                    <fieldset className="skillUpDate">
+                        <legend><h3>Modification de competence</h3></legend>
+                        <div></div>
+                        <label htmlFor="title">Titre * :</label>
+                        <small> Merci de donner un titre explicite</small>
+                        <input id="title" type="text" name="title" {...register("title")} value={skillUpdate.title} onChange={handleChangeSkill} size="25" autoComplete="on" required />
 
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
+                        <label htmlFor="CategoryId">Categorie * :</label>
+                        <SearchCategory register={register} />
 
-            //=fetch back side's  errors
-            console.log("error?:", dataSkill.error);
-            setError(dataSkill.error);
-        }
-        catch (error) {
-            console.log("erreur cath :", error);
-        }
-    }
+                        <label htmlFor="SubCategoryId">Sous Categorie * :</label>
+                        <SearchSubCategory register={register} />
 
-    return (
-        <>
-            <form method="POST" onSubmit={() => handleSubmit(null, PatchSkillUpdate(skillId))} className="skill">
-                <fieldset className="skillUpDate">
-                    <legend><h3>Modification de competence</h3></legend>
-                    <div></div>
-                    <label htmlFor="title">Titre * :</label>
-                    <small> Merci de donner un titre explicite</small>
-                    <input id="title" type="text" name="title" {...register("title")} value={skillUpdate.title} onChange={handleChangeSkill} size="25" autoComplete="on" required />
+                        <label htmlFor="duration">Duree * :</label>
+                        <input id="duration" type="text" name="duration" {...register("duration")} value={skillUpdate.duration} onChange={handleChangeSkill} size="25" autoComplete="duration" required />
 
-                    <label htmlFor="CategoryId">Categorie * :</label>
-                    <SearchCategory register={register} />
+                        <label htmlFor="level">Niveau * :</label>
+                        <SearchLevel register={register} />
 
-                    <label htmlFor="SubCategoryId">Sous Categorie * :</label>
-                    <SearchSubCategory register={register} />
+                        <label htmlFor="transmission"> Mode de transmission * :</label>
+                        <SearchTransmission register={register} />
 
-                    <label htmlFor="duration">Duree * :</label>
-                    <input id="duration" type="text" name="duration" {...register("duration")} value={skillUpdate.duration} onChange={handleChangeSkill} size="25" autoComplete="duration" required />
+                        <label htmlFor="description">Descriptif * :</label>
+                        <textarea id="description" type="text" name="description" {...register("description")} value={skillUpdate.description} onChange={handleChangeSkill} rows="5" cols="33" autoComplete="on" required />
 
-                    <label htmlFor="level">Niveau * :</label>
-                    <SearchLevel register={register} />
+                        <label htmlFor="availability">Disponibilite * :</label>
+                        <input id="availability" type="text" name="availability" {...register("availability")} value={skillUpdate.availability} onChange={handleChangeSkill} size="25" autoComplete="on" required />
 
-                    <label htmlFor="transmission"> Mode de transmission * :</label>
-                    <SearchTransmission register={register} />
+                        <button onClick={handlechange} disabled={isValid} >VALIDER</button>
 
-                    <label htmlFor="description">Descriptif * :</label>
-                    <textarea id="description" type="text" name="description" {...register("description")} value={skillUpdate.description} onChange={handleChangeSkill} rows="5" cols="33" autoComplete="on" required />
-
-                    <label htmlFor="availability">Disponibilite * :</label>
-                    <input id="availability" type="text" name="availability" {...register("availability")} value={skillUpdate.availability} onChange={handleChangeSkill} size="25" autoComplete="on" required />
-
-                    <button disabled={isValid} >VALIDER</button>
-
-                    {/* //= section in place for later version2
+                        {/* //= section in place for later version2
                     <fieldset className="addCategory">
                         <legend><h4>Ajouter categorie/sous-categorie</h4>  </legend>
                         <p>
@@ -176,12 +168,12 @@ const SkillUpDate = ({ handleSubmit, register, isValid, skill }) => {
                         <button className="btn" disabled={isValid} >AJOUTER</button>
                     </fieldset> */}
 
-                </fieldset>
-            </form >
-        </>
-    )
-};
+                    </fieldset>
+                </form >
+            </>
+        )
+    };
 
 
-
+}
 export default SkillUpDate;
