@@ -39,3 +39,11 @@ export const PageError = () => {
 //= Routes displayed depending if you are logged or not..
 export const isLogged = false;
 
+
+//=notifications gender
+export const NotificationType = {
+    RATING: 'rating',
+    MONEY: 'money',
+    INTEREST: 'interest',
+};
+

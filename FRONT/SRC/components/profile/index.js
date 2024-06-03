@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
+import { useNavigate } from "react-router-dom";
 
 
 
-const Profile = ({ handleSubmit, register, isValid, GetSkillUpDate, PostSkillDelete, }) => {
+
+const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
+
 
     //= get method to show info & autocomplete
     const [profileData, setProfileData] = useState({
@@ -34,7 +37,7 @@ const Profile = ({ handleSubmit, register, isValid, GetSkillUpDate, PostSkillDel
     const handleChangeProfile = (e) => {
         const { name, value } = e.target;
         setProfileData((prevProfileData) => ({ ...prevProfileData, [name]: value }));
-    }
+    };
     const GetProfile = async () => {
         try {
             const token = Cookies.get('token');
@@ -165,10 +168,42 @@ const Profile = ({ handleSubmit, register, isValid, GetSkillUpDate, PostSkillDel
     }
     useEffect(() => { GetAllSkillUser() }, [])
 
+    //=redirect for update skill
+    const navigate = useNavigate();
+
+    //= filter and clean skill's datas before go to skillUpDate component
+    const handlechange = (skill) => {
+        const skillData = {
+            id: skill.id,
+            Category: skill.Category,
+            picture: skill.icture,
+            title: skill.title,
+            price: skill.price,
+            mark: skill.mark,
+            level: skill.level,
+            duration: skill.duration,
+            transmission: skill.transmission,
+            description: skill.descriptions,
+            availability: skill.availability,
+            Sub_category: skill.Sub_category,
+        }
+
+
+        // //->cleaning
+        const cleanSkill = { ...skillData };
+        cleanSkill.someFunction = undefined;
+        console.log('HC recup id:', skillData);
+        // //->JSON translate
+        const serializedSkill = JSON.stringify(skillData);
+        navigate('/oneSkill/', {
+            state: { skillData: serializedSkill },
+        })
+
+    };
 
 
     return (
-        <div className="changeProfile">
+        <div className="changeProfile" >
             <h2 id="profile">Profil</h2>
             <form method="POST"
                 onSubmit={handleSubmit(ProfilePatch)}
@@ -249,9 +284,9 @@ const Profile = ({ handleSubmit, register, isValid, GetSkillUpDate, PostSkillDel
                                         <p>{skill?.title}</p>
                                     </span>
                                     <span className="btn">
-                                        <a href="#skillUpDate" alt="bouton modifier competence"><button className="orangeBtn" onSubmit={() => GetSkillUpDate(skill.id)}>MODIFIER</button></a>
+                                        <button className="orangeBtn" onClick={handlechange}>MODIFIER</button>
 
-                                        <button aria-label="bouton supprimer competence" onClick={() => PostSkillDelete(skill.id)} type="reset" className="redBtn">SUPPRIMER</button>
+                                        <button aria-label="bouton supprimer competence" onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
                                     </span>
                                 </>
                             </li >
@@ -266,4 +301,5 @@ const Profile = ({ handleSubmit, register, isValid, GetSkillUpDate, PostSkillDel
     )
 
 };
+
 export default Profile;

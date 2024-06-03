@@ -7,6 +7,7 @@ const Learning = () => {
     const [courseList, setCourseList] = useState([]);
 
     const GetLearning = async (data) => {
+        console.log('recup des datas GetLearning:', data);
         try {
             const response = await fetch(`http://localhost:3000/learning`);
             const dataSkill = await response.json();
@@ -18,7 +19,7 @@ const Learning = () => {
             console.error(error.message);
         }
 
-        useEffect(() => { GetLearning() }, []);
+        useEffect(() => { GetLearning() }, [dataSkill]);
     }
 
 
@@ -33,16 +34,15 @@ const Learning = () => {
                         <h3>Apprentissage en cours</h3>
                         <ul>
                             <span>
-                                <li>
-                                    {seeList?.map((item) => (
-                                        < Skill
-                                            key={item?.id}
-                                            title={item?.title}
-                                        />
-                                    ))
-                                    }
-                                    test de visuel learning
-                                </li>
+
+                                {seeList?.map((item) => (
+                                    <li key={item?.id}>
+                                        title={item?.title}
+                                    </li>
+                                ))
+                                }
+                                test de visuel learning
+
                                 <span>
                                     <button className="btn">EN ATTENTE</button>
                                     {/* // passe en valider a l'acceptation du prof puis en terminer pour finir */}
@@ -56,16 +56,13 @@ const Learning = () => {
                         <h3>Cours dispenses</h3>
                         <ul>
                             <span>
-                                <li>
-                                    {courseList?.map((item) => (
-                                        < Skill
-                                            key={item?.id}
-                                            title={item?.title}
-                                        />
-                                    ))
-                                    }
-                                    test de visuel teacher
-                                </li>
+                                {courseList?.map((item) => (
+                                    <li key={item?.id}>
+                                        title={item?.title}
+                                    </li>
+                                ))
+                                }
+                                test de visuel teacher
                                 <span>
                                     <button className="btn">EN ATTENTE</button>
                                     {/* // passe en valider a l'acceptation du prof puis en terminer pour finir */}

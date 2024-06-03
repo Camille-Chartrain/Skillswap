@@ -13,7 +13,6 @@ import message from '../../style/pictures/message.svg';
 import logout from '../../style/pictures/logout.svg';
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
-import SkillUpDate from "../skillList/skillUpDate";
 
 
 const Dashboard = ({ handleSubmit, register, isValid }) => {
@@ -54,7 +53,6 @@ const Dashboard = ({ handleSubmit, register, isValid }) => {
                 <Learning handleSubmit={handleSubmit} register={register} />
                 <Statistic handleSubmit={handleSubmit} register={register} />
                 <Communication handleSubmit={handleSubmit} register={register} />
-                <SkillUpDate handleSubmit={handleSubmit} register={register} />
             </main>
         </>
 

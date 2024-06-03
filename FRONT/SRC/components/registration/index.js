@@ -39,7 +39,6 @@ const Registration = ({ handleSubmit, register, isValid }) => {
             {/* //= manage and show error for user */ }
             if (dataFetch.accessToken) {
                 navigate("/dashboard");
-                // return (<div className="success"> "Vous etes inscrit.e" </div>)
             }
             else { <div className="error">return({error?.message})</div> }
         }

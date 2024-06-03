@@ -11,31 +11,31 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
 
     const { handleSubmit, register } = useForm({ mode: 'onSubmit' });
 
-    const [searchInput, setSearchInput] = useState([]);
+    const [searchInput, setSearchInput] = useState('');
 
     handleChange = (e) => { e.preventDefault(); setSearchInput(); }
 
 
     const GetSearch = async (data) => {
         try {
-            // console.log("recup data avant JSON:", data)
-            // const response = await fetch(`http://localhost:3000/searchVisitor/:${searchInput}?/:${searchLevel}?/:${searchCategory}?/:${searchSubCategory}`);
-            // console.log("recup data apres JSON:", data)
 
-            // const dataSearch = await response.json();
-            // console.log("donnees dataSearch", dataSearch)
+            const response = await fetch(`http://localhost:3000/searchVisitor/${searchInput}/${searchLevel}?/${searchCategory}?/${searchSubCategory}`);
+            console.log("recup data apres JSON:", data)
 
-            // setSearchInput(dataSearch);
-            // setSearchLevel(dataSearch);
-            // setSearchCategory(dataSearch);
-            // setSearchSubCategory(dataSearch);
-            // console.log('donnees du state inputSearch:', dataSearch);
+            const dataSearch = await response.json();
+            console.log("donnees dataSearch", dataSearch)
+
+            setSearchInput(dataSearch.searchInput);
+            setSearchLevel(dataSearch.SearchLevel);
+            setSearchCategory(dataSearch.SearchCategory);
+            setSearchSubCategory(dataSearch.SearchSubCategory);
+            console.log('donnees du state inputSearch:', dataSearch);
         }
         catch (error) {
             console.log('erreur du catch GetSearch:', error);
         }
     }
-    useEffect(() => { GetSearch() }, [])
+    useEffect(() => { GetSearch() }, [searchInput]);
 
     return (
 

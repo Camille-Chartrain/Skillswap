@@ -13,6 +13,7 @@ import { DarkModeContext, PageError, isLogged } from '../../util';
 import { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import SkillUpDate from '../skillList/skillUpDate';
 
 
 
@@ -47,14 +48,14 @@ const App = ({ darkMode, isLogged }) => {
                 <div className='headerSite'>
                     <Header />
                     <nav className="nav">
-                        {/* {isLogged && isLogged ? null : */}
-                        <>
-                            <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
-                            <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
-                        </>
-                        {/* } */}
+                        {isLogged && isLogged ? { display: 'none' } :
+                            <>
+                                <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
+                                <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
+                            </>
+                        }
                         {/* //-> this page appear when the user is logged  keep only for maintenance */}
-                        {/* <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink> */}
+                        <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink>
 
                     </nav >
                     <NavBar />
@@ -64,6 +65,7 @@ const App = ({ darkMode, isLogged }) => {
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
                     <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} />} />
                     <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} setError={setError} error={error} />} />
+                    <Route path="/oneSkill" element={<SkillUpDate handleSubmit={handleSubmit} register={register} />} />
                     <Route path="*" element={<PageError />} />
                 </Routes>
 
