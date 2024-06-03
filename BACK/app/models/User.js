@@ -83,7 +83,9 @@ User.init(
             defaultValue: 2,
             validate: {
                 notEmpty: true,
+                min: 0 // doesn't allow values below 0
             },
+
         },
     }, { // In the second object we say in which db the info will be persistant
     sequelize, // lient connected to the db
