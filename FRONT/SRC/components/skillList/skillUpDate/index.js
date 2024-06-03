@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import Skill from '../skill';
 import Cookies from 'js-cookie';
 import SearchCategory from '../../search/SearchCategory';
 import SearchSubCategory from '../../search/SearchSubCategory';
@@ -7,23 +8,27 @@ import SearchLevel from '../../search/SearchLevel';
 import SearchTransmission from '../../search/SearchTransmission';
 
 
-const SkillUpDate = ({ handleSubmit, register, isValid, skillId }) => {
+const SkillUpDate = ({ handleSubmit, register, isValid, skill }) => {
 
 
-    //= to fetch datas
+    // //= to fetch datas
     const [skillUpdate, setSkillUpDate] = useState({
-        id: [],
-        level: '',
-        duration: '',
-        transmission: '',
-        description: '',
-        availability: '',
-        Sub_category: '',
-        firstname: '',
-        lastname: '',
-        email: '',
-        grade_level: '',
-        presentation: ''
+
+        skill: {
+            id: [],
+            title: '',
+            level: '',
+            duration: '',
+            transmission: '',
+            description: '',
+            availability: '',
+            Sub_category: '',
+            firstname: '',
+            lastname: '',
+            email: '',
+            grade_level: '',
+            presentation: ''
+        }
     })
 
     // //= to refresh the Skill Data state between two changes
@@ -32,33 +37,33 @@ const SkillUpDate = ({ handleSubmit, register, isValid, skillId }) => {
         setSkillUpDate((prevSkillUpDate) => ({ ...prevSkillUpDate, [name]: value }));
     }
 
-    const GetSkillUpDate = async () => {
+    const GetSkillUpDate = async (skill) => {
 
         try {
-            console.log('entree try de getSkillUpDate:', skillId);
-            const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${skillId}`, {
-                method: "get",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                // credentials: 'include'
-            });
+            // console.log('entree try de getSkillUpDate:', skillId);
+            // const token = Cookies.get('token');
+            // const response = await fetch(`http://localhost:3000/skill/${skillId}`, {
+            //     method: "get",
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //         'Authorization': `Bearer ${token}`,
+            //     },
+            //     // credentials: 'include'
+            // });
 
-            console.log("recup donnees de la BDD avant .json", response);
-            const dataSkillUpDate = await response.json();
+            // console.log("recup donnees de la BDD avant .json", response);
+            // const dataSkillUpDate = await response.json();
 
-            console.log("recup donnees  .json:", dataSkillUpDate);
-            setSkillUpDate(dataSkillUpDate);
-            console.log('donnees Skill data du state:', dataSkillUpDate);
+            console.log("recup donnees  .json:", skill);
+            setSkillUpDate(skill);
+            console.log('donnees Skill data du state:', skill);
 
         }
         catch (error) {
             console.error("catch de skillUpDate:", error);
         }
     }
-    useEffect(() => { GetSkillUpDate() }, [skillId])
+    useEffect(() => { GetSkillUpDate() }, [skill])
 
 
     //= to change skill

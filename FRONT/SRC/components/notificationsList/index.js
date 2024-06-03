@@ -36,7 +36,6 @@ const NotificationsList = () => {
                             icone={item?.icone}
                             message={"Votre cours est termine, souhaitez vous le noter ?"}
                             rating={renderStars()}
-
                         />
                         <Notification
                             key={item?.id}
@@ -52,7 +51,6 @@ const NotificationsList = () => {
                             buttonText={item?.buttonText}
                             onClick={item?.onClick}
                         />
-
                     </>
                 ))
             }

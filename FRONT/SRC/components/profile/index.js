@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SkillUpDate from "../skillList/skillUpDate";
 
 
@@ -172,14 +172,32 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
     const navigate = useNavigate();
 
     //=go to skillUpDate component
-    const handlechange = (skillId) => {
-        console.log('HC recup id:', skillId);
-        navigate('/oneSkill/');
+    const handlechange = (skill) => {
+        console.log('HC recup id:', skill);
+        // const location = useLocation();
+        // const id = location.state.id;
+        navigate('/oneSkill/', {
+            state: {
+                id: skill.id,
+                title: skill.title,
+                level: skill.level,
+                duration: skill.duration,
+                transmission: skill.transmission,
+                description: skill.description,
+                availability: skill.availability,
+                Sub_category: skill.Sub_category,
+                firstname: skill.firstname,
+                lastname: skill.lastname,
+                email: skill.email,
+                grade_level: skill.grade_level,
+                presentation: skill.presentation
+            }
+        });
     }
 
 
     return (
-        <div className="changeProfile">
+        <div className="changeProfile" >
             <h2 id="profile">Profil</h2>
             <form method="POST"
                 onSubmit={handleSubmit(ProfilePatch)}
@@ -260,7 +278,7 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
                                         <p>{skill?.title}</p>
                                     </span>
                                     <span className="btn">
-                                        <button className="orangeBtn" onClick={handlechange.bind(null, skill.id)}>MODIFIER</button>
+                                        <button className="orangeBtn" onClick={handlechange.bind(null, skill)}>MODIFIER</button>
 
                                         <button aria-label="bouton supprimer competence" onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
                                     </span>
