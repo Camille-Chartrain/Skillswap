@@ -93,7 +93,7 @@ const learningController = {
 
     closeLearning: async function (req, res) {
         try {
-            await Meeting.update({
+            const meeting = await Meeting.update({
                 status: "terminé",
             }, {
                 where: {
@@ -101,6 +101,8 @@ const learningController = {
                 }
             }
             );
+            console.log("meeting:", meeting);
+
             await User.update({
                 swappies: sequelize.literal('swappies + 1')
             }, {
@@ -109,11 +111,21 @@ const learningController = {
                 }
             }
             )
+
+            const studentMeeting = await Meeting.findByPk(req.params.meetingId, {
+                attributes: [
+                    'UserId',
+                    "id",
+                ]
+            });
+            console.log("studentMeeting:", studentMeeting);
+            console.log("studentMeeting.userid:", studentMeeting.UserId);
+
             await User.update({
                 swappies: sequelize.literal('swappies - 1')
             }, {
                 where: {
-                    id: req.user.id
+                    id: studentMeeting.UserId
                 }
             }
             )
