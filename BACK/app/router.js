@@ -5,6 +5,7 @@ import profileController from './controllers/profileController.js';
 import skillController from './controllers/skillController.js';
 import statisticController from './controllers/statisticController.js';
 import communicationController from './controllers/communicationController.js';
+import learningController from './controllers/learningController.js';
 import verifyToken from './middlewares.js/verifyToken.js';
 
 const router = express.Router();
@@ -38,13 +39,14 @@ router.get('/statistic', verifyToken, statisticController.statistic);
 
 //communication
 router.get('/communication', verifyToken, communicationController.communication);
-router.patch('/communication/:skillId', communicationController.rateSkill)
+router.patch('/communication/:skillId', verifyToken, communicationController.rateSkill)
 
 // //learning
-// router.get('/learning', learningController.learning);
-// router.post('/learning', learningController.createLearning);
-// router.patch('/learning', learningController.modifLearning)
-// router.delete('/learning', learningController.deleteLearning)
+router.get('/learning', verifyToken, learningController.learning);
+router.post('/learning/:skillId', verifyToken, learningController.createLearning);
+router.patch('/acceptLearning/:meetingId', verifyToken, learningController.acceptLearning);
+router.patch('/declineLearning/:meetingId', verifyToken, learningController.declineLearning);
+// router.delete('/learning/:meetingID', learningController.deleteLearning)
 
 // //admin
 // router.get('/admin', adminController.admin);

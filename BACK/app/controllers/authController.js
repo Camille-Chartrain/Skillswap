@@ -58,12 +58,6 @@ const authController = {
         try {
             // Authentification of the user, check if a mating user is founded in the db
             const user = await User.findOne({ where: { email: req.body.email } });
-            // console.log('infos du user:',
-            //     user.id,
-            //     user.firstname,
-            //     user.lastname,
-            //     user.email,
-            //     user.role);
 
             //if a user is founded, we check his password with the hash in the db
             if (user !== null) {
@@ -82,6 +76,7 @@ const authController = {
                     const token = authHeader && authHeader.split(' ')[1]
                     console.log('token 1: ', token);
 
+                    //if he doesn't have a token or if the token is undefined by the deconnection we create one
                     if (token === null || token === "undefined") {
                         console.log('verif du null ou undefined: ', token);
 
@@ -93,6 +88,7 @@ const authController = {
                         console.log('token crée dans login==================', accessToken);
                         res.status(200).json({ accessToken: accessToken })
                     }
+                    // if user has a token we verify it
                     else if (token) {
                         console.log("back token: ", token);
                         jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
@@ -104,17 +100,6 @@ const authController = {
                             res.status(200).json('token validé !!')
                         });
                     }
-
-                    // if the user doesn't have a token we create one and we sent it to him
-                    // else if (token == null || undefined) {
-                    //     const username = {
-                    //         email: req.body.email,
-                    //         id: user.id
-                    //     }
-                    //     const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
-                    //     console.log('token crée dans login==================', accessToken);
-                    //     res.status(200).json({ accessToken: accessToken })
-                    // }
                 }
                 else {
                     throw new Error('Mauvais couple identifiant/mot de passe');
