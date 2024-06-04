@@ -13,10 +13,10 @@ Category.belongsToMany(User, { through: Interest, });
 //meeting one to one
 // User.hasOne(Meeting);
 User.hasMany(Meeting);
-Meeting.belongsTo(User, { as: 'Student' });
+Meeting.belongsTo(User, { as: 'Students' });
 
 Skill.hasMany(Meeting);
-Meeting.belongsTo(Skill, { as: 'Teacher' });
+Meeting.belongsTo(Skill);
 
 // skill
 Sub_category.hasMany(Skill);

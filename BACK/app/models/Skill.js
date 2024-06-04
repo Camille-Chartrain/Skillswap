@@ -80,6 +80,11 @@ Skill.init(
                 notEmpty: true,
             },
         },
+        // TeachersId: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: true,
+
+        // }
     }, {
     sequelize,
     modelName: 'Skill',
