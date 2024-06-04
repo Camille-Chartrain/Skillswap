@@ -176,7 +176,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
                     <SearchTransmission register={register} />
 
                     <label htmlFor="description">Descriptif * :</label>
-                    <textarea id="description" type="text" name="description" defaultValue={skill.description}{...register("description")} defaultValue={skill.description} onChange={handleChangeSkill} rows="5" cols="33" required />
+                    <textarea id="description" type="text" name="description" {...register("description")} defaultValue={skill.description} onChange={handleChangeSkill} rows="5" cols="33" required />
 
                     <label htmlFor="availability">Disponibilite * :</label>
                     <input id="availability" type="text" name="availability" defaultValue={skill.availability} {...register("availability")} onChange={handleChangeSkill} size="25" required />
