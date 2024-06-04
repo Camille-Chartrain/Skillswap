@@ -5,6 +5,8 @@ import Statistic from '../statistic';
 import Communication from '../communication';
 
 
+
+
 //->ariana wire's icones
 import account_icon from '../../style/pictures/account_icon.svg';
 import school from '../../style/pictures/school.svg';

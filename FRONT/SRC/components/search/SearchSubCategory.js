@@ -26,7 +26,7 @@ const SearchSubCategory = ({ register, selectCat, setSelectCat }) => {
                 ))}
 
                 {selectCat && (
-                    <optgroup label={selectCat === 1 ? 'Language' : selectCat === 2 ? 'Bricolage' : selectCat === 3 ? 'Produits DIY' : selectCat === 4 ? 'Cuisine' : selectCat === 5 ? 'Art' : 'Scolaire'}>
+                    <optgroup label={selectCat === 1 ? 1 : selectCat === 2 ? 2 : selectCat === 3 ? 3 : selectCat === 4 ? 4 : selectCat === 5 ? 5 : 6}>
                         {subcategories[selectCat - 1]?.map((subcategory) => (
                             <option key={subcategory.value} value={subcategory.value}>{subcategory.name}</option>
                         ))}
