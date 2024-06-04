@@ -39,7 +39,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
         try {
             console.log('entree try de getSkillUpDate:', skillUpdate);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/oneSkill/${skill}`, {
+            const response = await fetch(`http://localhost:3000/oneSkill/${skill.id}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -158,7 +158,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
                     <div></div>
                     <label htmlFor="title">Titre * :</label>
                     <small> Merci de donner un titre explicite</small>
-                    <input id="title" type="text" name="title" {...register("title")} onChange={handleChangeSkill} size="25" required />
+                    <input id="title" type="text" name="title" defaultValue={skill.title} {...register("title")} onChange={handleChangeSkill} size="25" required />
 
                     <label htmlFor="CategoryId">Categorie * :</label>
                     <SearchCategory register={register} />
@@ -167,7 +167,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
                     <SearchSubCategory register={register} />
 
                     <label htmlFor="duration">Duree * :</label>
-                    <input id="duration" type="text" name="duration" {...register("duration")} onChange={handleChangeSkill} size="25" required />
+                    <input id="duration" type="text" name="duration" defaultValue={skill.duration} {...register("duration")} onChange={handleChangeSkill} size="25" required />
 
                     <label htmlFor="level">Niveau * :</label>
                     <SearchLevel register={register} />
@@ -176,10 +176,10 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
                     <SearchTransmission register={register} />
 
                     <label htmlFor="description">Descriptif * :</label>
-                    <textarea id="description" type="text" name="description" {...register("description")} value={skill.description} onChange={handleChangeSkill} rows="5" cols="33" required />
+                    <textarea id="description" type="text" name="description" defaultValue={skill.description}{...register("description")} defaultValue={skill.description} onChange={handleChangeSkill} rows="5" cols="33" required />
 
                     <label htmlFor="availability">Disponibilite * :</label>
-                    <input id="availability" type="text" name="availability" {...register("availability")} onChange={handleChangeSkill} size="25" required />
+                    <input id="availability" type="text" name="availability" defaultValue={skill.availability} {...register("availability")} onChange={handleChangeSkill} size="25" required />
 
                     <button onClick={handlechange} disabled={isValid} >VALIDER</button>
 
