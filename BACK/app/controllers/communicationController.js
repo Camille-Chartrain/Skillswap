@@ -46,8 +46,8 @@ const communicationController = {
         try {
             // req.params contains data from url
             //req.body contains body of request from forms
-            console.log(req.body);
-            console.log(req.params.skillId);
+            console.log("req.body:", req.body);
+            console.log("req.params.skillId:", req.params.skillId);
 
             const updateFields = {
                 mark: req.body.mark,

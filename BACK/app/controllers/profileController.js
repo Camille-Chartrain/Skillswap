@@ -40,7 +40,7 @@ const profileController = {
     modifProfile: async function (req, res) {
         try {
             // req.params contains data from url
-            //rew.body contains body of request from forms
+            //req.body contains body of request from forms
             console.log("req.body", req.body);
             console.log("req.body.interests", req.body.interests);
             const updateFields = {
@@ -74,10 +74,10 @@ const profileController = {
 
             if (Object.keys(allInterests).length === 0) {
                 for (const eachCategory of req.body.interests) {
-                    console.log(eachCategory);
+                    console.log("eachCategory initialisation:", eachCategory);
                     await Interest.create(
                         {
-                            CategoryId: eachCategory.interest,
+                            CategoryId: eachCategory,
                             UserId: req.user.id,
                         }
                     )
@@ -93,7 +93,7 @@ const profileController = {
                 if (req.body.interests) {
                     console.log("req.body.interests 2", req.body.interests);
                     for (const eachCategory of req.body.interests) {
-                        console.log("eachCategory", eachCategory);
+                        console.log("eachCategory pour update", eachCategory);
                         await Interest.create(
                             {
                                 CategoryId: eachCategory,

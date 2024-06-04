@@ -83,14 +83,40 @@ User.init(
             defaultValue: 2,
             validate: {
                 notEmpty: true,
+                min: 0 // doesn't allow values below 0
             },
+
         },
     }, { // In the second object we say in which db the info will be persistant
-    sequelize, // lient connected to the db
+    sequelize, // client connected to the db
+
+    hooks: {
+        beforeUpdate: (user, options) => {
+            console.log('dans le before  update');
+            if (user.swappies <= 0) {
+                user.swappies = 0;
+                throw new Error("User doesn't have enough swappies");
+            }
+        },
+    },
+
+    validate: {
+        enoughSwappie() {
+            if ((this.swappies < 0)) {
+                throw new Error("User doesn't have enough swappies!");
+            }
+        },
+    },
     modelName: 'User', //name of the model
     tableName: 'user', // in which table we want sequelize to put the informations of this model
 });
 
+// User.beforeUpdate(user => {
+//     console.log('dans le before  update');
+//     if (user.swappies <= 0) {
+//         throw new Error("User doesn't have enough swappies");
+//     }
+// });
 
 // User.belongsToMany(Category, { through: Interest, unique: false, });
 // Category.belongsToMany(User, { through: Interest, unique: false, });
@@ -106,6 +132,7 @@ User.init(
 //     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Mdp' },
 //     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Mdp' },
 // ]);
+
 
 
 export default User;

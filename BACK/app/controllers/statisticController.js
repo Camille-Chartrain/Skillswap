@@ -22,11 +22,28 @@ const statisticController = {
                     attributes: ['name']
                 }],
             });
-            //send the answer to the front
-            res.send(
-                statistic
-            );
-        } catch (error) {
+            console.log("statistic empty?", statistic);
+            if (Array.isArray(statistic) && statistic.length === 0) {
+                console.log('result function: Array statistic is empty');
+                const statistic = await User.findByPk(req.user.id, {
+                    attributes: ['firstname',
+                        'lastname',
+                        "swappies",
+                    ]
+                });
+                console.log("swappie of user without skill added");
+                res.send(
+                    statistic
+                );
+            }
+            else {
+                console.log("Array statistic not empty, swappie added");
+                res.send(
+                    statistic
+                );
+            }
+        }
+        catch (error) {
             console.error(error.message);
             res.render('error');
         }
