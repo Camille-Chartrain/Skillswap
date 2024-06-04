@@ -9,9 +9,10 @@ import SearchTransmission from './SearchTransmission';
 
 const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory, setSearchSubCategory, searchSubCategory }) => {
 
-    const { handleSubmit, register } = useForm({ mode: 'onSubmit' });
+    const { handleSubmit, register } = useForm();
 
     const [searchInput, setSearchInput] = useState('');
+    const [selectCat, setSelectCat] = useState('all');
 
     handleChange = (e) => { e.preventDefault(); setSearchInput(); }
 
@@ -47,7 +48,7 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
 
                 <SearchLevel handleSubmit={handleSubmit} register={register} />
                 <SearchCategory handleSubmit={handleSubmit} register={register} />
-                <SearchSubCategory handleSubmit={handleSubmit} register={register} />
+                <SearchSubCategory handleSubmit={handleSubmit} register={register} selectCat={selectCat} setSelectCat={setSelectCat} />
 
                 <button ><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
             </form >

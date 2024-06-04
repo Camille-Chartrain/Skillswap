@@ -1,26 +1,41 @@
-import { useState } from "react";
-import SearchCategory from "./SearchCategory";
+import { useState, useEffect } from "react";
 
 
-const SearchSubCategory = ({ register, selectCat }) => {
-
+const SearchSubCategory = ({ register, selectCat, setSelectCat }) => {
 
     //= to fetch select's datas and datas bdd
-
     const [selectSubCat, setSelectSubCat] = useState('all');
     const handleChangeSubCat = (e) => { setSelectSubCat(e.target.value) };
+    let categories = [];
+    let subcategories = [];
 
-
-
+    useEffect(() => {
+        if (selectCat) {
+            const subcategories = setSelectCat(selectCat);
+            setSelectSubCat(subcategories);
+        }
+    }, [selectCat]);
 
 
     return (
         <>
             <select id="SubCategoryId" name="SubCategoryId" {...register("SubCategoryId")} value={selectSubCat} onChange={handleChangeSubCat}>
-                <option value="all" selected >choisissez votre sous-categorie</option>
 
-                <option value='language'>---------------sous-categorie Language---------------</option>
-                {selectCat === 1 && (
+                {categories?.map((category) => (
+                    <option key={category.value}>{category.name}</option>
+                ))}
+
+                {selectCat && (
+                    <optgroup label={selectCat === 1 ? 'Language' : selectCat === 2 ? 'Bricolage' : selectCat === 3 ? 'Produits DIY' : selectCat === 4 ? 'Cuisine' : selectCat === 5 ? 'Art' : 'Scolaire'}>
+                        {subcategories[selectCat - 1]?.map((subcategory) => (
+                            <option key={subcategory.value} value={subcategory.value}>{subcategory.name}</option>
+                        ))}
+                    </optgroup>
+                )}
+
+                <option value="all" selected >choisissez votre sous-categorie</option>
+                <option >---------------sous-categorie Language---------------</option>
+                {selectCat && selectCat === 1 && (
                     <>
                         <option value="2" >Grammaire et orthographe</option>
                         <option value="3" >Langage des signes</option>

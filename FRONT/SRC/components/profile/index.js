@@ -171,12 +171,11 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
     //=redirect for update skill
     const navigate = useNavigate();
 
-    //= filter and clean skill's datas before go to skillUpDate component
+    //=  skill's datas before go to skillUpDate component
     const handlechange = (skill) => {
         const skillData = {
             id: skill.id,
             Category: skill.Category,
-            picture: skill.icture,
             title: skill.title,
             price: skill.price,
             mark: skill.mark,
@@ -187,21 +186,14 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
             availability: skill.availability,
             Sub_category: skill.Sub_category,
         }
-
-
-        // //->cleaning
-        const cleanSkill = { ...skillData };
-        cleanSkill.someFunction = undefined;
-        console.log('HC recup id:', skillData);
-        // //->JSON translate
-        const serializedSkill = JSON.stringify(skillData);
-        navigate('/oneSkill/', {
-            state: { skillData: serializedSkill },
-        })
-
+        const id = skillData.id;
+        console.log('HC recup id:', id);
+        navigate('/oneSkill/',
+            {
+                state: { skillData }
+            })
     };
-
-
+    console.log('donnees recu pour ma boucle map:', profileData);
     return (
         <div className="changeProfile" >
             <h2 id="profile">Profil</h2>
@@ -213,7 +205,7 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
                     <legend><h3>Modifier votre profil</h3></legend>
 
                     <label htmlFor="firstname">Prénom* :</label>
-                    <input id="firstname" type="text" name="firstname" {...register("firstname")} value={profileData.firstname} onChange={handleChangeProfile} size="25" required />
+                    <input id="firstname" type="text" name="firstname" {...register("firstname")} size="25" required />
 
                     <label htmlFor="lastname">Nom* :</label>
                     <input id="lastname" type="text" name="lastname"{...register("lastname")} value={profileData.lastname} onChange={handleChangeProfile} size="25" required />
@@ -277,6 +269,7 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
                 <h3>Liste des competences</h3>
                 <ul>
                     <span>
+
                         {skillsUser?.map((skill) => (
                             <li key={skill?.id}>
                                 <>
@@ -284,7 +277,7 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
                                         <p>{skill?.title}</p>
                                     </span>
                                     <span className="btn">
-                                        <button className="orangeBtn" onClick={handlechange}>MODIFIER</button>
+                                        <button className="orangeBtn" onClick={handlechange.bind(null, skill)}>MODIFIER</button>
 
                                         <button aria-label="bouton supprimer competence" onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
                                     </span>

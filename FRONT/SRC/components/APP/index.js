@@ -48,11 +48,12 @@ const App = ({ darkMode, isLogged }) => {
                 <div className='headerSite'>
                     <Header />
                     <nav className="nav">
-                        {isLogged && isLogged ? { display: 'none' } :
+                        {isLogged && isLogged ? { display: 'none' } : (
                             <>
                                 <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
                                 <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
                             </>
+                        )
                         }
                         {/* //-> this page appear when the user is logged  keep only for maintenance */}
                         <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink>
