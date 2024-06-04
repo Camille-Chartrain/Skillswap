@@ -1,39 +1,38 @@
-import { useState, useEffect } from "react";
-import Skill from "../skillList";
+import { useState, useEffect, useCallback } from "react";
+
 
 const Learning = () => {
-    const [seeList, setSeeList] = useState([]);
 
-    const [courseList, setCourseList] = useState([]);
+    const [studyList, setStudyList] = useState([]);
+    const [teachList, setTeachList] = useState([]);
 
-    const GetLearning = async () => {
-        // console.log('recup des datas GetLearning:', data);
+
+    const GetLearning = useCallback(async () => {
+
         try {
-            console.log("essai de fetch get learning");
-            const response = await fetch(`http://localhost:3000/learning`, {
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/learning', {
                 method: "get",
-                status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                // body: JSON.stringify(data),
                 // credentials: 'include'
             });
-            console.log("response learning", response);
-            const dataSkill = await response.json();
-            setSeeList(dataSkill);
-            console.log("reponse Learning apres .json => dataSkill", dataSkill);
-            setCourseList(dataSkill)
-            console.log("state seeList LEARNING", seeList);
+
+            const dataList = await response.json();
+            setStudyList(dataList);
+            console.log("list SeeList apres JSON:", dataList);
+            setTeachList(dataList);
+            console.log("list courseList apres JSON:", dataList);
         }
         catch (error) {
             console.error(error.message);
         }
+    })
+    useEffect(() => { GetLearning() }, [studyList, teachList]);
 
-        useEffect(() => { GetLearning() }, [dataSkill]);
-    }
-    // useEffect(() => { GetLearning() }, []);
+
 
 
 
@@ -48,14 +47,13 @@ const Learning = () => {
                         <ul>
                             <span>
 
-                                {seeList.map((item) => (
+                                {studyList.map((item) => (
                                     <li key={item?.id}>
                                         title={item?.title}
                                     </li>
                                 ))
                                 }
                                 test de visuel learning
-
                                 <span>
                                     <button className="btn">EN ATTENTE</button>
                                     {/* // passe en valider a l'acceptation du prof puis en terminer pour finir */}
@@ -69,13 +67,12 @@ const Learning = () => {
                         <h3>Cours dispenses</h3>
                         <ul>
                             <span>
-                                {courseList?.map((item) => (
+                                {teachList?.map((item) => (
                                     <li key={item?.id}>
                                         title={item?.title}
                                     </li>
                                 ))
                                 }
-                                test de visuel teacher
                                 <span>
                                     <button className="btn">EN ATTENTE</button>
                                     {/* // passe en valider a l'acceptation du prof puis en terminer pour finir */}

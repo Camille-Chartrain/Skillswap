@@ -1,6 +1,7 @@
 import { isLogged } from '../../../util';
 import PropTypes from 'prop-types';
 import SkillRating from '../../statistic/skillRating';
+import { useState } from 'react';
 
 const Skill = ({
     Category,
@@ -21,6 +22,49 @@ const Skill = ({
     presentation
 
 }) => {
+
+    const [skill, setSkill] = useState({
+        id: skill.id,
+        title: skill.title
+    })
+
+    //=post method to add course to studyList
+    const CourseAdd = async (skill) => {
+        try {
+            console.log('data envoyees:', skill);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/learning/${skill.id}`, {
+                method: 'POST',
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(skill)
+                // credentials: 'include',
+            })
+
+            // console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response post profile avant .json", response);
+            const dataAdding = await response.json();
+            console.log(" response apres .json:", dataAdding);
+
+            //=fetch back side's  errors
+            // console.log("error?:", dataProfile.error);
+
+        }
+        catch (error) {
+            console.log("erreur : ", error);
+        }
+    }
+
+    handleChange = () => {
+        setSkill();
+    }
+
+
 
 
     return (
@@ -55,7 +99,7 @@ const Skill = ({
 
                 )
                 }
-
+                <button onSubmit={ }></button>
             </div >
         </>
     )

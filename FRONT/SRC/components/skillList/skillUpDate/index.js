@@ -50,7 +50,15 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
             });
 
             console.log("recup donnees de la BDD avant .json", response);
-            const dataSkillUpDate = await response.json();
+            const data = await response.text();
+            console.log("response data en text:", data);
+
+            if (!data) {
+                console.error("Invalid response from API");
+                return;
+            }
+
+            const dataSkillUpDate = JSON.parse(data);
 
             console.log("donnees getSkillUpDate apres .json:", skill);
             setSkillUpDate(dataSkillUpDate);
@@ -117,38 +125,9 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
             console.log("catch de patchSkillUpDate:", error);
         }
     }
-    useEffect(() => { PatchSkillUpdate() }, [skill]);
+    useEffect(() => { PatchSkillUpdate() }, []);
 
-    //=to delete a skill
-    const PostSkillDelete = async () => {
-        try {
-            console.log('try data:', skill);
-            const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${id}`, {
-                method: "delete",
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-                // credentials: 'include'
-            })
-            console.log('response.status:', response.status);
 
-            //=traduct api response in Json
-            console.log("response avant .json", response);
-            const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
-
-            //=fetch back side's  errors
-            console.log("error?:", dataSkill.error);
-            setError(dataSkill.error);
-        }
-        catch (error) {
-            console.log("erreur cath :", error);
-        }
-    }
 
     return (
         <>

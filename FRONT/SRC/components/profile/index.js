@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
 import { useNavigate } from "react-router-dom";
+import SkillUpDate from "../skillList/skillUpDate";
 
 
 
 
-const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
+const Profile = ({ handleSubmit, register, isValid }) => {
 
 
     //= get method to show info & autocomplete
@@ -23,6 +24,7 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
     //= to fetch select's datas
     const [interests, setInterests] = useState([]);
     const handleInterestChange = (e) => {
+        console > log(interests);
         const { value, checked } = e.target;
         if (checked) {
             //-> if ok add to the list
@@ -101,7 +103,7 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
         }
     }
 
-    const GetProfileDelete = async (data) => {
+    const ProfileDelete = async (data) => {
         try {
             console.log('try data:', data);
             const token = Cookies.get('token');
@@ -194,6 +196,41 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
             })
     };
     console.log('donnees recu pour ma boucle map:', profileData);
+    //=to delete a skill
+    const PostSkillDelete = async (skill) => {
+        try {
+            console.log('try data:', skill);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
+                method: "delete",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(skill),
+                // credentials: 'include'
+            })
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataSkill.error);
+            setError(dataSkill.error);
+        }
+        catch (error) {
+            console.log("erreur cath :", error);
+        }
+    }
+    useEffect(() => { PostSkillDelete() }, []);
+
+
+
+
     return (
         <div className="changeProfile" >
             <h2 id="profile">Profil</h2>
@@ -277,9 +314,9 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
                                         <p>{skill?.title}</p>
                                     </span>
                                     <span className="btn">
-                                        <button className="orangeBtn" onClick={handlechange.bind(null, skill)}>MODIFIER</button>
+                                        <button className="orangeBtn" onClick={handlechange.bind(null, skill.id)}>MODIFIER</button>
 
-                                        <button aria-label="bouton supprimer competence" onClick={PostSkillDelete} type="reset" className="redBtn">SUPPRIMER</button>
+                                        <button aria-label="bouton supprimer competence" onClick={PostSkillDelete.bind(null, skill.id)} type="reset" className="redBtn">SUPPRIMER</button>
                                     </span>
                                 </>
                             </li >
@@ -288,7 +325,7 @@ const Profile = ({ handleSubmit, register, isValid, PostSkillDelete }) => {
                     </span>
                 </ul>
             </div >
-            <button onClick={GetProfileDelete} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
+            <button onClick={ProfileDelete} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
         </div >
 
     )
