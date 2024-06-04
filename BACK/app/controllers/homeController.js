@@ -14,7 +14,7 @@ const homeController = {
                 limit: 4, // Limit to 4 results
                 include: [{
                     model: User, // Table to join
-                    attributes: ['firstname', 'lastname', "email", 'grade_level', "presentation"] // Seclect specified attributs of the table Commande
+                    attributes: ['firstname', 'lastname', "email", 'grade_level', "presentation"] // Select specified attributs of the table Commande
                 }, {
                     model: Category,
                     attributes: ['picture', 'name']
@@ -54,7 +54,8 @@ const homeController = {
                 }, {
                     model: Category,
                     where: {
-                        name: req.params.category
+                        name: req.params.category !== undefined ? valeurPrecisee : { [Op.not]: null }
+                        // name: req.params.category
                     },
                     attributes: ['picture', 'name']
                 },

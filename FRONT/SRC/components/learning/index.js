@@ -6,14 +6,26 @@ const Learning = () => {
 
     const [courseList, setCourseList] = useState([]);
 
-    const GetLearning = async (data) => {
-        console.log('recup des datas GetLearning:', data);
+    const GetLearning = async () => {
+        // console.log('recup des datas GetLearning:', data);
         try {
-            const response = await fetch(`http://localhost:3000/learning`);
+            console.log("essai de fetch get learning");
+            const response = await fetch(`http://localhost:3000/learning`, {
+                method: "get",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                // body: JSON.stringify(data),
+                // credentials: 'include'
+            });
+            console.log("response learning", response);
             const dataSkill = await response.json();
             setSeeList(dataSkill);
-            console.log(dataSkill);
+            console.log("reponse Learning apres .json => dataSkill", dataSkill);
             setCourseList(dataSkill)
+            console.log("state seeList LEARNING", seeList);
         }
         catch (error) {
             console.error(error.message);
@@ -21,6 +33,7 @@ const Learning = () => {
 
         useEffect(() => { GetLearning() }, [dataSkill]);
     }
+    // useEffect(() => { GetLearning() }, []);
 
 
 
@@ -35,7 +48,7 @@ const Learning = () => {
                         <ul>
                             <span>
 
-                                {seeList?.map((item) => (
+                                {seeList.map((item) => (
                                     <li key={item?.id}>
                                         title={item?.title}
                                     </li>

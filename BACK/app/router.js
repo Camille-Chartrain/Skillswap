@@ -42,7 +42,8 @@ router.get('/communication', verifyToken, communicationController.communication)
 router.patch('/communication/:skillId', verifyToken, communicationController.rateSkill)
 
 // //learning
-router.get('/learning', verifyToken, learningController.learning);
+router.get('/studentLearning', verifyToken, learningController.studentLearning);
+router.get('/teacherLearning', verifyToken, learningController.teacherLearning);
 router.post('/learning/:skillId', verifyToken, learningController.createLearning);
 router.patch('/acceptLearning/:meetingId', verifyToken, learningController.acceptLearning);
 router.patch('/declineLearning/:meetingId', verifyToken, learningController.declineLearning);
