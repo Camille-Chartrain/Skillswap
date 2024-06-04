@@ -47,7 +47,7 @@ router.post('/learning/:skillId', verifyToken, learningController.createLearning
 router.patch('/acceptLearning/:meetingId', verifyToken, learningController.acceptLearning);
 router.patch('/declineLearning/:meetingId', verifyToken, learningController.declineLearning);
 router.patch('/closeLearning/:meetingId', verifyToken, learningController.closeLearning);
-// router.delete('/learning/:meetingID', learningController.deleteLearning)
+router.delete('/learning/:meetingId', verifyToken, learningController.deleteLearning)
 
 // //admin
 // router.get('/admin', adminController.admin);

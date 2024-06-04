@@ -89,6 +89,17 @@ User.init(
         },
     }, { // In the second object we say in which db the info will be persistant
     sequelize, // client connected to the db
+
+    hooks: {
+        beforeUpdate: (user, options) => {
+            console.log('dans le before  update');
+            if (user.swappies <= 0) {
+                user.swappies = 0;
+                throw new Error("User doesn't have enough swappies");
+            }
+        },
+    },
+
     validate: {
         enoughSwappie() {
             if ((this.swappies < 0)) {
@@ -100,6 +111,12 @@ User.init(
     tableName: 'user', // in which table we want sequelize to put the informations of this model
 });
 
+// User.beforeUpdate(user => {
+//     console.log('dans le before  update');
+//     if (user.swappies <= 0) {
+//         throw new Error("User doesn't have enough swappies");
+//     }
+// });
 
 // User.belongsToMany(Category, { through: Interest, unique: false, });
 // Category.belongsToMany(User, { through: Interest, unique: false, });

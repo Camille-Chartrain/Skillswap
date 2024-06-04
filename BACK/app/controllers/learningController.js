@@ -1,5 +1,6 @@
 import { Meeting, Skill, User } from "../models/index.js";
 import sequelize from "../database.js";
+import { Op } from "sequelize";
 
 const learningController = {
 
@@ -30,11 +31,12 @@ const learningController = {
 
     learning: async function (req, res) {
         try {
-            console.log("req.params", req.params);
-
             const meeting = await Meeting.findAll({
                 where: {
-                    UserId: req.user.id
+                    UserId: req.user.id,
+                    status: {
+                        [Op.or]: ["en attente", "en cours", "refusé", "terminé"],
+                    },
                 }
             });
             console.log('meeting:', meeting)
@@ -53,14 +55,22 @@ const learningController = {
 
     acceptLearning: async function (req, res) {
         try {
-            await Meeting.update({
-                status: "en cours",
-            }, {
-                where: {
-                    id: req.params.meetingId
-                }
+            const meeting = await Meeting.findByPk(req.params.meetingId);
+            console.log("status meeting:", meeting.status);
+
+            if (meeting.status === "en attente") {
+                await Meeting.update({
+                    status: "en cours",
+                }, {
+                    where: {
+                        id: req.params.meetingId
+                    }
+                })
             }
-            );
+            else {
+                throw new Error(`cours avec statut '${meeting.status}' au lieu de 'en attente'`)
+            }
+
             res.status(200).json("meeting accepted")
         } catch (error) {
             console.error('erreur acceptLearning:', error);
@@ -73,14 +83,21 @@ const learningController = {
 
     declineLearning: async function (req, res) {
         try {
-            await Meeting.update({
-                status: "refusé",
-            }, {
-                where: {
-                    id: req.params.meetingId
-                }
+            const meeting = await Meeting.findByPk(req.params.meetingId);
+            console.log("status meeting:", meeting.status);
+
+            if (meeting.status === "en attente") {
+                await Meeting.update({
+                    status: "refusé",
+                }, {
+                    where: {
+                        id: req.params.meetingId
+                    }
+                });
             }
-            );
+            else {
+                throw new Error(`cours avec statut '${meeting.status}' au lieu de 'en attente'`)
+            }
             res.status(200).json("meeting declined")
         } catch (error) {
             console.error('erreur declineLearning:', error);
@@ -93,44 +110,62 @@ const learningController = {
 
     closeLearning: async function (req, res) {
         try {
-            const meeting = await Meeting.update({
-                status: "terminé",
-            }, {
-                where: {
-                    id: req.params.meetingId
-                }
-            }
-            );
-            console.log("meeting:", meeting);
+            const meeting = await Meeting.findByPk(req.params.meetingId);
+            console.log("status meeting:", meeting.status);
 
-            await User.update({
-                swappies: sequelize.literal('swappies + 1')
-            }, {
-                where: {
-                    id: req.user.id
+            if (meeting.status === "en cours") {
+                const meeting = await Meeting.update({
+                    status: "terminé",
+                }, {
+                    where: {
+                        id: req.params.meetingId
+                    }
                 }
-            }
-            )
+                );
+                console.log("meeting:", meeting);
 
-            const studentMeeting = await Meeting.findByPk(req.params.meetingId, {
-                attributes: [
-                    'UserId',
-                    "id",
-                ]
-            });
-            console.log("studentMeeting:", studentMeeting);
-            console.log("studentMeeting.userid:", studentMeeting.UserId);
+                await User.update({
 
-            await User.update({
-                swappies: sequelize.literal('swappies - 1')
-            }, {
-                where: {
-                    id: studentMeeting.UserId
+                    swappies: sequelize.literal('swappies + 1')
+                }, {
+                    where: {
+                        id: req.user.id
+                    }
                 }
+                )
+                console.log("apres update");
+
+                const studentMeeting = await Meeting.findByPk(req.params.meetingId, {
+                    attributes: [
+                        'UserId',
+                        "id",
+                    ]
+                });
+                console.log("studentMeeting:", studentMeeting);
+                console.log("studentMeeting.userid:", studentMeeting.UserId);
+
+                const student = await User.findByPk(studentMeeting.UserId);
+                // console.log("student:", student);
+                if (student.swappies <= 0) {
+                    throw new Error("User doesn't have enough swapppies")
+                }
+                else {
+                    await User.update({
+                        swappies: sequelize.literal('swappies - 1')
+                    }, {
+                        where: {
+                            id: studentMeeting.UserId
+                        }
+                    }
+                    )
+                }
+                res.status(200).json("meeting closed, swappie handled")
             }
-            )
-            res.status(200).json("meeting closed, swappie handled")
-        } catch (error) {
+            else {
+                throw new Error(`cours avec statut '${meeting.status}' au lieu de 'en cours'`)
+            }
+        }
+        catch (error) {
             console.error('erreur closeLearning:', error);
             res.status(500).json({
                 message: 'Error, meeting not closed',
@@ -139,18 +174,30 @@ const learningController = {
         }
     },
 
-    deleteSkill: async function (req, res) {
+    deleteLearning: async function (req, res) {
         try {
-            console.log(req.params);
-            await Skill.destroy({
+            // when user delete a meeting, it doesn't delete it in the database to keep the data of all mouvements between users.
+            // instead we hide it when doing the fetch of his historic.(cf function learning)
+            const meeting = await Meeting.update({
+                status: "supprimé",
+            }, {
                 where: {
-                    id: req.params.skillId
+                    id: req.params.meetingId
                 }
-            });
-            res.status(200).json('skill deletion completed');
+            }
+            );
+            res.status(200).json('deletion learning completed');
+            console.log("meeting:", meeting);
+            // console.log(req.params);
+            // await Meeting.destroy({
+            //     where: {
+            //         id: req.params.meetingId
+            //     }
+            // });
+            // res.status(200).json('learning deletion completed');
         }
         catch (error) {
-            console.error("error deleteSkill", error);
+            console.error("error deleteLearning", error);
             res.status(500).json({
                 message: 'Error, meeting not deleted',
                 error: error
