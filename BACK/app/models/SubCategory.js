@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
-// import { Category, SubCategory } from "../models/index.js";
+import { Category } from "../models/index.js";
 
 class SubCategory extends Model { }
 
@@ -15,6 +15,14 @@ SubCategory.init(
             type: DataTypes.TEXT,
             allowNull: false
         },
+        categoryId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: Category,
+                key: 'id'
+            }
+        }
     }, {
     timestamps: false,
     sequelize,

@@ -6,7 +6,7 @@ SET CLIENT_ENCODING TO 'UTF-8';
 TRUNCATE TABLE "user",
 "skill",
 "category",
-"SubCategory",
+"subcategory",
 "meeting",
 "interest" RESTART IDENTITY CASCADE;
 
@@ -29,7 +29,7 @@ VALUES
 -- sixième categorie
 ( 'Scolaire', 'imageCategory/schoolSkillswap.jpg' );
 
-INSERT INTO "SubCategory" ("name", "CategoryId") VALUES
+INSERT INTO "subcategory" ("name", "category_id") VALUES
 -- première sub_categorie
 (
     'Langues etrangeres (anglais, francais, espagnol, etc.)',

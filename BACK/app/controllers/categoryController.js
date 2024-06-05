@@ -7,7 +7,10 @@ const categoryController = {
             // find by primary key
             const categories = await Category.findAll({
                 include: [
-                    { model: SubCategory, as: 'SubCategory' }
+                    {
+                        model: SubCategory,
+                        attributes: ['id', 'name']
+                    }
                 ]
             });
             console.log(categories);
@@ -21,7 +24,7 @@ const categoryController = {
         } catch (error) {
             console.log('je suis ds la catch');
             console.error(error.message);
-            res.render('error:', error);
+            // res.send('error:', error);
         }
     },
 

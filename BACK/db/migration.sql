@@ -1,10 +1,11 @@
+-- SQLBook: Code
 BEGIN;
 
 SET CLIENT_ENCODING TO 'UTF-8';
 
 DROP TABLE IF EXISTS "user",
 "category",
-"SubCategory",
+"subcategory",
 "skill",
 "meeting",
 "interest";
@@ -28,10 +29,10 @@ CREATE TABLE "category" (
     "picture" TEXT NOT NULL
 );
 
-CREATE TABLE "SubCategory" (
+CREATE TABLE "subcategory" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
-    "CategoryId" INTEGER REFERENCES "category" ("id") NOT NULL
+    "category_id" INTEGER REFERENCES "category" ("id") NOT NULL
 );
 
 CREATE TABLE "skill" (
@@ -44,7 +45,7 @@ CREATE TABLE "skill" (
     "transmission" TEXT,
     "description" TEXT NOT NULL,
     "availability" TEXT NOT NULL,
-    "SubCategory_id" INTEGER REFERENCES "SubCategory" ("id") NOT NULL,
+    "subcategory_id" INTEGER REFERENCES "subcategory" ("id") NOT NULL,
     "category_id" INTEGER REFERENCES "category" ("id") NOT NULL,
     "user_id" INTEGER REFERENCES "user" ("id") NOT NULL
 );
