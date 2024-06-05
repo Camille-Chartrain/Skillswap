@@ -28,6 +28,7 @@ const Notification = ({ type, message, icone, buttonText, onClick, rating }) => 
         return stars;
     };
 
+    //patch pour noter http-> /communication/:skillId
 
     return (
         <NotificationContainer type={type}>

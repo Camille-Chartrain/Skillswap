@@ -30,7 +30,7 @@ const Skill = ({
     })
 
     //=post method to add course to studyList
-    const CourseAdd = async (skillData) => {
+    const AskInscriptionCourse = async (skillData) => {
         try {
             console.log('data envoyees:', skill);
             const token = Cookies.get('token');
@@ -54,47 +54,14 @@ const Skill = ({
 
             //=fetch back side's  errors
             // console.log("error?:", dataProfile.error);
-
-
-            //=send notification to teacher for check
-            sendNotification(skillData.id);
         }
         catch (error) {
             console.log("erreur : ", error);
         }
     }
-    //= function to send notification
-
-    const sendNotification = async (skillId) => {
-        try {
-            console.log('data envoyees:', skill);
-            const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/learning/${skillData.id}`, { //*voir avec CC pour route car non definie
-                method: 'POST',
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(skillData)
-                // credentials: 'include',
-            })
-
-            //=traduct api response in Json
-            console.log("response post sendNotification avant .json", response);
-            const dataNotif = await response.json();
-            console.log(" sendNotification  apres .json:", dataNotif);
-
-        }
-        catch (error) {
-            console.log("erreur : ", error);
-        }
-
-    }
-
 
     handleChange = () => {
-        CourseAdd(skill);
+        AskInscriptionCourse(skill);
     }
 
 
