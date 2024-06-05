@@ -15,7 +15,7 @@ SubCategory.init(
             type: DataTypes.TEXT,
             allowNull: false
         },
-        categoryId: {
+        category_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
