@@ -33,7 +33,7 @@ const SearchSubCategory = ({ register, selectCat, setSelectCat }) => {
                     </optgroup>
                 )}
 
-                <option value="all" selected >choisissez votre sous-categorie</option>
+                <option defaultValue="all"  >choisissez votre sous-categorie</option>
                 <option >---------------sous-categorie Language---------------</option>
                 {selectCat && selectCat === 1 && (
                     <>
@@ -45,7 +45,7 @@ const SearchSubCategory = ({ register, selectCat, setSelectCat }) => {
                         <option value="6" >Traduction et interpretation</option>
                     </>
                 )}
-                <option value='bricolage'>---------------sous-categorie Bricolage---------------</option>
+                <option defaultValue="bricolage">---------------sous-categorie Bricolage---------------</option>
                 {selectCat === 2 && (
                     <>
                         <option value="8" >Electricite domestique</option>
@@ -56,7 +56,7 @@ const SearchSubCategory = ({ register, selectCat, setSelectCat }) => {
                         <option value="12">Reparation appareils electroniques</option>
                     </>
                 )}
-                <option value='DIY'>---------------sous-categorie DIY---------------</option>
+                <option defaultValue="DIY">---------------sous-categorie DIY---------------</option>
                 {selectCat === 3 && (
                     <>
                         <option value="18" >Artisanat ecologique (produits maison...)</option>
@@ -66,7 +66,7 @@ const SearchSubCategory = ({ register, selectCat, setSelectCat }) => {
                         <option value="13" >Fabrication de meubles</option>
                         <option value="17" >Produits de beaute maison</option>
                     </>)}
-                <option value='cooking'>--------------- sous-categorie Cuisine---------------</option>
+                <option defaultValue="cooking">--------------- sous-categorie Cuisine---------------</option>
                 {selectCat === 4 && (
                     <>
                         <option value="20" >Patisserie et desserts</option>
@@ -76,7 +76,7 @@ const SearchSubCategory = ({ register, selectCat, setSelectCat }) => {
                         <option value="22" >Techniques de decoupe et de preparation</option>
                         <option value="21">Vegetalien ou vegetarien</option>
                     </>)}
-                <option value='art'>--------------- sous-categorie Art---------------</option>
+                <option defaultValue="art">--------------- sous-categorie Art---------------</option>
                 {selectCat === 5 && (
                     <>
                         <option value="28" >Art numérique</option>
@@ -86,7 +86,7 @@ const SearchSubCategory = ({ register, selectCat, setSelectCat }) => {
                         <option value="27" >Photographie</option>
                         <option value="26" >Sculpture</option>
                     </>)}
-                <option value='school'>--------------- sous-categorie Scolaire ---------------</option>
+                <option defaultValue="school">--------------- sous-categorie Scolaire ---------------</option>
                 {selectCat === 6 && (
                     <>
                         <option value="33">Histoire et geographie</option>

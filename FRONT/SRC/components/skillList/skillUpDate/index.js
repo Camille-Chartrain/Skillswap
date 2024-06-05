@@ -8,7 +8,7 @@ import SearchTransmission from '../../search/SearchTransmission';
 import { useLocation, useNavigate } from "react-router-dom";
 
 
-const SkillUpDate = ({ handleSubmit, register, isValid }) => {
+const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
 
     const location = useLocation();
     const skill = location.state?.skill;
@@ -38,9 +38,10 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
             ...prevSkill,
             [name]: value,
         }));
+        setValue(name, value);
     }
 
-    const GetSkillUpDate = async () => {
+    const getSkillUpDate = async () => {
         console.log('id depuis skill:', skill.id)
         try {
             const token = Cookies.get('token');
@@ -54,27 +55,28 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
             });
             const res = await response.json();
             setSkillUpDate(res.data);
-
+            // Mettre à jour les valeurs des champs du formulaire
+            Object.keys(res.data).forEach(key => {
+                setValue(key, res.data[key]);
+            });
         }
         catch (error) {
             console.error("catch de skillUpDate:", error);
         }
     }
-    useEffect(() => { GetSkillUpDate() }, [])
+    useEffect(() => { getSkillUpDate() }, [])
 
     //=redirect for update skill
     const navigate = useNavigate();
 
-    //=go to skillUpDate component
+    // //=go to skillUpDate component
     const handlechange = () => {
-
         console.log('HC recup skill:', skill);
-        // navigate('/dashboard')
+
     }
     //= to change skill
-    const PatchSkillUpdate = async (skill) => {
-        console.log('skill dans PatchSkillUpdate: ', skill)
-        return;
+    const patchSkillUpdate = async (skill) => {
+        console.log('skill dans patchSkillUpdate: ', skill)
 
         try {
             const token = Cookies.get('token');
@@ -92,12 +94,19 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
             // //=traduct api response in Json
 
             const res = await response.json();
+            console.log('qui est res avant if:', res);
 
-            if (!res.data) {
+            if (res === "update du skill ok") {
+                reset();
+                navigate('/dashboard');
+            }
+            else {
                 console.error("Invalid response from API");
                 return;
             }
+
             setSkillUpDate(res.data);
+
         }
         catch (error) {
             console.log("catch de patchSkillUpDate:", error);
@@ -105,13 +114,13 @@ const SkillUpDate = ({ handleSubmit, register, isValid }) => {
     }
 
 
-    // if (!skillUpdate) {
-    //     return <div>Loading....</div>
-    // }
+    if (!skillUpdate) {
+        return <div>Loading....</div>
+    }
 
     return (
         <>
-            <form method="POST" onSubmit={handleSubmit(PatchSkillUpdate.bind(null, skillUpdate))} className="skill">
+            <form method="POST" onSubmit={handleSubmit(patchSkillUpdate.bind(null, skillUpdate))} className="skill">
                 <fieldset className="skillUpDate">
                     <legend><h3>Modification de competence</h3></legend>
                     <div></div>

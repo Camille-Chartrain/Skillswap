@@ -37,7 +37,7 @@ const App = ({ darkMode, isLogged }) => {
     console.log('je suis ds app, theme:', theme);
 
     // -> hook form create to post datas
-    const { handleSubmit, register } = useForm({ mode: 'onSubmit' });
+    const { handleSubmit, register, setValue, reset } = useForm({ mode: 'onChange' });
 
 
     return (
@@ -64,9 +64,9 @@ const App = ({ darkMode, isLogged }) => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
-                    <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} />} />
-                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} setError={setError} error={error} />} />
-                    <Route path="/oneSkill" element={<SkillUpDate handleSubmit={handleSubmit} register={register} />} />
+                    <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} reset={reset} />} />
+                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} setError={setError} error={error} reset={reset} />} />
+                    <Route path="/oneSkill" element={<SkillUpDate handleSubmit={handleSubmit} register={register} setValue={setValue} reset={reset} />} />
                     <Route path="*" element={<PageError />} />
                 </Routes>
 

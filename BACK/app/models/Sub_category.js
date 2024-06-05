@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
-// import { Category, Sub_category } from "../models/index.js";
+// import { Category, Subcategory } from "../models/index.js";
 
 class Sub_category extends Model { }
 

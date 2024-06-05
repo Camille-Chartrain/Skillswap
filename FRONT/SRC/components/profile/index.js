@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Profile = ({ handleSubmit, register, isValid }) => {
+const Profile = ({ handleSubmit, register, isValid, reset }) => {
 
 
     //= get method to show info & autocomplete
@@ -284,7 +284,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                 </fieldset>
             </form>
 
-            <CreateSkill handleSubmit={handleSubmit} register={register} />
+            <CreateSkill handleSubmit={handleSubmit} register={register} reset={reset} />
 
             < div className="skillsList" >
                 <h3>Liste des competences</h3>

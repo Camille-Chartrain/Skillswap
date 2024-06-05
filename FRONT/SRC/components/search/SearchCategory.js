@@ -11,13 +11,13 @@ const SearchCategory = ({ register }) => {
 
 
         <select id="CategoryId" name="CategoryId" {...register("CategoryId")} value={selectCat} onChange={handleChangeCat} >
-            <option value="all" name="category" selected>choisissez votre categorie</option>
+            <option defaultValue="all" name="category" >choisissez votre categorie</option>
             <option value="1" >Language</option>
             <option value="2" >Bricolage</option>
             <option value="3" >Produits DIY</option>
             <option value="4" >Cuisine</option>
             <option value="5" >Art</option>
-            <option value="5" >Scolaire</option>
+            <option value="6" >Scolaire</option>
         </select>
 
 

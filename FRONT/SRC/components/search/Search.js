@@ -36,7 +36,7 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
             console.log('erreur du catch GetSearch:', error);
         }
     }
-    useEffect(() => { GetSearch() }, [searchInput]);
+    // useEffect(() => { GetSearch() }, [searchInput]);
 
     return (
 
@@ -44,7 +44,7 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
             <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' role="logo" /></a>
 
             <form className="search" onSubmit={handleSubmit(GetSearch)}>
-                <input type="search" name="search" placeholder="rechercher" value={searchInput} onChange={handleChange} aria-label='faite votre recherche' />
+                <input type="search" name="search" placeholder="rechercher" defaultValue={searchInput} onChange={handleChange} aria-label='faite votre recherche' />
 
                 <SearchLevel handleSubmit={handleSubmit} register={register} />
                 <SearchCategory handleSubmit={handleSubmit} register={register} />

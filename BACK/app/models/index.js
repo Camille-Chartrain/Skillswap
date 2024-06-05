@@ -30,7 +30,7 @@ User.hasMany(Skill);
 Skill.belongsTo(User);
 
 // subcategory
-Category.hasOne(Sub_category);
+Category.hasMany(Sub_category);
 Sub_category.belongsTo(Category);
 
 

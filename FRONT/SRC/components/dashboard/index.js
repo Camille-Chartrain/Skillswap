@@ -17,7 +17,7 @@ import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
 
-const Dashboard = ({ handleSubmit, register, isValid }) => {
+const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
     const navigate = useNavigate();
 
     const handleClick = async (data) => {
@@ -51,7 +51,7 @@ const Dashboard = ({ handleSubmit, register, isValid }) => {
             </div>
             <main>
                 <h1>TABLEAU DE BORD</h1>
-                <Profile handleSubmit={handleSubmit} register={register} />
+                <Profile handleSubmit={handleSubmit} register={register} reset={reset} />
                 <Learning handleSubmit={handleSubmit} register={register} />
                 <Statistic handleSubmit={handleSubmit} register={register} />
                 <Communication handleSubmit={handleSubmit} register={register} />

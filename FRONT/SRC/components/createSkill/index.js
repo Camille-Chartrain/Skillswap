@@ -7,7 +7,7 @@ import SearchLevel from '../search/SearchLevel';
 import SearchTransmission from '../search/SearchTransmission';
 
 
-const CreateSkill = ({ handleSubmit, register, isValid }) => {
+const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
 
     const [createSkill, setDataCreateSkill] = useState({
         id: [],
@@ -24,31 +24,31 @@ const CreateSkill = ({ handleSubmit, register, isValid }) => {
     });
 
 
-    const GetCreateSkill = async () => {
-        try {
-            const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/skill', {
-                method: "get",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                // credentials: 'include'
-            });
+    // const GetCreateSkill = async () => {
+    //     try {
+    //         const token = Cookies.get('token');
+    //         const response = await fetch('http://localhost:3000/skill', {
+    //             method: "get",
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': `Bearer ${token}`,
+    //             },
+    //             // credentials: 'include'
+    //         });
 
-            console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
-            const dataCreateSkill = await response.json();
-            console.log("ICI QUON VEUT LES DATA response apres .json:", dataCreateSkill);
-            setDataCreateSkill(dataCreateSkill);
-            console.log('donnees profile data du state:', dataCreateSkill);
+    //         console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
+    //         const dataCreateSkill = await response.json();
+    //         console.log("ICI QUON VEUT LES DATA response apres .json:", dataCreateSkill);
+    //         setDataCreateSkill(dataCreateSkill);
+    //         console.log('donnees profile data du state:', dataCreateSkill);
 
-        }
-        catch (error) {
-            console.error("error catch:", error.message);
-        }
-    }
+    //     }
+    //     catch (error) {
+    //         console.error("error catch:", error.message);
+    //     }
+    // }
 
-    useEffect(() => { GetCreateSkill() }, [])
+    // useEffect(() => { GetCreateSkill() }, [])
 
 
     //=post method to send info
@@ -72,6 +72,7 @@ const CreateSkill = ({ handleSubmit, register, isValid }) => {
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
 
+            reset();
 
         }
         catch (error) {
