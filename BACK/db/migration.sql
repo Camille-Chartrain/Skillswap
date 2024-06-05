@@ -3,12 +3,25 @@ BEGIN;
 
 SET CLIENT_ENCODING TO 'UTF-8';
 
-DROP TABLE IF EXISTS "user",
-"category",
-"subcategory",
-"skill",
-"meeting",
-"interest";
+-- DROP TABLE IF EXISTS  "user",
+-- "category",
+-- "subcategory",
+-- "skill",
+-- "meeting",
+-- "interest";
+
+DROP TABLE IF EXISTS "user" CASCADE;
+
+DROP TABLE IF EXISTS "category" CASCADE;
+
+DROP TABLE IF EXISTS "subcategory" CASCADE;
+
+DROP TABLE IF EXISTS "sub_category" CASCADE;
+DROP TABLE IF EXISTS "skill" CASCADE;
+
+DROP TABLE IF EXISTS "meeting" CASCADE;
+
+DROP TABLE IF EXISTS "interest" CASCADE;
 
 CREATE TABLE "user" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
