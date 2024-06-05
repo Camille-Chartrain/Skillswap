@@ -1,4 +1,4 @@
-import { User, Category, Skill, Sub_category } from "../models/index.js";
+import { User, Category, Skill, SubCategory } from "../models/index.js";
 
 const statisticController = {
 
@@ -18,7 +18,7 @@ const statisticController = {
                     attributes: ['picture', 'name']
                 },
                 {
-                    model: Sub_category,
+                    model: SubCategory,
                     attributes: ['name']
                 }],
             });
@@ -65,11 +65,11 @@ export default statisticController;
 // "Category"."id" AS "Category.id",
 // "Category"."picture" AS "Category.picture",
 // "Category"."name" AS "Category.name",
-// "Sub_category"."id" AS "Sub_category.id",
-// "Sub_category"."name" AS "Sub_category.name"
+// "SubCategory"."id" AS "SubCategory.id",
+// "SubCategory"."name" AS "SubCategory.name"
 // FROM "skill" AS "Skill"
 // LEFT OUTER JOIN "user" AS "User"
 // ON "Skill"."UserId" = "User"."id"
 // LEFT OUTER JOIN "category" AS "Category" ON "Skill"."CategoryId" = "Category"."id"
-// LEFT OUTER JOIN "sub_category" AS "Sub_category" ON "Skill"."SubCategoryId" = "Sub_category"."id"
+// LEFT OUTER JOIN "SubCategory" AS "SubCategory" ON "Skill"."SubCategoryId" = "SubCategory"."id"
 // WHERE "Skill"."UserId" = 54 ORDER BY "Skill"."id";

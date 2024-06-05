@@ -1,7 +1,7 @@
 import { Op } from "sequelize";
-import { User, Category, Skill, Sub_category } from "../models/index.js";
+import { User, Category, Skill, SubCategory } from "../models/index.js";
 
-// import Sub_category from "../models/Sub_category.js";
+// import SubCategory from "../models/SubCategory.js";
 
 const homeController = {
 
@@ -20,7 +20,7 @@ const homeController = {
                     attributes: ['picture', 'name']
                 },
                 {
-                    model: Sub_category,
+                    model: SubCategory,
                     attributes: ['name']
                 }],
             });
@@ -60,9 +60,9 @@ const homeController = {
                     attributes: ['picture', 'name']
                 },
                 {
-                    model: Sub_category,
+                    model: SubCategory,
                     where: {
-                        name: req.params.sub_category
+                        name: req.params.SubCategory
                     },
                     attributes: ['name']
                 }],

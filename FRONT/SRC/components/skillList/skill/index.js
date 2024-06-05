@@ -15,7 +15,7 @@ const Skill = ({
     transmission,
     description,
     availability,
-    Sub_category,
+    SubCategory,
     firstname,
     lastname,
     email,
@@ -112,7 +112,7 @@ const Skill = ({
                         </div>
                         <div className="skill-info">
                             <h4>Categorie :</h4> <span>{Category}</span>
-                            <h4>Sous categorie :</h4>  <span>{Sub_category}</span>
+                            <h4>Sous categorie :</h4>  <span>{SubCategory}</span>
                             <h4>Competence :</h4><span> {title}</span>
                             <h4>Niveau : </h4><span>{level}</span>
                             <h4>Prix : </h4> <span>{price}</span>

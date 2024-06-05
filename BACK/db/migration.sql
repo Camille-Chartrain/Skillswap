@@ -1,11 +1,14 @@
 BEGIN;
+
 SET CLIENT_ENCODING TO 'UTF-8';
+
 DROP TABLE IF EXISTS "user",
 "category",
-"sub_category",
+"SubCategory",
 "skill",
 "meeting",
 "interest";
+
 CREATE TABLE "user" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "firstname" TEXT NOT NULL,
@@ -18,16 +21,19 @@ CREATE TABLE "user" (
     "role" TEXT NOT NULL,
     "swappies" INTEGER
 );
+
 CREATE TABLE "category" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
     "picture" TEXT NOT NULL
 );
-CREATE TABLE "sub_category" (
+
+CREATE TABLE "SubCategory" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
-    "CategoryId" INTEGER REFERENCES "category"("id") NOT NULL
+    "CategoryId" INTEGER REFERENCES "category" ("id") NOT NULL
 );
+
 CREATE TABLE "skill" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "title" TEXT NOT NULL,
@@ -38,18 +44,21 @@ CREATE TABLE "skill" (
     "transmission" TEXT,
     "description" TEXT NOT NULL,
     "availability" TEXT NOT NULL,
-    "sub_category_id" INTEGER REFERENCES "sub_category"("id") NOT NULL,
-    "category_id" INTEGER REFERENCES "category"("id") NOT NULL,
-    "user_id" INTEGER REFERENCES "user"("id") NOT NULL
+    "SubCategory_id" INTEGER REFERENCES "SubCategory" ("id") NOT NULL,
+    "category_id" INTEGER REFERENCES "category" ("id") NOT NULL,
+    "user_id" INTEGER REFERENCES "user" ("id") NOT NULL
 );
+
 CREATE TABLE "meeting" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "date" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    "skill_id" INTEGER REFERENCES "skill"("id") NOT NULL,
-    "user_id" INTEGER REFERENCES "user"("id") NOT NULL
+    "skill_id" INTEGER REFERENCES "skill" ("id") NOT NULL,
+    "user_id" INTEGER REFERENCES "user" ("id") NOT NULL
 );
+
 CREATE TABLE "interest" (
-    "category_id" INTEGER REFERENCES "category"("id") NOT NULL,
-    "user_id" INTEGER REFERENCES "user"("id") NOT NULL
+    "category_id" INTEGER REFERENCES "category" ("id") NOT NULL,
+    "user_id" INTEGER REFERENCES "user" ("id") NOT NULL
 );
+
 COMMIT;

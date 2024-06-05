@@ -5,7 +5,7 @@ import * as dotenv from 'dotenv';
 import cors from "cors";
 //option possible: activer HSTS (Strict Transport Security HSTS est utilisé pour indiquer aux navigateurs de toujours utiliser HTTPS pour accéder à votre site, même si l'utilisateur saisit http:// dans la barre d'adresse.) 
 // import sequelize from './app/database.js';
-// import Sub_category from './app/models/Sub_category.js';
+// import SubCategory from './app/models/SubCategory.js';
 // import Category from './app/models/Category.js';
 // import User from './app/models/User.js';
 // import Meeting from './app/models/Meeting.js';
@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // the defined model is the class itself => true
 // console.log(Category === sequelize.models.Category);
-// console.log(Sub_category === sequelize.models.Sub_category);
+// console.log(SubCategory === sequelize.models.SubCategory);
 // console.log(User === sequelize.models.User);
 // console.log(Skill === sequelize.models.Skill);
 // console.log(Meeting === sequelize.models.Meeting);
