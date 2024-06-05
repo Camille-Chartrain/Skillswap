@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 
 
 //=manage reception notification
-const CourseValidated = () => {
-    const [courseReq, setCourseReq] = useState([]);
+const CourseTeached = () => {
+    const [teacherReq, setTeacherReq] = useState([]);
 
     const CourseRequest = async () => {
         try {
 
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000//acceptLearning/:meetingId', {
+            const response = await fetch('http://localhost:3000/teacherLearning', {
                 method: "GET",
                 status: 200,
                 headers: {
@@ -33,19 +33,26 @@ const CourseValidated = () => {
         catch { }
     }
     useEffect(() => { CourseRequest() }, [])
+    //patchCourseValidate
+    //patchCourseRejeted
+
+    //*pour student just un get identique a teacher http ->studentLearning
 
 
     return (
+        <>
+            <ul>
+                {teacherReq.map((request) => {
+                    <li key={request.id}>
+                        <h4>cours: {request.skillId}</h4>
+                        <button >VALIDER LA DEMANDE</button>//patch validatehttp->acceptLearning/:meetingId
+                        <button >REJETER LA DEMANDE</button>//pattch patchCourseRejeted http->declineLearning/:meetingId
+                        <button>COURS TERMINER</button>//patch courseteminated http->closeLearning/:meeting.id
+                    </li>
+                })}
+            </ul >
 
-        <ul>
-            {courseReq.map((request) => {
-                <li key={request.id}>
-                    <h4>cours: {request.skillId}</h4>
-                    <button onClick={CourseValidated.bind{request}}>VALIDER LA DEMANDE</button>
-                    <button OnClick={}>REJETER LA DEMANDE</button>
-                </li>
-}}
-        </ul >
+        </>
     )
 }
 export default validationCourse;
