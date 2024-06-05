@@ -6,6 +6,7 @@ import skillController from './controllers/skillController.js';
 import statisticController from './controllers/statisticController.js';
 import communicationController from './controllers/communicationController.js';
 import learningController from './controllers/learningController.js';
+import categoryController from './controllers/categoryController.js'
 import verifyToken from './middlewares.js/verifyToken.js';
 
 const router = express.Router();
@@ -48,8 +49,10 @@ router.post('/learning/:skillId', verifyToken, learningController.createLearning
 router.patch('/acceptLearning/:meetingId', verifyToken, learningController.acceptLearning);
 router.patch('/declineLearning/:meetingId', verifyToken, learningController.declineLearning);
 router.patch('/closeLearning/:meetingId', verifyToken, learningController.closeLearning);
-router.delete('/learning/:meetingId', verifyToken, learningController.deleteLearning)
+router.delete('/learning/:meetingId', verifyToken, learningController.deleteLearning);
 
+//categories
+router.get('/categories', categoryController.getAllCategories);
 // //admin
 // router.get('/admin', adminController.admin);
 // router.patch('/admin/statistic', adminController.modifStatistic);
