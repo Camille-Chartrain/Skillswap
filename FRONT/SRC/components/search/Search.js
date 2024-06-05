@@ -20,8 +20,8 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
     const GetSearch = async (data) => {
         try {
 
-            const response = await fetch(`http://localhost:3000/searchVisitor/${searchInput}/${searchLevel}?/${searchCategory}?/${searchSubCategory}`);
-            console.log("recup data apres JSON:", data)
+            // const response = await fetch(`http://localhost:3000/searchVisitor/${searchInput}/${searchLevel}?/${searchCategory}?/${searchSubCategory}`);
+            // console.log("recup data apres JSON:", data)
 
             const dataSearch = await response.json();
             console.log("donnees dataSearch", dataSearch)

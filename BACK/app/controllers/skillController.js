@@ -42,15 +42,12 @@ const skillController = {
             }
             //send the answer to the front
             res.send(
-                skill
+                { data: skill }
             );
-        }
-        catch (error) {
-            console.error('erreur get oneSkill:', error);
-            res.status(500).json({
-                message: 'Error getOneSkill',
-                error: error
-            });
+        } catch (error) {
+            console.log('je suis ds la catch');
+            console.error(error.message);
+            res.send('error:', error);
         }
     },
 
