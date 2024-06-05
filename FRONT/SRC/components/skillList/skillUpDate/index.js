@@ -18,7 +18,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
         || {
         id: [],
         Category: '',
-        Sub_category: '',
+        SubCategory: '',
         title: '',
         price: '',
         mark: '',

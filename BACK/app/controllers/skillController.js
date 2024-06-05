@@ -19,10 +19,13 @@ const skillController = {
             res.send(
                 skill
             );
-        } catch (error) {
-            console.log('je suis ds la catch');
-            console.error(error.message);
-            res.render('error:', error);
+        }
+        catch (error) {
+            console.error('erreur get Skills:', error);
+            res.status(500).json({
+                message: 'Error  get skills',
+                error: error
+            });
         }
     },
 
@@ -70,7 +73,8 @@ const skillController = {
             }
             );
             res.status(200).json("skill added to the user")
-        } catch (error) {
+        }
+        catch (error) {
             console.error('erreur catch createSkill:', error);
             res.status(500).json({
                 message: 'Error,  skill not added',

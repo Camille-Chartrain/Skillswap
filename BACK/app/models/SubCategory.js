@@ -1,10 +1,10 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
-// import { Category, Subcategory } from "../models/index.js";
+// import { Category, SubCategory } from "../models/index.js";
 
-class Sub_category extends Model { }
+class SubCategory extends Model { }
 
-Sub_category.init(
+SubCategory.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -18,13 +18,13 @@ Sub_category.init(
     }, {
     timestamps: false,
     sequelize,
-    modelName: 'Sub_category',
-    tableName: 'sub_category',
+    modelName: 'SubCategory',
+    tableName: 'SubCategory',
 });
 
-// Category.hasOne(Sub_category);
-// Sub_category.belongsTo(Category);
+// Category.hasOne(SubCategory);
+// SubCategory.belongsTo(Category);
 
 
 
-export default Sub_category;
+export default SubCategory;

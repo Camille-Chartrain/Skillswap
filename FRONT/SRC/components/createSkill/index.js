@@ -13,7 +13,7 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
         id: [],
         title: (''),
         Category: (''),
-        Sub_category: (''),
+        SubCategory: (''),
         duration: (''),
         level: (''),
         price: (''),

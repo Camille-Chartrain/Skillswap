@@ -41,7 +41,7 @@ const SkillList = () => {
                         description={item.description}
                         availability={item?.availability}
                         Category={item.Category.name}
-                        Sub_category={item?.Sub_category?.name}
+                        SubCategory={item?.SubCategory?.name}
                         firstname={item?.User.firstname}
                         lastname={item?.User.lastname}
                         email={item?.User.email}

@@ -1,9 +1,9 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
-// import Sub_category from './Sub_category.js';
+// import SubCategory from './SubCategory.js';
 // import Category from './Category.js';
 // import User from './User.js';
-// import { User, Category, Skill, Sub_category } from "../models/index.js";
+// import { User, Category, Skill, SubCategory } from "../models/index.js";
 
 class Skill extends Model { }
 
@@ -91,8 +91,8 @@ Skill.init(
     tableName: 'skill',
 });
 
-// Sub_category.hasOne(Skill);
-// Skill.belongsTo(Sub_category);
+// SubCategory.hasOne(Skill);
+// Skill.belongsTo(SubCategory);
 
 // Category.hasOne(Skill);
 // Skill.belongsTo(Category);
