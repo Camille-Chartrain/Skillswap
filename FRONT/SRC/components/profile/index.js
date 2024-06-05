@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
 import { useNavigate } from "react-router-dom";
-import SkillUpDate from "../skillList/skillUpDate";
+
 
 
 
@@ -52,17 +52,17 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                 // credentials: 'include'
             });
 
-            console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
+            // console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
             const dataProfile = await response.json();
-            console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
+            // console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
             setProfileData(dataProfile);
-            console.log('donnees profile data du state:', profileData);
+            // console.log('donnees profile data du state:', profileData);
 
             // //= to transform us'date into french's date
             const dateUs = dataProfile.birthday;
             const dateObj = new Date(dateUs);
             const dateFr = dateObj.toLocaleDateString('fr-FR');
-            console.log("date en francais:", dateFr);
+            // console.log("date en francais:", dateFr);
         }
         catch (error) {
             console.error("error catch:", error.message);
@@ -74,7 +74,7 @@ const Profile = ({ handleSubmit, register, isValid }) => {
     //=post method to send info
     const ProfilePatch = async (data) => {
         try {
-            console.log('data envoyees:', data);
+            // console.log('data envoyees:', data);
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
                 method: 'PATCH',
@@ -90,9 +90,9 @@ const Profile = ({ handleSubmit, register, isValid }) => {
             // console.log('response.status:', response.status);
 
             //=traduct api response in Json
-            console.log("response post profile avant .json", response);
+            // console.log("response post profile avant .json", response);
             const dataProfile = await response.json();
-            console.log(" response apres .json:", dataProfile);
+            // console.log(" response apres .json:", dataProfile);
 
             //=fetch back side's  errors
             // console.log("error?:", dataProfile.error);
@@ -103,9 +103,9 @@ const Profile = ({ handleSubmit, register, isValid }) => {
         }
     }
 
-    const ProfileDelete = async (data) => {
+    const ProfileDelete = async () => {
         try {
-            console.log('try data:', data);
+
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
                 method: "delete",
@@ -114,18 +114,18 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(),
                 // credentials: 'include'
             })
-            console.log('response.status:', response.status);
+            // console.log('response.status:', response.status);
 
             //=traduct api response in Json
-            console.log("response avant .json", response);
+            // console.log("response avant .json", response);
             const dataProfile = await response.json();
-            console.log("response apres .json:", dataProfile);
+            // console.log("response apres .json:", dataProfile);
 
             //=fetch back side's  errors
-            console.log("error?:", dataProfile.error);
+            // console.log("error?:", dataProfile.error);
             setError(dataProfile.error);
 
         }
@@ -138,8 +138,8 @@ const Profile = ({ handleSubmit, register, isValid }) => {
     const [skillsUser, setSkillsUser] = useState([]);
     const GetAllSkillUser = async (data) => {
         try {
-            console.log("skillUser before fetch:", data)
-            console.log('try data:', data);
+            // console.log("skillUser before fetch:", data)
+            // console.log('try data:', data);
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/skill', {
                 method: "get",
@@ -151,16 +151,16 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                 body: JSON.stringify(data),
                 // credentials: 'include'
             })
-            console.log('response.status:', response.status);
+            // console.log('response.status:', response.status);
 
             //=traduct api response in Json
-            console.log("skillUser avant .json", response);
+            // console.log("skillUser avant .json", response);
             const dataListSkill = await response.json();
-            console.log(" response apres .json:", dataListSkill);
+            // console.log(" response apres .json:", dataListSkill);
             setSkillsUser(dataListSkill);
 
             //=fetch back side's  errors
-            console.log("error?:", dataListSkill.error);
+            // console.log("error?:", dataListSkill.error);
             // setError(dataSkill.error);
 
         }
@@ -175,31 +175,19 @@ const Profile = ({ handleSubmit, register, isValid }) => {
 
     //=  skill's datas before go to skillUpDate component
     const handlechange = (skill) => {
-        const skillData = {
-            id: skill.id,
-            Category: skill.Category,
-            title: skill.title,
-            price: skill.price,
-            mark: skill.mark,
-            level: skill.level,
-            duration: skill.duration,
-            transmission: skill.transmission,
-            description: skill.descriptions,
-            availability: skill.availability,
-            Sub_category: skill.Sub_category,
-        }
-        const id = skillData.id;
-        console.log('HC recup id:', id);
+        console.log('handlechange: ', skill)
+        const id = skill.id;
+        // console.log('HC recup id:', id);
         navigate('/oneSkill/',
             {
-                state: { skillData }
+                state: { skill }
             })
     };
-    console.log('donnees recu pour ma boucle map:', profileData);
+
     //=to delete a skill
     const PostSkillDelete = async (skill) => {
         try {
-            console.log('try data:', skill);
+
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
                 method: "delete",
@@ -208,18 +196,16 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(skill),
+                body: JSON.stringify(),
                 // credentials: 'include'
             })
-            console.log('response.status:', response.status);
 
             //=traduct api response in Json
             console.log("response avant .json", response);
             const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
 
             //=fetch back side's  errors
-            console.log("error?:", dataSkill.error);
+            // console.log("error?:", dataSkill.error);
             setError(dataSkill.error);
         }
         catch (error) {
@@ -227,8 +213,6 @@ const Profile = ({ handleSubmit, register, isValid }) => {
         }
     }
     useEffect(() => { PostSkillDelete() }, []);
-
-
 
 
     return (
@@ -308,18 +292,20 @@ const Profile = ({ handleSubmit, register, isValid }) => {
                     <span>
 
                         {skillsUser?.map((skill) => (
-                            <li key={skill?.id}>
-                                <>
-                                    <span>
-                                        <p>{skill?.title}</p>
-                                    </span>
-                                    <span className="btn">
-                                        <button className="orangeBtn" onClick={handlechange.bind(null, skill.id)}>MODIFIER</button>
+                            <>
 
-                                        <button aria-label="bouton supprimer competence" onClick={PostSkillDelete.bind(null, skill.id)} type="reset" className="redBtn">SUPPRIMER</button>
-                                    </span>
-                                </>
-                            </li >
+                                <li key={skill?.id} >
+                                    <>
+                                        <span>
+                                            <p>{skill?.title}</p>
+                                        </span>
+                                        <span className="btn">
+                                            <button className="orangeBtn" onClick={handlechange.bind(null, skill)}>MODIFIER</button>
+                                            <button aria-label="bouton supprimer competence" onClick={PostSkillDelete.bind(null, skill)} type="reset" className="redBtn">SUPPRIMER</button>
+                                        </span>
+                                    </>
+                                </li >
+                            </>
                         ))
                         }
                     </span>

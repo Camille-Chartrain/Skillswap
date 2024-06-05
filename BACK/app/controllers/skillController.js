@@ -39,12 +39,12 @@ const skillController = {
             }
             //send the answer to the front
             res.send(
-                skill
+                { data: skill }
             );
         } catch (error) {
             console.log('je suis ds la catch');
             console.error(error.message);
-            res.render('error:', error);
+            res.send('error:', error);
         }
     },
 

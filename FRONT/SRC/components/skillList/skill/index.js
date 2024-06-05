@@ -2,6 +2,7 @@ import { isLogged } from '../../../util';
 import PropTypes from 'prop-types';
 import SkillRating from '../../statistic/skillRating';
 import { useState } from 'react';
+import Cookies from 'js-cookie';
 
 const Skill = ({
     Category,
@@ -24,44 +25,76 @@ const Skill = ({
 }) => {
 
     const [skill, setSkill] = useState({
-        id: skill.id,
-        title: skill.title
+        id: [],
+        title: '',
     })
 
     //=post method to add course to studyList
-    const CourseAdd = async (skill) => {
+    const CourseAdd = async (skillData) => {
         try {
             console.log('data envoyees:', skill);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/learning/${skill.id}`, {
+            const response = await fetch(`http://localhost:3000/learning/${skillData.id}`, {
                 method: 'POST',
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(skill)
+                body: JSON.stringify(skillData)
                 // credentials: 'include',
             })
 
             // console.log('response.status:', response.status);
 
             //=traduct api response in Json
-            console.log("response post profile avant .json", response);
+            console.log("response post skill avant .json", response);
             const dataAdding = await response.json();
-            console.log(" response apres .json:", dataAdding);
+            console.log(" dataAdding  apres .json:", dataAdding);
 
             //=fetch back side's  errors
             // console.log("error?:", dataProfile.error);
 
+
+            //=send notification to teacher for check
+            sendNotification(skillData.id);
         }
         catch (error) {
             console.log("erreur : ", error);
         }
     }
+    //= function to send notification
+
+    const sendNotification = async (skillId) => {
+        try {
+            console.log('data envoyees:', skill);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/learning/${skillData.id}`, { //*voir avec CC pour route car non definie
+                method: 'POST',
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(skillData)
+                // credentials: 'include',
+            })
+
+            //=traduct api response in Json
+            console.log("response post sendNotification avant .json", response);
+            const dataNotif = await response.json();
+            console.log(" sendNotification  apres .json:", dataNotif);
+
+        }
+        catch (error) {
+            console.log("erreur : ", error);
+        }
+
+    }
+
 
     handleChange = () => {
-        setSkill();
+        CourseAdd(skill);
     }
 
 
@@ -99,7 +132,7 @@ const Skill = ({
 
                 )
                 }
-                <button onSubmit={ }></button>
+                <button onSubmit={handleChange}>SUIVRE CE COURS</button>
             </div >
         </>
     )
