@@ -27,7 +27,7 @@ SubCategory.init(
     timestamps: false,
     sequelize,
     modelName: 'SubCategory',
-    tableName: 'SubCategory',
+    tableName: 'subcategory',
 });
 
 // Category.hasOne(SubCategory);

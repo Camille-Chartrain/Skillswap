@@ -5,10 +5,10 @@ const categoryController = {
     getAllCategories: async function (req, res) {
         try {
             // find by primary key
-            const categories = await Category.findAll({
+            const categories = await SubCategory.findAll({
                 include: [
                     {
-                        model: SubCategory,
+                        model: Category,
                         attributes: ['id', 'name']
                     }
                 ]
