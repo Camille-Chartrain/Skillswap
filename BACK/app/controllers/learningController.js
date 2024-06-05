@@ -14,8 +14,10 @@ const learningController = {
             const meeting = await Meeting.create({
                 status: "en attente",
                 SkillId: req.params.skillId,
-                UserId: req.user.id,
+                StudentsId: req.user.id,
+
             });
+            // je pourrais rajouter un update pour associer l'id du teacher au meeting
             res.send(
                 meeting
             );
@@ -29,7 +31,7 @@ const learningController = {
     },
     // INSERT INTO "meeting" ("id","date","status","createdAt","updatedAt","UserId","SkillId") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6) RETURNING "id","date","status","createdAt","updatedAt","UserId","SkillId";
 
-    learning: async function (req, res) {
+    studentLearning: async function (req, res) {
         try {
             const meeting = await Meeting.findAll({
                 where: {
@@ -44,6 +46,127 @@ const learningController = {
             res.send(
                 meeting
             );
+        } catch (error) {
+            console.error("error findall meeting:", error);
+            res.status(500).json({
+                message: 'Error during findAll meetings',
+                error: error
+            });
+        }
+    },
+
+    teacherLearning: async function (req, res) {
+        try {
+            const meeting = await Meeting.findAll({
+                status: {
+                    [Op.or]: ["en attente", "en cours", "refusé", "terminé"],
+                },
+                // include: [
+                //     {
+                //         model: User,
+                //         as: 'Students',
+                //         attributes: ['firstname', 'lastname', 'id'],
+                include: [
+                    {
+                        model: Skill,
+                        // as: 'Teachers',
+                        attributes: ['id', 'title'],
+                        where: {
+                            UserId: req.user.id
+                        },
+                        required: true,
+                        include: [
+                            {
+                                model: User,
+                                attributes: ['firstname', 'lastname', 'id'],
+                            },
+
+                        ],
+                        // required: true,
+                    }
+                ],
+                required: true,
+                // attributes: ['firstname', 'lastname', 'id'],
+                //     }
+                // ],
+            }
+            );
+
+
+            //     teacherLearning: async function (req, res) {
+            //         try {
+            //             const meeting = await Meeting.findAll({
+            //                 where: {
+            //                     status: {
+            //                         [Op.or]: ["en attente", "en cours", "refusé", "terminé"],
+            //                     },
+            //                 },
+            //                 include: [
+            //                     {
+            //                         model: User,
+            //                         as: 'Student', // Alias pour l'utilisateur associé à la réunion (l'élève)
+            //                         attributes: ['firstname', 'lastname', 'id'],
+            //                     },
+            //                     {
+            //                         model: Skill,
+            // // Alias pour l'utilisateur associé à la compétence (le professeur)
+            //                         attributes: ['title, 'id'],
+            //                     }
+            //                 ],
+            //             });
+
+
+            // const meeting = await Meeting.findAll({
+            //     where: {
+            //         status: {
+            //             [Op.or]: ["en attente", "en cours", "refusé", "terminé"],
+            //         },
+            //     },
+            //     include: [
+            //         {
+            //             model: User,
+            //             as: 'Students', // Alias 
+            //             attributes: ['firstname', 'lastname', 'id'],
+            //         },
+            //         {
+            //             model: Skill,
+            //             // Alias pour la compétence (et donc le professeur)
+            //             where: {
+            //                 UserId: req.user.id
+            //             },
+            //             required: true,
+            //             include: [
+            //                 {
+            //                     model: User,
+            //                     attributes: ['firstname', 'lastname', 'id'],
+            //                 }
+            //             ]
+            //         }
+            //     ],
+            // });
+
+
+            if (Array.isArray(meeting) && meeting.length === 0) {
+                res.send("Pas encore d'historique en tant que prof")
+            }
+            else {
+
+                for (const eachMeeting of meeting) {
+                    console.log('meeting.UserId==============================', eachMeeting.UserId)
+                    const student = await User.findByPk(eachMeeting.UserId, {
+                        attributes: ['firstname', 'lastname'],
+                    });
+                    console.log("student:", student);
+                }
+
+
+                // let ourData = { ...meeting, ...student };
+                // console.log("ourData:", ourData);
+
+                res.send(
+                    meeting
+                );
+            }
         } catch (error) {
             console.error("error findall meeting:", error);
             res.status(500).json({
@@ -70,7 +193,6 @@ const learningController = {
             else {
                 throw new Error(`cours avec statut '${meeting.status}' au lieu de 'en attente'`)
             }
-
             res.status(200).json("meeting accepted")
         } catch (error) {
             console.error('erreur acceptLearning:', error);

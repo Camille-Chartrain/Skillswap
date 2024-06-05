@@ -6,30 +6,33 @@ import Sub_category from "./Sub_category.js";
 import Meeting from "./Meeting.js";
 
 
-//association many to manu category user
+//association many to many category user
 User.belongsToMany(Category, { through: Interest, });
 Category.belongsToMany(User, { through: Interest, });
 
 //meeting one to one
-User.hasOne(Meeting);
-Meeting.belongsTo(User);
+// User.hasOne(Meeting);
+User.hasMany(Meeting);
+Meeting.belongsTo(User, { as: 'Students' });
 
-Skill.hasOne(Meeting);
+Skill.hasMany(Meeting);
 Meeting.belongsTo(Skill);
 
 // skill
-Sub_category.hasOne(Skill);
+Sub_category.hasMany(Skill);
 Skill.belongsTo(Sub_category);
 
-Category.hasOne(Skill);
+Category.hasMany(Skill);
 Skill.belongsTo(Category);
 
-User.hasOne(Skill);
+// User.hasOne(Skill);
+User.hasMany(Skill);
 Skill.belongsTo(User);
 
 // subcategory
 Category.hasOne(Sub_category);
 Sub_category.belongsTo(Category);
+
 
 
 export { User, Category, Skill, Sub_category, Meeting, Interest };
