@@ -4,6 +4,7 @@ const statisticController = {
 
     statistic: async function (req, res) {
         try {
+            //we search the skills and the number of swappies of a user
             const statistic = await Skill.findAll({
                 where: {
                     UserId: req.user.id
@@ -23,6 +24,8 @@ const statisticController = {
                 }],
             });
             console.log("statistic empty?", statistic);
+
+            // if the user doens't have a skill yet we send only the nomber of swappie
             if (Array.isArray(statistic) && statistic.length === 0) {
                 console.log('result function: Array statistic is empty');
                 const statistic = await User.findByPk(req.user.id, {
@@ -31,13 +34,13 @@ const statisticController = {
                         "swappies",
                     ]
                 });
-                console.log("swappie of user without skill added");
+                console.log("res = swappie of user (user without skill) ");
                 res.send(
                     statistic
                 );
             }
             else {
-                console.log("Array statistic not empty, swappie added");
+                console.log("Array statistic not empty (user has skills) res = swappies + skills ");
                 res.send(
                     statistic
                 );
