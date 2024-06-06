@@ -2,15 +2,26 @@ import { useState, useEffect } from "react";
 
 
 
-const SearchSubCategory = ({ register, selectCat, setSelectCat }) => {
+const SearchSubCategory = ({ register }) => {
 
     //= to fetch select's datas and datas bdd
-    const [selectSubCat, setSelectSubCat] = useState([]);
+    const [selectSubCat, setSelectSubCat] = useState({
+        id: [],
+        name: '',
+    });
     const handleChangeSubCat = (e) => { setSelectSubCat(e.target.value) };
+
+    const [selectCat, setSelectCat] = useState({ id: [] });
+
+
+
+
+
 
     const getSubCategoriesList = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/`);
+            console.log("try recup selecCat id ", selectCat.id);
+            const response = await fetch(`http://localhost:3000/subCategories/${selectCat.id}?`);
             const dataSubCategories = await response.json();
 
             setSelectCat(dataSubCategories);
@@ -27,10 +38,10 @@ const SearchSubCategory = ({ register, selectCat, setSelectCat }) => {
         <>
             <select id="SubCategoryId" name="SubCategoryId" {...register("SubCategoryId")} value={selectSubCat} onChange={handleChangeSubCat}>
 
-                <option value="all"  >choisissez votre sous-categorie</option>
+                <option defaultValue=""  >choisissez votre sous-categorie</option>
 
                 {selectCat === selectSubCat.categoryId ? (
-                    subCategories.map((selectSubCat) => (
+                    selectSubCat.map((selectSubCat) => (
                         <option key={selectSubCat.id} value={selectSubCat.id}>{selectSubCat.name}</option>
                     ))
                 ) : (

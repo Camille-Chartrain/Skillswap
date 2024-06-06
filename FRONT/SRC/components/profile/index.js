@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Profile = ({ handleSubmit, register, isValid, reset }) => {
+const Profile = ({ handleSubmit, register, isValid, reset, setValue }) => {
 
 
     //= get method to show info & autocomplete
@@ -24,7 +24,7 @@ const Profile = ({ handleSubmit, register, isValid, reset }) => {
     //= to fetch select's datas
     const [interests, setInterests] = useState([]);
     const handleInterestChange = (e) => {
-        console > log(interests);
+        console.log(interests);
         const { value, checked } = e.target;
         if (checked) {
             //-> if ok add to the list
@@ -33,14 +33,17 @@ const Profile = ({ handleSubmit, register, isValid, reset }) => {
             //-> else delete the choice
             setInterests((prevInterests) => prevInterests.filter((interest) => interest !== value));
         }
+        setValue(value, checked);
     };
 
     //= to refresh the profileData state between two changes
     const handleChangeProfile = (e) => {
         const { name, value } = e.target;
         setProfileData((prevProfileData) => ({ ...prevProfileData, [name]: value }));
+        setValue(name, value);
     };
-    const GetProfile = async () => {
+
+    const GetProfile = useCallback(async () => {
         try {
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
@@ -52,11 +55,16 @@ const Profile = ({ handleSubmit, register, isValid, reset }) => {
                 // credentials: 'include'
             });
 
-            // console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
+            console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
             const dataProfile = await response.json();
-            // console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
+            console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
             setProfileData(dataProfile);
-            // console.log('donnees profile data du state:', profileData);
+            console.log('donnees profile data du state:', profileData);
+
+            //= update inputs' values
+            Object.keys(dataProfile).forEach(key => {
+                setValue(key, dataProfile[key]);
+            });
 
             // //= to transform us'date into french's date
             const dateUs = dataProfile.birthday;
@@ -67,7 +75,7 @@ const Profile = ({ handleSubmit, register, isValid, reset }) => {
         catch (error) {
             console.error("error catch:", error.message);
         }
-    }
+    })
     useEffect(() => { GetProfile() }, []);
 
 

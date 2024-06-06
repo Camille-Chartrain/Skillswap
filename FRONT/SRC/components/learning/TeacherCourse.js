@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import NotificationsList from "../notificationsList";
+import Cookies from 'js-cookie';
 
 
 //=manage reception notification
@@ -34,7 +34,7 @@ const CourseTeached = () => {
         catch { }
     }
     useEffect(() => { getCourseRequest() }, [])
-    handleChange = (e) => { e.preventDefault(); setTeacherReq() };
+    // handleChange = (e) => { e.preventDefault(); setTeacherReq() };
 
 
     //= to manage  requests received 
@@ -42,14 +42,14 @@ const CourseTeached = () => {
         console.log('skill dans patchCourseValidate: ', request)
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/acceptLearning/:meetingId`, {
+            const response = await fetch(`http://localhost:3000/acceptLearning/${request.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(skill),
+                body: JSON.stringify(request),
                 // credentials: 'include'
             })
 
@@ -69,14 +69,14 @@ const CourseTeached = () => {
 
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/declineLearning/:meetingId`, {
+            const response = await fetch(`http://localhost:3000/declineLearning/${request.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(skill),
+                body: JSON.stringify(request),
                 // credentials: 'include'
             })
 
@@ -98,7 +98,7 @@ const CourseTeached = () => {
 
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/closeLearning/:meetingId`, {
+            const response = await fetch(`http://localhost:3000/closeLearning/${request.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
@@ -138,4 +138,4 @@ const CourseTeached = () => {
         </>
     )
 }
-export default validationCourse;
+export default CourseTeached;

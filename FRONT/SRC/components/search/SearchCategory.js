@@ -10,7 +10,7 @@ const SearchCategory = ({ register }) => {
 
     const getCategoriesList = async (data) => {
         try {
-            const response = await fetch(`http://localhost:3000/`);
+            const response = await fetch(`http://localhost:3000/categories`);
             const dataCategories = await response.json();
 
             setSelectCat(dataCategories);
@@ -25,10 +25,10 @@ const SearchCategory = ({ register }) => {
 
     return (
         <>
-            <select id="CategoryId" name="CategoryId" {...register("CategoryId")} value={selectCat} onChange={handleChangeCat} >
-                <option defaultValue="all" name="category" >choisissez votre categorie</option>
+            <select id="CategoryId" name="CategoryId" {...register("CategoryId")} defaultValue={selectCat.id} onChange={handleChangeCat} >
+                <option defaultValue="" name="category" >choisissez votre categorie</option>
                 {selectCat?.map((category) => {
-                    <option value={category?.id} >{category?.name}</option>
+                    <option value={category?.id} key={category.id}>{category?.name}</option>
                 })}
             </select>
 

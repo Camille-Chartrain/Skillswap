@@ -37,12 +37,6 @@ const NotificationsList = () => {
                             rating={renderStars()}
                         />
 
-                        < Notification//->patch depuis student -> teacherCourse
-                            key={item?.id}
-                            type={item?.type}
-                            message={"Vous avez recu une demande de cours"}
-                        />
-
                         <Notification //->n front ->teacher
                             key={item?.id}
                             type={NotificationType.MONEY}
