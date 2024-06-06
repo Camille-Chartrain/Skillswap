@@ -41,7 +41,7 @@ const CourseStudent = () => {
 
     return (
         <ul>
-            {course.map((skill) => {
+            {course?.map((skill) => {
                 <>
                     <li key={skill.id}>
                         <h4>cours: {skill.title}</h4>

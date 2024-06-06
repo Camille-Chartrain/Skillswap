@@ -32,7 +32,7 @@ const SearchSubCategory = ({ register }) => {
         }
     }
 
-    useEffect(() => { getSubCategoriesList() }, []);
+    // useEffect(() => { getSubCategoriesList() }, []);
 
     return (
         <>

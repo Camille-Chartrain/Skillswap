@@ -6,8 +6,9 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import logo from './logo.png';
 import SearchTransmission from './SearchTransmission';
+import Select from 'react-select';
 
-const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory, setSearchSubCategory, searchSubCategory }) => {
+const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory }) => {
 
     const { handleSubmit, register } = useForm();
 
@@ -20,8 +21,8 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
     const GetSearch = async (data) => {
         try {
 
-            // const response = await fetch(`http://localhost:3000/searchVisitor/${searchInput}/${searchLevel}?/${searchCategory}?/${searchSubCategory}`);
-            // console.log("recup data apres JSON:", data)
+            const response = await fetch(`http://localhost:3000/searchVisitor/${searchInput}`);
+            console.log("recup data apres JSON:", data)
 
             const dataSearch = await response.json();
             console.log("donnees dataSearch", dataSearch)
@@ -48,6 +49,7 @@ const Search = ({ setSearchLevel, searchLevel, setSearchCategory, searchCategory
 
                 <SearchLevel handleSubmit={handleSubmit} register={register} />
                 <SearchCategory handleSubmit={handleSubmit} register={register} />
+
                 <SearchSubCategory handleSubmit={handleSubmit} register={register} selectCat={selectCat} setSelectCat={setSelectCat} />
 
                 <button ><img className="btnSearch" src={search} alt=' icone de recherche' /></button>

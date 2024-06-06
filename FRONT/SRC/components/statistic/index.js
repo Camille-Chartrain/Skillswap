@@ -6,7 +6,7 @@ import SkillRating from './skillRating'
 
 const Statistic = () => {
 
-    const [statistic, setStatistic] = useState({});
+    const [statistic, setStatistic] = useState([]);
     const [courseMark, setCourseMark] = useState([]);
 
     //= to refresh the statisticData state between two changes
@@ -31,10 +31,13 @@ const Statistic = () => {
             console.log("les statistic data avant  .json", response);
             const dataStatistic = await response.json();
             console.log("les statistic data  apres .json:", dataStatistic);
+
             setStatistic(dataStatistic);
             console.log('donnees statistic data du state:', dataStatistic);
             setCourseMark(dataStatistic);
             console.log('donnees setCourseMark:', dataStatistic);
+
+
         }
         catch (error) {
             console.log("catch de Get Statistic:", error.message);
@@ -52,8 +55,8 @@ const Statistic = () => {
                     <div className="skillsList">
                         <h3>Notations competences</h3>
                         <ul>
-                            {courseMark?.map((item) => (
-                                <li key={item?.id}>
+                            {courseMark.length > 0 && courseMark?.map((item) => (
+                                <li key={item?.id} on Click={handleChangeStatistic.bind(null, item)}>
                                     {item?.title}:<SkillRating initialRating={item?.mark} />
                                 </li>
                             ))}

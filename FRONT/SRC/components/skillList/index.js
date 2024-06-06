@@ -10,7 +10,7 @@ const SkillList = () => {
 
     const [skillsList, setSkillsList] = useState([]);
 
-    const GetSkillsList = async (data) => {
+    const GetSkillsList = async () => {
         try {
             const response = await fetch(`http://localhost:3000/`);
             const dataSkill = await response.json();

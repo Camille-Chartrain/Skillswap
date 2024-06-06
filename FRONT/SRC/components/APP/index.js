@@ -65,7 +65,7 @@ const App = ({ darkMode, isLogged }) => {
                     <Route path="/" element={<Home />} />
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
                     <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} reset={reset} />} />
-                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} setError={setError} error={error} reset={reset} />} />
+                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} setError={setError} error={error} reset={reset} setValue={setValue} />} />
                     <Route path="/oneSkill" element={<SkillUpDate handleSubmit={handleSubmit} register={register} setValue={setValue} reset={reset} />} />
                     <Route path="*" element={<PageError />} />
                 </Routes>

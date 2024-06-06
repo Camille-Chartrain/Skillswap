@@ -60,7 +60,6 @@ const Learning = (setValue) => {
 
     return (
         <main>
-
             <div className="learning">
                 <h2 id="learning">Apprentissage</h2>
                 <span className="learning-section">
@@ -70,20 +69,12 @@ const Learning = (setValue) => {
                             <span>
 
                                 {studyList?.map((item) => (
-                                    <li key={item?.id} onChange={handleChangeList}>
-                                        <CourseStudent />
-                                    </li>
-                                ))
-                                }
-
-                                {teachList?.map((item) => (
-                                    <li key={item?.id} onChange={handleChangeList} >
-                                        <CourseTeached />
+                                    <li onClick={handleChangeList.bind(null, item)}>
+                                        <CourseStudent key={item?.id} title={item?.title} />
                                     </li>
                                 ))
                                 }
                             </span>
-
                         </ul>
                     </div>
                     <div className="skillsList">
@@ -91,14 +82,14 @@ const Learning = (setValue) => {
                         <ul>
                             <span>
                                 {teachList?.map((item) => (
-                                    <li key={item?.id}>
-                                        title={item?.title}
+                                    <li onClick={handleChangeList.bind(null, item)} >
+                                        <CourseTeached key={item?.id} title={item?.title} />
                                     </li>
                                 ))
                                 }
                                 <span>
                                     <button className="btn">EN ATTENTE</button>
-                                    {/* // passe en valider a l'acceptation du prof puis en terminer pour finir */}
+
 
                                 </span>
                             </span>

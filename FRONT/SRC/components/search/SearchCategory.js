@@ -1,44 +1,51 @@
-import { useCallback, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Select from 'react-select';
 
 
-const SearchCategory = ({ register }) => {
+const SearchCategory = () => {
 
     //= to fetch select's datas and datas bdd
     const [selectCat, setSelectCat] = useState([]);
 
-    const handleChangeCat = useCallback((e) => { setSelectCat(e.target.value); }, [setSelectCat]);
+    const getCategoriesList = async () => {
 
-    const getCategoriesList = async (data) => {
         try {
             const response = await fetch(`http://localhost:3000/categories`);
             const dataCategories = await response.json();
 
             setSelectCat(dataCategories);
-            console.log(dataCategories);
+            console.log("recup liste des cat:", dataCategories);
+            console.log("donnees de state selectCat:", selectCat);
         }
         catch (error) {
             console.error("catch GetCategoriesList:", error.message);
         }
-    }
+    };
 
     useEffect(() => { getCategoriesList() }, []);
 
-    return (
-        <>
-            <select id="CategoryId" name="CategoryId" {...register("CategoryId")} defaultValue={selectCat.id} onChange={handleChangeCat} >
-                <option defaultValue="" name="category" >choisissez votre categorie</option>
-                {selectCat?.map((category) => {
-                    <option value={category?.id} key={category.id}>{category?.name}</option>
-                })}
-            </select>
+    const options = selectCat.map((category) => ([{
+        value: category.id,
+        label: category.name,
+    }]));
 
-            {/* <option value="2" >Bricolage</option>
-            <option value="3" >Produits DIY</option>
-            <option value="4" >Cuisine</option>
-            <option value="5" >Art</option>
-            <option value="6" >Scolaire</option> */}
+    const handleChange = (selectedOption) => {
+        setSelectCat(selectedOption);
 
-        </>
-    )
+        return (
+
+            <Select
+                id="CategoryId"
+                name="CategoryId"
+                defaultValue={options[0]}
+                onChange={handleChange}
+                options={options}
+            >
+                <option defaultValue="" name="category">
+                    Choisissez votre catégorie
+                </option>
+            </Select >
+        )
+    }
 }
 export default SearchCategory;
