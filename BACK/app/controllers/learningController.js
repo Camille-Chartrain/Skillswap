@@ -58,19 +58,18 @@ const learningController = {
     teacherLearning: async function (req, res) {
         try {
             const meeting = await Meeting.findAll({
-                status: {
-                    [Op.or]: ["en attente", "en cours", "refusé", "terminé"],
+                where: {
+                    status: {
+                        [Op.or]: ["en attente", "en cours", "refusé", "terminé"],
+                    },
                 },
-                // include: [
-                //     {
-                //         model: User,
-                //         as: 'Students',
-                //         attributes: ['firstname', 'lastname', 'id'],
                 include: [
                     {
+                        model: User,
+                        attributes: ['firstname', 'lastname', 'id'],
+                    },
+                    {
                         model: Skill,
-                        // as: 'Teachers',
-                        attributes: ['id', 'title'],
                         where: {
                             UserId: req.user.id
                         },
@@ -79,95 +78,37 @@ const learningController = {
                             {
                                 model: User,
                                 attributes: ['firstname', 'lastname', 'id'],
-                            },
-
-                        ],
-                        // required: true,
+                            }
+                        ]
                     }
                 ],
-                required: true,
-                // attributes: ['firstname', 'lastname', 'id'],
-                //     }
-                // ],
-            }
-            );
-
-
-            //     teacherLearning: async function (req, res) {
-            //         try {
-            //             const meeting = await Meeting.findAll({
-            //                 where: {
-            //                     status: {
-            //                         [Op.or]: ["en attente", "en cours", "refusé", "terminé"],
-            //                     },
-            //                 },
-            //                 include: [
-            //                     {
-            //                         model: User,
-            //                         as: 'Student', // Alias pour l'utilisateur associé à la réunion (l'élève)
-            //                         attributes: ['firstname', 'lastname', 'id'],
-            //                     },
-            //                     {
-            //                         model: Skill,
-            // // Alias pour l'utilisateur associé à la compétence (le professeur)
-            //                         attributes: ['title, 'id'],
-            //                     }
-            //                 ],
-            //             });
-
-
-            // const meeting = await Meeting.findAll({
-            //     where: {
-            //         status: {
-            //             [Op.or]: ["en attente", "en cours", "refusé", "terminé"],
-            //         },
-            //     },
-            //     include: [
-            //         {
-            //             model: User,
-            //             as: 'Students', // Alias 
-            //             attributes: ['firstname', 'lastname', 'id'],
-            //         },
-            //         {
-            //             model: Skill,
-            //             // Alias pour la compétence (et donc le professeur)
-            //             where: {
-            //                 UserId: req.user.id
-            //             },
-            //             required: true,
-            //             include: [
-            //                 {
-            //                     model: User,
-            //                     attributes: ['firstname', 'lastname', 'id'],
-            //                 }
-            //             ]
-            //         }
-            //     ],
-            // });
-
+            });
+            console.log("meeting", meeting);
 
             if (Array.isArray(meeting) && meeting.length === 0) {
                 res.send("Pas encore d'historique en tant que prof")
             }
             else {
 
-                for (const eachMeeting of meeting) {
-                    console.log('meeting.UserId==============================', eachMeeting.UserId)
-                    const student = await User.findByPk(eachMeeting.UserId, {
-                        attributes: ['firstname', 'lastname'],
-                    });
-                    console.log("student:", student);
-                }
-
-
-                // let ourData = { ...meeting, ...student };
-                // console.log("ourData:", ourData);
+                // for (const eachMeeting of meeting) {
+                //     console.log('meeting.UserId==============================', eachMeeting.UserId)
+                //     const student = await User.findByPk(eachMeeting.UserId, {
+                //         attributes: ['firstname', 'lastname'],
+                //     });
+                //     console.log("student:", student);
 
                 res.send(
                     meeting
                 );
             }
-        } catch (error) {
+
+
+            // let ourData = { ...meeting, ...student };
+            // console.log("ourData:", ourData);
+
+
+        }
+        catch (error) {
             console.error("error findall meeting:", error);
             res.status(500).json({
                 message: 'Error during findAll meetings',
