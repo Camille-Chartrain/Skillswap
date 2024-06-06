@@ -30,8 +30,8 @@ User.hasMany(Skill);
 Skill.belongsTo(User);
 
 // subcategory
-Category.hasMany(SubCategory);
-SubCategory.belongsTo(Category);
+Category.hasMany(SubCategory, { foreignKey: 'category_id' });
+SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 
 
 
