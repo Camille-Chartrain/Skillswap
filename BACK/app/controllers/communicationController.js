@@ -118,8 +118,25 @@ const communicationController = {
                     attributes: ['id', 'title', 'mark'],
                 })
 
-                skillRating.mark++ req.body.mark
+                if (!skillRating) {
+                    res.status(404).json({ message: "Skill not found" });
+                    return;
+                }
 
+                // Mettre à jour la note du skill avec la nouvelle valeur
+                const newMark = req.body.mark;
+                skillRating.mark = newMark;
+
+                // Sauvegarder le skill sans déclencher le hook afterUpdate
+                await skillRating.save({ hooks: false });
+
+                // Mettre à jour la moyenne des notes
+                await Skill.updateRating(meeting.SkillId, newMark);
+
+                // skillRating.mark = req.body.mark
+                // // .save() to activate the hook in the model
+                // await skillRating.save();
+                res.status(200).json('rating ok')
             }
 
             // await Skill.update(
@@ -131,7 +148,7 @@ const communicationController = {
             //skill is updated
 
             //send the answer to the front
-            res.status(200).json(SkillRating)
+
         }
         catch (error) {
             console.error(error.message);
