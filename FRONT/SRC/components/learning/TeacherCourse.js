@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+// import NotificationsList from "../notificationsList";
 
 
 //=manage reception notification
 const CourseTeached = () => {
     const [teacherReq, setTeacherReq] = useState([]);
 
-    const CourseRequest = async () => {
+    const getCourseRequest = async () => {
         try {
 
             const token = Cookies.get('token');
@@ -32,22 +33,104 @@ const CourseTeached = () => {
         }
         catch { }
     }
-    useEffect(() => { CourseRequest() }, [])
-    //patchCourseValidate
-    //patchCourseRejeted
+    useEffect(() => { getCourseRequest() }, [])
+    handleChange = (e) => { e.preventDefault(); setTeacherReq() };
 
-    //*pour student just un get identique a teacher http ->studentLearning
 
+    //= to manage  requests received 
+    const patchCourseValidate = async (request) => {
+        console.log('skill dans patchCourseValidate: ', request)
+        try {
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/acceptLearning/:meetingId`, {
+                method: "PATCH",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(skill),
+                // credentials: 'include'
+            })
+
+            // //=traduct api response in Json
+            const dataRequest = await response.json();
+            console.log('dataRequest avant if:', response);
+            setTeacherReq(dataRequest);
+        }
+        catch (error) {
+            console.log("catch de patchCourseValidate:", error);
+        }
+    }
+
+
+    const patchCourseRejeted = async (request) => {
+        console.log('skill dans patchCourseRejeted: ', request)
+
+        try {
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/declineLearning/:meetingId`, {
+                method: "PATCH",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(skill),
+                // credentials: 'include'
+            })
+
+            // //=traduct api response in Json
+
+            const dataReject = await response.json();
+            console.log('dataReject avant if:', response);
+
+            setTeacherReq(dataReject);
+
+        }
+        catch (error) {
+            console.log("catch de patchCourseRejeted:", error);
+        }
+    }
+
+    const patchCourseFinished = async (request) => {
+        console.log('skill dans patchCourseFinished: ', request)
+
+        try {
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/closeLearning/:meetingId`, {
+                method: "PATCH",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(request),
+                // credentials: 'include'
+            })
+
+            // //=traduct api response in Json
+
+            const dataFinish = await response.json();
+            console.log('dataFinish avant if:', response);
+
+            setTeacherReq(dataFinish);
+
+        }
+        catch (error) {
+            console.log("catch de patchCourseFinished:", error);
+        }
+    }
 
     return (
         <>
             <ul>
                 {teacherReq.map((request) => {
                     <li key={request.id}>
-                        <h4>cours: {request.skillId}</h4>
-                        <button >VALIDER LA DEMANDE</button>//patch validatehttp->acceptLearning/:meetingId
-                        <button >REJETER LA DEMANDE</button>//pattch patchCourseRejeted http->declineLearning/:meetingId
-                        <button>COURS TERMINER</button>//patch courseteminated http->closeLearning/:meeting.id
+                        <h4>cours: {request}</h4>
+                        <button onClick={patchCourseValidate.bind(null, request)}>VALIDER LA DEMANDE</button>
+                        <button onClick={patchCourseRejeted.bind(null, request)} >REJETER LA DEMANDE</button>
+                        <button onClick={patchCourseFinished.bind(null, request)}>COURS TERMINER</button>
                     </li>
                 })}
             </ul >

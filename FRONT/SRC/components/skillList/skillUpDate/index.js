@@ -55,7 +55,8 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
             });
             const res = await response.json();
             setSkillUpDate(res.data);
-            // Mettre à jour les valeurs des champs du formulaire
+
+            //= update inputs' values
             Object.keys(res.data).forEach(key => {
                 setValue(key, res.data[key]);
             });
@@ -72,8 +73,8 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
     // //=go to skillUpDate component
     const handlechange = () => {
         console.log('HC recup skill:', skill);
-
     }
+
     //= to change skill
     const patchSkillUpdate = async (skill) => {
         console.log('skill dans patchSkillUpdate: ', skill)
