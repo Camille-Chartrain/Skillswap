@@ -53,6 +53,7 @@ router.delete('/learning/:meetingId', verifyToken, learningController.deleteLear
 
 //categories
 router.get('/categories', categoryController.getAllCategories);
+router.get('/subCategories/:categoryId?', categoryController.getSubCategories);
 // //admin
 // router.get('/admin', adminController.admin);
 // router.patch('/admin/statistic', adminController.modifStatistic);
