@@ -22,9 +22,9 @@ const root = createRoot(container);
 root.render(
     <>
         <React.StrictMode>
-            <DarkModeProvider value={themeClass}>
-                < App />
-            </DarkModeProvider >
+            {/* <DarkModeProvider value={themeClass}> */}
+            < App />
+            {/* </DarkModeProvider > */}
         </React.StrictMode >
     </>
 )
