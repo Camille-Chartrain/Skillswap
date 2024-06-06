@@ -16,7 +16,7 @@ export const Money = () => {
         setDonatedMoney(donatedMoney + amount);
         setTotalMoney(receivedMoney + donatedMoney + amount);
     }
-
+    //->remplacer les function par un get 
 
 
     return (

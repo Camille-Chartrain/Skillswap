@@ -11,7 +11,7 @@ const Notification = ({ type, message, icone, buttonText, onClick, rating }) => 
     const handleRatingChange = (newRating) => {
         setRating(newRating);
     };
-
+    //->patch pour add bdd ->communication/${skill.id}
     const renderStars = () => {
         const stars = [];
         for (let i = 1; i <= 5; i++) {

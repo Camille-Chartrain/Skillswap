@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Profile = ({ handleSubmit, register, isValid, reset, setValue }) => {
+const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue }) => {
 
 
     //= get method to show info & autocomplete
@@ -64,6 +64,10 @@ const Profile = ({ handleSubmit, register, isValid, reset, setValue }) => {
             //= update inputs' values
             Object.keys(dataProfile).forEach(key => {
                 setValue(key, dataProfile[key]);
+            });
+            //= update interests' values
+            Object.keys(interests).forEach(key => {
+                setValue(key, interests[key]);
             });
 
             // //= to transform us'date into french's date
@@ -146,8 +150,8 @@ const Profile = ({ handleSubmit, register, isValid, reset, setValue }) => {
     const [skillsUser, setSkillsUser] = useState([]);
     const GetAllSkillUser = async (data) => {
         try {
-            // console.log("skillUser before fetch:", data)
-            // console.log('try data:', data);
+            console.log("skillUser before fetch:", data)
+            console.log('try data:', data);
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/skill', {
                 method: "get",
@@ -301,7 +305,6 @@ const Profile = ({ handleSubmit, register, isValid, reset, setValue }) => {
 
                         {skillsUser?.map((skill) => (
                             <>
-
                                 <li key={skill?.id} >
                                     <>
                                         <span>
