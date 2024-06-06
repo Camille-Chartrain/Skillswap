@@ -9,13 +9,13 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const NotificationsList = () => {
 
-    const [NotificationsList, setNotificationssList] = useState([]);
+    const [NotificationsList, setNotificationsList] = useState([]);
 
     const GetNotificationsList = async () => {
         try {
             const response = await fetch(`http://localhost:3000/communication`);
             const dataNotifications = await response.json();
-            setNotificationssList(dataNotifications);
+            setNotificationsList(dataNotifications);
             console.log(dataNotifications);
         }
         catch (error) {
@@ -23,34 +23,33 @@ const NotificationsList = () => {
         }
     }
 
-    useEffect(() => { GetNotificationssList() }, [])
+    useEffect(() => { GetNotificationsList() }, [])
 
     return (
         <div className='container'>
             {
                 NotificationsList?.map((item) => (
                     <>
-                        < Notification//->patch 
+                        < Notification//->patch student
                             key={item?.id}
                             type={item?.type}
-                            icone={item?.icone}
                             message={"Votre cours est termine, souhaitez vous le noter ?"}
                             rating={renderStars()}
                         />
-                        <Notification //->n front
+
+                        <Notification //->n front ->teacher
                             key={item?.id}
                             type={NotificationType.MONEY}
-                            icone={item?.icone}
                             message={"Votre avez gagne 1 Swappy"}
                         />
                         <Notification //->get id ds btn avec un navigate http oneSkill/:skillId
                             key={item?.id}
                             type={NotificationType.INTEREST}
-                            icone={item?.icone}
                             message={"Ceci pourait vous interesser"}
                             buttonText={item?.buttonText}
                             onClick={item?.onClick}
                         />
+
                     </>
                 ))
             }

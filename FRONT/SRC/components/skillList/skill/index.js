@@ -30,18 +30,18 @@ const Skill = ({
     })
 
     //=post method to add course to studyList
-    const AskInscriptionCourse = async (skillData) => {
+    const AskInscriptionCourse = async (skill) => {
         try {
             console.log('data envoyees:', skill);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/learning/${skillData.id}`, {
+            const response = await fetch(`http://localhost:3000/learning/${skill.id}`, {
                 method: 'POST',
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(skillData)
+                body: JSON.stringify(skill)
                 // credentials: 'include',
             })
 
@@ -53,15 +53,27 @@ const Skill = ({
             console.log(" dataAdding  apres .json:", dataAdding);
 
             //=fetch back side's  errors
-            // console.log("error?:", dataProfile.error);
+            console.log("erreur back:", dataAdding.error);
+
+
+
+            if (dataAdding === "") {//*message de validate
+                SetNotificationList(user.id);
+                navigate('/dashboard');
+            }
+            else {
+                console.error("Invalid response from API");
+                return;
+            }
+            setSkill(dataAdding);
         }
         catch (error) {
-            console.log("erreur : ", error);
+            console.log("catch AIC : ", error);
         }
     }
 
     handleChange = () => {
-        AskInscriptionCourse(skill);
+        AskInscriptionCourse(skill.id);
     }
 
 
@@ -99,7 +111,7 @@ const Skill = ({
 
                 )
                 }
-                <button onSubmit={handleChange}>SUIVRE CE COURS</button>
+                <button type="submit" onSubmit={handleChange}>SUIVRE CE COURS</button>
             </div >
         </>
     )
