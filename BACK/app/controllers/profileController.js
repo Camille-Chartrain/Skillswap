@@ -113,24 +113,32 @@ const profileController = {
 
     deleteProfile: async function (req, res) {
         try {
-            // req.params contains all the data
-            console.log(req.params);
-            const user = await User.destroy({
+            const checkUser = await User.findByPk(req.user.id, {
                 where: {
                     id: req.user.id
                 }
             });
-            const petitUser = await User.findByPk(req.user.id{
-                where: {
-                    id: req.user.id
-                }
-            });
-            console.log("petitUser============================================================================ :", petitUser);
-            if (!petitUser) {
-                res.status(200).json('deletion ok');
-            }
-            //send the answer to the front
+            if (checkUser) {
+                await User.destroy({
+                    where: {
+                        id: req.user.id
+                    }
+                });
 
+                const user = await User.findByPk(req.user.id, {
+                    where: {
+                        id: req.user.id
+                    }
+                });
+                console.log("user:", user);
+
+                if (!user) {
+                    res.status(200).json('deletion ok');
+                }
+            }
+            else {
+                res.status(200).json("user doesn't exist");
+            }
         } catch (error) {
             console.error(error.message);
             res.status(500).json({ error: error.message });
