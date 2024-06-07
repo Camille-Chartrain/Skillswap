@@ -65,6 +65,7 @@ const learningController = {
                 },
                 include: [
                     {
+                        // User as students
                         model: User,
                         attributes: ['firstname', 'lastname', 'id'],
                     },
@@ -76,6 +77,7 @@ const learningController = {
                         required: true,
                         include: [
                             {
+                                // User as teacher
                                 model: User,
                                 attributes: ['firstname', 'lastname', 'id'],
                             }
@@ -89,24 +91,10 @@ const learningController = {
                 res.send("Pas encore d'historique en tant que prof")
             }
             else {
-
-                // for (const eachMeeting of meeting) {
-                //     console.log('meeting.UserId==============================', eachMeeting.UserId)
-                //     const student = await User.findByPk(eachMeeting.UserId, {
-                //         attributes: ['firstname', 'lastname'],
-                //     });
-                //     console.log("student:", student);
-
                 res.send(
                     meeting
                 );
             }
-
-
-            // let ourData = { ...meeting, ...student };
-            // console.log("ourData:", ourData);
-
-
         }
         catch (error) {
             console.error("error findall meeting:", error);

@@ -1,8 +1,8 @@
-import { User, Category, Skill, Interest } from "../models/index.js";
+import { User, Category, Skill, Interest, Meeting } from "../models/index.js";
 
 const communicationController = {
 
-    communication: async function (req, res) {
+    communicationInterests: async function (req, res) {
         try {
             // req.params contains all the data
             console.log(req.params);
@@ -42,6 +42,40 @@ const communicationController = {
         }
     },
 
+    communicationSkillToRate: async function (req, res) {
+        try {
+            // req.params contains all the data
+            console.log(req.params);
+
+            const skillsToRate = await Skill.findAll({
+                // Find the skills that need to be rated by the student (those linked to meetings with a status of 'terminé'), and include the teacher's information.
+                include: [
+                    {
+                        // User as teacher
+                        model: User,
+                        attributes: ['firstname', 'lastname', 'id'],
+                    },
+                    {
+                        model: Meeting,
+                        // UserId in Meeting is the student
+                        where: {
+                            UserId: req.user.id,
+                            status: "terminé"
+                        },
+                    }
+                ],
+                required: true
+            })
+            //send the answer to the front
+            res.send(
+                skillsToRate
+            );
+        } catch (error) {
+            console.error(error.message);
+            res.status(400).send(error);
+        }
+    },
+
     rateSkill: async function (req, res) {
         try {
             // req.params contains data from url
@@ -53,16 +87,68 @@ const communicationController = {
                 mark: req.body.mark,
             };
 
-            await Skill.update(
-                updateFields, {
+            // retrouver la note globale du cours et faire une moyenne avec la nouvelle note, arrondir au plus haut
+
+            // //verif que le cours existe
+            // const skill = await Skill.findByPk(req.params.skillId);
+
+            // console.log("skill", skill);
+            // if (!skill) {
+            //     res.send("This skill doesn't exist");
+            // }
+
+
+            // check if the user (as a student) is associated with this skill in a meeting with "terminé" status
+            const meeting = await Meeting.findOne({
                 where: {
-                    id: req.params.skillId
+                    UserId: req.user.id,
+                    SkillId: req.params.skillId,
+                    status: "terminé"
+                },
+                required: true
+            })
+
+            console.log("meeting", meeting);
+            if (!meeting) {
+                res.send("This meeting doesn't exist or is not over");
+            }
+            else if (meeting) {
+                // il faut que je crée une colonne pour indiquer le nombre de vote et une autre pour additionner toutes les ontes recues.
+                const skillRating = await Skill.findByPk(meeting.SkillId, {
+                    attributes: ['id', 'title', 'mark'],
+                })
+
+                if (!skillRating) {
+                    res.status(404).json({ message: "Skill not found" });
+                    return;
                 }
-            });
+
+                // Mettre à jour la note du skill avec la nouvelle valeur
+                const newMark = req.body.mark;
+                skillRating.mark = newMark;
+
+                // Sauvegarder le skill sans déclencher le hook afterUpdate
+                await skillRating.save({ hooks: false });
+
+                // Mettre à jour la moyenne des notes
+                await Skill.updateRating(meeting.SkillId, newMark);
+
+                // skillRating.mark = req.body.mark
+                // // .save() to activate the hook in the model
+                // await skillRating.save();
+                res.status(200).json('rating ok')
+            }
+
+            // await Skill.update(
+            //     updateFields, {
+            //     where: {
+            //         id: req.params.skillId
+            //     }
+            // });
             //skill is updated
 
             //send the answer to the front
-            res.status(200).json("rating skill ok")
+
         }
         catch (error) {
             console.error(error.message);

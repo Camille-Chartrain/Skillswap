@@ -5,7 +5,19 @@ import sequelize from '../database.js';
 // import User from './User.js';
 // import { User, Category, Skill, SubCategory } from "../models/index.js";
 
-class Skill extends Model { }
+class Skill extends Model {
+    static async updateRating(skillId, newMark) {
+        const skill = await Skill.findByPk(skillId);
+        if (skill) {
+            skill.sumOfMarks = (skill.sumOfMarks || 0) + newMark;
+            skill.numberOfRating = (skill.numberOfRating || 0) + 1;
+            // Calculer la moyenne et arrondir à l'entier le plus proche
+            const average = skill.sumOfMarks / skill.numberOfRating;
+            skill.mark = Math.round(average);
+            await skill.save();
+        }
+    }
+}
 
 Skill.init(
     {
@@ -31,6 +43,14 @@ Skill.init(
             allowNull: false,
         },
         mark: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        sumOfMarks: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        numberOfRating: {
             type: DataTypes.INTEGER,
             allowNull: true,
         },
@@ -80,43 +100,23 @@ Skill.init(
                 notEmpty: true,
             },
         },
-        // TeachersId: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: true,
-
-        // }
     }, {
     sequelize,
     modelName: 'Skill',
     tableName: 'skill',
+    hooks: {
+        afterCreate: async (skill, options) => {
+            if (skill.mark !== null) {
+                await Skill.updateRating(skill.id, skill.mark);
+            }
+        },
+        afterUpdate: async (skill, options) => {
+            if (skill.mark !== null) {
+                await Skill.updateRating(skill.id, skill.mark);
+            }
+        },
+    },
 });
-
-// SubCategory.hasOne(Skill);
-// Skill.belongsTo(SubCategory);
-
-// Category.hasOne(Skill);
-// Skill.belongsTo(Category);
-
-// User.hasOne(Skill);
-// Skill.belongsTo(User);
-
-// await Skill.bulkCreate([
-//     { title: "self-defense", level: "intermediaire", transmission: 'presentiel', description: 'apprenez à vous sortir des pires situations', availability: 'soir et we', CategoryId: 5, SubCategoryId: 29, UserId: 5 },
-
-//     { title: "Histoires des Guerres", level: "avancé", transmission: 'visio', description: 'Découvrez comment les victoires ont été obtenues', availability: 'soir et we', CategoryId: 6, SubCategoryId: 33, UserId: 1 },
-
-//     { title: "Bouture de basilic", level: "débutant", transmission: 'presentiel et visio', description: "Apprenez à faire vos propres boutures de basilic pour avoir des tonnes de basilic tout l'été", availability: 'dimanche matin', CategoryId: 2, SubCategoryId: 11, UserId: 8 },
-
-//     { title: "Communication non violente", level: "débutant", transmission: 'presentiel', description: 'Apprenez à communiquer dans la bienveillance, dites ce que vous avez sur le coeur sans froisser votre entourage !', availability: 'jeudi soir', CategoryId: 1, SubCategoryId: 4, UserId: 3 },
-
-//     { title: "Couture robe mariée", level: "avancé", transmission: 'presentiel', description: 'Créez vous-même la robe de vos rêves pour le plus beau jour de votre vie sans accro!', availability: 'lundi et mercredi après-midi', CategoryId: 3, SubCategoryId: 14, UserId: 2 },
-
-//     { title: "Décriptez les waltDisneys", level: "débutant", transmission: 'visio', description: 'Basé sur le livre la psychologie des contes de fées, découvrez le vrai sens de nos chers dessins animés.', availability: 'soir et we', CategoryId: 1, SubCategoryId: 6, UserId: 4 },
-
-//     { title: "Histoire de la feignantise", level: "débutant", transmission: 'visio', description: "D'où vient le concept de paresse? Une histoire du concept qui vous donnera un autre regard sur ce que nous appelons 'les personnes fénéantes'...", availability: 'soirées', CategoryId: 6, SubCategoryId: 33, UserId: 6 },
-
-//     { title: "Le consentement", level: "débutant", transmission: 'presentiel', description: "Le consentement, c'est quoi? Apprenez à connaître vos limites et les communiquer, apprenez à entendre celles des autres", availability: 'tout le temps', CategoryId: 5, SubCategoryId: 4, UserId: 7 }
-// ]);
 
 
 export default Skill;

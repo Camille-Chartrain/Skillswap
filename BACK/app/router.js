@@ -39,7 +39,8 @@ router.delete('/skill/:skillId', verifyToken, skillController.deleteSkill);
 router.get('/statistic', verifyToken, statisticController.statistic);
 
 //communication
-router.get('/communication', verifyToken, communicationController.communication);
+router.get('/communication', verifyToken, communicationController.communicationInterests);
+router.get('/communicationSkillToRate', verifyToken, communicationController.communicationSkillToRate);
 router.patch('/communication/:skillId', verifyToken, communicationController.rateSkill)
 
 // //learning
@@ -54,14 +55,11 @@ router.delete('/learning/:meetingId', verifyToken, learningController.deleteLear
 //categories
 router.get('/categories', categoryController.getAllCategories);
 router.get('/subCategories/:categoryId?', categoryController.getSubCategories);
+
+
 // //admin
 // router.get('/admin', adminController.admin);
 // router.patch('/admin/statistic', adminController.modifStatistic);
-
-
-
-// //ex parametre
-// router.get('/qqch/:slug', qqchController.qqch);
 
 
 export default router;
