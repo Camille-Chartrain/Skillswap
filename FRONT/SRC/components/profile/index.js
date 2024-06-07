@@ -119,7 +119,7 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
             })
 
             console.log("response avant .json", response);
-            //=traduct api response in Json
+            //=traduct api response from Json
             const dataProfile = await response.json();
             console.log("response json analysee:", dataProfile);
 
