@@ -126,7 +126,7 @@ const profileController = {
             );
         } catch (error) {
             console.error(error.message);
-            res.render('error:', error);
+            res.send('error:', error);
         }
     },
 };
