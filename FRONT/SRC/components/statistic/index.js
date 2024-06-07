@@ -11,9 +11,11 @@ const Statistic = () => {
 
     //= to refresh the statisticData state between two changes
     const handleChangeStatistic = (e) => {
+        e.preventDefault(e.target.value);
         const { name, value } = e.target;
         setStatistic((prevStatistic) => ({ ...prevStatistic, [name]: value }));
     }
+
 
     const GetStatistic = async () => {
         console.log();
@@ -55,10 +57,13 @@ const Statistic = () => {
                     <div className="skillsList">
                         <h3>Notations competences</h3>
                         <ul>
-                            {courseMark.length > 0 && courseMark?.map((item) => (
-                                <li key={item?.id} on Click={handleChangeStatistic.bind(null, item)}>
-                                    {item?.title}:<SkillRating initialRating={item?.mark} />
-                                </li>
+                            {courseMark?.map((item) => (
+
+                                <div key={item.id} >
+                                    <li onChange={handleChangeStatistic.bind(null, item)}>
+                                        {item?.title}:<SkillRating initialRating={item?.mark} />
+                                    </li>
+                                </div>
                             ))}
                         </ul>
                     </div>

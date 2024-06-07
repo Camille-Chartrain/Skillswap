@@ -17,43 +17,51 @@ const CourseStudent = () => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token} `,
                 },
-                body: JSON.stringify(),
-                // credentials: 'include'
             })
-            // console.log('response.status:', response.status);
+            console.log('response.status:', response.status);
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch courses');
+            }
 
             //=traduct api response in Json
-            // console.log("data Course avant .json", response);
+            console.log("data Course avant .json", response);
             const course = await response.json();
-            // console.log(" Course  apres .json:", course);
+            console.log(" Course  apres .json:", course);
             setCourses(course);
 
-            //=fetch back side's  errors
-            // console.log("erreur getCourse:", error);
-            setError(course.error);
 
         }
-        catch { }
+        catch (error) { "catchgetCourse ST:", error };
     }
     useEffect(() => { getCourse() }, [])
 
     return (
-        <ul>
-            {courses?.map((item) => {
-                <>
-                    <li key={item.id}>
-                        <h4>cours: {item.title}</h4>
-                    </li>
-                    <div className="status">
-                        if(course.status=== "en attente"){"DEMANDE ENVOYEE"};
-                        else if(course.status === "refusé"){"DEMANDE REJETEE"};
-                        else if(course.status === "en cours"){"EN COURS"};
-                        else if (course.status === "terminé"){"TERMINE"};
-                    </div>
-                </>
-            })}
-        </ul >
+        <main>
+            <ul>
+                {courses?.map((item) => (
 
+                    <>
+                        {console.log("qu'est ce que item.title ?:", item.title)}
+                        <div key={item.id}>
+                            <li>
+                                <h4>{item.title}</h4>
+                            </li>
+                        </div>
+
+
+                        <div className="status" >
+                            {item.status === "en attente" && "DEMANDE ENVOYEE"}
+                            {item.status === "refusé" && "DEMANDE REJETEE"}
+                            {item.status === "en cours" && "EN COURS"}
+                            {item.status === "terminé" && "TERMINE"}
+                        </div>
+
+                    </>
+                ))
+                }
+            </ul >
+        </main >
 
 
     )

@@ -15,6 +15,7 @@ import message from '../../style/pictures/message.svg';
 import logout from '../../style/pictures/logout.svg';
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
+import CourseStudent from "../learning/courseStudent";
 
 
 
@@ -33,6 +34,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
                 console.log("token", token);
                 navigate("/");
             }
+
         }
         catch (error) {
             console.log("erreur :", error);
@@ -59,6 +61,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
                 <Learning handleSubmit={handleSubmit} register={register} />
                 <Statistic handleSubmit={handleSubmit} register={register} />
                 <Communication handleSubmit={handleSubmit} register={register} />
+                <CourseStudent />
             </main>
         </>
 
