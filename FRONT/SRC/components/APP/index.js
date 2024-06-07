@@ -34,7 +34,7 @@ const App = ({ darkMode, isLogged }) => {
     //-> create un dark theme in useContext for using in all app
     const themeClass = useContext(DarkModeContext);
     const theme = darkMode === 'light' ? 'dark' : 'light';
-    console.log('je suis ds app, theme:', theme);
+    // console.log('je suis ds app, theme:', theme);
 
     // -> hook form create to post datas
     const { handleSubmit, register, setValue, reset } = useForm({ mode: 'onChange' });

@@ -126,12 +126,16 @@ const CourseTeached = () => {
         <>
             <ul>
                 {teacherReq.map((request) => {
-                    <li key={request.id}>
-                        <h4>cours: {request}</h4>
-                        <button onClick={patchCourseValidate.bind(null, request)}>VALIDER LA DEMANDE</button>
-                        <button onClick={patchCourseRejeted.bind(null, request)} >REJETER LA DEMANDE</button>
-                        <button onClick={patchCourseFinished.bind(null, request)}>COURS TERMINER</button>
-                    </li>
+
+                    { console.log("qu'est ce que item.title ?:", item.title) }
+                    <div key={request.id}>
+                        <li>
+                            <h4> {request.title}</h4>
+                            <button onClick={patchCourseValidate.bind(null, request)}>VALIDER LA DEMANDE</button>
+                            <button onClick={patchCourseRejeted.bind(null, request)} >REJETER LA DEMANDE</button>
+                            <button onClick={patchCourseFinished.bind(null, request)}>COURS TERMINER</button>
+                        </li>
+                    </div>
                 })}
             </ul >
 

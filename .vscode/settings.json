@@ -54,6 +54,14 @@
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\createSkill\\",
             "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\courseStudent.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\index.js\\",
+            "color": "foldercolorizer.LightYellow"
         }
     ]
 }
