@@ -30,9 +30,4 @@ SubCategory.init(
     tableName: 'subcategory',
 });
 
-// Category.hasOne(SubCategory);
-// SubCategory.belongsTo(Category);
-
-
-
 export default SubCategory;

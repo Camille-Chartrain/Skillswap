@@ -75,7 +75,7 @@ const learningController = {
 
     teacherLearning: async function (req, res) {
         try {
-            const meeting = await Meeting.findAll({
+            const meetings = await Meeting.findAll({
                 where: {
                     status: {
                         [Op.or]: ["en attente", "en cours", "refusé", "terminé"],
@@ -103,14 +103,14 @@ const learningController = {
                     }
                 ],
             });
-            console.log("meeting", meeting);
+            console.log("meeting", meetings);
 
-            if (Array.isArray(meeting) && meeting.length === 0) {
+            if (Array.isArray(meetings) && meeting.length === 0) {
                 res.send("Pas encore d'historique en tant que prof")
             }
             else {
                 res.send(
-                    meeting
+                    meetings
                 );
             }
         }
@@ -125,10 +125,10 @@ const learningController = {
 
     acceptLearning: async function (req, res) {
         try {
-            const meeting = await Meeting.findByPk(req.params.meetingId);
-            console.log("status meeting:", meeting.status);
+            const meetings = await Meeting.findByPk(req.params.meetingId);
+            console.log("status meetings:", meetings.status);
 
-            if (meeting.status === "en attente") {
+            if (meetings.status === "en attente") {
                 await Meeting.update({
                     status: "en cours",
                 }, {
@@ -138,7 +138,7 @@ const learningController = {
                 })
             }
             else {
-                throw new Error(`cours avec statut '${meeting.status}' au lieu de 'en attente'`)
+                throw new Error(`cours avec statut '${meetings.status}' au lieu de 'en attente'`)
             }
             res.status(200).json("meeting accepted")
         } catch (error) {

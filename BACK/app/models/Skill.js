@@ -1,9 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
-// import SubCategory from './SubCategory.js';
-// import Category from './Category.js';
-// import User from './User.js';
-// import { User, Category, Skill, SubCategory } from "../models/index.js";
 
 class Skill extends Model { }
 
@@ -92,18 +88,6 @@ Skill.init(
     sequelize,
     modelName: 'Skill',
     tableName: 'skill',
-    hooks: {
-        afterCreate: async (skill, options) => {
-            if (skill.mark !== null) {
-                await Skill.updateRating(skill.id, skill.mark);
-            }
-        },
-        afterUpdate: async (skill, options) => {
-            if (skill.mark !== null) {
-                await Skill.updateRating(skill.id, skill.mark);
-            }
-        },
-    },
 });
 
 

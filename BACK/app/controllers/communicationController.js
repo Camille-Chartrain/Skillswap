@@ -83,33 +83,6 @@ const communicationController = {
             console.log("req.body:", req.body);
             console.log("req.params.skillId:", req.params.skillId);
 
-            const updateFields = {
-                mark: req.body.mark,
-            };
-
-            //         static async updateRating(skillId, newMark) {
-            //     const skill = await Skill.findByPk(skillId);
-            //     if (skill) {
-            //         skill.sumOfMarks = (skill.sumOfMarks || 0) + newMark;
-            //         skill.numberOfRating = (skill.numberOfRating || 0) + 1;
-            //         // Calculer la moyenne et arrondir à l'entier le plus proche
-            //         const average = skill.sumOfMarks / skill.numberOfRating;
-            //         skill.mark = Math.round(average);
-            //         await skill.save();
-            //     }
-            // }
-
-            // retrouver la note globale du cours et faire une moyenne avec la nouvelle note, arrondir au plus haut
-
-            // //verif que le cours existe
-            // const skill = await Skill.findByPk(req.params.skillId);
-
-            // console.log("skill", skill);
-            // if (!skill) {
-            //     res.send("This skill doesn't exist");
-            // }
-
-
             // check if the user (as a student) is associated with this skill in a meeting with "terminé" status
             const meeting = await Meeting.findOne({
                 where: {
@@ -125,46 +98,34 @@ const communicationController = {
                 res.send("This meeting doesn't exist or is not over");
             }
             else if (meeting) {
-                // il faut que je crée une colonne pour indiquer le nombre de vote et une autre pour additionner toutes les notes recues.
-                const skillRating = await Skill.findByPk(meeting.SkillId, {
-                    attributes: ['id', 'title', 'mark'],
-                })
-
-                if (!skillRating) {
+                // search the skill to rate it
+                const skill = await Skill.findByPk(meeting.SkillId)
+                console.log("skill:", skill);
+                if (!skill) {
                     res.status(404).json({ message: "Skill not found" });
-                    return;
                 }
+                else if (skill) {
+                    // console.log('Type of myVariable:', typeof req.body.mark, req.body.mark);
+                    // parse the string into a number
+                    const mark = parseFloat(req.body.mark);
+                    // console.log('Type of myVariable:', typeof mark, mark);
 
-                // Mettre à jour la note du skill avec la nouvelle valeur
-                const newMark = req.body.mark;
-                skillRating.mark = newMark;
-
-                // Sauvegarder le skill sans déclencher le hook afterUpdate
-                await skillRating.save({ hooks: false });
-
-                // Mettre à jour la moyenne des notes
-                await Skill.updateRating(meeting.SkillId, newMark);
-
-                // skillRating.mark = req.body.mark
-                // // .save() to activate the hook in the model
-                // await skillRating.save();
-                res.status(200).json('rating ok')
+                    if (isNaN(mark)) {
+                        return res.status(400).send('Invalid mark, not a number');
+                    }
+                    //Update the global rating by calculating the average of the existing rating and the new rating, then round to the nearest whole number.
+                    skill.sumOfMarks = (skill.sumOfMarks || 0) + mark;
+                    skill.numberOfRating = (skill.numberOfRating || 0) + 1;
+                    const average = skill.sumOfMarks / skill.numberOfRating;
+                    skill.mark = Math.round(average);
+                    await skill.save();
+                    res.status(200).json('rating ok')
+                }
             }
-
-            // await Skill.update(
-            //     updateFields, {
-            //     where: {
-            //         id: req.params.skillId
-            //     }
-            // });
-            //skill is updated
-
-            //send the answer to the front
-
         }
         catch (error) {
             console.error(error.message);
-            res.send('error rating skill:', error);
+            res.status(400).send(error);
         }
     },
 }
