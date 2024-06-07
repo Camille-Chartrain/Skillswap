@@ -124,6 +124,9 @@ const communicationController = {
                     meeting.status = "noté"
                     await meeting.save()
 
+                    // RAJOUTER LA NOTE DANS LE MEETING POUR AVOIR UNE TRACE DE LA NOTE DONNEE PAR LELEVE AU COURS
+                    // RAJOUTER COLONNE MARK DANS MEETING
+
                     res.status(200).json('rating ok')
                 }
             }
