@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { link } from "fs";
+import { useNavigate } from "react-router-dom";
 
 
 //=manage reception notification
 const CourseTeached = () => {
     const [teacherReq, setTeacherReq] = useState([]);
+    //=redirect for update skill
+    const navigate = useNavigate();
+
 
     const getCourseTeacher = async () => {
         try {
@@ -34,7 +38,7 @@ const CourseTeached = () => {
 
         }
         catch (error) {
-            console.log("catch GetCourseReqTeach: ", error)
+            // console.log("catch GetCourseReqTeach: ", error)
             throw error;
         }
     }
@@ -42,44 +46,48 @@ const CourseTeached = () => {
 
 
     //= to manage  requests received 
-    const patchCourseValidate = async (request) => {
-        // console.log('skill dans patchCourseValidate: ', request)
+    const patchCourseValidate = async (item) => {
+        console.log('skill dans patchCourseValidate: ', item)
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/acceptLearning/${request.id}`, {
+            const response = await fetch(`http://localhost:3000/acceptLearning/${item.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(request),
+                body: JSON.stringify(item),
                 // credentials: 'include'
             })
 
+            if (!response.ok) {
+                throw new Error('Failed to fetch courses');
+            }
+
             // //=traduct api response in Json
             const dataTeacher = await response.json();
-            // console.log('dataRequest avant if:', response);
-            setTeacherReq(dataRequest);
+            console.log('dataItem avant if:', dataTeacher);
+            setTeacherReq(dataTeacher);
         }
         catch (error) {
             console.log("catch de patchCourseValidate:", error);
         }
     }
 
-    const patchCourseRejeted = async (request) => {
-        // console.log('skill dans patchCourseRejeted: ', request)
+    const patchCourseRejeted = async (item) => {
+        // console.log('skill dans patchCourseRejeted: ', item)
 
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/declineLearning/${request.id}`, {
+            const response = await fetch(`http://localhost:3000/declineLearning/${item.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(request),
+                body: JSON.stringify(item),
                 // credentials: 'include'
             })
 
@@ -96,19 +104,20 @@ const CourseTeached = () => {
         }
     }
 
-    const patchCourseFinished = async (request) => {
-        // console.log('skill dans patchCourseFinished: ', request)
+    const patchCourseFinished = async (item) => {
+        // console.log('skill dans patchCourseFinished: ', item)
 
         try {
+            console.log("fais voir ton... id:", item.id);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/closeLearning/${request.id}`, {
+            const response = await fetch(`http://localhost:3000/closeLearning/${item.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(request),
+                body: JSON.stringify(item),
                 // credentials: 'include'
             })
 
@@ -117,7 +126,14 @@ const CourseTeached = () => {
             const dataFinish = await response.json();
             // console.log('dataFinish avant if:', response);
 
+
             setTeacherReq(dataFinish);
+            if (dataFinish === "meeting closed, swappie handled") {
+                navigate("/dashboard");
+            }
+            else {
+                throw new Error("Invalid response from API");
+            }
 
         }
         catch (error) {
@@ -128,30 +144,27 @@ const CourseTeached = () => {
     return (
         <>
             <ul>
-                {teacherReq.map((item) => (
+                {teacherReq?.map((item) => (
                     <>
                         {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
 
                         <li li key={item.id} >
-                            <h4> {item.Skill.title}</h4>
+                            <h5> {item.Skill.title}</h5>
+                            <h5>{item.User.firstname} {item.User.lastname}</h5>
                             <div className="status" >
-                                {item.status === "en attente" && <button onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE
-                                </button> && <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>}
+                                {item.status === "en attente" && <button onClick={patchCourseValidate.bind(null, item.id)}>VALIDER LA DEMANDE
+                                </button> && <button onClick={patchCourseRejeted.bind(null, item.id)} >REJETER LA DEMANDE</button>}
                                 {item.status === "refusé" && <h4>COURS REFUSE</h4>}
                                 {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
-                                {item.status === "terminé" && <h4>COURS TERMINE</h4>}
-                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "en cours" && <h4>STATUT INCONNU</h4>}
+                                {item.status === "terminé" && <h5>COURS TERMINE</h5>}
+                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
                             </div>
                         </li>
                     </>
-                ))};
+                ))}
             </ul >
 
         </>
     )
 }
 export default CourseTeached;
-{/* <button onClick={patchCourseValidate.bind(null, request)}>VALIDER LA DEMANDE</button>
-                            <button onClick={patchCourseRejeted.bind(null, request)} >REJETER LA DEMANDE</button>
-                            <button onClick={patchCourseFinished.bind(null, request)}>COURS TERMINER</button>
-                        </li> */}

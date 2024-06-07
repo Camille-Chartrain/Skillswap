@@ -52,6 +52,8 @@ const Communication = () => {
 
                         </ul>
                     </div>
+
+                    {/* //= coding in place for version2
                     <div className="skillsList">
                         <h3>Messagerie</h3>
                         <ul>
@@ -71,7 +73,7 @@ const Communication = () => {
                                 </span>
                             </span>
                         </ul>
-                    </div>
+                    </div> */}
                 </span>
 
             </div >

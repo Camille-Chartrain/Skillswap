@@ -44,14 +44,14 @@ const CourseStudent = () => {
                         {/* {console.log("qu'est ce que item.title ?:", item.Skill.title)} */}
 
                         <li key={item.id}>
-                            <h4>{item?.Skill?.title}</h4>
+                            <h5>{item?.Skill?.title}</h5>
 
                             <div className="status" >
-                                {item.status === "en attente" && <h4>DEMANDE ENVOYEE</h4>}
-                                {item.status === "refusé" && <h4>DEMANDE REJETEE</h4>}
-                                {item.status === "en cours" && <h4>EN COURS</h4>}
-                                {item.status === "terminé" && <h4>TERMINE</h4>}
-                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h4>STATUT INCONNU</h4>}
+                                {item.status === "en attente" && <h5>DEMANDE ENVOYEE</h5>}
+                                {item.status === "refusé" && <h5>DEMANDE REJETEE</h5>}
+                                {item.status === "en cours" && <h5>EN COURS</h5>}
+                                {item.status === "terminé" && <h5>TERMINE</h5>}
+                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
                             </div>
                         </li>
 

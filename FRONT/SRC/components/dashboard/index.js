@@ -61,7 +61,6 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
                 <Learning handleSubmit={handleSubmit} register={register} />
                 <Statistic handleSubmit={handleSubmit} register={register} />
                 <Communication handleSubmit={handleSubmit} register={register} />
-                <CourseStudent />
             </main>
         </>
 
