@@ -47,6 +47,18 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Cochise1234.', presentation: "Mains toutes vertes et vie en rose" },
 // ]);
 
+// await User.bulkCreate([
+//     { firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!.', presentation: " j'adore gagner" },
+//     { firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Azertyuiop12!.', presentation: "toujours de bonne humeur" },
+//     { firstname: "José", lastname: "Paledire", email: 'chut@gmail.com', hash: 'Azertyuiop12!.', presentation: "discret mais solide" },
+//     { firstname: "Gus", lastname: "GusLucifer", email: 'estmechant@gmail.com', hash: 'Azertyuiop12!.', presentation: "j'adore les petits zétoné" },
+//     { firstname: "Patrick", lastname: "Apéro", email: 'leurequelquepart@gmail.com', hash: 'Azertyuiop12!.', presentation: "toujours prêt pour accueillir des nouveaux copains" },
+//     { firstname: "Jeanne", lastname: "aipazenvi", email: 'detravailler@gmail.com', hash: 'Azertyuiop12!.', presentation: "Dans la lune que je trouve mes meilleurs idées" },
+//     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Azertyuiop12!.', presentation: "Vous pouvez me contacter je vous répondrai si je suis disponible" },
+//     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Azertyuiop12!.', presentation: "Mains toutes vertes et vie en rose" },
+// ]);
+
+
 
 // await Skill.bulkCreate([
 //     { title: "self-defense", level: "intermediaire", transmission: 'presentiel', description: 'apprenez à vous sortir des pires situations', availability: 'soir et we', CategoryId: 5, SubCategoryId: 29, UserId: 5, mark: "4", duration: "1h30" },
