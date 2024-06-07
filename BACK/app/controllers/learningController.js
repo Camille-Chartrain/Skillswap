@@ -105,7 +105,7 @@ const learningController = {
             });
             console.log("meeting", meetings);
 
-            if (Array.isArray(meetings) && meeting.length === 0) {
+            if (Array.isArray(meetings) && meetings.length === 0) {
                 res.send("Pas encore d'historique en tant que prof")
             }
             else {
