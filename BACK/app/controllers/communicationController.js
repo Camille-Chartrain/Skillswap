@@ -95,7 +95,7 @@ const communicationController = {
 
             console.log("meeting", meeting);
             if (!meeting) {
-                res.send("This meeting doesn't exist or is not over");
+                res.send("This meeting doesn't exist - is not over -  already rated");
             }
             else if (meeting) {
                 // search the skill to rate it
@@ -119,6 +119,11 @@ const communicationController = {
                     const average = skill.sumOfMarks / skill.numberOfRating;
                     skill.mark = Math.round(average);
                     await skill.save();
+
+                    // pass the status of the meeting to "terminé et noté"
+                    meeting.status = "noté"
+                    await meeting.save()
+
                     res.status(200).json('rating ok')
                 }
             }

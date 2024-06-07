@@ -49,13 +49,13 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 
 // await User.bulkCreate([
 //     { firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!.', presentation: " j'adore gagner" },
-//     { firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Azertyuiop12!.', presentation: "toujours de bonne humeur" },
-//     { firstname: "José", lastname: "Paledire", email: 'chut@gmail.com', hash: 'Azertyuiop12!.', presentation: "discret mais solide" },
-//     { firstname: "Gus", lastname: "GusLucifer", email: 'estmechant@gmail.com', hash: 'Azertyuiop12!.', presentation: "j'adore les petits zétoné" },
-//     { firstname: "Patrick", lastname: "Apéro", email: 'leurequelquepart@gmail.com', hash: 'Azertyuiop12!.', presentation: "toujours prêt pour accueillir des nouveaux copains" },
-//     { firstname: "Jeanne", lastname: "aipazenvi", email: 'detravailler@gmail.com', hash: 'Azertyuiop12!.', presentation: "Dans la lune que je trouve mes meilleurs idées" },
-//     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Azertyuiop12!.', presentation: "Vous pouvez me contacter je vous répondrai si je suis disponible" },
-//     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Azertyuiop12!.', presentation: "Mains toutes vertes et vie en rose" },
+//     { firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Azertyuiop12!', presentation: "toujours de bonne humeur" },
+//     { firstname: "José", lastname: "Paledire", email: 'chut@gmail.com', hash: 'Azertyuiop12!', presentation: "discret mais solide" },
+//     { firstname: "Gus", lastname: "GusLucifer", email: 'estmechant@gmail.com', hash: 'Azertyuiop12!', presentation: "j'adore les petits zétoné" },
+//     { firstname: "Patrick", lastname: "Apéro", email: 'leurequelquepart@gmail.com', hash: 'Azertyuiop12!', presentation: "toujours prêt pour accueillir des nouveaux copains" },
+//     { firstname: "Jeanne", lastname: "aipazenvi", email: 'detravailler@gmail.com', hash: 'Azertyuiop12!', presentation: "Dans la lune que je trouve mes meilleurs idées" },
+//     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Azertyuiop12!', presentation: "Vous pouvez me contacter je vous répondrai si je suis disponible" },
+//     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Azertyuiop12!', presentation: "Mains toutes vertes et vie en rose" },
 // ]);
 
 
