@@ -28,19 +28,19 @@ const Statistic = () => {
                 // credentials: 'include'
             });
 
-            console.log("les statistic data avant  .json", response);
+            // console.log("les statistic data avant  .json", response);
             const dataStatistic = await response.json();
-            console.log("les statistic data  apres .json:", dataStatistic);
+            // console.log("les statistic data  apres .json:", dataStatistic);
 
             setStatistic(dataStatistic);
-            console.log('donnees statistic data du state:', dataStatistic);
+            // console.log('donnees statistic data du state:', dataStatistic);
             setCourseMark(dataStatistic);
-            console.log('donnees setCourseMark:', dataStatistic);
+            // console.log('donnees setCourseMark:', dataStatistic);
 
 
         }
         catch (error) {
-            console.log("catch de Get Statistic:", error.message);
+            // console.log("catch de Get Statistic:", error.message);
         }
     }
     useEffect(() => { GetStatistic() }, []);

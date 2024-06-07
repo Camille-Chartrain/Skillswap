@@ -5,8 +5,7 @@ import SearchSubCategory from './SearchSubCategory';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import logo from './logo.png';
-import SearchTransmission from './SearchTransmission';
-import Select from 'react-select';
+
 
 const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory }) => {
 
@@ -48,9 +47,8 @@ const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory }) => 
                 <input type="search" name="search" placeholder="rechercher" defaultValue={searchInput} onChange={handleChange} aria-label='faite votre recherche' />
 
                 <SearchLevel handleSubmit={handleSubmit} register={register} />
-                <SearchCategory handleSubmit={handleSubmit} register={register} />
-
-                <SearchSubCategory handleSubmit={handleSubmit} register={register} selectCat={selectCat} setSelectCat={setSelectCat} />
+                <SearchCategory handleSubmit={handleSubmit} register={register} s />
+                <SearchSubCategory handleSubmit={handleSubmit} register={register} setSelectCat={setSelectCat} />
 
                 <button ><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
             </form >

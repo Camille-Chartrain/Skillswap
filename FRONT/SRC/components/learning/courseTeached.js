@@ -20,18 +20,18 @@ const CourseTeached = () => {
                 body: JSON.stringify(),
                 // credentials: 'include'
             })
-            console.log('response.status:', response.status);
+            // console.log('response.status:', response.status);
 
             //=traduct api response in Json
-            console.log("data CourseRequest avant .json", response);
+            // console.log("data CourseRequest avant .json", response);
             const dataRequest = await response.json();
-            console.log(" data CourseRequest apres .json:", dataRequest);
+            // console.log(" data CourseRequest apres .json:", dataRequest);
             setCourseReq(dataRequest);
             //=fetch back side's  errors
-            console.log("error?:", dataRequest.error);
+            // console.log("error?:", dataRequest.error);
             setError(dataRequest.error);
         }
-        catch { }
+        catch (error) { "catch GetCourseReqTeach: ", error }
     }
     useEffect(() => { getCourseRequest() }, [])
     // handleChange = (e) => { e.preventDefault(); setTeacherReq() };
@@ -39,7 +39,7 @@ const CourseTeached = () => {
 
     //= to manage  requests received 
     const patchCourseValidate = async (request) => {
-        console.log('skill dans patchCourseValidate: ', request)
+        // console.log('skill dans patchCourseValidate: ', request)
         try {
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/acceptLearning/${request.id}`, {
@@ -55,7 +55,7 @@ const CourseTeached = () => {
 
             // //=traduct api response in Json
             const dataRequest = await response.json();
-            console.log('dataRequest avant if:', response);
+            // console.log('dataRequest avant if:', response);
             setTeacherReq(dataRequest);
         }
         catch (error) {
@@ -65,7 +65,7 @@ const CourseTeached = () => {
 
 
     const patchCourseRejeted = async (request) => {
-        console.log('skill dans patchCourseRejeted: ', request)
+        // console.log('skill dans patchCourseRejeted: ', request)
 
         try {
             const token = Cookies.get('token');
@@ -83,7 +83,7 @@ const CourseTeached = () => {
             // //=traduct api response in Json
 
             const dataReject = await response.json();
-            console.log('dataReject avant if:', response);
+            // console.log('dataReject avant if:', response);
 
             setTeacherReq(dataReject);
 
@@ -94,7 +94,7 @@ const CourseTeached = () => {
     }
 
     const patchCourseFinished = async (request) => {
-        console.log('skill dans patchCourseFinished: ', request)
+        // console.log('skill dans patchCourseFinished: ', request)
 
         try {
             const token = Cookies.get('token');
@@ -112,13 +112,13 @@ const CourseTeached = () => {
             // //=traduct api response in Json
 
             const dataFinish = await response.json();
-            console.log('dataFinish avant if:', response);
+            // console.log('dataFinish avant if:', response);
 
             setTeacherReq(dataFinish);
 
         }
         catch (error) {
-            console.log("catch de patchCourseFinished:", error);
+            // console.log("catch de patchCourseFinished:", error);
         }
     }
 
