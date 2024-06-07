@@ -1,30 +1,14 @@
 import { useState, useEffect } from "react";
 import Cookies from 'js-cookie';
-import CourseStudent from "./studyCourse";
-import CourseTeached from "./teacherCourse";
+import CourseStudent from "./courseStudent";
+import CourseTeached from "./courseTeached";
 
 
-const Learning = (setValue) => {
+const Learning = () => {
 
 
     const [studyList, setStudyList] = useState([{ id: [], title: '', }]);
     const [teachList, setTeachList] = useState([{ id: [], title: '', }]);
-
-    // //= to refresh the Skill Data state between two changes
-    const handleChangeList = (e) => {
-        const { name, value } = e.target;
-        console.log('handleChange: ', name, value);
-        setStudyList((prevStudyList) => ({
-            ...prevStudyList,
-            [name]: value,
-        }));
-        setTeachList((prevTeachList) => ({
-            ...prevTeachList,
-            [name]: value,
-        }));
-        setValue(name, value);
-    }
-
 
 
     const GetLearning = async () => {
@@ -52,7 +36,7 @@ const Learning = (setValue) => {
             console.error(error.message);
         }
     }
-    useEffect(() => { GetLearning() }, []);
+    // useEffect(() => { GetLearning() }, []);
 
 
 
@@ -66,33 +50,28 @@ const Learning = (setValue) => {
                     <div className="skillsList">
                         <h3>Apprentissage en cours</h3>
                         <ul>
-                            <span>
-
-                                {studyList?.map((item) => (
-                                    <li onClick={handleChangeList.bind(null, item)}>
-                                        <CourseStudent key={item?.id} title={item?.title} />
-                                    </li>
-                                ))
-                                }
-                            </span>
+                            {studyList?.map((item) => (
+                                <li key={item?.id}>
+                                    <CourseStudent
+                                        title={item?.title}
+                                    />
+                                </li>
+                            ))
+                            }
                         </ul>
                     </div>
                     <div className="skillsList">
                         <h3>Cours dispenses</h3>
                         <ul>
-                            <span>
-                                {teachList?.map((item) => (
-                                    <li onClick={handleChangeList.bind(null, item)} >
-                                        <CourseTeached key={item?.id} title={item?.title} />
-                                    </li>
-                                ))
-                                }
-                                <span>
-                                    <button className="btn">EN ATTENTE</button>
-
-
-                                </span>
-                            </span>
+                            {teachList?.map((item) => (
+                                <li key={item?.id}>
+                                    <CourseTeached
+                                        title={item?.title}
+                                    />
+                                </li>
+                            ))
+                            }
+                            <button className="btn">EN ATTENTE</button>
                         </ul>
                     </div>
                 </span>

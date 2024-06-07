@@ -24,33 +24,6 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
     });
 
 
-    // const GetCreateSkill = async () => {
-    //     try {
-    //         const token = Cookies.get('token');
-    //         const response = await fetch('http://localhost:3000/skill', {
-    //             method: "get",
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${token}`,
-    //             },
-    //             // credentials: 'include'
-    //         });
-
-    //         console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
-    //         const dataCreateSkill = await response.json();
-    //         console.log("ICI QUON VEUT LES DATA response apres .json:", dataCreateSkill);
-    //         setDataCreateSkill(dataCreateSkill);
-    //         console.log('donnees profile data du state:', dataCreateSkill);
-
-    //     }
-    //     catch (error) {
-    //         console.error("error catch:", error.message);
-    //     }
-    // }
-
-    // useEffect(() => { GetCreateSkill() }, [])
-
-
     //=post method to send info
     const PostCompetence = async (data) => {
         try {
@@ -70,7 +43,7 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
             //=traduct api response in Json
             // console.log("response avant .json", response);
             const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
+            // console.log(" response apres .json:", dataSkill);
 
             reset();
 

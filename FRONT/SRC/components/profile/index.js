@@ -24,7 +24,7 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
     //= to fetch select's datas
     const [interests, setInterests] = useState([]);
     const handleInterestChange = (e) => {
-        console.log(interests);
+        // console.log(interests);
         const { value, checked } = e.target;
         if (checked) {
             //-> if ok add to the list
@@ -33,7 +33,6 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
             //-> else delete the choice
             setInterests((prevInterests) => prevInterests.filter((interest) => interest !== value));
         }
-        setValue(value, checked);
     };
 
     //= to refresh the profileData state between two changes
@@ -55,20 +54,11 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                 // credentials: 'include'
             });
 
-            console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
+            // console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
             const dataProfile = await response.json();
-            console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
+            // console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
             setProfileData(dataProfile);
-            console.log('donnees profile data du state:', profileData);
-
-            //= update inputs' values
-            Object.keys(dataProfile).forEach(key => {
-                setValue(key, dataProfile[key]);
-            });
-            //= update interests' values
-            Object.keys(interests).forEach(key => {
-                setValue(key, interests[key]);
-            });
+            // console.log('donnees profile data du state:', profileData);
 
             // //= to transform us'date into french's date
             const dateUs = dataProfile.birthday;
@@ -126,32 +116,27 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(),
                 // credentials: 'include'
             })
-            // console.log('response.status:', response.status);
 
             //=traduct api response in Json
             // console.log("response avant .json", response);
             const dataProfile = await response.json();
             // console.log("response apres .json:", dataProfile);
 
-            //=fetch back side's  errors
-            // console.log("error?:", dataProfile.error);
-            setError(dataProfile.error);
+
 
         }
         catch (error) {
-            console.log("erreur cath :", error);
+            console.log("catch profileDelete :", error);
         }
     }
 
     //= manage skill's list user
     const [skillsUser, setSkillsUser] = useState([]);
-    const GetAllSkillUser = async (data) => {
+
+    const GetAllSkillUser = async () => {
         try {
-            console.log("skillUser before fetch:", data)
-            console.log('try data:', data);
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/skill', {
                 method: "get",
@@ -160,7 +145,7 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data),
+
                 // credentials: 'include'
             })
             // console.log('response.status:', response.status);
@@ -171,9 +156,6 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
             // console.log(" response apres .json:", dataListSkill);
             setSkillsUser(dataListSkill);
 
-            //=fetch back side's  errors
-            // console.log("error?:", dataListSkill.error);
-            // setError(dataSkill.error);
 
         }
         catch (error) {
@@ -197,9 +179,9 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
     };
 
     //=to delete a skill
-    const PostSkillDelete = async (skill) => {
+    const PostSkillDelete = useCallback(async (skill) => {
         try {
-
+            console.log("id recup ds le try PSD :", skill.id);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
                 method: "delete",
@@ -208,23 +190,23 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(),
+                body: JSON.stringify(skill),
                 // credentials: 'include'
             })
 
             //=traduct api response in Json
             console.log("response avant .json", response);
             const dataSkill = await response.json();
-
+            console.log("dataSkill ds le  PSD :", dataSkill);
             //=fetch back side's  errors
             // console.log("error?:", dataSkill.error);
             setError(dataSkill.error);
         }
         catch (error) {
-            console.log("erreur cath :", error);
+            console.log("catch postSkillDelete:", error);
         }
-    }
-    useEffect(() => { PostSkillDelete() }, []);
+    })
+
 
 
     return (
@@ -238,19 +220,19 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                     <legend><h3>Modifier votre profil</h3></legend>
 
                     <label htmlFor="firstname">Prénom* :</label>
-                    <input id="firstname" type="text" name="firstname" {...register("firstname")} defaultValue={profileData.firstname} onChange={handleChangeProfile} size="25" required />
+                    <input id="firstname" type="text" name="firstname" {...register("firstname")} defaultValue={profileData.firstname || ''} onChange={handleChangeProfile} size="25" required />
 
                     <label htmlFor="lastname">Nom* :</label>
-                    <input id="lastname" type="text" name="lastname"{...register("lastname")} defaultValue={profileData.lastname} onChange={handleChangeProfile} size="25" required />
+                    <input id="lastname" type="text" name="lastname"{...register("lastname")} defaultValue={profileData.lastname || ''} onChange={handleChangeProfile} size="25" required />
 
                     <label htmlFor="birthday">Date de naissance :</label>
-                    <input id="birthday" type="date" name="birthday" {...register("birthday")} defaultValue={profileData.birthday} onChange={handleChangeProfile} size="25" />
+                    <input id="birthday" type="date" name="birthday" {...register("birthday")} defaultValue={profileData.birthday || ''} onChange={handleChangeProfile} size="25" />
 
                     <label htmlFor="grade_level">Niveau d'etude :</label>
-                    <input id="grade_level" type="text" name="grade_level" {...register("grade_level")} defaultValue={profileData.grade_level} onChange={handleChangeProfile} size="25" />
+                    <input id="grade_level" type="text" name="grade_level" {...register("grade_level")} defaultValue={profileData.grade_level || ''} onChange={handleChangeProfile} size="25" />
 
                     <label htmlFor="presentation">Presentez vous :</label>
-                    <textarea id="presentation" name="presentation" {...register("presentation")} defaultValue={profileData.presentation} onChange={handleChangeProfile} rows="5" cols="33" />
+                    <textarea id="presentation" name="presentation" {...register("presentation")} defaultValue={profileData.presentation || ''} onChange={handleChangeProfile} rows="5" cols="33" />
 
                     {/* <label htmlFor="email">Email * :</label>
                         <input  id="email" type="email"  name="email" {...register("email")}  onChange={handleChangeProfile}size="35" placeholder="  monadresse@gmail.com" required /> */}

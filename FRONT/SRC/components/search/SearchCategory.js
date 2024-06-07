@@ -2,49 +2,62 @@ import React, { useState, useEffect } from "react";
 import Select from 'react-select';
 
 
-const SearchCategory = () => {
+const SearchCategory = (setValue) => {
 
     //= to fetch select's datas and datas bdd
     const [selectCat, setSelectCat] = useState([]);
 
-    const getCategoriesList = async () => {
+    // //= to refresh the Skill Data state between two changes
+    const handleChange = (e, selectedOption) => {
+        const { name, value } = e.target;
+        console.log('handleChange: ', name, value);
+        setSelectCat((prevSelectedOption) => ({
+            ...prevSelectedOption,
+            [name]: value,
+        }));
+        setValue(name, value);
 
-        try {
-            const response = await fetch(`http://localhost:3000/categories`);
-            const dataCategories = await response.json();
+        const getCategoriesList = async () => {
 
-            setSelectCat(dataCategories);
-            console.log("recup liste des cat:", dataCategories);
-            console.log("donnees de state selectCat:", selectCat);
-        }
-        catch (error) {
-            console.error("catch GetCategoriesList:", error.message);
-        }
-    };
+            try {
+                const response = await fetch(`http://localhost:3000/categories`);
+                const dataCategories = await response.json();
+                setSelectCat(dataCategories);
+                console.log("recup liste des cat:", dataCategories);
+                console.log("donnees de state selectCat:", selectCat);
 
-    useEffect(() => { getCategoriesList() }, []);
+                //= update inputs' values
+                Object.keys(dataCategories).forEach(key => {
+                    setValue(key, dataCategories[key]);
+                });
 
-    const options = selectCat.map((category) => ([{
-        value: category.id,
-        label: category.name,
-    }]));
+            }
+            catch (error) {
+                console.error("catch GetCategoriesList:", error.message);
+            }
+        };
 
-    const handleChange = (selectedOption) => {
-        setSelectCat(selectedOption);
+        useEffect(() => { getCategoriesList() }, []);
+
+        const options = selectCat.map((category) => ({
+            value: category.id,
+            label: category.name,
+        }));
+
+        // const handleChange = (selectedOption) => {
+        //     setSelectCat(selectedOption);
 
         return (
 
             <Select
                 id="CategoryId"
                 name="CategoryId"
-                defaultValue={options[0]}
-                onChange={handleChange}
+                defaultValue={options}
+                onChange={handleChange.bind(null, selectCat)}
                 options={options}
-            >
-                <option defaultValue="" name="category">
-                    Choisissez votre catégorie
-                </option>
-            </Select >
+                placeholder="choisissez une categorie"
+            />
+
         )
     }
 }

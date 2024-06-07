@@ -23,7 +23,7 @@ export const DarkModeProvider = ({ children }) => {
 //-> the toggle button
 export const ToggleBtn = () => {
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-    console.log(darkMode);
+    // console.log(darkMode);
     return <button onClick={toggleDarkMode} className="darkBtn"> <img className="" src={sunAndMoon} alt='icone dark theme' /></button>
 }
 

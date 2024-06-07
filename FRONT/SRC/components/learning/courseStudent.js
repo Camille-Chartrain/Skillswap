@@ -5,10 +5,9 @@ import Cookies from 'js-cookie';
 //=manage reception notification
 const CourseStudent = () => {
 
-    const [course, setCourse] = useState([]);
+    const [courses, setCourses] = useState([]);
 
     const getCourse = async () => {
-
         try {
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/studentLearning', {
@@ -21,16 +20,16 @@ const CourseStudent = () => {
                 body: JSON.stringify(),
                 // credentials: 'include'
             })
-            console.log('response.status:', response.status);
+            // console.log('response.status:', response.status);
 
             //=traduct api response in Json
-            console.log("data Course avant .json", response);
+            // console.log("data Course avant .json", response);
             const course = await response.json();
-            console.log(" Course  apres .json:", course);
-            setCourse(course);
+            // console.log(" Course  apres .json:", course);
+            setCourses(course);
 
             //=fetch back side's  errors
-            console.log("erreur getCourse:", error);
+            // console.log("erreur getCourse:", error);
             setError(course.error);
 
         }
@@ -38,13 +37,12 @@ const CourseStudent = () => {
     }
     useEffect(() => { getCourse() }, [])
 
-
     return (
         <ul>
-            {course?.map((skill) => {
+            {courses?.map((item) => {
                 <>
-                    <li key={skill.id}>
-                        <h4>cours: {skill.title}</h4>
+                    <li key={item.id}>
+                        <h4>cours: {item.title}</h4>
                     </li>
                     <div className="status">
                         if(course.status=== "en attente"){"DEMANDE ENVOYEE"};
