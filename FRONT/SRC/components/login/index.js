@@ -11,7 +11,7 @@ const Login = ({ handleSubmit, register, isValid }) => {
     const GetIsLogged = async (data) => {
         //= send the token stocked to login
         try {
-            console.log('données envoyées req login', data);
+            // console.log('données envoyées req login', data);
             const token = Cookies.get('token');
             const response = await fetch("http://localhost:3000/login", {
                 method: "post",
@@ -25,19 +25,19 @@ const Login = ({ handleSubmit, register, isValid }) => {
             })
 
             //=traduct api response in Json
-            console.log("login response avant .json", response);
+            // console.log("login response avant .json", response);
             const dataIsLogged = await response.json();
-            console.log('login reponse apres .json :', dataIsLogged)
+            // console.log('login reponse apres .json :', dataIsLogged)
 
             //= check if there is a new token associated with the user and store it with Cookies.set
             if (dataIsLogged.accessToken) {
                 const newToken = dataIsLogged.accessToken;
-                console.log("token", newToken);
+                // console.log("token", newToken);
                 Cookies.set('token', newToken);
                 navigate("/dashboard");
             }
             else if (dataIsLogged === "token validé !!") {
-                console.log("redirection vers dashboard sans nouveau token");
+                // console.log("redirection vers dashboard sans nouveau token");
                 navigate("/dashboard");
             }
             // else { <div className="error">return({error?.message})</div> };
