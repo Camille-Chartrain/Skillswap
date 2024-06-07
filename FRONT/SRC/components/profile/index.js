@@ -108,7 +108,6 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
 
     const ProfileDelete = useCallback(async () => {
         try {
-
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
                 method: "delete",
@@ -117,11 +116,10 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                // credentials: 'include'
             })
 
-            //=traduct api response in Json
             console.log("response avant .json", response);
+            //=traduct api response in Json
             const dataProfile = await response.json();
             console.log("response json analysee:", dataProfile);
 
@@ -137,10 +135,8 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                 }
             }
             else {
-                console.error("Invalid response from API");
+                throw new Error("Invalid response from API");
             }
-
-
         }
         catch (error) {
             console.log("catch profileDelete :", error);
