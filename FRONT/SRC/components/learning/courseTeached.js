@@ -26,12 +26,14 @@ const CourseTeached = () => {
             // console.log("data CourseRequest avant .json", response);
             const dataRequest = await response.json();
             // console.log(" data CourseRequest apres .json:", dataRequest);
-            setCourseReq(dataRequest);
-            //=fetch back side's  errors
-            // console.log("error?:", dataRequest.error);
-            setError(dataRequest.error);
+            setTeacherReq(dataRequest);
+
+
         }
-        catch (error) { "catch GetCourseReqTeach: ", error }
+        catch (error) {
+            console.log("catch GetCourseReqTeach: ", error)
+            throw error;
+        }
     }
     useEffect(() => { getCourseRequest() }, [])
     // handleChange = (e) => { e.preventDefault(); setTeacherReq() };
@@ -62,7 +64,6 @@ const CourseTeached = () => {
             console.log("catch de patchCourseValidate:", error);
         }
     }
-
 
     const patchCourseRejeted = async (request) => {
         // console.log('skill dans patchCourseRejeted: ', request)
@@ -127,7 +128,7 @@ const CourseTeached = () => {
             <ul>
                 {teacherReq.map((request) => {
 
-                    { console.log("qu'est ce que item.title ?:", item.title) }
+                    { console.log("qu'est ce que item.title ?:", request.title) }
                     <div key={request.id}>
                         <li>
                             <h4> {request.title}</h4>
