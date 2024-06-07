@@ -101,14 +101,14 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { status: 'en attente', UserId: "4", SkillId: '2' },
 
 //     { status: 'en attente', UserId: "5", SkillId: '5' },
-//     { status: 'terminé', UserId: "5", SkillId: '3' },
-//     { status: 'en cours', UserId: "5", SkillId: '8' },
+//     { status: 'en cours', UserId: "5", SkillId: '3' },
+//     { status: 'terminé', UserId: "5", SkillId: '8' },
 //     { status: 'refusé', UserId: "5", SkillId: '7' },
 
 //     { status: 'en attente', UserId: "6", SkillId: '2' },
 //     { status: 'terminé', UserId: "6", SkillId: '3' },
-//     { status: 'en cours', UserId: "6", SkillId: '8' },
-//     { status: 'refusé', UserId: "6", SkillId: '6' },
+//     { status: 'refusé', UserId: "6", SkillId: '8' },
+//     { status: 'en cours', UserId: "6", SkillId: '6' },
 
 //     { status: 'en cours', UserId: "7", SkillId: '7' },
 //     { status: 'terminé', UserId: "7", SkillId: '3' },
@@ -116,8 +116,8 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { status: 'refusé', UserId: "7", SkillId: '4' },
 
 //     { status: 'refusé', UserId: "8", SkillId: '6' },
-//     { status: 'en cours', UserId: "8", SkillId: '8' },
-//     { status: 'en attente', UserId: "8", SkillId: '4' },
+//     { status: 'en attente', UserId: "8", SkillId: '8' },
+//     { status: 'en cours', UserId: "8", SkillId: '4' },
 //     { status: 'terminé', UserId: "8", SkillId: '2' }
 // ])
 
