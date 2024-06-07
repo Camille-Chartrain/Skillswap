@@ -47,7 +47,7 @@ const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory }) => 
                 <input type="search" name="search" placeholder="rechercher" defaultValue={searchInput} onChange={handleChange} aria-label='faite votre recherche' />
 
                 <SearchLevel handleSubmit={handleSubmit} register={register} />
-                <SearchCategory handleSubmit={handleSubmit} register={register} s />
+                <SearchCategory handleSubmit={handleSubmit} register={register} />
                 <SearchSubCategory handleSubmit={handleSubmit} register={register} setSelectCat={setSelectCat} />
 
                 <button ><img className="btnSearch" src={search} alt=' icone de recherche' /></button>

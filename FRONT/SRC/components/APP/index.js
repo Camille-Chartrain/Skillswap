@@ -56,7 +56,7 @@ const App = ({ darkMode, isLogged }) => {
                         )
                         }
                         {/* //-> this page appear when the user is logged  keep only for maintenance */}
-                        <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink>
+                        {/* <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink> */}
 
                     </nav >
                     <NavBar />
