@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
+import { link } from "fs";
 
 
 //=manage reception notification
 const CourseTeached = () => {
     const [teacherReq, setTeacherReq] = useState([]);
 
-    const getCourseRequest = async () => {
+    const getCourseTeacher = async () => {
         try {
-
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/teacherLearning', {
                 method: "GET",
@@ -17,16 +17,19 @@ const CourseTeached = () => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token} `,
                 },
-                body: JSON.stringify(),
-                // credentials: 'include'
+
             })
-            // console.log('response.status:', response.status);
+            console.log('response.status:', response.status);
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch courses');
+            }
 
             //=traduct api response in Json
-            // console.log("data CourseRequest avant .json", response);
-            const dataRequest = await response.json();
-            // console.log(" data CourseRequest apres .json:", dataRequest);
-            setTeacherReq(dataRequest);
+            console.log("data CourseTeacheravant .json", response);
+            const dataTeacher = await response.json();
+            console.log(" data CourseTeacherapres .json:", dataTeacher);
+            setTeacherReq(dataTeacher);
 
 
         }
@@ -35,8 +38,7 @@ const CourseTeached = () => {
             throw error;
         }
     }
-    useEffect(() => { getCourseRequest() }, [])
-    // handleChange = (e) => { e.preventDefault(); setTeacherReq() };
+    useEffect(() => { getCourseTeacher() }, [])
 
 
     //= to manage  requests received 
@@ -56,7 +58,7 @@ const CourseTeached = () => {
             })
 
             // //=traduct api response in Json
-            const dataRequest = await response.json();
+            const dataTeacher = await response.json();
             // console.log('dataRequest avant if:', response);
             setTeacherReq(dataRequest);
         }
@@ -126,21 +128,30 @@ const CourseTeached = () => {
     return (
         <>
             <ul>
-                {teacherReq.map((request) => {
+                {teacherReq.map((item) => (
+                    <>
+                        {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
 
-                    { console.log("qu'est ce que item.title ?:", request.title) }
-                    <div key={request.id}>
-                        <li>
-                            <h4> {request.title}</h4>
-                            <button onClick={patchCourseValidate.bind(null, request)}>VALIDER LA DEMANDE</button>
-                            <button onClick={patchCourseRejeted.bind(null, request)} >REJETER LA DEMANDE</button>
-                            <button onClick={patchCourseFinished.bind(null, request)}>COURS TERMINER</button>
+                        <li li key={item.id} >
+                            <h4> {item.Skill.title}</h4>
+                            <div className="status" >
+                                {item.status === "en attente" && <button onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE
+                                </button> && <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>}
+                                {item.status === "refusé" && <h4>COURS REFUSE</h4>}
+                                {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
+                                {item.status === "terminé" && <h4>COURS TERMINE</h4>}
+                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "en cours" && <h4>STATUT INCONNU</h4>}
+                            </div>
                         </li>
-                    </div>
-                })}
+                    </>
+                ))};
             </ul >
 
         </>
     )
 }
 export default CourseTeached;
+{/* <button onClick={patchCourseValidate.bind(null, request)}>VALIDER LA DEMANDE</button>
+                            <button onClick={patchCourseRejeted.bind(null, request)} >REJETER LA DEMANDE</button>
+                            <button onClick={patchCourseFinished.bind(null, request)}>COURS TERMINER</button>
+                        </li> */}

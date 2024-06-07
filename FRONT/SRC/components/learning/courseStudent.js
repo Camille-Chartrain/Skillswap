@@ -18,21 +18,21 @@ const CourseStudent = () => {
                     'Authorization': `Bearer ${token} `,
                 },
             })
-            console.log('response.status:', response.status);
+            // console.log('response.status:', response.status);
 
             if (!response.ok) {
                 throw new Error('Failed to fetch courses');
             }
 
             //=traduct api response in Json
-            console.log("data Course avant .json", response);
+            // console.log("data Course avant .json", response);
             const course = await response.json();
-            console.log(" Course  apres .json:", course);
+            // console.log(" Course  apres .json:", course);
             setCourses(course);
 
 
         }
-        catch (error) { "catchgetCourse ST:", error };
+        catch (error) { console.log("catchgetCourse ST:", error); throw error; };
     }
     useEffect(() => { getCourse() }, [])
 
@@ -40,22 +40,22 @@ const CourseStudent = () => {
         <main>
             <ul>
                 {courses?.map((item) => (
-
                     <>
-                        {console.log("qu'est ce que item.title ?:", item.title)}
-                        <div key={item.id}>
-                            <li>
-                                <h4>{item.title}</h4>
-                            </li>
-                        </div>
+                        {/* {console.log("qu'est ce que item.title ?:", item.Skill.title)} */}
+
+                        <li key={item.id}>
+                            <h4>{item?.Skill?.title}</h4>
+
+                            <div className="status" >
+                                {item.status === "en attente" && <h4>DEMANDE ENVOYEE</h4>}
+                                {item.status === "refusé" && <h4>DEMANDE REJETEE</h4>}
+                                {item.status === "en cours" && <h4>EN COURS</h4>}
+                                {item.status === "terminé" && <h4>TERMINE</h4>}
+                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h4>STATUT INCONNU</h4>}
+                            </div>
+                        </li>
 
 
-                        <div className="status" >
-                            {item.status === "en attente" && "DEMANDE ENVOYEE"}
-                            {item.status === "refusé" && "DEMANDE REJETEE"}
-                            {item.status === "en cours" && "EN COURS"}
-                            {item.status === "terminé" && "TERMINE"}
-                        </div>
 
                     </>
                 ))
