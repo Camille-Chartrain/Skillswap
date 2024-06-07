@@ -39,7 +39,25 @@ const learningController = {
                     status: {
                         [Op.or]: ["en attente", "en cours", "refusé", "terminé"],
                     },
-                }
+                },
+                include: [
+                    {
+                        // User as students
+                        model: User,
+                        attributes: ['firstname', 'lastname', 'id'],
+                    },
+                    {
+                        model: Skill,
+                        include: [
+                            {
+                                // User as teacher
+                                model: User,
+                                attributes: ['firstname', 'lastname', 'id'],
+                            },
+                        ],
+                    }
+                ],
+                required: true,
             });
             console.log('meeting:', meeting)
             //send the answer to the front
