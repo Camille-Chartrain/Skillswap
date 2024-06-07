@@ -17,10 +17,13 @@ import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
 
+
 const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
     const navigate = useNavigate();
 
-    const handleClick = async (data) => {
+    const handleClick = async () => {
+
+
         try {
             console.log("dans la fonction handleclick");
             // delete cookie JWT on client's side
@@ -35,6 +38,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
             console.log("erreur :", error);
         };
     }
+
 
 
     return (

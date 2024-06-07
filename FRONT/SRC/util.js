@@ -47,3 +47,21 @@ export const NotificationType = {
     INTEREST: 'interest',
 };
 
+// //= logout function -> a voir plus tard
+
+// export const logOut = () => {
+//     try {
+//         console.log("dans la fonction handleclick");
+//         // delete cookie JWT on client's side
+//         let token = Cookies.remove('token');
+//         token = null
+//         if (token == null) {
+//             console.log("token", token);
+//             navigate("/");
+//         }
+//     }
+//     catch (error) {
+//         console.log("erreur :", error);
+//     };
+// }
+

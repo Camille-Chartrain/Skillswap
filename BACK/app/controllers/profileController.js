@@ -115,13 +115,22 @@ const profileController = {
         try {
             // req.params contains all the data
             console.log(req.params);
-            await User.destroy({
+            const user = await User.destroy({
                 where: {
                     id: req.user.id
                 }
             });
+            const petitUser = await User.findByPk(req.user.id{
+                where: {
+                    id: req.user.id
+                }
+            });
+            console.log("petitUser============================================================================ :", petitUser);
+            if (!petitUser) {
+                res.status(200).json('deletion ok');
+            }
             //send the answer to the front
-            res.status(200).json('deletion ok');
+
         } catch (error) {
             console.error(error.message);
             res.status(500).json({ error: error.message });

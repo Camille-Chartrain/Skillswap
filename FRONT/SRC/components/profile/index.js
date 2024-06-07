@@ -21,6 +21,7 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
         skill: [],
     });
 
+
     //= to fetch select's datas
     const [interests, setInterests] = useState([]);
     const handleInterestChange = (e) => {
@@ -105,7 +106,7 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
         }
     }
 
-    const ProfileDelete = async () => {
+    const ProfileDelete = useCallback(async () => {
         try {
 
             const token = Cookies.get('token');
@@ -120,17 +121,31 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
             })
 
             //=traduct api response in Json
-            // console.log("response avant .json", response);
+            console.log("response avant .json", response);
             const dataProfile = await response.json();
-            // console.log("response apres .json:", dataProfile);
+            console.log("response json analysee:", dataProfile);
 
+            if (dataProfile === "deletion ok") {
+                reset();
+
+                // delete cookie JWT on client's side
+                let token = Cookies.remove('token');
+                token = null
+                if (token == null) {
+                    console.log("token", token);
+                    navigate("/");
+                }
+            }
+            else {
+                console.error("Invalid response from API");
+            }
 
 
         }
         catch (error) {
             console.log("catch profileDelete :", error);
         }
-    }
+    })
 
     //= manage skill's list user
     const [skillsUser, setSkillsUser] = useState([]);
