@@ -87,6 +87,18 @@ const communicationController = {
                 mark: req.body.mark,
             };
 
+            //         static async updateRating(skillId, newMark) {
+            //     const skill = await Skill.findByPk(skillId);
+            //     if (skill) {
+            //         skill.sumOfMarks = (skill.sumOfMarks || 0) + newMark;
+            //         skill.numberOfRating = (skill.numberOfRating || 0) + 1;
+            //         // Calculer la moyenne et arrondir à l'entier le plus proche
+            //         const average = skill.sumOfMarks / skill.numberOfRating;
+            //         skill.mark = Math.round(average);
+            //         await skill.save();
+            //     }
+            // }
+
             // retrouver la note globale du cours et faire une moyenne avec la nouvelle note, arrondir au plus haut
 
             // //verif que le cours existe
@@ -113,7 +125,7 @@ const communicationController = {
                 res.send("This meeting doesn't exist or is not over");
             }
             else if (meeting) {
-                // il faut que je crée une colonne pour indiquer le nombre de vote et une autre pour additionner toutes les ontes recues.
+                // il faut que je crée une colonne pour indiquer le nombre de vote et une autre pour additionner toutes les notes recues.
                 const skillRating = await Skill.findByPk(meeting.SkillId, {
                     attributes: ['id', 'title', 'mark'],
                 })

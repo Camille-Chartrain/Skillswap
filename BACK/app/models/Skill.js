@@ -5,19 +5,7 @@ import sequelize from '../database.js';
 // import User from './User.js';
 // import { User, Category, Skill, SubCategory } from "../models/index.js";
 
-class Skill extends Model {
-    static async updateRating(skillId, newMark) {
-        const skill = await Skill.findByPk(skillId);
-        if (skill) {
-            skill.sumOfMarks = (skill.sumOfMarks || 0) + newMark;
-            skill.numberOfRating = (skill.numberOfRating || 0) + 1;
-            // Calculer la moyenne et arrondir à l'entier le plus proche
-            const average = skill.sumOfMarks / skill.numberOfRating;
-            skill.mark = Math.round(average);
-            await skill.save();
-        }
-    }
-}
+class Skill extends Model { }
 
 Skill.init(
     {
