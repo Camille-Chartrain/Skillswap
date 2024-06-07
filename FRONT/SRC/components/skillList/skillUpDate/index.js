@@ -102,8 +102,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
                 navigate('/dashboard');
             }
             else {
-                console.error("Invalid response from API");
-                return;
+                throw new Error("Invalid response from API");
             }
 
             setSkillUpDate(res.data);
