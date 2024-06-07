@@ -121,12 +121,10 @@ const profileController = {
                 }
             });
             //send the answer to the front
-            res.send(
-                'deletion completed'
-            );
+            res.status(200).json('deletion ok');
         } catch (error) {
             console.error(error.message);
-            res.render('error:', error);
+            res.status(500).json({ error: error.message });
         }
     },
 };

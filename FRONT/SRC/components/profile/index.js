@@ -116,32 +116,27 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(),
                 // credentials: 'include'
             })
-            // console.log('response.status:', response.status);
 
             //=traduct api response in Json
             // console.log("response avant .json", response);
             const dataProfile = await response.json();
             // console.log("response apres .json:", dataProfile);
 
-            //=fetch back side's  errors
-            // console.log("error?:", dataProfile.error);
-            setError(dataProfile.error);
+
 
         }
         catch (error) {
-            console.log("erreur cath :", error);
+            console.log("catch profileDelete :", error);
         }
     }
 
     //= manage skill's list user
     const [skillsUser, setSkillsUser] = useState([]);
-    const GetAllSkillUser = async (data) => {
+
+    const GetAllSkillUser = async () => {
         try {
-            console.log("skillUser before fetch:", data)
-            console.log('try data:', data);
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/skill', {
                 method: "get",
@@ -150,7 +145,7 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data),
+
                 // credentials: 'include'
             })
             // console.log('response.status:', response.status);
@@ -161,9 +156,6 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
             // console.log(" response apres .json:", dataListSkill);
             setSkillsUser(dataListSkill);
 
-            //=fetch back side's  errors
-            // console.log("error?:", dataListSkill.error);
-            // setError(dataSkill.error);
 
         }
         catch (error) {
@@ -187,9 +179,9 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
     };
 
     //=to delete a skill
-    const PostSkillDelete = async (skill) => {
+    const PostSkillDelete = useCallback(async (skill) => {
         try {
-
+            console.log("id recup ds le try PSD :", skill.id);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
                 method: "delete",
@@ -198,23 +190,23 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(),
+                body: JSON.stringify(skill),
                 // credentials: 'include'
             })
 
             //=traduct api response in Json
             console.log("response avant .json", response);
             const dataSkill = await response.json();
-
+            console.log("dataSkill ds le  PSD :", dataSkill);
             //=fetch back side's  errors
             // console.log("error?:", dataSkill.error);
             setError(dataSkill.error);
         }
         catch (error) {
-            console.log("erreur cath :", error);
+            console.log("catch postSkillDelete:", error);
         }
-    }
-    useEffect(() => { PostSkillDelete() }, []);
+    })
+
 
 
     return (
