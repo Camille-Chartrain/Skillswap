@@ -80,45 +80,45 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 
 
 // await Meeting.bulkCreate([
-//     { status: 'en attente', UserId: "1", SkillId: '1' },
-//     { status: 'en cours', UserId: "1", SkillId: '3' },
-//     { status: 'refusé', UserId: "1", SkillId: '4' },
-//     { status: 'terminé', UserId: "1", SkillId: '5' },
+{ status: 'en attente', UserId: "1", SkillId: '1' },
+{ status: 'en cours', UserId: "1", SkillId: '3' },
+{ status: 'refusé', UserId: "1", SkillId: '4' },
+{ status: 'terminé', UserId: "1", SkillId: '5' },
 
-//     { status: 'en cours', UserId: "2", SkillId: '4' },
-//     { status: 'en attente', UserId: "2", SkillId: '1' },
-//     { status: 'refusé', UserId: "2", SkillId: '6' },
-//     { status: 'terminé', UserId: "2", SkillId: '7' },
+{ status: 'en attente', UserId: "2", SkillId: '4' },
+{ status: 'en cours', UserId: "2", SkillId: '1' },
+{ status: 'terminé', UserId: "2", SkillId: '6' },
+{ status: 'refusé', UserId: "2", SkillId: '7' },
 
-//     { status: 'en cours', UserId: "3", SkillId: '5' },
-//     { status: 'terminé', UserId: "3", SkillId: '6' },
-//     { status: 'refusé', UserId: "3", SkillId: '1' },
-//     { status: 'en attente', UserId: "3", SkillId: '2' },
+{ status: 'en cours', UserId: "3", SkillId: '5' },
+{ status: 'refusé', UserId: "3", SkillId: '6' },
+{ status: 'terminé', UserId: "3", SkillId: '1' },
+{ status: 'en attente', UserId: "3", SkillId: '2' },
 
-//     { status: 'refusé', UserId: "4", SkillId: '7' },
-//     { status: 'en cours', UserId: "4", SkillId: '8' },
-//     { status: 'terminé', UserId: "4", SkillId: '1' },
-//     { status: 'en attente', UserId: "4", SkillId: '2' },
+{ status: 'en attente', UserId: "4", SkillId: '7' },
+{ status: 'terminé', UserId: "4", SkillId: '8' },
+{ status: 'refusé', UserId: "4", SkillId: '1' },
+{ status: 'en cours', UserId: "4", SkillId: '2' },
 
-//     { status: 'en attente', UserId: "5", SkillId: '5' },
-//     { status: 'en cours', UserId: "5", SkillId: '3' },
-//     { status: 'terminé', UserId: "5", SkillId: '8' },
-//     { status: 'refusé', UserId: "5", SkillId: '7' },
+{ status: 'refusé', UserId: "5", SkillId: '5' },
+{ status: 'en attente', UserId: "5", SkillId: '3' },
+{ status: 'en cours', UserId: "5", SkillId: '8' },
+{ status: 'terminé', UserId: "5", SkillId: '7' },
 
-//     { status: 'en attente', UserId: "6", SkillId: '2' },
-//     { status: 'terminé', UserId: "6", SkillId: '3' },
-//     { status: 'refusé', UserId: "6", SkillId: '8' },
-//     { status: 'en cours', UserId: "6", SkillId: '6' },
+{ status: 'refusé', UserId: "6", SkillId: '2' },
+{ status: 'terminé', UserId: "6", SkillId: '3' },
+{ status: 'en attente', UserId: "6", SkillId: '8' },
+{ status: 'en cours', UserId: "6", SkillId: '6' },
 
-//     { status: 'en cours', UserId: "7", SkillId: '7' },
-//     { status: 'terminé', UserId: "7", SkillId: '3' },
-//     { status: 'en attente', UserId: "7", SkillId: '5' },
-//     { status: 'refusé', UserId: "7", SkillId: '4' },
+{ status: 'en cours', UserId: "7", SkillId: '7' },
+{ status: 'refusé', UserId: "7", SkillId: '3' },
+{ status: 'en attente', UserId: "7", SkillId: '5' },
+{ status: 'terminé', UserId: "7", SkillId: '4' },
 
-//     { status: 'refusé', UserId: "8", SkillId: '6' },
-//     { status: 'en attente', UserId: "8", SkillId: '8' },
-//     { status: 'en cours', UserId: "8", SkillId: '4' },
-//     { status: 'terminé', UserId: "8", SkillId: '2' }
+{ status: 'en attente', UserId: "8", SkillId: '6' },
+{ status: 'refusé', UserId: "8", SkillId: '8' },
+{ status: 'en cours', UserId: "8", SkillId: '4' },
+{ status: 'terminé', UserId: "8", SkillId: '2' }
 // ])
 
 // await Interest.bulkCreate([
