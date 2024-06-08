@@ -23,7 +23,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
 
     const handleClick = async () => {
         try {
-            console.log("dans la fonction handleclick");
+            console.log("deconnection => supprimer cookie. (composant Dashboard)");
             // delete cookie JWT on client's side
             let token = Cookies.remove('token');
             token = null
@@ -37,53 +37,61 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
         };
     }
 
-    const verifyConnection = () => {
+    const verifyConnection = async () => {
         // redirection to login page if user is deconnected (doesn't have a cookie)
         const token = Cookies.get('token');
         if (!token) {
+            console.log('Pas de token dans le cookie, redirection vers Login');
 
             setIsAuthenticated(false);
             navigate('/login');
         }
-        // else if (token) {
-        //     try {
-        //         const response = await fetch(`http://localhost:3000/verifyToken`, {
-        //             method: "GET",
-        //             status: 200,
-        //             headers: {
-        //                 'Content-Type': 'application/json',
-        //                 'Authorization': `Bearer ${token}`,
-        //             },
-        //         })
-        //         const resultToken = await response.json();
-        //         // console.log('dataFinish avant if:', response);
 
-        //         if (resultToken === "Token invalid") {
-        //             navigate("/login");
-        //         }
-        //     }
-        //     catch (error) {
-        //         console.log("catch de resultToken dans Dashboard:", error);
-        //     }
-        // }
+        else if (token) {
+            try {
+                // console.log('on essaie de fetch dans dashboard');
+                const response = await fetch(`http://localhost:3000/dashboard`, {
+                    method: "GET",
+                    status: 200,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                    },
+                })
+
+                const resultToken = await response.json();
+                console.log('response component dashboard:', resultToken);
+
+                if (resultToken === "access granted") {
+                    setIsAuthenticated(true);
+                }
+                else {
+                    setIsAuthenticated(false);
+                    navigate("/login");
+                }
+            }
+            catch (error) {
+                console.log("catch de resultToken dans Dashboard:", error);
+            }
+        }
     }
 
     // Le rendu de react est asynchrone =>
     // 1 le composant est initialisé (son return avec l'appel aux composants enfants est exécuté)
-    // 2 le use effect est exécuté immédiatement après que ce composant ait été initialisé (il lit la fonction et l'exécute, et donne la rêgle pour futurs appels au composant Dashboard = ne pas redéclencher cette fonction)
+    // 2 le use effect est exécuté immédiatement après que ce composant ait été initialisé (il lit la fonction et l'exécute, et donne la rêgle pour futurs appels au composant Dashboard dans le tableau de dépendances, ici = ne pas redéclencher cette fonction)
     useEffect(() => { verifyConnection() }, [])
 
     // proposition de mettre 'navigate' dans le tableau de dépendances mais pas sûre des implications.
 
+    // FONCTIONNEMENT
     // est ce que user connecté?
     // Cookies?  non => renvoyer vers page connexion
-    //           oui => verifier le token GET vers page verif token/ verifie juste si token est le bon.
+    //           oui => verifier le token: GET vers page /dashboard, 
+    //          verifie juste si token dans le back est le même que celui du navigateur.
     // if response token pas ok => redirect to conection
-    // else if response token ok => return composant (cad? rien?)
+    // response token ok => return composant 
 
 
-
-    // check if user has cookie
     if (!isAuthenticated) {
         return (null);
     }

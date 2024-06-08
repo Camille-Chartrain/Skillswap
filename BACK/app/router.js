@@ -8,6 +8,7 @@ import communicationController from './controllers/communicationController.js';
 import learningController from './controllers/learningController.js';
 import categoryController from './controllers/categoryController.js'
 import verifyToken from './middlewares.js/verifyToken.js';
+import dashboardController from './controllers/dashboardController.js';
 
 const router = express.Router();
 
@@ -18,6 +19,7 @@ router.get('/', homeController.home);
 // authorisations membre
 router.post('/registration', authController.registration);
 router.post('/login', authController.login);
+router.get('/dashboard', dashboardController.dashboard);
 // router.post('/logout', authController.logout);
 
 //search for members

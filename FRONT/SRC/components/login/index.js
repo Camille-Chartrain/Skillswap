@@ -27,7 +27,7 @@ const Login = ({ handleSubmit, register, isValid }) => {
             //=traduct api response in Json
             // console.log("login response avant .json", response);
             const dataIsLogged = await response.json();
-            // console.log('login reponse apres .json :', dataIsLogged)
+            console.log('login reponse apres .json :', dataIsLogged)
 
             //= check if there is a new token associated with the user and store it with Cookies.set
             if (dataIsLogged.accessToken) {
