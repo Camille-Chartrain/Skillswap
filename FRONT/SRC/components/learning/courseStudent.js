@@ -21,7 +21,8 @@ const CourseStudent = () => {
             // console.log('response.status:', response.status);
 
             if (!response.ok) {
-                throw new Error('Failed to fetch courses');
+                console.log("response:", response);
+                // throw new Error('Failed to fetch courses');
             }
 
             //=traduct api response in Json

@@ -97,7 +97,12 @@ const authController = {
                             }
                             req.user = user;
                             console.log("notre user apres validation du token -req.user-", req.user);
+                            // Compare the emails
+                            // if (req.body.email !== user.email) {
+                            //     res.status(401).json('Vous devez vous deconnecter avant de vous reconnecter');
+                            // } else {
                             res.status(200).json('token validé !!')
+                            // }
                         });
                     }
                 }
