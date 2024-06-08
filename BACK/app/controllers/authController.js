@@ -92,9 +92,9 @@ const authController = {
                     console.log('token 1: ', token);
 
                     //if he doesn't have a token or if the token is undefined by the deconnection we create one
-                    // if (token === null || token === "undefined") {
+                    if (token === null || token === "undefined") {
 
-                    if (!token) {
+                        // if (!token) {
                         console.log('verif du null ou undefined: ', token);
 
                         const username = {
@@ -147,6 +147,7 @@ const authController = {
         catch (error) {
             console.error("error dans bloc principal", error.message);
             res.status(400).json({ error: error.message });
+            return;
         }
     },
 

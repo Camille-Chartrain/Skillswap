@@ -59,7 +59,6 @@ const Statistic = () => {
                         <ul>
                             {courseMark && courseMark.length > 0 ? (
                                 courseMark?.map((item) => (
-
                                     <div key={item.id} >
                                         <li onChange={handleChangeStatistic.bind(null, item)}>
                                             {item?.title}:<SkillRating initialRating={item?.mark} />

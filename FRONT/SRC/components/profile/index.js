@@ -2,13 +2,16 @@ import { useCallback, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 
 
 
+// ANCIENNE VERSION AU KAZOU
+// const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue }) => {
 
-const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue }) => {
-
+const Profile = () => {
+    const { register, handleSubmit, setValue, reset, formState: { isValid, errors } } = useForm();
 
     //= get method to show info & autocomplete
     const [profileData, setProfileData] = useState({
@@ -44,6 +47,7 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
     };
 
     const GetProfile = useCallback(async () => {
+        // console.log('yo declenchement getprofile');
         try {
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
@@ -52,7 +56,6 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                // credentials: 'include'
             });
 
             // console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
@@ -70,14 +73,62 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
         catch (error) {
             console.error("error catch:", error.message);
         }
-    })
-    useEffect(() => { GetProfile() }, []);
+    },
+        []);
+
+    useEffect(() => {
+        GetProfile();
+    }, [GetProfile]);
+
+
+    useEffect(() => {
+        // Synchronize profileData with form values
+        Object.keys(profileData).forEach(key => {
+            setValue(key, profileData[key]);
+        });
+    }, [profileData, setValue]);
+
+
+    // ANCIENNE VERSION AU KAZOU
+    // const GetProfile = useCallback(async () => {
+    //     try {
+    //         console.log('declenchement get profile');
+    //         const token = Cookies.get('token');
+    //         const response = await fetch('http://localhost:3000/profile', {
+    //             method: "get",
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': `Bearer ${token}`,
+    //             },
+    //             // credentials: 'include'
+    //         });
+
+    //         // console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
+    //         const dataProfile = await response.json();
+    //         // console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
+    //         setProfileData(dataProfile);
+    //         // console.log('donnees profile data du state:', profileData);
+
+    //         // //= to transform us'date into french's date
+    //         const dateUs = dataProfile.birthday;
+    //         const dateObj = new Date(dateUs);
+    //         const dateFr = dateObj.toLocaleDateString('fr-FR');
+    //         // console.log("date en francais:", dateFr);
+    //     }
+    //     catch (error) {
+    //         console.error("error catch:", error.message);
+    //     }
+    // })
+    // useEffect(() => { GetProfile() }, []);
+
+
+
 
 
     //=post method to send info
     const ProfilePatch = async (data) => {
         try {
-            // console.log('data envoyees:', data);
+            console.log('data envoyees:', data);
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/profile', {
                 method: 'PATCH',
@@ -95,7 +146,7 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
             //=traduct api response in Json
             // console.log("response post profile avant .json", response);
             const dataProfile = await response.json();
-            // console.log(" response apres .json:", dataProfile);
+            console.log(" response apres .json:", dataProfile);
 
             //=fetch back side's  errors
             // console.log("error?:", dataProfile.error);
@@ -285,7 +336,7 @@ const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue })
                         </div>
                     </fieldset>
 
-                    <button type="submit" disabled={isValid} >VALIDER</button>
+                    <button type="submit" disabled={!isValid} >VALIDER</button>
                 </fieldset>
             </form>
 
