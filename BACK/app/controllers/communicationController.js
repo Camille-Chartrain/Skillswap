@@ -5,7 +5,7 @@ const communicationController = {
     communicationInterests: async function (req, res) {
         try {
             // req.params contains all the data
-            console.log(req.params);
+            // console.log(req.params);
 
             const skill = await Skill.findAll({
                 include: [
@@ -80,7 +80,7 @@ const communicationController = {
         try {
             // req.params contains data from url
             //req.body contains body of request from forms
-            console.log("req.body:", req.body);
+            // console.log("req.body:", req.body);
             console.log("req.params.skillId:", req.params.skillId);
 
             // check if the user (as a student) is associated with this skill in a meeting with "terminé" status
@@ -93,14 +93,14 @@ const communicationController = {
                 required: true
             })
 
-            console.log("meeting", meeting);
+            // console.log("meeting", meeting);
             if (!meeting) {
                 res.send("This meeting doesn't exist - is not over -  already rated");
             }
             else if (meeting) {
                 // search the skill to rate it
                 const skill = await Skill.findByPk(meeting.SkillId)
-                console.log("skill:", skill);
+                // console.log("skill:", skill);
                 if (!skill) {
                     res.status(404).json({ message: "Skill not found" });
                 }

@@ -23,7 +23,7 @@ const statisticController = {
                     attributes: ['name']
                 }],
             });
-            console.log("statistic empty?", statistic);
+            console.log("statistic empty?", statistic.length);
 
             // if the user doens't have a skill yet we send only the nomber of swappie
             if (Array.isArray(statistic) && statistic.length === 0) {

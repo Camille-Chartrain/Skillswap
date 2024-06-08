@@ -54,7 +54,21 @@ const authController = {
         }
     },
 
+
     login: async function (req, res) {
+
+        const verifyToken = (token, secret) => {
+            return new Promise((resolve, reject) => {
+                jwt.verify(token, secret, (err, user) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(user);
+                    }
+                });
+            });
+        }
+
         try {
             // Authentification of the user, check if a mating user is founded in the db
             const user = await User.findOne({ where: { email: req.body.email } });
@@ -68,16 +82,19 @@ const authController = {
                 // if the email and the password match, then we check if the user has a token already or not
                 if (result) {
                     console.log("login req.body", req.body);
-                    console.log("login req.headers", req.headers);
+                    // console.log("login req.headers", req.headers);
                     //verifier si il y a un cookie
                     console.log('dans le result, la comparaison du mot de passe est ok');
+
                     const authHeader = req.headers['authorization'];
-                    console.log("req.headers['authorization'] ", authHeader);
+                    // console.log("req.headers['authorization'] ", authHeader);
                     const token = authHeader && authHeader.split(' ')[1]
                     console.log('token 1: ', token);
 
                     //if he doesn't have a token or if the token is undefined by the deconnection we create one
-                    if (token === null || token === "undefined") {
+                    // if (token === null || token === "undefined") {
+
+                    if (!token) {
                         console.log('verif du null ou undefined: ', token);
 
                         const username = {
@@ -89,21 +106,34 @@ const authController = {
                         res.status(200).json({ accessToken: accessToken })
                     }
                     // if user has a token we verify it
-                    else if (token) {
+                    try {
                         console.log("back token: ", token);
-                        jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-                            if (err) {
-                                throw new Error('Token invalide')
+
+                        const verifiedUser = await verifyToken(token, process.env.TOKEN_SECRET);
+                        req.user = verifiedUser;
+                        console.log("notre user apres validation du token -req.user-", req.user);
+
+                        // Compare the emails
+                        if (req.body.email !== verifiedUser.email) {
+                            console.log('check des emails auth');
+
+                            const userExist = await User.findOne({ where: { email: req.body.email } });
+
+                            const username = {
+                                email: req.body.email,
+                                id: userExist.id
                             }
-                            req.user = user;
-                            console.log("notre user apres validation du token -req.user-", req.user);
-                            // Compare the emails
-                            // if (req.body.email !== user.email) {
-                            //     res.status(401).json('Vous devez vous deconnecter avant de vous reconnecter');
-                            // } else {
+                            const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
+                            console.log('token crée dans login + deconnection ancien user =================', accessToken);
+                            res.status(200).json({ accessToken: accessToken })
+                        }
+                        else {
                             res.status(200).json('token validé !!')
-                            // }
-                        });
+                        }
+                    } catch (innerError) {
+                        // Gérer l'erreur de vérification du token
+                        console.error('Erreur de vérification du token:', innerError.message);
+                        throw new Error('Token invalide');
                     }
                 }
                 else {
@@ -115,8 +145,7 @@ const authController = {
             }
         }
         catch (error) {
-            console.error(error.message);
-            // res.send(error.message);
+            console.error("error dans bloc principal", error.message);
             res.status(400).json({ error: error.message });
         }
     },

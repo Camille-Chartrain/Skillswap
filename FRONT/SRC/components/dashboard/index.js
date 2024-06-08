@@ -81,14 +81,15 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
     // 2 le use effect est exécuté immédiatement après que ce composant ait été initialisé (il lit la fonction et l'exécute, et donne la rêgle pour futurs appels au composant Dashboard dans le tableau de dépendances, ici = ne pas redéclencher cette fonction)
     useEffect(() => { verifyConnection() }, [])
 
-    // proposition de mettre 'navigate' dans le tableau de dépendances mais pas sûre des implications.
+    // choix possible de mettre 'navigate' dans le tableau de dépendances mais pas sûre des implications.
 
-    // FONCTIONNEMENT
+    // FONCTIONNEMENT GESTION ACCES DASHBOARD
     // est ce que user connecté?
     // Cookies?  non => renvoyer vers page connexion
     //           oui => verifier le token: GET vers page /dashboard, 
-    //          verifie juste si token dans le back est le même que celui du navigateur.
-    // if response token pas ok => redirect to conection
+    //                  verifie juste si token dans le back est le même que 
+    //                  celui du navigateur.
+    // if response token pas ok => redirect to connection
     // response token ok => return composant 
 
 

@@ -5,7 +5,7 @@ const categoryController = {
     getAllCategories: async function (req, res) {
         try {
             const categories = await Category.findAll();
-            console.log(categories);
+            // console.log(categories);
             if (!categories) {
                 console.log('Categories Not found!');
             }
@@ -31,7 +31,7 @@ const categoryController = {
                 where: whereClause,
             });
 
-            console.log(subCategories);
+            // console.log(subCategories);
             if (!subCategories || subCategories.length === 0) {
                 console.log('SubCategories Not found!');
                 res.status(404).send('SubCategories Not found!');

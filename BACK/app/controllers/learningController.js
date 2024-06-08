@@ -7,7 +7,7 @@ const learningController = {
     createLearning: async function (req, res) {
         try {
             //id of the skill
-            console.log("skillId req.params:", req.params);
+            // console.log("skillId req.params:", req.params);
             console.log("req.user.id", req.user.id,);
             console.log("req.user", req.user,);
 
@@ -59,7 +59,7 @@ const learningController = {
                 ],
                 required: true,
             });
-            console.log('meeting:', meeting)
+            // console.log('meeting:', meeting)
             //send the answer to the front
             res.send(
                 meeting
@@ -103,7 +103,7 @@ const learningController = {
                     }
                 ],
             });
-            console.log("meeting", meetings);
+            // console.log("meeting", meetings);
 
             if (Array.isArray(meetings) && meetings.length === 0) {
                 res.send("Pas encore d'historique en tant que prof")
@@ -191,7 +191,7 @@ const learningController = {
                     }
                 }
                 );
-                console.log("meeting:", meeting);
+                // console.log("meeting:", meeting);
 
                 await User.update({
 
@@ -210,7 +210,7 @@ const learningController = {
                         "id",
                     ]
                 });
-                console.log("studentMeeting:", studentMeeting);
+                // console.log("studentMeeting:", studentMeeting);
                 console.log("studentMeeting.userid:", studentMeeting.UserId);
 
                 const student = await User.findByPk(studentMeeting.UserId);
@@ -256,14 +256,7 @@ const learningController = {
             }
             );
             res.status(200).json('deletion learning completed');
-            console.log("meeting:", meeting);
-            // console.log(req.params);
-            // await Meeting.destroy({
-            //     where: {
-            //         id: req.params.meetingId
-            //     }
-            // });
-            // res.status(200).json('learning deletion completed');
+            // console.log("meeting:", meeting)
         }
         catch (error) {
             console.error("error deleteLearning", error);
