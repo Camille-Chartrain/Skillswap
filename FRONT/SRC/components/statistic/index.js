@@ -57,14 +57,19 @@ const Statistic = () => {
                     <div className="skillsList">
                         <h3>Notations competences</h3>
                         <ul>
-                            {courseMark?.map((item) => (
+                            {courseMark && courseMark.length > 0 ? (
+                                courseMark?.map((item) => (
 
-                                <div key={item.id} >
-                                    <li onChange={handleChangeStatistic.bind(null, item)}>
-                                        {item?.title}:<SkillRating initialRating={item?.mark} />
-                                    </li>
-                                </div>
-                            ))}
+                                    <div key={item.id} >
+                                        <li onChange={handleChangeStatistic.bind(null, item)}>
+                                            {item?.title}:<SkillRating initialRating={item?.mark} />
+                                        </li>
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Aucune compétence notée</p>
+                            )
+                            }
                         </ul>
                     </div>
                 </span>
