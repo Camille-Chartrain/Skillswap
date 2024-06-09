@@ -205,9 +205,9 @@ const learningController = {
                     }
                 ],
             });
-            console.log("meeting pour voir les 2 users:", meeting);
-            console.log("1 meeting.User student:", meeting.User);
-            console.log("2 meeting.Skill.User teacher:", meeting.Skill.User);
+            // console.log("meeting pour voir les 2 users:", meeting);
+            // console.log("1 meeting.User student:", meeting.User);
+            // console.log("2 meeting.Skill.User teacher:", meeting.Skill.User);
 
             if (!meeting) {
                 throw new Error("Cours non trouvé - closeLearning learningController")
@@ -233,7 +233,7 @@ const learningController = {
 
                 meeting.status = "terminé"
                 await meeting.save()
-                console.log("apres update status");
+                console.log("apres update status, swappies gérés");
 
                 res.status(200).json("meeting closed, swappies handled")
             }

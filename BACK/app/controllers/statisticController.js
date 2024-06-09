@@ -13,7 +13,7 @@ const statisticController = {
                 order: [['id']], // order ASC id
                 include: [{
                     model: User, // Table to join
-                    attributes: ['firstname', 'lastname', 'swappies'] // Select specified attributs of the table Commande
+                    attributes: ['firstname', 'lastname', 'swappies', "swappiesWinned", "swappiesSpent"] // Select specified attributs of the table Commande
                 }, {
                     model: Category,
                     attributes: ['picture', 'name']
@@ -25,13 +25,15 @@ const statisticController = {
             });
             console.log("statistic empty?", statistic.length);
 
-            // if the user doens't have a skill yet we send only the nomber of swappie
+            // if the user doens't have a skill yet we send only the data of swappie
             if (Array.isArray(statistic) && statistic.length === 0) {
                 console.log('result function: Array statistic is empty');
                 const statistic = await User.findByPk(req.user.id, {
                     attributes: ['firstname',
                         'lastname',
                         "swappies",
+                        "swappiesWinned",
+                        "swappiesSpent"
                     ]
                 });
                 console.log("res = swappie of user (user without skill) ");

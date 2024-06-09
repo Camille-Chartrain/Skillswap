@@ -6,7 +6,7 @@ import SkillRating from './skillRating'
 
 const Statistic = () => {
 
-    const [statistic, setStatistic] = useState([]);
+    const [statistic, setStatistic] = useState(null);
     const [courseMark, setCourseMark] = useState([]);
 
     //= to refresh the statisticData state between two changes
@@ -35,7 +35,7 @@ const Statistic = () => {
             // console.log("les statistic data  apres .json:", dataStatistic);
 
             setStatistic(dataStatistic);
-            // console.log('donnees statistic data du state:', dataStatistic);
+            console.log('donnees statistic data du state:', dataStatistic);
             setCourseMark(dataStatistic);
             // console.log('donnees setCourseMark:', dataStatistic);
 
@@ -53,7 +53,8 @@ const Statistic = () => {
             <div className="statistic">
                 <h2 id="statistic">STATISTIQUES</h2>
                 <span className="statistic-section">
-                    <Money />
+                    {statistic && <Money statistic={statistic} />}
+                    {/* <Money dataStatistic={statistic} /> */}
                     <div className="skillsList">
                         <h3>Notations competences</h3>
                         <ul>
