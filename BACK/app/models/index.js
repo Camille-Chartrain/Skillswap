@@ -35,7 +35,7 @@ Category.hasMany(SubCategory, { foreignKey: 'category_id' });
 SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 
 
-
+// // Lucile
 // await User.bulkCreate([
 //     { firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Cochise1234.', presentation: " j'adore gagner" },
 //     { firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Cochise1234.', presentation: "toujours de bonne humeur" },
@@ -47,6 +47,7 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Cochise1234.', presentation: "Mains toutes vertes et vie en rose" },
 // ]);
 
+// // Camille
 // await User.bulkCreate([
 //     { firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!.', presentation: " j'adore gagner" },
 //     { firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Azertyuiop12!', presentation: "toujours de bonne humeur" },
@@ -57,7 +58,6 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Azertyuiop12!', presentation: "Vous pouvez me contacter je vous répondrai si je suis disponible" },
 //     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Azertyuiop12!', presentation: "Mains toutes vertes et vie en rose" },
 // ]);
-
 
 
 // await Skill.bulkCreate([

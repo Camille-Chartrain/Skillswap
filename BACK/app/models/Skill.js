@@ -26,7 +26,7 @@ Skill.init(
             defaultValue: 1,
             allowNull: false,
         },
-        mark: {
+        averageMark: {
             type: DataTypes.INTEGER,
             allowNull: true,
         },

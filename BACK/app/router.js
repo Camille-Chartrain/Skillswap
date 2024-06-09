@@ -65,3 +65,20 @@ router.get('/subCategories/:categoryId?', categoryController.getSubCategories);
 
 
 export default router;
+
+
+// user? (verif si mail existe dans bdd)
+//      oui => comparaison hash
+//          mdp ok => verification existence token
+//              pas de token => création token
+//                              renvoi token
+//                              sortie de fonction
+//              token => verification validité token
+//                      token pas ok => throw error (est ce que je dois l'indiquer)
+//                      token ok => comparaison des emails
+//                                 (token sauvegardé dans navigateur
+//                                  n'est pas forcément celui de la personne
+//                                  qui se connecte)
+//                          mail pas ok => création d'un token
+//                                         renvoi du token
+//                          mail ok => renvoi reponse ok

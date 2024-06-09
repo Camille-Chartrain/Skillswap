@@ -57,6 +57,25 @@ const authController = {
 
     login: async function (req, res) {
 
+
+        // FONCTIONNEMENT
+        // user? (verif si mail existe dans bdd)
+        //      oui => comparaison hash
+        //          mdp ok => verification existence token
+        //              pas de token => création token
+        //                              renvoi token
+        //                              sortie de fonction
+        //              token => verification validité token
+        //                      token pas ok => throw error (est ce que je dois l'indiquer)
+        //                      token ok => comparaison des emails
+        //                                 (token sauvegardé dans navigateur
+        //                                  n'est pas forcément celui de la personne
+        //                                  qui se connecte)
+        //                          mail pas ok => création d'un token
+        //                                         renvoi du token
+        //                          mail ok => renvoi reponse ok
+
+
         const verifyToken = (token, secret) => {
             return new Promise((resolve, reject) => {
                 jwt.verify(token, secret, (err, user) => {
@@ -86,6 +105,7 @@ const authController = {
                     //verifier si il y a un cookie
                     console.log('dans le result, la comparaison du mot de passe est ok');
 
+                    // extrait le token pour voir sa valeur
                     const authHeader = req.headers['authorization'];
                     // console.log("req.headers['authorization'] ", authHeader);
                     const token = authHeader && authHeader.split(' ')[1]
@@ -104,36 +124,43 @@ const authController = {
                         const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
                         console.log('token crée dans login==================', accessToken);
                         res.status(200).json({ accessToken: accessToken })
+                        // return non nécéssaire.? sécurité?
+                        return;
                     }
+
                     // if user has a token we verify it
-                    try {
-                        console.log("back token: ", token);
+                    else if (token) {
+                        try {
+                            console.log("back token: ", token);
 
-                        const verifiedUser = await verifyToken(token, process.env.TOKEN_SECRET);
-                        req.user = verifiedUser;
-                        console.log("notre user apres validation du token -req.user-", req.user);
+                            const verifiedUser = await verifyToken(token, process.env.TOKEN_SECRET);
+                            req.user = verifiedUser;
+                            console.log("notre user apres validation du token -req.user-", req.user);
 
-                        // Compare the emails
-                        if (req.body.email !== verifiedUser.email) {
-                            console.log('check des emails auth');
+                            // Compare the emails
+                            if (req.body.email !== verifiedUser.email) {
+                                console.log('check des emails auth');
 
-                            const userExist = await User.findOne({ where: { email: req.body.email } });
+                                const userExist = await User.findOne({ where: { email: req.body.email } });
 
-                            const username = {
-                                email: req.body.email,
-                                id: userExist.id
+                                const username = {
+                                    email: req.body.email,
+                                    id: userExist.id
+                                }
+                                const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
+                                console.log('token crée dans login + deconnection ancien user =================', accessToken);
+                                res.status(200).json({ accessToken: accessToken })
                             }
-                            const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
-                            console.log('token crée dans login + deconnection ancien user =================', accessToken);
-                            res.status(200).json({ accessToken: accessToken })
+                            else {
+                                res.status(200).json('token validé !!')
+                            }
+                            // avait ecrit "innerError"
+                        } catch (error) {
+                            // Gérer l'erreur de vérification du token
+                            console.error('Erreur de vérification du token, bloc interne:', error.message);
+                            // est ce ok de mettre throw new error dans catch
+                            throw new Error('Token invalide');
                         }
-                        else {
-                            res.status(200).json('token validé !!')
-                        }
-                    } catch (innerError) {
-                        // Gérer l'erreur de vérification du token
-                        console.error('Erreur de vérification du token:', innerError.message);
-                        throw new Error('Token invalide');
                     }
                 }
                 else {
@@ -147,6 +174,7 @@ const authController = {
         catch (error) {
             console.error("error dans bloc principal", error.message);
             res.status(400).json({ error: error.message });
+            // idem return éncessaire?
             return;
         }
     },

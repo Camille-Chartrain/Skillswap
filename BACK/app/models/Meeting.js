@@ -21,6 +21,10 @@ Meeting.init(
         status: {
             type: DataTypes.TEXT,
             allowNull: true,
+        },
+        mark: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
         }
     }, {
     sequelize,
