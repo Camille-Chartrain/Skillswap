@@ -35,7 +35,7 @@ const Statistic = () => {
             // console.log("les statistic data  apres .json:", dataStatistic);
 
             setStatistic(dataStatistic);
-            console.log('donnees statistic data du state:', dataStatistic);
+            // console.log('donnees statistic data du state:', dataStatistic);
             setCourseMark(dataStatistic);
             // console.log('donnees setCourseMark:', dataStatistic);
 
