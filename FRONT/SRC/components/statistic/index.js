@@ -61,7 +61,7 @@ const Statistic = () => {
                                 courseMark?.map((item) => (
                                     <div key={item.id} >
                                         <li onChange={handleChangeStatistic.bind(null, item)}>
-                                            {item?.title}:<SkillRating initialRating={item?.mark} />
+                                            {item?.title}:<SkillRating initialRating={item?.averageMark} />
                                         </li>
                                     </div>
                                 ))

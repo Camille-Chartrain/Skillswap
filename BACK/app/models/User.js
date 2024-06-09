@@ -38,6 +38,25 @@ User.init(
                 // }
             },
         },
+        swappies: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 2,
+            validate: {
+                notEmpty: true,
+                min: 0 // doesn't allow values below 0
+            },
+        },
+        swappiesWinned: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0,
+        },
+        swappiesSpent: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0,
+        },
         hash: {
             type: DataTypes.TEXT,
             allowNull: false,
@@ -76,16 +95,6 @@ User.init(
             validate: {
                 notEmpty: true,
             },
-        },
-        swappies: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue: 2,
-            validate: {
-                notEmpty: true,
-                min: 0 // doesn't allow values below 0
-            },
-
         },
     }, { // In the second object we say in which db the info will be persistant
     sequelize, // client connected to the db

@@ -9,7 +9,7 @@ const statisticController = {
                 where: {
                     UserId: req.user.id
                 },
-                attributes: ['title', 'description', 'mark'],
+                attributes: ['title', 'description', 'averageMark'],
                 order: [['id']], // order ASC id
                 include: [{
                     model: User, // Table to join
