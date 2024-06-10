@@ -39,6 +39,34 @@ const SkillRating = () => {
     }
     useEffect(() => { GetRating() }, []);
 
+
+    // bonne verison Lucile
+    // return (
+    //     <>
+    //         <div className="skillsList">
+    //             <h3>Notations competences</h3>
+    //             <ul>
+    //                 {rating?.map((item) => (
+    //                     <div key={item.id}>
+    //                         <li>{item?.title} </li>
+    //                         {rating && rating.length > 0 ? (
+    //                             <span>{
+    //                                 stars?.map((_, index) => (
+    //                                     <span key={index}
+    //                                         style={{ color: index < item?.averageMark ? 'gold' : 'gray' }} >
+    //                                         < FontAwesomeIcon icon={faStar} />
+    //                                     </span>))}
+    //                             </span>
+    //                         ) : (
+    //                             <p>Aucune note attribuée</p>
+    //                         )}
+    //                     </div>
+    //                 ))}
+    //             </ul >
+    //         </div >
+    //     </>
+    // )
+
     return (
         <>
             <div className="skillsList">
@@ -47,7 +75,7 @@ const SkillRating = () => {
                     {rating?.map((item) => (
                         <div key={item.id}>
                             <li>{item?.title} </li>
-                            {rating && rating.length > 0 ? (
+                            {item.averageMark && item.averageMark ? (
                                 <span>{
                                     stars?.map((_, index) => (
                                         <span key={index}
@@ -64,6 +92,8 @@ const SkillRating = () => {
             </div >
         </>
     )
+
+
 }
 export default SkillRating;
 
