@@ -83,20 +83,52 @@ const homeController = {
                 where: whereClause,
             };
 
-            const log = false;
-
-            if (!log) {
+            console.log("req.user", req.user);
+            if (!req.user) {
                 options.limit = 4;
             }
 
-            options.attributes = ['id', 'title', 'description', 'level', "CategoryId", "SubCategoryId", 'firstname', 'lastname', "email", 'grade_level', "presentation"]
+            // options.attributes = ['id', 'title', 'description', 'level', "CategoryId", "SubCategoryId", 'firstname', 'lastname', "email", 'grade_level', "presentation"]
 
-            const { count, rows } = await Skill.findAndCountAll(options, {
-                where: whereClause,
-                // include: [{
-                //     model: User, // Table to join
-                //     attributes: ['firstname', 'lastname', "email", 'grade_level', "presentation"] // Select specified attributs of the table Commande
-                // }]
+            const { count, rows } = await Skill.findAndCountAll({
+                ...options,
+                attributes: [
+                    "id",
+                    "title",
+                    "duration",
+                    "price",
+                    "averageMark",
+                    "sumOfMarks",
+                    "numberOfRating",
+                    "level",
+                    "transmission",
+                    "description",
+                    "availability",
+                    "SubCategoryId",
+                    "CategoryId"
+                ],
+                include: [{
+                    model: User,
+                    attributes: [
+                        'firstname',
+                        'lastname',
+                        "email",
+                        'grade_level',
+                        "presentation"
+                    ]
+                },
+                {
+                    model: Category,
+                    attributes: [
+                        'picture',
+                        'name'
+                    ]
+                },
+                {
+                    model: SubCategory,
+                    attributes: ['name']
+                }],
+                required: true,
             });
 
             if (!rows || rows.length === 0) {
