@@ -78,19 +78,44 @@ const homeController = {
                 ];
             }
 
+
+            const options = {
+                where: whereClause,
+            };
+
             const log = false;
 
-            const skills = await Skill.findAll({
+            if (!log) {
+                options.limit = 4;
+            }
+
+            options.attributes = ['id', 'title', 'description', 'level', "CategoryId", "SubCategoryId", 'firstname', 'lastname', "email", 'grade_level', "presentation"]
+
+            const { count, rows } = await Skill.findAndCountAll(options, {
                 where: whereClause,
+                // include: [{
+                //     model: User, // Table to join
+                //     attributes: ['firstname', 'lastname', "email", 'grade_level', "presentation"] // Select specified attributs of the table Commande
+                // }]
             });
 
-            if (!skills || skills.length === 0) {
+            if (!rows || rows.length === 0) {
                 console.log('no match');
                 res.status(404).send('no match');
                 return;
             }
-            res.send(skills);
-        } catch (error) {
+
+            console.log("count", count);
+            const resultCount = rows.length;
+            console.log(resultCount);
+
+            res.send({
+                rows,
+                count,
+                resultCount
+            });
+        }
+        catch (error) {
             console.log('Error fetching Skill searchVisitor');
             console.error(error.message);
             res.status(500).json({
