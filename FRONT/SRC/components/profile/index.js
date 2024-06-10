@@ -89,40 +89,6 @@ const Profile = () => {
     }, [profileData, setValue]);
 
 
-    // ANCIENNE VERSION AU KAZOU
-    // const GetProfile = useCallback(async () => {
-    //     try {
-    //         console.log('declenchement get profile');
-    //         const token = Cookies.get('token');
-    //         const response = await fetch('http://localhost:3000/profile', {
-    //             method: "get",
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${token}`,
-    //             },
-    //             // credentials: 'include'
-    //         });
-
-    //         // console.log("ICI QUON VEUT LES DATA AUSSI  response avant .json", response);
-    //         const dataProfile = await response.json();
-    //         // console.log("ICI QUON VEUT LES DATA response apres .json:", dataProfile);
-    //         setProfileData(dataProfile);
-    //         // console.log('donnees profile data du state:', profileData);
-
-    //         // //= to transform us'date into french's date
-    //         const dateUs = dataProfile.birthday;
-    //         const dateObj = new Date(dateUs);
-    //         const dateFr = dateObj.toLocaleDateString('fr-FR');
-    //         // console.log("date en francais:", dateFr);
-    //     }
-    //     catch (error) {
-    //         console.error("error catch:", error.message);
-    //     }
-    // })
-    // useEffect(() => { GetProfile() }, []);
-
-
-
 
 
     //=post method to send info

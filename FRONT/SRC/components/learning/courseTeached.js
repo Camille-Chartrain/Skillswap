@@ -70,6 +70,14 @@ const CourseTeached = () => {
             const dataTeacher = await response.json();
             console.log('dataItem avant if:', dataTeacher);
             setTeacherReq(dataTeacher);
+
+            setTeacherReq(dataTeacher);
+            if (dataFinish === "meeting closed, swappie handled") {
+                navigate("/dashboard");
+            }
+            else {
+                throw new Error("Invalid response from API");
+            }
         }
         catch (error) {
             console.log("catch de patchCourseValidate:", error);
@@ -98,6 +106,14 @@ const CourseTeached = () => {
             // console.log('dataReject avant if:', response);
 
             setTeacherReq(dataReject);
+
+            setTeacherReq(dataReject);
+            if (dataFinish === "meeting closed, swappie handled") {
+                navigate("/dashboard");
+            }
+            else {
+                throw new Error("Invalid response from API");
+            }
 
         }
         catch (error) {

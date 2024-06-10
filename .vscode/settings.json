@@ -45,7 +45,7 @@
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\",
-            "color": "foldercolorizer.LightPink"
+            "color": "foldercolorizer.LightYellow"
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\",
@@ -61,6 +61,18 @@
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\index.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\courseTeached.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\money.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\index.js\\",
             "color": "foldercolorizer.LightYellow"
         }
     ]
