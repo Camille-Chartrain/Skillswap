@@ -6,8 +6,13 @@ const SearchCategory = () => {
     const { register, handleSubmit } = useForm();
 
     //= to fetch select's datas and datas bdd
-    const [selectCat, setSelectCat] = useState([]);
-    console.log('id depuis selectCat:', selectCat.id);
+    const [selectCat, setSelectCat] = useState([
+        // {
+        //     id: [],
+        //     name: '',
+        // }
+    ]);
+    console.log('donnee selectCat:', selectCat);
 
 
 
@@ -16,7 +21,7 @@ const SearchCategory = () => {
         const { name, value } = e.target;
         console.log('handleChange: ', name, value);
         setSelectCat((prevSelectCat) => ({
-            ...prevSelectCat, [id]: value,
+            ...prevSelectCat, [name]: value,
         }));
 
     };
@@ -47,11 +52,11 @@ const SearchCategory = () => {
 
 
     return (
-        <select name="CategoryId" id="CategoryId" onSubmit={handleSubmit(getCategoriesList)}>
+        <select name="CategoryId" id="CategoryId" onChange={handleSubmit(getCategoriesList.bind(null, selectCat))}>
             <option value="">Choisissez une catégorie</option>
 
             {selectCat.map((category) => (
-                <option id={category.id} value={category.id} {...register("category.id")} name={"category.id"} onChange={handleChangeCat}> {category.name}</option>
+                <option key={category.id} value={category.id}{...register("category.id")} name={"category.id"} onChange={handleChangeCat}> {category.name}</option>
             ))}
         </select >
     )

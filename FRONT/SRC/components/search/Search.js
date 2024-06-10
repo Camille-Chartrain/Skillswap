@@ -8,7 +8,7 @@ import logo from './logo.png';
 import Cookies from 'js-cookie';
 
 
-const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory, selectCat, selectLevel, selectSubCat }) => {
+const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selectCat, selectLevel, selectSubCat }) => {
 
     const { handleSubmit, register } = useForm();
 
@@ -24,7 +24,7 @@ const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory, selec
         try {
             console.log("req data avant JSON:", data)
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/searchVisitor/${searchInput}`, {
+            const response = await fetch(`http://localhost:3000/searchVisitor/?${searchInput}/?level=${selectLevel}/?categoryId=${selectCat}/?subCategoryId=${selectSubCat}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,10 +39,10 @@ const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory, selec
             const dataSearch = await response.json();
             console.log("donnees dataSearch", dataSearch)
 
-            // setSearchInput(dataSearch);
-            // setSearchLevel(dataSearch);
-            // setSearchCategory(dataSearch);
-            // setSearchSubCategory(dataSearch);
+            setSearchInput(dataSearch);
+            setSelectLevel(dataSearch);
+            setSelectCategory(dataSearch);
+            setSelectSubCategory(dataSearch);
             console.log('donnees du state inputSearch:', dataSearch);
         }
         catch (error) {
