@@ -1,16 +1,17 @@
-import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Skill from "../skillList";
+import NotificationsList from "../notificationsList";
+import NotificationRating from '../notificationsList/notification/notificationRating';
 
 const Communication = () => {
 
     const [notification, setNotification] = useState([]);
 
-    const [message, setMessage] = useState([]);
+    // const [message, setMessage] = useState([]);
 
     const GetCommunicate = async (data) => {
         try {
             const response = await fetch(`http://localhost:3000/comunication`);
+
             const dataSkill = await response.json();
             setNotification(dataSkill);
             console.log(dataSkill);
@@ -35,16 +36,14 @@ const Communication = () => {
                         <h3>Notifications</h3>
                         <ul>
                             <span>
-                                <li>
-                                    {notification?.map((item) => (
-                                        < Skill
-                                            key={item?.id}
-                                            title={item?.title}
-                                        />
-                                    ))
-                                    }
-                                    test de visuel communication
-                                </li>
+                                {notification?.map((item) => (
+                                    <li key={item.id}>
+                                        <>
+                                            <NotificationsList />
+                                            <NotificationRating />
+                                        </>
+                                    </li>
+                                ))}
                                 <span>
                                     <button type="reset" className="btn">SUPPRIMER</button>
                                 </span>

@@ -9,10 +9,10 @@ const SkillRating = () => {
 
     const [rating, setRating] = useState(null);
     let stars = Array(5).fill();
-    console.log("rating avant get:", rating);
+    // console.log("rating avant get:", rating);
 
     const GetRating = async () => {
-        console.log();
+
         try {
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/Statistic', {
@@ -44,10 +44,10 @@ const SkillRating = () => {
             <div className="skillsList">
                 <h3>Notations competences</h3>
                 <ul>
-                    {rating?.map((item) => (
-                        <div key={item.id}>
-                            <li>{item?.title} </li>
-                            {rating && rating.length > 0 ? (
+                    {rating && rating.length > 0 ? (
+                        rating?.map((item) => (
+                            <div key={item.id}>
+                                <li>{item?.title} </li>
                                 <span>{
                                     stars?.map((_, index) => (
                                         <span key={index}
@@ -55,11 +55,16 @@ const SkillRating = () => {
                                             < FontAwesomeIcon icon={faStar} />
                                         </span>))}
                                 </span>
-                            ) : (
-                                <p>Aucune note attribuée</p>
-                            )}
-                        </div>
-                    ))}
+                            </div>
+                        ))
+
+                    ) : (
+                        rating?.map((item) => (
+                            <div key={item.id}>
+                                <li>{item?.title}:<p>Aucune note attribuée</p> </li>
+                            </div>
+                        )))
+                    }
                 </ul >
             </div >
         </>

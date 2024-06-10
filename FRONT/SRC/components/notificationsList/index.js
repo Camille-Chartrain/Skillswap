@@ -42,7 +42,7 @@ const NotificationsList = () => {
                             type={NotificationType.MONEY}
                             message={"Votre avez gagne 1 Swappy"}
                         />
-                        <Notification //->get id ds btn avec un navigate http oneSkill/:skillId
+                        <NotificationInterest //->get id ds btn avec un navigate http oneSkill/:skillId
                             key={item?.id}
                             type={NotificationType.INTEREST}
                             message={"Ceci pourait vous interesser"}

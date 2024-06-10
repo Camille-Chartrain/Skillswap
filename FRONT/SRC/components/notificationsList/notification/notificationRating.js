@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
-const Notification = ({ type, message, icone, buttonText, onClick, rating }) => {
+const NotificationRating = ({ type, message, icone, buttonText, onClick }) => {
 
     const [rating, setRating] = useState(0);
 
