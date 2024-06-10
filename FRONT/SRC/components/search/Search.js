@@ -2,54 +2,67 @@ import search from '../../style/pictures/search.svg';
 import SearchCategory from './SearchCategory';
 import SearchLevel from './SearchLevel';
 import SearchSubCategory from './SearchSubCategory';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import logo from './logo.png';
+import Cookies from 'js-cookie';
 
 
-const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory }) => {
+const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory, selectCat, selectLevel, selectSubCat }) => {
 
     const { handleSubmit, register } = useForm();
 
     const [searchInput, setSearchInput] = useState('');
-    const [selectCat, setSelectCat] = useState('all');
 
-    handleChange = (e) => { e.preventDefault(); setSearchInput(e.target.value); }
+    handleChange = (e) => {
+        e.preventDefault();
+        setSearchInput(e.target.value);
+    };
 
 
-    const GetSearch = async (data) => {
+    const GetSearch = useCallback(async (data) => {
         try {
             console.log("req data avant JSON:", data)
-            const response = await fetch(`http://localhost:3000/searchVisitor/${searchInput}`);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/searchVisitor/${searchInput}`, {
+                method: "get",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                // credentials: 'include'
+
+            });
 
             // console.log("recup data apres JSON:", data)
 
             const dataSearch = await response.json();
             console.log("donnees dataSearch", dataSearch)
 
-            setSearchInput(dataSearch.searchInput);
-            setSearchLevel(dataSearch.SearchLevel);
-            setSearchCategory(dataSearch.SearchCategory);
-            setSearchSubCategory(dataSearch.SearchSubCategory);
+            // setSearchInput(dataSearch);
+            // setSearchLevel(dataSearch);
+            // setSearchCategory(dataSearch);
+            // setSearchSubCategory(dataSearch);
             console.log('donnees du state inputSearch:', dataSearch);
         }
         catch (error) {
             console.log('erreur du catch GetSearch:', error);
         }
-    }
-    useEffect(() => { GetSearch() }, [searchInput]);
+    })
+
+    useEffect(() => { GetSearch(); }, [searchInput, selectLevel, selectCat, selectSubCat]);
 
     return (
 
         <>
             <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' role="logo" /></a>
 
-            <form method="GET" className="search" onSubmit={GetSearch}>
-                {/* <input type="search" name="searchInput" placeholder="rechercher" defaultValue={searchInput} {...register(searchInput)} onChange={handleChange(searchInput)} aria-label='faite votre recherche' /> */}
+            <form method="GET" className="search" onSubmit={handleSubmit(GetSearch)}>
+                <input type="search" name="searchInput" placeholder="rechercher" value={searchInput} onChange={handleChange} aria-label='faite votre recherche' />
 
                 <SearchLevel handleSubmit={handleSubmit} register={register} />
                 <SearchCategory handleSubmit={handleSubmit} register={register} />
-                <SearchSubCategory handleSubmit={handleSubmit} register={register} setSelectCat={setSelectCat} />
+                <SearchSubCategory handleSubmit={handleSubmit} register={register} />
 
                 <button ><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
             </form >
