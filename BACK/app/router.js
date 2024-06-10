@@ -14,7 +14,7 @@ const router = express.Router();
 
 // home search visitors
 router.get('/', homeController.home);
-//router.get('/searchVisitor/:input?/:level?/:category?/:subCategory?', homeController.searchVisitor);
+router.get('/searchVisitor/:input?/:level?/:category?/:subCategory?', homeController.searchVisitor);
 
 // authorisations membre
 router.post('/registration', authController.registration);
