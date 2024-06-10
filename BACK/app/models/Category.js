@@ -25,7 +25,4 @@ Category.init(
     tableName: 'category',
 });
 
-
-// Category.belongsToMany(User, { through: Interest });
-
 export default Category;

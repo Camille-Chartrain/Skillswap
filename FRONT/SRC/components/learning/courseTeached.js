@@ -24,6 +24,7 @@ const CourseTeached = () => {
 
             })
             console.log('response.status:', response.status);
+            console.log("response", response);
 
             if (!response.ok) {
                 throw new Error('Failed to fetch courses');
@@ -39,7 +40,7 @@ const CourseTeached = () => {
         }
         catch (error) {
             // console.log("catch GetCourseReqTeach: ", error)
-            throw error;
+            // throw error;
         }
     }
     useEffect(() => { getCourseTeacher() }, [])
@@ -152,12 +153,17 @@ const CourseTeached = () => {
                             <h5> {item.Skill.title}</h5>
                             <h5>{item.User.firstname} {item.User.lastname}</h5>
                             <div className="status" >
-                                {item.status === "en attente" && <button onClick={patchCourseValidate.bind(null, item.id)}>VALIDER LA DEMANDE
-                                </button> && <button onClick={patchCourseRejeted.bind(null, item.id)} >REJETER LA DEMANDE</button>}
-                                {item.status === "refusé" && <h4>COURS REFUSE</h4>}
+                                {item.status === "en attente" &&
+                                    <>
+                                        <button onClick={patchCourseValidate.bind(null, item.id)}>VALIDER LA DEMANDE</button>
+                                        <button onClick={patchCourseRejeted.bind(null, item.id)} >REJETER LA DEMANDE</button>
+                                    </>
+                                }
+                                {item.status === "refusé" && <h4>COURS REFUSÉ</h4>}
                                 {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
-                                {item.status === "terminé" && <h5>COURS TERMINE</h5>}
-                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
+                                {item.status === "terminé" && <h5>COURS TERMINÉ</h5>}
+                                {/* {item.status === "noté" && <h5>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</h5>} */}
+                                {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
                             </div>
                         </li>
                     </>

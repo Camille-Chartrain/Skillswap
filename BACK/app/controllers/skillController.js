@@ -11,7 +11,7 @@ const skillController = {
                     UserId: req.user.id
                 }
             });
-            console.log(skill);
+            // console.log(skill);
             if (skill === null) {
                 console.log('skills Not found!');
             }

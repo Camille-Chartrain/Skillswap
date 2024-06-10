@@ -8,6 +8,7 @@ import communicationController from './controllers/communicationController.js';
 import learningController from './controllers/learningController.js';
 import categoryController from './controllers/categoryController.js'
 import verifyToken from './middlewares.js/verifyToken.js';
+import dashboardController from './controllers/dashboardController.js';
 
 const router = express.Router();
 
@@ -18,6 +19,7 @@ router.get('/', homeController.home);
 // authorisations membre
 router.post('/registration', authController.registration);
 router.post('/login', authController.login);
+router.get('/dashboard', dashboardController.dashboard);
 // router.post('/logout', authController.logout);
 
 //search for members
@@ -63,3 +65,20 @@ router.get('/subCategories/:categoryId?', categoryController.getSubCategories);
 
 
 export default router;
+
+
+// user? (verif si mail existe dans bdd)
+//      oui => comparaison hash
+//          mdp ok => verification existence token
+//              pas de token => création token
+//                              renvoi token
+//                              sortie de fonction
+//              token => verification validité token
+//                      token pas ok => throw error (est ce que je dois l'indiquer)
+//                      token ok => comparaison des emails
+//                                 (token sauvegardé dans navigateur
+//                                  n'est pas forcément celui de la personne
+//                                  qui se connecte)
+//                          mail pas ok => création d'un token
+//                                         renvoi du token
+//                          mail ok => renvoi reponse ok

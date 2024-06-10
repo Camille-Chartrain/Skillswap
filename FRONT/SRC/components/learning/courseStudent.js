@@ -21,7 +21,8 @@ const CourseStudent = () => {
             // console.log('response.status:', response.status);
 
             if (!response.ok) {
-                throw new Error('Failed to fetch courses');
+                console.log("response:", response);
+                // throw new Error('Failed to fetch courses');
             }
 
             //=traduct api response in Json
@@ -47,11 +48,12 @@ const CourseStudent = () => {
                             <h5>{item?.Skill?.title}</h5>
 
                             <div className="status" >
-                                {item.status === "en attente" && <h5>DEMANDE ENVOYEE</h5>}
-                                {item.status === "refusé" && <h5>DEMANDE REJETEE</h5>}
+                                {item.status === "en attente" && <h5>DEMANDE ENVOYÉE</h5>}
+                                {item.status === "refusé" && <h5>DEMANDE REJETÉE</h5>}
                                 {item.status === "en cours" && <h5>EN COURS</h5>}
-                                {item.status === "terminé" && <h5>TERMINE</h5>}
-                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
+                                {item.status === "terminé" && <h5>TERMINÉ</h5>}
+                                {/* {item.status === "noté" && <h5>TERMINÉ - NOTE ATTRIBUÉE:{item.Skill.mark-chemin à revoir}</h5>} */}
+                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "noté" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
                             </div>
                         </li>
 

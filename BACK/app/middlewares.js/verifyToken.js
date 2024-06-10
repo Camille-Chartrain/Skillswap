@@ -31,32 +31,6 @@ function verifyToken(req, res, next) {
     catch (error) {
         res.status(400).json({ error: error.message });
     }
-
-    // if (token == null) {
-    //     console.log("check s'il y a token");
-    //     return (
-    //         res.status(403).json({ message: 'Token non fourni' })
-    //     );
-    // }
-    // if (token) {
-    //     try {
-    //         jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-    //             console.log('dans la fonction verifytoken');
-    //             if (err) return (
-    //                 res.status(403).json({ message: 'Token invalide' })
-    //             )
-    //             req.user = user;
-    //             console.log("req.user", req.user);
-    //         })
-    //     } catch (error) {
-    //         console.log("error:", error);
-    //         // res.status(401).json({ message: 'Token invalide' });
-    //     }
-    // }
-    // console.log('on est apres le verify=================================');
-    // req.userId = decodedToken.user.id;
-    // console.log("decoded token:", decodedToken);
-    // next();
 };
 
 

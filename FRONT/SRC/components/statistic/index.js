@@ -6,7 +6,7 @@ import SkillRating from './skillRating'
 
 const Statistic = () => {
 
-    const [statistic, setStatistic] = useState([]);
+    const [statistic, setStatistic] = useState(null);
     const [courseMark, setCourseMark] = useState([]);
 
     //= to refresh the statisticData state between two changes
@@ -53,18 +53,23 @@ const Statistic = () => {
             <div className="statistic">
                 <h2 id="statistic">STATISTIQUES</h2>
                 <span className="statistic-section">
-                    <Money />
+                    {statistic && <Money statistic={statistic} />}
+                    {/* <Money dataStatistic={statistic} /> */}
                     <div className="skillsList">
                         <h3>Notations competences</h3>
                         <ul>
-                            {courseMark?.map((item) => (
-
-                                <div key={item.id} >
-                                    <li onChange={handleChangeStatistic.bind(null, item)}>
-                                        {item?.title}:<SkillRating initialRating={item?.mark} />
-                                    </li>
-                                </div>
-                            ))}
+                            {courseMark && courseMark.length > 0 ? (
+                                courseMark?.map((item) => (
+                                    <div key={item.id} >
+                                        <li onChange={handleChangeStatistic.bind(null, item)}>
+                                            {item?.title}:<SkillRating initialRating={item?.averageMark} />
+                                        </li>
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Aucune compétence notée</p>
+                            )
+                            }
                         </ul>
                     </div>
                 </span>
