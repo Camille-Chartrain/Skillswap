@@ -39,15 +39,17 @@ const SkillRating = () => {
     }
     useEffect(() => { GetRating() }, []);
 
+
+
     return (
         <>
             <div className="skillsList">
                 <h3>Notations competences</h3>
                 <ul>
-                    {rating && rating.length > 0 ? (
-                        rating?.map((item) => (
-                            <div key={item.id}>
-                                <li>{item?.title} </li>
+                    {rating?.map((item) => (
+                        <div key={item.id}>
+                            <li>{item?.title} </li>
+                            {item.averageMark && item.averageMark ? (
                                 <span>{
                                     stars?.map((_, index) => (
                                         <span key={index}
@@ -55,49 +57,19 @@ const SkillRating = () => {
                                             < FontAwesomeIcon icon={faStar} />
                                         </span>))}
                                 </span>
-                            </div>
-                        ))
-
-                    ) : (
-                        rating?.map((item) => (
-                            <div key={item.id}>
-                                <li>{item?.title}:<p>Aucune note attribuée</p> </li>
-                            </div>
-                        )))
-                    }
+                            ) : (
+                                <p>Aucune note attribuée</p>
+                            )}
+                        </div>
+                    ))}
                 </ul >
             </div >
         </>
     )
+
+
 }
 export default SkillRating;
 
 
-// return (
-//     <main>
-//         <div className="statistic">
-//             <h2 id="statistic">STATISTIQUES</h2>
-//             <span className="statistic-section">
-//
-//                 <div className="skillsList">
-//                     <h3>Notations competences</h3>
-//                     <ul>
-//                         {courseMark && courseMark.length > 0 ? (
-//                             courseMark?.map((item) => (
-//                                 <div key={item.id} >
-//                                     <li onChange={handleChangeStatistic.bind(null, item)}>
-//                                         {item?.title}:<SkillRating initialRating={item?.averageMark} />
-//                                     </li>
-//                                 </div>
-//                             ))
-//                         ) : (
-//                             <p>Aucune compétence notée</p>
-//                         )
-//                         }
-//                     </ul>
-//                 </div>
-//             </span>
-//         </div >
-//     </main >
-// )
 
