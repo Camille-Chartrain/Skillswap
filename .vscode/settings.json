@@ -49,7 +49,7 @@
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\",
-            "color": "foldercolorizer.LightPink"
+            "color": "foldercolorizer.LightYellow"
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\createSkill\\",
@@ -73,6 +73,10 @@
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\index.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\skillRating.js\\",
             "color": "foldercolorizer.LightYellow"
         }
     ]

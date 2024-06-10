@@ -9,10 +9,10 @@ const SkillRating = () => {
 
     const [rating, setRating] = useState(null);
     let stars = Array(5).fill();
-    console.log("rating avant get:", rating);
+    // console.log("rating avant get:", rating);
 
     const GetRating = async () => {
-        console.log();
+
         try {
             const token = Cookies.get('token');
             const response = await fetch('http://localhost:3000/Statistic', {
@@ -40,32 +40,6 @@ const SkillRating = () => {
     useEffect(() => { GetRating() }, []);
 
 
-    // bonne verison Lucile
-    // return (
-    //     <>
-    //         <div className="skillsList">
-    //             <h3>Notations competences</h3>
-    //             <ul>
-    //                 {rating?.map((item) => (
-    //                     <div key={item.id}>
-    //                         <li>{item?.title} </li>
-    //                         {rating && rating.length > 0 ? (
-    //                             <span>{
-    //                                 stars?.map((_, index) => (
-    //                                     <span key={index}
-    //                                         style={{ color: index < item?.averageMark ? 'gold' : 'gray' }} >
-    //                                         < FontAwesomeIcon icon={faStar} />
-    //                                     </span>))}
-    //                             </span>
-    //                         ) : (
-    //                             <p>Aucune note attribuée</p>
-    //                         )}
-    //                     </div>
-    //                 ))}
-    //             </ul >
-    //         </div >
-    //     </>
-    // )
 
     return (
         <>
@@ -98,31 +72,4 @@ const SkillRating = () => {
 export default SkillRating;
 
 
-// return (
-//     <main>
-//         <div className="statistic">
-//             <h2 id="statistic">STATISTIQUES</h2>
-//             <span className="statistic-section">
-//
-//                 <div className="skillsList">
-//                     <h3>Notations competences</h3>
-//                     <ul>
-//                         {courseMark && courseMark.length > 0 ? (
-//                             courseMark?.map((item) => (
-//                                 <div key={item.id} >
-//                                     <li onChange={handleChangeStatistic.bind(null, item)}>
-//                                         {item?.title}:<SkillRating initialRating={item?.averageMark} />
-//                                     </li>
-//                                 </div>
-//                             ))
-//                         ) : (
-//                             <p>Aucune compétence notée</p>
-//                         )
-//                         }
-//                     </ul>
-//                 </div>
-//             </span>
-//         </div >
-//     </main >
-// )
 
