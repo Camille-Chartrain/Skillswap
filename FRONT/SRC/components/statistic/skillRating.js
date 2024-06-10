@@ -9,7 +9,7 @@ const SkillRating = () => {
 
     const [rating, setRating] = useState(null);
     let stars = Array(5).fill();
-
+    console.log("rating avant get:", rating);
 
     const GetRating = async () => {
         console.log();
@@ -44,10 +44,10 @@ const SkillRating = () => {
             <div className="skillsList">
                 <h3>Notations competences</h3>
                 <ul>
-                    {rating && rating.length > 0 ? (
-                        rating?.map((item) => (
-                            <div key={item.id}>
-                                <li>{item?.title} </li>
+                    {rating?.map((item) => (
+                        <div key={item.id}>
+                            <li>{item?.title} </li>
+                            {rating && rating.length > 0 ? (
                                 <span>{
                                     stars?.map((_, index) => (
                                         <span key={index}
@@ -55,13 +55,11 @@ const SkillRating = () => {
                                             < FontAwesomeIcon icon={faStar} />
                                         </span>))}
                                 </span>
-                            </div>
-                        ))
-
-                    ) : (
-                        <p>Pas encore noté</p>
-                    )
-                    }
+                            ) : (
+                                <p>Aucune note attribuée</p>
+                            )}
+                        </div>
+                    ))}
                 </ul >
             </div >
         </>
