@@ -155,8 +155,8 @@ const CourseTeached = () => {
                             <div className="status" >
                                 {item.status === "en attente" &&
                                     <>
-                                        <button onClick={patchCourseValidate.bind(null, item.id)}>VALIDER LA DEMANDE</button>
-                                        <button onClick={patchCourseRejeted.bind(null, item.id)} >REJETER LA DEMANDE</button>
+                                        <button onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE</button>
+                                        <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
                                     </>
                                 }
                                 {item.status === "refusé" && <h4>COURS REFUSÉ</h4>}
