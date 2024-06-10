@@ -39,25 +39,31 @@ const SearchCategory = (setValue) => {
 
         useEffect(() => { getCategoriesList() }, []);
 
-        const options = selectCat.map((category) => ({
-            value: category.id,
-            label: category.name,
-        }));
+        // const options = selectCat.map((category) => ({
+        //     value: category.id,
+        //     label: category.name,
+        // }));
 
         // const handleChange = (selectedOption) => {
         //     setSelectCat(selectedOption);
 
         return (
+            <select name="CategoryId" id="">
+                {selectCat.map((category) => (
+                    <>
+                        <div key={category.id}>
+                            <option
+                                id="CategoryId"
+                                {...register("CategoryId")}
+                                onChange={handleChange.bind(null, selectCat)}
+                                name={category.name}
+                                value={category.id}
+                                placeholder="choisissez une categorie"
+                            />
+                        </div>
 
-            <Select
-                id="CategoryId"
-                name="CategoryId"
-                defaultValue={options}
-                onChange={handleChange.bind(null, selectCat)}
-                options={options}
-                placeholder="choisissez une categorie"
-            />
-
+                    </>))}
+            </select>
         )
     }
 }

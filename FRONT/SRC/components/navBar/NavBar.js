@@ -6,12 +6,12 @@ import { ToggleBtn } from '../../util';
 
 
 //= Routes displayed depending if you are logged or not.. with islogged
-const NavBar = () => {
+const NavBar = (register, handleSubmit) => {
     return (
         <>
             <span className="arianaWire">
                 <div className='searchBar'>
-                    <Search />
+                    <Search register={register} handleSubmit={handleSubmit} />
                     <ToggleBtn />
                 </div>
             </span >

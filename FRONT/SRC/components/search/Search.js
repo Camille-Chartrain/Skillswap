@@ -14,14 +14,15 @@ const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory }) => 
     const [searchInput, setSearchInput] = useState('');
     const [selectCat, setSelectCat] = useState('all');
 
-    handleChange = (e) => { e.preventDefault(); setSearchInput(); }
+    handleChange = (e) => { e.preventDefault(); setSearchInput(e.target.value); }
 
 
     const GetSearch = async (data) => {
         try {
-
+            console.log("req data avant JSON:", data)
             const response = await fetch(`http://localhost:3000/searchVisitor/${searchInput}`);
-            console.log("recup data apres JSON:", data)
+
+            // console.log("recup data apres JSON:", data)
 
             const dataSearch = await response.json();
             console.log("donnees dataSearch", dataSearch)
@@ -36,15 +37,15 @@ const Search = ({ setSearchLevel, setSearchCategory, setSearchSubCategory }) => 
             console.log('erreur du catch GetSearch:', error);
         }
     }
-    // useEffect(() => { GetSearch() }, [searchInput]);
+    useEffect(() => { GetSearch() }, [searchInput]);
 
     return (
 
         <>
             <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' role="logo" /></a>
 
-            <form className="search" onSubmit={handleSubmit(GetSearch)}>
-                <input type="search" name="search" placeholder="rechercher" defaultValue={searchInput} onChange={handleChange} aria-label='faite votre recherche' />
+            <form method="GET" className="search" onSubmit={GetSearch}>
+                {/* <input type="search" name="searchInput" placeholder="rechercher" defaultValue={searchInput} {...register(searchInput)} onChange={handleChange(searchInput)} aria-label='faite votre recherche' /> */}
 
                 <SearchLevel handleSubmit={handleSubmit} register={register} />
                 <SearchCategory handleSubmit={handleSubmit} register={register} />
