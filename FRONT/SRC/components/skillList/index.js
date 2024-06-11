@@ -34,7 +34,7 @@ const SkillList = () => {
                         picture={item?.Category.picture}
                         title={item?.title}
                         price={item?.price}
-                        mark={item?.mark}
+                        averageMark={item?.averageMark}
                         level={item?.level}
                         duration={item?.duration}
                         transmission={item?.transmission}

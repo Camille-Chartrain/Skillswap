@@ -4,19 +4,14 @@ import Cookies from 'js-cookie';
 import { useLocation } from "react-router-dom";
 
 
-const SearchSubCategory = (setValue) => {
+const SearchSubCategory = ({ setValue, selectCat }) => {
     const { register, handleSubmit } = useForm();
 
-    const location = useLocation();
-    const selectCat = location.state?.selectCat;
+    // const location = useLocation();
+    // const selectCat = location.state?.selectCat;
 
     //= to fetch select's datas and datas bdd
-    const [selectSubCat, setSelectSubCat] = useState([
-    ]);
-
-
-    console.log("try recup selecSubCat ", selectSubCat);
-    console.log("try recup selecCat ", selectCat);
+    const [selectSubCat, setSelectSubCat] = useState([]);
 
     const handleChangeSubCat = (e) => {
         const { name, value } = e.target;
@@ -28,18 +23,13 @@ const SearchSubCategory = (setValue) => {
         setValue(name, value);
     };
 
-    useEffect(() => {
-        if (selectCat) {
-            getSubCategoriesList();
-        }
-    }, [selectCat]);
 
 
-    const getSubCategoriesList = async () => {
-        console.log("selectCat avant try:", selectCat);
+    const getSubCategoriesList = async (selectCat) => {
+
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/subCategories/${selectCat.id}`, {
+            const response = await fetch(`http://localhost:3000/subCategories/?CategoryId=${selectCat.id}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -49,12 +39,14 @@ const SearchSubCategory = (setValue) => {
             });
             const dataSubCategories = await response.json();
             console.log("dataSubCategories avant JSON: ", dataSubCategories);
-            setSelectSubCat(dataSubCategories);
+            ;
+            const subCategorySelected = selectSubCat.filter(subCat => subCat.category === selectCat)
+            setSelectSubCat(subCategorySelected);
             console.log("dataSubCategories apres JSON: ", dataSubCategories);
 
             //= update recup's values
-            Object.keys(dataSubCategories).forEach(key => {
-                setValue(key, dataSubCategories[key]);
+            Object.keys(subCategorySelected).forEach(key => {
+                setValue(key, subCategorySelected[key]);
             });
 
         }
@@ -63,24 +55,23 @@ const SearchSubCategory = (setValue) => {
         }
     };
 
+    useEffect(() => {
+        getSubCategoriesList();
+    }, [selectCat]);
+
+
+
 
     return (
-        <>
-            {selectCat === true ? (
-                <select id="SubCategoryId" name="SubCategoryId" onChange={handleChangeSubCat.bind(null, setSelectSubCat)}>
-                    <option value=""  >choisissez votre sous-categorie</option>
-                    {
-                        selectSubCat.map((selectSubCat) => (
-                            <option key={selectSubCat.id} value={selectSubCat.id}>{selectSubCat.name}</option>
-                        ))
-                    }
-                </select >
+        <select id="SubCategoryId" name="SubCategoryId" onChange={handleSubmit(getSubCategoriesList.bind(null, selectSubCat))}>
+            <option value=""  >choisissez votre sous-categorie</option>
 
-            ) : (
-                <option value="all"> {selectSubCat.name}</option>
-            )
+            {selectSubCat.map((subCat) => (
+                <option key={subCat.id} value={subCat.id}{...register("subCat.id")} name={"subCat.id"} onChange={handleChangeSubCat}>{subCat.name}</option>
+            ))
             }
-        </>
+        </select >
+
     )
 
 };

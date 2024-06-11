@@ -23,17 +23,17 @@ const CourseTeached = () => {
                 },
 
             })
-            console.log('response.status:', response.status);
-            console.log("response", response);
+            // console.log('response.status:', response.status);
+            // console.log("response", response);
 
             if (!response.ok) {
                 throw new Error('Failed to fetch courses');
             }
 
             //=traduct api response in Json
-            console.log("data CourseTeacheravant .json", response);
+            // console.log("data CourseTeacheravant .json", response);
             const dataTeacher = await response.json();
-            console.log(" data CourseTeacherapres .json:", dataTeacher);
+            // console.log(" data CourseTeacherapres .json:", dataTeacher);
             setTeacherReq(dataTeacher);
 
 
@@ -48,7 +48,7 @@ const CourseTeached = () => {
 
     //= to manage  requests received 
     const patchCourseValidate = async (item) => {
-        console.log('skill dans patchCourseValidate: ', item)
+        // console.log('skill dans patchCourseValidate: ', item)
         try {
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/acceptLearning/${item.id}`, {
@@ -68,7 +68,7 @@ const CourseTeached = () => {
 
             // //=traduct api response in Json
             const dataTeacher = await response.json();
-            console.log('dataItem avant if:', dataTeacher);
+            // console.log('dataItem avant if:', dataTeacher);
             setTeacherReq(dataTeacher);
 
             setTeacherReq(dataTeacher);
@@ -125,7 +125,7 @@ const CourseTeached = () => {
         // console.log('skill dans patchCourseFinished: ', item)
 
         try {
-            console.log("fais voir ton... id:", item.id);
+            // console.log("fais voir ton... id:", item.id);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/closeLearning/${item.id}`, {
                 method: "PATCH",

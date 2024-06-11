@@ -7,7 +7,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const SkillRating = () => {
 
-    const [rating, setRating] = useState(null);
+    const [rating, setRating] = useState([]);
     let stars = Array(5).fill();
     // console.log("rating avant get:", rating);
 
@@ -46,10 +46,10 @@ const SkillRating = () => {
             <div className="skillsList">
                 <h3>Notations competences</h3>
                 <ul>
-                    {rating?.map((item) => (
+                    {rating.length > 0 && rating?.map((item) => (
                         <div key={item.id}>
                             <li>{item?.title} </li>
-                            {item.averageMark && item.averageMark ? (
+                            {item && item.averageMark && item.averageMark ? (
                                 <span>{
                                     stars?.map((_, index) => (
                                         <span key={index}
