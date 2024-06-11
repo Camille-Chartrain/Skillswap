@@ -9,12 +9,13 @@ import learningController from './controllers/learningController.js';
 import categoryController from './controllers/categoryController.js'
 import verifyToken from './middlewares.js/verifyToken.js';
 import dashboardController from './controllers/dashboardController.js';
+import authSearch from './middlewares.js/authSearch.js';
 
 const router = express.Router();
 
 // home search visitors
 router.get('/', homeController.home);
-//router.get('/searchVisitor/:input?/:level?/:category?/:subCategory?', homeController.searchVisitor);
+router.get('/searchVisitor/:input?/:level?/:category?/:subCategory?', authSearch, homeController.searchVisitor);
 
 // authorisations membre
 router.post('/registration', authController.registration);
