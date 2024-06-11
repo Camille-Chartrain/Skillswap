@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -17,7 +17,7 @@ function authSearch(req, res, next) {
         }
         else if (token) {
             jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-                console.log('dans la fonction verifytoken');
+                console.log('dans la fonction authSearch');
                 if (err) {
                     throw new Error('Token invalide')
                 }
