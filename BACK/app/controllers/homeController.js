@@ -133,7 +133,7 @@ const homeController = {
 
             if (!rows || rows.length === 0) {
                 console.log('no match');
-                res.status(404).send('no match');
+                res.status(200).send('no match');
                 return;
             }
 

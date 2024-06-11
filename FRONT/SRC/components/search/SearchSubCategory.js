@@ -4,32 +4,37 @@ import Cookies from 'js-cookie';
 import { useLocation } from "react-router-dom";
 
 
-const SearchSubCategory = ({ setValue, selectCat }) => {
-    const { register, handleSubmit } = useForm();
-
-    // const location = useLocation();
-    // const selectCat = location.state?.selectCat;
-
-    //= to fetch select's datas and datas bdd
-    const [selectSubCat, setSelectSubCat] = useState([]);
+const SearchSubCategory = ({ setValue, selectedCategory }) => {
+    const { register } = useForm();
+    const [subCategories, setSubCategories] = useState([]);
+    const [selectedSubCategory, setSelectedSubCategory] = useState(null);
 
     const handleChangeSubCat = (e) => {
-        const { name, value } = e.target;
-        console.log('handleChange: ', name, value);
-        setSelectSubCat((prevSelectCat) => ({
-            ...prevSelectCat,
-            [name]: value,
-        }));
-        setValue(name, value);
+        const { value } = e.target;
+        console.log('handleChange sub catégorie appelé: ', value);
+        // if value is not defined, we set selected Category to null
+        if (!value) {
+            console.log("pas de sous catégorie selectionnée");
+            setSelectedSubCategory(null)
+            return;
+        }
+        // we map on the categories list to find the matching id and set our selected category in the state
+        const selected = subCategories.find(subcategory => subcategory.id === parseInt(value));
+        if (selected) {
+            setSelectedSubCategory(selected);
+            console.log('Sous Catégorie sélectionnée: ', selected);
+        }
     };
 
 
 
-    const getSubCategoriesList = async (selectCat) => {
+    const getSubCategoriesList = useCallback(async () => {
 
         try {
+            let endpoint = "http://localhost:3000/subCategories"
+
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/subCategories/?CategoryId=${selectCat.id}`, {
+            const response = await fetch(endpoint, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -38,38 +43,32 @@ const SearchSubCategory = ({ setValue, selectCat }) => {
                 // credentials: 'include'
             });
             const dataSubCategories = await response.json();
-            console.log("dataSubCategories avant JSON: ", dataSubCategories);
-            ;
-            const subCategorySelected = selectSubCat.filter(subCat => subCat.category === selectCat)
-            setSelectSubCat(subCategorySelected);
             console.log("dataSubCategories apres JSON: ", dataSubCategories);
+            const filteredSubCategories = selectedCategory
+                ? dataSubCategories.filter(subcategory => subcategory.categoryId === selectedCategory.id)
+                : dataSubCategories;
+            console.log("sous catégories filtrées:", filteredSubCategories);
+            setSubCategories(filteredSubCategories);
 
-            //= update recup's values
-            Object.keys(subCategorySelected).forEach(key => {
-                setValue(key, subCategorySelected[key]);
-            });
 
         }
         catch (error) {
             console.error("catch GetSubCategoriesList:", error);
         }
-    };
+    }, [selectedCategory]);
 
     useEffect(() => {
         getSubCategoriesList();
-    }, [selectCat]);
-
-
+    }, [getSubCategoriesList, selectedCategory]);
 
 
     return (
-        <select id="SubCategoryId" name="SubCategoryId" onChange={handleSubmit(getSubCategoriesList.bind(null, selectSubCat))}>
+        <select id="SubCategoryId" name="SubCategoryId" onChange={handleChangeSubCat} {...register("SubCategoryId")}>
             <option value=""  >choisissez votre sous-categorie</option>
 
-            {selectSubCat.map((subCat) => (
-                <option key={subCat.id} value={subCat.id}{...register("subCat.id")} name={"subCat.id"} onChange={handleChangeSubCat}>{subCat.name}</option>
-            ))
-            }
+            {subCategories.map((subcategory) => (
+                <option key={subcategory.id} value={subcategory.id} name={subcategory.id}>{subcategory.name}</option>
+            ))}
         </select >
 
     )

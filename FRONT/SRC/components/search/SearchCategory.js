@@ -3,30 +3,31 @@ import { useForm } from "react-hook-form";
 import Cookies from 'js-cookie';
 
 const SearchCategory = () => {
-    const { register, handleSubmit } = useForm();
+    const { register } = useForm();
 
     //= to fetch select's datas and datas bdd
-    const [selectCat, setSelectCat] = useState([
-        // {
-        //     id: [],
-        //     name: '',
-        // }
-    ]);
-    console.log('donnee selectCat:', selectCat);
-
-
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
     // //= to refresh the Skill Data state between two changes
     const handleChangeCat = (e) => {
-        const { name, value } = e.target;
-        console.log('handleChange: ', name, value);
-        setSelectCat((prevSelectCat) => ({
-            ...prevSelectCat, [name]: value,
-        }));
-
+        const { value } = e.target;
+        console.log('handleChange appelé: ', value);
+        // if value is not defined, we set selected Category to null
+        if (!value) {
+            console.log("pas de category selectionnée");
+            setSelectedCategory(null)
+            return;
+        }
+        // we map on the categories list to find the matching id and set our selected category in the state
+        const selected = categories.find(category => category.id === parseInt(value));
+        if (selected) {
+            setSelectedCategory(selected);
+            console.log('Catégorie sélectionnée: ', selected);
+        }
     };
 
-    const getCategoriesList = async () => {
+    const getCategoriesList = useCallback(async () => {
         try {
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/categories`, {
@@ -35,31 +36,36 @@ const SearchCategory = () => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                // credentials: 'include'
             });
             const dataCategories = await response.json();
-            setSelectCat(dataCategories);
-            console.log("recup liste des cat apres JSON:", dataCategories);
-            console.log("donnees de state selectCat:", selectCat);
-
+            setCategories(dataCategories);
+            console.log("recup liste des cat après JSON:", dataCategories);
         }
         catch (error) {
             console.error("catch GetCategoriesList:", error.message);
         }
-    };
+    }, []);
 
-    useEffect(() => { getCategoriesList() }, []);
-
+    useEffect(() => {
+        getCategoriesList();
+    }, [getCategoriesList]);
 
     return (
-        <select name="CategoryId" id="CategoryId" onChange={handleSubmit(getCategoriesList.bind(null, selectCat))}>
+        <select name="CategoryId" id="CategoryId" onChange={handleChangeCat} {...register("CategoryId", { onChange: handleChangeCat })}>
             <option value="">Choisissez une catégorie</option>
-
-            {selectCat.map((category) => (
-                <option key={category.id} value={category.id}{...register("category.id")} name={"category.id"} onChange={handleChangeCat}> {category.name}</option>
+            {categories.map((category) => (
+                <option key={category.id} value={category.id}>{category.name}</option>
             ))}
-        </select >
-    )
+        </select>
+    );
 }
 
 export default SearchCategory;
+
+
+// <select {...register("category")} name="category">
+//     <option value="">Choisissez une catégorie</option>
+//     {categories.map((category) => (
+//         <option key={category.id} value={category.id}>{category.name}</option>
+//     ))}
+// </select>
