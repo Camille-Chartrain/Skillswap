@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 
 
-const NotificationsList = () => {
+const NotificationsList = ({ handleDeleteNotification }) => {
 
     const [notification, setNotification] = useState([]);
     const navigate = useNavigate();
@@ -35,9 +35,11 @@ const NotificationsList = () => {
 
     useEffect(() => { GetNotificationsList() }, []);
 
-    // const handleChange = (item) => {
-    //     navigate('/oneSkill/item.id');
-    // }
+    const handleChange = (item) => {
+        navigate('/oneSkill/', {
+            state: { item }
+        });
+    }
 
 
     return (
@@ -45,13 +47,11 @@ const NotificationsList = () => {
             {
                 notification?.map((item) => (
                     <>
-
                         <ul>
                             <li key={item?.id}>
-                                <p>"Ceci pourait vous interesser"</p>
-                                <p>cours: {item.title}</p>
-                                <button onClick={handleChange(item.id)}>VOIR PLUS</button>
-                                <button type="reset" className="btn">SUPPRIMER</button>
+                                <p>"Ceci pourrait vous interesser: "{item.title}</p>
+                                <button onClick={handleChange.bind(null, item)}>VOIR PLUS</button>
+                                <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
 
                             </li>
                         </ul>

@@ -6,10 +6,6 @@ import { useForm } from "react-hook-form";
 
 
 
-
-// ANCIENNE VERSION AU KAZOU
-// const Profile = ({ handleSubmit, register, setError, isValid, reset, setValue }) => {
-
 const Profile = () => {
     const { register, handleSubmit, setValue, reset, formState: { isValid, errors } } = useForm();
 
@@ -87,8 +83,6 @@ const Profile = () => {
             setValue(key, profileData[key]);
         });
     }, [profileData, setValue]);
-
-
 
 
     //=post method to send info
