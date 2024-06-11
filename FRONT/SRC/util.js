@@ -40,12 +40,7 @@ export const PageError = () => {
 export const isLogged = false;
 
 
-//=notifications gender
-export const NotificationType = {
-    RATING: 'rating',
-    MONEY: 'money',
-    INTEREST: 'interest',
-};
+
 
 // //= logout function -> a voir plus tard
 

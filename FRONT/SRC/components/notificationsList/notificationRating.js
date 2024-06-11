@@ -1,9 +1,10 @@
-import { NotificationType } from "../../../util";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 
-const NotificationRating = ({ type, message, icone, buttonText, onClick }) => {
+
+const NotificationRating = () => {
 
     const [rating, setRating] = useState(0);
 
@@ -31,13 +32,13 @@ const NotificationRating = ({ type, message, icone, buttonText, onClick }) => {
     //patch pour noter http-> /communication/:skillId
 
     return (
-        <NotificationContainer type={type}>
-            <img>{icone}</img>
-            <p>{message}</p>
+        <>
+
+            <p></p>
             <span>Noter: {renderStars()}</span>
-            {buttonText && <button onClick={onClick}>{buttonText}</button>}
-        </NotificationContainer>
+            <button ></button>
+        </>
     );
 };
 
-export default Notification;
+export default NotificationRating;

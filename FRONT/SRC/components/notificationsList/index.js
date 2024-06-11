@@ -1,55 +1,60 @@
-import { NotificationType } from '../../util';
+
 import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-
-
-
+import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 
 const NotificationsList = () => {
 
-    const [NotificationsList, setNotificationsList] = useState([]);
+    const [notification, setNotification] = useState([]);
+    const navigate = useNavigate();
 
     const GetNotificationsList = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/communication`);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/communication`, {
+                method: "get",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                // credentials: 'include'
+
+            });
             const dataNotifications = await response.json();
-            setNotificationsList(dataNotifications);
-            console.log(dataNotifications);
+            console.log("dataNotifications:", dataNotifications);
+
+            setNotification(dataNotifications);
+            console.log("setNotification:", dataNotifications);
         }
         catch (error) {
-            console.error(error.message);
+            console.log("catch de GNL:", error);
         }
     }
 
-    useEffect(() => { GetNotificationsList() }, [])
+    useEffect(() => { GetNotificationsList() }, []);
+
+    // const handleChange = (item) => {
+    //     navigate('/oneSkill/item.id');
+    // }
+
 
     return (
         <div className='container'>
             {
-                NotificationsList?.map((item) => (
+                notification?.map((item) => (
                     <>
-                        < Notification//->patch student
-                            key={item?.id}
-                            type={item?.type}
-                            message={"Votre cours est termine, souhaitez vous le noter ?"}
-                            rating={renderStars()}
-                        />
 
-                        <Notification //->n front ->teacher
-                            key={item?.id}
-                            type={NotificationType.MONEY}
-                            message={"Votre avez gagne 1 Swappy"}
-                        />
-                        <NotificationInterest //->get id ds btn avec un navigate http oneSkill/:skillId
-                            key={item?.id}
-                            type={NotificationType.INTEREST}
-                            message={"Ceci pourait vous interesser"}
-                            buttonText={item?.buttonText}
-                            onClick={item?.onClick}
-                        />
+                        <ul>
+                            <li key={item?.id}>
+                                <p>"Ceci pourait vous interesser"</p>
+                                <p>cours: {item.title}</p>
+                                <button onClick={handleChange(item.id)}>VOIR PLUS</button>
+                                <button type="reset" className="btn">SUPPRIMER</button>
 
+                            </li>
+                        </ul>
                     </>
                 ))
             }
@@ -59,7 +64,7 @@ const NotificationsList = () => {
 }
 export default NotificationsList;
 
-
+// ->get id ds btn avec un navigate http oneSkill/:skillId
 
 
 

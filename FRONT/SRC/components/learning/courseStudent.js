@@ -32,6 +32,7 @@ const CourseStudent = () => {
             setCourses(course);
 
 
+
         }
         catch (error) { console.log("catchgetCourse ST:", error); throw error; };
     }
