@@ -10,7 +10,7 @@ function authSearch(req, res, next) {
     console.log('token dans middleware authSearch', token);
 
     try {
-        if (!token) {
+        if (token == null || token == undefined) {
             console.log("check s'il y a token");
             req.user = undefined;
             next();
