@@ -1,15 +1,17 @@
 import { isLogged } from '../../../util';
 import PropTypes from 'prop-types';
-import SkillRating from '../../statistic/skillRating';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 
 const Skill = ({
     Category,
     picture,
     title,
     price,
-    mark,
+    averageMark,
     level,
     duration,
     transmission,
@@ -28,6 +30,8 @@ const Skill = ({
         id: [],
         title: '',
     })
+
+    let stars = Array(5).fill();
 
     //=post method to add course to studyList
     const AskInscriptionCourse = async (skill) => {
@@ -94,7 +98,14 @@ const Skill = ({
                             <h4>Competence :</h4><span> {title}</span>
                             <h4>Niveau : </h4><span>{level}</span>
                             <h4>Prix : </h4> <span>{price}</span>
-                            <h4>Note : </h4> <SkillRating />
+                            <h4>Note : </h4>  <span>{
+                                stars?.map((_, index) => (
+                                    <span key={index}
+                                        style={{ color: index < averageMark ? 'gold' : 'gray' }} >
+                                        < FontAwesomeIcon icon={faStar} />
+                                    </span>))}
+                            </span>
+
                         </div>
                     </>
                 ) : (

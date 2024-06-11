@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import Cookies from 'js-cookie';
 
@@ -61,8 +61,5 @@ const SearchCategory = () => {
         </select >
     )
 }
-
-
-
 
 export default SearchCategory;

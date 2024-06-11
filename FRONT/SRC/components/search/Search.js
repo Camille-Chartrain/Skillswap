@@ -39,10 +39,10 @@ const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selec
             const dataSearch = await response.json();
             console.log("donnees dataSearch", dataSearch)
 
-            setSearchInput(dataSearch);
-            setSelectLevel(dataSearch);
-            setSelectCategory(dataSearch);
-            setSelectSubCategory(dataSearch);
+            // setSearchInput(dataSearch);
+            // setSelectLevel(dataSearch);
+            // setSelectCategory(dataSearch);
+            // setSelectSubCategory(dataSearch);
             console.log('donnees du state inputSearch:', dataSearch);
         }
         catch (error) {
@@ -50,7 +50,7 @@ const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selec
         }
     })
 
-    useEffect(() => { GetSearch(); }, [searchInput, selectLevel, selectCat, selectSubCat]);
+    useEffect(() => { GetSearch(); }, []);
 
     return (
 
@@ -62,7 +62,7 @@ const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selec
 
                 <SearchLevel handleSubmit={handleSubmit} register={register} />
                 <SearchCategory handleSubmit={handleSubmit} register={register} />
-                <SearchSubCategory handleSubmit={handleSubmit} register={register} />
+                <SearchSubCategory handleSubmit={handleSubmit} register={register} selectCat={selectCat} />
 
                 <button ><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
             </form >
