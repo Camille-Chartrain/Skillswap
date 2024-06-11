@@ -121,6 +121,7 @@ const authController = {
                             email: req.body.email,
                             id: user.id
                         }
+                        // const accessToken = jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1h' })
                         const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
                         console.log('token crée dans login==================', accessToken);
                         res.status(200).json({ accessToken: accessToken })
@@ -179,14 +180,38 @@ const authController = {
         }
     },
 
-    // logout: async function (req, res) {
-    //     try {
-    //         req.session.destroy();
-    //     } catch (error) {
-    //         console.error(error.message);
-    //         res.send('error');
-    //     }
-    // },
+    logout: async function (req, res) {
+
+        const revokeToken = (token) => {
+            const decoded = jwt.decode(token);
+            if (decoded && decoded.exp) {
+                const expiry = decoded.exp - Math.floor(Date.now() / 1000);
+                client.set(token, 'revoked', 'EX', expiry);
+            }
+        };
+
+
+        // const token = req.cookies['jwt'];
+
+        const authHeader = req.headers['authorization'];
+        // console.log("req.headers['authorization'] ", authHeader);
+        const token = authHeader && authHeader.split(' ')[1]
+        console.log('token 3: ', token);
+
+        // const veriyUeser = await verifyToken(token, process.env.TOKEN_SECRET);
+        // req.user = verifiedUser;
+        // console.log("token", token);
+
+        if (token) {
+            revokeToken(token);
+            // voir comment se servir des cookies dans l'appli (+simpple + propre)
+            res.clearCookie('jwt');
+            res.send('Logged out');
+        } else {
+            res.status(400).send('No token provided');
+        }
+
+    }
 };
 
 export default authController;

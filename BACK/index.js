@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv';
 // import https from 'https';
 // import fs from "fs";
 import cors from "cors";
+import cookieParser from 'cookie-parser';
 //option possible: activer HSTS (Strict Transport Security HSTS est utilisé pour indiquer aux navigateurs de toujours utiliser HTTPS pour accéder à votre site, même si l'utilisateur saisit http:// dans la barre d'adresse.) 
 // import sequelize from './app/database.js';
 // import SubCategory from './app/models/SubCategory.js';
@@ -12,11 +13,23 @@ import cors from "cors";
 // import Skill from './app/models/skill.js';
 // import Interest from './app/models/Interest.js';
 import router from './app/router.js';
+import redis from 'redis';
+
+
+// const redis = require('redis');
+const client = redis.createClient();
+
+client.on('error', (err) => {
+    console.error('Redis error:', err);
+});
+
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cookieParser());
 
 // sequelize.sync({ alter: true }).then(() => {
 //     console.log("table and model synced successfully!")
