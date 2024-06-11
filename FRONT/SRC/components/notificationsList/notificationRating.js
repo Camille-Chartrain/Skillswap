@@ -89,17 +89,17 @@ const NotificationRating = (item, handleDeleteNotification) => {
 
 
     return (
-
-        <ul>
-            {rating?.map((item) => {
-                <li>
-                    <h6> {item.title}</h6>
-                    <span>Souhaitez vous le noter: {renderStars()}</span>
-                    <button onClick={handleRatingChange(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
-                    <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
-                </li>
-            })}
-        </ul>
+        <></>
+        // <ul>
+        //     {rating?.map((item) => {
+        //         <li>
+        //             <h6> {item.title}</h6>
+        //             <span>Souhaitez vous le noter: {renderStars()}</span>
+        //             <button onClick={handleRatingChange(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
+        //             <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
+        //         </li>
+        //     })}
+        // </ul>
     );
 };
 
