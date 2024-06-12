@@ -7,6 +7,7 @@ import Cookies from 'js-cookie';
 const NotificationRating = ({ handleDeleteNotification }) => {
 
     const [rating, setRating] = useState([]);
+    const [skillsToRate, setSkillstoRate] = useState([]);
 
     const GetSkillToRate = async () => {
         try {
@@ -23,8 +24,10 @@ const NotificationRating = ({ handleDeleteNotification }) => {
             });
             const dataSkillToRate = await response.json();
             console.log("dataSkillToRate:", dataSkillToRate);
-            setRating(dataSkillToRate);
-            console.log("setRating:", dataSkillToRate);
+
+            setSkillstoRate(dataSkillToRate);
+            console.log(" state skillsTORate:", skillsToRate);
+            console.log("type of skillsToRAte", typeof skillsToRate);
         }
         catch (error) {
             console.log("catch de GSTR:", error);
@@ -49,18 +52,20 @@ const NotificationRating = ({ handleDeleteNotification }) => {
     };
 
     //=patch method to send the mark to skill
-    const RatingPatch = async (newRating, skill) => {
+    const RatingPatch = async (item) => {
+
         try {
-            console.log('data envoyees:', data);
+            console.log('id url envoye:', item.id);
+            console.log("rating", rating);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/communication/${skill.id}`, {
+            const response = await fetch(`http://localhost:3000/communication/${item.id}`, {
                 method: 'PATCH',
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify({ rating: newRating })
+                body: JSON.stringify(rating)
                 // credentials: 'include',
             });
 
@@ -82,24 +87,25 @@ const NotificationRating = ({ handleDeleteNotification }) => {
 
     return (
         <ul>
-            {rating && rating.length > 0 ? (
+            {/* {console.log("rating jsx", skillsToRate)} */}
+            {skillsToRate && skillsToRate.length > 0 ?
 
-                rating?.map((item) => (
-
+                skillsToRate?.map((item) => (
                     <li key={item.id}>
-                        <h6> {item.title}</h6>
+                        <h6>{item.title}</h6>
                         <span>Souhaitez vous le noter: {renderStars()}</span>
-                        <button onClick={RatingPatch.bind(null, item)}>VALIDER LA NOTE</button>
-                        <button type="reset" className="btn" onClick={() => handleDeleteNotification.bind(null, item)}>SUPPRIMER</button>
+                        <button onClick={(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
+                        {/* <button onClick={handleRatingChange(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button> */}
+                        <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
                     </li>
-
                 ))
-            )
                 : (
-                    <li>Plus de note a donner</li>
+                    <p> Pas de cours à noter </p>
                 )}
-        </ul >
+
+        </ul>
     );
+
 };
 
 export default NotificationRating;
