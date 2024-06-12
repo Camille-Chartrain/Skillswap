@@ -78,7 +78,7 @@ const CourseTeached = () => {
             setTeacherReq(dataTeacher);
 
             setTeacherReq(dataTeacher);
-            if (dataFinish === "meeting closed, swappie handled") {
+            if (dataTeacher === "meeting accepted") {
                 navigate("/dashboard");
 
             }
@@ -115,7 +115,7 @@ const CourseTeached = () => {
             setTeacherReq(dataReject);
 
             setTeacherReq(dataReject);
-            if (dataFinish === "meeting closed, swappie handled") {
+            if (dataReject === "meeting declined") {
                 navigate("/dashboard");
             }
             else {
