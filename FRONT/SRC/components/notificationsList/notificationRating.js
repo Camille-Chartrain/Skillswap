@@ -7,6 +7,7 @@ import Cookies from 'js-cookie';
 const NotificationRating = (item, handleDeleteNotification) => {
 
     const [rating, setRating] = useState([]);
+    const [skillsToRate, setSkillstoRate] = useState([]);
 
     const GetSkillToRate = async () => {
         try {
@@ -24,9 +25,9 @@ const NotificationRating = (item, handleDeleteNotification) => {
             const dataSkillToRate = await response.json();
             console.log("dataSkillToRate:", dataSkillToRate);
 
-            setRating(dataSkillToRate);
-            console.log(" state Rating:", dataSkillToRate);
-            console.log("type of rate", typeof rating);
+            setSkillstoRate(dataSkillToRate);
+            console.log(" state skillsTORate:", skillsToRate);
+            console.log("type of skillsToRAte", typeof skillsToRate);
         }
         catch (error) {
             console.log("catch de GSTR:", error);
@@ -56,8 +57,10 @@ const NotificationRating = (item, handleDeleteNotification) => {
     };
     //=patch method to send the mark to skill
     const RatingPatch = async (item) => {
+
         try {
-            console.log('data envoyees:', item);
+            console.log('id url envoye:', item.id);
+            console.log("rating", rating);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/communication/${item.id}`, {
                 method: 'PATCH',
@@ -90,14 +93,14 @@ const NotificationRating = (item, handleDeleteNotification) => {
 
     return (
         <ul>
-            {console.log("rating jsx", rating)}
-            {rating && rating.length > 0 ?
+            {/* {console.log("rating jsx", skillsToRate)} */}
+            {skillsToRate && skillsToRate.length > 0 ?
 
-                rating?.map((item) => (
+                skillsToRate?.map((item) => (
                     <li key={item.id}>
                         <h6>{item.title}</h6>
-                        {/* <span>Souhaitez vous le noter: {renderStars()}</span> */}
-                        {/* <button onClick={(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button> */}
+                        <span>Souhaitez vous le noter: {renderStars()}</span>
+                        <button onClick={(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
                         {/* <button onClick={handleRatingChange(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button> */}
                         <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
                     </li>
