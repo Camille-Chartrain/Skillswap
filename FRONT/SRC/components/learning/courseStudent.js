@@ -31,8 +31,6 @@ const CourseStudent = () => {
             // console.log(" Course  apres .json:", course);
             setCourses(course);
 
-
-
         }
         catch (error) { console.log("catchgetCourse ST:", error); throw error; };
     }

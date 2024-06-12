@@ -11,18 +11,19 @@ const SearchSubCategory = ({ setValue, selectedCategory }) => {
 
     const handleChangeSubCat = (e) => {
         const { value } = e.target;
-        console.log('handleChange sub catégorie appelé: ', value);
-        // if value is not defined, we set selected Category to null
+        // console.log('handleChange sub catégorie appelé: ', value);
+
+        //= if value is not defined, we set selected Category to null
         if (!value) {
-            console.log("pas de sous catégorie selectionnée");
+            // console.log("pas de sous catégorie selectionnée");
             setSelectedSubCategory(null)
             return;
         }
-        // we map on the categories list to find the matching id and set our selected category in the state
+        //= we map on the categories list to find the matching id and set our selected category in the state
         const selected = subCategories.find(subcategory => subcategory.id === parseInt(value));
         if (selected) {
             setSelectedSubCategory(selected);
-            console.log('Sous Catégorie sélectionnée: ', selected);
+            // console.log('Sous Catégorie sélectionnée: ', selected);
         }
     };
 
@@ -43,11 +44,11 @@ const SearchSubCategory = ({ setValue, selectedCategory }) => {
                 // credentials: 'include'
             });
             const dataSubCategories = await response.json();
-            console.log("dataSubCategories apres JSON: ", dataSubCategories);
+            // console.log("dataSubCategories apres JSON: ", dataSubCategories);
             const filteredSubCategories = selectedCategory
                 ? dataSubCategories.filter(subcategory => subcategory.category_id === selectedCategory.id)
                 : dataSubCategories;
-            console.log("sous catégories filtrées:", filteredSubCategories);
+            // console.log("sous catégories filtrées:", filteredSubCategories);
             setSubCategories(filteredSubCategories);
 
 

@@ -13,18 +13,19 @@ const SearchCategory = () => {
     // //= to refresh the Skill Data state between two changes
     const handleChangeCat = (e) => {
         const { value } = e.target;
-        console.log('handleChange appelé: ', value);
-        // if value is not defined, we set selected Category to null
+        // console.log('handleChange appelé: ', value);
+
+        //= if value is not defined, we set selected Category to null
         if (!value) {
-            console.log("pas de category selectionnée");
+            // console.log("pas de category selectionnée");
             setSelectedCategory(null)
             return;
         }
-        // we map on the categories list to find the matching id and set our selected category in the state
+        //= we map on the categories list to find the matching id and set our selected category in the state
         const selected = categories.find(category => category.id === parseInt(value));
         if (selected) {
             setSelectedCategory(selected);
-            console.log('Catégorie sélectionnée: ', selected);
+            // console.log('Catégorie sélectionnée: ', selected);
         }
     };
 
@@ -40,7 +41,7 @@ const SearchCategory = () => {
             });
             const dataCategories = await response.json();
             setCategories(dataCategories);
-            console.log("recup liste des cat après JSON:", dataCategories);
+            // console.log("recup liste des cat après JSON:", dataCategories);
         }
         catch (error) {
             console.error("catch GetCategoriesList:", error.message);
