@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { link } from "fs";
 import { useNavigate } from "react-router-dom";
+import Error
 
 
 //=manage reception notification
@@ -72,12 +73,13 @@ const CourseTeached = () => {
             setTeacherReq(dataTeacher);
 
             setTeacherReq(dataTeacher);
-            if (dataFinish === "meeting closed, swappie handled") {
+            if (dataTeacher === "meeting accepted") {
                 navigate("/dashboard");
 
             }
             else {
                 throw new Error("Invalid response from API");
+                <Error />
             }
         }
         catch (error) {
@@ -109,7 +111,7 @@ const CourseTeached = () => {
             setTeacherReq(dataReject);
 
             setTeacherReq(dataReject);
-            if (dataFinish === "meeting closed, swappie handled") {
+            if (dataReject === "meeting declined") {
                 navigate("/dashboard");
             }
             else {
