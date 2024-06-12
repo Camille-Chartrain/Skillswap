@@ -76,9 +76,10 @@ const communicationController = {
     rateSkill: async function (req, res) {
         try {
             console.log(" req.body", req.body);
+            console.log(" typeof req.body[0]", typeof req.body[0]);
             console.log("req.params", req.params);
             console.log("req.params.skillId:", req.params.skillId);
-            console.log(" req.body", req.body);
+
 
             // check if the user (as a student) is associated with this skill in 
             // a meeting with "terminé" status
@@ -92,14 +93,14 @@ const communicationController = {
                 required: true
             })
 
-            console.log("meeting", meeting);
+            // console.log("meeting", meeting);
             if (!meeting) {
                 res.send("This meeting doesn't exist - is not over -  already rated");
             }
             else if (meeting) {
                 // console.log('Type of myVariable:', typeof req.body.mark, req.body.mark);
                 // parse the string into a number
-                const mark = parseFloat(req.body.mark);
+                const mark = parseFloat(req.body[0]);
                 // console.log('Type of myVariable:', typeof mark after parseFloat, mark);
 
                 if (isNaN(mark)) {
