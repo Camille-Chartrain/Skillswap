@@ -40,7 +40,7 @@ const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selec
 
             setSearchInput(dataSearch);
             setSelectLevel(dataSearch);
-            setSelectedCategory(dataSearch);
+            setSelectCategory(dataSearch);
             setSelectSubCategory(dataSearch);
             console.log('donnees du state inputSearch:', dataSearch);
         }
@@ -62,7 +62,7 @@ const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selec
                 <SearchLevel handleSubmit={handleSubmit} register={register} />
                 <SearchCategory handleSubmit={handleSubmit} register={register} />
 
-                <button ><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
+                <button><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
             </form >
         </>
     )

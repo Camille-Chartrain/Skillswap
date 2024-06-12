@@ -74,6 +74,7 @@ const CourseTeached = () => {
             setTeacherReq(dataTeacher);
             if (dataFinish === "meeting closed, swappie handled") {
                 navigate("/dashboard");
+
             }
             else {
                 throw new Error("Invalid response from API");
@@ -166,7 +167,7 @@ const CourseTeached = () => {
                     <>
                         {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
 
-                        <li li key={item.id} >
+                        <li key={item.id} >
                             <h5> {item.Skill.title}</h5>
                             <h5>{item.User.firstname} {item.User.lastname}</h5>
                             <div className="status" >
