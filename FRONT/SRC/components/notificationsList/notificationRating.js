@@ -35,6 +35,10 @@ const NotificationRating = ({ handleDeleteNotification }) => {
     };
     useEffect(() => { GetSkillToRate(); }, []);
 
+    const handleRatingChange = (newRating) => {
+        setRating(newRating);
+    };
+
     const renderStars = () => {
         const stars = [];
         for (let i = 1; i <= 5; i++) {
@@ -65,7 +69,7 @@ const NotificationRating = ({ handleDeleteNotification }) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify([rating])
+                body: JSON.stringify(rating)
                 // credentials: 'include',
             });
 

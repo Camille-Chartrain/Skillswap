@@ -5,7 +5,10 @@ const statisticController = {
     statistic: async function (req, res) {
         try {
             //we search the skills and the number of swappies of a user
+            console.log("req.user statistic", req.user)
             const statistic = await Skill.findAll({
+
+
                 where: {
                     UserId: req.user.id
                 },
@@ -36,9 +39,23 @@ const statisticController = {
                         "swappiesSpent"
                     ]
                 });
+
+                const statisticArray = [
+                    {
+                        Category: "",
+
+                        SubCategory: "",
+                    }
+                ];
+
+                console.log("statistic format ================", statistic);
+                console.log("statistic.firstname format ================", statistic.firstname);
+                statisticArray[0].User = statistic;
+                console.log("statisticArray avec data ", statisticArray);
+
                 console.log("res = swappie of user (user without skill) ");
-                res.send(
-                    statistic
+                res.json(
+                    statisticArray
                 );
             }
             else {

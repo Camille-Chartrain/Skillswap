@@ -43,19 +43,20 @@ const NotificationsList = ({ handleDeleteNotification }) => {
 
 
     return (
-        <div className='container'>
-            <ul> {
-                notification?.map((item) => (
-                    <>
-                        <li key={item?.id}>
-                            <p>"Ceci pourrait vous interesser: "{item.title}</p>
-                            <button onClick={handleChange.bind(null, item)}>VOIR PLUS</button>
-                            <button type="reset" className="btn" onClick={handleDeleteNotification.bind(null, item)}>SUPPRIMER</button>
-                        </li>
-                    </>
-                ))
-            }</ul>
-        </div >
+        <p>coucou</p>
+        // <div className='container'>
+        //     <ul> {
+        //         notification?.map((item) => (
+        //             <>
+        //                 <li key={item?.id}>
+        //                     <p>"Ceci pourrait vous interesser: "{item.title}</p>
+        //                     <button onClick={handleChange.bind(null, item)}>VOIR PLUS</button>
+        //                     <button type="reset" className="btn" onClick={handleDeleteNotification.bind(null, item)}>SUPPRIMER</button>
+        //                 </li>
+        //             </>
+        //         ))
+        //     }</ul>
+        // </div >
     )
 
 }
