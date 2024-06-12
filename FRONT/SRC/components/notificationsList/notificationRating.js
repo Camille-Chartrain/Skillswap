@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 
 
-const NotificationRating = (item, handleDeleteNotification) => {
+const NotificationRating = ({ handleDeleteNotification }) => {
 
     const [rating, setRating] = useState([]);
     const [skillsToRate, setSkillstoRate] = useState([]);
@@ -33,7 +33,7 @@ const NotificationRating = (item, handleDeleteNotification) => {
             console.log("catch de GSTR:", error);
         }
     };
-    useEffect(() => { GetSkillToRate() }, []);
+    useEffect(() => { GetSkillToRate(); }, []);
 
     const renderStars = () => {
         const stars = [];
@@ -50,11 +50,7 @@ const NotificationRating = (item, handleDeleteNotification) => {
         }
         return stars;
     };
-    //=rating update
-    const handleRatingChange = (newRating) => {
-        setRating(newRating);
-        // RatingPatch();
-    };
+
     //=patch method to send the mark to skill
     const RatingPatch = async (item) => {
 
@@ -71,7 +67,7 @@ const NotificationRating = (item, handleDeleteNotification) => {
                 },
                 body: JSON.stringify([rating])
                 // credentials: 'include',
-            })
+            });
 
             console.log('response.status:', response.status);
 
@@ -79,9 +75,7 @@ const NotificationRating = (item, handleDeleteNotification) => {
             // console.log("response patch data avant .json", response);
             const dataRating = await response.json();
             console.log(" response apres .json:", dataRating);
-
-            //=fetch back side's  errors
-            // console.log("error?:", dataRating.error);
+            setRating(newRating);
 
         }
         catch (error) {
