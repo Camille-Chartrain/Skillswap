@@ -31,8 +31,7 @@ const NotificationRating = (item, handleDeleteNotification) => {
         catch (error) {
             console.log("catch de GSTR:", error);
         }
-    }
-
+    };
     useEffect(() => { GetSkillToRate() }, []);
 
     const renderStars = () => {
@@ -85,7 +84,7 @@ const NotificationRating = (item, handleDeleteNotification) => {
         catch (error) {
             console.log("catch de RatingPatch : ", error);
         }
-    }
+    };
 
 
 
