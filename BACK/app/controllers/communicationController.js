@@ -41,6 +41,7 @@ const communicationController = {
 
     communicationSkillToRate: async function (req, res) {
         try {
+            console.log("on est dans communicationSkillToRate");
             const skillsToRate = await Skill.findAll({
                 // Find the skills that need to be rated by the student 
                 // (those linked to meetings with a status of 'terminé'), 

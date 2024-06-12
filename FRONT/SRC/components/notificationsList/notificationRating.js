@@ -36,7 +36,6 @@ const NotificationRating = ({ handleDeleteNotification }) => {
     };
     useEffect(() => { GetSkillToRate(); }, []);
 
-
     const handleRatingChange = (newRating) => {
         setRating(newRating);
     };
