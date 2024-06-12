@@ -9,7 +9,7 @@ import learningController from './controllers/learningController.js';
 import categoryController from './controllers/categoryController.js'
 import verifyToken from './middlewares.js/verifyToken.js';
 import dashboardController from './controllers/dashboardController.js';
-import authSearch from './middlewares.js/authSearch.js';
+// import authSearch from './middlewares.js/authSearch.js';
 
 const router = express.Router();
 
@@ -21,7 +21,7 @@ router.get('/searchVisitor/:input?/:level?/:category?/:subCategory?', homeContro
 router.post('/registration', authController.registration);
 router.post('/login', authController.login);
 router.get('/dashboard', dashboardController.dashboard);
-// router.post('/logout', authController.logout);
+router.post('/logout', authController.logout);
 
 //search for members
 // router.get('/search/:input?/:level?/:category?/:subCategory?', mainController.search);

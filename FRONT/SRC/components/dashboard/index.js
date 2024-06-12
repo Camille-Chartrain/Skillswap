@@ -22,13 +22,28 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const handleClick = async () => {
+
         try {
-            console.log("deconnection => supprimer cookie. (composant Dashboard)");
+            // console.log("deconnection => supprimer cookie. (composant Dashboard)");
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/logout`, {
+                method: "POST",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+
+            // console.log("response", response);
+            const resultLogout = await response.json();
+            // console.log('response component dashboard logout:', resultLogout);
+
             // delete cookie JWT on client's side
-            let token = Cookies.remove('token');
-            token = null
-            if (token == null) {
-                console.log("token", token);
+            let thisToken = Cookies.remove('token');
+            thisToken = null
+            if (thisToken == null) {
+                // console.log("token", thisToken);
                 navigate("/");
             }
         }
