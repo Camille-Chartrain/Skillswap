@@ -49,8 +49,8 @@ const NotificationsList = ({ handleDeleteNotification }) => {
                     <>
                         <li key={item?.id}>
                             <p>"Ceci pourrait vous interesser: "{item.title}</p>
-                            <button onClick={handleChange.bind(null, item)}>VOIR PLUS</button>
-                            <button type="reset" className="btn" onClick={handleDeleteNotification.bind(null, item)}>SUPPRIMER</button>
+                            <button onClick={() => handleChange.bind(null, item)}>VOIR PLUS</button>
+                            <button type="reset" className="btn" onClick={() => handleDeleteNotification(item)}>SUPPRIMER</button>
                         </li>
                     </>
                 ))
