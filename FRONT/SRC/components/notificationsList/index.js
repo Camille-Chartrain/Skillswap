@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 
 
-const NotificationsList = ({ handleDeleteNotification }) => {
+const NotificationsList = ({ NotificationDelete }) => {
 
     const [notification, setNotification] = useState([]);
     const navigate = useNavigate();
@@ -50,7 +50,7 @@ const NotificationsList = ({ handleDeleteNotification }) => {
                         <li key={item?.id}>
                             <p>"Ceci pourrait vous interesser: "{item.title}</p>
                             <button onClick={() => handleChange.bind(null, item)}>VOIR PLUS</button>
-                            <button type="reset" className="btn" onClick={() => handleDeleteNotification(item)}>SUPPRIMER</button>
+                            {/* <button type="reset" className="btn" onClick={NotificationDelete.bind(null, item)}>SUPPRIMER</button> */}
                         </li>
                     </>
                 ))

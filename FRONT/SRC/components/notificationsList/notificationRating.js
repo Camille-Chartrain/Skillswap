@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
+import Communication from '../communication';
 
 
 const NotificationRating = ({ handleDeleteNotification }) => {
@@ -35,6 +36,11 @@ const NotificationRating = ({ handleDeleteNotification }) => {
     };
     useEffect(() => { GetSkillToRate(); }, []);
 
+
+    const handleRatingChange = (newRating) => {
+        setRating(newRating);
+    };
+
     const renderStars = () => {
         const stars = [];
         for (let i = 1; i <= 5; i++) {
@@ -65,7 +71,7 @@ const NotificationRating = ({ handleDeleteNotification }) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify([rating])
+                body: JSON.stringify(rating)
                 // credentials: 'include',
             });
 
@@ -75,7 +81,7 @@ const NotificationRating = ({ handleDeleteNotification }) => {
             // console.log("response patch data avant .json", response);
             const dataRating = await response.json();
             console.log(" response apres .json:", dataRating);
-            setRating(newRating);
+
 
         }
         catch (error) {
@@ -96,7 +102,7 @@ const NotificationRating = ({ handleDeleteNotification }) => {
                         <span>Souhaitez vous le noter: {renderStars()}</span>
                         <button onClick={(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
                         {/* <button onClick={handleRatingChange(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button> */}
-                        <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
+                        <button type="reset" className="btn" onClick={() => handleDeleteNotification(null, item)}>SUPPRIMER</button>
                     </li>
                 ))
                 : (

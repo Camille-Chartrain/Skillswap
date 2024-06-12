@@ -6,14 +6,17 @@ const Communication = () => {
 
     //=delete notification
     const handleDeleteNotification = (item) => {
-        NotificationDelete();
-        Navigate('/communication');
+        Navigate('/communication',
+            {
+                state: { item }
+            }
+        )
     };
 
     //=to delete a notification
     const NotificationDelete = useCallback(async (item) => {
         try {
-            console.log("id recup ds le try PSD :", item);
+            console.log("id recup ds le try ND :", item);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/communication/${item.id}`, {
                 method: "delete",
@@ -22,14 +25,14 @@ const Communication = () => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(skill),
+                body: JSON.stringify(item),
                 // credentials: 'include'
             })
 
             //=traduct api response in Json
             console.log("response avant .json", response);
             const dataNotification = await response.json();
-            console.log("dataNotificationds le  notifDelete :", dataNotification);
+            console.log("dataNotification ds le  notifDelete :", dataNotification);
             //=fetch back side's  errors
             // console.log("error?:", dataNotification.error);
             setError(dataNotification.error);
