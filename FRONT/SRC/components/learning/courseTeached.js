@@ -29,6 +29,9 @@ const CourseTeached = () => {
             if (!response.ok) {
                 throw new Error('Failed to fetch courses');
             }
+            else {
+                navigate("/dashboard");
+            }
 
             //=traduct api response in Json
             // console.log("data CourseTeacheravant .json", response);
@@ -64,6 +67,9 @@ const CourseTeached = () => {
 
             if (!response.ok) {
                 throw new Error('Failed to fetch courses');
+            }
+            else {
+                navigate("/dashboard");
             }
 
             // //=traduct api response in Json
