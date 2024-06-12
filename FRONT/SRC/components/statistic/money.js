@@ -40,6 +40,7 @@ const Money = () => {
                 <h3>Coffre au tresor</h3>
 
                 <ul>
+                    {console.log("voir wallet:", wallet)}
                     {wallet && <li> Swappies totals : {wallet[0].User?.swappies}</li>}
                     {wallet && <li> Swappies recus: {wallet[0].User?.swappiesWinned}</li>}
                     {wallet && <li>Swappies donnes : {wallet[0].User?.swappiesSpent}</li>}
