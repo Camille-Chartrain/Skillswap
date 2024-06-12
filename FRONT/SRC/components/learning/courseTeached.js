@@ -66,6 +66,7 @@ const CourseTeached = () => {
             })
 
             if (response.ok) {
+                console.log("dans le reponse.ok validate");
 
                 navigate("/dashboard");
             }

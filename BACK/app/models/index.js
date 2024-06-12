@@ -49,7 +49,7 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 
 // // Camille
 // await User.bulkCreate([
-//     { firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!.', presentation: " j'adore gagner" },
+//     { firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!', presentation: " j'adore gagner" },
 //     { firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Azertyuiop12!', presentation: "toujours de bonne humeur" },
 //     { firstname: "José", lastname: "Paledire", email: 'chut@gmail.com', hash: 'Azertyuiop12!', presentation: "discret mais solide" },
 //     { firstname: "Gus", lastname: "GusLucifer", email: 'estmechant@gmail.com', hash: 'Azertyuiop12!', presentation: "j'adore les petits zétoné" },
