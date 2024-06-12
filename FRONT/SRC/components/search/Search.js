@@ -1,7 +1,6 @@
 import search from '../../style/pictures/search.svg';
 import SearchCategory from './SearchCategory';
 import SearchLevel from './SearchLevel';
-import SearchSubCategory from './SearchSubCategory';
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import logo from './logo.png';
@@ -62,7 +61,6 @@ const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selec
 
                 <SearchLevel handleSubmit={handleSubmit} register={register} />
                 <SearchCategory handleSubmit={handleSubmit} register={register} />
-                <SearchSubCategory handleSubmit={handleSubmit} register={register} selectedCategory={selectedCategory} />
 
                 <button ><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
             </form >
