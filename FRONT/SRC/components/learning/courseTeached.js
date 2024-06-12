@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { link } from "fs";
 import { useNavigate } from "react-router-dom";
+import Error from Error
 
 
 //=manage reception notification
@@ -75,12 +76,15 @@ const CourseTeached = () => {
             // const dataTeacher = await response.json();
             // // console.log('dataItem avant if:', dataTeacher);
 
-            // if (dataTeacher == "meeting accepted") {
-            //     navigate("/dashboard");
-            // }
-            // else {
-            //     throw new Error("Invalid response from API");
-            // }
+            setTeacherReq(dataTeacher);
+            if (dataTeacher === "meeting accepted") {
+                navigate("/dashboard");
+
+            }
+            else {
+                throw new Error("Invalid response from API");
+                <Error />
+            }
         }
         catch (error) {
             console.log("catch de patchCourseValidate:", error);
