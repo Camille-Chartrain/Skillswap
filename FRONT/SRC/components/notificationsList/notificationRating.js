@@ -69,7 +69,7 @@ const NotificationRating = (item, handleDeleteNotification) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(rating)
+                body: JSON.stringify([rating])
                 // credentials: 'include',
             })
 

@@ -74,7 +74,10 @@ const communicationController = {
 
     rateSkill: async function (req, res) {
         try {
+            console.log(" req.body", req.body);
+            console.log("req.params", req.params);
             console.log("req.params.skillId:", req.params.skillId);
+            console.log(" req.body", req.body);
 
             // check if the user (as a student) is associated with this skill in 
             // a meeting with "terminé" status
@@ -99,7 +102,7 @@ const communicationController = {
                 // console.log('Type of myVariable:', typeof mark after parseFloat, mark);
 
                 if (isNaN(mark)) {
-                    return res.status(400).send('Invalid mark, not a number');
+                    return res.status(400).json('Invalid mark, not a number');
                 }
                 const skill = meeting.Skill
                 // console.log("skill du meeting", skill);
