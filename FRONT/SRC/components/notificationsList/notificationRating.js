@@ -24,14 +24,13 @@ const NotificationRating = (item, handleDeleteNotification) => {
             const dataSkillToRate = await response.json();
             console.log("dataSkillToRate:", dataSkillToRate);
 
-            setRating(dataSkillToRate);
+            setRating(Array.isArray(dataSkillToRate) ? dataSkillToRate : []);
             console.log("setRating:", dataSkillToRate);
         }
         catch (error) {
             console.log("catch de GSTR:", error);
         }
-    }
-
+    };
     useEffect(() => { GetSkillToRate() }, []);
 
     const renderStars = () => {
@@ -84,21 +83,24 @@ const NotificationRating = (item, handleDeleteNotification) => {
         catch (error) {
             console.log("catch de RatingPatch : ", error);
         }
-    }
+    };
 
 
 
     return (
-
         <ul>
-            {rating?.map((item) => {
-                <li>
-                    <h6> {item.title}</h6>
-                    <span>Souhaitez vous le noter: {renderStars()}</span>
-                    <button onClick={handleRatingChange(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
-                    <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
-                </li>
-            })}
+            {rating && rating.length > 0 ? (
+                rating?.map((item) => {
+                    <li key={item.id}>
+                        <h6> {item.title}</h6>
+                        <span>Souhaitez vous le noter: {renderStars()}</span>
+                        <button onClick={handleRatingChange(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
+                        <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
+                    </li>
+                }))
+                : (
+                    <li>No ratings found</li>
+                )}
         </ul>
     );
 };
