@@ -163,29 +163,33 @@ const CourseTeached = () => {
     return (
         <>
             <ul>
-                {teacherReq?.map((item) => (
-                    <>
-                        {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
+                {teacherReq && teacherReq.length > 0 ?
+                    teacherReq?.map((item) => (
+                        <>
+                            {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
 
-                        <li key={item.id} >
-                            <h5> {item.Skill.title}</h5>
-                            <h5>{item.User.firstname} {item.User.lastname}</h5>
-                            <div className="status" >
-                                {item.status === "en attente" &&
-                                    <>
-                                        <button onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE</button>
-                                        <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
-                                    </>
-                                }
-                                {item.status === "refusé" && <h4>COURS REFUSÉ</h4>}
-                                {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
-                                {item.status === "terminé" && <h5>COURS TERMINÉ</h5>}
-                                {/* {item.status === "noté" && <h5>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</h5>} */}
-                                {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
-                            </div>
-                        </li>
-                    </>
-                ))}
+                            <li key={item.id} >
+                                <h5> {item.Skill.title}</h5>
+                                <h5>{item.User.firstname} {item.User.lastname}</h5>
+                                <div className="status" >
+                                    {item.status === "en attente" &&
+                                        <>
+                                            <button onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE</button>
+                                            <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
+                                        </>
+                                    }
+                                    {item.status === "refusé" && <h4>COURS REFUSÉ</h4>}
+                                    {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
+                                    {item.status === "terminé" && <h5>COURS TERMINÉ</h5>}
+                                    {/* {item.status === "noté" && <h5>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</h5>} */}
+                                    {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
+                                </div>
+                            </li>
+                        </>
+                    )) : (
+                        <p> Pas de cours en attente </p>
+                    )
+                }
             </ul >
 
         </>
