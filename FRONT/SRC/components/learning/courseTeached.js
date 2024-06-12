@@ -65,26 +65,21 @@ const CourseTeached = () => {
                 // credentials: 'include'
             })
 
-            if (!response.ok) {
-                throw new Error('Failed to fetch courses');
-            }
-            else {
+            if (response.ok) {
+
                 navigate("/dashboard");
             }
 
-            // //=traduct api response in Json
-            const dataTeacher = await response.json();
-            // console.log('dataItem avant if:', dataTeacher);
-            setTeacherReq(dataTeacher);
+            // // //=traduct api response in Json
+            // const dataTeacher = await response.json();
+            // // console.log('dataItem avant if:', dataTeacher);
 
-            setTeacherReq(dataTeacher);
-            if (dataTeacher === "meeting accepted") {
-                navigate("/dashboard");
-
-            }
-            else {
-                throw new Error("Invalid response from API");
-            }
+            // if (dataTeacher == "meeting accepted") {
+            //     navigate("/dashboard");
+            // }
+            // else {
+            //     throw new Error("Invalid response from API");
+            // }
         }
         catch (error) {
             console.log("catch de patchCourseValidate:", error);
@@ -108,14 +103,11 @@ const CourseTeached = () => {
             })
 
             // //=traduct api response in Json
-
+            console.log('dataReject avant if:', response);
             const dataReject = await response.json();
-            // console.log('dataReject avant if:', response);
+            console.log('dataRejeect apres json', dataReject);
 
-            setTeacherReq(dataReject);
-
-            setTeacherReq(dataReject);
-            if (dataReject === "meeting declined") {
+            if (dataReject == "meeting declined") {
                 navigate("/dashboard");
             }
             else {
@@ -148,11 +140,10 @@ const CourseTeached = () => {
             // //=traduct api response in Json
 
             const dataFinish = await response.json();
-            // console.log('dataFinish avant if:', response);
+            console.log('dataFinish avant if:', response);
 
 
-            setTeacherReq(dataFinish);
-            if (dataFinish === "meeting closed, swappie handled") {
+            if (dataFinish == "meeting closed, swappie handled") {
                 navigate("/dashboard");
 
             }
@@ -169,7 +160,9 @@ const CourseTeached = () => {
     return (
         <>
             <ul>
+                {console.log("teacherReq dans jsx", teacherReq)}
                 {teacherReq && teacherReq.length > 0 ?
+
                     teacherReq?.map((item) => (
                         <>
                             {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
