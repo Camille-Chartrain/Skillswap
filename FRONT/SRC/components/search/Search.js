@@ -11,10 +11,10 @@ import Cookies from 'js-cookie';
 const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selectedCategory, selectLevel, selectSubCat }) => {
 
     const { handleSubmit, register } = useForm();
-
     const [searchInput, setSearchInput] = useState('');
+    const [data, setData] = useState({});//->aj
 
-    handleChange = (e) => {
+    const handleChange = (e) => {
         e.preventDefault();
         setSearchInput(e.target.value);
     };
@@ -31,26 +31,26 @@ const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selec
                     'Authorization': `Bearer ${token}`,
                 },
                 // credentials: 'include'
-
             });
 
-            // console.log("recup data apres JSON:", data)
+            console.log("recup data apres JSON:", data)
 
             const dataSearch = await response.json();
-            // console.log("donnees dataSearch", dataSearch)
+            console.log("donnees dataSearch", dataSearch)
+            setData(dataSearch);
 
-            // setSearchInput(dataSearch);
-            // setSelectLevel(dataSearch);
-            // setSelectCategory(dataSearch);
-            // setSelectSubCategory(dataSearch);
-            // console.log('donnees du state inputSearch:', dataSearch);
+            setSearchInput(dataSearch);
+            setSelectLevel(dataSearch);
+            setSelectedCategory(dataSearch);
+            setSelectSubCategory(dataSearch);
+            console.log('donnees du state inputSearch:', dataSearch);
         }
         catch (error) {
-            // console.log('erreur du catch GetSearch:', error);
+            console.log('erreur du catch GetSearch:', error);
         }
-    })
+    }, [searchInput, selectLevel, selectedCategory, selectSubCat]);
 
-    useEffect(() => { GetSearch(); }, []);
+    useEffect(() => { GetSearch(); }, [GetSearch]);
 
     return (
 

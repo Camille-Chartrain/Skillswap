@@ -63,9 +63,3 @@ const SearchCategory = () => {
 export default SearchCategory;
 
 
-// <select {...register("category")} name="category">
-//     <option value="">Choisissez une catégorie</option>
-//     {categories.map((category) => (
-//         <option key={category.id} value={category.id}>{category.name}</option>
-//     ))}
-// </select>
