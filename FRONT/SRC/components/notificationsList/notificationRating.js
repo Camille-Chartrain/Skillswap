@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 
 
-const NotificationRating = (item, handleDeleteNotification) => {
+const NotificationRating = ({ handleDeleteNotification }) => {
 
     const [rating, setRating] = useState([]);
 
@@ -23,15 +23,14 @@ const NotificationRating = (item, handleDeleteNotification) => {
             });
             const dataSkillToRate = await response.json();
             console.log("dataSkillToRate:", dataSkillToRate);
-
-            setRating(Array.isArray(dataSkillToRate) ? dataSkillToRate : []);
+            setRating(dataSkillToRate);
             console.log("setRating:", dataSkillToRate);
         }
         catch (error) {
             console.log("catch de GSTR:", error);
         }
     };
-    useEffect(() => { GetSkillToRate() }, []);
+    useEffect(() => { GetSkillToRate(); }, []);
 
     const renderStars = () => {
         const stars = [];
@@ -48,13 +47,9 @@ const NotificationRating = (item, handleDeleteNotification) => {
         }
         return stars;
     };
-    //=rating update
-    const handleRatingChange = (newRating) => {
-        setRating(newRating);
-        // RatingPatch();
-    };
+
     //=patch method to send the mark to skill
-    const RatingPatch = async (data) => {
+    const RatingPatch = async (newRating, skill) => {
         try {
             console.log('data envoyees:', data);
             const token = Cookies.get('token');
@@ -65,9 +60,9 @@ const NotificationRating = (item, handleDeleteNotification) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({ rating: newRating })
                 // credentials: 'include',
-            })
+            });
 
             console.log('response.status:', response.status);
 
@@ -75,9 +70,7 @@ const NotificationRating = (item, handleDeleteNotification) => {
             // console.log("response patch data avant .json", response);
             const dataRating = await response.json();
             console.log(" response apres .json:", dataRating);
-
-            //=fetch back side's  errors
-            // console.log("error?:", dataRating.error);
+            setRating(newRating);
 
         }
         catch (error) {
@@ -90,18 +83,22 @@ const NotificationRating = (item, handleDeleteNotification) => {
     return (
         <ul>
             {rating && rating.length > 0 ? (
-                rating?.map((item) => {
+
+                rating?.map((item) => (
+
                     <li key={item.id}>
                         <h6> {item.title}</h6>
                         <span>Souhaitez vous le noter: {renderStars()}</span>
-                        <button onClick={handleRatingChange(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
-                        <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
+                        <button onClick={RatingPatch.bind(null, item)}>VALIDER LA NOTE</button>
+                        <button type="reset" className="btn" onClick={() => handleDeleteNotification.bind(null, item)}>SUPPRIMER</button>
                     </li>
-                }))
+
+                ))
+            )
                 : (
-                    <li>No ratings found</li>
+                    <li>Plus de note a donner</li>
                 )}
-        </ul>
+        </ul >
     );
 };
 

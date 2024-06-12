@@ -147,6 +147,7 @@ const CourseTeached = () => {
             setTeacherReq(dataFinish);
             if (dataFinish === "meeting closed, swappie handled") {
                 navigate("/dashboard");
+
             }
             else {
                 throw new Error("Invalid response from API");
