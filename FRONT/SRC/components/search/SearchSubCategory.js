@@ -45,7 +45,7 @@ const SearchSubCategory = ({ setValue, selectedCategory }) => {
             const dataSubCategories = await response.json();
             console.log("dataSubCategories apres JSON: ", dataSubCategories);
             const filteredSubCategories = selectedCategory
-                ? dataSubCategories.filter(subcategory => subcategory.categoryId === selectedCategory.id)
+                ? dataSubCategories.filter(subcategory => subcategory.category_id === selectedCategory.id)
                 : dataSubCategories;
             console.log("sous catégories filtrées:", filteredSubCategories);
             setSubCategories(filteredSubCategories);

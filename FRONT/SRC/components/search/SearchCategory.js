@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
+import SearchSubCategory from './SearchSubCategory';
 import Cookies from 'js-cookie';
 
 const SearchCategory = () => {
-    const { register } = useForm();
+    const { handleSubmit, register } = useForm();
 
     //= to fetch select's datas and datas bdd
     const [categories, setCategories] = useState([]);
@@ -51,12 +52,15 @@ const SearchCategory = () => {
     }, [getCategoriesList]);
 
     return (
-        <select name="CategoryId" id="CategoryId" onChange={handleChangeCat} {...register("CategoryId", { onChange: handleChangeCat })}>
-            <option value="">Choisissez une catégorie</option>
-            {categories.map((category) => (
-                <option key={category.id} value={category.id}>{category.name}</option>
-            ))}
-        </select>
+        <div>
+            <select name="CategoryId" id="CategoryId" onChange={handleChangeCat} {...register("CategoryId", { onChange: handleChangeCat })}>
+                <option value="">Choisissez une catégorie</option>
+                {categories.map((category) => (
+                    <option key={category.id} value={category.id}>{category.name}</option>
+                ))}
+            </select>
+            <SearchSubCategory handleSubmit={handleSubmit} register={register} selectedCategory={selectedCategory} />
+        </div>
     );
 }
 
