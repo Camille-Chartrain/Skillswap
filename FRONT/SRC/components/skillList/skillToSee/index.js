@@ -16,19 +16,21 @@ const SkillToSee = ({ setValue }) => {
 
     console.log("seeASkill ds Skill avant le state:", seeASkill);
 
-    const [skillSaw, setSkillSaw] = useState(seeASkill || {
-        id: [],
-        Category: '',
-        SubCategory: '',
-        title: '',
-        price: '',
-        mark: '',
-        level: '',
-        duration: '',
-        transmission: '',
-        description: '',
-        availability: '',
-    })
+    const [skillSaw, setSkillSaw] = useState(seeASkill
+        // || {
+        //     id: [],
+        //     Category: '',
+        //     SubCategory: '',
+        //     title: '',
+        //     price: '',
+        //     mark: '',
+        //     level: '',
+        //     duration: '',
+        //     transmission: '',
+        //     description: '',
+        //     availability: '',
+        // }
+    )
 
     let stars = Array(5).fill();
 
@@ -62,6 +64,7 @@ const SkillToSee = ({ setValue }) => {
 
         }
     }
+
     useEffect(() => { getSkill() }, [])
 
 
@@ -75,7 +78,6 @@ const SkillToSee = ({ setValue }) => {
                 <div className="skill-header">
                     {/* <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" /> */}
                     <h4>Description :</h4> <span>`${skillSaw.description} ` </span>
-                    {console.log("skillSaw.description:", skillSaw.description)}
                     <h4>Duree :</h4><span>{skillSaw.duration}</span>
                 </div>
                 <div className="skill-info">

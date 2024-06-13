@@ -36,10 +36,10 @@ const NotificationsList = ({ }) => {
 
     useEffect(() => { GetNotificationsList() }, []);
 
-    const handleChange = (item) => {
+    const handleClick = (item) => {
 
-        console.log('ds HC navigate item:', item);
-        navigate('seeASkill/', {
+        console.log('ds HandleClick navigate item:', item);
+        navigate('/dashboard/seeASkill', {
             state: { item }
         });
     }
@@ -88,7 +88,7 @@ const NotificationsList = ({ }) => {
                 notification?.map((item) => (
                     <li key={item?.id}>
                         <p>{item.title}</p>
-                        <button onClick={() => handleChange(item)}>VOIR PLUS</button>
+                        <button onClick={() => handleClick(item)}>VOIR PLUS</button>
 
                         {/* //= coding for version2
                             <button type="reset" className="btn" onClick={NotificationDelete.bind(null, item)} onChange={handleDeleteNotif}>SUPPRIMER</button> */}
