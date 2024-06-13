@@ -9,12 +9,12 @@ import { useLocation } from 'react-router-dom';
 
 const SkillToSee = ({ setValue }) => {
 
-    console.log("kikou les gens ds skillToSee");
+    // console.log("kikou les gens ds skillToSee");
 
     const location = useLocation();
     const seeASkill = location.state?.item;
 
-    console.log("seeASkill ds Skill avant le state:", seeASkill);
+    // console.log("seeASkill ds Skill avant le state:", seeASkill);
 
     const [skillSaw, setSkillSaw] = useState(
         {
@@ -34,19 +34,6 @@ const SkillToSee = ({ setValue }) => {
         })
 
     let stars = Array(5).fill();
-
-
-    // //= to refresh the Skill Data state between two changes
-    const handleChangeSkill = (e) => {
-        const { name, value } = e.target;
-        // console.log('handleChange: ', name, value);
-        setSkillSaw((prevSeeASkill) => ({
-            ...prevSeeASkill,
-            [name]: value,
-        }));
-        setValue(name, value);
-    };
-    // console.log("avant fetch:", seeASkill);
 
     //=get method for fetch datas from the Back
     const getSkill = useCallback(async () => {
@@ -87,19 +74,19 @@ const SkillToSee = ({ setValue }) => {
     useEffect(() => { getSkill() }, [])
 
     //=post method to add course to studyList
-    const AskInscriptionCourse = async ({ skillSaw }) => {
+    const AskInscriptionCourse = useCallback(async (seeASkill) => {
         try {
             console.log('dans la fonction AskInscriptionCourse');
-            console.log('data envoyees:', skillSaw);
+            console.log('data envoyees:', seeASkill);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/learning/${skillSaw}`, {
+            const response = await fetch(`http://localhost:3000/learning/${seeASkill.id}`, {
                 method: 'POST',
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(skillSaw)
+                body: JSON.stringify(seeASkill)
                 // credentials: 'include',
             })
 
@@ -113,8 +100,9 @@ const SkillToSee = ({ setValue }) => {
             //=fetch back side's  errors
             console.log("erreur back:", dataAdding.error);
 
-            if (dataAdding === "") {//*message de validate
+            if (dataAdding === "cours en attente de validation") {//*message de validate
                 SetNotificationList(user.id);
+                getCourse();
                 navigate('/dashboard');
             }
             else {
@@ -125,19 +113,25 @@ const SkillToSee = ({ setValue }) => {
             console.log("catch AIC : ", error);
             // handleNotFoundError();
         }
-    };
-    const handleClick = (event) => {
+    }, [seeASkill]);
+
+    const handleClick = (event, skillId) => {
         console.log("dans la fonction handleClick suivre ce cours");
         event.preventDefault();
-        AskInscriptionCourse();
+        AskInscriptionCourse(seeASkill);
     }
 
 
-
-
-
-
-
+    //= to refresh the Skill Data state between two changes
+    const handleChangeSkill = (e) => {
+        const { name, value } = e.target;
+        // console.log('handleChange: ', name, value);
+        setSkillSaw((prevSeeASkill) => ({
+            ...prevSeeASkill,
+            [name]: value,
+        }));
+        setValue(name, value);
+    };
 
 
 
@@ -147,12 +141,12 @@ const SkillToSee = ({ setValue }) => {
 
                 <div id="skill" >
 
-                    {console.log("ds return SkillToSee:", skillSaw)}
-                    {console.log("ds return SkillToSee skillSaw.id:", skillSaw.id)}
+                    {/* {console.log("ds return SkillToSee:", skillSaw)}
+                    {console.log("ds return SkillToSee skillSaw.id:", skillSaw.id)} */}
                     <div className="skill-header">
                         <img src={`http://localhost:3000/${skillSaw.Category.picture}`} alt="photo de la categorie" />
                         <h4>Description :</h4> <span>{skillSaw.description} ` </span>
-                        {console.log("skillSaw.description:", skillSaw.description)}
+                        {/* {console.log("skillSaw.description:", skillSaw.description)} */}
                         <h4>Duree :</h4><span>{skillSaw.duration}</span>
                     </div>
                     <div className="skill-info">
@@ -178,7 +172,7 @@ const SkillToSee = ({ setValue }) => {
                         <h4>Presentation :</h4> <span>{skillSaw.User.presentation}</span>
                     </div >
 
-                    < button type="submit" onClick={handleClick}>SUIVRE CE COURS</button>
+                    < button type="submit" onClick={(event) => handleClick(event, seeASkill.id)}>SUIVRE CE COURS</button>
                 </div >)}
         </section>
     )

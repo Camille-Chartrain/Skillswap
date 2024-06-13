@@ -41,55 +41,11 @@ const Skill = ({
 
     let stars = Array(5).fill();
 
-    //=post method to add course to studyList
-    const AskInscriptionCourse = async ({ skillId }) => {
-        try {
-            console.log('dans la fonction AskInscriptionCourse');
-            console.log('data envoyees:', skillId);
-            const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/learning/${skillId}`, {
-                method: 'POST',
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(skill)
-                // credentials: 'include',
-            })
-
-            // console.log('response.status:', response.status);
-
-            //=traduct api response in Json
-            console.log("response post skill avant .json", response);
-            const dataAdding = await response.json();
-            console.log(" dataAdding  apres .json:", dataAdding);
-
-            //=fetch back side's  errors
-            console.log("erreur back:", dataAdding.error);
-
-
-
-            if (dataAdding === "") {//*message de validate
-                SetNotificationList(user.id);
-                navigate('/dashboard');
-            }
-            else {
-                throw new Error("Invalid response from API");
-            }
-            setSkill(dataAdding);
-        }
-        catch (error) {
-            console.log("catch AIC : ", error);
-            // handleNotFoundError();
-        }
-    }
 
 
     handleClick = (event) => {
         console.log("dans la fonction handleClick suivre ce cours");
         event.preventDefault();
-        // AskInscriptionCourse();
         navigate('/registration')
     }
 

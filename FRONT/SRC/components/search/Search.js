@@ -23,7 +23,7 @@ const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selec
         try {
             // console.log("req data avant JSON:", data)
             const token = Cookies.get('token');
-            // const response = await fetch(`http://localhost:3000/searchVisitor/?${searchInput}/?${selectLevel}/?${selectedCategory}/?${selectSubCat}`, {
+            // const response = await fetch(`http://localhost:3000/searchVisitor/?input=${searchInput}/?level=${selectLevel}/?${selectedCategory}/?${selectSubCat}`, {
             //     method: "get",
             //     headers: {
             //         'Content-Type': 'application/json',
