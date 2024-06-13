@@ -31,16 +31,12 @@ const CourseTeached = () => {
                 throw new Error('Failed to fetch courses');
             }
             else {
-                navigate("/dashboard");
+                //=traduct api response in Json
+                // console.log("data CourseTeacheravant .json", response);
+                const dataTeacher = await response.json();
+                // console.log(" data CourseTeacherapres .json:", dataTeacher);
+                setTeacherReq(dataTeacher);
             }
-
-            //=traduct api response in Json
-            // console.log("data CourseTeacheravant .json", response);
-            const dataTeacher = await response.json();
-            // console.log(" data CourseTeacherapres .json:", dataTeacher);
-            setTeacherReq(dataTeacher);
-
-
         }
         catch (error) {
             // console.log("catch GetCourseReqTeach: ", error)
@@ -62,33 +58,17 @@ const CourseTeached = () => {
                     'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(item),
-                // credentials: 'include'
             })
 
             if (response.ok) {
 
-                console.log("dans le reponse.ok validate");
-                console.log("response", response);
+                // console.log("dans le reponse.ok validate");
+                // console.log("response", response);
                 getCourseTeacher();
 
-                // navigate("/dashboard");
             } else {
-                // throw new Error("Invalid response from API");
-                return (
-                    <Error />
-                )
-
+                throw new Error("Invalid response from API");
             }
-
-            // // //=traduct api response in Json
-            // const dataTeacher = await response.json();
-            // // console.log('dataItem avant if:', dataTeacher);
-
-            // setTeacherReq(dataTeacher);
-            // if (dataTeacher === "meeting accepted") {
-            //     navigate("/dashboard");
-            // }
-
         }
         catch (error) {
             console.log("catch de patchCourseValidate:", error);
@@ -112,23 +92,18 @@ const CourseTeached = () => {
             })
 
             // //=traduct api response in Json
-            console.log('dataReject avant if:', response);
+            // console.log('dataReject avant if:', response);
             const dataReject = await response.json();
-            console.log('dataRejeect apres json', dataReject);
+            // console.log('dataRejeect apres json', dataReject);
 
             if (dataReject == "meeting declined") {
-                console.log("dans le reponse reject");
-                console.log("response", response);
+                // console.log("dans le reponse reject");
+                // console.log("response", response);
                 getCourseTeacher();
             }
             else {
-                // throw new Error("Invalid response from API");
-                return (
-                    <Error />
-                )
-
+                throw new Error("Invalid response from API");
             }
-
         }
         catch (error) {
             console.log("catch de patchCourseRejeted:", error);
@@ -149,32 +124,28 @@ const CourseTeached = () => {
                     'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(item),
-                // credentials: 'include'
             })
 
             // //=traduct api response in Json
 
             const dataFinish = await response.json();
-            console.log('dataFinish avant if:', response);
-            console.log('rep json:', dataFinish);
+            // console.log('dataFinish avant if:', response);
+            // console.log('rep json:', dataFinish);
 
 
             if (dataFinish == "meeting closed, swappies handled") {
-                console.log("dans le reponse terminer cours");
-                console.log("response", response);
+                // console.log("dans le reponse terminer cours");
+                // console.log("response", response);
                 getCourseTeacher();
 
             }
             else {
-                // throw new Error("Invalid response from API");
-                return (
-                    <Error />
-                )
+                throw new Error("Invalid response from API");
             }
 
         }
         catch (error) {
-            // console.log("catch de patchCourseFinished:", error);
+            console.log("catch de patchCourseFinished:", error);
         }
     }
 
@@ -184,7 +155,7 @@ const CourseTeached = () => {
     return (
         <>
             <ul>
-                {console.log("teacherReq dans jsx", teacherReq)}
+                {/* {console.log("teacherReq dans jsx", teacherReq)} */}
                 {teacherReq && teacherReq.length > 0 ?
 
                     teacherReq?.map((item) => (
