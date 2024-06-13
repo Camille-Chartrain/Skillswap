@@ -20,8 +20,8 @@ const SkillToSee = ({ setValue }) => {
         {
             id: [],
             User: '',
-            CategoryId: '',
-            SubCategoryId: '',
+            Category: '',
+            SubCategory: '',
             title: '',
             price: '',
             mark: '',
@@ -39,7 +39,7 @@ const SkillToSee = ({ setValue }) => {
     // //= to refresh the Skill Data state between two changes
     const handleChangeSkill = (e) => {
         const { name, value } = e.target;
-        console.log('handleChange: ', name, value);
+        // console.log('handleChange: ', name, value);
         setSkillSaw((prevSeeASkill) => ({
             ...prevSeeASkill,
             [name]: value,
@@ -50,7 +50,7 @@ const SkillToSee = ({ setValue }) => {
 
     //=get method for fetch datas from the Back
     const getSkill = useCallback(async () => {
-        console.log("skillSaw avt try:", seeASkill)
+        // console.log("skillSaw avt try:", seeASkill)
         try {
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/oneSkill/${seeASkill.id}`, {
@@ -67,10 +67,10 @@ const SkillToSee = ({ setValue }) => {
             }
 
 
-            console.log("item avt json:", skillSaw);
+            // console.log("item avt json:", skillSaw);
             const dataSkill = await response.json();
 
-            console.log("dataSkill ds getSkill:", dataSkill);
+            // console.log("dataSkill ds getSkill:", dataSkill);
             setSkillSaw(dataSkill.data);
             //= Synchronize profileData with form values
             Object.keys(dataSkill.data).forEach(key => {
@@ -150,14 +150,14 @@ const SkillToSee = ({ setValue }) => {
                     {console.log("ds return SkillToSee:", skillSaw)}
                     {console.log("ds return SkillToSee skillSaw.id:", skillSaw.id)}
                     <div className="skill-header">
-                        {/* <img src={`http://localhost:3000/${skillSaw.picture}`} alt="photo de la categorie" /> */}
+                        <img src={`http://localhost:3000/${skillSaw.Category.picture}`} alt="photo de la categorie" />
                         <h4>Description :</h4> <span>{skillSaw.description} ` </span>
                         {console.log("skillSaw.description:", skillSaw.description)}
                         <h4>Duree :</h4><span>{skillSaw.duration}</span>
                     </div>
                     <div className="skill-info">
-                        <h4>Categorie :</h4> <span>{skillSaw.CategoryId}</span>
-                        <h4>Sous categorie :</h4>  <span>{skillSaw.SubCategoryId}</span>
+                        <h4>Categorie :</h4> <span>{skillSaw.Category.name}</span>
+                        <h4>Sous categorie :</h4>  <span>{skillSaw.SubCategory.name}</span>
                         <h4>Competence :</h4><span> {skillSaw.title}</span>
                         <h4>Niveau : </h4><span>{skillSaw.level}</span>
                         <h4>Prix : </h4> <span>{skillSaw.price}</span>
