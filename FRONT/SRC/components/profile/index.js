@@ -79,7 +79,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
 
 
     useEffect(() => {
-        // Synchronize profileData with form values
+        //= Synchronize profileData with form values
         Object.keys(profileData).forEach(key => {
             setValue(key, profileData[key]);
         });
