@@ -20,8 +20,8 @@ const SkillToSee = ({ setValue }) => {
         {
             id: [],
             User: '',
-            Category: '',
-            SubCategory: '',
+            CategoryId: '',
+            SubCategoryId: '',
             title: '',
             price: '',
             mark: '',
@@ -87,50 +87,50 @@ const SkillToSee = ({ setValue }) => {
     useEffect(() => { getSkill() }, [])
 
     //=post method to add course to studyList
-    // const AskInscriptionCourse = async ({ skillSaw }) => {
-    //     try {
-    //         console.log('dans la fonction AskInscriptionCourse');
-    //         console.log('data envoyees:', skillSaw);
-    //         const token = Cookies.get('token');
-    //         const response = await fetch(`http://localhost:3000/learning/${skillSaw}`, {
-    //             method: 'POST',
-    //             status: 200,
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${token}`,
-    //             },
-    //             body: JSON.stringify(skillSaw)
-    //             // credentials: 'include',
-    //         })
+    const AskInscriptionCourse = async ({ skillSaw }) => {
+        try {
+            console.log('dans la fonction AskInscriptionCourse');
+            console.log('data envoyees:', skillSaw);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/learning/${skillSaw}`, {
+                method: 'POST',
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(skillSaw)
+                // credentials: 'include',
+            })
 
-    //         // console.log('response.status:', response.status);
+            // console.log('response.status:', response.status);
 
-    //         //=traduct api response in Json
-    //         console.log("response post skill avant .json", response);
-    //         const dataAdding = await response.json();
-    //         console.log(" dataAdding  apres .json:", dataAdding);
+            //=traduct api response in Json
+            console.log("response post skill avant .json", response);
+            const dataAdding = await response.json();
+            console.log(" dataAdding  apres .json:", dataAdding);
 
-    //         //=fetch back side's  errors
-    //         console.log("erreur back:", dataAdding.error);
+            //=fetch back side's  errors
+            console.log("erreur back:", dataAdding.error);
 
-    //         if (dataAdding === "") {//*message de validate
-    //             SetNotificationList(user.id);
-    //             navigate('/dashboard');
-    //         }
-    //         else {
-    //             throw new Error("Invalid response from API");
-    //         }
-    //     }
-    //     catch (error) {
-    //         console.log("catch AIC : ", error);
-    //         // handleNotFoundError();
-    //     }
-    // };
-    // const handleClick = (event) => {
-    //     console.log("dans la fonction handleClick suivre ce cours");
-    //     event.preventDefault();
-    //     AskInscriptionCourse();
-    // }
+            if (dataAdding === "") {//*message de validate
+                SetNotificationList(user.id);
+                navigate('/dashboard');
+            }
+            else {
+                throw new Error("Invalid response from API");
+            }
+        }
+        catch (error) {
+            console.log("catch AIC : ", error);
+            // handleNotFoundError();
+        }
+    };
+    const handleClick = (event) => {
+        console.log("dans la fonction handleClick suivre ce cours");
+        event.preventDefault();
+        AskInscriptionCourse();
+    }
 
 
 
@@ -150,14 +150,14 @@ const SkillToSee = ({ setValue }) => {
                     {console.log("ds return SkillToSee:", skillSaw)}
                     {console.log("ds return SkillToSee skillSaw.id:", skillSaw.id)}
                     <div className="skill-header">
-                        {/* <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" /> */}
+                        {/* <img src={`http://localhost:3000/${skillSaw.picture}`} alt="photo de la categorie" /> */}
                         <h4>Description :</h4> <span>{skillSaw.description} ` </span>
                         {console.log("skillSaw.description:", skillSaw.description)}
                         <h4>Duree :</h4><span>{skillSaw.duration}</span>
                     </div>
                     <div className="skill-info">
-                        <h4>Categorie :</h4> <span>{skillSaw.Category.name}</span>
-                        <h4>Sous categorie :</h4>  <span>{skillSaw.SubCategory.name}</span>
+                        <h4>Categorie :</h4> <span>{skillSaw.CategoryId}</span>
+                        <h4>Sous categorie :</h4>  <span>{skillSaw.SubCategoryId}</span>
                         <h4>Competence :</h4><span> {skillSaw.title}</span>
                         <h4>Niveau : </h4><span>{skillSaw.level}</span>
                         <h4>Prix : </h4> <span>{skillSaw.price}</span>
@@ -172,13 +172,13 @@ const SkillToSee = ({ setValue }) => {
                     <div className='skill-teacher'>
                         <h4>Disponibilite :</h4><span>{skillSaw.availability}</span>
                         <h4>Transmission :</h4><span>{skillSaw.transmission}</span>
-                        <h4>Professeur :</h4> <span> {`${skillSaw.firstname} ${skillSaw.lastname}`}</span>
-                        <h4>Email : </h4><span>{skillSaw.email}</span>
-                        <h4>Niveau d'etudes :</h4><span>{skillSaw.grade_level}</span>
-                        <h4>Presentation :</h4> <span>{skillSaw.presentation}</span>
+                        <h4>Professeur :</h4> <span> {`${skillSaw.User.firstname} ${skillSaw.User.lastname}`}</span>
+                        <h4>Email : </h4><span>{skillSaw.User.email}</span>
+                        <h4>Niveau d'etudes :</h4><span>{skillSaw.User.grade_level}</span>
+                        <h4>Presentation :</h4> <span>{skillSaw.User.presentation}</span>
                     </div >
 
-                    {/* < button type="submit" onSubmit={handleChange}>SUIVRE CE COURS</button> */}
+                    < button type="submit" onClick={handleClick}>SUIVRE CE COURS</button>
                 </div >)}
         </section>
     )
