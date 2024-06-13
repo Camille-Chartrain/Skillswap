@@ -80,6 +80,7 @@ const NotificationRating = ({ handleDeleteNotification }) => {
             // console.log("response patch data avant .json", response);
             const dataRating = await response.json();
             console.log(" response apres .json:", dataRating);
+            GetSkillToRate();
 
 
         }
