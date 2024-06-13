@@ -76,7 +76,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
                 })
 
                 const resultToken = await response.json();
-                console.log('response component dashboard:', resultToken);
+                // console.log('response component dashboard:', resultToken);
 
                 if (resultToken === "access granted") {
                     setIsAuthenticated(true);

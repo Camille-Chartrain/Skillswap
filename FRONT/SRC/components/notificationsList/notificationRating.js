@@ -24,11 +24,11 @@ const NotificationRating = ({ handleDeleteNotification }) => {
 
             });
             const dataSkillToRate = await response.json();
-            console.log("dataSkillToRate:", dataSkillToRate);
+            // console.log("dataSkillToRate:", dataSkillToRate);
 
             setSkillstoRate(dataSkillToRate);
-            console.log(" state skillsTORate:", skillsToRate);
-            console.log("type of skillsToRAte", typeof skillsToRate);
+            // console.log(" state skillsTORate:", skillsToRate);
+            // console.log("type of skillsToRAte", typeof skillsToRate);
         }
         catch (error) {
             console.log("catch de GSTR:", error);
@@ -60,8 +60,8 @@ const NotificationRating = ({ handleDeleteNotification }) => {
     const RatingPatch = async (item) => {
 
         try {
-            console.log('id url envoye:', item.id);
-            console.log("rating", rating);
+            // console.log('id url envoye:', item.id);
+            // console.log("rating", rating);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/communication/${item.id}`, {
                 method: 'PATCH',
@@ -79,8 +79,12 @@ const NotificationRating = ({ handleDeleteNotification }) => {
             //=traduct api response in Json
             // console.log("response patch data avant .json", response);
             const dataRating = await response.json();
+<<<<<<< HEAD
             console.log(" response apres .json:", dataRating);
             GetSkillToRate();
+=======
+            // console.log(" response apres .json:", dataRating);
+>>>>>>> 7958d123cdfce5618135c20e32c18099555e1fba
 
 
         }
@@ -101,8 +105,11 @@ const NotificationRating = ({ handleDeleteNotification }) => {
                         <h6>{item.title}</h6>
                         <span>Souhaitez vous le noter: {renderStars()}</span>
                         <button onClick={(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
-                        {/* <button onClick={handleRatingChange(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button> */}
-                        <button type="reset" className="btn" onClick={() => handleDeleteNotification(null, item)}>SUPPRIMER</button>
+
+
+                        {/* //=version2 coding
+                        <button type="reset" className="btn" onClick={() => handleDeleteNotification(null, item)}>SUPPRIMER</button> */}
+
                     </li>
                 ))
                 : (
