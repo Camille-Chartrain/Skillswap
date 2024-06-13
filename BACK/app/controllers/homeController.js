@@ -40,7 +40,7 @@ const homeController = {
     searchVisitor: async function (req, res) {
 
         try {
-            console.log("req searchVisitor", req);
+            console.log("req.query searchVisitor", req.query);
             console.log("req query.categoryId", req.query.CategoryId);
             console.log("req.query.level", req.query.level);
             console.log("req.query.subCategoryId", req.query.SubCategoryId);
@@ -133,7 +133,7 @@ const homeController = {
 
             if (!rows || rows.length === 0) {
                 console.log('no match');
-                res.status(200).send('no match');
+                res.status(200).json('no match');
                 return;
             }
 
