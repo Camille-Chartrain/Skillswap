@@ -39,8 +39,8 @@ const CourseTeached = ({ handleNotFoundError, error }) => {
             }
         }
         catch (error) {
-            // console.log("catch GetCourseReqTeach: ", error)
-            handleNotFoundError();
+            console.log("catch GetCourseReqTeach: ", error)
+            // handleNotFoundError();
         }
     }
 
