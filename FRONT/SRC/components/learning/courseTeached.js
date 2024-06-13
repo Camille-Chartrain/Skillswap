@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { link } from "fs";
 import { useNavigate } from "react-router-dom";
-import Error from Error
+import Error from '../error/error';
 
 
 //=manage reception notification
@@ -47,7 +47,6 @@ const CourseTeached = () => {
             // throw error;
         }
     }
-    useEffect(() => { getCourseTeacher() }, [])
 
 
     //= to manage  requests received 
@@ -67,24 +66,29 @@ const CourseTeached = () => {
             })
 
             if (response.ok) {
-                console.log("dans le reponse.ok validate");
 
-                navigate("/dashboard");
+                console.log("dans le reponse.ok validate");
+                console.log("response", response);
+                getCourseTeacher();
+
+                // navigate("/dashboard");
+            } else {
+                // throw new Error("Invalid response from API");
+                return (
+                    <Error />
+                )
+
             }
 
             // // //=traduct api response in Json
             // const dataTeacher = await response.json();
             // // console.log('dataItem avant if:', dataTeacher);
 
-            setTeacherReq(dataTeacher);
-            if (dataTeacher === "meeting accepted") {
-                navigate("/dashboard");
+            // setTeacherReq(dataTeacher);
+            // if (dataTeacher === "meeting accepted") {
+            //     navigate("/dashboard");
+            // }
 
-            }
-            else {
-                throw new Error("Invalid response from API");
-                <Error />
-            }
         }
         catch (error) {
             console.log("catch de patchCourseValidate:", error);
@@ -113,10 +117,16 @@ const CourseTeached = () => {
             console.log('dataRejeect apres json', dataReject);
 
             if (dataReject == "meeting declined") {
-                navigate("/dashboard");
+                console.log("dans le reponse reject");
+                console.log("response", response);
+                getCourseTeacher();
             }
             else {
-                throw new Error("Invalid response from API");
+                // throw new Error("Invalid response from API");
+                return (
+                    <Error />
+                )
+
             }
 
         }
@@ -146,14 +156,20 @@ const CourseTeached = () => {
 
             const dataFinish = await response.json();
             console.log('dataFinish avant if:', response);
+            console.log('rep json:', dataFinish);
 
 
-            if (dataFinish == "meeting closed, swappie handled") {
-                navigate("/dashboard");
+            if (dataFinish == "meeting closed, swappies handled") {
+                console.log("dans le reponse terminer cours");
+                console.log("response", response);
+                getCourseTeacher();
 
             }
             else {
-                throw new Error("Invalid response from API");
+                // throw new Error("Invalid response from API");
+                return (
+                    <Error />
+                )
             }
 
         }
@@ -161,6 +177,9 @@ const CourseTeached = () => {
             // console.log("catch de patchCourseFinished:", error);
         }
     }
+
+    useEffect(() => { getCourseTeacher() }, [])
+
 
     return (
         <>
@@ -182,7 +201,7 @@ const CourseTeached = () => {
                                             <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
                                         </>
                                     }
-                                    {item.status === "refusé" && <h4>COURS REFUSÉ</h4>}
+                                    {item.status === "refusé" && <h5>COURS REFUSÉ</h5>}
                                     {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
                                     {item.status === "terminé" && <h5>COURS TERMINÉ</h5>}
                                     {/* {item.status === "noté" && <h5>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</h5>} */}

@@ -135,18 +135,18 @@ const learningController = {
             const meetings = await Meeting.findByPk(req.params.meetingId);
             console.log("status meetings:", meetings.status);
 
-            // if (meetings.status === "en attente") {
-            // await Meeting.update({
-            //     status: "en cours",
-            // }, {
-            //     where: {
-            //         id: req.params.meetingId
-            //     }
-            // })
-            // }
-            // else {
-            //     throw new Error(`cours avec statut '${meetings.status}' au lieu de 'en attente'`)
-            // }
+            if (meetings.status === "en attente") {
+                await Meeting.update({
+                    status: "en cours",
+                }, {
+                    where: {
+                        id: req.params.meetingId
+                    }
+                })
+            }
+            else {
+                throw new Error(`cours avec statut '${meetings.status}' au lieu de 'en attente'`)
+            }
             res.status(200).json("meeting accepted")
         } catch (error) {
             console.error('erreur acceptLearning:', error);
