@@ -31,6 +31,7 @@ const SkillList = () => {
 
                     < Skill
                         key={item?.id}
+                        skillId={item?.id}
                         picture={item?.Category.picture}
                         title={item?.title}
                         price={item?.price}

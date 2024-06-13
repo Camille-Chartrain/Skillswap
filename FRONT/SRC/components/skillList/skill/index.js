@@ -4,11 +4,13 @@ import { useCallback, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import Error from '../../error/error';
+// import Error from '../../error/error';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 
 const Skill = ({
+    skillId,
     Category,
     picture,
     title,
@@ -28,7 +30,7 @@ const Skill = ({
     handleNotFoundError
 }) => {
 
-
+    const navigate = useNavigate();
     const location = useLocation();
     const item = location.state?.item;
     console.log("item ds Skill avant le state:", item);
@@ -40,11 +42,12 @@ const Skill = ({
     let stars = Array(5).fill();
 
     //=post method to add course to studyList
-    const AskInscriptionCourse = async ({ skill }) => {
+    const AskInscriptionCourse = async ({ skillId }) => {
         try {
-            console.log('data envoyees:', skill);
+            console.log('dans la fonction AskInscriptionCourse');
+            console.log('data envoyees:', skillId);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/learning/${skill.id}`, {
+            const response = await fetch(`http://localhost:3000/learning/${skillId}`, {
                 method: 'POST',
                 status: 200,
                 headers: {
@@ -81,8 +84,13 @@ const Skill = ({
             // handleNotFoundError();
         }
     }
-    handleChange = () => {
-        AskInscriptionCourse(skill.id);
+
+
+    handleClick = (event) => {
+        console.log("dans la fonction handleClick suivre ce cours");
+        event.preventDefault();
+        // AskInscriptionCourse();
+        navigate('/registration')
     }
 
     //=get method for fetch datas from the Back
@@ -159,7 +167,7 @@ const Skill = ({
 
                 )
                 }
-                <button type="submit" onSubmit={handleChange}>SUIVRE CE COURS</button>
+                <button type="submit" onClick={handleClick}>SUIVRE CE COURS</button>
             </div >
         </>
     )

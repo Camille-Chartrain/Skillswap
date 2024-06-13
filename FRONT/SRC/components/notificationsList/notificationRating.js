@@ -79,7 +79,8 @@ const NotificationRating = ({ handleDeleteNotification }) => {
             //=traduct api response in Json
             // console.log("response patch data avant .json", response);
             const dataRating = await response.json();
-            // console.log(" response apres .json:", dataRating);
+            console.log(" response apres .json:", dataRating);
+            GetSkillToRate();
 
 
         }
