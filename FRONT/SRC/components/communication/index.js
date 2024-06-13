@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+
 import NotificationsList from "../notificationsList";
 import NotificationRating from '../notificationsList/notificationRating';
 

@@ -36,72 +36,10 @@ export const PageError = () => {
     console.status(error.message);
 }
 
-//= Routes displayed depending if you are logged or not..
-export const isLogged = false;
 
 
 
 
-// //= logout function -> a voir plus tard
 
-// export const logOut = () => {
-//     try {
-//         console.log("dans la fonction handleclick");
-//         // delete cookie JWT on client's side
-//         let token = Cookies.remove('token');
-//         token = null
-//         if (token == null) {
-//             console.log("token", token);
-//             navigate("/");
-//         }
-//     }
-//     catch (error) {
-//         console.log("erreur :", error);
-//     };
-// }
 
-// //=post method to add course to studyList
-// const AskInscriptionCourse = async ({ skillSaw }) => {
-//     try {
-//         console.log('dans la fonction AskInscriptionCourse');
-//         console.log('data envoyees:', skillSaw);
-//         const token = Cookies.get('token');
-//         const response = await fetch(`http://localhost:3000/learning/${skillSaw}`, {
-//             method: 'POST',
-//             status: 200,
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Authorization': `Bearer ${token}`,
-//             },
-//             body: JSON.stringify(skillSaw)
-//             // credentials: 'include',
-//         })
 
-//         // console.log('response.status:', response.status);
-
-//         //=traduct api response in Json
-//         console.log("response post skill avant .json", response);
-//         const dataAdding = await response.json();
-//         console.log(" dataAdding  apres .json:", dataAdding);
-
-//         //=fetch back side's  errors
-//         console.log("erreur back:", dataAdding.error);
-
-//         if (dataAdding === "") {//*message de validate
-//             SetNotificationList(user.id);
-//             navigate('/dashboard');
-//         }
-//         else {
-//             throw new Error("Invalid response from API");
-//         }
-//     }
-//     catch (error) {
-//         console.log("catch AIC : ", error);
-//         // handleNotFoundError();
-//     }
-// };
-// const handleClick = (event) => {
-//     console.log("dans la fonction handleClick suivre ce cours");
-//     event.preventDefault();
-//     AskInscriptionCourse();
-// }

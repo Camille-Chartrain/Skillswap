@@ -10,7 +10,7 @@ const NotificationsList = ({ }) => {
     const [notification, setNotification] = useState([]);
     const navigate = useNavigate();
 
-    const GetNotificationsList = async () => {
+    const GetNotificationsList = useCallback(async () => {
         try {
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/communication`, {
@@ -32,7 +32,7 @@ const NotificationsList = ({ }) => {
         catch (error) {
             console.log("catch de GNL:", error);
         }
-    }
+    }, []);
 
     useEffect(() => { GetNotificationsList() }, []);
 
