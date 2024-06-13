@@ -3,10 +3,11 @@ import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Error from "../error/error";
 
 
 
-const Profile = () => {
+const Profile = ({ handleNotFoundError, error, setError }) => {
     const { register, handleSubmit, setValue, reset, formState: { isValid, errors } } = useForm();
 
     //= get method to show info & autocomplete
@@ -16,7 +17,6 @@ const Profile = () => {
         birthday: '',
         grade_level: '',
         presentation: '',
-        interests: [],
         skill: [],
     });
 
@@ -68,6 +68,7 @@ const Profile = () => {
         }
         catch (error) {
             console.error("error catch:", error.message);
+            handleNotFoundError();
         }
     },
         []);
@@ -110,12 +111,14 @@ const Profile = () => {
 
             //=fetch back side's  errors
             // console.log("error?:", dataProfile.error);
+            setError(error);
 
         }
         catch (error) {
             console.log("erreur : ", error);
+            handleNotFoundError();
         }
-    }
+    };
 
     const ProfileDelete = useCallback(async () => {
         try {
@@ -147,12 +150,14 @@ const Profile = () => {
             }
             else {
                 throw new Error("Invalid response from API");
+                setError(error);
             }
         }
         catch (error) {
             console.log("catch profileDelete :", error);
+            handleNotFoundError();
         }
-    })
+    });
 
     //= manage skill's list user
     const [skillsUser, setSkillsUser] = useState([]);
@@ -182,6 +187,7 @@ const Profile = () => {
         }
         catch (error) {
             console.error(error.message);
+            handleNotFoundError();
         }
     }
     useEffect(() => { GetAllSkillUser() }, [])
@@ -191,7 +197,7 @@ const Profile = () => {
 
     //=  skill's datas before go to skillUpDate component
     const handlechange = (skill) => {
-        console.log('handlechange: ', skill)
+        // console.log('handlechange: ', skill)
         const id = skill.id;
         // console.log('HC recup id:', id);
         navigate('/oneSkill/',
@@ -226,13 +232,18 @@ const Profile = () => {
         }
         catch (error) {
             console.log("catch postSkillDelete:", error);
+            handleNotFoundError();
         }
-    })
+    });
 
 
 
     return (
-        <div className="changeProfile" >
+
+
+
+
+        < div className="changeProfile" >
             <h2 id="profile">Profil</h2>
             <form method="POST"
                 onSubmit={handleSubmit(ProfilePatch)}
@@ -328,9 +339,10 @@ const Profile = () => {
             </div >
             <button onClick={ProfileDelete} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
         </div >
-
     )
+}
 
-};
+
+
 
 export default Profile;

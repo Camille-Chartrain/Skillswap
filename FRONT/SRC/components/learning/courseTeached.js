@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { link } from "fs";
-import { useNavigate } from "react-router-dom";
-import Error
+import { useLocation, useNavigate } from "react-router-dom";
+import Error from "../error/error";
 
 
 //=manage reception notification
-const CourseTeached = () => {
+const CourseTeached = ({ handleNotFoundError, error }) => {
     const [teacherReq, setTeacherReq] = useState([]);
     //=redirect for update skill
     const navigate = useNavigate();
@@ -44,7 +44,7 @@ const CourseTeached = () => {
         }
         catch (error) {
             // console.log("catch GetCourseReqTeach: ", error)
-            // throw error;
+            handleNotFoundError();
         }
     }
     useEffect(() => { getCourseTeacher() }, [])
@@ -76,20 +76,20 @@ const CourseTeached = () => {
             // //=traduct api response in Json
             const dataTeacher = await response.json();
             // console.log('dataItem avant if:', dataTeacher);
-            setTeacherReq(dataTeacher);
-
-            setTeacherReq(dataTeacher);
             if (dataTeacher === "meeting accepted") {
                 navigate("/dashboard");
 
             }
             else {
                 throw new Error("Invalid response from API");
-                <Error />
+
             }
+
+
         }
         catch (error) {
             console.log("catch de patchCourseValidate:", error);
+            handleNotFoundError();
         }
     }
 
@@ -114,9 +114,6 @@ const CourseTeached = () => {
             const dataReject = await response.json();
             // console.log('dataReject avant if:', response);
 
-            setTeacherReq(dataReject);
-
-            setTeacherReq(dataReject);
             if (dataReject === "meeting declined") {
                 navigate("/dashboard");
             }
@@ -127,6 +124,7 @@ const CourseTeached = () => {
         }
         catch (error) {
             console.log("catch de patchCourseRejeted:", error);
+            handleNotFoundError();
         }
     }
 
@@ -153,10 +151,8 @@ const CourseTeached = () => {
             // console.log('dataFinish avant if:', response);
 
 
-            setTeacherReq(dataFinish);
-            if (dataFinish === "meeting closed, swappie handled") {
+            if (dataFinish === "meeting closed, swappies handled") {
                 navigate("/dashboard");
-
             }
             else {
                 throw new Error("Invalid response from API");
@@ -165,41 +161,43 @@ const CourseTeached = () => {
         }
         catch (error) {
             // console.log("catch de patchCourseFinished:", error);
+            handleNotFoundError();
         }
     }
 
     return (
         <>
-            <ul>
-                {teacherReq && teacherReq.length > 0 ?
-                    teacherReq?.map((item) => (
-                        <>
-                            {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
+            {error && <Error /> ? Error : (
+                <ul>
+                    {teacherReq && teacherReq.length > 0 ?
+                        teacherReq?.map((item) => (
+                            <>
+                                {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
 
-                            <li key={item.id} >
-                                <h5> {item.Skill.title}</h5>
-                                <h5>{item.User.firstname} {item.User.lastname}</h5>
-                                <div className="status" >
-                                    {item.status === "en attente" &&
-                                        <>
-                                            <button onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE</button>
-                                            <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
-                                        </>
-                                    }
-                                    {item.status === "refusé" && <h4>COURS REFUSÉ</h4>}
-                                    {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
-                                    {item.status === "terminé" && <h5>COURS TERMINÉ</h5>}
-                                    {/* {item.status === "noté" && <h5>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</h5>} */}
-                                    {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
-                                </div>
-                            </li>
-                        </>
-                    )) : (
-                        <p> Pas de cours en attente </p>
-                    )
-                }
-            </ul >
-
+                                <li key={item.id} >
+                                    <h5> {item.Skill.title}</h5>
+                                    <h5>{item.User.firstname} {item.User.lastname}</h5>
+                                    <div className="status" >
+                                        {item.status === "en attente" &&
+                                            <>
+                                                <button onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE</button>
+                                                <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
+                                            </>
+                                        }
+                                        {item.status === "refusé" && <h4>COURS REFUSÉ</h4>}
+                                        {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
+                                        {item.status === "terminé" && <><h5>COURS TERMINÉ </h5> <p>Bravo ! Vous avez gagne 1 Swappie</p></>}
+                                        {/* {item.status === "noté" && <h5>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</h5>} */}
+                                        {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
+                                    </div>
+                                </li>
+                            </>
+                        )) : (
+                            <p> Pas de cours en attente </p>
+                        )
+                    }
+                </ul >
+            )}
         </>
     )
 }

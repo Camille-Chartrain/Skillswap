@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import SearchCategory from '../search/SearchCategory';
-import SearchSubCategory from '../search/SearchSubCategory';
 import SearchLevel from '../search/SearchLevel';
 import SearchTransmission from '../search/SearchTransmission';
 
@@ -41,9 +40,9 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
             })
 
             //=traduct api response in Json
-            // console.log("response avant .json", response);
+            console.log("response avant .json", response);
             const dataSkill = await response.json();
-            // console.log(" response apres .json:", dataSkill);
+            console.log(" response apres .json:", dataSkill);
 
             reset();
 
@@ -68,8 +67,8 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
                     <label htmlFor="CategoryId">Categorie * :</label>
                     <SearchCategory register={register} />
 
-                    <label htmlFor="SubCategoryId">Sous Categorie * :</label>
-                    <SearchSubCategory register={register} />
+                    {/* <label htmlFor="SubCategoryId">Sous Categorie * :</label>
+                    <SearchSubCategory register={register} /> */}
 
                     <label htmlFor="duration">Duree * :</label>
                     <input id="duration" type="text" name="duration" {...register("duration")} size="25" autoComplete="duration" required />

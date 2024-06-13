@@ -9,11 +9,13 @@ import Login from "../login";
 import login from '../../style/pictures/login.svg';
 import dashboard from '../../style/pictures/dashboard.svg';
 import Dashboard from '../dashboard';
+import Error from '../error/error';
 import { DarkModeContext, PageError, isLogged } from '../../util';
 import { useContext, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import SkillUpDate from '../skillList/skillUpDate';
+import Skill from '../skillList/skill';
 
 
 
@@ -27,9 +29,10 @@ import SkillUpDate from '../skillList/skillUpDate';
 
 
 //* components added for the user rendering
-const App = ({ darkMode, isLogged }) => {
+const App = ({ darkMode, isLogged, handleNotFoundError }) => {
 
     const [error, setError] = useState([]);
+
 
     //-> create un dark theme in useContext for using in all app
     const themeClass = useContext(DarkModeContext);
@@ -62,12 +65,20 @@ const App = ({ darkMode, isLogged }) => {
                     <NavBar />
                 </div>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} />} />
-                    <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} reset={reset} />} />
-                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} setError={setError} error={error} reset={reset} setValue={setValue} />} />
-                    <Route path="/oneSkill" element={<SkillUpDate handleSubmit={handleSubmit} register={register} setValue={setValue} reset={reset} />} />
-                    <Route path="*" element={<PageError />} />
+                    <Route path="/" element={<Home handleNotFoundError={handleNotFoundError} />} />
+
+                    <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} handleNotFoundError={handleNotFoundError} />} />
+
+                    <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} reset={reset} handleNotFoundError={handleNotFoundError} />} />
+
+                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} setError={setError} error={error} reset={reset} setValue={setValue} handleNotFoundError={handleNotFoundError} />} />
+
+                    <Route path="/oneSkill" element={<SkillUpDate handleSubmit={handleSubmit} register={register} setValue={setValue} reset={reset} handleNotFoundError={handleNotFoundError} />} />
+
+                    <Route path="/dashboard/oneSkill" element={<Skill />} />
+
+                    <Route path="*" element={<Error />} />
+
                 </Routes>
 
             </Router>
