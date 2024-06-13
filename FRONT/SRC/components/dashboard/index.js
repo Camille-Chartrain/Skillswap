@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
+
 //->ariana wire's icones
 import account_icon from '../../style/pictures/account_icon.svg';
 import school from '../../style/pictures/school.svg';
@@ -95,6 +96,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
     // 1 le composant est initialisé (son return avec l'appel aux composants enfants est exécuté)
     // 2 le use effect est exécuté immédiatement après que ce composant ait été initialisé (il lit la fonction et l'exécute, et donne la rêgle pour futurs appels au composant Dashboard dans le tableau de dépendances, ici = ne pas redéclencher cette fonction)
     useEffect(() => { verifyConnection() }, [])
+
 
     // choix possible de mettre 'navigate' dans le tableau de dépendances mais pas sûre des implications.
 
