@@ -4,16 +4,17 @@ import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Error from '../../error/error';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
-const SkillToSee = ({ setValue }) => {
+
+const SkillToSee = ({ setValue, getCourse }) => {
 
     // console.log("kikou les gens ds skillToSee");
 
     const location = useLocation();
     const seeASkill = location.state?.item;
-
+    const navigate = useNavigate();
     // console.log("seeASkill ds Skill avant le state:", seeASkill);
 
     const [skillSaw, setSkillSaw] = useState(
@@ -97,12 +98,9 @@ const SkillToSee = ({ setValue }) => {
             const dataAdding = await response.json();
             console.log(" dataAdding  apres .json:", dataAdding);
 
-            //=fetch back side's  errors
-            console.log("erreur back:", dataAdding.error);
 
             if (dataAdding === "cours en attente de validation") {//*message de validate
-                SetNotificationList(user.id);
-                getCourse();
+
                 navigate('/dashboard');
             }
             else {
