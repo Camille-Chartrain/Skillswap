@@ -19,6 +19,7 @@ const SkillToSee = ({ setValue }) => {
     const [skillSaw, setSkillSaw] = useState(
         {
             id: [],
+            User: '',
             Category: '',
             SubCategory: '',
             title: '',
@@ -45,10 +46,7 @@ const SkillToSee = ({ setValue }) => {
         }));
         setValue(name, value);
     };
-
-
-
-    console.log("avant fetch:", seeASkill);
+    // console.log("avant fetch:", seeASkill);
 
     //=get method for fetch datas from the Back
     const getSkill = useCallback(async () => {
@@ -88,6 +86,59 @@ const SkillToSee = ({ setValue }) => {
 
     useEffect(() => { getSkill() }, [])
 
+    //=post method to add course to studyList
+    // const AskInscriptionCourse = async ({ skillSaw }) => {
+    //     try {
+    //         console.log('dans la fonction AskInscriptionCourse');
+    //         console.log('data envoyees:', skillSaw);
+    //         const token = Cookies.get('token');
+    //         const response = await fetch(`http://localhost:3000/learning/${skillSaw}`, {
+    //             method: 'POST',
+    //             status: 200,
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': `Bearer ${token}`,
+    //             },
+    //             body: JSON.stringify(skillSaw)
+    //             // credentials: 'include',
+    //         })
+
+    //         // console.log('response.status:', response.status);
+
+    //         //=traduct api response in Json
+    //         console.log("response post skill avant .json", response);
+    //         const dataAdding = await response.json();
+    //         console.log(" dataAdding  apres .json:", dataAdding);
+
+    //         //=fetch back side's  errors
+    //         console.log("erreur back:", dataAdding.error);
+
+    //         if (dataAdding === "") {//*message de validate
+    //             SetNotificationList(user.id);
+    //             navigate('/dashboard');
+    //         }
+    //         else {
+    //             throw new Error("Invalid response from API");
+    //         }
+    //     }
+    //     catch (error) {
+    //         console.log("catch AIC : ", error);
+    //         // handleNotFoundError();
+    //     }
+    // };
+    // const handleClick = (event) => {
+    //     console.log("dans la fonction handleClick suivre ce cours");
+    //     event.preventDefault();
+    //     AskInscriptionCourse();
+    // }
+
+
+
+
+
+
+
+
 
 
     return (
@@ -105,8 +156,8 @@ const SkillToSee = ({ setValue }) => {
                         <h4>Duree :</h4><span>{skillSaw.duration}</span>
                     </div>
                     <div className="skill-info">
-                        <h4>Categorie :</h4> <span>{skillSaw.Category}</span>
-                        <h4>Sous categorie :</h4>  <span>{skillSaw.SubCategory}</span>
+                        <h4>Categorie :</h4> <span>{skillSaw.Category.name}</span>
+                        <h4>Sous categorie :</h4>  <span>{skillSaw.SubCategory.name}</span>
                         <h4>Competence :</h4><span> {skillSaw.title}</span>
                         <h4>Niveau : </h4><span>{skillSaw.level}</span>
                         <h4>Prix : </h4> <span>{skillSaw.price}</span>
