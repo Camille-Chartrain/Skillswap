@@ -21,35 +21,37 @@ const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selec
 
     const GetSearch = useCallback(async (data) => {
         try {
+            console.log("nous sommes dans la fonction getSearch");
+            console.log('data', data);
             // console.log("req data avant JSON:", data)
             const token = Cookies.get('token');
-            // const response = await fetch(`http://localhost:3000/searchVisitor/?${searchInput}/?${selectLevel}/?${selectedCategory}/?${selectSubCat}`, {
-            //     method: "get",
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         'Authorization': `Bearer ${token}`,
-            //     },
-            //     // credentials: 'include'
-            // });
+            const response = await fetch(`http://localhost:3000/searchVisitor?${searchInput}&${selectLevel}&${selectedCategory}&${selectSubCat}`, {
+                method: "get",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                // credentials: 'include'
+            });
 
             console.log("recup data apres JSON:", data)
 
             const dataSearch = await response.json();
-            console.log("donnees dataSearch", dataSearch)
-            setData(dataSearch);
+            console.log("reponse GetSearch dataSearch", dataSearch)
+            // setData(dataSearch);
 
-            setSearchInput(dataSearch);
-            setSelectLevel(dataSearch);
-            setSelectCategory(dataSearch);
-            setSelectSubCategory(dataSearch);
-            console.log('donnees du state inputSearch:', dataSearch);
+            // setSearchInput(dataSearch);
+            // setSelectLevel(dataSearch);
+            // setSelectCategory(dataSearch);
+            // setSelectSubCategory(dataSearch);
+            // console.log('donnees du state inputSearch:', dataSearch);
         }
         catch (error) {
             console.log('erreur du catch GetSearch:', error);
         }
     }, [searchInput, selectLevel, selectedCategory, selectSubCat]);
 
-    useEffect(() => { GetSearch(); }, [GetSearch]);
+    useEffect(() => { GetSearch(); }, []);
 
     return (
 
@@ -57,6 +59,7 @@ const Search = ({ setSelectLevel, setSelectCategory, setSelectSubCategory, selec
             <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' role="logo" /></a>
 
             <form method="GET" className="search" onSubmit={handleSubmit(GetSearch)}>
+
                 <input type="search" name="searchInput" placeholder="rechercher" value={searchInput} onChange={handleChange} aria-label='faite votre recherche' />
 
                 <SearchLevel handleSubmit={handleSubmit} register={register} />

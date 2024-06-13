@@ -42,7 +42,7 @@ const Skill = ({
     let stars = Array(5).fill();
 
     //=post method to add course to studyList
-    const AskInscriptionCourse = async ({ skillId }) => {
+    const AskInscriptionCourse = async (skillId) => {
         try {
             console.log('dans la fonction AskInscriptionCourse');
             console.log('data envoyees:', skillId);

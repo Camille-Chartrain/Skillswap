@@ -21,7 +21,7 @@ const learningController = {
             const meeting = await Meeting.create({
                 status: "en attente",
                 SkillId: req.params.skillId,
-                StudentsId: req.user.id,
+                UserId: req.user.id,
 
             });
             // je pourrais rajouter un update pour associer l'id du teacher au meeting
