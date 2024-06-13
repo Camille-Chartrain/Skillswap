@@ -3,15 +3,16 @@ import { useForm } from "react-hook-form";
 import SearchSubCategory from './SearchSubCategory';
 import Cookies from 'js-cookie';
 
-const SearchCategory = () => {
+const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedCategory }) => {
     const { handleSubmit, register } = useForm();
 
     //= to fetch select's datas and datas bdd
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    // const [selectedCategory, setSelectedCategory] = useState(null);
 
     // //= to refresh the Skill Data state between two changes
     const handleChangeCat = (e) => {
+        console.log('dans les handlechangeCat');
         const { value } = e.target;
         // console.log('handleChange appelé: ', value);
 
@@ -24,8 +25,9 @@ const SearchCategory = () => {
         //= we map on the categories list to find the matching id and set our selected category in the state
         const selected = categories.find(category => category.id === parseInt(value));
         if (selected) {
+            console.log("selected dans handleChangeCat", selected);
             setSelectedCategory(selected);
-            // console.log('Catégorie sélectionnée: ', selected);
+            console.log('Catégorie sélectionnée: ', selected);
         }
     };
 
@@ -54,13 +56,21 @@ const SearchCategory = () => {
 
     return (
         <div>
-            <select name="CategoryId" id="CategoryId" onChange={handleChangeCat} {...register("CategoryId", { onChange: handleChangeCat })}>
+            <select name="CategoryId"
+                id="CategoryId"
+                onChange={handleChangeCat}
+                {...register("CategoryId", { onChange: handleChangeCat })}
+            >
                 <option value="">Choisissez une catégorie</option>
                 {categories.map((category) => (
                     <option key={category.id} value={category.id}>{category.name}</option>
                 ))}
             </select>
-            <SearchSubCategory handleSubmit={handleSubmit} register={register} selectedCategory={selectedCategory} />
+            <SearchSubCategory
+                handleSubmit={handleSubmit}
+                register={register}
+                selectedCategory={selectedCategory}
+                setSelectedSubCategory={setSelectedSubCategory} />
         </div>
     );
 }

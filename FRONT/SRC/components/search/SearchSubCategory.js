@@ -4,12 +4,13 @@ import Cookies from 'js-cookie';
 import { useLocation } from "react-router-dom";
 
 
-const SearchSubCategory = ({ setValue, selectedCategory }) => {
+const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory }) => {
     const { register } = useForm();
     const [subCategories, setSubCategories] = useState([]);
-    const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+    // const [selectedSubCategory, setSelectedSubCategory] = useState(null);
 
     const handleChangeSubCat = (e) => {
+        console.log("selected dans handleChangeSubCat");
         const { value } = e.target;
         // console.log('handleChange sub catégorie appelé: ', value);
 
@@ -22,8 +23,10 @@ const SearchSubCategory = ({ setValue, selectedCategory }) => {
         //= we map on the categories list to find the matching id and set our selected category in the state
         const selected = subCategories.find(subcategory => subcategory.id === parseInt(value));
         if (selected) {
+            console.log("selected dans handleChangeSubCat", selected);
             setSelectedSubCategory(selected);
-            // console.log('Sous Catégorie sélectionnée: ', selected);
+            // console.log("subcat séléctionnée", selectedSubCategory);
+
         }
     };
 
@@ -63,7 +66,7 @@ const SearchSubCategory = ({ setValue, selectedCategory }) => {
     }, [getSubCategoriesList, selectedCategory]);
 
     return (
-        <select id="SubCategoryId" name="SubCategoryId" onChange={handleChangeSubCat} {...register("SubCategoryId")}>
+        <select id="SubCategoryId" name="SubCategoryId" onChange={handleChangeSubCat} {...register("SubCategoryId", { onChange: handleChangeSubCat })}>
             <option value=""  >choisissez votre sous-categorie</option>
 
             {subCategories.map((subcategory) => (
