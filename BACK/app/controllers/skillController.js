@@ -1,4 +1,4 @@
-import { Skill } from "../models/index.js";
+import { Skill, User } from "../models/index.js";
 
 const skillController = {
 
@@ -35,7 +35,16 @@ const skillController = {
             console.log("req.params.skillId", req.params.skillId);
             // console.log("req.body", req.body);
             // find by primary key
-            const skill = await Skill.findByPk(req.params.skillId);
+            const skill = await Skill.findByPk(req.params.skillId, {
+                attributes: ["id", "title", "duration", "price", "averageMark", "level", "transmission", "description", 'availability', "SubCategoryId", "CategoryId"],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['lastname', 'firstname', 'presentation', 'email']
+                    }
+
+                ]
+            });
             console.log('oneskill:', skill);
             if (skill === null) {
                 console.log('oneSkill not found!');
