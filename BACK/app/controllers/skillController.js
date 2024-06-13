@@ -44,7 +44,7 @@ const skillController = {
                     },
                     {
                         model: Category,
-                        attributes: ['name'],
+                        attributes: ['name', 'picture'],
                     },
                     {
                         model: SubCategory,
