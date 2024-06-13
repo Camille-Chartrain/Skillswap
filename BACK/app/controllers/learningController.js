@@ -25,8 +25,8 @@ const learningController = {
 
             });
             // je pourrais rajouter un update pour associer l'id du teacher au meeting
-            res.send(
-                meeting
+            res.json(
+                "cours en attente de validation"
             );
         } catch (error) {
             console.error("erreur createLearning:", error);
