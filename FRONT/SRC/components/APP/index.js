@@ -76,7 +76,7 @@ const App = ({ darkMode, isLogged, handleNotFoundError }) => {
 
                     <Route path="/oneSkill" element={<SkillUpDate handleSubmit={handleSubmit} register={register} setValue={setValue} reset={reset} handleNotFoundError={handleNotFoundError} />} />
 
-                    <Route path="/dashboard/seeASkill" element={<SkillToSee />} />
+                    <Route path="/dashboard/seeASkill" element={<SkillToSee setValue={setValue} handleNotFoundError={handleNotFoundError} />} />
 
                     <Route path="*" element={<Error />} />
 
