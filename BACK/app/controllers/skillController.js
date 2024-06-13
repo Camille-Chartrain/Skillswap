@@ -40,7 +40,7 @@ const skillController = {
                 include: [
                     {
                         model: User,
-                        attributes: ['lastname', 'firstname', 'presentation', 'email']
+                        attributes: ['lastname', 'firstname', 'presentation', 'email', "grade_level",]
                     }
 
                 ]
