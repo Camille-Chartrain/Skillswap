@@ -1,4 +1,4 @@
-import { Skill, User } from "../models/index.js";
+import { Skill, User, Category, SubCategory } from "../models/index.js";
 
 const skillController = {
 
@@ -41,6 +41,14 @@ const skillController = {
                     {
                         model: User,
                         attributes: ['lastname', 'firstname', 'presentation', 'email', "grade_level",]
+                    },
+                    {
+                        model: Category,
+                        attributes: ['name'],
+                    },
+                    {
+                        model: SubCategory,
+                        attributes: ['name'],
                     }
 
                 ]
