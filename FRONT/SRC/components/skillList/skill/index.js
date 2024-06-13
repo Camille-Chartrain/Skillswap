@@ -25,26 +25,16 @@ const Skill = ({
     email,
     grade_level,
     presentation,
-
+    handleNotFoundError
 }) => {
 
 
     const location = useLocation();
-    const skillToSee = location.state?.item;
-
-    console.log("skillToSee ds Skill avant le state:", skillToSee);
-    const [skill, setSkill] = useState(skillToSee || {
+    const item = location.state?.item;
+    console.log("item ds Skill avant le state:", item);
+    const [skill, setSkill] = useState(item || {
         id: [],
-        Category: '',
-        SubCategory: '',
         title: '',
-        price: '',
-        mark: '',
-        level: '',
-        duration: '',
-        transmission: '',
-        description: '',
-        availability: '',
     })
 
     let stars = Array(5).fill();
@@ -96,7 +86,8 @@ const Skill = ({
     }
 
     //=get method for fetch datas from the Back
-    const getSkill = useCallback(async (skillToSee) => {
+    const getSkill = useCallback(async (skill) => {
+        console.log('id depuis item:', item)
         try {
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/oneSkill/${skill.id}`, {
@@ -107,11 +98,10 @@ const Skill = ({
                 },
                 // credentials: 'include'
             });
-            console.log("item avt json:", skill);
+            console.log("item avt json:", skill)
             const dataSkill = await response.json();
-            console.log("dataSkill ds getSkill:", dataSkill);
+            console.log("dataSkill ds getSkill:", dataSkill)
             setSkill(dataSkill);
-            setValue
 
             //= update inputs' values
             Object.keys(dataSkill).forEach(key => {
@@ -120,7 +110,7 @@ const Skill = ({
         }
         catch (error) {
             console.error("catch de skillUpDate:", error);
-
+            // handleNotFoundError();
         }
     })
     useEffect(() => { getSkill() }, [getSkill])
@@ -133,77 +123,43 @@ const Skill = ({
     return (
         <>
             <div id="skill" >
-                {skillToSee ? (
-                    //-> one skill to see more button
+                {!isLogged ? (
                     <>
-                        {console.log("ds loop return STS:", skillToSee)}
-                        {console.log("ds loop return Skill:", skill)}
                         <div className="skill-header">
                             <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
-                            <h4>Description :</h4> <span>{skillToSee.description}  </span>
-                            <h4>Duree :</h4><span>{skillToSee.duration}</span>
+                            <h4>Description :</h4> <span>{description}  </span>
+                            <h4>Duree :</h4><span>{duration}</span>
                         </div>
                         <div className="skill-info">
-                            <h4>Categorie :</h4> <span>{skillToSee.Category}</span>
-                            <h4>Sous categorie :</h4>  <span>{skillToSee.SubCategory}</span>
-                            <h4>Competence :</h4><span> {skillToSee.title}</span>
-                            <h4>Niveau : </h4><span>{skillToSee.level}</span>
-                            <h4>Prix : </h4> <span>{skillToSee.price}</span>
+                            <h4>Categorie :</h4> <span>{Category}</span>
+                            <h4>Sous categorie :</h4>  <span>{SubCategory}</span>
+                            <h4>Competence :</h4><span> {title}</span>
+                            <h4>Niveau : </h4><span>{level}</span>
+                            <h4>Prix : </h4> <span>{price}</span>
                             <h4>Note : </h4>  <span>{
                                 stars?.map((_, index) => (
                                     <span key={index}
-                                        style={{ color: index < skillToSee.averageMark ? 'gold' : 'gray' }} >
+                                        style={{ color: index < averageMark ? 'gold' : 'gray' }} >
                                         < FontAwesomeIcon icon={faStar} />
                                     </span>))}
                             </span>
+
                         </div>
-                        <div className='skill-teacher'>
-                            <h4>Disponibilite :</h4><span>{skillToSee.availability}</span>
-                            <h4>Transmission :</h4><span>{skillToSee.transmission}</span>
-                            <h4>Professeur :</h4> <span> {`${skillToSee.firstname} ${skillToSee.lastname}`}</span>
-                            <h4>Email : </h4><span>{skillToSee.email}</span>
-                            <h4>Niveau d'etudes :</h4><span>{skillToSee.grade_level}</span>
-                            <h4>Presentation :</h4> <span>{skillToSee.presentation}</span>
-                        </div >
                     </>
                 ) : (
-                    //->skillList model for home's composant
-                    !isLogged ? (
-                        <>
-                            <div className="skill-header">
-                                <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
-                                <h4>Description :</h4> <span>{description}  </span>
-                                <h4>Duree :</h4><span>{duration}</span>
-                            </div>
-                            <div className="skill-info">
-                                <h4>Categorie :</h4> <span>{Category}</span>
-                                <h4>Sous categorie :</h4>  <span>{SubCategory}</span>
-                                <h4>Competence :</h4><span> {title}</span>
-                                <h4>Niveau : </h4><span>{level}</span>
-                                <h4>Prix : </h4> <span>{price}</span>
-                                <h4>Note : </h4>  <span>{
-                                    stars?.map((_, index) => (
-                                        <span key={index}
-                                            style={{ color: index < averageMark ? 'gold' : 'gray' }} >
-                                            < FontAwesomeIcon icon={faStar} />
-                                        </span>))}
-                                </span>
 
-                            </div>
-                        </>
-                    ) : (
-                        <div className='skill-teacher'>
-                            <h4>Disponibilite :</h4><span>{availability}</span>
-                            <h4>Transmission :</h4><span>{transmission}</span>
-                            <h4>Professeur :</h4> <span> {`${firstname} ${lastname}`}</span>
-                            <h4>Email : </h4><span>{email}</span>
-                            <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
-                            <h4>Presentation :</h4> <span>{presentation}</span>
-                        </div >
+                    <div className='skill-teacher'>
+                        <h4>Disponibilite :</h4><span>{availability}</span>
+                        <h4>Transmission :</h4><span>{transmission}</span>
+                        <h4>Professeur :</h4> <span> {`${firstname} ${lastname}`}</span>
+                        <h4>Email : </h4><span>{email}</span>
+                        <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
+                        <h4>Presentation :</h4> <span>{presentation}</span>
+                    </div >
 
-                    )
-                )}
-                < button type="submit" onSubmit={handleChange}>SUIVRE CE COURS</button>
+                )
+                }
+                <button type="submit" onSubmit={handleChange}>SUIVRE CE COURS</button>
             </div >
         </>
     )

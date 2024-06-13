@@ -39,7 +39,7 @@ const NotificationsList = ({ }) => {
     const handleChange = (item) => {
 
         console.log('ds HC navigate item:', item);
-        navigate('oneSkill/', {
+        navigate('seeASkill/', {
             state: { item }
         });
     }

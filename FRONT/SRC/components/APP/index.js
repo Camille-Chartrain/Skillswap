@@ -16,6 +16,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-do
 import { useForm } from 'react-hook-form';
 import SkillUpDate from '../skillList/skillUpDate';
 import Skill from '../skillList/skill';
+import SkillToSee from '../skillList/skillToSee';
 
 
 
@@ -75,7 +76,7 @@ const App = ({ darkMode, isLogged, handleNotFoundError }) => {
 
                     <Route path="/oneSkill" element={<SkillUpDate handleSubmit={handleSubmit} register={register} setValue={setValue} reset={reset} handleNotFoundError={handleNotFoundError} />} />
 
-                    <Route path="/dashboard/oneSkill" element={<Skill />} />
+                    <Route path="/dashboard/seeASkill" element={<SkillToSee />} />
 
                     <Route path="*" element={<Error />} />
 
