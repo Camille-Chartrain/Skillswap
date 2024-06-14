@@ -1,6 +1,7 @@
 import search from '../../style/pictures/search.svg';
 import SearchCategory from './SearchCategory';
 import SearchLevel from './SearchLevel';
+import { ToggleBtn } from '../../util';
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import logo from './logo.png';
@@ -81,23 +82,23 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch }) => {
             <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' role="logo" /></a>
 
             <form method="GET" className="search" onSubmit={handleSubmit(GetSearch)} >
+                <div className='skillList'>
+                    <input
+                        type="search"
+                        name="searchInput"
+                        placeholder="Rechercher"
+                        value={searchInput}
+                        onChange={handleChange}
+                        aria-label='faite votre recherche'
+                    />
 
-                <input
-                    type="search"
-                    name="searchInput"
-                    placeholder="rechercher"
-                    value={searchInput}
-                    onChange={handleChange}
-                    aria-label='faite votre recherche'
-                />
-
-                <SearchLevel
-                    handleSubmit={handleSubmit}
-                    register={register}
-                    setSelectLevel={setSelectLevel}
-                    selectLevel={selectLevel}
-                />
-
+                    <SearchLevel
+                        handleSubmit={handleSubmit}
+                        register={register}
+                        setSelectLevel={setSelectLevel}
+                        selectLevel={selectLevel}
+                    />
+                </div>
                 <SearchCategory
                     handleSubmit={handleSubmit}
                     register={register}
@@ -105,8 +106,10 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch }) => {
                     selectedCategory={selectedCategory}
                     setSelectedSubCategory={setSelectedSubCategory}
                 />
-
-                <button><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
+                <div className='skillList'>
+                    <button><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
+                    <ToggleBtn />
+                </div>
             </form >
             {/* <SkillList
                 dataSearch={dataSearch}

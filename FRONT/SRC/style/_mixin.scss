@@ -51,10 +51,12 @@
 
 //*media query mobile first
 @mixin mobileFirst {
-    @media screen and (max-width:50rem) {
+    @media screen and (max-width:43rem) {
         display: flex;
         flex-direction: column;
-        flex-wrap: nowrap;
+        justify-items: center;
+        align-items: center;
+        flex-wrap: wrap;
         width: 85%;
 
         h2 {

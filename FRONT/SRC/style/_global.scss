@@ -8,7 +8,7 @@
 body {
 
     font-family: 'prompt', 'sans-serif';
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2rem;
 
     main {
@@ -51,6 +51,8 @@ body {
     .error {
         @include mixin.showMessage(var.$error);
     }
+
+    @include mixin.mobileFirst();
 }
 
 
@@ -61,19 +63,31 @@ h2 {
     font-family: 'sugo pro display', 'sans-serif';
     font-size: 2.5rem;
     line-height: 2rem;
-    margin: 1rem;
+    margin: 1.2rem;
     padding: 1rem;
     letter-spacing: 0.8rem;
 }
 
+h1 {
+    color: var.$blueBtn;
+}
 
-h3,
+h2 {
+    color: var.$yellowBtn;
+}
+
+h3 {
+    font-size: 2rem;
+    color: var.$yellowBtn;
+    padding: 1rem 1rem;
+}
+
 h4,
 label {
     color: var.$blueBtn;
     font-weight: bolder;
     font-family: 'sugo pro display';
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 3rem;
     letter-spacing: 0.1rem;
     padding: 0.2rem;
@@ -81,7 +95,8 @@ label {
 }
 
 input,
-select {
+select,
+textarea {
     height: 2.5rem;
     width: 25rem;
     font-size: 1.5rem;

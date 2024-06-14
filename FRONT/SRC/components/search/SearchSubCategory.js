@@ -67,7 +67,7 @@ const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory 
 
     return (
         <select id="SubCategoryId" name="SubCategoryId" onChange={handleChangeSubCat} {...register("SubCategoryId", { onChange: handleChangeSubCat })}>
-            <option value=""  >choisissez votre sous-categorie</option>
+            <option value=""  >Choisissez votre sous-categorie</option>
 
             {subCategories.map((subcategory) => (
                 <option key={subcategory.id} value={subcategory.id} name={subcategory.id}>{subcategory.name}</option>

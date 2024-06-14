@@ -11,8 +11,8 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
     const [createSkill, setDataCreateSkill] = useState({
         id: [],
         title: (''),
-        Category: (''),
-        SubCategory: (''),
+        Category: '',
+        SubCategory: '',
         duration: (''),
         level: (''),
         price: (''),
@@ -22,6 +22,9 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
         mark: (''),
     });
 
+    const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectLevel, setSelectLevel] = useState('all');
 
     //=post method to send info
     const PostCompetence = async (data) => {
@@ -64,17 +67,26 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
                     <small> Merci de donner un titre explicite</small>
                     <input id="title" type="text" name="title" {...register("title")} size="25" autoComplete="on" required />
 
-                    <label htmlFor="CategoryId">Categorie * :</label>
-                    <SearchCategory register={register} />
+                    <label htmlFor="CategoryId">Categorie et Sous-categorie * :</label>
+                    <SearchCategory
+                        register={register}
+                        handleSubmit={handleSubmit}
+                        setSelectedCategory={setSelectedCategory}
+                        selectedCategory={selectedCategory}
+                        setSelectedSubCategory={setSelectedSubCategory}
+                    />
 
-                    {/* <label htmlFor="SubCategoryId">Sous Categorie * :</label>
-                    <SearchSubCategory register={register} /> */}
 
                     <label htmlFor="duration">Duree * :</label>
                     <input id="duration" type="text" name="duration" {...register("duration")} size="25" autoComplete="duration" required />
 
                     <label htmlFor="level">Niveau * :</label>
-                    <SearchLevel register={register} />
+                    <SearchLevel
+                        register={register}
+                        handleSubmit={handleSubmit}
+                        setSelectLevel={setSelectLevel}
+                        selectLevel={selectLevel}
+                    />
 
                     <label htmlFor="transmission"> Mode de transmission * :</label>
                     <SearchTransmission register={register} />

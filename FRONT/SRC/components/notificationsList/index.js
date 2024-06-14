@@ -82,8 +82,8 @@ const NotificationsList = ({ }) => {
 
 
     return (
-        <div className='container'>
-            <h5>Nos nouveautes selon vos interets: </h5>
+        <div className='interestList'>
+            <h4>Nos nouveautes selon vos interets: </h4>
             <ul> {
                 notification?.map((item) => (
                     <li key={item?.id}>

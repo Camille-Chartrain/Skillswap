@@ -126,7 +126,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
                 </>
             </div>
             <main>
-                <h1>TABLEAU DE BORD</h1>
+                <h1 className="dashboard">TABLEAU DE BORD</h1>
                 <Profile handleSubmit={handleSubmit} register={register} reset={reset} />
                 <Learning handleSubmit={handleSubmit} register={register} />
                 <Statistic handleSubmit={handleSubmit} register={register} />
