@@ -7,7 +7,7 @@ import { ToggleBtn } from '../../util';
 
 //= Routes displayed depending if you are logged or not.. with islogged
 const NavBar = ({ register, handleSubmit, dataSearch,
-    setDataSearch, match, setMatch }) => {
+    setDataSearch, match, setMatch, onReset }) => {
     return (
         <>
             <span className="arianaWire">
@@ -19,6 +19,7 @@ const NavBar = ({ register, handleSubmit, dataSearch,
                         setDataSearch={setDataSearch}
                         match={match}
                         setMatch={setMatch}
+                        onReset={onReset}
                     />
                     <ToggleBtn />
                 </div>

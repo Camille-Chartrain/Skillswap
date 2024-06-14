@@ -1,13 +1,14 @@
 import Skill from './skill/index.js';
 import { useEffect, useState } from 'react';
+import Search from '../search/Search.js';
 
 
 //= details' skills are totally show only when the user is logged
 
 
-const SkillList = () => {
+const SkillList = ({ dataSearch, match }) => {
 
-    const [skillsList, setSkillsList, dataSearch, match] = useState([]);
+    const [skillsList, setSkillsList] = useState([]);
 
     console.log("state dataSearch dans Home/skillList", dataSearch);
     console.log("state match dans Home/SkillList", match);
@@ -17,7 +18,7 @@ const SkillList = () => {
             const response = await fetch(`http://localhost:3000/`);
             const dataSkill = await response.json();
             setSkillsList(dataSkill);
-            console.log(dataSkill);
+            console.log("reponse dataSkill du get skill page home", dataSkill);
         }
         catch (error) {
             console.error(error.message);
@@ -50,6 +51,7 @@ const SkillList = () => {
                         email={item?.User.email}
                         grade_level={item?.User.grade_level}
                         presentation={item?.User.presentation}
+
                     />
                 ))
             }
