@@ -33,6 +33,12 @@ import { isLogged } from '../../util';
 const App = ({ darkMode, handleNotFoundError }) => {
 
     const [error, setError] = useState([]);
+    const [dataSearch, setDataSearch] = useState({
+        rows: [],
+        count: 0,
+        resultCount: 0,
+    });
+    const [match, setMatch] = useState(false);
 
 
     //-> create un dark theme in useContext for using in all app
@@ -75,10 +81,21 @@ const App = ({ darkMode, handleNotFoundError }) => {
 
 
 
-                    <NavBar />
+                    <NavBar
+                        dataSearch={dataSearch}
+                        setDataSearch={setDataSearch}
+                        match={match}
+                        setMatch={setMatch}
+                    />
                 </div>
                 <Routes>
-                    <Route path="/" element={<Home handleNotFoundError={handleNotFoundError} />} />
+                    <Route path="/" element={
+                        <Home
+                            handleNotFoundError={handleNotFoundError}
+                            dataSearch={dataSearch}
+                            match={match}
+
+                        />} />
 
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} handleNotFoundError={handleNotFoundError} />} />
 

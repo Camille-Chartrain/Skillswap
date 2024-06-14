@@ -6,9 +6,11 @@ import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import logo from './logo.png';
 import Cookies from 'js-cookie';
+import SkillList from '../skillList';
 
 
-const Search = ({ }) => {
+
+const Search = ({ dataSearch, setDataSearch, match, setMatch }) => {
 
 
     const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -47,17 +49,30 @@ const Search = ({ }) => {
                 },
             });
 
-            const dataSearch = await response.json();
-            console.log("reponse GetSearch dataSearch", dataSearch)
-            // console.log('donnees du state inputSearch:', dataSearch);
+            const responseDataSearch = await response.json();
+            console.log("reponse GetSearch responseDataSearch", responseDataSearch)
+            console.log("typeof responseDataSearch", typeof responseDataSearch);
+
+            if (responseDataSearch === "no match") {
+                setMatch(false)
+                console.log("state match dans Search", match);
+            }
+            else if (responseDataSearch) {
+                setDataSearch(responseDataSearch);
+                setMatch(true)
+                console.log("dataSearch State", dataSearch);
+                console.log("state Match dans home", match);
+            }
+
             // setSelectLevel("");
             // setSelectedCategory(null);
             // setSelectedSubCategory(null);
+
         }
         catch (error) {
             console.log('erreur du catch GetSearch:', error);
         }
-    }, [searchInput, selectLevel, selectedCategory, selectedSubCategory]);
+    }, [searchInput, selectLevel, selectedCategory, selectedSubCategory, SkillList]);
 
     useEffect(() => { }, []);
 
@@ -96,6 +111,9 @@ const Search = ({ }) => {
                     <ToggleBtn />
                 </div>
             </form >
+            {/* <SkillList
+                dataSearch={dataSearch}
+            /> */}
         </>
     )
 
