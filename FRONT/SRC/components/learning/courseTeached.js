@@ -157,7 +157,8 @@ const CourseTeached = ({ handleNotFoundError, error }) => {
 
 
     return (
-        <>
+        <div className="learningList">
+            <h3>Cours dispenses</h3>
             {
                 error && <Error /> ? Error : (
                     <ul>
@@ -166,11 +167,12 @@ const CourseTeached = ({ handleNotFoundError, error }) => {
                                 <>
                                     {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
 
-                                    <li key={item.id} >
-                                        <h5> {item.Skill.title}</h5>
-                                        <h5>{item.User.firstname} {item.User.lastname}</h5>
-                                        <div className="status" >
-                                            {item.status === "en attente" &&
+                                    <li className="learning-li btn" key={item.id} >
+                                        <span> {item.Skill.title}</span>
+                                        <span>{item.User.firstname} {item.User.lastname}</span>
+                                        <div div className="status" >
+                                            {
+                                                item.status === "en attente" &&
                                                 <>
                                                     <button onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE</button>
                                                     <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
@@ -178,11 +180,11 @@ const CourseTeached = ({ handleNotFoundError, error }) => {
                                             }
                                             {item.status === "refusé" && <h4>COURS REFUSÉ</h4>}
                                             {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
-                                            {item.status === "terminé" && <><h5>COURS TERMINÉ </h5> <p>Bravo ! Vous avez gagne 1 Swappie</p></>}
-                                            {/* {item.status === "noté" && <h5>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</h5>} */}
-                                            {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
+                                            {item.status === "terminé" && <><span>COURS TERMINÉ </span><span>Bravo ! Vous avez gagne 1 Swappie</span></>}
+                                            {/* {item.status === "noté" && <span>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</span>} */}
+                                            {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <span>STATUT INCONNU</ span>}
                                         </div>
-                                    </li>
+                                    </li >
                                 </>
                             )) : (
                                 <p> Pas de cours en attente </p>
@@ -191,7 +193,7 @@ const CourseTeached = ({ handleNotFoundError, error }) => {
                     </ul >
                 )
             }
-        </>
+        </div>
     )
 }
 export default CourseTeached;
