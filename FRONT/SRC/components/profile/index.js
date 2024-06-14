@@ -115,8 +115,8 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
 
         }
         catch (error) {
-            console.log("erreur : ", error);
-            // handleNotFoundError();
+            console.error("catch profilePatch : ", error);
+            handleNotFoundError();
         }
     };
 

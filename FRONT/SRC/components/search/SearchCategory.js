@@ -13,8 +13,9 @@ const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedC
     // //= to refresh the Skill Data state between two changes
     const handleChangeCat = (e) => {
         console.log('dans les handlechangeCat');
+        setSelectedCategory(e.target.value)
         const { value } = e.target;
-        // console.log('handleChange appelé: ', value);
+        console.log('handleChange appelé: ', value);
 
         //= if value is not defined, we set selected Category to null
         if (!value) {
@@ -55,7 +56,7 @@ const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedC
     }, [getCategoriesList]);
 
     return (
-        <div>
+        <div className="categories">
             <select name="CategoryId"
                 id="CategoryId"
                 onChange={handleChangeCat}
@@ -71,7 +72,7 @@ const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedC
                 register={register}
                 selectedCategory={selectedCategory}
                 setSelectedSubCategory={setSelectedSubCategory} />
-        </div>
+        </div >
     );
 }
 

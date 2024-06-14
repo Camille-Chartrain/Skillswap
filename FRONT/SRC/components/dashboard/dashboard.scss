@@ -5,10 +5,4 @@ dashboard {
     display: flex;
     flex-direction: column;
     @include mixin.focus(var.$orangeBtn);
-
-    h1 {
-        padding: 1rem;
-        margin: 1rem;
-        color: var.$orangeBtn;
-    }
 }

@@ -10,7 +10,7 @@ const SearchTransmission = ({ handleSubmit, register, isValid }) => {
     return (
 
         <select id="transmission" name="transmission" {...register("transmission")} value={selectTrans} onChange={handleChangeTransm} required >
-            <option defaultValue="all" >mode de transmission</option>
+            <option defaultValue="all" >Mode de transmission</option>
             <option value="online">En ligne</option>
             <option value="video">Video</option>
             <option value="email">Email</option>

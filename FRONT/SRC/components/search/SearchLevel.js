@@ -19,7 +19,7 @@ const SearchLevel = ({ register, setSelectLevel, selectLevel }) => {
             value={selectLevel}
             required onChange={handleChangeLevel}
         >
-            <option defaultValue="all">ajoutez un niveau</option>
+            <option defaultValue="all">Ajoutez un niveau</option>
             <option value="débutant" >Débutant</option>
             <option value="intermediaire" >Intermédiaire</option>
             <option value="avancé" >Avancé</option>

@@ -1,0 +1,17 @@
+@use '../../style/var';
+@use '../../style/mixin';
+
+
+.interestList {
+    display: flex;
+    flex-direction: column;
+
+    li {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+
+
+}

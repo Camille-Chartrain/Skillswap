@@ -53,11 +53,9 @@
         border-color: 0.2rem solid;
         width: 50%;
 
-        h3 {
-            padding: 1rem 1rem;
-        }
-
         ul {
+            display: flex;
+            flex-direction: column;
             list-style-type: none;
             padding: 0rem;
 
@@ -73,6 +71,7 @@
 
                 li {
                     @include mixin.focus(var.$orangeBtn);
+                    display: flex;
                     color: var.$yelloWrite;
                     padding: 0.5rem;
                     border-radius: 1rem;
@@ -88,3 +87,16 @@
 
     @include mixin.mobileFirst();
 }
+
+//=notList {
+// display: flex;
+// flex-direction: row;
+
+// h4 {
+//     color
+// }
+
+// P {}
+
+// button {}
+// }

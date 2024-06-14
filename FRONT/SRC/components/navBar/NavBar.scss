@@ -7,7 +7,6 @@
 
 .arianaWire {
     @include mixin.focus(var.$blueBtn);
-
     display: flex;
     flex-direction: row;
     background-color: var.$yelloWrite;
@@ -16,15 +15,10 @@
     flex-wrap: nowrap;
     align-items: center;
 
-
     .searchBar {
-        position: sticky;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1;
         display: flex;
         flex-direction: row;
+        justify-content: center;
         background-color: var.$yelloWrite;
         border-radius: 0.3rem;
         margin-bottom: 1rem;
@@ -35,16 +29,6 @@
 
         }
 
-        select::after {
-            content: '\25BC';
-            /* Utilisation de Unicode pour le chevron vers le bas */
-            position: absolute;
-            margin: auto;
-            right: 1rem;
-            /* Ajustez selon votre préférence */
-            transform: translateY(-50%);
-
-        }
 
     }
 
@@ -99,13 +83,57 @@
     }
 
 
+
+
+
+    @media screen and (max-width:43rem) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+        font-size: 80%;
+
+        h2 {
+            padding: 2rem 5rem;
+        }
+
+        img {
+            align-items: center;
+            width: 80%;
+        }
+
+        button {
+            font-size: 0.5rem;
+        }
+
+
+
+        .skillList {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+    }
+
+
+
 }
 
 .ancre,
 .nav {
+
+    position: fixed;
+    right: 0;
+    top: 14rem;
+    z-index: 1;
+    width: 4rem;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     background-color: var.$yelloWrite;
+    padding: 0;
+    border-color: var.$orangeBtn 0.2rem solid;
+    border-radius: 1rem;
 
     img {
         margin: 0.5rem;
@@ -113,4 +141,19 @@
         height: 3rem;
     }
 
+    @media screen and (max-width:43rem) {
+        top: 17rem;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 5rem;
+
+        .logo {
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }

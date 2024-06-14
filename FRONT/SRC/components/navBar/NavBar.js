@@ -12,7 +12,6 @@ const NavBar = (register, handleSubmit) => {
             <span className="arianaWire">
                 <div className='searchBar'>
                     <Search register={register} handleSubmit={handleSubmit} />
-                    <ToggleBtn />
                 </div>
             </span >
         </>
