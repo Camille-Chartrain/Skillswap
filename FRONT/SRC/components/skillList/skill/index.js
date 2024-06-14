@@ -1,4 +1,4 @@
-import { isLogged } from '../../../util';
+import { isLogged } from '../../../util.js';
 import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 
 const Skill = ({
-    skillId,
     Category,
+    CategoryId,
     picture,
     title,
     price,
@@ -22,12 +22,13 @@ const Skill = ({
     description,
     availability,
     SubCategory,
+    SubCategoryId,
     firstname,
     lastname,
     email,
     grade_level,
     presentation,
-    handleNotFoundError
+
 }) => {
 
     const navigate = useNavigate();
@@ -87,7 +88,37 @@ const Skill = ({
     return (
         <>
             <div id="skill" >
-                {!isLogged ? (
+                {isLogged ? (
+                    <>
+                        <div className="skill-header">
+                            <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
+                            <h4>Description :</h4> <span>{description}  </span>
+                            <h4>Duree :</h4><span>{duration}</span>
+                        </div>
+                        <div className="skill-info">
+                            <h4>Categorie :</h4> <span>{Category}</span>
+                            <h4>Sous categorie :</h4>  <span>{SubCategory}</span>
+                            <h4>Competence :</h4><span> {title}</span>
+                            <h4>Niveau : </h4><span>{level}</span>
+                            <h4>Prix : </h4> <span>{price}</span>
+                            <h4>Note : </h4>  <span>{
+                                stars?.map((_, index) => (
+                                    <span key={index}
+                                        style={{ color: index < averageMark ? 'gold' : 'gray' }} >
+                                        < FontAwesomeIcon icon={faStar} />
+                                    </span>))}
+                            </span>
+                        </div>
+                        <div className='skill-teacher'>
+                            <h4>Disponibilite :</h4><span>{availability}</span>
+                            <h4>Transmission :</h4><span>{transmission}</span>
+                            <h4>Professeur :</h4> <span> {`${firstname} ${lastname}`}</span>
+                            <h4>Email : </h4><span>{email}</span>
+                            <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
+                            <h4>Presentation :</h4> <span>{presentation}</span>
+                        </div >
+                    </>
+                ) : (
                     <>
                         <div className="skill-header">
                             <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
@@ -110,16 +141,6 @@ const Skill = ({
 
                         </div>
                     </>
-                ) : (
-
-                    <div className='skill-teacher'>
-                        <h4>Disponibilite :</h4><span>{availability}</span>
-                        <h4>Transmission :</h4><span>{transmission}</span>
-                        <h4>Professeur :</h4> <span> {`${firstname} ${lastname}`}</span>
-                        <h4>Email : </h4><span>{email}</span>
-                        <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
-                        <h4>Presentation :</h4> <span>{presentation}</span>
-                    </div >
 
                 )
                 }

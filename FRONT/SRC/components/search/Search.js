@@ -65,7 +65,7 @@ const Search = ({ }) => {
         <>
             <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' role="logo" /></a>
 
-            <form method="GET" className="search" onSubmit={handleSubmit(GetSearch)}>
+            <form method="GET" className="search" onSubmit={handleSubmit(GetSearch)} >
 
                 <input
                     type="search"

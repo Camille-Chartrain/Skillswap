@@ -1,5 +1,4 @@
 import Skill from './skill/index.js';
-// import { isLogged } from '../../util.js';
 import { useEffect, useState } from 'react';
 
 

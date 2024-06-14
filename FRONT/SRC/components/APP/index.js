@@ -10,13 +10,13 @@ import login from '../../style/pictures/login.svg';
 import dashboard from '../../style/pictures/dashboard.svg';
 import Dashboard from '../dashboard';
 import Error from '../error/error';
-import { DarkModeContext, PageError, isLogged } from '../../util';
+import { DarkModeContext } from '../../util';
 import { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import SkillUpDate from '../skillList/skillUpDate';
-import Skill from '../skillList/skill';
 import SkillToSee from '../skillList/skillToSee';
+import { isLogged } from '../../util';
 
 
 
@@ -30,7 +30,7 @@ import SkillToSee from '../skillList/skillToSee';
 
 
 //* components added for the user rendering
-const App = ({ darkMode, isLogged, handleNotFoundError }) => {
+const App = ({ darkMode, handleNotFoundError }) => {
 
     const [error, setError] = useState([]);
 
@@ -51,18 +51,30 @@ const App = ({ darkMode, isLogged, handleNotFoundError }) => {
             <Router >
                 <div className='headerSite'>
                     <Header />
+
+
+
+                    {/* {
+                        isLogged ? (null)
+                            : ( */}
                     <nav className="nav">
-                        {isLogged && isLogged ? { display: 'none' } : (
-                            <>
-                                <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
-                                <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
-                            </>
-                        )
-                        }
-                        {/* //-> this page appear when the user is logged  keep only for maintenance */}
+                        <>
+                            <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
+                            <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
+                        </>
+                    </nav >
+                    {/* )
+                    } */}
+
+
+
+
+
+                    {/* //-> this page appear when the user is logged  keep only for maintenance
                         {/* <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink> */}
 
-                    </nav >
+
+
                     <NavBar />
                 </div>
                 <Routes>
@@ -82,12 +94,12 @@ const App = ({ darkMode, isLogged, handleNotFoundError }) => {
 
                 </Routes>
 
-            </Router>
+            </Router >
             <div>
 
             </div>
             <Footer />
-        </div>
+        </div >
     )
 }
 export default App;
