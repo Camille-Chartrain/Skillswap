@@ -78,11 +78,8 @@ const Skill = ({
             // handleNotFoundError();
         }
     })
-    useEffect(() => { getSkill() }, [getSkill])
-
-
-
-
+    // useEffect(() => { getSkill() }, [getSkill])
+    useEffect(() => { }, [getSkill])
 
 
     return (

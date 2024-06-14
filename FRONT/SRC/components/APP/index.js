@@ -18,16 +18,7 @@ import SkillUpDate from '../skillList/skillUpDate';
 import SkillToSee from '../skillList/skillToSee';
 import { isLogged } from '../../util';
 
-
-
-
-
-
-
-
 //* we call render on the container and give it the component for the view.here we placed the router to display the routes to navigate between the components
-
-
 
 //* components added for the user rendering
 const App = ({ darkMode, handleNotFoundError }) => {
@@ -39,6 +30,13 @@ const App = ({ darkMode, handleNotFoundError }) => {
         resultCount: 0,
     });
     const [match, setMatch] = useState(false);
+
+    // const [resetHome, setResetHome] = useState(false);
+
+    // const handleReset = () => {
+    //     console.log("coucou du handleRest to trigger home refresh!");
+    //     setResetHome(prev => !prev);  // Change the state to trigger useEffect in child
+    // };
 
 
     //-> create un dark theme in useContext for using in all app
@@ -57,9 +55,6 @@ const App = ({ darkMode, handleNotFoundError }) => {
             <Router >
                 <div className='headerSite'>
                     <Header />
-
-
-
                     {/* {
                         isLogged ? (null)
                             : ( */}
@@ -72,20 +67,15 @@ const App = ({ darkMode, handleNotFoundError }) => {
                     {/* )
                     } */}
 
-
-
-
-
                     {/* //-> this page appear when the user is logged  keep only for maintenance
                         {/* <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink> */}
-
-
 
                     <NavBar
                         dataSearch={dataSearch}
                         setDataSearch={setDataSearch}
                         match={match}
                         setMatch={setMatch}
+                    // onReset={handleReset}
                     />
                 </div>
                 <Routes>
@@ -94,9 +84,9 @@ const App = ({ darkMode, handleNotFoundError }) => {
                             handleNotFoundError={handleNotFoundError}
                             dataSearch={dataSearch}
                             match={match}
+                        // resetHome={resetHome}
 
                         />} />
-
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} handleNotFoundError={handleNotFoundError} />} />
 
                     <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} reset={reset} handleNotFoundError={handleNotFoundError} />} />

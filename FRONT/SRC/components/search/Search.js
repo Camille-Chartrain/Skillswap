@@ -10,7 +10,7 @@ import SkillList from '../skillList';
 
 
 
-const Search = ({ dataSearch, setDataSearch, match, setMatch }) => {
+const Search = ({ dataSearch, setDataSearch, match, setMatch, onReset }) => {
 
 
     const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -62,6 +62,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch }) => {
                 setMatch(true)
                 console.log("dataSearch State", dataSearch);
                 console.log("state Match dans home", match);
+                // onReset();
             }
 
             // setSelectLevel("");
@@ -72,7 +73,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch }) => {
         catch (error) {
             console.log('erreur du catch GetSearch:', error);
         }
-    }, [searchInput, selectLevel, selectedCategory, selectedSubCategory, SkillList]);
+    }, [searchInput, selectLevel, selectedCategory, selectedSubCategory]);
 
     useEffect(() => { }, []);
 
@@ -111,9 +112,6 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch }) => {
                     <ToggleBtn />
                 </div>
             </form >
-            {/* <SkillList
-                dataSearch={dataSearch}
-            /> */}
         </>
     )
 

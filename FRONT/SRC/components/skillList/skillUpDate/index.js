@@ -42,7 +42,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
     }
 
     const getSkillUpDate = async () => {
-        console.log('id depuis skill:', skill.id)
+        // console.log('id depuis skill:', skill.id)
         try {
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/oneSkill/${skill.id}`, {
