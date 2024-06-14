@@ -16,6 +16,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-do
 import { useForm } from 'react-hook-form';
 import SkillUpDate from '../skillList/skillUpDate';
 import SkillToSee from '../skillList/skillToSee';
+import { isLogged } from '../../util';
 
 
 
@@ -32,7 +33,7 @@ import SkillToSee from '../skillList/skillToSee';
 const App = ({ darkMode, handleNotFoundError }) => {
 
     const [error, setError] = useState([]);
-    const isLogged = false;
+
 
     //-> create un dark theme in useContext for using in all app
     const themeClass = useContext(DarkModeContext);
@@ -53,19 +54,21 @@ const App = ({ darkMode, handleNotFoundError }) => {
 
 
                     <nav className="nav">
-
-                        {/* {isLogged ? ( */}
-                        <>
-                            <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
-                            <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
-                        </>
-                        {/* ) : (null)
-                        } */}
+                        {
+                            !isLogged ?
+                                <>
+                                    <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
+                                    <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
+                                </>
+                                : null
+                        }
 
 
                     </nav >
-                    {/* //-> this page appear when the user is logged  keep only for maintenance */}
-                    {/* <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink> */}
+
+
+                    {/* //-> this page appear when the user is logged  keep only for maintenance
+                        {/* <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink> */}
 
 
 

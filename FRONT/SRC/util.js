@@ -36,7 +36,8 @@ export const PageError = () => {
     console.status(error.message);
 }
 
-
+//= function to hide or show 
+export const isLogged = true;
 
 
 

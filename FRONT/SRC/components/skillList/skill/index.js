@@ -1,4 +1,4 @@
-import { isLogged } from '../../../util';
+import { isLogged } from '../../../util.js';
 import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 
 const Skill = ({
-    skillId,
     Category,
     picture,
     title,
@@ -27,7 +26,7 @@ const Skill = ({
     email,
     grade_level,
     presentation,
-    handleNotFoundError
+
 }) => {
 
     const navigate = useNavigate();
