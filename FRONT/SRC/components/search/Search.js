@@ -12,7 +12,7 @@ const Search = ({ }) => {
 
     const [selectedSubCategory, setSelectedSubCategory] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState(null);
-    const [selectLevel, setSelectLevel] = useState(null);
+    const [selectLevel, setSelectLevel] = useState('all');
 
     const { handleSubmit, register } = useForm();
     const [searchInput, setSearchInput] = useState('');
