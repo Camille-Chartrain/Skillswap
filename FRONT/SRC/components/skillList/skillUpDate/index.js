@@ -65,7 +65,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
             console.error("catch de skillUpDate:", error);
         }
     }
-    useEffect(() => { getSkillUpDate() }, [])
+    useEffect(() => { }, [])
 
     //=redirect for update skill
     const navigate = useNavigate();

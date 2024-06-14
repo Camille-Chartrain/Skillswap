@@ -56,12 +56,16 @@ const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedC
 
     return (
         <div>
-            <select name="CategoryId"
+            <select
+                name="CategoryId"
                 id="CategoryId"
                 onChange={handleChangeCat}
                 {...register("CategoryId", { onChange: handleChangeCat })}
             >
-                <option value="">Choisissez une catégorie</option>
+                <option
+                    value="">Choisissez une catégorie
+                </option>
+
                 {categories.map((category) => (
                     <option key={category.id} value={category.id}>{category.name}</option>
                 ))}
