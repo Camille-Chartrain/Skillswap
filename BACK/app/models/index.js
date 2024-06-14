@@ -67,7 +67,7 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 
 //     { title: "Bouture de basilic", level: "débutant", transmission: 'presentiel et visio', description: "Apprenez à faire vos propres boutures de basilic pour avoir des tonnes de basilic tout l'été", availability: 'dimanche matin', CategoryId: 2, SubCategoryId: 11, UserId: 8, averageMark: 4, duration: "15mn" },
 
-//     { title: "Communication non violente", level: "débutant", transmission: 'presentiel', description: 'Apprenez à communiquer dans la bienveillance, dites ce que vous avez sur le coeur sans froisser votre entourage !', availability: 'jeudi soir', CategoryId: 1, SubCategoryId: 4, UserId: 4, averageMark: 4, duration: "1h" },
+//     { title: "Communication non violente", level: "débutant", transmission: 'presentiel', description: 'Apprenez à communiquer dans la bienveillance, dites ce que vous avez sur le coeur sans froisser votre entourage !', availability: 'jeudi soir', CategoryId: 1, SubCategoryId: 4, UserId: 3, averageMark: 4, duration: "1h" },
 
 //     { title: "Couture robe mariée", level: "avancé", transmission: 'presentiel', description: 'Créez vous-même la robe de vos rêves pour le plus beau jour de votre vie sans accro!', availability: 'lundi et mercredi après-midi', CategoryId: 3, SubCategoryId: 14, UserId: 2, averageMark: 4, duration: "2h" },
 

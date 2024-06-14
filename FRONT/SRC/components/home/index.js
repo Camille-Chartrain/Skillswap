@@ -1,10 +1,12 @@
 
 import SkillList from "../skillList";
 
-const Home = ({ skillsList, setSkillsList, dataSearch, match, resetHome }) => {
+const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch }) => {
     console.log("state match dans Home", match);
+    console.log("state noMatch dans Home", noMatch);
 
     console.log("state dataSearch dans Home", dataSearch);
+
 
 
     return (
@@ -23,7 +25,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, resetHome }) => {
                     setSkillsList={setSkillsList}
                     dataSearch={dataSearch}
                     match={match}
-                    resetHome={resetHome}
+                    noMatch={noMatch}
                 />
             </section>
         </main>
