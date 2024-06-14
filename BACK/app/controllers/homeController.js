@@ -53,6 +53,7 @@ const homeController = {
 
             const { CategoryId, SubCategoryId, level, input } = req.query;
 
+
             console.log("categoryId", CategoryId);
             console.log("subcategoryId", SubCategoryId);
             console.log("level", level);
@@ -62,13 +63,27 @@ const homeController = {
             // Construire la clause WHERE avec plusieurs conditions
             const whereClause = {};
 
-            if (CategoryId) {
-                whereClause.CategoryId = CategoryId;
+            if (CategoryId !== "undefined" && CategoryId !== null && CategoryId !== "") {
+                console.log("'''''''''''''''''''''''''''rentré dans categoryId != undefined");
+                console.log("typeof CategoryId", typeof CategoryId);
+
+                const categoryIdNumber = Number(CategoryId);
+                console.log("Type de categoryIdNumber :", typeof categoryIdNumber);
+                console.log("Valeur de categoryIdNumber :", categoryIdNumber);
+
+                whereClause.CategoryId = categoryIdNumber;
             }
-            if (SubCategoryId) {
-                whereClause.SubCategoryId = SubCategoryId;
+            if (SubCategoryId !== "undefined") {
+                console.log("'''''''''''''''''''''''''''rentré dans subcategoryId != 'undefined'");
+                console.log("type of subcategoryid", typeof SubCategoryId);
+
+                const subCategoryIdNumber = Number(SubCategoryId);
+                console.log("Type de subCategoryIdNumber :", typeof subCategoryIdNumber);
+                console.log("Valeur de subCategoryIdNumber :", subCategoryIdNumber);
+
+                whereClause.SubCategoryId = subCategoryIdNumber;
             }
-            if (level) {
+            if (level != null && level != "") {
                 whereClause.level = level;
             }
             if (input) {

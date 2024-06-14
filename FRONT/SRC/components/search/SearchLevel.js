@@ -8,7 +8,10 @@ const SearchLevel = ({ register, setSelectLevel, selectLevel }) => {
 
     // const [selectLevel, setSelectLevel] = useState('all');
 
-    const handleChangeLevel = (e) => { setSelectLevel(e.target.value) };
+    const handleChangeLevel = (e) => {
+        console.log("e.target.value", e.target.value);
+        setSelectLevel(e.target.value)
+    };
 
 
 
@@ -17,7 +20,8 @@ const SearchLevel = ({ register, setSelectLevel, selectLevel }) => {
             name="level"
             {...register("level", { onChange: handleChangeLevel })}
             value={selectLevel}
-            required onChange={handleChangeLevel}
+            onChange={handleChangeLevel}
+        // required onChange={handleChangeLevel}
         >
             <option defaultValue="all">Ajoutez un niveau</option>
             <option value="débutant" >Débutant</option>

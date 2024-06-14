@@ -13,7 +13,7 @@ const Search = ({ }) => {
 
     const [selectedSubCategory, setSelectedSubCategory] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState(null);
-    const [selectLevel, setSelectLevel] = useState('all');
+    const [selectLevel, setSelectLevel] = useState("");
 
     const { handleSubmit, register } = useForm();
     const [searchInput, setSearchInput] = useState('');
@@ -25,43 +25,41 @@ const Search = ({ }) => {
     };
 
 
-    const GetSearch = useCallback(async (data) => {
+    const GetSearch = useCallback(async () => {
         try {
             console.log("nous sommes dans la fonction getSearch");
-            console.log('data', data);
 
-            console.log("selectedCategory dans try", selectedCategory.id);
-            // console.log("selectedSubCategory dans try", selectedSubCategory.id);
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
             console.log("selectLevel dans try", selectLevel);
-            // console.log("req data avant JSON:", data)
+
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
+            console.log("selectLevel dans try", selectLevel);
+
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/searchVisitor?input=${searchInput}&level=${selectLevel}&CategoryId=${selectedCategory.id}&SubCategoryId=${selectedSubCategory.id}`, {
+
+            const response = await fetch(`http://localhost:3000/searchVisitor?input=${searchInput}&level=${selectLevel}&CategoryId=${selectedCategory?.id}&SubCategoryId=${selectedSubCategory?.id}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                // credentials: 'include'
             });
-
-            console.log("recup data apres JSON:", data)
 
             const dataSearch = await response.json();
             console.log("reponse GetSearch dataSearch", dataSearch)
-            // setData(dataSearch);
-
-            // setSearchInput(dataSearch);
-            // setSelectLevel(dataSearch);
-            // setSelectCategory(dataSearch);
-            // setSelectSubCategory(dataSearch);
             // console.log('donnees du state inputSearch:', dataSearch);
+            // setSelectLevel("");
+            // setSelectedCategory(null);
+            // setSelectedSubCategory(null);
         }
         catch (error) {
             console.log('erreur du catch GetSearch:', error);
         }
     }, [searchInput, selectLevel, selectedCategory, selectedSubCategory]);
 
-    useEffect(() => { GetSearch(); }, []);
+    useEffect(() => { }, []);
 
     return (
 
