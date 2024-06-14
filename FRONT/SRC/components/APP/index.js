@@ -53,18 +53,21 @@ const App = ({ darkMode, handleNotFoundError }) => {
                     <Header />
 
 
+
+                    {/* {
+                        isLogged ? (null)
+                            : ( */}
                     <nav className="nav">
-                        {
-                            !isLogged ?
-                                <>
-                                    <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
-                                    <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
-                                </>
-                                : null
-                        }
-
-
+                        <>
+                            <NavLink to="/registration"><img className="" src={addUser} alt='icone creation nouveau compte' /></NavLink>
+                            <NavLink to="/login"><img className="" src={login} alt="icone connexion" /></NavLink>
+                        </>
                     </nav >
+                    {/* )
+                    } */}
+
+
+
 
 
                     {/* //-> this page appear when the user is logged  keep only for maintenance
