@@ -37,22 +37,23 @@ const CourseStudent = () => {
     useEffect(() => { getCourse() }, [])
 
     return (
-        <main>
+        <div className="learningList">
+            <h3>Apprentissage en cours</h3>
             <ul>
                 {courses?.map((item) => (
                     <>
                         {/* {console.log("qu'est ce que item.title ?:", item.Skill.title)} */}
 
-                        <li key={item.id}>
-                            <h5>{item?.Skill?.title}</h5>
+                        <li className="learning-li" key={item.id}>
+                            <span>{item?.Skill?.title}</span>
 
                             <div className="status" >
-                                {item.status === "en attente" && <h5>DEMANDE ENVOYÉE</h5>}
-                                {item.status === "refusé" && <h5>DEMANDE REJETÉE</h5>}
-                                {item.status === "en cours" && <h5>EN COURS</h5>}
-                                {item.status === "terminé" && <h5>TERMINÉ</h5>}
-                                {/* {item.status === "noté" && <h5>TERMINÉ - NOTE ATTRIBUÉE:{item.Skill.mark-chemin à revoir}</h5>} */}
-                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "noté" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
+                                {item.status === "en attente" && <span className="status-send">DEMANDE ENVOYÉE</span>}
+                                {item.status === "refusé" && <span className="status-reject">DEMANDE REJETÉE</span>}
+                                {item.status === "en cours" && <span className="status-wait">EN COURS</span>}
+                                {item.status === "terminé" && <span className="status-finish">TERMINÉ</span>}
+                                { }
+                                {item.status !== "en attente" && item.status !== "refusé" && item.status !== "noté" && item.status !== "en cours" && item.status !== "terminé" && <span className="status">STATUT INCONNU</span>}
                             </div>
                         </li>
 
@@ -62,7 +63,7 @@ const CourseStudent = () => {
                 ))
                 }
             </ul >
-        </main >
+        </div>
 
 
     )

@@ -35,18 +35,18 @@ const Money = () => {
     useEffect(() => { GetMoney() }, []);
 
     return (
-        <main>
-            <div className="skillsList">
-                <h3>Coffre au tresor</h3>
 
-                <ul>
-                    {/* {console.log("voir wallet:", wallet)} */}
-                    {wallet && <li> Swappies totals : {wallet[0].User?.swappies}</li>}
-                    {wallet && <li> Swappies recus: {wallet[0].User?.swappiesWinned}</li>}
-                    {wallet && <li>Swappies donnes : {wallet[0].User?.swappiesSpent}</li>}
-                </ul>
-            </div>
-        </main >
+        <div className="satisticList">
+            <h3>Coffre au tresor</h3>
+
+            <ul>
+                {/* {console.log("voir wallet:", wallet)} */}
+                {wallet && <li> Swappies totals : {wallet[0].User?.swappies}</li>}
+                {wallet && <li> Swappies recus: {wallet[0].User?.swappiesWinned}</li>}
+                {wallet && <li>Swappies donnes : {wallet[0].User?.swappiesSpent}</li>}
+            </ul>
+        </div>
+
     )
 }
 export default Money;

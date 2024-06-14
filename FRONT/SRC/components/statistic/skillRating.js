@@ -43,7 +43,7 @@ const SkillRating = () => {
 
     return (
         <>
-            <div className="skillsList">
+            <div className="statisticList">
                 <h3>Notations competences</h3>
                 <ul>
                     {rating.length > 0 && rating?.map((item) => (

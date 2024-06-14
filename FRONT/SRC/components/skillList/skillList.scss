@@ -13,10 +13,6 @@
     border-color: 0.2rem solid;
     width: 85%;
 
-    h3 {
-        padding: 1rem 1rem;
-    }
-
     ul {
         display: flex;
         flex-direction: column;
@@ -25,9 +21,6 @@
         padding: 0.5rem;
         background-color: var.$yelloWrite;
         border-radius: 0.8rem;
-
-
-
 
         .skillList-li {
             display: flex;
