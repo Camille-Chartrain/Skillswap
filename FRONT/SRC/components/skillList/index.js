@@ -7,7 +7,10 @@ import { useEffect, useState } from 'react';
 
 const SkillList = () => {
 
-    const [skillsList, setSkillsList] = useState([]);
+    const [skillsList, setSkillsList, dataSearch, match] = useState([]);
+
+    console.log("state dataSearch dans Home/skillList", dataSearch);
+    console.log("state match dans Home/SkillList", match);
 
     const GetSkillsList = async () => {
         try {
