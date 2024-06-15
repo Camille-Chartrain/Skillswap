@@ -6,8 +6,6 @@ import Communication from '../communication';
 import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-
 //->ariana wire's icones
 import account_icon from '../../style/pictures/account_icon.svg';
 import school from '../../style/pictures/school.svg';
@@ -23,6 +21,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const [wallet, setWallet] = useState(null);
+
 
     const GetMoney = useCallback(async () => {
         console.log("qui a t il dans wallet:", wallet);
@@ -137,10 +136,10 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
     // if response token pas ok => redirect to connection
     // response token ok => return composant 
 
-
-    if (!isAuthenticated) {
-        return (null);
-    }
+    // à continuer
+    // if (!isAuthenticated) {
+    //     return (null);
+    // }
 
     return (
         <>

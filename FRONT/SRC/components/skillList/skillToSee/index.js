@@ -1,5 +1,8 @@
 import dashboard from '../../../style/pictures/dashboard.svg';
+import logout from '../../../style/pictures/logout.svg';
+
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+
 
 import { useCallback, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
@@ -7,6 +10,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Error from '../../error/error';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+
+
 
 
 
@@ -38,6 +44,37 @@ const SkillToSee = ({ setValue, getCourse }) => {
         })
 
     let stars = Array(5).fill();
+
+    const handleLogout = async () => {
+
+        try {
+            // console.log("deconnection => supprimer cookie. (composant Dashboard)");
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/logout`, {
+                method: "POST",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+
+            // console.log("response", response);
+            const resultLogout = await response.json();
+            // console.log('response component dashboard logout:', resultLogout);
+
+            // delete cookie JWT on client's side
+            let thisToken = Cookies.remove('token');
+            thisToken = null
+            if (thisToken == null) {
+                // console.log("token", thisToken);
+                navigate("/");
+            }
+        }
+        catch (error) {
+            console.log("erreur :", error);
+        };
+    }
 
     //=get method for fetch datas from the Back
     const getSkill = useCallback(async () => {
@@ -73,7 +110,7 @@ const SkillToSee = ({ setValue, getCourse }) => {
             console.error("catch de skillUpDate:", error);
 
         }
-    }, [seeASkill.id]);
+    }, [seeASkill]);
 
     useEffect(() => { getSkill() }, [])
 
@@ -138,6 +175,12 @@ const SkillToSee = ({ setValue, getCourse }) => {
 
     return (
         <>
+            <div className='ancre'>
+                <>
+                    <a href="/dashboard#profile" alt=" communication " ><img className="" src={dashboard} alt='icone de communication ' /></a>
+                    <img className="" src={logout} alt='icone de deconnexion' onClick={handleLogout} />
+                </>
+            </div>
 
 
             <section section onChange={handleChangeSkill} >

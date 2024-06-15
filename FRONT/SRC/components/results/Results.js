@@ -3,6 +3,7 @@ import school from '../../style/pictures/school.svg';
 import statistic from '../../style/pictures/statistic.svg';
 import message from '../../style/pictures/message.svg';
 import logout from '../../style/pictures/logout.svg';
+import dashboard from "../../style/pictures/dashboard.svg"
 import SkillList from "../skillList";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
@@ -53,10 +54,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch,
         <main>
             <div className='ancre'>
                 <>
-                    <a href="/dashboard#profile" alt=" profile du membre" ><img className="" src={account_icon} alt='icone du profil ' /></a>
-                    <a href="/dashboard#learning" alt=" apprentissage du membre" ><img className="" src={school} alt='icone apprentissage ' /></a>
-                    <a href="/dashboard#statistic" alt=" statistic " ><img className="" src={statistic} alt='icone des statistiques ' /></a>
-                    <a href="/dashboard#communication" alt=" communication " ><img className="" src={message} alt='icone de communication ' /></a>
+                    <a href="/dashboard#profile" alt=" profile du membre" ><img className="" src={dashboard} alt='icone du profil ' /></a>
                     <img className="" src={logout} alt='icone de deconnexion' onClick={handleClick} />
                 </>
             </div>
