@@ -6,7 +6,7 @@ import Error from '../error/error';
 
 
 //=manage reception notification
-const CourseTeached = ({ handleNotFoundError, error }) => {
+const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
     const [teacherReq, setTeacherReq] = useState([]);
     //=redirect for update skill
     const navigate = useNavigate();
@@ -141,6 +141,7 @@ const CourseTeached = ({ handleNotFoundError, error }) => {
                 // console.log("dans le reponse terminer cours");
                 // console.log("response", response);
                 getCourseTeacher();
+                GetMoney();
 
             }
             else {

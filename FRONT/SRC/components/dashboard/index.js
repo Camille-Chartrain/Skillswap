@@ -3,7 +3,7 @@ import Profile from "../profile";
 import Learning from '../learning';
 import Statistic from '../statistic';
 import Communication from '../communication';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -21,6 +21,34 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
 
     const navigate = useNavigate();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    const [wallet, setWallet] = useState(null);
+
+    const GetMoney = useCallback(async () => {
+        console.log("qui a t il dans wallet:", wallet);
+        try {
+            const token = Cookies.get('token');
+            const response = await fetch('http://localhost:3000/statistic', {
+                method: "get",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                // credentials: 'include'
+            });
+
+            // console.log("les money data avant  .json", response);
+            const dataMoney = await response.json();
+            // console.log("les Money data  apres .json:", dataMoney);
+
+            setWallet(dataMoney);
+            // console.log('donnees Money data du state:', dataMoney);
+            // console.log("dataWallet apres le setWallet:", dataWallet);
+        }
+        catch (error) {
+            // console.log("catch de Get Money:", error.message);
+        }
+    })
 
     const handleClick = async () => {
 
@@ -128,8 +156,18 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
             <main>
                 <h1 className="dashboard">TABLEAU DE BORD</h1>
                 <Profile handleSubmit={handleSubmit} register={register} reset={reset} />
-                <Learning handleSubmit={handleSubmit} register={register} />
-                <Statistic handleSubmit={handleSubmit} register={register} />
+                <Learning
+                    handleSubmit={handleSubmit}
+                    register={register}
+                    GetMoney={GetMoney}
+                />
+
+                <Statistic
+                    handleSubmit={handleSubmit}
+                    register={register}
+                    wallet={wallet}
+                    GetMoney={GetMoney}
+                />
                 <Communication handleSubmit={handleSubmit} register={register} />
             </main>
         </>
