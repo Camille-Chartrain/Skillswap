@@ -57,6 +57,8 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
             console.log("reponse GetSearch responseDataSearch", responseDataSearch)
             console.log("typeof responseDataSearch", typeof responseDataSearch);
 
+            setSelectedSubCategory(null)
+
             if (responseDataSearch === "no match") {
                 setMatch(false)
                 setNoMatch(true)
