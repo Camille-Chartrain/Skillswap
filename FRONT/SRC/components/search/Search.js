@@ -73,10 +73,11 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                 console.log("MATCH state Match dans Search", match);
                 console.log("MATCH state noMatch dans Search", noMatch);
 
-                // if (req.user !== undefined) {
-                //     console.log("req.user", req.user);
-                //     navigate("/results");
-                // }
+                if (responseDataSearch.rows.length > 4) {
+                    console.log("responseDataSearch.rows.length", responseDataSearch.rows.length);
+                    console.log("tableau sup à 4");
+                    navigate("/results");
+                }
 
 
                 // console.log("MATCH State dataSearch prout", dataSearch);

@@ -106,7 +106,9 @@ const App = ({ darkMode, handleNotFoundError }) => {
                         <Results
                             dataSearch={dataSearch}
                             match={match}
+                            setMatch={setMatch}
                             noMatch={noMatch}
+                            setNoMatch={setNoMatch}
                         />}
                     />
 

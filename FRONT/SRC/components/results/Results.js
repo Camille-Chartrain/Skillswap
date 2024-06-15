@@ -7,7 +7,7 @@ import SkillList from "../skillList";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
-const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch }) => {
+const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch, setNoMatch }) => {
     console.log("state match dans Results", match);
     console.log("state noMatch dans Results", noMatch);
     console.log("state dataSearch dans Results", dataSearch);
@@ -17,7 +17,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch }) => {
     const handleClick = async () => {
 
         try {
-            console.log("dans le handleclick pour se déco");
+            console.log("dans le handleclick pour se déco!!!!!!!!!!!!!!!!!!!!!!!!");
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/logout`, {
@@ -28,6 +28,9 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch }) => {
                     'Authorization': `Bearer ${token}`,
                 },
             })
+
+            setMatch(false);
+            setNoMatch(false);
 
             // console.log("response", response);
             const resultLogout = await response.json();
