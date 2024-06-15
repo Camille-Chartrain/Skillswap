@@ -15,7 +15,8 @@ const NavBar = ({
     setMatch,
     onReset,
     noMatch,
-    setNoMatch
+    setNoMatch,
+    isAuthenticated
 }) => {
     return (
         <>
@@ -31,6 +32,7 @@ const NavBar = ({
                         onReset={onReset}
                         noMatch={noMatch}
                         setNoMatch={setNoMatch}
+                        isAuthenticated={isAuthenticated}
                     />
                 </div>
             </span >

@@ -8,7 +8,7 @@ import SkillList from "../skillList";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
-const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch, setNoMatch }) => {
+const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch, setNoMatch, setIsAuthenticated }) => {
     console.log("state match dans Results", match);
     console.log("state noMatch dans Results", noMatch);
     console.log("state dataSearch dans Results", dataSearch);
@@ -18,6 +18,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch,
     const handleClick = async () => {
 
         try {
+            setIsAuthenticated(false)
             console.log("dans le handleclick pour se déco!!!!!!!!!!!!!!!!!!!!!!!!");
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');

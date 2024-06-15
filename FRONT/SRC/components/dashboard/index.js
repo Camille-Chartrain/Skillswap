@@ -15,10 +15,10 @@ import logout from '../../style/pictures/logout.svg';
 import Cookies from 'js-cookie';
 
 
-const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
+const Dashboard = ({ handleSubmit, register, isValid, reset, setIsAuthenticated }) => {
 
     const navigate = useNavigate();
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const [wallet, setWallet] = useState(null);
 
@@ -52,6 +52,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
     const handleClick = async () => {
 
         try {
+            setIsAuthenticated(false)
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/logout`, {
@@ -106,6 +107,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset }) => {
                 // console.log('response component dashboard:', resultToken);
 
                 if (resultToken === "access granted") {
+                    console.log("ACCES AUTORISE DANS VERIFY CONNECTION DASHBOARD");
                     setIsAuthenticated(true);
                 }
                 else {

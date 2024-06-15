@@ -16,7 +16,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
-const SkillToSee = ({ setValue, getCourse }) => {
+const SkillToSee = ({ setValue, setIsAuthenticated }) => {
 
     // console.log("kikou les gens ds skillToSee");
 
@@ -48,6 +48,7 @@ const SkillToSee = ({ setValue, getCourse }) => {
     const handleLogout = async () => {
 
         try {
+            setIsAuthenticated(false)
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/logout`, {

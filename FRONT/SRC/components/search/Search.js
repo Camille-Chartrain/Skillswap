@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatch }) => {
+const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatch, isAuthenticated }) => {
 
 
     const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -71,13 +71,13 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                 setMatch(true);
                 setNoMatch(false)
 
-                console.log("MATCH State dataSearch prout", dataSearch);
+                console.log("MATCH State dataSearch", dataSearch);
                 console.log("MATCH state Match dans Search", match);
                 console.log("MATCH state noMatch dans Search", noMatch);
 
-                if (responseDataSearch.rows.length > 4) {
-                    console.log("responseDataSearch.rows.length", responseDataSearch.rows.length);
-                    console.log("tableau sup à 4");
+                // if (responseDataSearch.rows.length > 4) {
+                if (isAuthenticated) {
+                    console.log("   AUTHENTIFIE");
                     navigate("/results");
                 }
 

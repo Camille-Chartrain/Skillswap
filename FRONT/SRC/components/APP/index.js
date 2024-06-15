@@ -25,6 +25,7 @@ import Results from '../results/Results';
 const App = ({ darkMode, handleNotFoundError }) => {
 
     const [error, setError] = useState([]);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [dataSearch, setDataSearch] = useState({
         rows: [],
         count: 0,
@@ -79,6 +80,7 @@ const App = ({ darkMode, handleNotFoundError }) => {
                         setMatch={setMatch}
                         noMatch={noMatch}
                         setNoMatch={setNoMatch}
+                        isAuthenticated={isAuthenticated}
                     // onReset={handleReset}
                     />
                 </div>
@@ -96,11 +98,28 @@ const App = ({ darkMode, handleNotFoundError }) => {
 
                     <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} reset={reset} handleNotFoundError={handleNotFoundError} />} />
 
-                    <Route path="/dashboard" exact element={<Dashboard handleSubmit={handleSubmit} register={register} setError={setError} error={error} reset={reset} setValue={setValue} handleNotFoundError={handleNotFoundError} />} />
+                    <Route path="/dashboard" exact element={
+                        <Dashboard
+                            handleSubmit={handleSubmit}
+                            register={register}
+                            setError={setError}
+                            error={error}
+                            reset={reset}
+                            setValue={setValue}
+                            handleNotFoundError={handleNotFoundError}
+                            setIsAuthenticated={setIsAuthenticated}
+                        />}
+                    />
 
                     <Route path="/oneSkill" element={<SkillUpDate handleSubmit={handleSubmit} register={register} setValue={setValue} reset={reset} handleNotFoundError={handleNotFoundError} />} />
 
-                    <Route path="/dashboard/seeASkill" element={<SkillToSee setValue={setValue} handleNotFoundError={handleNotFoundError} />} />
+                    <Route path="/dashboard/seeASkill" element={
+                        <SkillToSee
+                            setValue={setValue}
+                            handleNotFoundError={handleNotFoundError}
+                            setIsAuthenticated={setIsAuthenticated}
+                        />}
+                    />
 
                     <Route path="/results" element={
                         <Results
@@ -109,6 +128,7 @@ const App = ({ darkMode, handleNotFoundError }) => {
                             setMatch={setMatch}
                             noMatch={noMatch}
                             setNoMatch={setNoMatch}
+                            setIsAuthenticated={setIsAuthenticated}
                         />}
                     />
 
