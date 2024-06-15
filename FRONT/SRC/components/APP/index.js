@@ -17,6 +17,7 @@ import { useForm } from 'react-hook-form';
 import SkillUpDate from '../skillList/skillUpDate';
 import SkillToSee from '../skillList/skillToSee';
 import { isLogged } from '../../util';
+import Results from '../results/Results';
 
 //* we call render on the container and give it the component for the view.here we placed the router to display the routes to navigate between the components
 
@@ -88,9 +89,9 @@ const App = ({ darkMode, handleNotFoundError }) => {
                             dataSearch={dataSearch}
                             match={match}
                             noMatch={noMatch}
-                        // resetHome={resetHome}
+                        />}
+                    />
 
-                        />} />
                     <Route path="/registration" exact element={<Registration handleSubmit={handleSubmit} register={register} handleNotFoundError={handleNotFoundError} />} />
 
                     <Route path="/login" exact element={<Login handleSubmit={handleSubmit} register={register} reset={reset} handleNotFoundError={handleNotFoundError} />} />
@@ -100,6 +101,14 @@ const App = ({ darkMode, handleNotFoundError }) => {
                     <Route path="/oneSkill" element={<SkillUpDate handleSubmit={handleSubmit} register={register} setValue={setValue} reset={reset} handleNotFoundError={handleNotFoundError} />} />
 
                     <Route path="/dashboard/seeASkill" element={<SkillToSee setValue={setValue} handleNotFoundError={handleNotFoundError} />} />
+
+                    <Route path="/results" element={
+                        <Results
+                            dataSearch={dataSearch}
+                            match={match}
+                            noMatch={noMatch}
+                        />}
+                    />
 
                     <Route path="*" element={<Error />} />
 

@@ -34,7 +34,7 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
     return (
         <div className='container'>
 
-            {match && <p>{dataSearch.count} résultat(s)</p>}
+            {match && <p>{dataSearch.resultCount} résultat(s)</p>}
             {noMatch && <p>Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
 
             {skillsToDisplay?.map((item) => (

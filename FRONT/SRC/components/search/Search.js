@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import logo from './logo.png';
 import Cookies from 'js-cookie';
 import SkillList from '../skillList';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -19,6 +20,9 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
 
     const { handleSubmit, register } = useForm();
     const [searchInput, setSearchInput] = useState('');
+
+    const navigate = useNavigate();
+
     const [data, setData] = useState({});//->aj
 
     const handleChange = (e) => {
@@ -56,17 +60,28 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
             if (responseDataSearch === "no match") {
                 setMatch(false)
                 setNoMatch(true)
-                console.log("state match dans Search", match);
-                console.log("state noMatch dans Search", noMatch);
+                console.log("NO MATCH state match dans Search", match);
+                console.log("NOT MATCH state noMatch dans Search", noMatch);
             }
             else if (responseDataSearch) {
+                console.log("on est dans la condition il y a match");
                 setDataSearch(responseDataSearch);
-                setMatch(true)
+                setMatch(true);
                 setNoMatch(false)
 
-                console.log("dataSearch State", dataSearch);
-                console.log("state Match dans home", match);
+                console.log("MATCH State dataSearch prout", dataSearch);
+                console.log("MATCH state Match dans Search", match);
+                console.log("MATCH state noMatch dans Search", noMatch);
 
+                // if (req.user !== undefined) {
+                //     console.log("req.user", req.user);
+                //     navigate("/results");
+                // }
+
+
+                // console.log("MATCH State dataSearch prout", dataSearch);
+                // console.log("MATCH state Match dans Search", match);
+                // console.log("MATCH state noMatch dans Search", noMatch);
             }
 
             // setSelectLevel("");

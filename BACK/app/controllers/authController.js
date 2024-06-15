@@ -204,9 +204,12 @@ const authController = {
 
         if (token) {
             revokeToken(token);
+            console.log('TOKEN SUPPRIME');
             // voir comment se servir des cookies dans l'appli (+simpple + propre)
             res.clearCookie('jwt');
             // res.send('Logged out');
+
+            console.log('COOKIE VIDE');
             res.status(200).json('Logged out');
         } else {
             res.status(400).send('No token provided');
