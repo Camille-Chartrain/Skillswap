@@ -17,6 +17,7 @@ const learningController = {
             if (student.swappies <= 0) {
                 throw new Error("User doesn't have enough swapppies - createLearning learningController")
             }
+            // changer pour envoyer reponse direct
 
             const meeting = await Meeting.create({
                 status: "en attente",

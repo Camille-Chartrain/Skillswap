@@ -50,7 +50,7 @@ User.init(
         swappiesWinned: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: 0,
+            defaultValue: 2,
         },
         swappiesSpent: {
             type: DataTypes.INTEGER,

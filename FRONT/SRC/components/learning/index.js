@@ -4,7 +4,7 @@ import CourseStudent from "./courseStudent";
 import CourseTeached from "./courseTeached";
 
 
-const Learning = () => {
+const Learning = ({ GetMoney }) => {
 
 
 
@@ -15,7 +15,9 @@ const Learning = () => {
             <h2 id="learning">Apprentissage</h2>
             <span className="learning-section">
                 <CourseStudent />
-                <CourseTeached />
+                <CourseTeached
+                    GetMoney={GetMoney}
+                />
             </span>
         </div >
 

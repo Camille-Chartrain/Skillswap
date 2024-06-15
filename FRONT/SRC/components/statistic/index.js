@@ -2,7 +2,7 @@
 import Money from "./money";
 import SkillRating from './skillRating';
 
-const Statistic = () => {
+const Statistic = ({ wallet, GetMoney }) => {
 
 
     return (
@@ -10,7 +10,10 @@ const Statistic = () => {
         <div className="statistic">
             <h2 id="statistic">STATISTIQUES</h2>
             <span className="statistic-section">
-                <Money />
+                <Money
+                    wallet={wallet}
+                    GetMoney={GetMoney}
+                />
                 <SkillRating />
             </span>
         </div >
