@@ -10,7 +10,7 @@ import SkillList from '../skillList';
 
 
 
-const Search = ({ dataSearch, setDataSearch, match, setMatch, onReset }) => {
+const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatch }) => {
 
 
     const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -55,14 +55,18 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, onReset }) => {
 
             if (responseDataSearch === "no match") {
                 setMatch(false)
+                setNoMatch(true)
                 console.log("state match dans Search", match);
+                console.log("state noMatch dans Search", noMatch);
             }
             else if (responseDataSearch) {
                 setDataSearch(responseDataSearch);
                 setMatch(true)
+                setNoMatch(false)
+
                 console.log("dataSearch State", dataSearch);
                 console.log("state Match dans home", match);
-                // onReset();
+
             }
 
             // setSelectLevel("");

@@ -30,6 +30,7 @@ const App = ({ darkMode, handleNotFoundError }) => {
         resultCount: 0,
     });
     const [match, setMatch] = useState(false);
+    const [noMatch, setNoMatch] = useState(false);
 
     // const [resetHome, setResetHome] = useState(false);
 
@@ -75,6 +76,8 @@ const App = ({ darkMode, handleNotFoundError }) => {
                         setDataSearch={setDataSearch}
                         match={match}
                         setMatch={setMatch}
+                        noMatch={noMatch}
+                        setNoMatch={setNoMatch}
                     // onReset={handleReset}
                     />
                 </div>
@@ -84,6 +87,7 @@ const App = ({ darkMode, handleNotFoundError }) => {
                             handleNotFoundError={handleNotFoundError}
                             dataSearch={dataSearch}
                             match={match}
+                            noMatch={noMatch}
                         // resetHome={resetHome}
 
                         />} />

@@ -6,7 +6,7 @@ import Search from '../search/Search.js';
 //= details' skills are totally show only when the user is logged
 
 
-const SkillList = ({ dataSearch, match }) => {
+const SkillList = ({ dataSearch, match, noMatch }) => {
 
     const [skillsList, setSkillsList] = useState([]);
 
@@ -14,6 +14,7 @@ const SkillList = ({ dataSearch, match }) => {
 
     console.log("state dataSearch dans Home/skillList", dataSearch);
     console.log("state match dans Home/SkillList", match);
+    console.log("state noMatch dans Home/SkillList", noMatch);
 
     const GetSkillsList = async () => {
         try {
@@ -34,6 +35,7 @@ const SkillList = ({ dataSearch, match }) => {
         <div className='container'>
 
             {match && <p>{dataSearch.count} résultat(s)</p>}
+            {noMatch && <p>Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
 
             {skillsToDisplay?.map((item) => (
                 <Skill
@@ -48,13 +50,13 @@ const SkillList = ({ dataSearch, match }) => {
                     transmission={item?.transmission}
                     description={item.description}
                     availability={item?.availability}
-                    Category={item.Category.name}
+                    Category={item.Category?.name}
                     SubCategory={item?.SubCategory?.name}
-                    firstname={item?.User.firstname}
-                    lastname={item?.User.lastname}
-                    email={item?.User.email}
-                    grade_level={item?.User.grade_level}
-                    presentation={item?.User.presentation}
+                    firstname={item?.User?.firstname}
+                    lastname={item?.User?.lastname}
+                    email={item?.User?.email}
+                    grade_level={item?.User?.grade_level}
+                    presentation={item?.User?.presentation}
                 />
             ))}
         </div>
