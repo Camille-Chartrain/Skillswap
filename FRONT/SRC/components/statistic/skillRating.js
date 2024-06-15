@@ -42,29 +42,28 @@ const SkillRating = () => {
 
 
     return (
-        <>
-            <div className="statisticList">
-                <h3>Notations competences</h3>
-                <ul>
-                    {rating.length > 0 && rating?.map((item) => (
-                        <div key={item.id}>
-                            <li>{item?.title} </li>
-                            {item && item.averageMark && item.averageMark ? (
-                                <span>{
-                                    stars?.map((_, index) => (
-                                        <span key={index}
-                                            style={{ color: index < item?.averageMark ? 'gold' : 'gray' }} >
-                                            < FontAwesomeIcon icon={faStar} />
-                                        </span>))}
-                                </span>
-                            ) : (
-                                <p>Aucune note attribuée</p>
-                            )}
-                        </div>
-                    ))}
-                </ul >
-            </div >
-        </>
+        <div className="statisticList">
+            <h3>Notes des competences</h3>
+            <ul>
+                {rating.length > 0 && rating?.map((item) => (
+                    <div className="rating" key={item.id}>
+                        <li>{item?.title} </li>
+                        {item && item.averageMark && item.averageMark ? (
+                            <span>{
+                                stars?.map((_, index) => (
+                                    <span key={index}
+                                        style={{ color: index < item?.averageMark ? 'gold' : 'gray' }} >
+                                        < FontAwesomeIcon icon={faStar} />
+                                    </span>))}
+                            </span>
+                        ) : (
+                            <p>Aucune note attribuée</p>
+                        )}
+                    </div>
+                ))}
+            </ul >
+        </div >
+
     )
 
 

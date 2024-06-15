@@ -86,12 +86,12 @@ const NotificationsList = ({ }) => {
             <h4>Nos nouveautes selon vos interets: </h4>
             <ul> {
                 notification?.map((item) => (
-                    <li key={item?.id}>
+                    <li className="interest-li" key={item?.id}>
                         <p>{item.title}</p>
-                        <button onClick={() => handleClick(item)}>VOIR PLUS</button>
+                        <button className="blueBtn" onClick={() => handleClick(item)}>VOIR PLUS</button>
 
                         {/* //= coding for version2
-                            <button type="reset" className="btn" onClick={NotificationDelete.bind(null, item)} onChange={handleDeleteNotif}>SUPPRIMER</button> */}
+                            <button  type="reset" className="btn" onClick={NotificationDelete.bind(null, item)} onChange={handleDeleteNotif}>SUPPRIMER</button> */}
 
                     </li>
                 ))

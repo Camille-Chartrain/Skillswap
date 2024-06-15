@@ -43,24 +43,27 @@
     background-color: var.$blueBtn;
     text-align: center;
     color: var.$yellowBtn;
-    padding: 2rem 15rem;
+    padding: 2rem 4rem;
+    margin: 0rem 15rem 0rem 15rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
 
 }
 
 //*media query mobile first
-@mixin mobileFirst {
+@mixin mobileFirst($flex-direction) {
     @media screen and (max-width:43rem) {
         display: flex;
-        flex-direction: column;
+        flex-direction: $flex-direction;
         justify-items: center;
         align-items: center;
         flex-wrap: wrap;
+        text-align: justify;
         width: 85%;
 
+
         h2 {
-            padding: 2rem 5rem;
+            padding: 2rem 15rem;
         }
 
         button {

@@ -10,7 +10,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch }) => {
 
 
     return (
-        <main>
+        <>
             <article  >
                 <h1>SKILLSWAP C'est...</h1>
                 <p>Une plateforme d'échange et d’apprentissage qui permet de mettre en relation des personnes de tout âge et aux profils variés qui souhaitent apprendre ou partager leur compétence et leurs talents avec les autres.
@@ -28,7 +28,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch }) => {
                     noMatch={noMatch}
                 />
             </section>
-        </main>
+        </>
     )
 
 }

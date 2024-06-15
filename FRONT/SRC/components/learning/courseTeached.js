@@ -171,17 +171,17 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
                                     <li className="learning-li btn" key={item.id} >
                                         <span> {item.Skill.title}</span>
                                         <span>{item.User.firstname} {item.User.lastname}</span>
-                                        <div div className="status" >
+                                        <div div className="status btn" >
                                             {
                                                 item.status === "en attente" &&
                                                 <>
-                                                    <button onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE</button>
-                                                    <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
+                                                    <button className="blueBtn" onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE</button>
+                                                    <button className="redBtn" onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
                                                 </>
                                             }
-                                            {item.status === "refusé" && <h4>COURS REFUSÉ</h4>}
-                                            {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
-                                            {item.status === "terminé" && <><span>COURS TERMINÉ </span><span>Bravo ! Vous avez gagne 1 Swappie</span></>}
+                                            {item.status === "refusé" && <span className="status-reject">COURS REFUSÉ</span>}
+                                            {item.status === "en cours" && <button className="orangeBtn" onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
+                                            {item.status === "terminé" && <><span className="status-finish" >TERMINÉ </span><span className="status-congrat">Bravo ! Vous gagnez 1 Swappie</span></>}
                                             {/* {item.status === "noté" && <span>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</span>} */}
                                             {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <span>STATUT INCONNU</ span>}
                                         </div>

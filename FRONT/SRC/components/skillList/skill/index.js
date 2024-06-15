@@ -85,7 +85,7 @@ const Skill = ({
     return (
         <>
             <div id="skill" >
-                {isLogged ? (
+                {!isLogged ? (
                     <>
                         <div className="skill-header">
                             <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
@@ -141,7 +141,7 @@ const Skill = ({
 
                 )
                 }
-                <button type="submit" onClick={handleClick}>SUIVRE CE COURS</button>
+                <button className="skillBtn" type="submit" onClick={handleClick}>SUIVRE CE COURS</button>
             </div >
         </>
     )
