@@ -92,27 +92,30 @@ const NotificationRating = ({ handleDeleteNotification }) => {
 
 
     return (
-        <ul>
-            {/* {console.log("rating jsx", skillsToRate)} */}
-            {skillsToRate && skillsToRate.length > 0 ?
+        <div className='markList'>
+            <h4>Notez les cours suivis: </h4>
+            <ul>
+                {/* {console.log("rating jsx", skillsToRate)} */}
+                {skillsToRate && skillsToRate.length > 0 ?
 
-                skillsToRate?.map((item) => (
-                    <li key={item.id}>
-                        <h6>{item.title}</h6>
-                        <span>Souhaitez vous le noter: {renderStars()}</span>
-                        <button onClick={(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
+                    skillsToRate?.map((item) => (
+                        <li className="mark-li" key={item.id}>
+                            <span>{item.title}</span>
+                            <span className='stars'>{renderStars()}</span>
+                            <button className='blueBtn' onClick={(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
 
 
-                        {/* //=version2 coding
+                            {/* //=version2 coding
                         <button type="reset" className="btn" onClick={() => handleDeleteNotification(null, item)}>SUPPRIMER</button> */}
 
-                    </li>
-                ))
-                : (
-                    <p> Pas de cours à noter </p>
-                )}
+                        </li>
+                    ))
+                    : (
+                        <p> Pas de cours à noter </p>
+                    )}
 
-        </ul>
+            </ul>
+        </div>
     );
 
 };

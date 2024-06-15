@@ -7,20 +7,20 @@ const Communication = () => {
 
 
     return (
-        <main>
 
-            <div className="communication">
-                <h2 id="communication">COMMUNICATION</h2>
-                <span className="communication-section">
-                    <div className="skillsList">
-                        <h3>Notifications</h3>
-                        <span>
-                            <NotificationsList />
-                            <NotificationRating />
 
-                        </span>
-                    </div>
-                    {/* //= coding in place for version2
+        <div className="communication">
+            <h2 id="communication">COMMUNICATION</h2>
+            <span className="communication-section">
+                <div className="communicationList">
+                    <h3>Notifications</h3>
+                    <span className="notif-section">
+                        <NotificationsList />
+                        <NotificationRating />
+
+                    </span>
+                </div>
+                {/* //= coding in place for version2
                     <div className="skillsList">
                         <h3>Messagerie</h3>
                         <ul>
@@ -34,9 +34,8 @@ const Communication = () => {
                             </span>
                         </ul>
                     </div> */}
-                </span>
-            </div >
-        </main >
+            </span>
+        </div >
     )
 
 };

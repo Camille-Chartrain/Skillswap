@@ -3,11 +3,9 @@
 
 
 .changeProfile {
-
     @include mixin.focus(var.$orangeBtn);
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     border: solid 0.3rem var.$blueBtn ;
     border-radius: 1rem;
     margin: 2rem;
@@ -20,17 +18,14 @@
     }
 
     .profile-section {
-
+        @include mixin.mobileFirst(column);
         display: flex;
-        flex-direction: row;
+        // flex-direction: row;
         align-items: center;
         justify-content: center;
         margin: 1rem;
-        width: 95%;
+        width: calc(95%/2);
         margin: auto;
-
-
-
 
         Input,
         option,
@@ -54,33 +49,36 @@
             flex-wrap: nowrap;
             flex-direction: column;
             margin: 2.5rem;
-            width: calc(90%/2);
-        }
-
-        fieldset,
-        .comp {
-            flex-direction: column;
-            flex-wrap: wrap;
-            padding: 0.8rem;
-            margin: 1.3rem;
             border-radius: 1rem;
-            width: calc(90%/2);
-        }
+            // width: calc(90%/2);
 
-        .interest {
-            align-content: center;
-            width: 25rem;
 
-            input {
-                width: 4rem;
-                border-radius: 0.8rem;
+            fieldset,
+            form,
+            .comp {
+                flex-direction: column;
+                flex-wrap: wrap;
+                padding: 0.8rem;
+                margin: 1.3rem;
+                border-radius: 1rem;
+                width: calc(90%/2);
             }
 
-            div {
-                display: flex;
-                flex-direction: row;
+            .interest {
                 align-content: center;
-                align-items: center;
+                width: 25rem;
+
+                input {
+                    width: 4rem;
+                    border-radius: 0.8rem;
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    align-content: center;
+                    align-items: center;
+                }
             }
         }
     }
@@ -92,5 +90,5 @@
         padding: 0.8rem;
     }
 
-    @include mixin.mobileFirst();
+
 }

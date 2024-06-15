@@ -2,6 +2,7 @@
 @use '../../style/mixin';
 
 .skillsList {
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -12,6 +13,7 @@
     border-radius: 1rem;
     border-color: 0.2rem solid;
     width: 85%;
+
 
     ul {
         display: flex;
@@ -55,28 +57,16 @@
                         @include mixin.buttonStyle(var.$orangeBtn, var.$lightGreyWrite);
                         width: 52%;
                         height: 2rem;
-                        @include mixin.mobileFirst();
+                        @include mixin.mobileFirst(column);
                     }
 
                     .redBtn {
                         @include mixin.buttonStyle(var.$redBtn, var.$lightGreyWrite);
                         width: 52%;
-                        @include mixin.mobileFirst();
+                        @include mixin.mobileFirst(column);
                     }
                 }
             }
-
-            // li {
-            //     @include mixin.focus(var.$orangeBtn);
-            //     flex-direction: row;
-            //     color: var.$yelloWrite;
-            //     padding: 0.5rem;
-            //     border-radius: 1rem;
-            //     width: 55%;
-            //     justify-content: right;
-            //     align-items: center;
-            // }
-
         }
     }
 }

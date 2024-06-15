@@ -52,7 +52,7 @@ body {
         @include mixin.showMessage(var.$error);
     }
 
-    @include mixin.mobileFirst();
+    @include mixin.mobileFirst(column)
 }
 
 

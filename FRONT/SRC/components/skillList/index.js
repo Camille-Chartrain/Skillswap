@@ -32,10 +32,10 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
     const skillsToDisplay = match ? rows : skillsList;
 
     return (
-        <div className='container'>
+        <div className='section'>
 
-            {match && <p>{dataSearch.count} résultat(s)</p>}
-            {noMatch && <p>Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
+            {match && <p className="search-result">{dataSearch.count} résultat(s)</p>}
+            {noMatch && <p className="search-result">Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
 
             {skillsToDisplay?.map((item) => (
                 <Skill

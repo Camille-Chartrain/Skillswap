@@ -178,7 +178,7 @@ const SkillToSee = ({ setValue, getCourse }) => {
                             <h4>Presentation :</h4> <span>{skillSaw.User.presentation}</span>
                         </div >
 
-                        < button type="submit" onClick={(event) => handleClick(event, seeASkill.id)}>SUIVRE CE COURS</button>
+                        < button className="skillBtn" type="submit" onClick={(event) => handleClick(event, seeASkill.id)}>SUIVRE CE COURS</button>
                     </div >)
                 }
             </section >

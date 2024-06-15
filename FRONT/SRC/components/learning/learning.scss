@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    align-items: center;
     border: solid 0.3rem var.$blueBtn ;
     border-radius: 1rem;
     margin: 2rem;
@@ -17,15 +18,14 @@
     }
 
     .learning-section {
-
+        @include mixin.mobileFirst(column);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        align-content: center;
         margin: 1rem;
         width: 95%;
-        margin: auto;
-
 
         .learningList {
             display: flex;
@@ -42,6 +42,7 @@
             ul {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 justify-content: space-between;
                 list-style-type: none;
                 padding: 0.5rem;
@@ -62,66 +63,91 @@
                     width: 95%;
                     background-color: var.$bgGrey;
 
-                    .status-send,
-                    .status-reject,
-                    .status-wait,
-                    .status-finish {
+                    .status {
                         @include mixin.focus(var.$blueBtn);
-                        padding: 0.5rem;
-                        margin: 0.3rem;
-                        border-radius: 1.2rem;
-                        font-size: 1rem;
-                        font-weight: bolder;
-                        color: var.$yelloWrite;
-                    }
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+                        align-items: right;
+                        width: 40%;
 
-                    .status-send {
-                        background-color: var.$orangeBtn;
-                    }
 
-                    .status-reject {
-                        background-color: var.$redBtn;
-                    }
-
-                    .status--wait {
-                        background-color: var.$yelloWrite;
-                    }
-
-                    .status-finish {
-                        background-color: var.$bgGrey;
-                    }
-
-                    li {
-                        .title {
-                            font-size: 1.5rem;
+                        .status-send,
+                        .status-reject,
+                        .status-wait,
+                        .status-finish,
+                        .status-congrat {
+                            padding: 0.2rem 0.5rem;
+                            margin: 0.1rem;
+                            border-radius: 1.2rem;
+                            font-size: 0.8rem;
+                            height: 2rem;
+                            font-weight: bolder;
+                            color: var.$yelloWrite;
+                            width: 50%;
                         }
 
-                        .btn {
-                            @include mixin.focus(var.$blueBtn);
-                            display: flex;
-                            flex-direction: row;
-                            align-items: flex-end;
-                            width: 40%;
+                        .status-send {
+                            background-color: var.$orangeBtn;
+                        }
 
-                            .orangeBtn {
-                                @include mixin.buttonStyle(var.$orangeBtn, var.$lightGreyWrite);
-                                width: 52%;
-                                height: 2rem;
-                                @include mixin.mobileFirst();
-                            }
+                        .status-reject {
+                            background-color: var.$redBtn;
+                        }
 
-                            .redBtn {
-                                @include mixin.buttonStyle(var.$redBtn, var.$lightGreyWrite);
-                                width: 52%;
-                                @include mixin.mobileFirst();
-                            }
+                        .status--wait {
+                            background-color: var.$yelloWrite;
+                        }
+
+                        .status-finish {
+                            background-color: var.$bgGrey;
+
+                        }
+
+                        .status-congrat {
+                            color: gold;
+                            font-size: 1rem;
+
+                            width: 80%;
+                        }
+                    }
+                }
+
+                li {
+                    .title {
+                        font-size: 1.5rem;
+                    }
+
+                    .btn {
+                        @include mixin.focus(var.$blueBtn);
+                        display: flex;
+                        flex-direction: row;
+                        align-items: right;
+                        width: 40%;
+
+                        .blueBtn {
+                            @include mixin.buttonStyle(var.$blueBtn, var.$lightGreyWrite);
+                            width: 52%;
+                            height: 2rem;
+                            @include mixin.mobileFirst(column);
+                        }
+
+                        .orangeBtn {
+                            @include mixin.buttonStyle(var.$orangeBtn, var.$lightGreyWrite);
+                            width: 52%;
+                            height: 2rem;
+                            @include mixin.mobileFirst(column);
+                        }
+
+                        .redBtn {
+                            @include mixin.buttonStyle(var.$redBtn, var.$lightGreyWrite);
+                            width: 52%;
+                            @include mixin.mobileFirst(column);
                         }
                     }
                 }
             }
         }
     }
-
-    @include mixin.mobileFirst();
 
 }

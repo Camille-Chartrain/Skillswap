@@ -2,7 +2,7 @@
 @use '../../style/mixin';
 
 .skill {
-    @include mixin.mobileFirst();
+    @include mixin.mobileFirst(column);
     @include mixin.focus(var.$orangeBtn);
     display: flex;
     flex-direction: row;

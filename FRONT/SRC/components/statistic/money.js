@@ -36,14 +36,15 @@ const Money = () => {
 
     return (
 
-        <div className="satisticList">
+        <div className="statisticList">
             <h3>Coffre au tresor</h3>
-
             <ul>
-                {/* {console.log("voir wallet:", wallet)} */}
-                {wallet && <li> Swappies totals : {wallet[0].User?.swappies}</li>}
-                {wallet && <li> Swappies recus: {wallet[0].User?.swappiesWinned}</li>}
-                {wallet && <li>Swappies donnes : {wallet[0].User?.swappiesSpent}</li>}
+                <div className="money">
+                    {/* {console.log("voir wallet:", wallet)} */}
+                    {wallet && <li className="statistic-li"> Swappies totals : <span className="int">{wallet[0].User?.swappies}</span></li>}
+                    {wallet && <li className="statistic-li"> Swappies recus: <span className="int">{wallet[0].User?.swappiesWinned}</span></li>}
+                    {wallet && <li className="statistic-li">Swappies donnes : <span className="int">{wallet[0].User?.swappiesSpent}</span></li>}
+                </div>
             </ul>
         </div>
 

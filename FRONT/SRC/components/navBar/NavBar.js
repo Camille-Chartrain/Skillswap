@@ -32,7 +32,6 @@ const NavBar = ({
                         noMatch={noMatch}
                         setNoMatch={setNoMatch}
                     />
-                    <ToggleBtn />
                 </div>
             </span >
         </>
