@@ -52,7 +52,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch,
     }
 
     return (
-        <main>
+        <>
             <div className='ancre'>
                 <>
                     <a href="/dashboard#profile" alt=" profile du membre" ><img className="" src={dashboard} alt='icone du profil ' /></a>
@@ -68,9 +68,8 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch,
                     noMatch={noMatch}
                 />
             </section>
-        </main>
+        </>
     )
-
 }
 
 

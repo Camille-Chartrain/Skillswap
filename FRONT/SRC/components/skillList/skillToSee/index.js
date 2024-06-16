@@ -1,9 +1,7 @@
 import dashboard from '../../../style/pictures/dashboard.svg';
 import logout from '../../../style/pictures/logout.svg';
 
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-
-
+// import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -183,17 +181,14 @@ const SkillToSee = ({ setValue, setIsAuthenticated }) => {
                 </>
             </div>
 
-
+            {/* <div id="skill" > */}
             <section section onChange={handleChangeSkill} >
                 {skillSaw && (
 
                     <div id="skill" >
-
-                        {/* {console.log("ds return SkillToSee:", skillSaw)}
-                    {console.log("ds return SkillToSee skillSaw.id:", skillSaw.id)} */}
                         <div className="skill-header">
-                            <NavLink to="/dashboard"><img className="" src={dashboard} alt="icone tableau de bord" /></NavLink>
-                            <h3>{skillSaw.title}</h3>
+
+                            <h4>{skillSaw.title}</h4>
                             <h4>Description :</h4> <span>{skillSaw.description} ` </span>
                             {/* {console.log("skillSaw.description:", skillSaw.description)} */}
                             <h4>Duree :</h4><span>{skillSaw.duration}</span>
@@ -226,6 +221,7 @@ const SkillToSee = ({ setValue, setIsAuthenticated }) => {
                     </div >)
                 }
             </section >
+            {/* </div > */}
         </>
     )
 };

@@ -89,6 +89,7 @@ const Skill = ({
                     <>
                         <div className="skill-header">
                             <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
+                            <h4>{title}</h4>
                             <h4>Description :</h4> <span>{description}  </span>
                             <h4>Duree :</h4><span>{duration}</span>
                         </div>

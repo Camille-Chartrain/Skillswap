@@ -128,11 +128,11 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
                     <small> Merci de donner un titre explicite</small>
                     <input id="title" type="text" name="title" defaultValue={skillUpdate.title} {...register("title")} onChange={handleChangeSkill} size="25" required />
 
-                    <label htmlFor="CategoryId">Categorie * :</label>
+                    <label htmlFor="CategoryId">Categorie et Sous -categorie * :</label>
                     <SearchCategory register={register} />
 
-                    <label htmlFor="SubCategoryId">Sous Categorie * :</label>
-                    <SearchSubCategory register={register} />
+                    {/* <label htmlFor="SubCategoryId">Sous Categorie * :</label>
+                    <SearchSubCategory register={register} /> */}
 
                     <label htmlFor="duration">Duree * :</label>
                     <input id="duration" type="text" name="duration" defaultValue={skillUpdate.duration} {...register("duration")} onChange={handleChangeSkill} size="25" required />

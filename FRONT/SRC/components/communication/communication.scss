@@ -120,12 +120,14 @@
 
 
                         .stars {
-                            font-size: 1rem;
+                            display: flex;
+                            font-size: 1.5rem;
                             font-weight: bold;
                             color: var.$blueBtn;
                             margin: 1rem;
-                            // padding: rem;
                             align-items: center;
+
+                            width: 50%;
                         }
 
                         .blueBtn {

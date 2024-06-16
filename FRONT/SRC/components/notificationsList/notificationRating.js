@@ -99,16 +99,17 @@ const NotificationRating = ({ handleDeleteNotification }) => {
                 {skillsToRate && skillsToRate.length > 0 ?
 
                     skillsToRate?.map((item) => (
-                        <li className="mark-li" key={item.id}>
-                            <span>{item.title}</span>
-                            <span className='stars'>{renderStars()}</span>
-                            <button className='blueBtn' onClick={(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
-
+                        <>
+                            <li className="mark-li" key={item.id}>
+                                <span>{item.title}</span>
+                                <span className='stars'>{renderStars()}
+                                    <button className='blueBtn' onClick={(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
+                                </span>
+                            </li>
 
                             {/* //=version2 coding
                         <button type="reset" className="btn" onClick={() => handleDeleteNotification(null, item)}>SUPPRIMER</button> */}
-
-                        </li>
+                        </>
                     ))
                     : (
                         <p> Pas de cours à noter </p>

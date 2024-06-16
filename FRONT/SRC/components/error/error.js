@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import dashboard from '../../style/pictures/dashboard.svg';
+import logout from '../../style/pictures/logout.svg';
 
 
 const Error = ({ error, SetError }) => {
@@ -25,11 +26,19 @@ const Error = ({ error, SetError }) => {
     }, []);
 
     return (
-        <main>
+        <>
+
+            <div className='ancre'>
+                <>
+                    <a href="/dashboard#profile" alt=" communication " ><img className="" src={dashboard} alt='icone de communication ' /></a>
+                    <img className="" src={logout} alt='icone de deconnexion' onClick={handleLogout} />
+                </>
+            </div>
+
             <h1> DESOLE, VOTRE DEMANDE N'A PAS PU ABOUTIR </h1>
             <h5>ERREUR 404 : {error}</h5>
             <img src="" alt="" />
-        </main>
+        </>
     )
 
 }

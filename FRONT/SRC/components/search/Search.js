@@ -78,7 +78,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                 // if (responseDataSearch.rows.length > 4) {
                 if (isAuthenticated) {
                     console.log("   AUTHENTIFIE");
-                    navigate("/results");
+                    navigate("/seeASkill");
                 }
 
 
