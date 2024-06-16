@@ -53,7 +53,7 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset, GetAllSkillUser }
 
             reset();
 
-            GetAllSkillUser();
+            GetAllSkillUser()
         }
         catch (error) {
             console.log("erreur cath :", error);
