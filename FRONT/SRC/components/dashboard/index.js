@@ -15,7 +15,19 @@ import logout from '../../style/pictures/logout.svg';
 import Cookies from 'js-cookie';
 
 
-const Dashboard = ({ handleSubmit, register, isValid, reset, isAuthenticated, setIsAuthenticated }) => {
+const Dashboard = ({
+    handleSubmit,
+    register,
+    isValid,
+    reset,
+    isAuthenticated,
+    setIsAuthenticated,
+    selectedSubCategory,
+    setSelectedSubCategory,
+    selectedCategory,
+    setSelectedCategory,
+    selectLevel,
+    setSelectLevel }) => {
 
     const navigate = useNavigate();
     // const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -159,7 +171,18 @@ const Dashboard = ({ handleSubmit, register, isValid, reset, isAuthenticated, se
             </span>
             <main>
                 <h1 className="dashboard">TABLEAU DE BORD</h1>
-                <Profile handleSubmit={handleSubmit} register={register} reset={reset} />
+                <Profile
+                    handleSubmit={handleSubmit}
+                    register={register}
+                    reset={reset}
+                    setSelectedSubCategory={setSelectedSubCategory}
+
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+
+                    selectLevel={selectLevel}
+                    setSelectLevel={setSelectLevel}
+                />
                 <Learning
                     handleSubmit={handleSubmit}
                     register={register}
