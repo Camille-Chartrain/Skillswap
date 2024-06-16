@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import dashboard from '../../style/pictures/dashboard.svg';
 import logout from '../../style/pictures/logout.svg';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 
 const Error = ({ error, SetError }) => {
