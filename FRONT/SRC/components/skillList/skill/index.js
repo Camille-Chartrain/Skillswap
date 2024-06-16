@@ -44,11 +44,36 @@ const Skill = ({
 
 
 
-    handleClick = (event) => {
+    handleClick = (async (event) => {
         console.log("dans la fonction handleClick suivre ce cours");
         event.preventDefault();
+
+        // try {
+        //     const token = Cookies.get('token');
+        //     const response = await fetch(`http://localhost:3000/dashboard`, {
+        //         method: "get",
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             'Authorization': `Bearer ${token}`,
+        //         },
+        //         // credentials: 'include'
+        //     });
+        //     console.log("response avant json:", response)
+        //     const authResult = await response.json();
+        //     console.log("authResult apres json dans Skill click inscription au cours:", authResult)
+
+        //     if(authResult == "access granted"){
+        //         navigate('/onSk')
+        //     }
+
+        // }
+        // catch (error) {
+        //     console.error("catch de handleClick dans Skill:", error);
+        //     // handleNotFoundError();
+        // }
+
         navigate('/registration')
-    }
+    })
 
     //=get method for fetch datas from the Back
     const getSkill = useCallback(async (skill) => {
@@ -89,7 +114,6 @@ const Skill = ({
                     <>
                         <div className="skill-header">
                             <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
-                            <h4>{title}</h4>
                             <h4>Description :</h4> <span>{description}  </span>
                             <h4>Duree :</h4><span>{duration}</span>
                         </div>
