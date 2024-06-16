@@ -243,10 +243,10 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
 
 
 
-        < div className="profile" >
-            <h2>Profil</h2>
+        < span className="profile" id="profile" >
+            <h2 >Profil</h2>
 
-            <div className="profile-section">
+            <span className="profile-section">
                 <form method="POST"
                     onSubmit={handleSubmit(ProfilePatch)}>
 
@@ -281,31 +281,31 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
 
                         <fieldset className="interest" {...register("interests")} defaultValue={interests} >
                             <legend><h4>Centres d'interets</h4></legend>
-                            <div>
+                            <span>
                                 <input id="1" type="checkbox" defaultValue="1"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("1")}
                                     onChange={handleInterestChange} />
                                 <label htmlFor="1">Language</label>
-                            </div><div>
+                            </span><span>
                                 <input id="2" type="checkbox" defaultValue="2"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("2")}
                                     onChange={handleInterestChange} />
                                 <label htmlFor="2">Bricolage</label>
-                            </div>  <div>
+                            </span>  <span>
                                 <input id="3" type="checkbox" defaultValue="3"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("3")}
                                     onChange={handleInterestChange} />
                                 <label htmlFor="3">DIY</label>
-                            </div> <div>
+                            </span> <span>
                                 <input id="4" type="checkbox" defaultValue="4" {...register("interests")} checked={profileData.interests && profileData.interests.includes("4")}
                                     onChange={handleInterestChange} />
                                 <label htmlFor="4">Cuisine</label>
-                            </div><div>
+                            </span><span>
                                 <input id="5" type="checkbox" defaultValue="5"   {...register("interests")} checked={profileData.interests && profileData.interests.includes("5")}
                                     onChange={handleInterestChange} />
                                 <label htmlFor="5">Art</label>
-                            </div> <div>
+                            </span> <span>
                                 <input id="6" type="checkbox" defaultValue="6"   {...register("interests")} checked={profileData.interests && profileData.interests.includes("6")}
                                     onChange={handleInterestChange} />
                                 <label htmlFor="6">Scolaire</label>
-                            </div>
+                            </span>
                         </fieldset>
 
                         <button type="submit" disabled={!isValid} >VALIDER</button>
@@ -313,11 +313,11 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
                 </form>
 
                 <CreateSkill handleSubmit={handleSubmit} register={register} reset={reset} />
-            </div>
-            < div className="skillsList" >
+            </span>
+            < span className="skillsList" >
                 <h3>Liste des competences</h3>
                 <ul>
-                    <div className="skillList-li">
+                    <span className="skillList-li">
 
                         {skillsUser?.map((skill) => (
                             <>
@@ -334,11 +334,11 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
                             </>
                         ))
                         }
-                    </div>
+                    </span>
                 </ul>
-            </div >
+            </span >
             <button onClick={ProfileDelete} type="reset" className="redBtnProfile" size="30" >SUPPRIMER LE COMPTE</button>
-        </div >
+        </span >
     )
 }
 

@@ -92,7 +92,7 @@ const NotificationRating = ({ handleDeleteNotification }) => {
 
 
     return (
-        <div className='markList'>
+        <span className='markList'>
             <h4>Notez les cours suivis: </h4>
             <ul>
                 {/* {console.log("rating jsx", skillsToRate)} */}
@@ -116,7 +116,7 @@ const NotificationRating = ({ handleDeleteNotification }) => {
                     )}
 
             </ul>
-        </div>
+        </span>
     );
 
 };

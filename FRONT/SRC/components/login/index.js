@@ -40,7 +40,7 @@ const Login = ({ handleSubmit, register, isValid }) => {
                 // console.log("redirection vers dashboard sans nouveau token");
                 navigate("/dashboard");
             }
-            // else { <div className="error">return({error?.message})</div> };
+            // else { <span className="error">return({error?.message})</span> };
         }
         catch (error) {
             console.log('erreur: ', error);

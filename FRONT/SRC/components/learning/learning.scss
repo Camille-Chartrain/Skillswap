@@ -84,7 +84,6 @@
                             font-size: 0.8rem;
                             height: 2rem;
                             font-weight: bolder;
-                            color: var.$yelloWrite;
                             width: 50%;
                         }
 
@@ -94,6 +93,7 @@
 
                         .status-reject {
                             background-color: var.$redBtn;
+                            color: var.$lightGreyWrite;
                         }
 
                         .status--wait {
@@ -106,9 +106,8 @@
                         }
 
                         .status-congrat {
-                            color: gold;
-                            font-size: 1rem;
-
+                            color: var.$blackWrite;
+                            font-size: 0.8rem;
                             width: 80%;
                         }
                     }
@@ -134,7 +133,7 @@
                         }
 
                         .orangeBtn {
-                            @include mixin.buttonStyle(var.$orangeBtn, var.$lightGreyWrite);
+                            @include mixin.buttonStyle(var.$orangeBtn, var.$blackWrite);
                             width: 52%;
                             height: 2rem;
                             @include mixin.mobileFirst(column, wrap);

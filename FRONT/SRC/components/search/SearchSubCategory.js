@@ -66,8 +66,9 @@ const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory 
     }, [getSubCategoriesList, selectedCategory]);
 
     return (
-        <select id="SubCategoryId" name="SubCategoryId" onChange={handleChangeSubCat} {...register("SubCategoryId", { onChange: handleChangeSubCat })}>
-            <option value=""  >Une sous-categorie</option>
+        <select id="SubCategoryId" name="SubCategoryId" onChange={handleChangeSubCat} {...register("SubCategoryId", { onChange: handleChangeSubCat })}
+            aria-label="ajouter une sous categorie">
+            <option value="">Une sous-categorie</option>
 
             {subCategories.map((subcategory) => (
                 <option key={subcategory.id} value={subcategory.id} name={subcategory.id}>{subcategory.name}</option>

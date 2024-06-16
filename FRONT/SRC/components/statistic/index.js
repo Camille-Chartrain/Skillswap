@@ -7,7 +7,7 @@ const Statistic = ({ wallet, GetMoney }) => {
 
     return (
 
-        <div className="statistic">
+        <span className="statistic">
             <h2 id="statistic">STATISTIQUES</h2>
             <span className="statistic-section">
                 <Money
@@ -16,7 +16,7 @@ const Statistic = ({ wallet, GetMoney }) => {
                 />
                 <SkillRating />
             </span>
-        </div >
+        </span >
 
     )
 };

@@ -10,7 +10,7 @@ import themeClass from './components/APP';
 
 
 
-//=container is the element that will contain the entire app, it retrieves a div with a given id
+//=container is the element that will contain the entire app, it retrieves a span with a given id
 const container = document.getElementById("app");
 
 //=root is the root element created from the render target in the DOM

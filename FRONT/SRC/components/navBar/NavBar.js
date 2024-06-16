@@ -21,7 +21,7 @@ const NavBar = ({
     return (
         <>
             <span className="arianaWire">
-                <div className='searchBar'>
+                <span className='searchBar' aria-label="barre de recherche">
                     <Search
                         register={register}
                         handleSubmit={handleSubmit}
@@ -34,7 +34,7 @@ const NavBar = ({
                         setNoMatch={setNoMatch}
                         isAuthenticated={isAuthenticated}
                     />
-                </div>
+                </span>
             </span >
         </>
     )

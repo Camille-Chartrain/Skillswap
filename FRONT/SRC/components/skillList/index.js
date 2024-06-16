@@ -32,7 +32,7 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
     const skillsToDisplay = match ? rows : skillsList;
 
     return (
-        <div className='section'>
+        <span className='section'>
 
             {match && dataSearch.resultCount == 1 && (<p className="search-result">{dataSearch.resultCount} résultat</p>)}
             {match && dataSearch.resultCount > 1 && (<p className="search-result">{dataSearch.resultCount} résultats</p>)}
@@ -60,7 +60,7 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
                     presentation={item?.User?.presentation}
                 />
             ))}
-        </div>
+        </span>
     );
 }
 

@@ -3,7 +3,6 @@
 @use './style/global';
 
 
-@use './style/components/_card';
 @use './components/app/style.scss';
 @use './components/header/header.scss';
 @use './components/footer/footer.scss';
@@ -14,11 +13,10 @@
 @use './components/registration/registration.scss';
 @use './components/login/login.scss';
 
+
 @use './components/profile/profile.scss';
-@use './components/createSkill/createSkill.scss';
 
 @use './components/skillList/skillList.scss';
-@use './components/skillList/skillUpDate/skillUpDate.scss';
 @use './components/skillList/skill/skill.scss';
 @use './components/skillList/skillToSee/skillToSee.scss';
 
@@ -26,7 +24,6 @@
 @use './components/statistic/statistic.scss';
 
 @use './components/communication/communication.scss';
-@use './components/notificationsList/notification.scss';
 
-@use './components/admin/user/user.scss';
-@use './components/admin/usersList.scss';
+// @use './components/admin/user/user.scss';
+// @use './components/admin/usersList.scss';

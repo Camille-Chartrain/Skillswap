@@ -9,19 +9,19 @@ const Communication = () => {
     return (
 
 
-        <div className="communication">
+        <span className="communication">
             <h2 id="communication">COMMUNICATION</h2>
             <span className="communication-section">
-                <div className="communicationList">
+                <span className="communicationList">
                     <h3>Notifications</h3>
                     <span className="notif-section">
                         <NotificationsList />
                         <NotificationRating />
 
                     </span>
-                </div>
+                </span>
                 {/* //= coding in place for version2
-                    <div className="skillsList">
+                    <span className="skillsList">
                         <h3>Messagerie</h3>
                         <ul>
                             <span>
@@ -33,9 +33,9 @@ const Communication = () => {
                                 </span>
                             </span>
                         </ul>
-                    </div> */}
+                    </span> */}
             </span>
-        </div >
+        </span >
     )
 
 };

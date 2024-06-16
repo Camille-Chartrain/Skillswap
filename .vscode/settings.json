@@ -110,6 +110,14 @@
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\results\\",
             "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\APP\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\error\\",
+            "color": "foldercolorizer.LightYellow"
         }
     ]
 }

@@ -24,7 +24,7 @@ const Admin = () => {
     useEffect(() => { GetUsersList() }, [])
 
     return (
-        <div className='container'>
+        <span className='container'>
             {
                 usersList?.map((item) => (
 
@@ -40,7 +40,7 @@ const Admin = () => {
                     />
                 ))
             }
-        </div >
+        </span >
     )
 
 }

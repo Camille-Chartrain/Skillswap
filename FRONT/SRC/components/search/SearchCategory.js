@@ -56,11 +56,12 @@ const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedC
     }, [getCategoriesList]);
 
     return (
-        <div className="categories">
+        <span className="categories">
             <select name="CategoryId"
                 id="CategoryId"
                 onChange={handleChangeCat}
                 {...register("CategoryId", { onChange: handleChangeCat })}
+                aria-label='ajouter une categorie'
             >
                 <option
                     value="">Une catégorie
@@ -75,7 +76,7 @@ const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedC
                 register={register}
                 selectedCategory={selectedCategory}
                 setSelectedSubCategory={setSelectedSubCategory} />
-        </div >
+        </span >
     );
 }
 

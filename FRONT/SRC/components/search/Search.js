@@ -105,7 +105,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
             <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' role="logo" /></a>
 
             <form method="GET" className="search" onSubmit={handleSubmit(GetSearch)} >
-                <div className='skillList'>
+                <span className='skillList'>
                     <input
                         type="search"
                         name="searchInput"
@@ -121,7 +121,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                         setSelectLevel={setSelectLevel}
                         selectLevel={selectLevel}
                     />
-                </div>
+                </span>
                 <SearchCategory
                     handleSubmit={handleSubmit}
                     register={register}
@@ -129,10 +129,10 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                     selectedCategory={selectedCategory}
                     setSelectedSubCategory={setSelectedSubCategory}
                 />
-                <div className='skillList'>
+                <span className='skillList'>
                     <button><img className="btnSearch" src={search} alt=' icone de recherche' /></button>
-                    <ToggleBtn />
-                </div>
+                    {/* <ToggleBtn /> */}
+                </span>
             </form >
         </>
     )

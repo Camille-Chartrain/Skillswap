@@ -54,7 +54,7 @@
                     width: 40%;
 
                     .orangeBtn {
-                        @include mixin.buttonStyle(var.$orangeBtn, var.$lightGreyWrite);
+                        @include mixin.buttonStyle(var.$orangeBtn, var.$blackWrite);
                         width: 52%;
                         height: 2rem;
                         @include mixin.mobileFirst(column, wrap);

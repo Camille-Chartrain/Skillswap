@@ -17,6 +17,7 @@
     button:focus-visible,
     link:focus-visible {
         background: $color;
+        color: var.$bgWhite;
     }
 }
 
@@ -59,7 +60,6 @@
         align-items: center;
         flex-wrap: $wrap;
         text-align: justify;
-        // width: 85%;
 
 
         h2 {

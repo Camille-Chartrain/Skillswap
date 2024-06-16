@@ -15,9 +15,9 @@ const User = ({
 
     return (
         <>
-            <div id="user" >
+            <span id="user" >
 
-                <div className="user-info">
+                <span className="user-info">
                     <h4>Prenom : </h4> <span>{firstname}</span>
                     <h4>Nom : </h4><span>{lastname}</span>
                     <h4>Date de naissance : </h4><span>{birthday}</span>
@@ -25,9 +25,9 @@ const User = ({
                     <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
                     <h4>Presentation :</h4> <span>{presentation}</span>
                     <h4>Interets : </h4><span>{interests}</span>
-                </div >
+                </span >
 
-            </div>
+            </span>
         </>
     )
 };

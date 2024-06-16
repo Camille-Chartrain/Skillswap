@@ -7,8 +7,8 @@
 // Use localStorage to store data about the tree's state: whether or not
 // the tree is visible and which directories are expanded. Unless the state
 var sidebarVisible = (window.localStorage && window.localStorage.docker_showSidebar) ?
-                        window.localStorage.docker_showSidebar == 'yes' :
-                        defaultSidebar;
+  window.localStorage.docker_showSidebar == 'yes' :
+  defaultSidebar;
 
 /**
  * ## makeTree
@@ -40,7 +40,7 @@ function makeTree(treeData, root, filename) {
   treeNode.onscroll = treeScrolled;
 
   // Only set a class to allow CSS transitions after the tree state has been painted
-  setTimeout(function() { document.body.className += ' slidey'; }, 100);
+  setTimeout(function () { document.body.className += ' slidey'; }, 100);
 }
 
 /**
@@ -66,7 +66,7 @@ function nodeClicked(e) {
   var t = e.target;
 
   // If the click target is actually a file (rather than a directory), ignore it
-  if (t.tagName.toLowerCase() !== 'div' || t.className === 'children') return;
+  if (t.tagName.toLowerCase() !== 'span' || t.className === 'children') return;
 
   // Recurse upwards until we find the actual directory node
   while (t && t.className.substring(0, 3) != 'dir') t = t.parentNode;
@@ -99,9 +99,9 @@ function nodeClicked(e) {
 function nodeHtml(nodename, node, path, root) {
   // Firstly, figure out whether or not the directory is expanded from localStorage
   var isOpen = window.localStorage && window.localStorage['docker_openPath:' + path] == 'yes';
-  var out = '<div class="dir' + (isOpen ? ' open' : '') + '" rel="' + path + '">';
-  out += '<div class="nodename">' + nodename + '</div>';
-  out += '<div class="children">';
+  var out = '<span class="dir' + (isOpen ? ' open' : '') + '" rel="' + path + '">';
+  out += '<span class="nodename">' + nodename + '</span>';
+  out += '<span class="children">';
 
   // Loop through all child directories first
   if (node.dirs) {
@@ -110,7 +110,7 @@ function nodeHtml(nodename, node, path, root) {
       if (node.dirs.hasOwnProperty(i)) dirs.push({ name: i, html: nodeHtml(i, node.dirs[i], path + i + '/', root) });
     }
     // Have to store them in an array first and then sort them alphabetically here
-    dirs.sort(function(a, b) { return (a.name > b.name) ? 1 : (a.name == b.name) ? 0 : -1; });
+    dirs.sort(function (a, b) { return (a.name > b.name) ? 1 : (a.name == b.name) ? 0 : -1; });
 
     for (var k = 0; k < dirs.length; k += 1) out += dirs[k].html;
   }
@@ -124,7 +124,7 @@ function nodeHtml(nodename, node, path, root) {
   }
 
   // Close things off
-  out += '</div></div>';
+  out += '</span></span>';
 
   return out;
 }
@@ -165,8 +165,8 @@ function wireUpTabs() {
   for (var i = 0, l = children.length; i < l; i += 1) {
     // Ignore text nodes
     if (children[i].nodeType !== 1) continue;
-    children[i].addEventListener('click', function(c) {
-      return function() { switchTab(c); };
+    children[i].addEventListener('click', function (c) {
+      return function () { switchTab(c); };
     }(children[i].className));
   }
 }
@@ -209,13 +209,13 @@ function switchTab(tab) {
  *
  * When the document is ready, make the sidebar and all that jazz
  */
-(function(init) {
+(function (init) {
   if (window.addEventListener) {
     window.addEventListener('DOMContentLoaded', init);
   } else { // IE8 and below
     window.onload = init;
   }
-}(function() {
+}(function () {
   makeTree(tree, relativeDir, thisFile);
   wireUpTabs();
 

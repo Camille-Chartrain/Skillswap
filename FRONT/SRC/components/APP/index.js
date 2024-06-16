@@ -52,11 +52,11 @@ const App = ({ darkMode, handleNotFoundError }) => {
 
 
     return (
-        <div className={theme}>
+        <span className={theme}>
             {/*//->create a router to deserve all front page s and add a navigate function for redirect user if he logged */}
 
             <Router >
-                <div className='headerSite'>
+                <span className='headerSite'>
                     <Header />
                     {/* {
                         isLogged ? (null)
@@ -83,7 +83,7 @@ const App = ({ darkMode, handleNotFoundError }) => {
                         isAuthenticated={isAuthenticated}
                     // onReset={handleReset}
                     />
-                </div>
+                </span>
                 <Routes>
                     <Route path="/" element={
                         <Home
@@ -137,11 +137,11 @@ const App = ({ darkMode, handleNotFoundError }) => {
                 </Routes>
 
             </Router >
-            <div>
+            <span>
 
-            </div>
+            </span>
             <Footer />
-        </div >
+        </span >
     )
 }
 export default App;

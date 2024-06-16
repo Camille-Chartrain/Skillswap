@@ -28,12 +28,12 @@ const Error = ({ error, SetError }) => {
     return (
         <>
 
-            <div className='ancre'>
+            <span className='ancre'>
                 <>
                     <a href="/dashboard#profile" alt=" communication " ><img className="" src={dashboard} alt='icone de communication ' /></a>
                     <img className="" src={logout} alt='icone de deconnexion' onClick={handleLogout} />
                 </>
-            </div>
+            </span>
 
             <h1> DESOLE, VOTRE DEMANDE N'A PAS PU ABOUTIR </h1>
             <h5>ERREUR 404 : {error}</h5>

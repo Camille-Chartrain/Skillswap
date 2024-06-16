@@ -42,11 +42,11 @@ const SkillRating = () => {
 
 
     return (
-        <div className="statisticList">
+        <span className="statisticList">
             <h3>Notes des competences</h3>
             <ul>
                 {rating.length > 0 && rating?.map((item) => (
-                    <div className="rating" key={item.id}>
+                    <span className="rating" key={item.id}>
                         <li>{item?.title} </li>
                         {item && item.averageMark && item.averageMark ? (
                             <span>{
@@ -59,10 +59,10 @@ const SkillRating = () => {
                         ) : (
                             <p>Aucune note attribuée</p>
                         )}
-                    </div>
+                    </span>
                 ))}
             </ul >
-        </div >
+        </span >
 
     )
 

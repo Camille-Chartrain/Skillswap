@@ -84,19 +84,18 @@ const Skill = ({
 
     return (
         <>
-            <div id="skill" >
+            <span id="skill" >
                 {!isLogged ? (
                     <>
-                        <div className="skill-header">
+                        <span className="skill-header">
                             <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
-                            <h3>{title}</h3>
-                            <h4>Description :</h4> <span>{description}  </span>
+                            <h4>Description :</h4> <span>{description}</span>
                             <h4>Duree :</h4><span>{duration}</span>
-                        </div>
-                        <div className="skill-info">
+                        </span>
+                        <span className="skill-info">
+                            <h3>{title}</h3>
                             <h4>Categorie :</h4> <span>{Category}</span>
                             <h4>Sous categorie :</h4>  <span>{SubCategory}</span>
-                            <h4>Competence :</h4><span> {title}</span>
                             <h4>Niveau : </h4><span>{level}</span>
                             <h4>Prix : </h4> <span>{price}</span>
                             <h4>Note : </h4>  <span>{
@@ -106,24 +105,24 @@ const Skill = ({
                                         < FontAwesomeIcon icon={faStar} />
                                     </span>))}
                             </span>
-                        </div>
-                        <div className='skill-teacher'>
+                        </span>
+                        <span className='skill-teacher'>
                             <h4>Disponibilite :</h4><span>{availability}</span>
                             <h4>Transmission :</h4><span>{transmission}</span>
                             <h4>Professeur :</h4> <span> {`${firstname} ${lastname}`}</span>
                             <h4>Email : </h4><span>{email}</span>
                             <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
                             <h4>Presentation :</h4> <span>{presentation}</span>
-                        </div >
+                        </span >
                     </>
                 ) : (
                     <>
-                        <div className="skill-header">
+                        <span className="skill-header">
                             <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
                             <h4>Description :</h4> <span>{description}  </span>
                             <h4>Duree :</h4><span>{duration}</span>
-                        </div>
-                        <div className="skill-info">
+                        </span>
+                        <span className="skill-info">
                             <h4>Categorie :</h4> <span>{Category}</span>
                             <h4>Sous categorie :</h4>  <span>{SubCategory}</span>
                             <h4>Competence :</h4><span> {title}</span>
@@ -137,13 +136,13 @@ const Skill = ({
                                     </span>))}
                             </span>
 
-                        </div>
+                        </span>
                     </>
 
                 )
                 }
                 <button className="skillBtn" type="submit" onClick={handleClick}>SUIVRE CE COURS</button>
-            </div >
+            </span >
         </>
     )
 };
