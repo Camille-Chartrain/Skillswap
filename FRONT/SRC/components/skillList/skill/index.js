@@ -28,6 +28,7 @@ const Skill = ({
     email,
     grade_level,
     presentation,
+    skillId
 
 }) => {
 
@@ -44,36 +45,77 @@ const Skill = ({
 
 
 
-    handleClick = (async (event) => {
+    const handleClick = async (event, skillId) => {
         console.log("dans la fonction handleClick suivre ce cours");
         event.preventDefault();
 
-        // try {
-        //     const token = Cookies.get('token');
-        //     const response = await fetch(`http://localhost:3000/dashboard`, {
-        //         method: "get",
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': `Bearer ${token}`,
-        //         },
-        //         // credentials: 'include'
-        //     });
-        //     console.log("response avant json:", response)
-        //     const authResult = await response.json();
-        //     console.log("authResult apres json dans Skill click inscription au cours:", authResult)
+        try {
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/dashboard`, {
+                method: "get",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                // credentials: 'include'
+            });
+            console.log("response avant json:", response)
+            const authResult = await response.json();
+            console.log("authResult apres json dans Skill click inscription au cours:", authResult)
 
-        //     if(authResult == "access granted"){
-        //         navigate('/onSk')
-        //     }
+            if (authResult == "access granted") {
+                console.log("acces granted dans handleclik Skill, on va fetch vers demande d'inscription");
+                console.log("skillId", skillId);
 
-        // }
-        // catch (error) {
-        //     console.error("catch de handleClick dans Skill:", error);
-        //     // handleNotFoundError();
-        // }
+                try {
+                    console.log('dans le try AskInscriptionCourse');
+                    const token = Cookies.get('token');
+                    const response = await fetch(`http://localhost:3000/learning/${skillId}`, {
+                        method: 'POST',
+                        status: 200,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`,
+                        },
+                        // credentials: 'include',
+                    })
 
-        navigate('/registration')
-    })
+                    //=traduct api response in Json
+                    console.log("response post skill avant .json", response);
+                    const dataAdding = await response.json();
+                    console.log(" dataAdding  apres .json:", dataAdding);
+
+
+                    if (dataAdding === "cours en attente de validation") {//*message de validate
+                        // navigate('/dashboard');
+                        // setStatusCourse(true)
+                        // navigate('/results')
+                        console.log("cours en attende de validation OK on est redirigé vers dashboard");
+                        navigate('/dashboard')
+                    }
+                    else {
+                        throw new Error("Invalid response from API");
+                    }
+                }
+                catch (error) {
+                    console.log("catch AIC : ", error);
+                    // handleNotFoundError();
+                }
+            }
+            else if (authResult.error == "Token invalide") {
+                console.log("token ivalide dans handleclik Skill redirection vers registration");
+                navigate('/registration')
+            }
+            else {
+                console.log("autre cas d'erreur au click sur inscription au cours dans Skill");
+                navigate('/registration')
+            }
+        }
+        catch (error) {
+            console.error("catch de handleClick dans Skill:", error);
+            // handleNotFoundError();
+        }
+    }
 
     //=get method for fetch datas from the Back
     const getSkill = useCallback(async (skill) => {
@@ -166,7 +208,7 @@ const Skill = ({
 
                 )
                 }
-                <button className="skillBtn" type="submit" onClick={handleClick}>SUIVRE CE COURS</button>
+                <button className="skillBtn" type="submit" onClick={function (event) { handleClick(event, skillId); }}>SUIVRE CE COURS</button>
             </div >
         </>
     )

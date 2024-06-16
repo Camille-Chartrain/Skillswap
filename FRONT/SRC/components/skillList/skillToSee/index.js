@@ -67,6 +67,7 @@ const SkillToSee = ({ setValue, setIsAuthenticated }) => {
             thisToken = null
             if (thisToken == null) {
                 // console.log("token", thisToken);
+                console.log("state du isAunthenticated dans logout skilltosee ", isAuthenticated);
                 navigate("/");
             }
         }

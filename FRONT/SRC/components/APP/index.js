@@ -107,6 +107,7 @@ const App = ({ darkMode, handleNotFoundError }) => {
                             reset={reset}
                             setValue={setValue}
                             handleNotFoundError={handleNotFoundError}
+                            isAuthenticated={isAuthenticated}
                             setIsAuthenticated={setIsAuthenticated}
                         />}
                     />
