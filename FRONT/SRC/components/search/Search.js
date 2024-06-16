@@ -42,6 +42,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
             console.log("selectLevel dans try", selectLevel);
+            // console.log("state du isaunthenticate dans search ", isAuthenticated);
 
             const token = Cookies.get('token');
 
@@ -75,21 +76,38 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                 console.log("MATCH state Match dans Search", match);
                 console.log("MATCH state noMatch dans Search", noMatch);
 
-                // if (responseDataSearch.rows.length > 4) {
-                if (isAuthenticated) {
-                    console.log("   AUTHENTIFIE");
-                    navigate("/seeASkill");
+                //    fetch dashboard instead
+                try {
+                    console.log('dans le search apres match ok, verif si logué');
+                    const token = Cookies.get('token');
+                    const response = await fetch(`http://localhost:3000/dashboard`, {
+                        method: "get",
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`,
+                        },
+                    });
+                    console.log("response avant json:", response)
+                    const authResult = await response.json();
+                    console.log("authResult apres json dans Skill click inscription au cours:", authResult)
+
+                    if (authResult == "access granted") {
+                        console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /Results");
+                        navigate('/results')
+                    }
+                    // else if (authResult.error == "Token invalide") {
+                    //     console.log("token ivalide dans handleclik Skill redirection vers home avec resultats");
+                    //     navigate('/')
+                    // }
                 }
-
-
+                catch (error) {
+                    console.error("catch de handleClick dans Skill:", error);
+                    // handleNotFoundError();
+                }
                 // console.log("MATCH State dataSearch prout", dataSearch);
                 // console.log("MATCH state Match dans Search", match);
                 // console.log("MATCH state noMatch dans Search", noMatch);
-            }
-
-            // setSelectLevel("");
-            // setSelectedCategory(null);
-            // setSelectedSubCategory(null);
+            };
 
         }
         catch (error) {
