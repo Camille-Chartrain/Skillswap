@@ -28,7 +28,8 @@ const Skill = ({
     email,
     grade_level,
     presentation,
-    skillId
+    skillId,
+    meeting
 
 }) => {
 
@@ -214,6 +215,7 @@ const Skill = ({
                 }
                 {statusCourse && <p>Demande envoyée !</p>}
                 {!statusCourse && <button className="skillBtn" type="submit" onClick={function (event) { handleClick(event, skillId); }}>SUIVRE CE COURS</button>}
+                {meeting == "en cours" || meeting == "en attente" && <p>{meeting} </p>}
             </div >
         </>
     )
