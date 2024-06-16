@@ -2,7 +2,7 @@
 @use '../../style/mixin';
 
 
-.changeProfile {
+.profile {
     @include mixin.focus(var.$orangeBtn);
     display: flex;
     flex-direction: column;
@@ -18,14 +18,15 @@
     }
 
     .profile-section {
-        @include mixin.mobileFirst(column);
+        @include mixin.mobileFirst(column, wrap);
         display: flex;
-        // flex-direction: row;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
+        align-content: center;
         margin: 1rem;
-        width: calc(95%/2);
-        margin: auto;
+        width: 95%;
+
 
         Input,
         option,
@@ -45,23 +46,25 @@
         }
 
         .profileChange {
+            @include mixin.focus(var.$orangeBtn);
             display: flex;
-            flex-wrap: nowrap;
             flex-direction: column;
-            margin: 2.5rem;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding: 1rem;
+            margin: 3rem;
+            background-color: var.$lightGreyWrite;
             border-radius: 1rem;
-            // width: calc(90%/2);
+            border-color: 0.2rem solid;
+            width: 95%;
 
-
-            fieldset,
-            form,
-            .comp {
+            fieldset {
                 flex-direction: column;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
                 padding: 0.8rem;
                 margin: 1.3rem;
                 border-radius: 1rem;
-                width: calc(90%/2);
+                background-color: var.$lightGreyWrite;
             }
 
             .interest {
@@ -80,6 +83,27 @@
                     align-items: center;
                 }
             }
+        }
+
+        .createSkill {
+            @include mixin.focus(var.$orangeBtn);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding: 1rem;
+            margin: 3rem;
+            background-color: var.$lightGreyWrite;
+            border-radius: 1rem;
+            border-color: 0.2rem solid;
+            width: 95%;
+
+            .categories {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
         }
     }
 

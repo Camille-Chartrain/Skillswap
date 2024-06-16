@@ -57,13 +57,13 @@
                         @include mixin.buttonStyle(var.$orangeBtn, var.$lightGreyWrite);
                         width: 52%;
                         height: 2rem;
-                        @include mixin.mobileFirst(column);
+                        @include mixin.mobileFirst(column, wrap);
                     }
 
                     .redBtn {
                         @include mixin.buttonStyle(var.$redBtn, var.$lightGreyWrite);
                         width: 52%;
-                        @include mixin.mobileFirst(column);
+                        @include mixin.mobileFirst(column, wrap);
                     }
                 }
             }

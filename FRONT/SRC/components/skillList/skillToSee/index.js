@@ -182,47 +182,49 @@ const SkillToSee = ({ setValue, setIsAuthenticated }) => {
                 </>
             </div>
 
-            {/* <div id="skill" > */}
-            <section section onChange={handleChangeSkill} >
-                {skillSaw && (
 
-                    <div id="skill" >
-                        <div className="skill-header">
+            <section onChange={handleChangeSkill} >
+                <div className="section" >
+                    {skillSaw && (
 
-                            <h4>{skillSaw.title}</h4>
-                            <h4>Description :</h4> <span>{skillSaw.description} ` </span>
-                            {/* {console.log("skillSaw.description:", skillSaw.description)} */}
-                            <h4>Duree :</h4><span>{skillSaw.duration}</span>
-                            <h4>Swappie : </h4> <span>{skillSaw.price}</span>
-                            <h4>Note : </h4>  <span>{
-                                stars?.map((_, index) => (
-                                    <span key={index}
-                                        style={{ color: index < skillSaw.averageMark ? 'gold' : 'gray' }} >
-                                        < FontAwesomeIcon icon={faStar} />
-                                    </span>))}
-                            </span>
-                        </div>
-                        <div className="skill-info">
-                            <h4>Categorie :</h4> <span>{skillSaw.Category.name}</span>
-                            <h4>Sous categorie :</h4>  <span>{skillSaw.SubCategory.name}</span>
-                            <h4>Competence :</h4><span> {skillSaw.title}</span>
-                            <h4>Niveau : </h4><span>{skillSaw.level}</span>
+                        <div id="skillToSee">
+                            <div className="skill-header">
 
-                        </div>
-                        <div className='skill-teacher'>
-                            <h4>Disponibilite :</h4><span>{skillSaw.availability}</span>
-                            <h4>Transmission :</h4><span>{skillSaw.transmission}</span>
-                            <h4>Professeur :</h4> <span> {`${skillSaw.User.firstname} ${skillSaw.User.lastname}`}</span>
-                            <h4>Email : </h4><span>{skillSaw.User.email}</span>
-                            <h4>Niveau d'etudes :</h4><span>{skillSaw.User.grade_level}</span>
-                            <h4>Presentation :</h4> <span>{skillSaw.User.presentation}</span>
-                        </div >
+                                <h4>{skillSaw.title}</h4>
+                                <h4>Description :</h4> <span>{skillSaw.description} </span>
+                                {/* {console.log("skillSaw.description:", skillSaw.description)} */}
+                                <h4>Duree :</h4><span>{skillSaw.duration}</span>
+                                <h4>Swappie : </h4> <span>{skillSaw.price}</span>
+                                <h4>Note : </h4>  <span>{
+                                    stars?.map((_, index) => (
+                                        <span key={index}
+                                            style={{ color: index < skillSaw.averageMark ? 'gold' : 'gray' }} >
+                                            < FontAwesomeIcon icon={faStar} />
+                                        </span>))}
+                                </span>
+                            </div>
+                            <div className="skill-info">
+                                <h4>Categorie :</h4> <span>{skillSaw.Category.name}</span>
+                                <h4>Sous categorie :</h4>  <span>{skillSaw.SubCategory.name}</span>
+                                <h4>Competence :</h4><span> {skillSaw.title}</span>
+                                <h4>Niveau : </h4><span>{skillSaw.level}</span>
 
-                        < button className="skillBtn" type="submit" onClick={(event) => handleClick(event, seeASkill.id)}>SUIVRE CE COURS</button>
-                    </div >)
-                }
+                            </div>
+                            <div className='skill-teacher'>
+                                <h4>Disponibilite :</h4><span>{skillSaw.availability}</span>
+                                <h4>Transmission :</h4><span>{skillSaw.transmission}</span>
+                                <h4>Professeur :</h4> <span> {`${skillSaw.User.firstname} ${skillSaw.User.lastname}`}</span>
+                                <h4>Email : </h4><span>{skillSaw.User.email}</span>
+                                <h4>Niveau d'etudes :</h4><span>{skillSaw.User.grade_level}</span>
+                                <h4>Presentation :</h4> <span>{skillSaw.User.presentation}</span>
+                            </div >
+
+                            < button className="skillBtn" type="submit" onClick={(event) => handleClick(event, seeASkill.id)}>SUIVRE CE COURS</button>
+                        </div >)
+                    }
+                </div >
             </section >
-            {/* </div > */}
+
         </>
     )
 };

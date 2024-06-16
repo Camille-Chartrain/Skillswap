@@ -51,15 +51,15 @@
 }
 
 //*media query mobile first
-@mixin mobileFirst($flex-direction) {
+@mixin mobileFirst($flex-direction, $wrap) {
     @media screen and (max-width:43rem) {
         display: flex;
         flex-direction: $flex-direction;
         justify-items: center;
         align-items: center;
-        flex-wrap: wrap;
+        flex-wrap: $wrap;
         text-align: justify;
-        width: 85%;
+        // width: 85%;
 
 
         h2 {

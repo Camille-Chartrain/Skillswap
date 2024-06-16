@@ -3,7 +3,7 @@
 
 
 .skillUpDate {
-    @include mixin.mobileFirst(column);
+    @include mixin.mobileFirst(column, wrap);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

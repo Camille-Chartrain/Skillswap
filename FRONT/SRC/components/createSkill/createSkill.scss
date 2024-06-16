@@ -1,58 +1,31 @@
-@use '../../style/var';
-@use '../../style/mixin';
-
-.skill {
-    @include mixin.mobileFirst(column);
-    @include mixin.focus(var.$orangeBtn);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    line-height: 1.1rem;
-    border-radius: 1rem;
-    border-color: solid 0.2rem var.$yellowBtn;
-    padding: 2rem;
-    color: rgb(109, 90, 90);
-    width: 100%;
+// @use '../../style/var';
+// @use '../../style/mixin';
 
 
-    Input,
-    option,
-    textarea {
-        margin: 0.5rem;
-        border-radius: 0.8rem;
-        background-color: var.$yelloWrite;
-        size: 2rem;
-    }
+// .profile-section
+// .createSkill {
+//     @include mixin.mobileFirst(column, wrap);
+//     @include mixin.focus(var.$orangeBtn);
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: nowrap;
+//     align-items: center;
+//     justify-content: center;
+//     align-content: center;
+//     border-radius: 1rem;
+//     border-color: solid 0.2rem var.$yellowBtn;
+//     background-color: var.$lightGreyWrite;
+//     line-height: 1.1rem;
+//     margin: 1.3rem;
+//     padding: 2rem;
+//     width: 95%;
 
-    button {
-        @include mixin.buttonStyle (var.$blueBtn, var.$yelloWrite);
-        @include mixin.focus(var.$orangeBtn);
-        width: 10rem;
-        height: 2.3rem;
-        margin: 1.5rem;
-    }
-
-    .createSkill,
-    .addCategory {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: column;
-        margin: 2rem;
-        width: calc(90%/2);
-    }
-
-    fieldset,
-    .comp,
-    .addCategory {
-        flex-direction: column;
-        flex-wrap: wrap;
-        padding: 0.8rem;
-        margin: 1.3rem;
-        border-radius: 1rem;
-        width: calc(90%/2);
-    }
+//     .categories {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//     }
 
 
-}
+
+// }
