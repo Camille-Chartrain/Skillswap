@@ -43,7 +43,7 @@ const Skill = ({
 
     let stars = Array(5).fill();
 
-    const [statusCourse, setStatusCourse] = (false)
+    const [statusCourse, setStatusCourse] = useState(false);
 
 
 
