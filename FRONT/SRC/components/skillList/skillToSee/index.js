@@ -46,7 +46,7 @@ const SkillToSee = ({ setValue, setIsAuthenticated }) => {
     const handleLogout = async () => {
 
         try {
-            setIsAuthenticated(false)
+            // setIsAuthenticated(false)
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/logout`, {
@@ -67,7 +67,7 @@ const SkillToSee = ({ setValue, setIsAuthenticated }) => {
             thisToken = null
             if (thisToken == null) {
                 // console.log("token", thisToken);
-                console.log("state du isAunthenticated dans logout skilltosee ", isAuthenticated);
+                // console.log("state du isAunthenticated dans logout skilltosee ", isAuthenticated);
                 navigate("/");
             }
         }

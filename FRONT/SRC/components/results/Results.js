@@ -18,7 +18,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch,
     const handleClick = async () => {
 
         try {
-            setIsAuthenticated(false)
+            // setIsAuthenticated(false)
             console.log("dans le handleclick pour se déco!!!!!!!!!!!!!!!!!!!!!!!!");
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
@@ -33,7 +33,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch,
 
             setMatch(false);
             setNoMatch(false);
-            console.log("state du isAunthenticated dans logout  Result ", isAuthenticated);
+            // console.log("state du isAunthenticated dans logout  Result ", isAuthenticated);
             // console.log("response", response);
             const resultLogout = await response.json();
             // console.log('response component dashboard logout:', resultLogout);
