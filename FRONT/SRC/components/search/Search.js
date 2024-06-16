@@ -89,7 +89,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                     });
                     console.log("response avant json:", response)
                     const authResult = await response.json();
-                    console.log("authResult apres json dans Skill click inscription au cours:", authResult)
+                    console.log("authResult apres json dans Search pour vior  resultats:", authResult)
 
                     if (authResult == "access granted") {
                         console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /Results");

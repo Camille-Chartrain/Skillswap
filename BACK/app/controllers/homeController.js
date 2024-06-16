@@ -155,16 +155,20 @@ const homeController = {
                 return;
             }
             // addition of table meeting to keep tracks of the courses the user already applied to
-            for (let skill of rows) {
-                const meetings = await Meeting.findAll({
-                    where: {
-                        SkillId: skill.id,
-                        UserId: req.user.id,
-                    }
-                });
+            if (req.user) {
+                console.log("dans le if req.user.id pour ajouter table meeting au resultat du search");
+                console.log("req.user.id", req.user.id);
+                for (let skill of rows) {
+                    const meetings = await Meeting.findAll({
+                        where: {
+                            SkillId: skill.id,
+                            UserId: req.user.id,
+                        }
+                    });
 
-                skill.dataValues.Meetings = meetings;
-                console.log("log des meetings", meetings);
+                    skill.dataValues.Meetings = meetings;
+                    console.log("log des meetings", meetings);
+                }
             }
 
             console.log("count", count);
