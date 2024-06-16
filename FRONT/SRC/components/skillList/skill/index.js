@@ -43,6 +43,8 @@ const Skill = ({
 
     let stars = Array(5).fill();
 
+    const [statusCourse, setStatusCourse] = (false)
+
 
 
     const handleClick = async (event, skillId) => {
@@ -88,10 +90,11 @@ const Skill = ({
 
                     if (dataAdding === "cours en attente de validation") {//*message de validate
                         // navigate('/dashboard');
-                        // setStatusCourse(true)
+                        setStatusCourse(true)
                         // navigate('/results')
                         console.log("cours en attende de validation OK on est redirigé vers dashboard");
-                        navigate('/dashboard')
+                        navigate("/results")
+                        // navigate('/dashboard')
                     }
                     else {
                         throw new Error("Invalid response from API");
@@ -209,7 +212,8 @@ const Skill = ({
 
                 )
                 }
-                <button className="skillBtn" type="submit" onClick={function (event) { handleClick(event, skillId); }}>SUIVRE CE COURS</button>
+                {statusCourse && <p>Demande envoyée !</p>}
+                {!statusCourse && <button className="skillBtn" type="submit" onClick={function (event) { handleClick(event, skillId); }}>SUIVRE CE COURS</button>}
             </div >
         </>
     )
