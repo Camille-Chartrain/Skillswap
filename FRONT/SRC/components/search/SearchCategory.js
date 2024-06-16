@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import SearchSubCategory from './SearchSubCategory';
 import Cookies from 'js-cookie';
 
-const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedCategory }) => {
+const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedCategory, selectedSubCategory }) => {
     const { handleSubmit, register } = useForm();
 
     //= to fetch select's datas and datas bdd
@@ -75,7 +75,10 @@ const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedC
                 handleSubmit={handleSubmit}
                 register={register}
                 selectedCategory={selectedCategory}
-                setSelectedSubCategory={setSelectedSubCategory} />
+
+                setSelectedSubCategory={setSelectedSubCategory}
+                selectedSubCategory={selectedSubCategory}
+            />
         </span >
     );
 }

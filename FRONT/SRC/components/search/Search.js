@@ -38,10 +38,6 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
             console.log("selectLevel dans try", selectLevel);
-
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectLevel);
             // console.log("state du isaunthenticate dans search ", isAuthenticated);
 
             const token = Cookies.get('token');

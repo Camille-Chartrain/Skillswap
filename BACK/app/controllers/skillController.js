@@ -80,8 +80,8 @@ const skillController = {
                 transmission: req.body.transmission,
                 description: req.body.description,
                 availability: req.body.availability,
-                SubCategoryId: req.body.SubCategoryId,
-                CategoryId: req.body.CategoryId,
+                SubCategoryId: req.query.SubCategoryId,
+                CategoryId: req.query.CategoryId,
                 UserId: req.user.id
             }, {
                 where: {

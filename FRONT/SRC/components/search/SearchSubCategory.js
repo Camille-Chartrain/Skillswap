@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import { useLocation } from "react-router-dom";
 
 
-const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory }) => {
+const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory, selectedSubCategory }) => {
     const { register } = useForm();
     const [subCategories, setSubCategories] = useState([]);
     // const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -25,7 +25,7 @@ const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory 
         if (selected) {
             console.log("selected dans handleChangeSubCat", selected);
             setSelectedSubCategory(selected);
-            // console.log("subcat séléctionnée", selectedSubCategory);
+            console.log("subcat séléctionnée", selectedSubCategory);
 
         }
     };
