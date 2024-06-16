@@ -15,7 +15,7 @@ import logout from '../../style/pictures/logout.svg';
 import Cookies from 'js-cookie';
 
 
-const Dashboard = ({ handleSubmit, register, isValid, reset, setIsAuthenticated }) => {
+const Dashboard = ({ handleSubmit, register, isValid, reset, isAuthenticated, setIsAuthenticated }) => {
 
     const navigate = useNavigate();
     // const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -73,6 +73,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset, setIsAuthenticated 
             thisToken = null
             if (thisToken == null) {
                 // console.log("token", thisToken);
+                console.log("state du isAunthenticated dans logout dashboard ", isAuthenticated);
                 navigate("/");
             }
         }
@@ -140,7 +141,9 @@ const Dashboard = ({ handleSubmit, register, isValid, reset, setIsAuthenticated 
 
     // à continuer
     // if (!isAuthenticated) {
-    //     return (null);
+    //     return (
+    //         <p>Veuillez vous connecter</p>
+    //     );
     // }
 
     return (

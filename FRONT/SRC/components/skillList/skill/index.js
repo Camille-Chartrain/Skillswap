@@ -44,11 +44,32 @@ const Skill = ({
 
 
 
-    handleClick = (event) => {
+    handleClick = (async (event) => {
         console.log("dans la fonction handleClick suivre ce cours");
         event.preventDefault();
+
+        try {
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/dashboard`, {
+                method: "get",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                // credentials: 'include'
+            });
+            console.log("response avant json:", response)
+            const authResult = await response.json();
+            console.log("authResult apres json dans Skill click inscription au cours:", authResult)
+
+        }
+        catch (error) {
+            console.error("catch de handleClick dans Skill:", error);
+            // handleNotFoundError();
+        }
+
         navigate('/registration')
-    }
+    })
 
     //=get method for fetch datas from the Back
     const getSkill = useCallback(async (skill) => {

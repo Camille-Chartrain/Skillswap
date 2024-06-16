@@ -8,7 +8,7 @@ import SkillList from "../skillList";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
-const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch, setNoMatch, setIsAuthenticated }) => {
+const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch, setNoMatch, setIsAuthenticated, isAuthenticated }) => {
     console.log("state match dans Results", match);
     console.log("state noMatch dans Results", noMatch);
     console.log("state dataSearch dans Results", dataSearch);
@@ -33,7 +33,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch,
 
             setMatch(false);
             setNoMatch(false);
-
+            console.log("state du isAunthenticated dans logout  Result ", isAuthenticated);
             // console.log("response", response);
             const resultLogout = await response.json();
             // console.log('response component dashboard logout:', resultLogout);
