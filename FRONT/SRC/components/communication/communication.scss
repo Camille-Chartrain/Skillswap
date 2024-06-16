@@ -53,7 +53,7 @@
                 border-radius: 1rem;
                 margin-bottom: 1rem;
                 padding: 1rem;
-                width: 45%;
+
 
                 ul {
                     display: flex;
@@ -94,7 +94,7 @@
                 border-radius: 1rem;
                 margin-bottom: 1rem;
                 padding: 1rem;
-                width: 45%;
+
 
                 ul {
                     display: flex;
@@ -124,7 +124,8 @@
                             font-weight: bold;
                             color: var.$blueBtn;
                             margin: 1rem;
-                            padding: 2rem;
+                            // padding: rem;
+                            align-items: center;
                         }
 
                         .blueBtn {
