@@ -19,11 +19,12 @@
 
 
     .statistic-section {
-        @include mixin.mobileFirst(column);
+        @include mixin.mobileFirst(column, wrap);
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+        align-content: center;
         margin: 1rem;
         width: 95%;
         margin: auto;
@@ -32,12 +33,13 @@
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
+            align-items: center;
             padding: 1rem;
-            margin: 3rem 1.2rem;
+            margin: 3rem;
             background-color: var.$lightGreyWrite;
             border-radius: 1rem;
             border-color: 0.2rem solid;
-            width: 50%;
+            width: 95%;
 
             ul {
                 display: flex;
@@ -47,10 +49,17 @@
                 padding: 0.5rem;
                 background-color: var.$yelloWrite;
                 border-radius: 0.8rem;
+                width: 100%;
 
                 .rating {
                     display: flex;
                     justify-content: space-between;
+                    align-items: center;
+                }
+
+                .money {
+                    display: flex;
+                    flex-direction: column;
                     align-items: center;
                 }
 
@@ -81,5 +90,5 @@
         }
     }
 
-    @include mixin.mobileFirst(column);
+    @include mixin.mobileFirst(column, wrap);
 }

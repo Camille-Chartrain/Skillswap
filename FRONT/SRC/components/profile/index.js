@@ -243,13 +243,12 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
 
 
 
-        < div className="changeProfile" >
-            <h2 id="profile">Profil</h2>
+        < div className="profile" >
+            <h2>Profil</h2>
 
             <div className="profile-section">
                 <form method="POST"
-                    onSubmit={handleSubmit(ProfilePatch)}
-                    className="profile">
+                    onSubmit={handleSubmit(ProfilePatch)}>
 
                     <fieldset className="profileChange">
                         <legend><h3>Modifier votre profil</h3></legend>
