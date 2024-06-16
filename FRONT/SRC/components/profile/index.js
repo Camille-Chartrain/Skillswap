@@ -68,7 +68,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         }
         catch (error) {
             console.error("error catch:", error.message);
-            handleNotFoundError();
+            // handleNotFoundError();
         }
     },
         []);
@@ -111,7 +111,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
 
             //=fetch back side's  errors
             // console.log("error?:", dataProfile.error);
-            setError(error);
+            // setError(error);
 
         }
         catch (error) {
