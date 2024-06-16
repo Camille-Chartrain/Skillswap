@@ -158,7 +158,7 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
 
 
     return (
-        <div className="learningList">
+        <span className="learningList">
             <h3>Cours dispenses</h3>
             {
                 error && <Error /> ? Error : (
@@ -171,7 +171,7 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
                                     <li className="learning-li btn" key={item.id} >
                                         <span> {item.Skill.title}</span>
                                         <span>{item.User.firstname} {item.User.lastname}</span>
-                                        <div div className="status btn" >
+                                        <span span className="status btn" >
                                             {
                                                 item.status === "en attente" &&
                                                 <>
@@ -184,7 +184,7 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
                                             {item.status === "terminé" && <><span className="status-finish" >TERMINÉ </span><span className="status-congrat">Bravo ! Vous gagnez 1 Swappie</span></>}
                                             {/* {item.status === "noté" && <span>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</span>} */}
                                             {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <span>STATUT INCONNU</ span>}
-                                        </div>
+                                        </span>
                                     </li >
                                 </>
                             )) : (
@@ -194,7 +194,7 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
                     </ul >
                 )
             }
-        </div>
+        </span>
     )
 }
 export default CourseTeached;

@@ -82,12 +82,12 @@ const NotificationsList = ({ }) => {
 
 
     return (
-        <div className='interestList'>
+        <span className='interestList'>
             <h4>Nos nouveautes selon vos interets: </h4>
             <ul> {
                 notification?.map((item) => (
                     <li className="interest-li" key={item?.id}>
-                        <p>{item.title}</p>
+                        <span>{item.title}</span>
                         <button className="blueBtn" onClick={() => handleClick(item)}>VOIR PLUS</button>
 
                         {/* //= coding for version2
@@ -96,7 +96,7 @@ const NotificationsList = ({ }) => {
                     </li>
                 ))
             }</ul>
-        </div >
+        </span >
     )
 
 }

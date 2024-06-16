@@ -9,8 +9,8 @@ const SearchTransmission = ({ handleSubmit, register, isValid }) => {
 
     return (
 
-        <select id="transmission" name="transmission" {...register("transmission")} value={selectTrans} onChange={handleChangeTransm} required >
-            <option defaultValue="all" >Mode de transmission</option>
+        <select id="transmission" name="transmission" {...register("transmission")} value={selectTrans} onChange={handleChangeTransm} aria-label="ajouter un mode de transmission" required >
+            <option defaultValue="all">Mode de transmission</option>
             <option value="online">En ligne</option>
             <option value="video">Video</option>
             <option value="email">Email</option>

@@ -53,12 +53,12 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch,
 
     return (
         <>
-            <div className='ancre'>
+            <span className='ancre'>
                 <>
                     <a href="/dashboard#profile" alt=" profile du membre" ><img className="" src={dashboard} alt='icone du profil ' /></a>
                     <img className="" src={logout} alt='icone de deconnexion' onClick={handleClick} />
                 </>
-            </div>
+            </span>
             <section>
                 < SkillList
                     skillList={skillsList}

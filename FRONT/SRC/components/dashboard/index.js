@@ -148,7 +148,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset, isAuthenticated, se
 
     return (
         <>
-            <div className='ancre'>
+            <span className='ancre'>
                 <>
                     <a href="#profile" alt=" profile du membre" ><img className="" src={account_icon} alt='icone du profil ' /></a>
                     <a href="#learning" alt=" apprentissage du membre" ><img className="" src={school} alt='icone apprentissage ' /></a>
@@ -156,7 +156,7 @@ const Dashboard = ({ handleSubmit, register, isValid, reset, isAuthenticated, se
                     <a href="#communication" alt=" communication " ><img className="" src={message} alt='icone de communication ' /></a>
                     <img className="" src={logout} alt='icone de deconnexion' onClick={handleClick} />
                 </>
-            </div>
+            </span>
             <main>
                 <h1 className="dashboard">TABLEAU DE BORD</h1>
                 <Profile handleSubmit={handleSubmit} register={register} reset={reset} />

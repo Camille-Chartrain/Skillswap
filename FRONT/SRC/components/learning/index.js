@@ -11,7 +11,7 @@ const Learning = ({ GetMoney }) => {
 
     return (
 
-        <div className="learning">
+        <span className="learning">
             <h2 id="learning">Apprentissage</h2>
             <span className="learning-section">
                 <CourseStudent />
@@ -19,7 +19,7 @@ const Learning = ({ GetMoney }) => {
                     GetMoney={GetMoney}
                 />
             </span>
-        </div >
+        </span >
 
     )
 };

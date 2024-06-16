@@ -40,7 +40,7 @@ const Registration = ({ handleSubmit, register, isValid }) => {
             if (dataFetch.accessToken) {
                 navigate("/dashboard");
             }
-            else { <div className="error">return({error?.message})</div> }
+            else { <span className="error">return({error?.message})</span> }
         }
         catch (error) {
             console.log("erreur", error);

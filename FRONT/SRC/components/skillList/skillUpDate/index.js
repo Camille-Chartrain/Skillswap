@@ -115,7 +115,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
 
 
     if (!skillUpdate) {
-        return <div>Loading....</div>
+        return <span>Loading....</span>
     }
 
     return (
@@ -123,7 +123,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
             <form method="POST" onSubmit={handleSubmit(patchSkillUpdate.bind(null, skillUpdate))} className="skill">
                 <fieldset className="skillUpDate">
                     <legend><h3>Modification de competence</h3></legend>
-                    <div></div>
+
                     <label htmlFor="title">Titre * :</label>
                     <small> Merci de donner un titre explicite</small>
                     <input id="title" type="text" name="title" defaultValue={skillUpdate.title} {...register("title")} onChange={handleChangeSkill} size="25" required />

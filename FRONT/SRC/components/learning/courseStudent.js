@@ -37,7 +37,7 @@ const CourseStudent = () => {
     useEffect(() => { getCourse() }, [])
 
     return (
-        <div className="learningList">
+        <span className="learningList">
             <h3>Apprentissage en cours</h3>
             <ul>
                 {courses?.map((item) => (
@@ -47,14 +47,14 @@ const CourseStudent = () => {
                         <li className="learning-li" key={item.id}>
                             <span>{item?.Skill?.title}</span>
 
-                            <div className="status" >
+                            <span className="status" >
                                 {item.status === "en attente" && <span className="status-send">DEMANDE ENVOYÉE</span>}
                                 {item.status === "refusé" && <span className="status-reject">DEMANDE REJETÉE</span>}
                                 {item.status === "en cours" && <span className="status-wait">EN COURS</span>}
                                 {item.status === "terminé" && <span className="status-finish">TERMINÉ</span>}
                                 { }
                                 {item.status !== "en attente" && item.status !== "refusé" && item.status !== "noté" && item.status !== "en cours" && item.status !== "terminé" && <span className="status">STATUT INCONNU</span>}
-                            </div>
+                            </span>
                         </li>
 
 
@@ -63,7 +63,7 @@ const CourseStudent = () => {
                 ))
                 }
             </ul >
-        </div>
+        </span>
 
 
     )

@@ -62,7 +62,7 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
             <form method="POST" onSubmit={handleSubmit(PostCompetence)} className="skill">
                 <fieldset className="createSkill">
                     <legend><h3>Creation de competence</h3></legend>
-                    <div></div>
+                    <span></span>
                     <label htmlFor="title">Titre * :</label>
                     <small> Merci de donner un titre explicite</small>
                     <input id="title" type="text" name="title" {...register("title")} size="25" autoComplete="on" required />

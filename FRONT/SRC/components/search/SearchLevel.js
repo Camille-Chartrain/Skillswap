@@ -21,9 +21,10 @@ const SearchLevel = ({ register, setSelectLevel, selectLevel }) => {
             {...register("level", { onChange: handleChangeLevel })}
             value={selectLevel}
             onChange={handleChangeLevel}
+            aria-label="ajouter un niveau"
         // required onChange={handleChangeLevel}
         >
-            <option Value="">Un niveau</option>
+            <option Value="" >Un niveau</option>
             <option value="débutant" >Débutant</option>
             <option value="intermediaire" >Intermédiaire</option>
             <option value="avancé" >Avancé</option>
