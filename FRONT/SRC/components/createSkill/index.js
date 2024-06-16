@@ -6,7 +6,7 @@ import SearchLevel from '../search/SearchLevel';
 import SearchTransmission from '../search/SearchTransmission';
 
 
-const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
+const CreateSkill = ({ handleSubmit, register, isValid, reset, GetAllSkillUser }) => {
 
     const [createSkill, setDataCreateSkill] = useState({
         id: [],
@@ -53,6 +53,7 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
 
             reset();
 
+            GetAllSkillUser();
         }
         catch (error) {
             console.log("erreur cath :", error);

@@ -312,7 +312,11 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
                     </fieldset>
                 </form>
 
-                <CreateSkill handleSubmit={handleSubmit} register={register} reset={reset} />
+                <CreateSkill
+                    handleSubmit={handleSubmit}
+                    register={register} reset={reset}
+                    GetAllSkillUser={GetAllSkillUser}
+                />
             </span>
             < span className="skillsList" >
                 <h3>Liste des competences</h3>
