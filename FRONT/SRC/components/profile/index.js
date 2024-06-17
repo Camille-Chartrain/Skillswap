@@ -68,7 +68,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         }
         catch (error) {
             console.error("error catch:", error.message);
-            handleNotFoundError();
+            // handleNotFoundError();
         }
     },
         []);
@@ -111,7 +111,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
 
             //=fetch back side's  errors
             // console.log("error?:", dataProfile.error);
-            setError(error);
+            // setError(error);
 
         }
         catch (error) {
@@ -312,7 +312,11 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
                     </fieldset>
                 </form>
 
-                <CreateSkill handleSubmit={handleSubmit} register={register} reset={reset} />
+                <CreateSkill
+                    handleSubmit={handleSubmit}
+                    register={register} reset={reset}
+                    GetAllSkillUser={GetAllSkillUser}
+                />
             </span>
             < span className="skillsList" >
                 <h3>Liste des competences</h3>

@@ -9,10 +9,19 @@ import SearchTransmission from '../../search/SearchTransmission';
 import { useLocation, useNavigate } from "react-router-dom";
 
 
+<<<<<<< HEAD
 const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleLogout }) => {
+=======
+const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset,
+}) => {
+>>>>>>> ea597d460bc08139ca51a9bd412413d4e9c74385
 
     const location = useLocation();
     const skill = location.state?.skill;
+
+    const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectLevel, setSelectLevel] = useState("");
 
     // //= to fetch datas
     const [skillUpdate, setSkillUpDate] = useState(skill
@@ -137,7 +146,14 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleL
                     <input id="title" type="text" name="title" defaultValue={skillUpdate.title} {...register("title")} onChange={handleChangeSkill} size="25" required />
 
                     <label htmlFor="CategoryId">Categorie et Sous -categorie * :</label>
-                    <SearchCategory register={register} />
+                    <SearchCategory
+                        register={register}
+                        selectedSubCategory={selectedSubCategory}
+                        setSelectedSubCategory={setSelectedSubCategory}
+
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                    />
 
                     {/* <label htmlFor="SubCategoryId">Sous Categorie * :</label>
                     <SearchSubCategory register={register} /> */}
@@ -146,7 +162,11 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleL
                     <input id="duration" type="text" name="duration" defaultValue={skillUpdate.duration} {...register("duration")} onChange={handleChangeSkill} size="25" required />
 
                     <label htmlFor="level">Niveau * :</label>
-                    <SearchLevel register={register} />
+                    <SearchLevel
+                        register={register}
+                        selectLevel={selectLevel}
+                        setSelectLevel={setSelectLevel}
+                    />
 
                     <label htmlFor="transmission"> Mode de transmission * :</label>
                     <SearchTransmission register={register} />

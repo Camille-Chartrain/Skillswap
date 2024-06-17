@@ -38,10 +38,6 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
             console.log("selectLevel dans try", selectLevel);
-
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectLevel);
             // console.log("state du isaunthenticate dans search ", isAuthenticated);
 
             const token = Cookies.get('token');
@@ -89,7 +85,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                     });
                     console.log("response avant json:", response)
                     const authResult = await response.json();
-                    console.log("authResult apres json dans Skill click inscription au cours:", authResult)
+                    console.log("authResult apres json dans Search pour vior  resultats:", authResult)
 
                     if (authResult == "access granted") {
                         console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /Results");

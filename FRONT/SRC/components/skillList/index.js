@@ -39,8 +39,7 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
             {noMatch && <p className="search-result">Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
 
             {skillsToDisplay?.map((item) => (
-
-                <Skill
+                < Skill
                     key={item?.id}
                     skillId={item?.id}
                     picture={item?.Category?.picture}
@@ -59,6 +58,7 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
                     email={item?.User?.email}
                     grade_level={item?.User?.grade_level}
                     presentation={item?.User?.presentation}
+                    meeting={item?.Meetings?.length > 0 ? item.Meetings[0].status : 'N/A'}
                 />
 
             ))}
@@ -66,6 +66,43 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
         </span>
     );
 }
+
+// option pour pouvoir console log meeting
+//     return (
+//         <div className='section'>
+//             {match && dataSearch.resultCount == 1 && (<p className="search-result">{dataSearch.resultCount} résultat</p>)}
+//             {match && dataSearch.resultCount > 1 && (<p className="search-result">{dataSearch.resultCount} résultats</p>)}
+//             {noMatch && <p className="search-result">Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
+
+//             {skillsToDisplay?.map((item) => {
+//                 console.log("item?.Meetings[0]?.status", item?.Meetings[0]?.status);
+//                 return (
+//                     <Skill
+//                         key={item?.id}
+//                         skillId={item?.id}
+//                         picture={item?.Category?.picture}
+//                         title={item?.title}
+//                         price={item?.price}
+//                         averageMark={item?.averageMark}
+//                         level={item?.level}
+//                         duration={item?.duration}
+//                         transmission={item?.transmission}
+//                         description={item.description}
+//                         availability={item?.availability}
+//                         Category={item.Category?.name}
+//                         SubCategory={item?.SubCategory?.name}
+//                         firstname={item?.User?.firstname}
+//                         lastname={item?.User?.lastname}
+//                         email={item?.User?.email}
+//                         grade_level={item?.User?.grade_level}
+//                         presentation={item?.User?.presentation}
+//                          meeting={item?.Meetings?.length > 0 ? item.Meetings[0].status : 'N/A'}
+//                     />
+//                 );
+//             })}
+//         </div>
+//     );
+// }
 
 export default SkillList;
 

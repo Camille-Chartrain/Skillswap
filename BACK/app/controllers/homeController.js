@@ -1,5 +1,5 @@
 import { Sequelize, Op } from "sequelize";
-import { User, Category, Skill, SubCategory } from "../models/index.js";
+import { User, Category, Skill, SubCategory, Meeting } from "../models/index.js";
 import sequelize from "../database.js";
 
 // import SubCategory from "../models/SubCategory.js";
@@ -83,7 +83,8 @@ const homeController = {
 
                 whereClause.SubCategoryId = subCategoryIdNumber;
             }
-            if (level != null && level != "") {
+            if (level !== null && level !== "") {
+                console.log('rentré dans level !== null ou ""');
                 whereClause.level = level;
             }
             if (input) {
@@ -142,14 +143,32 @@ const homeController = {
                 {
                     model: SubCategory,
                     attributes: ['name']
-                }],
-                required: true,
+                }
+                ],
+                // required: true,
             });
+
 
             if (!rows || rows.length === 0) {
                 console.log('no match');
                 res.status(200).json('no match');
                 return;
+            }
+            // addition of table meeting to keep tracks of the courses the user already applied to
+            if (req.user) {
+                console.log("dans le if req.user.id pour ajouter table meeting au resultat du search");
+                console.log("req.user.id", req.user.id);
+                for (let skill of rows) {
+                    const meetings = await Meeting.findAll({
+                        where: {
+                            SkillId: skill.id,
+                            UserId: req.user.id,
+                        }
+                    });
+
+                    skill.dataValues.Meetings = meetings;
+                    console.log("log des meetings", meetings);
+                }
             }
 
             console.log("count", count);

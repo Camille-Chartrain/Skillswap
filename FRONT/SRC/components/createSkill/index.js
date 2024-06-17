@@ -6,7 +6,7 @@ import SearchLevel from '../search/SearchLevel';
 import SearchTransmission from '../search/SearchTransmission';
 
 
-const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
+const CreateSkill = ({ handleSubmit, register, isValid, reset, GetAllSkillUser }) => {
 
     const [createSkill, setDataCreateSkill] = useState({
         id: [],
@@ -29,9 +29,13 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
     //=post method to send info
     const PostCompetence = async (data) => {
         try {
+
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
+            console.log("selectLevel dans try", selectLevel);
             console.log('try data:', data);
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/skill', {
+            const response = await fetch(`http://localhost:3000/skill/?&CategoryId=${selectedCategory?.id}&SubCategoryId=${selectedSubCategory?.id}`, {
                 method: "post",
                 status: 200,
                 headers: {
@@ -49,6 +53,7 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
 
             reset();
 
+            GetAllSkillUser()
         }
         catch (error) {
             console.log("erreur cath :", error);
@@ -71,9 +76,12 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
                     <SearchCategory
                         register={register}
                         handleSubmit={handleSubmit}
+
                         setSelectedCategory={setSelectedCategory}
                         selectedCategory={selectedCategory}
+
                         setSelectedSubCategory={setSelectedSubCategory}
+                        selectedSubCategory={selectedSubCategory}
                     />
 
 

@@ -20,7 +20,7 @@ function authSearch(req, res, next) {
         }
         else if (token !== null && token !== undefined && token !== "undefined") {
             jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-                console.log('dans la fonction authSearch');
+                console.log(' verify du token dans le middleware authSearch');
                 if (err) {
                     throw new Error('Token invalide')
                 }

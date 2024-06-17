@@ -11,7 +11,7 @@ const dashboardController = {
         console.log('token dans dashboardController', token);
 
         try {
-            if (token == null || token == undefined) {
+            if (token == null || token == undefined || token == 'undefined') {
                 console.log("check s'il y a token dans dashboardController");
                 throw new Error('Token non fourni')
             }

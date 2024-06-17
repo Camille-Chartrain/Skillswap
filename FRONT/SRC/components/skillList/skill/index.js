@@ -28,7 +28,8 @@ const Skill = ({
     email,
     grade_level,
     presentation,
-    skillId
+    skillId,
+    meeting
 
 }) => {
 
@@ -211,8 +212,14 @@ const Skill = ({
 
                 )
                 }
-                {statusCourse && <span className="search-result">Demande envoyée !</span>}
+                {/* {statusCourse && <p>Demande envoyée !</p>}
                 {!statusCourse && <button className="skillBtn" type="submit" onClick={function (event) { handleClick(event, skillId); }}>SUIVRE CE COURS</button>}
+                {(meeting == "en cours" || meeting == "en attente") && <p>{meeting}</p>} */}
+                {statusCourse && <p>Demande envoyée !</p>}
+                {!statusCourse && (meeting !== "en cours" && meeting !== "en attente") && (
+                    <button className="skillBtn" type="submit" onClick={function (event) { handleClick(event, skillId); }}>SUIVRE CE COURS</button>
+                )}
+                {(meeting == "en cours" || meeting == "en attente") && <p>{meeting}</p>}
             </span >
         </>
     )
