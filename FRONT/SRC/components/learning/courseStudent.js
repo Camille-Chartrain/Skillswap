@@ -38,7 +38,7 @@ const CourseStudent = () => {
 
     return (
         <span className="learningList">
-            <h3>Apprentissage en cours</h3>
+            <h3>Section Apprenant</h3>
             <ul>
                 {courses?.map((item) => (
                     <>

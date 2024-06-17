@@ -12,12 +12,13 @@
 @mixin focus ($color) {
 
     input:focus-visible,
+    option:focus-visible,
     textarea:focus-visible,
     select:focus-visible,
     button:focus-visible,
     link:focus-visible {
         background: $color;
-        color: var.$bgWhite;
+        // color: var.$bgWhite;
     }
 }
 

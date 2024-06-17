@@ -39,6 +39,7 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
             {noMatch && <p className="search-result">Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
 
             {skillsToDisplay?.map((item) => (
+
                 <Skill
                     key={item?.id}
                     skillId={item?.id}
@@ -59,7 +60,9 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
                     grade_level={item?.User?.grade_level}
                     presentation={item?.User?.presentation}
                 />
+
             ))}
+
         </span>
     );
 }
