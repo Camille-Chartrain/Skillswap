@@ -211,7 +211,7 @@ const Skill = ({
 
                 )
                 }
-                {statusCourse && <p>Demande envoyée !</p>}
+                {statusCourse && <span className="search-result">Demande envoyée !</span>}
                 {!statusCourse && <button className="skillBtn" type="submit" onClick={function (event) { handleClick(event, skillId); }}>SUIVRE CE COURS</button>}
             </span >
         </>
