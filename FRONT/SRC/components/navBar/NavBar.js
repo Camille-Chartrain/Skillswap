@@ -1,7 +1,7 @@
 
 import Search from "../search/Search";
 import { ToggleBtn } from '../../util';
-
+import Error from '../error/error';
 
 
 

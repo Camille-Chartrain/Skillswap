@@ -68,7 +68,8 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         }
         catch (error) {
             console.error("error catch:", error.message);
-            // handleNotFoundError();
+            setError("Erreur lors de la recuperation des donnees");
+            handleNotFoundError("Erreur lors de la recuperation des donnees");
         }
     },
         []);
@@ -116,7 +117,8 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         }
         catch (error) {
             console.error("catch profilePatch : ", error);
-            handleNotFoundError();
+            setError("Erreur lors de la modification du profil");
+            handleNotFoundError("Erreur lors de la modification du profil");
         }
     };
 
@@ -155,7 +157,8 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         }
         catch (error) {
             console.log("catch profileDelete :", error);
-            handleNotFoundError();
+            setError("Le profil n'a pas pu etre supprime");
+            handleNotFoundError("Le profil n'a pas pu etre supprime");
         }
     });
 
@@ -187,7 +190,8 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         }
         catch (error) {
             console.error(error.message);
-            handleNotFoundError();
+            setError("Erreur d'affichage de la liste des competences");
+            handleNotFoundError("Erreur d'affichage de la liste des competences");
         }
     }
     useEffect(() => { GetAllSkillUser() }, [])
@@ -232,6 +236,8 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         }
         catch (error) {
             console.log("catch postSkillDelete:", error);
+            setError("Impossible de sdupprimer cette competence");
+            handleNotFoundError("Impossible de sdupprimer cette competence");
 
         }
     });
@@ -245,7 +251,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
 
         < span className="profile" id="profile" >
             <h2 >Profil</h2>
-
+            {error && <Error error={error} />}
             <span className="profile-section">
                 <form method="POST"
                     onSubmit={handleSubmit(ProfilePatch)}>

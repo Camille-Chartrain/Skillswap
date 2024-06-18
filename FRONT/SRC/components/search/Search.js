@@ -8,10 +8,11 @@ import logo from './logo.png';
 import Cookies from 'js-cookie';
 import SkillList from '../skillList';
 import { useNavigate } from "react-router-dom";
+import Error from '../error/error';
 
 
 
-const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatch }) => {
+const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatch, setError, error, handleNotFoundError }) => {
 
 
     const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -93,12 +94,15 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                 }
                 catch (error) {
                     console.error("catch de handleClick dans Skill:", error);
-                    // handleNotFoundError();
+                    setError("Votre recherche n'aq pas pu aboutir");
+                    handleNotFoundError("Votre recherche n'aq pas pu aboutir");
                 }
             };
         }
         catch (error) {
             console.log('erreur du catch GetSearch:', error);
+            setError("Votre recherche n'aq pas pu aboutir");
+            handleNotFoundError("Votre recherche n'aq pas pu aboutir");
         }
     }, [searchInput, selectLevel, selectedCategory, selectedSubCategory]);
 
@@ -107,6 +111,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
     return (
 
         <>
+            {error && <Error error={error} />}
             <a href="/" alt="logo du site ramenant a l'accueil" ><img className="logo" src={logo} alt='logo du site Skillswap' role="logo" /></a>
 
             <form method="GET" className="search" onSubmit={handleSubmit(GetSearch)} >

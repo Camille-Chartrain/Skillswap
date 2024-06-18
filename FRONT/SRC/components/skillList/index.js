@@ -1,12 +1,13 @@
 import Skill from './skill/index.js';
 import { useEffect, useState } from 'react';
+import Error from '../error/error.js';
 
 
 
 //= details' skills are totally show only when the user is logged
 
 
-const SkillList = ({ dataSearch, match, noMatch }) => {
+const SkillList = ({ dataSearch, match, noMatch, title, error, setError, handleNotFoundError }) => {
 
     const [skillsList, setSkillsList] = useState([]);
 
@@ -25,6 +26,8 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
         }
         catch (error) {
             console.error(error.message);
+            setError("Votre demmande n'a pas ete prise en compte");
+            handleNotFoundError("Votre demande n'a pas ete prise en compte");
         }
     }
 
@@ -33,7 +36,7 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
 
     return (
         <span className='section'>
-
+            {error && <Error error={error} />}
             {match && dataSearch.resultCount == 1 && (<p className="search-result">{dataSearch.resultCount} résultat</p>)}
             {match && dataSearch.resultCount > 1 && (<p className="search-result">{dataSearch.resultCount} résultats</p>)}
             {noMatch && <p className="search-result">Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}

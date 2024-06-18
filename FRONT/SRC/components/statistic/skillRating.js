@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Error from '../error/error';
 
 
 
-const SkillRating = () => {
+const SkillRating = (error, setError, handleNotFoundError) => {
 
     const [rating, setRating] = useState([]);
     let stars = Array(5).fill();
@@ -35,6 +36,8 @@ const SkillRating = () => {
         }
         catch (error) {
             console.log("catch de Get Rating:", error.message);
+            setError("Votre demande n'a pas ete prise en compte");
+            handleNotFoundError("Votre demande n'a pas ete prise en compte");
         }
     }
     useEffect(() => { GetRating() }, []);
@@ -44,6 +47,7 @@ const SkillRating = () => {
     return (
         <span className="statisticList">
             <h3>Notes des competences</h3>
+            {error && <Error error={error} />}
             <ul>
                 {rating.length > 0 && rating?.map((item) => (
                     <span className="rating" key={item.id}>

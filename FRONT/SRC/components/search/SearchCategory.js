@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import SearchSubCategory from './SearchSubCategory';
 import Cookies from 'js-cookie';
-
-const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedCategory, selectedSubCategory }) => {
+import Error from '../error/error';
+const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedCategory, selectedSubCategory, error, setError, handleNotFoundError }) => {
     const { handleSubmit, register } = useForm();
 
     //= to fetch select's datas and datas bdd
@@ -48,6 +48,8 @@ const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedC
         }
         catch (error) {
             console.error("catch GetCategoriesList:", error.message);
+            setError("Selectionnez une categorie");
+            handleNotFoundError("Selectionnez une categorie");
         }
     }, []);
 
@@ -57,6 +59,7 @@ const SearchCategory = ({ setSelectedCategory, setSelectedSubCategory, selectedC
 
     return (
         <span className="categories">
+            {error && <Error error={error} />}
             <select name="CategoryId"
                 id="CategoryId"
                 onChange={handleChangeCat}

@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import Error from '../error/error';
 
 
-const NotificationsList = ({ }) => {
+const NotificationsList = ({ handleNotFoundError, setError, error }) => {
 
     const [notification, setNotification] = useState([]);
     const navigate = useNavigate();
@@ -31,6 +31,8 @@ const NotificationsList = ({ }) => {
         }
         catch (error) {
             console.log("catch de GNL:", error);
+            setError("Probleme d'affichage de la liste");
+            handleNotFoundError("Probleme d'affichage de la liste");
         }
     }, []);
 
@@ -83,6 +85,7 @@ const NotificationsList = ({ }) => {
 
     return (
         <span className='interestList'>
+            {error && <Error error={error} />}
             <h4>Nos nouveautes selon vos interets: </h4>
             <ul> {
                 notification?.map((item) => (
@@ -102,7 +105,6 @@ const NotificationsList = ({ }) => {
 }
 export default NotificationsList;
 
-// ->get id ds btn avec un navigate http oneSkill/:skillId
 
 
 

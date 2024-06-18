@@ -8,15 +8,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Error from '../../error/error';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Error from '../../error/error';
 
 
 
 
 
 
-const SkillToSee = ({ setValue, setIsAuthenticated }) => {
-
-    // console.log("kikou les gens ds skillToSee");
+const SkillToSee = ({ setValue, setIsAuthenticated, error, setError, handleNotFoundError }) => {
 
     const location = useLocation();
     const seeASkill = location.state?.item;
@@ -73,6 +72,8 @@ const SkillToSee = ({ setValue, setIsAuthenticated }) => {
         }
         catch (error) {
             console.log("erreur :", error);
+            setError("Erreur lors de la deconnexion");
+            handleNotFoundError("Erreur lors de la deconnexion");
         };
     }
 
@@ -108,6 +109,8 @@ const SkillToSee = ({ setValue, setIsAuthenticated }) => {
         }
         catch (error) {
             console.error("catch de skillUpDate:", error);
+            setError("Erreur lors du chargement");
+            handleNotFoundError("Erreur lors du chargement");
 
         }
     }, [seeASkill]);
@@ -149,7 +152,8 @@ const SkillToSee = ({ setValue, setIsAuthenticated }) => {
         }
         catch (error) {
             console.log("catch AIC : ", error);
-            // handleNotFoundError();
+            setError("Votre demande n'a pas ete envoyee");
+            handleNotFoundError("Votre demande n'a pas ete envoyee");
         }
     }, [seeASkill]);
 
@@ -175,6 +179,7 @@ const SkillToSee = ({ setValue, setIsAuthenticated }) => {
 
     return (
         <>
+            {error && <Error error={error} />}
             <span className='ancre'>
                 <>
                     <a href="/dashboard#profile" alt=" communication " ><img className="" src={dashboard} alt='icone de communication ' /></a>

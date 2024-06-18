@@ -2,9 +2,12 @@ import { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import Cookies from 'js-cookie';
 import { useLocation } from "react-router-dom";
+import Error from "../error/error";
 
 
-const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory, selectedSubCategory }) => {
+const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory, selectedSubCategory, setError, error, handleNotFoundError
+
+}) => {
     const { register } = useForm();
     const [subCategories, setSubCategories] = useState([]);
     // const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -28,6 +31,7 @@ const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory,
             console.log("subcat séléctionnée", selectedSubCategory);
 
         }
+
     };
 
 
@@ -58,6 +62,8 @@ const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory,
         }
         catch (error) {
             console.error("catch GetSubCategoriesList:", error);
+            setError("Selectionnez une sous-categorie");
+            handleNotFoundError("Selectionnez une sous-categorie");
         }
     }, [selectedCategory]);
 
@@ -66,15 +72,17 @@ const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory,
     }, [getSubCategoriesList, selectedCategory]);
 
     return (
-        <select id="SubCategoryId" name="SubCategoryId" onChange={handleChangeSubCat} {...register("SubCategoryId", { onChange: handleChangeSubCat })}
-            aria-label="ajouter une sous categorie">
-            <option value="">Une sous-categorie</option>
+        <>
+            {error && <Error error={error} />}
+            <select id="SubCategoryId" name="SubCategoryId" onChange={handleChangeSubCat} {...register("SubCategoryId", { onChange: handleChangeSubCat })}
+                aria-label="ajouter une sous categorie">
+                <option value="">Une sous-categorie</option>
 
-            {subCategories.map((subcategory) => (
-                <option key={subcategory.id} value={subcategory.id} name={subcategory.id}>{subcategory.name}</option>
-            ))}
-        </select >
-
+                {subCategories.map((subcategory) => (
+                    <option key={subcategory.id} value={subcategory.id} name={subcategory.id}>{subcategory.name}</option>
+                ))}
+            </select >
+        </>
     )
 
 };

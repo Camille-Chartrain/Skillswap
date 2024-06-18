@@ -4,9 +4,10 @@ import Cookies from 'js-cookie';
 import SearchCategory from '../search/SearchCategory';
 import SearchLevel from '../search/SearchLevel';
 import SearchTransmission from '../search/SearchTransmission';
+import Error from '../error/error';
 
 
-const CreateSkill = ({ handleSubmit, register, isValid, reset, GetAllSkillUser }) => {
+const CreateSkill = ({ handleSubmit, register, isValid, reset, GetAllSkillUser, handleNotFoundError, error, setError }) => {
 
     const [createSkill, setDataCreateSkill] = useState({
         id: [],
@@ -55,6 +56,8 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset, GetAllSkillUser }
         }
         catch (error) {
             console.log("erreur cath :", error);
+            setError("Erreur lors de la creation de Competence");
+            handleNotFoundError("Erreur lors de la creation de Competence");
         }
     }
 
@@ -62,6 +65,7 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset, GetAllSkillUser }
     return (
 
         <>
+            {error && <Error error={error} />}
             <form method="POST" onSubmit={handleSubmit(PostCompetence)} className="skill">
                 <fieldset className="createSkill">
                     <legend><h3>Creation de competence</h3></legend>

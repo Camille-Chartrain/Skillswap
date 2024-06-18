@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
+import Error from '../error/error';
 
-const Login = ({ handleSubmit, register, isValid }) => {
+const Login = ({ handleSubmit, register, isValid, handleNotFoundError, setError, error }) => {
 
     const [isLogged, setIsLogged] = useState(true);
     const navigate = useNavigate();
@@ -40,16 +41,20 @@ const Login = ({ handleSubmit, register, isValid }) => {
                 // console.log("redirection vers dashboard sans nouveau token");
                 navigate("/dashboard");
             }
-            // else { <span className="error">return({error?.message})</span> };
+            setError("Connexion impossible, merci de recommencer");
+            handleNotFoundError("Connexion impossible, merci de recommencer");
         }
         catch (error) {
             console.log('erreur: ', error);
+            setError("Connexion impossible, merci de recommencer");
+            handleNotFoundError("Connexion impossible, merci de recommencer");
         }
 
     }
 
     return (
         <>
+            {error && <Error error={error} />}
             <h2>Connexion</h2>
 
             <form method="POST" onSubmit={handleSubmit(GetIsLogged)} className="formLogin">

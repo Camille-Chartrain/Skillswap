@@ -2,10 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
-import Communication from '../communication';
+import Error from '../error/error';
 
 
-const NotificationRating = ({ handleDeleteNotification }) => {
+const NotificationRating = ({ handleNotFoundError, setError, error }) => {
 
     const [rating, setRating] = useState([]);
     const [skillsToRate, setSkillstoRate] = useState([]);
@@ -32,6 +32,8 @@ const NotificationRating = ({ handleDeleteNotification }) => {
         }
         catch (error) {
             console.log("catch de GSTR:", error);
+            setError("Erreur de chargement des donnees");
+            handleNotFoundError("Erreur de chargement des donnees");
         }
     };
     useEffect(() => { GetSkillToRate(); }, []);
@@ -86,6 +88,8 @@ const NotificationRating = ({ handleDeleteNotification }) => {
         }
         catch (error) {
             console.log("catch de RatingPatch : ", error);
+            setError("Erreur lors de la notation");
+            handleNotFoundError("Erreur lors de la notation");
         }
     };
 
@@ -93,6 +97,7 @@ const NotificationRating = ({ handleDeleteNotification }) => {
 
     return (
         <span className='markList'>
+            {error && <Error error={error} />}
             <h4>Notez les cours suivis: </h4>
             <ul>
                 {/* {console.log("rating jsx", skillsToRate)} */}

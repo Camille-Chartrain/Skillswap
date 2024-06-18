@@ -6,7 +6,7 @@ import Error from '../error/error';
 
 
 //=manage reception notification
-const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
+const CourseTeached = ({ handleNotFoundError, error, setError, GetMoney }) => {
     const [teacherReq, setTeacherReq] = useState([]);
     //=redirect for update skill
     const navigate = useNavigate();
@@ -39,8 +39,9 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
             }
         }
         catch (error) {
-            console.log("catch GetCourseReqTeach: ", error)
-            // handleNotFoundError();
+            console.log("catch GetCourseReqTeach: ", error);
+            setError("Erreur lors de la recuperation des donnees");
+            handleNotFoundError("Erreur lors de la recuperation des donnees");
         }
     }
 
@@ -74,7 +75,8 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
         }
         catch (error) {
             console.log("catch de patchCourseValidate:", error);
-            handleNotFoundError();
+            setError("Erreur lors de la recuperation des donnees");
+            handleNotFoundError("impossible de valider ce cours");
         }
     }
 
@@ -110,7 +112,8 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
         }
         catch (error) {
             console.log("catch de patchCourseRejeted:", error);
-            handleNotFoundError();
+            setError("Erreur lors de la recuperation des donnees");
+            handleNotFoundError("Impossible de rejeter ce cours");
         }
     }
 
@@ -151,6 +154,8 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
         }
         catch (error) {
             console.log("catch de patchCourseFinished:", error);
+            setError("Impossible de terminer ce cours");
+            handleNotFoundError("Impossible de terminer ce cours");
         }
     }
 
@@ -161,7 +166,7 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
         <span className="learningList">
             <h3>Section Enseignant</h3>
             {
-                error && <Error /> ? Error : (
+                error && <Error error={error} /> ? Error : (
                     <ul>
                         {teacherReq && teacherReq.length > 0 ?
                             teacherReq?.map((item) => (

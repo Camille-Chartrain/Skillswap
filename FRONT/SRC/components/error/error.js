@@ -13,7 +13,6 @@ const Error = ({ error, SetError }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const handleLogout = async () => {
-
         try {
             // setIsAuthenticated(false)
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
@@ -27,11 +26,11 @@ const Error = ({ error, SetError }) => {
                 },
             })
 
-            // console.log("response", response);
+            //= console.log("response", response);
             const resultLogout = await response.json();
             // console.log('response component dashboard logout:', resultLogout);
 
-            // delete cookie JWT on client's side
+            //= delete cookie JWT on client's side
             let thisToken = Cookies.remove('token');
             thisToken = null
             if (thisToken == null) {
@@ -46,11 +45,11 @@ const Error = ({ error, SetError }) => {
 
     // =Code to do to manage error 404
     useEffect(() => {
-        const handleNotFoundError = () => {
+        const handleNotFoundError = (error) => {
 
-            console.log("Erreur 404 : Not Found");
+            // console.log("Erreur 404 : Not Found");
             SetError(error);
-            console.log("erreur dans composant Error", error);
+            // console.log("erreur dans composant Error", error);
             navigate("*");
         };
 

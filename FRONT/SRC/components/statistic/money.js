@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 
-const Money = ({ wallet, GetMoney }) => {
+const Money = ({ wallet, GetMoney, money }) => {
     // console.log("Money dans money", Money);
 
 

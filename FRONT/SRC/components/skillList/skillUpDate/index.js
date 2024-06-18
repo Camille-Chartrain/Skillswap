@@ -7,9 +7,10 @@ import SearchSubCategory from '../../search/SearchSubCategory';
 import SearchLevel from '../../search/SearchLevel';
 import SearchTransmission from '../../search/SearchTransmission';
 import { useLocation, useNavigate } from "react-router-dom";
+import Error from '../../error/error';
 
 
-const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleLogout
+const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleLogout, setError, error, handleNotFoundError
 }) => {
 
     const location = useLocation();
@@ -69,6 +70,8 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleL
         }
         catch (error) {
             console.error("catch de skillUpDate:", error);
+            setError("Votre demande n'a pas ete prise en compte");
+            handleNotFoundError("Votre demande n'a pas ete prise en compte");
         }
     }
     useEffect(() => { }, [])
@@ -116,6 +119,8 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleL
         }
         catch (error) {
             console.log("catch de patchSkillUpDate:", error);
+            setError("Votre modification n'a pas ete prise en compte");
+            handleNotFoundError("Votre modification n'a pas ete prise en compte");
         }
     }
 
@@ -126,6 +131,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleL
 
     return (
         <>
+            {error && <Error error={error} />}
             <span className='ancre'>
                 <>
                     <a href="/dashboard#profile" alt=" communication " ><img className="" src={dashboard} alt='icone de communication ' /></a>
