@@ -124,7 +124,9 @@ const App = ({ darkMode }) => {
                     <Route path="/dashboard/seeASkill" element={
                         <SkillToSee
                             setValue={setValue}
-                            handleNotFoundError={handleNotFoundError} error={error} setError={setError}
+                            handleNotFoundError={handleNotFoundError}
+                            error={error}
+                            setError={setError}
                         />}
                     />
 
@@ -135,7 +137,9 @@ const App = ({ darkMode }) => {
                             setMatch={setMatch}
                             noMatch={noMatch}
                             setNoMatch={setNoMatch}
-                            handleNotFoundError={handleNotFoundError} error={error} setError={setError}
+                            handleNotFoundError={handleNotFoundError}
+                            error={error}
+                            setError={setError}
                         />}
                     />
 
@@ -143,8 +147,15 @@ const App = ({ darkMode }) => {
                         <UsersList setError={setError} error={error} handleNotFoundError={handleNotFoundError} />
                     } />
 
-                    <Route path="/user" element={
-                        <User setError={setError} error={error} handleNotFoundError={handleNotFoundError} />
+                    <Route path="/admin/user" element={
+                        <User
+                            setError={setError}
+                            error={error}
+                            handleNotFoundError={handleNotFoundError}
+                            handleSubmit={handleSubmit}
+                            register={register}
+                            reset={reset}
+                            setValue={setValue} />
                     } />
 
                     <Route path="*" element={<Error error={error} setError={setError} />} />
