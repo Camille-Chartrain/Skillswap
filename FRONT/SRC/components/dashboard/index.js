@@ -32,6 +32,10 @@ const Dashboard = ({
     const navigate = useNavigate();
     // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+    // wallet and getMoney created in dashboard so that component Statistic and Learning
+    // can both have acces to getMoney function, => when a course is terminated in
+    // component Learning, we call the function GetMoney to have a dynamic display of 
+    // the swappie in the component Statistic.
     const [wallet, setWallet] = useState(null);
 
 
