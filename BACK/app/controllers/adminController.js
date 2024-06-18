@@ -4,84 +4,141 @@ const adminController = {
 
     admin: async function (req, res) {
         try {
-            console.log(req.params);
-            // find by primary key
-            const skill = await Skill.findAll({
+            const users = await User.findAndCountAll({
                 where: {
-                    UserId: req.user.id
-                }
+                    role: "member",
+                },
+                attributes: [
+                    "id",
+                    "firstname",
+                    "lastname",
+                    "email",
+                    "swappies",
+                    "swappiesWinned",
+                    "swappiesSpent",
+                    "birthday",
+                    "grade_level",
+                    "presentation",
+                    "createdAt"
+                ],
+                order: [["id", "ASC"]]
             });
             // console.log(skill);
-            if (skill === null) {
-                console.log('skills Not found!');
+            if (users.length === 0) {
+                console.log('No users found with the role "member"!');
             }
             //send the answer to the front
             res.send(
-                skill
+                users
             );
         }
         catch (error) {
-            console.error('erreur get Skills:', error);
+            console.error('erreur findAll users:', error);
             res.status(500).json({
-                message: 'Error  get skills',
+                message: 'Error  get users in adminController',
                 error: error
             });
         }
     },
 
+    adminGetSkillOfOneUser: async function (req, res) {
+        try {
+            console.log("req.params.id", req.params.id);
+            const skills = await Skill.findAndCountAll({
+                where: {
+                    UserId: req.params.userId
+                },
+                attributes: [
+                    "id",
+                    "firstname",
+                    "lastname",
+                    "email",
+                    "swappies",
+                    "swappiesWinned",
+                    "swappiesSpent",
+                    "birthday",
+                    "grade_level",
+                    "presentation",
+                    "createdAt"
+                ],
+                order: [["id", "ASC"]]
+            });
+            // console.log(skills);
+            if (skills.length === 0) {
+                console.log('No skills found for this user');
+                res.send(
+                    'no skills found for this user'
+                );
+            }
+            else {
+                //send the answer to the front
+                res.send(
+                    skills
+                );
+            }
+        }
+        catch (error) {
+            console.error('erreur findAll users:', error);
+            res.status(500).json({
+                message: 'Error  get users in adminController',
+                error: error
+            });
+        }
+    },
 
-    // modifUser: async function (req, res) {
+    adminModifUser: async function (req, res) {
+        try {
+            // req.params contains data from url
+            //rew.body contains body of request from forms
+            console.log(req.body);
+            console.log(req.params.skillId);
+            console.log(req.params);
+
+            const updateFields = {
+                title: req.body.title,
+                duration: req.body.duration,
+                level: req.body.level,
+                transmission: req.body.transmission,
+                description: req.body.description,
+                availability: req.body.availability,
+                SubCategoryId: req.body.SubCategoryId,
+                CategoryId: req.body.CategoryId,
+            };
+
+            await Skill.update(
+                updateFields, {
+                where: {
+                    id: req.params.skillId
+                }
+            });
+            //profile is updated
+
+            //send the answer to the front
+            res.status(200).json("update du skill ok")
+        }
+        catch (error) {
+            console.error(error.message);
+            res.send('error update skill:', error);
+        }
+    },
+
+    // adminDeleteUser: async function (req, res) {
     //     try {
-    //         // req.params contains data from url
-    //         //rew.body contains body of request from forms
-    //         console.log(req.body);
-    //         console.log(req.params.skillId);
-
-    //         const updateFields = {
-    //             title: req.body.title,
-    //             duration: req.body.duration,
-    //             level: req.body.level,
-    //             transmission: req.body.transmission,
-    //             description: req.body.description,
-    //             availability: req.body.availability,
-    //             SubCategoryId: req.body.SubCategoryId,
-    //             CategoryId: req.body.CategoryId,
-    //         };
-
-    //         await Skill.update(
-    //             updateFields, {
+    //         // req.params contains all the data
+    //         console.log(req.params);
+    //         await Skill.destroy({
     //             where: {
     //                 id: req.params.skillId
     //             }
     //         });
-    //         //profile is updated
-
     //         //send the answer to the front
-    //         res.status(200).json("update du skill ok")
+    //         res.status(200).json('skill deletion completed');
     //     }
     //     catch (error) {
     //         console.error(error.message);
-    //         res.send('error update skill:', error);
+    //         res.send('error delete skill', error);
     //     }
     // },
-
-    deleteUser: async function (req, res) {
-        // try {
-        //     // req.params contains all the data
-        //     console.log(req.params);
-        //     await Skill.destroy({
-        //         where: {
-        //             id: req.params.skillId
-        //         }
-        //     });
-        //     //send the answer to the front
-        //     res.status(200).json('skill deletion completed');
-        // }
-        // catch (error) {
-        //     console.error(error.message);
-        //     res.send('error delete skill', error);
-        // }
-    },
 
 };
 
