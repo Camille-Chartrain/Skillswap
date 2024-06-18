@@ -25,7 +25,6 @@ import Results from '../results/Results';
 const App = ({ darkMode, handleNotFoundError }) => {
 
     const [error, setError] = useState([]);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [dataSearch, setDataSearch] = useState({
         rows: [],
         count: 0,
@@ -33,13 +32,6 @@ const App = ({ darkMode, handleNotFoundError }) => {
     });
     const [match, setMatch] = useState(false);
     const [noMatch, setNoMatch] = useState(false);
-
-    // const [resetHome, setResetHome] = useState(false);
-
-    // const handleReset = () => {
-    //     console.log("coucou du handleRest to trigger home refresh!");
-    //     setResetHome(prev => !prev);  // Change the state to trigger useEffect in child
-    // };
 
 
     //-> create un dark theme in useContext for using in all app
@@ -80,7 +72,6 @@ const App = ({ darkMode, handleNotFoundError }) => {
                         setMatch={setMatch}
                         noMatch={noMatch}
                         setNoMatch={setNoMatch}
-                        isAuthenticated={isAuthenticated}
                     // onReset={handleReset}
                     />
                 </span>
@@ -107,8 +98,6 @@ const App = ({ darkMode, handleNotFoundError }) => {
                             reset={reset}
                             setValue={setValue}
                             handleNotFoundError={handleNotFoundError}
-                            isAuthenticated={isAuthenticated}
-                            setIsAuthenticated={setIsAuthenticated}
                         />}
                     />
 
@@ -126,7 +115,6 @@ const App = ({ darkMode, handleNotFoundError }) => {
                         <SkillToSee
                             setValue={setValue}
                             handleNotFoundError={handleNotFoundError}
-                            setIsAuthenticated={setIsAuthenticated}
                         />}
                     />
 
@@ -137,7 +125,6 @@ const App = ({ darkMode, handleNotFoundError }) => {
                             setMatch={setMatch}
                             noMatch={noMatch}
                             setNoMatch={setNoMatch}
-                            setIsAuthenticated={setIsAuthenticated}
                         />}
                     />
 

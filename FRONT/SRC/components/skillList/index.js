@@ -12,16 +12,16 @@ const SkillList = ({ dataSearch, match, noMatch }) => {
 
     const { rows = [] } = dataSearch;
 
-    console.log("state dataSearch dans Home/skillList", dataSearch);
-    console.log("state match dans Home/SkillList", match);
-    console.log("state noMatch dans Home/SkillList", noMatch);
+    // console.log("state dataSearch dans Home/skillList", dataSearch);
+    // console.log("state match dans Home/SkillList", match);
+    // console.log("state noMatch dans Home/SkillList", noMatch);
 
     const GetSkillsList = async () => {
         try {
             const response = await fetch(`http://localhost:3000/`);
             const dataSkill = await response.json();
             setSkillsList(dataSkill);
-            console.log("reponse dataSkill du get skill page home", dataSkill);
+            // console.log("reponse dataSkill du get skill page home", dataSkill);
         }
         catch (error) {
             console.error(error.message);

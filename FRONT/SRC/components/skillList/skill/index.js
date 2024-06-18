@@ -36,7 +36,7 @@ const Skill = ({
     const navigate = useNavigate();
     const location = useLocation();
     const item = location.state?.item;
-    console.log("item ds Skill avant le state:", item);
+    // console.log("item ds Skill avant le state:", item);
     const [skill, setSkill] = useState(item || {
         id: [],
         title: '',
@@ -47,9 +47,8 @@ const Skill = ({
     const [statusCourse, setStatusCourse] = useState(false);
 
 
-
     const handleClick = async (event, skillId) => {
-        console.log("dans la fonction handleClick suivre ce cours");
+        // console.log("dans la fonction handleClick suivre ce cours");
         event.preventDefault();
 
         try {
@@ -62,16 +61,16 @@ const Skill = ({
                 },
                 // credentials: 'include'
             });
-            console.log("response avant json:", response)
+            // console.log("response avant json:", response)
             const authResult = await response.json();
-            console.log("authResult apres json dans Skill click inscription au cours:", authResult)
+            // console.log("authResult apres json dans Skill click inscription au cours:", authResult)
 
             if (authResult == "access granted") {
-                console.log("acces granted dans handleclik Skill, on va fetch vers demande d'inscription");
-                console.log("skillId", skillId);
+                // console.log("acces granted dans handleclik Skill, on va fetch vers demande d'inscription");
+                // console.log("skillId", skillId);
 
                 try {
-                    console.log('dans le try AskInscriptionCourse');
+                    // console.log('dans le try AskInscriptionCourse');
                     const token = Cookies.get('token');
                     const response = await fetch(`http://localhost:3000/learning/${skillId}`, {
                         method: 'POST',
@@ -80,20 +79,19 @@ const Skill = ({
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`,
                         },
-                        // credentials: 'include',
                     })
 
                     //=traduct api response in Json
-                    console.log("response post skill avant .json", response);
+                    // console.log("response post skill avant .json", response);
                     const dataAdding = await response.json();
-                    console.log(" dataAdding  apres .json:", dataAdding);
+                    // console.log(" dataAdding  apres .json:", dataAdding);
 
 
                     if (dataAdding === "cours en attente de validation") {//*message de validate
                         // navigate('/dashboard');
                         setStatusCourse(true)
                         // navigate('/results')
-                        console.log("cours en attende de validation OK on est redirigé vers dashboard");
+                        console.log("cours 'en attente de validation' OK on est redirigé vers dashboard");
                         navigate("/results")
                         // navigate('/dashboard')
                     }
