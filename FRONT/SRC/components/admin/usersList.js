@@ -1,7 +1,9 @@
 import User from '../admin/user/index';
 import { useCallback, useEffect, useState } from 'react';
 import Error from '../error/error';
+import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import logout from '../../style/pictures/logout.svg';
 
 
 
@@ -15,6 +17,7 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
 
     const GetUsersList = useCallback(async () => {
         try {
+            const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/admin`, {
                 method: "get",
                 headers: {
@@ -100,24 +103,32 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
 
 
 
-            <h4>nous avons : </h4> <span>{count} membres</span>
+            <h4>nous avons : </h4> <span>{usersList.count} membres</span>
             <span className="user" >
                 {error && <Error error={error} />}
                 <ul className="user-li" >
                     {
-                        usersList?.map((user) => (
+                        usersList.rows && usersList.rows.length > 0 && usersList?.rows?.map((user) => (
                             <li key={user.id}>
                                 < User
                                     key={user?.id}
+                                    id={user?.id}
                                     firstname={user?.firstname}
                                     lastname={user?.lastname}
+                                    birthday={user?.birthday}
+                                    email={user?.email}
+                                    grade_level={user?.rade_level}
+                                    presentation={user?.presentation}
+                                    createdAt={user?.createdAt}
+                                    count={user?.count}
                                 />
+                                <button className="orangeBtn" onClick={handlechange.bind(null, user)}>EDITER</button>
+                                <button className="redBtn" onClick={UserDelete}>SUPPRIMER</button>
                             </li>
                         ))
                     }
                 </ul>
-                <button className="orangeBtn" onClick={handlechange.bind(null, user)}>EDITER</button>
-                <button className="redBtn" onClick={UserDelete}>SUPPRIMER</button>
+
             </span >
         </>
     )

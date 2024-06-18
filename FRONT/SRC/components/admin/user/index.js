@@ -2,7 +2,10 @@ import PropTypes from 'prop-types';
 import Error from '../../error/error';
 import SkillList from '../../skillList/index';
 import Money from '../../statistic/money';
+import dashboard from '../../../style/pictures/dashboard.svg';
+import logout from '../../../style/pictures/logout.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 
 const User = ({
@@ -14,6 +17,7 @@ const User = ({
     grade_level,
     presentation,
     createdAt,
+    count,
     error,
     setError,
     handleNotFoundError,
@@ -26,7 +30,14 @@ const User = ({
     console.log("user ds Skill avant le state:", user);
     const [oneUser, setOneUser] = useState(user || {
         id: [],
-        title: '',
+        firstname: '',
+        lastname: '',
+        birthday: '',
+        email: '',
+        grade_level: '',
+        presentation: '',
+        createdAt: '',
+        count: '',
     })
 
     //=post method to send info
