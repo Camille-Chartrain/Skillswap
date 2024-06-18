@@ -62,8 +62,9 @@ router.get('/subCategories/:categoryId?', categoryController.getSubCategories);
 //admin
 router.get('/admin', adminController.admin);
 router.get('/admin/:userId', adminController.adminGetSkillOfOneUser);
-// router.patch('/admin/:skillId', adminController.adminModifUser);
-// router.delete('/admin/:userId', adminController.adminDeleteUser);
+router.patch('/admin/:userId', adminController.adminModifUser);
+router.patch('/admin/:skillId', adminController.adminModifSkill);
+router.delete('/admin/:userId', adminController.adminDeleteUser);
 
 
 export default router;
