@@ -232,7 +232,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         }
         catch (error) {
             console.log("catch postSkillDelete:", error);
-            handleNotFoundError();
+
         }
     });
 
@@ -321,24 +321,21 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
             < span className="skillsList" >
                 <h3>Liste des competences</h3>
                 <ul>
-                    <span className="skillList-li">
+                    {skillsUser?.map((skill) => (
+                        <>
+                            <li key={skill?.id} className="skillList-li">
 
-                        {skillsUser?.map((skill) => (
-                            <>
-                                <li key={skill?.id} >
+                                <span className="title">{skill?.title}</span>
+                                <span className="btn">
+                                    <button className="orangeBtn" onClick={handlechange.bind(null, skill)}>MODIFIER</button>
+                                    <button className=
+                                        "redBtn" aria-label="bouton supprimer competence" onClick={PostSkillDelete.bind(null, skill)} type="reset" >SUPPRIMER</button>
+                                </span>
 
-                                    <span className="title">{skill?.title}</span>
-                                    <span className="btn">
-                                        <button className="orangeBtn" onClick={handlechange.bind(null, skill)}>MODIFIER</button>
-                                        <button className=
-                                            "redBtn" aria-label="bouton supprimer competence" onClick={PostSkillDelete.bind(null, skill)} type="reset" >SUPPRIMER</button>
-                                    </span>
-
-                                </li >
-                            </>
-                        ))
-                        }
-                    </span>
+                            </li >
+                        </>
+                    ))
+                    }
                 </ul>
             </span >
             <button onClick={ProfileDelete} type="reset" className="redBtnProfile" size="30" >SUPPRIMER LE COMPTE</button>

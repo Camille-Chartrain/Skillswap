@@ -50,10 +50,8 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset, GetAllSkillUser }
             console.log("response avant .json", response);
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
-
             reset();
-
-            GetAllSkillUser()
+            GetAllSkillUser();
         }
         catch (error) {
             console.log("erreur cath :", error);

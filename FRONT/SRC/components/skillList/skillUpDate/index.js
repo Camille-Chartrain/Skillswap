@@ -1,4 +1,5 @@
-
+import dashboard from '../../../style/pictures/dashboard.svg';
+import logout from '../../../style/pictures/logout.svg';
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import SearchCategory from '../../search/SearchCategory';
@@ -8,7 +9,7 @@ import SearchTransmission from '../../search/SearchTransmission';
 import { useLocation, useNavigate } from "react-router-dom";
 
 
-const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset,
+const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleLogout
 }) => {
 
     const location = useLocation();
@@ -125,7 +126,14 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset,
 
     return (
         <>
-            <form method="POST" onSubmit={handleSubmit(patchSkillUpdate.bind(null, skillUpdate))} className="skill">
+            <span className='ancre'>
+                <>
+                    <a href="/dashboard#profile" alt=" communication " ><img className="" src={dashboard} alt='icone de communication ' /></a>
+                    <img className="" src={logout} alt='icone de deconnexion' onClick={handleLogout} />
+                </>
+            </span>
+
+            <form method="POST" onSubmit={handleSubmit(patchSkillUpdate.bind(null, skillUpdate))} className="updateAskill">
                 <fieldset className="skillUpDate">
                     <legend><h3>Modification de competence</h3></legend>
 

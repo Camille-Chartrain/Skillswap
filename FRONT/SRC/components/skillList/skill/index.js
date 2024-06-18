@@ -215,11 +215,11 @@ const Skill = ({
                 {/* {statusCourse && <p>Demande envoyée !</p>}
                 {!statusCourse && <button className="skillBtn" type="submit" onClick={function (event) { handleClick(event, skillId); }}>SUIVRE CE COURS</button>}
                 {(meeting == "en cours" || meeting == "en attente") && <p>{meeting}</p>} */}
-                {statusCourse && <p>Demande envoyée !</p>}
+                {statusCourse && <p className="search-result">Demande envoyée !</p>}
                 {!statusCourse && (meeting !== "en cours" && meeting !== "en attente") && (
                     <button className="skillBtn" type="submit" onClick={function (event) { handleClick(event, skillId); }}>SUIVRE CE COURS</button>
                 )}
-                {(meeting == "en cours" || meeting == "en attente") && <p>{meeting}</p>}
+                {(meeting == "en cours" || meeting == "en attente") && <p className="search-result">{meeting}</p>}
             </span >
         </>
     )

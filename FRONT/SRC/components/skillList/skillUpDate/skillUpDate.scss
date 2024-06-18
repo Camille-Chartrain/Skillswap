@@ -1,0 +1,34 @@
+@use '../../../style/var';
+@use '../../../style/mixin';
+
+
+
+
+.skillUpDate {
+    @include mixin.mobileFirst(column, nowrap);
+    @include mixin.focus(var.$orangeBtn);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 1rem;
+    margin: 3rem;
+    background-color: var.$lightGreyWrite;
+    border-radius: 1rem;
+    border-color: 0.2rem solid;
+    width: 95%;
+
+    .categories {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        @include mixin.buttonStyle (var.$blueBtn, var.$yelloWrite);
+        @include mixin.focus(var.$orangeBtn);
+        width: 10rem;
+        height: 2.3rem;
+        margin: 1.5rem;
+    }
+}

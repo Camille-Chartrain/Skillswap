@@ -159,7 +159,7 @@ const CourseTeached = ({ handleNotFoundError, error, GetMoney }) => {
 
     return (
         <span className="learningList">
-            <h3>Cours dispenses</h3>
+            <h3>Section Enseignant</h3>
             {
                 error && <Error /> ? Error : (
                     <ul>
