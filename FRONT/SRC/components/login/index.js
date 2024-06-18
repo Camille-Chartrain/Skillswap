@@ -33,13 +33,26 @@ const Login = ({ handleSubmit, register, isValid, handleNotFoundError, setError,
             //= check if there is a new token associated with the user and store it with Cookies.set
             if (dataIsLogged.accessToken) {
                 const newToken = dataIsLogged.accessToken;
-                // console.log("token", newToken);
+                console.log("token", newToken);
                 Cookies.set('token', newToken);
-                navigate("/dashboard");
+                if (dataIsLogged.role === 'admin') {
+                    console.log("dataIsLogged.role", dataIsLogged.role);
+                    navigate("/admin");
+                }
+                else {
+                    navigate("/dashboard");
+                }
+
             }
-            else if (dataIsLogged === "token validé !!") {
-                // console.log("redirection vers dashboard sans nouveau token");
-                navigate("/dashboard");
+            else if (dataIsLogged.message === "token validé") {
+                console.log("redirection vers dashboard ou admin sans nouveau token");
+                if (dataIsLogged.role === 'admin') {
+                    console.log("dataIsLogged.role", dataIsLogged.role);
+                    navigate("/admin");
+                }
+                else {
+                    navigate("/dashboard");
+                }
             }
             setError("Connexion impossible, merci de recommencer");
             handleNotFoundError("Connexion impossible, merci de recommencer");

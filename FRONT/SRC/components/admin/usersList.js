@@ -109,7 +109,9 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
                 <ul className="user-li" >
                     {
                         usersList.rows && usersList.rows.length > 0 && usersList?.rows?.map((user) => (
+
                             <li key={user.id} >
+                                {console.log("user", user)}
                                 <h3>{user?.id}</h3>
                                 <h5>{user?.firstname}</h5>
                                 <h5>{user?.lastname}</h5>

@@ -65,6 +65,7 @@ router.get('/admin/:userId', adminController.adminGetSkillsOfOneUser);
 router.patch('/admin/:userId', adminController.adminModifUser);
 router.patch('/admin/skill/:skillId', adminController.adminModifSkill);
 router.delete('/admin/:userId', adminController.adminDeleteUser);
+router.delete('/admin/skill/:skillId', adminController.adminDeleteOneSkill);
 
 
 export default router;
