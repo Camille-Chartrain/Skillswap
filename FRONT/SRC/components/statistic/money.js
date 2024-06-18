@@ -1,37 +1,14 @@
-import { useState, useEffect, useCallback } from "react";
-import Cookies from 'js-cookie';
+import { useEffect } from "react";
+
 
 const Money = ({ wallet, GetMoney, money }) => {
     // console.log("Money dans money", Money);
-    // console.log("Money.User.swappies dans money", Money.User.swappies);
 
-    // const [wallet, setWallet] = useState(null);
 
-    // const GetMoney = useCallback(async () => {
-    //     // console.log("qui a t il dans wallet:", wallet);
-    //     try {
-    //         const token = Cookies.get('token');
-    //         const response = await fetch('http://localhost:3000/statistic', {
-    //             method: "get",
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${token}`,
-    //             },
-    //             // credentials: 'include'
-    //         });
-
-    //         // console.log("les money data avant  .json", response);
-    //         const dataMoney = await response.json();
-    //         // console.log("les Money data  apres .json:", dataMoney);
-
-    //         setWallet(dataMoney);
-    //         // console.log('donnees Money data du state:', dataMoney);
-    //         // console.log("dataWallet apres le setWallet:", dataWallet);
-    //     }
-    //     catch (error) {
-    //         // console.log("catch de Get Money:", error.message);
-    //     }
-    // })
+    // state wallet and function getMoney created in dashboard so that component Statistic and Learning
+    // can both have acces to getMoney function, => when a course is terminated in
+    // component Learning, we call the function GetMoney to have a dynamic display of 
+    // the swappie in the component Statistic.
 
     useEffect(() => { GetMoney() }, []);
 
