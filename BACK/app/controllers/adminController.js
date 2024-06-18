@@ -48,19 +48,6 @@ const adminController = {
                 where: {
                     UserId: req.params.userId
                 },
-                attributes: [
-                    "id",
-                    "firstname",
-                    "lastname",
-                    "email",
-                    "swappies",
-                    "swappiesWinned",
-                    "swappiesSpent",
-                    "birthday",
-                    "grade_level",
-                    "presentation",
-                    "createdAt"
-                ],
                 order: [["id", "ASC"]]
             });
             // console.log(skills);
@@ -94,51 +81,64 @@ const adminController = {
             console.log(req.params.skillId);
             console.log(req.params);
 
-            const updateFields = {
+            const updateFieldsSkill = {
+
                 title: req.body.title,
                 duration: req.body.duration,
-                level: req.body.level,
-                transmission: req.body.transmission,
                 description: req.body.description,
                 availability: req.body.availability,
-                SubCategoryId: req.body.SubCategoryId,
-                CategoryId: req.body.CategoryId,
+            };
+
+            const updateFieldsProfile = {
+
+                firstname: req.body.level,
+                lastname: req.body.lastname,
+                swappies: req.body.swappies,
+                presentation: req.body.presentation
             };
 
             await Skill.update(
-                updateFields, {
+                updateFieldsSkill, {
                 where: {
                     id: req.params.skillId
                 }
             });
             //profile is updated
 
+            await User.update(
+                updateFieldsProfile, {
+                where: {
+                    id: req.params.userId
+
+                }
+            });
+
             //send the answer to the front
-            res.status(200).json("update du skill ok")
+            res.status(200).json("update admin du profile et du skill ok")
         }
         catch (error) {
             console.error(error.message);
-            res.send('error update skill:', error);
+            res.send('error update admin profile / skill:', error);
         }
     },
 
-    // adminDeleteUser: async function (req, res) {
-    //     try {
-    //         // req.params contains all the data
-    //         console.log(req.params);
-    //         await Skill.destroy({
-    //             where: {
-    //                 id: req.params.skillId
-    //             }
-    //         });
-    //         //send the answer to the front
-    //         res.status(200).json('skill deletion completed');
-    //     }
-    //     catch (error) {
-    //         console.error(error.message);
-    //         res.send('error delete skill', error);
-    //     }
-    // },
+    adminDeleteUser: async function (req, res) {
+        try {
+            // req.params contains all the data
+            console.log(req.params);
+            await User.destroy({
+                where: {
+                    id: req.params.UserId
+                }
+            });
+            //send the answer to the front
+            res.status(200).json('user skill deletion completed');
+        }
+        catch (error) {
+            console.error(error.message);
+            res.send('error delete skill', error);
+        }
+    },
 
 };
 
