@@ -9,12 +9,8 @@ import SearchTransmission from '../../search/SearchTransmission';
 import { useLocation, useNavigate } from "react-router-dom";
 
 
-<<<<<<< HEAD
-const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleLogout }) => {
-=======
-const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset,
+const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleLogout
 }) => {
->>>>>>> ea597d460bc08139ca51a9bd412413d4e9c74385
 
     const location = useLocation();
     const skill = location.state?.skill;
