@@ -34,7 +34,6 @@ const Dashboard = ({
 
     const [wallet, setWallet] = useState(null);
 
-
     const GetMoney = useCallback(async () => {
         console.log("qui a t il dans wallet:", wallet);
         try {

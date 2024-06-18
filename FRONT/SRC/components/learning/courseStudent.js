@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import Cookies from 'js-cookie';
+import Error from '../error/error';
 
 
 //=manage reception notification
-const CourseStudent = () => {
+const CourseStudent = ({ handleNotFoundError, setError, error }) => {
 
     const [courses, setCourses] = useState([]);
 
@@ -32,13 +33,18 @@ const CourseStudent = () => {
             setCourses(course);
 
         }
-        catch (error) { console.log("catchgetCourse ST:", error); throw error; };
+        catch (error) {
+            console.log("catchgetCourse ST:", error);
+            setError("Erreur lors de la recuperation des donnees");
+            handleNotFoundError("Erreur lors de la recuperation des donnees");
+        };
     }
     useEffect(() => { getCourse() }, [])
 
     return (
         <span className="learningList">
             <h3>Section Apprenant</h3>
+            {error && <Error error={error} />}
             <ul>
                 {courses?.map((item) => (
                     <>

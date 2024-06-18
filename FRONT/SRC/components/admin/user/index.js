@@ -24,8 +24,11 @@ const User = ({
                     <h4>Email : </h4><span>{email}</span>
                     <h4>Niveau d'etudes :</h4><span>{grade_level}</span>
                     <h4>Presentation :</h4> <span>{presentation}</span>
-                    <h4>Interets : </h4><span>{interests}</span>
                 </span >
+                <span className="user-skill">
+                    <skillList /> //*a voir si possible
+                    <Money />//*a voir si possible
+                </span>
 
             </span>
         </>

@@ -22,9 +22,16 @@ import Results from '../results/Results';
 //* we call render on the container and give it the component for the view.here we placed the router to display the routes to navigate between the components
 
 //* components added for the user rendering
-const App = ({ darkMode, handleNotFoundError }) => {
+const App = ({ darkMode }) => {
 
-    const [error, setError] = useState([]);
+
+    //=error's state management
+    const [error, setError] = useState(null);
+    //= 404 statemanagement
+    const handleNotFoundError = (error) => {
+        setError(error);
+    };
+
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [dataSearch, setDataSearch] = useState({
         rows: [],
@@ -138,10 +145,11 @@ const App = ({ darkMode, handleNotFoundError }) => {
                             noMatch={noMatch}
                             setNoMatch={setNoMatch}
                             setIsAuthenticated={setIsAuthenticated}
+                            handleNotFoundError={handleNotFoundError}
                         />}
                     />
 
-                    <Route path="*" element={<Error />} />
+                    <Route path="*" element={<Error error={error} setError={setError} />} />
 
                 </Routes>
 

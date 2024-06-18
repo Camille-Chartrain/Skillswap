@@ -7,8 +7,9 @@ import dashboard from "../../style/pictures/dashboard.svg"
 import SkillList from "../skillList";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
+import Error from '../error/error';
 
-const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch, setNoMatch, setIsAuthenticated, isAuthenticated }) => {
+const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch, setNoMatch, setIsAuthenticated, isAuthenticated, error, setError, handleNotFoundError }) => {
     console.log("state match dans Results", match);
     console.log("state noMatch dans Results", noMatch);
     console.log("state dataSearch dans Results", dataSearch);
@@ -44,11 +45,14 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch,
         }
         catch (error) {
             console.log("erreur :", error);
+            setError("Erreur lors de votre recherche");
+            handleNotFoundError("Erreur lors de votre recherche");
         };
     }
 
     return (
         <>
+            {error && <Error error={error} />}
             <span className='ancre'>
                 <>
                     <a href="/dashboard#profile" alt=" profile du membre" ><img className="" src={dashboard} alt='icone du profil ' /></a>

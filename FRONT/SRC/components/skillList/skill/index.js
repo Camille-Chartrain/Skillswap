@@ -4,14 +4,13 @@ import { useCallback, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-// import Error from '../../error/error';
+import Error from '../../error/error';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 
 const Skill = ({
     Category,
-    CategoryId,
     picture,
     title,
     price,
@@ -29,8 +28,8 @@ const Skill = ({
     grade_level,
     presentation,
     skillId,
-    meeting
-
+    meeting,
+    setError, error, handleNotFoundError
 }) => {
 
     const navigate = useNavigate();
@@ -49,7 +48,7 @@ const Skill = ({
 
 
     const handleClick = async (event, skillId) => {
-        console.log("dans la fonction handleClick suivre ce cours");
+        // console.log("dans la fonction handleClick suivre ce cours");
         event.preventDefault();
 
         try {
@@ -103,7 +102,6 @@ const Skill = ({
                 }
                 catch (error) {
                     console.log("catch AIC : ", error);
-                    // handleNotFoundError();
                 }
             }
             else if (authResult.error == "Token invalide") {
@@ -117,7 +115,8 @@ const Skill = ({
         }
         catch (error) {
             console.error("catch de handleClick dans Skill:", error);
-            // handleNotFoundError();
+            setError("Erreur sur la recherche");
+            handleNotFoundError("Erreur sur la recherche");
         }
     }
 
@@ -146,7 +145,8 @@ const Skill = ({
         }
         catch (error) {
             console.error("catch de skillUpDate:", error);
-            // handleNotFoundError();
+            setError("Competence non trouvee");
+            handleNotFoundError("Competence non trouvee");
         }
     })
     // useEffect(() => { getSkill() }, [getSkill])
@@ -155,6 +155,7 @@ const Skill = ({
 
     return (
         <>
+            {error && <Error error={error} />}
             <span id="skill" >
                 {!isLogged ? (
                     <>

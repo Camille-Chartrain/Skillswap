@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Cookies from 'js-cookie';
 
-const Money = ({ wallet, GetMoney }) => {
+const Money = ({ wallet, GetMoney, money }) => {
     // console.log("Money dans money", Money);
     // console.log("Money.User.swappies dans money", Money.User.swappies);
 
