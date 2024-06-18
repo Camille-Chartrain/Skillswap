@@ -4,6 +4,12 @@ import { useEffect } from "react";
 const Money = ({ wallet, GetMoney }) => {
     // console.log("Money dans money", Money);
 
+
+    // state wallet and function getMoney created in dashboard so that component Statistic and Learning
+    // can both have acces to getMoney function, => when a course is terminated in
+    // component Learning, we call the function GetMoney to have a dynamic display of 
+    // the swappie in the component Statistic.
+
     useEffect(() => { GetMoney() }, []);
 
     return (
