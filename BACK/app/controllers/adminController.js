@@ -93,7 +93,6 @@ const adminController = {
                 updateFieldsProfile, {
                 where: {
                     id: req.params.userId
-
                 }
             });
 
@@ -147,15 +146,25 @@ const adminController = {
             console.log(req.params);
             await User.destroy({
                 where: {
-                    id: req.params.UserId
-                }
+                    id: req.params.userId
+                },
+                include: [
+                    {
+                        model: Skill,
+                        where: {
+                            Userid: req.params.userId
+                        }
+                    }
+                ]
             });
             //send the answer to the front
-            res.status(200).json('user skill deletion completed');
+
+            // il faut aussi delete tous les skills de l'user
+            res.status(200).json('user + skill deletion completed');
         }
         catch (error) {
             console.error(error.message);
-            res.send('error delete skill', error);
+            res.send('error delete user + skill', error);
         }
     },
 
