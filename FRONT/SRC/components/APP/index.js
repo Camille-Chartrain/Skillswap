@@ -149,6 +149,14 @@ const App = ({ darkMode }) => {
                         />}
                     />
 
+                    <Route path="/admin" element={
+                        <UsersList setError={setError} error={error} handleNotFoundError={handleNotFoundError} />
+                    } />
+
+                    <Route path="/user" element={
+                        <User setError={setError} error={error} handleNotFoundError={handleNotFoundError} />
+                    } />
+
                     <Route path="*" element={<Error error={error} setError={setError} />} />
 
                 </Routes>
