@@ -1,19 +1,21 @@
-import User from './admin';
+import User from '../admin/user/index';
 import { useCallback, useEffect, useState } from 'react';
 import Error from '../error/error';
+import { useNavigate } from 'react-router-dom';
+
 
 
 //= details' Users are totally show only when the user is logged
 
 
-const Admin = (register, handleSubmit, setValue, reset, setError, error, handleNotFoundError) => {
+const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
 
     const [usersList, setUsersList] = useState([]);
 
 
     const GetUsersList = useCallback(async () => {
         try {
-            const response = await fetch(`http://localhost:3000/`, {
+            const response = await fetch(`http://localhost:3000/admin`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -31,54 +33,33 @@ const Admin = (register, handleSubmit, setValue, reset, setError, error, handleN
         }
     }, []);
 
-    useEffect(() => { GetUsersList() }, [GetUsersList])
+    useEffect(() => { GetUsersList() }, [GetUsersList]);
 
+    //=redirect for update user
+    const navigate = useNavigate();
 
-    //=post method to send info
-    const UserPatch = async (data) => {
-        try {
-            console.log('data envoyees:', data);
-            const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/profile', {
-                method: 'PATCH',
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(data)
-                // credentials: 'include',
+    //=  user's datas before go to user component
+    const handlechange = (user) => {
+        console.log('handlechange: ', user)
+        const id = user.id;
+        console.log('HC recup id:', id);
+        navigate('/user/',
+            {
+                state: { user }
             })
-
-            // console.log('response.status:', response.status);
-
-            //=traduct api response in Json
-            // console.log("response post User avant .json", response);
-            const dataUser = await response.json();
-            console.log(" response apres .json:", dataUser);
-
-            //=fetch back side's  errors
-            // console.log("error?:", dataUser.error);
-            // setError(error);
-
-        }
-        catch (error) {
-            console.error("catch UserPatch : ", error);
-            setError("Erreur lors de la modification de l'utilisateur");
-            handleNotFoundError("Erreur lors de la modification de l'utilisateur");
-        }
     };
 
-    const UserDelete = useCallback(async () => {
+    const UserDelete = useCallback(async (user) => {
         try {
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/profile', {
+            const response = await fetch(`http://localhost:3000/user/${user.id}`, {
                 method: "delete",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
+                body: JSON.stringify(user),
             })
 
             console.log("response avant .json", response);
@@ -109,27 +90,36 @@ const Admin = (register, handleSubmit, setValue, reset, setError, error, handleN
         }
     });
     return (
-        <span className="user">
-            {error && <Error error={error} />}
-            <ul className="user-li">
-                {
-                    usersList?.map((item) => (
-                        <li>
-                            < User
-                                key={item?.id}
-                                firstname={item?.firstname}
-                                lastname={item?.lastname}
-                                {skill.map()je map sur skill si il y a un skill}
-                            skill={item?.skill?.title}
-                            money={item?.skill?.money}
-                            />
-                        </li>
-                    ))
-                }
-            </ul>
-            <button className="orangeBtn">EDITER</button>
-            <button className="redBtn">SUPPRIMER</button>
-        </span >
+        <>
+            <span className='ancre'>
+                <>
+                    <img className="" src={logout} alt='icone de deconnexion' onClick={handleLogout} />
+                </>
+            </span>
+
+
+
+
+            <h4>nous avons : </h4> <span>{count} membres</span>
+            <span className="user" >
+                {error && <Error error={error} />}
+                <ul className="user-li" >
+                    {
+                        usersList?.map((user) => (
+                            <li key={user.id}>
+                                < User
+                                    key={user?.id}
+                                    firstname={user?.firstname}
+                                    lastname={user?.lastname}
+                                />
+                            </li>
+                        ))
+                    }
+                </ul>
+                <button className="orangeBtn" onClick={handlechange.bind(null, user)}>EDITER</button>
+                <button className="redBtn" onClick={UserDelete}>SUPPRIMER</button>
+            </span >
+        </>
     )
 
 }
