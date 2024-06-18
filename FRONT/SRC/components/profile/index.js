@@ -108,7 +108,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
             //=traduct api response in Json
             // console.log("response post profile avant .json", response);
             const dataProfile = await response.json();
-            console.log(" response apres .json:", dataProfile);
+            // console.log(" response apres .json:", dataProfile);
 
             //=fetch back side's  errors
             // console.log("error?:", dataProfile.error);
@@ -134,10 +134,10 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
                 },
             })
 
-            console.log("response avant .json", response);
+            // console.log("response avant .json", response);
             //=traduct api response from Json to JS
             const dataProfile = await response.json();
-            console.log("response json analysee:", dataProfile);
+            // console.log("response json analysee:", dataProfile);
 
             if (dataProfile === "deletion ok") {
                 reset();
@@ -146,7 +146,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
                 let token = Cookies.remove('token');
                 token = null
                 if (token == null) {
-                    console.log("token", token);
+                    // console.log("token", token);
                     navigate("/");
                 }
             }
@@ -213,7 +213,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
     //=to delete a skill
     const PostSkillDelete = useCallback(async (skill) => {
         try {
-            console.log("id recup ds le try PSD :", skill.id);
+            // console.log("id recup ds le try PSD :", skill.id);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
                 method: "delete",
@@ -227,9 +227,9 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
             })
 
             //=traduct api response in Json
-            console.log("response avant .json", response);
+            // console.log("response avant .json", response);
             const dataSkill = await response.json();
-            console.log("dataSkill ds le  PSD :", dataSkill);
+            // console.log("dataSkill ds le  PSD :", dataSkill);
             //=fetch back side's  errors
             // console.log("error?:", dataSkill.error);
             setError(dataSkill.error);

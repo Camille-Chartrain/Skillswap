@@ -20,8 +20,6 @@ const Dashboard = ({
     register,
     isValid,
     reset,
-    isAuthenticated,
-    setIsAuthenticated,
     selectedSubCategory,
     setSelectedSubCategory,
     selectedCategory,
@@ -30,7 +28,6 @@ const Dashboard = ({
     setSelectLevel }) => {
 
     const navigate = useNavigate();
-    // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     // wallet and getMoney created in dashboard so that component Statistic and Learning
     // can both have acces to getMoney function, => when a course is terminated in
@@ -67,7 +64,6 @@ const Dashboard = ({
     const handleClick = async () => {
 
         try {
-            setIsAuthenticated(false)
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/logout`, {
@@ -88,7 +84,6 @@ const Dashboard = ({
             thisToken = null
             if (thisToken == null) {
                 // console.log("token", thisToken);
-                console.log("state du isAunthenticated dans logout dashboard ", isAuthenticated);
                 navigate("/");
             }
         }
@@ -102,8 +97,6 @@ const Dashboard = ({
         const token = Cookies.get('token');
         if (!token) {
             console.log('Pas de token dans le cookie, redirection vers Login');
-
-            setIsAuthenticated(false);
             navigate('/login');
         }
 
@@ -124,10 +117,8 @@ const Dashboard = ({
 
                 if (resultToken === "access granted") {
                     console.log("ACCES AUTORISE DANS VERIFY CONNECTION DASHBOARD");
-                    setIsAuthenticated(true);
                 }
                 else {
-                    setIsAuthenticated(false);
                     navigate("/login");
                 }
             }
@@ -140,10 +131,12 @@ const Dashboard = ({
     // Le rendu de react est asynchrone =>
     // 1 le composant est initialisé (son return avec l'appel aux composants enfants est exécuté)
     // 2 le use effect est exécuté immédiatement après que ce composant ait été initialisé (il lit la fonction et l'exécute, et donne la rêgle pour futurs appels au composant Dashboard dans le tableau de dépendances, ici = ne pas redéclencher cette fonction)
+
+    // React rendering is asynchronous =>
+    // 1. The component is initialized (its return with the call to child components is executed)
+    // 2. The useEffect is executed immediately after this component has been initialized (it reads the function and executes it, and sets the rule for future calls to the Dashboard component in the dependency array, here = do not trigger this function again)
+
     useEffect(() => { verifyConnection() }, [])
-
-
-    // choix possible de mettre 'navigate' dans le tableau de dépendances mais pas sûre des implications.
 
     // FONCTIONNEMENT GESTION ACCES DASHBOARD
     // est ce que user connecté?
@@ -153,13 +146,6 @@ const Dashboard = ({
     //                  celui du navigateur.
     // if response token pas ok => redirect to connection
     // response token ok => return composant 
-
-    // à continuer
-    // if (!isAuthenticated) {
-    //     return (
-    //         <p>Veuillez vous connecter</p>
-    //     );
-    // }
 
     return (
         <>

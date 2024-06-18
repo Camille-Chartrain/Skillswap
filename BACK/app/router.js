@@ -10,7 +10,8 @@ import categoryController from './controllers/categoryController.js'
 import verifyToken from './middlewares.js/verifyToken.js';
 import dashboardController from './controllers/dashboardController.js';
 import authSearch from './middlewares.js/authSearch.js';
-// import authSearch from './middlewares.js/authSearch.js';
+import adminController from './controllers/adminController.js';
+
 
 const router = express.Router();
 
@@ -23,9 +24,6 @@ router.post('/registration', authController.registration);
 router.post('/login', authController.login);
 router.get('/dashboard', dashboardController.dashboard);
 router.post('/logout', authController.logout);
-
-//search for members
-// router.get('/search/:input?/:level?/:category?/:subCategory?', mainController.search);
 
 //profile
 router.get('/profile', verifyToken, profileController.profile);
@@ -61,13 +59,14 @@ router.get('/categories', categoryController.getAllCategories);
 router.get('/subCategories/:categoryId?', categoryController.getSubCategories);
 
 
-// //admin
-// router.get('/admin', adminController.admin);
+//admin
+router.get('/admin', adminController.admin);
 // router.patch('/admin/statistic', adminController.modifStatistic);
 
 
 export default router;
 
+// pseudocode for authentification
 
 // user? (verif si mail existe dans bdd)
 //      oui => comparaison hash

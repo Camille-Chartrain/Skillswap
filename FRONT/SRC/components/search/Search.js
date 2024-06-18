@@ -12,7 +12,7 @@ import Error from '../error/error';
 
 
 
-const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatch, isAuthenticated, setError, error, handleNotFoundError }) => {
+const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatch, setError, error, handleNotFoundError }) => {
 
 
     const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -34,12 +34,11 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
 
     const GetSearch = useCallback(async () => {
         try {
-            console.log("nous sommes dans la fonction getSearch");
+            // console.log("nous sommes dans la fonction getSearch");
 
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectLevel);
-            // console.log("state du isaunthenticate dans search ", isAuthenticated);
+            // console.log("selectedCategory dans try", selectedCategory);
+            // console.log("selectedSubCategory dans try", selectedSubCategory);
+            // console.log("selectLevel dans try", selectLevel);
 
             const token = Cookies.get('token');
 
@@ -52,16 +51,16 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
             });
 
             const responseDataSearch = await response.json();
-            console.log("reponse GetSearch responseDataSearch", responseDataSearch)
-            console.log("typeof responseDataSearch", typeof responseDataSearch);
+            // console.log("reponse GetSearch responseDataSearch", responseDataSearch)
+            // console.log("typeof responseDataSearch", typeof responseDataSearch);
 
             setSelectedSubCategory(null)
 
             if (responseDataSearch === "no match") {
                 setMatch(false)
                 setNoMatch(true)
-                console.log("NO MATCH state match dans Search", match);
-                console.log("NOT MATCH state noMatch dans Search", noMatch);
+                // console.log("NO MATCH state match dans Search", match);
+                // console.log("NOT MATCH state noMatch dans Search", noMatch);
             }
             else if (responseDataSearch) {
                 console.log("on est dans la condition il y a match");
@@ -69,9 +68,9 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                 setMatch(true);
                 setNoMatch(false)
 
-                console.log("MATCH State dataSearch", dataSearch);
-                console.log("MATCH state Match dans Search", match);
-                console.log("MATCH state noMatch dans Search", noMatch);
+                // console.log("MATCH State dataSearch", dataSearch);
+                // console.log("MATCH state Match dans Search", match);
+                // console.log("MATCH state noMatch dans Search", noMatch);
 
                 //    fetch dashboard instead
                 try {
@@ -84,29 +83,21 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                             'Authorization': `Bearer ${token}`,
                         },
                     });
-                    console.log("response avant json:", response)
+                    // console.log("response avant json:", response)
                     const authResult = await response.json();
-                    console.log("authResult apres json dans Search pour vior  resultats:", authResult)
+                    // console.log("authResult apres json dans Search pour voir  resultats:", authResult)
 
                     if (authResult == "access granted") {
                         console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /Results");
                         navigate('/results')
                     }
-                    // else if (authResult.error == "Token invalide") {
-                    //     console.log("token ivalide dans handleclik Skill redirection vers home avec resultats");
-                    //     navigate('/')
-                    // }
                 }
                 catch (error) {
                     console.error("catch de handleClick dans Skill:", error);
                     setError("Votre recherche n'aq pas pu aboutir");
                     handleNotFoundError("Votre recherche n'aq pas pu aboutir");
                 }
-                // console.log("MATCH State dataSearch prout", dataSearch);
-                // console.log("MATCH state Match dans Search", match);
-                // console.log("MATCH state noMatch dans Search", noMatch);
             };
-
         }
         catch (error) {
             console.log('erreur du catch GetSearch:', error);

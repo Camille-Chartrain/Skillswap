@@ -32,7 +32,7 @@ const App = ({ darkMode }) => {
         setError(error);
     };
 
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
     const [dataSearch, setDataSearch] = useState({
         rows: [],
         count: 0,
@@ -40,13 +40,6 @@ const App = ({ darkMode }) => {
     });
     const [match, setMatch] = useState(false);
     const [noMatch, setNoMatch] = useState(false);
-
-    // const [resetHome, setResetHome] = useState(false);
-
-    // const handleReset = () => {
-    //     console.log("coucou du handleRest to trigger home refresh!");
-    //     setResetHome(prev => !prev);  // Change the state to trigger useEffect in child
-    // };
 
 
     //-> create un dark theme in useContext for using in all app
@@ -87,7 +80,6 @@ const App = ({ darkMode }) => {
                         setMatch={setMatch}
                         noMatch={noMatch}
                         setNoMatch={setNoMatch}
-                        isAuthenticated={isAuthenticated}
                     // onReset={handleReset}
                     />
                 </span>
@@ -114,8 +106,6 @@ const App = ({ darkMode }) => {
                             reset={reset}
                             setValue={setValue}
                             handleNotFoundError={handleNotFoundError}
-                            isAuthenticated={isAuthenticated}
-                            setIsAuthenticated={setIsAuthenticated}
                         />}
                     />
 
@@ -133,7 +123,6 @@ const App = ({ darkMode }) => {
                         <SkillToSee
                             setValue={setValue}
                             handleNotFoundError={handleNotFoundError}
-                            setIsAuthenticated={setIsAuthenticated}
                         />}
                     />
 
@@ -144,7 +133,6 @@ const App = ({ darkMode }) => {
                             setMatch={setMatch}
                             noMatch={noMatch}
                             setNoMatch={setNoMatch}
-                            setIsAuthenticated={setIsAuthenticated}
                             handleNotFoundError={handleNotFoundError}
                         />}
                     />
