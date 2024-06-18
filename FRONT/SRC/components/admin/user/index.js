@@ -84,19 +84,19 @@ const User = ({
     }, []);
 
     //=post method to send info
-    const PatchCompetence = useCallback(async (data) => {
+    const PatchCompetence = useCallback(async (skill) => {
         try {
 
-            console.log('try data:', data);
+            console.log('try skill:', skill);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/admin/${skill.id}`, {
+            const response = await fetch(`http://localhost:3000/admin/skill/${skill.id}`, {
                 method: "patch",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(skill)
                 // credentials: 'include'
             })
 
@@ -146,15 +146,15 @@ const User = ({
                         <button type="submit" disabled={!isValid} >VALIDER</button>
                     </fieldset>
                 </form>
-                <h4>Date de naissance : {user.birthday}</h4>
-                <h4>Niveau d'etude : {user.grade_level}</h4>
-                <h4>Email : {user.email}</h4>
-                <h4>Date de creation: {user.createdAt}</h4>
+                <h4>Date de naissance : {oneUser.birthday}</h4>
+                <h4>Niveau d'etude : {oneUser.grade_level}</h4>
+                <h4>Email : {oneUser.email}</h4>
+                <h4>Date de creation: {oneUser.createdAt}</h4>
 
                 <span className="user-skill">
                     <h3>Liste des competences</h3>
 
-                    {skillList && skillList.length > 0 && skillList?.rows.map((skill) => (
+                    {skillList && skillList.length > 0 && skillList?.rows?.map((skill) => (
                         <>
                             <h4>Titre  : {skill.title}</h4>
                             <form method="POST" onSubmit={handleSubmit(PatchCompetence)} className="skill">

@@ -46,7 +46,7 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
         console.log('handlechange: ', user)
         const id = user.id;
         console.log('HC recup id:', id);
-        navigate('/user/',
+        navigate('/admin/user/',
             {
                 state: { user }
             })
