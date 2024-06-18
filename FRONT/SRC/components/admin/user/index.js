@@ -6,6 +6,7 @@ import dashboard from '../../../style/pictures/dashboard.svg';
 import logout from '../../../style/pictures/logout.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { useCallback, useState } from 'react';
 
 
 const User = ({
@@ -17,6 +18,7 @@ const User = ({
     grade_level,
     presentation,
     createdAt,
+    swappies,
     count,
     error,
     setError,
@@ -37,11 +39,12 @@ const User = ({
         grade_level: '',
         presentation: '',
         createdAt: '',
+        swappies: [],
         count: '',
     })
 
     //=post method to send info
-    const UserPatch = async (data, setError, error, handleNotFoundError) => {
+    const UserPatch = useCallback(async (data, setError, error, handleNotFoundError) => {
 
         try {
             console.log('data envoyees:', data);
@@ -74,7 +77,7 @@ const User = ({
             setError("Erreur lors de la modification de l'utilisateur");
             handleNotFoundError("Erreur lors de la modification de l'utilisateur");
         }
-    };
+    }, []);
 
     return (
         <>
@@ -89,19 +92,19 @@ const User = ({
             <span id="user" >
 
                 <span className="user-info">
-                    <h4>Prenom : </h4> <span>{firstname}</span>
-                    <h4>Nom : </h4><span>{lastname}</span>
-                    <h4>Date de naissance : </h4><span>{birthday}</span>
-                    <h4>Email : </h4><span>{email}</span>
-                    <h4>Niveau d'etudes : </h4><span>{grade_level}</span>
-                    <h4>Presentation : </h4> <span>{presentation}</span>
-                    <h4>Date de creation: </h4> <span>{createdAt}</span>
+                    <h4>Prenom : </h4> <span>{user.firstname}</span>
+                    <h4>Nom : </h4><span>{user.lastname}</span>
+                    <h4>Date de naissance : </h4><span>{user.birthday}</span>
+                    <h4>Email : </h4><span>{user.email}</span>
+                    <h4>Niveau d'etudes : </h4><span>{user.grade_level}</span>
+                    <h4>Presentation : </h4> <span>{user.presentation}</span>
+                    <h4>Date de creation: </h4> <span>{user.createdAt} </span>
+                    <h4>Total Swappies: </h4> <span>{user.swappies}</span>
                 </span>
                 <span className="user-skill">
-                    <skillList /> //*a voir si possible
-                    <Money />//*a voir si possible
+                    <skillList />
                 </span>
-                <button onClick={UserPatch} className="orangeBtn">MODIFIER</button>
+                <button onClick={UserPatch} className="orangeBtn">VALIDER</button>
             </span>
         </>
     )

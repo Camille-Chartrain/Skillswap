@@ -25,7 +25,7 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-            console.log("data avtJson:", response);
+            console.log("data avt Json:", response);
             const dataUser = await response.json();
             console.log("data aps Json:", dataUser);
             setUsersList(dataUser);
@@ -109,19 +109,13 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
                 <ul className="user-li" >
                     {
                         usersList.rows && usersList.rows.length > 0 && usersList?.rows?.map((user) => (
-                            <li key={user.id}>
-                                < User
-                                    key={user?.id}
-                                    id={user?.id}
-                                    firstname={user?.firstname}
-                                    lastname={user?.lastname}
-                                    birthday={user?.birthday}
-                                    email={user?.email}
-                                    grade_level={user?.rade_level}
-                                    presentation={user?.presentation}
-                                    createdAt={user?.createdAt}
-                                    count={user?.count}
-                                />
+                            <li key={user.id} >
+                                <h3>{user?.id}</h3>
+                                <h5>{user?.firstname}</h5>
+                                <h5>{user?.lastname}</h5>
+                                <h6>Email: {user?.email}</h6>
+                                <h6>cree le : {user?.createdAt}</h6>
+                                <h6>Swappies : {user?.swappies}</h6>
                                 <button className="orangeBtn" onClick={handlechange.bind(null, user)}>EDITER</button>
                                 <button className="redBtn" onClick={UserDelete}>SUPPRIMER</button>
                             </li>
