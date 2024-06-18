@@ -1,4 +1,4 @@
-import User from './admin';
+import User from '../admin/user/index';
 import { useCallback, useEffect, useState } from 'react';
 import Error from '../error/error';
 import { useNavigate } from 'react-router-dom';

@@ -8,9 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Error from '../../error/error';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Error from '../../error/error';
-
-
 
 
 

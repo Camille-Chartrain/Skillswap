@@ -45,7 +45,10 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { firstname: "Jeanne", lastname: "aipazenvi", email: 'detravailler@gmail.com', hash: 'Cochise1234.', presentation: "Dans la lune que je trouve mes meilleurs idées" },
 //     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Cochise1234.', presentation: "Vous pouvez me contacter je vous répondrai si je suis disponible" },
 //     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Cochise1234.', presentation: "Mains toutes vertes et vie en rose" },
+
 // ]);
+// await User.create(
+//     { firstname: "Ali", lastname: "Baba", email: 'tapis@volant.com', hash: 'Cochise1234.', role: "admin" },);
 
 // // Camille
 // await User.bulkCreate([
