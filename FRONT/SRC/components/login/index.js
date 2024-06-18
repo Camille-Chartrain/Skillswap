@@ -33,8 +33,9 @@ const Login = ({ handleSubmit, register, isValid, handleNotFoundError, setError,
             //= check if there is a new token associated with the user and store it with Cookies.set
             if (dataIsLogged.accessToken) {
                 const newToken = dataIsLogged.accessToken;
-                console.log("token", newToken);
+                // console.log("token", newToken);
                 Cookies.set('token', newToken);
+
                 if (dataIsLogged.role === 'admin') {
                     console.log("dataIsLogged.role", dataIsLogged.role);
                     navigate("/admin");
