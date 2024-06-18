@@ -41,7 +41,7 @@ const adminController = {
         }
     },
 
-    adminGetSkillOfOneUser: async function (req, res) {
+    adminGetSkillsOfOneUser: async function (req, res) {
         try {
             console.log("req.params.id", req.params.id);
             const skills = await Skill.findAndCountAll({
