@@ -56,7 +56,7 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
     const UserDelete = useCallback(async (user) => {
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/user/${user.id}`, {
+            const response = await fetch(`http://localhost:3000/admin/${user.id}`, {
                 method: "delete",
                 status: 200,
                 headers: {
@@ -71,16 +71,19 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
             const dataUser = await response.json();
             console.log("response json analysee:", dataUser);
 
-            if (dataUser === "deletion ok") {
-                reset();
+            if (dataUser === 'admin user + skill deletion completed') {
+                // reset();
+                GetUsersList()
 
-                // delete cookie JWT on client's side
-                let token = Cookies.remove('token');
-                token = null
-                if (token == null) {
-                    console.log("token", token);
-                    navigate("/");
-                }
+
+
+                // // delete cookie JWT on client's side
+                // let token = Cookies.remove('token');
+                // token = null
+                // if (token == null) {
+                //     console.log("token", token);
+                //     navigate("/");
+                // }
             }
             else {
                 throw new Error("Invalid response from API");
@@ -89,8 +92,8 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
         }
         catch (error) {
             console.log("catch UserDelete :", error);
-            setError("L'utilisateur n'a pas pu etre supprime");
-            handleNotFoundError("L'utilisateur n'a pas pu etre supprime");
+            // setError("L'utilisateur n'a pas pu etre supprime");
+            // handleNotFoundError("L'utilisateur n'a pas pu etre supprime");
         }
     });
     return (
