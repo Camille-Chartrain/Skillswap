@@ -133,7 +133,8 @@ const User = ({
             console.log("response post User avant .json", response);
             const dataUser = await response.json();
             console.log(" response apres .json:", dataUser);
-            if (dataUser === "admin update du skill ok") {
+            if (dataUser === "update admin du profile ok") {
+                console.log("datauser=", dataUser);
                 setUpdateUser(true)
             }
 
@@ -222,7 +223,7 @@ const User = ({
                             // disabled={!isValid}
                             >VALIDER</button>
 
-                            {update && <span>  modifications validées </span>}
+                            {updateUser && <span>  modifications validées </span>}
                         </fieldset>
                     </form>
 
