@@ -30,6 +30,7 @@ const User = ({
     const location = useLocation();
     const user = location.state?.user;
     const [updateUser, setUpdateUser] = useState(false)
+    const [updateSkill, setUpdateSkill] = useState(false)
     const [skillsList, setSkillsList] = useState(null);
     console.log("user ds User avant le state:", user);
     const [oneUser, setOneUser] = useState(user || {
@@ -107,7 +108,7 @@ const User = ({
             console.log("response post User avant .json", response);
             const dataUser = await response.json();
             console.log(" response apres .json:", dataUser);
-            if (dataUser === "update admin du profile ok") {
+            if (dataUser === "admin update du skill ok") {
                 setUpdateUser(true)
             }
 
@@ -141,6 +142,9 @@ const User = ({
             console.log("response avant .json", response);
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
+            if (dataSkill === "update admin du profile ok") {
+                setUpdateSkill(true)
+            }
             reset();
             GetAllSkillUser();
         }
@@ -242,6 +246,7 @@ const User = ({
                                         />
 
                                         <button disabled={isValid}>VALIDER</button>
+                                        {updateSkill && <span>  modifications validées </span>}
                                     </fieldset>
                                 </form>
                             </div>
