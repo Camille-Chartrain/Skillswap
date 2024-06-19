@@ -17,6 +17,7 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
 
     const GetUsersList = useCallback(async () => {
         try {
+            // console.log('dans fetch UserList');
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/admin`, {
                 method: "get",

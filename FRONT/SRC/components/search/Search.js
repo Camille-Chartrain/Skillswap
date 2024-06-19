@@ -94,8 +94,8 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                 }
                 catch (error) {
                     console.error("catch de handleClick dans Skill:", error);
-                    setError("Votre recherche n'aq pas pu aboutir");
-                    handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+                    // setError("Votre recherche n'aq pas pu aboutir");
+                    // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
                 }
             };
         }

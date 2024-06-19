@@ -29,7 +29,7 @@ const User = ({
     const navigate = useNavigate();
     const location = useLocation();
     const user = location.state?.user;
-    const [update, setUpdate] = useState(false)
+    const [updateUser, setUpdateUser] = useState(false)
     const [skillsList, setSkillsList] = useState(null);
     console.log("user ds User avant le state:", user);
     const [oneUser, setOneUser] = useState(user || {
@@ -108,14 +108,14 @@ const User = ({
             const dataUser = await response.json();
             console.log(" response apres .json:", dataUser);
             if (dataUser === "update admin du profile ok") {
-                setUpdate(true)
+                setUpdateUser(true)
             }
 
         }
         catch (error) {
             console.error("catch UserPatch : ", error);
-            setError("Erreur lors de la modification de l'utilisateur");
-            handleNotFoundError("Erreur lors de la modification de l'utilisateur");
+            // setError("Erreur lors de la modification de l'utilisateur");
+            // handleNotFoundError("Erreur lors de la modification de l'utilisateur");
         }
     }, []);
 
@@ -189,7 +189,7 @@ const User = ({
                         // disabled={!isValid}
                         >VALIDER</button>
 
-                        {update && <span>  modifications validées </span>}
+                        {updateUser && <span>  modifications validées </span>}
                     </fieldset>
                 </form>
                 <h4>Date de naissance : {oneUser.birthday}</h4>
