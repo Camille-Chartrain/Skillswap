@@ -75,8 +75,6 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
                 // reset();
                 GetUsersList()
 
-
-
                 // // delete cookie JWT on client's side
                 // let token = Cookies.remove('token');
                 // token = null
