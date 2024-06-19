@@ -13,6 +13,7 @@ import logout from '../../style/pictures/logout.svg';
 const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
 
     const [usersList, setUsersList] = useState([]);
+    const [deleteUser, setdeleteUser] = useState(false);
 
 
     const GetUsersList = useCallback(async () => {
@@ -74,6 +75,7 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
 
             if (dataUser === 'admin user + skill deletion completed') {
                 // reset();
+                setdeleteUser(true)
                 GetUsersList()
 
                 // // delete cookie JWT on client's side
@@ -109,6 +111,7 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
             <h4>nous avons : </h4> <span>{usersList.count} membres</span>
             <span className="user" >
                 {error && <Error error={error} />}
+                {deleteUser && <span>  Membre supprimé </span>}
                 <ul className="user-li" >
                     {
                         usersList.rows && usersList.rows.length > 0 && usersList?.rows?.map((user) => (
