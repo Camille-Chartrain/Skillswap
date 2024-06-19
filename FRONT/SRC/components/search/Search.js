@@ -12,7 +12,7 @@ import Error from '../error/error';
 
 
 
-const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatch, setError, error, handleNotFoundError }) => {
+const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatch, setError, error, handleNotFoundError, reset }) => {
 
 
     const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -135,6 +135,10 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                 <SearchCategory
                     handleSubmit={handleSubmit}
                     register={register}
+                    reset={reset}
+                    handleNotFoundError={handleNotFoundError}
+                    error={error}
+                    setError={setError}
                     setSelectedCategory={setSelectedCategory}
                     selectedCategory={selectedCategory}
                     setSelectedSubCategory={setSelectedSubCategory}

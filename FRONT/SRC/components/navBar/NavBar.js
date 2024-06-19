@@ -30,8 +30,7 @@ const NavBar = ({
                         setMatch={setMatch}
                         onReset={onReset}
                         noMatch={noMatch}
-                        setNoMatch={setNoMatch}
-                    />
+                        setNoMatch={setNoMatch} />
                 </span>
             </span >
         </>

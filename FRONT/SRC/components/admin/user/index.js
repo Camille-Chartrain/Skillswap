@@ -12,9 +12,7 @@ const User = ({
     id,
     firstname,
     lastname,
-    birthday,
     email,
-    grade_level,
     presentation,
     createdAt,
     swappies,
@@ -36,9 +34,7 @@ const User = ({
         id: [],
         firstname: '',
         lastname: '',
-        birthday: '',
         email: '',
-        grade_level: '',
         presentation: '',
         createdAt: '',
         swappies: [],
@@ -160,95 +156,103 @@ const User = ({
             </span>
 
             {error && <Error error={error} />}
-            <span id="user" >
+            <div className="oneUser">
+                <span id="user" >
+                    <form method="POST"
+                        onSubmit={handleSubmit(UserPatch)}>
+                        <fieldset className="userChange">
+                            <legend><h2>Modifier l'utilisateur</h2></legend>
+                            <span className="user-info">
+                                <label htmlFor="firstname">Prénom :</label>
+                                <input id="firstname" type="text" name="firstname" {...register("firstname")}
+                                    defaultValue={oneUser.firstname || ''} onChange={handleChangeUser} size="15" />
 
-                <form method="POST"
-                    onSubmit={handleSubmit(UserPatch)}>
+                                <label htmlFor="lastname">Nom :</label>
+                                <input id="lastname" type="text" name="lastname"{...register("lastname")}
+                                    defaultValue={oneUser.lastname || ''} onChange={handleChangeUser} size="15" />
+                            </span>
+                            <span className="user-status">
+                                <label htmlFor="presentation">Presentez vous :</label>
+                                <textarea id="presentation" name="presentation" {...register("presentation")}
+                                    defaultValue={oneUser.presentation || ''} onChange={handleChangeUser} rows="3" cols="20" />
 
-                    <fieldset className="userChange">
-                        <legend><h3>Modifier l'utilisateur</h3></legend>
+                                <label htmlFor="swappies">Swappies :</label>
+                                <input id="swappies" type="number" name="swappies"{...register("swappies")}
+                                    defaultValue={oneUser.swappies || ''} onChange={handleChangeUser} size="5" />
+                            </span>
+                            <span className="user-h4">
+                                <h4>Email :</h4><span> {oneUser.email}</span>
+                                <h4>Date de creation: </h4><span>{oneUser.createdAt}</span>
+                            </span>
+                            <button type="submit" className="blueBtn"
+                            // disabled={!isValid}
+                            >VALIDER</button>
 
-                        <label htmlFor="firstname">Prénom :</label>
-                        <input id="firstname" type="text" name="firstname" {...register("firstname")}
-                            defaultValue={oneUser.firstname || ''} onChange={handleChangeUser} size="25" />
+                            {update && <span>  modifications validées </span>}
+                        </fieldset>
+                    </form>
 
-                        <label htmlFor="lastname">Nom :</label>
-                        <input id="lastname" type="text" name="lastname"{...register("lastname")}
-                            defaultValue={oneUser.lastname || ''} onChange={handleChangeUser} size="25" />
 
-                        <label htmlFor="presentation">Presentez vous :</label>
-                        <textarea id="presentation" name="presentation" {...register("presentation")}
-                            defaultValue={oneUser.presentation || ''} onChange={handleChangeUser} rows="5" cols="33" />
+                    <span className="user-skill">
+                        <h2>Liste des compétences</h2>
 
-                        <label htmlFor="swappies">Swappies :</label>
-                        <input id="swappies" type="number" name="swappies"{...register("swappies")}
-                            defaultValue={oneUser.swappies || ''} onChange={handleChangeUser} size="25" />
+                        {skillsList && skillsList?.rows?.length > 0 ? (
+                            skillsList.rows.map((skill) => (
+                                <div key={skill.id}>
 
-                        <button type="submit"
-                        // disabled={!isValid}
-                        >VALIDER</button>
+                                    {console.log("skillList dans JSX=", skillsList)}
+                                    <form method="POST" onSubmit={handleSubmit(PatchCompetence)} className="skill">
 
-                        {update && <span>  modifications validées </span>}
-                    </fieldset>
-                </form>
-                <h4>Date de naissance : {oneUser.birthday}</h4>
-                <h4>Niveau d'etude : {oneUser.grade_level}</h4>
-                <h4>Email : {oneUser.email}</h4>
-                <h4>Date de creation: {oneUser.createdAt}</h4>
+                                        <fieldset className="changeSkill">
+                                            <h3>Titre : {skill.title}</h3>
+                                            <span className="skillChange">
+                                                <span className="skillChange-input">
+                                                    <label htmlFor="duration">Durée :</label>
+                                                    <input
+                                                        id="duration"
+                                                        type="text"
+                                                        name="duration"
+                                                        {...register("duration")}
+                                                        size="15"
+                                                        autoComplete="duration"
+                                                    />
 
-                <span className="user-skill">
-                    <h3>Liste des compétences</h3>
+                                                    <label htmlFor="availability">Disponibilité :</label>
+                                                    <input
+                                                        id="availability"
+                                                        type="availability"
+                                                        name="availability"
+                                                        {...register("availability")}
+                                                        size="25"
+                                                        autoComplete="on"
+                                                        required
+                                                    />
+                                                </span>
+                                                <label htmlFor="description">Descriptif :</label>
+                                                <textarea
+                                                    id="description"
+                                                    name="description"
+                                                    {...register("description")}
+                                                    rows="5"
+                                                    cols="33"
+                                                    autoComplete="on"
+                                                    required
+                                                />
+                                            </span>
 
-                    {skillsList && skillsList?.rows?.length > 0 ? (
-                        skillsList.rows.map((skill) => (
-                            <div key={skill.id}>
-                                <h4>Titre : {skill.title}</h4>
-                                {console.log("skillList dans JSX=", skillsList)}
-                                <form method="POST" onSubmit={handleSubmit(PatchCompetence)} className="skill">
-                                    <fieldset className="changeSkill">
-                                        <label htmlFor="duration">Durée :</label>
-                                        <input
-                                            id="duration"
-                                            type="text"
-                                            name="duration"
-                                            {...register("duration")}
-                                            size="25"
-                                            autoComplete="duration"
-                                        />
 
-                                        <label htmlFor="description">Descriptif :</label>
-                                        <textarea
-                                            id="description"
-                                            name="description"
-                                            {...register("description")}
-                                            rows="5"
-                                            cols="33"
-                                            autoComplete="on"
-                                            required
-                                        />
+                                            <button disabled={isValid}>VALIDER</button>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            ))
+                        ) : (
+                            <p>Aucune compétence trouvée.</p>
+                        )}
+                    </span>
 
-                                        <label htmlFor="availability">Disponibilité :</label>
-                                        <input
-                                            id="availability"
-                                            type="availability"
-                                            name="availability"
-                                            {...register("availability")}
-                                            size="25"
-                                            autoComplete="on"
-                                            required
-                                        />
-
-                                        <button disabled={isValid}>VALIDER</button>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        ))
-                    ) : (
-                        <p>Aucune compétence trouvée.</p>
-                    )}
-                </span>
-
-            </span >
+                </span >
+            </div>
         </>
     )
 };

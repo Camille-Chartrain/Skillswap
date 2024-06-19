@@ -95,22 +95,21 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
     return (
         <>
             <span className='ancre'>
-                <>
-                    <img className="" src={logout} alt='icone de deconnexion' onClick={handleLogout} />
-                </>
+                <img className="" src={logout} alt='icone de deconnexion' onClick={handleLogout} />
             </span>
 
 
 
-
-            <h4>nous avons : </h4> <span>{usersList.count} membres</span>
+            <span className='numberMember'>
+                <h3>NOUS AVONS : {usersList.count} MEMBRES</h3>
+            </span>
             <span className="user" >
                 {error && <Error error={error} />}
-                <ul className="user-li" >
+                <ul>
                     {
                         usersList.rows && usersList.rows.length > 0 && usersList?.rows?.map((user) => (
 
-                            <li key={user.id} >
+                            <li key={user.id} className="user-li">
                                 {console.log("user", user)}
                                 <h3>{user?.id}</h3>
                                 <h5>{user?.firstname}</h5>
@@ -118,8 +117,10 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
                                 <h6>Email: {user?.email}</h6>
                                 <h6>cree le : {user?.createdAt}</h6>
                                 <h6>Swappies : {user?.swappies}</h6>
-                                <button className="orangeBtn" onClick={handlechange.bind(null, user)}>EDITER</button>
-                                <button className="redBtn" onClick={UserDelete}>SUPPRIMER</button>
+                                <span className="btn">
+                                    <button className="orangeBtn" onClick={handlechange.bind(null, user)}>EDITER</button>
+                                    <button className="redBtn" onClick={UserDelete}>SUPPRIMER</button>
+                                </span>
                             </li>
                         ))
                     }
