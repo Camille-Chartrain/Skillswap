@@ -30,6 +30,7 @@ const User = ({
     const location = useLocation();
     const user = location.state?.user;
     const [update, setUpdate] = useState(false)
+    const [skillsList, setSkillsList] = useState(null);
     console.log("user ds User avant le state:", user);
     const [oneUser, setOneUser] = useState(user || {
         id: [],
@@ -70,9 +71,9 @@ const User = ({
 
             //=traduct api response in Json
             console.log("response avant .json", response);
-            const skillsList = await response.json();
-            console.log(" response 'skillList' apres .json:", skillsList);
-            reset();
+            const dataskills = await response.json();
+            console.log(" response 'dataskills' apres .json:", dataskills);
+            setSkillsList(dataskills)
 
         }
         catch (error) {
@@ -196,34 +197,57 @@ const User = ({
                 <h4>Date de creation: {oneUser.createdAt}</h4>
 
                 <span className="user-skill">
-                    <h3>Liste des competences</h3>
+                    <h3>Liste des compétences</h3>
 
-                    {skillsList && skillsList.length > 0 && skillsList?.rows?.map((skill) => (
-                        <>
-                            <h4>Titre  : {skill.title}</h4>
-                            {console.log("skillList dans JSX=", skillList)}
-                            <form method="POST" onSubmit={handleSubmit(PatchCompetence)} className="skill">
-                                <fieldset className="changeSkill">
-                                    <label htmlFor="duration">Duree :</label>
-                                    <input id="duration" type="text" name="duration"
-                                        {...register("duration")} size="25" autoComplete="duration" />
+                    {skillsList && skillsList?.rows?.length > 0 ? (
+                        skillsList.rows.map((skill) => (
+                            <div key={skill.id}>
+                                <h4>Titre : {skill.title}</h4>
+                                {console.log("skillList dans JSX=", skillsList)}
+                                <form method="POST" onSubmit={handleSubmit(PatchCompetence)} className="skill">
+                                    <fieldset className="changeSkill">
+                                        <label htmlFor="duration">Durée :</label>
+                                        <input
+                                            id="duration"
+                                            type="text"
+                                            name="duration"
+                                            {...register("duration")}
+                                            size="25"
+                                            autoComplete="duration"
+                                        />
 
-                                    <label htmlFor="description">Descriptif  :</label>
-                                    <textarea id="description" name="description"
-                                        {...register("description")} rows="5" cols="33" autoComplete="on" required />
+                                        <label htmlFor="description">Descriptif :</label>
+                                        <textarea
+                                            id="description"
+                                            name="description"
+                                            {...register("description")}
+                                            rows="5"
+                                            cols="33"
+                                            autoComplete="on"
+                                            required
+                                        />
 
-                                    <label htmlFor="availability">Disponibilite * :</label>
-                                    <input id="availability" type="availability" name="availability"
-                                        {...register("availability")} size="25" autoComplete="on" required />
+                                        <label htmlFor="availability">Disponibilité :</label>
+                                        <input
+                                            id="availability"
+                                            type="availability"
+                                            name="availability"
+                                            {...register("availability")}
+                                            size="25"
+                                            autoComplete="on"
+                                            required
+                                        />
 
-                                    <button disabled={isValid} >VALIDER</button>
-
-                                </fieldset>
-                            </form>
-                        </>
-                    ))
-                    }
+                                        <button disabled={isValid}>VALIDER</button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        ))
+                    ) : (
+                        <p>Aucune compétence trouvée.</p>
+                    )}
                 </span>
+
             </span >
         </>
     )
