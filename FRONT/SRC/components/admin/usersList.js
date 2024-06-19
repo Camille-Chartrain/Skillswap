@@ -55,6 +55,7 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
 
     const UserDelete = useCallback(async (user) => {
         try {
+            // console.log('dans fonction userDelete, user =', user);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/admin/${user.id}`, {
                 method: "delete",
@@ -63,7 +64,7 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(user),
+                body: JSON.stringify()
             })
 
             console.log("response avant .json", response);
@@ -121,7 +122,7 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
                                 <h6>cree le : {user?.createdAt}</h6>
                                 <h6>Swappies : {user?.swappies}</h6>
                                 <button className="orangeBtn" onClick={handlechange.bind(null, user)}>EDITER</button>
-                                <button className="redBtn" onClick={UserDelete}>SUPPRIMER</button>
+                                <button className="redBtn" onClick={UserDelete.bind(null, user)}>SUPPRIMER</button>
                             </li>
                         ))
                     }
