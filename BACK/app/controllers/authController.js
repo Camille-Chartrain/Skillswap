@@ -63,6 +63,7 @@ const authController = {
         //      oui => comparaison hash
         //          mdp ok => verification existence token
         //              pas de token => création token
+        //                              verification if admin ?
         //                              renvoi token
         //                              sortie de fonction
         //              token => verification validité token
@@ -124,9 +125,27 @@ const authController = {
                         // const accessToken = jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1h' })
                         const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
                         console.log('token crée dans login==================', accessToken);
-                        res.status(200).json({ accessToken: accessToken })
-                        // return non nécéssaire.? sécurité?
-                        return;
+
+                        // await User.findOne
+                        if (user.role === 'admin') {
+                            console.log("user.role", user.role);
+                            res.status(200).json(
+                                {
+                                    accessToken: accessToken,
+                                    role: 'admin'
+                                }
+                            )
+                        }
+                        else {
+                            res.status(200).json(
+                                {
+                                    accessToken: accessToken,
+                                    role: 'member'
+                                }
+                            )
+                            // return non nécéssaire.? sécurité?
+                            return;
+                        }
                     }
 
                     // if user has a token we verify it
@@ -144,19 +163,53 @@ const authController = {
 
                                 const userExist = await User.findOne({ where: { email: req.body.email } });
 
+                                console.log("userExist", userExist)
+
                                 const username = {
                                     email: req.body.email,
                                     id: userExist.id
                                 }
                                 const accessToken = jwt.sign(username, process.env.TOKEN_SECRET)
                                 console.log('token crée dans login + deconnection ancien user =================', accessToken);
-                                res.status(200).json({ accessToken: accessToken })
+
+                                if (userExist.role === 'admin') {
+                                    console.log("userExist.role =", userExist.role);
+                                    res.status(200).json(
+                                        {
+                                            accessToken: accessToken,
+                                            role: 'admin'
+                                        }
+                                    )
+                                }
+                                else {
+                                    res.status(200).json(
+                                        {
+                                            accessToken: accessToken,
+                                            role: 'member'
+                                        }
+                                    )
+                                    return;
+                                }
+                            }
+                            else if (user.role === 'admin') {
+                                console.log("user.role =", user.role);
+                                res.status(200).json(
+                                    {
+                                        message: "token validé",
+                                        role: 'admin'
+                                    }
+                                )
                             }
                             else {
-                                res.status(200).json('token validé !!')
+                                res.status(200).json(
+                                    {
+                                        message: "token validé",
+                                        role: 'member'
+                                    }
+                                )
                             }
-                            // avait ecrit "innerError"
-                        } catch (error) {
+                        }
+                        catch (error) {
                             // Gérer l'erreur de vérification du token
                             console.error('Erreur de vérification du token, bloc interne:', error.message);
                             // est ce ok de mettre throw new error dans catch

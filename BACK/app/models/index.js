@@ -47,10 +47,17 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Cochise1234.', presentation: "Mains toutes vertes et vie en rose" },
 
 // ]);
+
 // await User.create(
 //     { firstname: "Ali", lastname: "Baba", email: 'tapis@volant.com', hash: 'Cochise1234.', role: "admin" },);
 
+
 // // Camille
+
+// await User.create(
+//     { firstname: "Ali", lastname: "Baba", email: 'tapis@gmail.com', hash: 'Azertyuiop12!', role: "admin" },);
+
+
 // await User.bulkCreate([
 //     { firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!', presentation: " j'adore gagner" },
 //     { firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Azertyuiop12!', presentation: "toujours de bonne humeur" },

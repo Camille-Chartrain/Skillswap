@@ -33,7 +33,7 @@ const adminController = {
             );
         }
         catch (error) {
-            console.error('erreur findAll users:', error);
+            console.error('erreur admin findAll users:', error);
             res.status(500).json({
                 message: 'Error  get users in adminController',
                 error: error
@@ -65,7 +65,7 @@ const adminController = {
             }
         }
         catch (error) {
-            console.error('erreur findAll users:', error);
+            console.error('admin erreur findAll users:', error);
             res.status(500).json({
                 message: 'Error  get users in adminController',
                 error: error
@@ -77,9 +77,8 @@ const adminController = {
         try {
             // req.params contains data from url
             //rew.body contains body of request from forms
-            console.log(req.body);
-            console.log(req.params.skillId);
-            console.log(req.params);
+            console.log("req.body", req.body);
+            console.log("req.params", req.params);
 
             const updateFieldsProfile = {
 
@@ -93,7 +92,6 @@ const adminController = {
                 updateFieldsProfile, {
                 where: {
                     id: req.params.userId
-
                 }
             });
 
@@ -130,13 +128,30 @@ const adminController = {
             });
             //profile is updated
 
-
             //send the answer to the front
-            res.status(200).json("update admin du skill ok")
+            res.status(200).json("admin update du skill ok")
         }
         catch (error) {
             console.error(error.message);
             res.send('error update admin skill:', error);
+        }
+    },
+
+    adminDeleteOneSkill: async function (req, res) {
+        try {
+            // req.params contains all the data
+            console.log(req.params);
+            await Skill.destroy({
+                where: {
+                    id: req.params.skillId
+                },
+            });
+            //send the answer to the front
+            res.status(200).json('admin skill deletion completed');
+        }
+        catch (error) {
+            console.error(error.message);
+            res.send('error admin delete one skill', error);
         }
     },
 
@@ -147,15 +162,23 @@ const adminController = {
             console.log(req.params);
             await User.destroy({
                 where: {
-                    id: req.params.UserId
-                }
+                    id: req.params.userId
+                },
+                include: [
+                    {
+                        model: Skill,
+                        where: {
+                            Userid: req.params.userId
+                        }
+                    }
+                ]
             });
             //send the answer to the front
-            res.status(200).json('user skill deletion completed');
+            res.status(200).json('admin user + skill deletion completed');
         }
         catch (error) {
             console.error(error.message);
-            res.send('error delete skill', error);
+            res.send('error admin delete user + skill', error);
         }
     },
 
