@@ -22,7 +22,6 @@ const User = ({
     error,
     setError,
     handleNotFoundError,
-    handleLogout,
     register, handleSubmit, setValue, reset, isValid
 }) => {
 
@@ -53,6 +52,36 @@ const User = ({
         setValue(name, value);
     };
 
+    const handleLogout = async () => {
+
+        try {
+            // console.log("deconnection => supprimer cookie. (composant Dashboard)");
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/logout`, {
+                method: "POST",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+
+            // console.log("response", response);
+            const resultLogout = await response.json();
+            // console.log('response component dashboard logout:', resultLogout);
+
+            // delete cookie JWT on client's side
+            let thisToken = Cookies.remove('token');
+            thisToken = null
+            if (thisToken == null) {
+                // console.log("token", thisToken);
+                navigate("/");
+            }
+        }
+        catch (error) {
+            console.log("erreur :", error);
+        };
+    }
 
     const GetAllSkillUser = useCallback(async () => {
         try {

@@ -20,11 +20,12 @@ import { isLogged } from '../../util';
 import Results from '../results/Results';
 import UsersList from '../admin/usersList';
 import User from '../admin/user/index';
-
+import Cookies from 'js-cookie';
 //* we call render on the container and give it the component for the view.here we placed the router to display the routes to navigate between the components
 
 //* components added for the user rendering
 const App = ({ darkMode }) => {
+
 
 
     //=error's state management
@@ -51,7 +52,6 @@ const App = ({ darkMode }) => {
 
     // -> hook form create to post datas
     const { handleSubmit, register, setValue, reset } = useForm({ mode: 'onChange' });
-
 
     return (
         <span className={theme}>
@@ -144,7 +144,9 @@ const App = ({ darkMode }) => {
                     />
 
                     <Route path="/admin" element={
-                        <UsersList setError={setError} error={error} handleNotFoundError={handleNotFoundError} />
+                        <UsersList
+                            setError={setError} error={error} handleNotFoundError={handleNotFoundError}
+                        />
                     } />
 
                     <Route path="/admin/user" element={
@@ -155,7 +157,8 @@ const App = ({ darkMode }) => {
                             handleSubmit={handleSubmit}
                             register={register}
                             reset={reset}
-                            setValue={setValue} />
+                            setValue={setValue}
+                        />
                     } />
 
                     <Route path="*" element={<Error error={error} setError={setError} />} />
