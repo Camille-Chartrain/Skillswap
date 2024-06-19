@@ -10,13 +10,46 @@ import logout from '../../style/pictures/logout.svg';
 //= details' Users are totally show only when the user is logged
 
 
-const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
+const Admin = (reset, setError, error, handleNotFoundError) => {
 
     const [usersList, setUsersList] = useState([]);
+    const [deleteUser, setdeleteUser] = useState(false);
+
+    const handleLogout = async () => {
+
+        try {
+            // console.log("deconnection => supprimer cookie. (composant Dashboard)");
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/logout`, {
+                method: "POST",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+
+            // console.log("response", response);
+            const resultLogout = await response.json();
+            // console.log('response component dashboard logout:', resultLogout);
+
+            // delete cookie JWT on client's side
+            let thisToken = Cookies.remove('token');
+            thisToken = null
+            if (thisToken == null) {
+                // console.log("token", thisToken);
+                navigate("/");
+            }
+        }
+        catch (error) {
+            console.log("erreur :", error);
+        };
+    }
 
 
     const GetUsersList = useCallback(async () => {
         try {
+            // console.log('dans fetch UserList');
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/admin`, {
                 method: "get",
@@ -54,15 +87,16 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
 
     const UserDelete = useCallback(async (user) => {
         try {
+            // console.log('dans fonction userDelete, user =', user);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/user/${user.id}`, {
+            const response = await fetch(`http://localhost:3000/admin/${user.id}`, {
                 method: "delete",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(user),
+                body: JSON.stringify()
             })
 
             console.log("response avant .json", response);
@@ -70,16 +104,18 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
             const dataUser = await response.json();
             console.log("response json analysee:", dataUser);
 
-            if (dataUser === "deletion ok") {
-                reset();
+            if (dataUser === 'admin user + skill deletion completed') {
+                // reset();
+                setdeleteUser(true)
+                GetUsersList()
 
-                // delete cookie JWT on client's side
-                let token = Cookies.remove('token');
-                token = null
-                if (token == null) {
-                    console.log("token", token);
-                    navigate("/");
-                }
+                // // delete cookie JWT on client's side
+                // let token = Cookies.remove('token');
+                // token = null
+                // if (token == null) {
+                //     console.log("token", token);
+                //     navigate("/");
+                // }
             }
             else {
                 throw new Error("Invalid response from API");
@@ -88,8 +124,8 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
         }
         catch (error) {
             console.log("catch UserDelete :", error);
-            setError("L'utilisateur n'a pas pu etre supprime");
-            handleNotFoundError("L'utilisateur n'a pas pu etre supprime");
+            // setError("L'utilisateur n'a pas pu etre supprime");
+            // handleNotFoundError("L'utilisateur n'a pas pu etre supprime");
         }
     });
     return (
@@ -105,7 +141,8 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
             </span>
             <span className="user" >
                 {error && <Error error={error} />}
-                <ul>
+                {deleteUser && <span>  Membre supprimé </span>}
+                <ul className="user-li" >
                     {
                         usersList.rows && usersList.rows.length > 0 && usersList?.rows?.map((user) => (
 
@@ -117,10 +154,8 @@ const Admin = (reset, setError, error, handleNotFoundError, handleLogout) => {
                                 <h6>Email: {user?.email}</h6>
                                 <h6>cree le : {user?.createdAt}</h6>
                                 <h6>Swappies : {user?.swappies}</h6>
-                                <span className="btn">
-                                    <button className="orangeBtn" onClick={handlechange.bind(null, user)}>EDITER</button>
-                                    <button className="redBtn" onClick={UserDelete}>SUPPRIMER</button>
-                                </span>
+                                <button className="orangeBtn" onClick={handlechange.bind(null, user)}>EDITER</button>
+                                <button className="redBtn" onClick={UserDelete.bind(null, user)}>SUPPRIMER</button>
                             </li>
                         ))
                     }

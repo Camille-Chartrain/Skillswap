@@ -20,14 +20,14 @@ const User = ({
     error,
     setError,
     handleNotFoundError,
-    handleLogout,
     register, handleSubmit, setValue, reset, isValid
 }) => {
 
     const navigate = useNavigate();
     const location = useLocation();
     const user = location.state?.user;
-    const [update, setUpdate] = useState(false)
+    const [updateUser, setUpdateUser] = useState(false)
+    const [updateSkill, setUpdateSkill] = useState(false)
     const [skillsList, setSkillsList] = useState(null);
     console.log("user ds User avant le state:", user);
     const [oneUser, setOneUser] = useState(user || {
@@ -48,6 +48,36 @@ const User = ({
         setValue(name, value);
     };
 
+    const handleLogout = async () => {
+
+        try {
+            // console.log("deconnection => supprimer cookie. (composant Dashboard)");
+            const token = Cookies.get('token');
+            const response = await fetch(`http://localhost:3000/logout`, {
+                method: "POST",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+
+            // console.log("response", response);
+            const resultLogout = await response.json();
+            // console.log('response component dashboard logout:', resultLogout);
+
+            // delete cookie JWT on client's side
+            let thisToken = Cookies.remove('token');
+            thisToken = null
+            if (thisToken == null) {
+                // console.log("token", thisToken);
+                navigate("/");
+            }
+        }
+        catch (error) {
+            console.log("erreur :", error);
+        };
+    }
 
     const GetAllSkillUser = useCallback(async () => {
         try {
@@ -103,32 +133,33 @@ const User = ({
             console.log("response post User avant .json", response);
             const dataUser = await response.json();
             console.log(" response apres .json:", dataUser);
-            if (dataUser === "update admin du profile ok") {
-                setUpdate(true)
+            if (dataUser === "admin update du skill ok") {
+                setUpdateUser(true)
             }
 
         }
         catch (error) {
             console.error("catch UserPatch : ", error);
-            setError("Erreur lors de la modification de l'utilisateur");
-            handleNotFoundError("Erreur lors de la modification de l'utilisateur");
+            // setError("Erreur lors de la modification de l'utilisateur");
+            // handleNotFoundError("Erreur lors de la modification de l'utilisateur");
         }
     }, []);
 
     //=post method to send info
-    const PatchCompetence = useCallback(async (skill) => {
+    const PatchCompetence = useCallback(async (data, skill) => {
         try {
 
-            console.log('try skill:', skill);
+            console.log('try skill dans patchCompetence:', skill);
+            console.log('try data dans patchCompetence:', data);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/admin/skill/${skill.id}`, {
-                method: "patch",
+                method: "PATCH",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(skill)
+                body: JSON.stringify(data)
                 // credentials: 'include'
             })
 
@@ -136,6 +167,9 @@ const User = ({
             console.log("response avant .json", response);
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
+            if (dataSkill === "update admin du profile ok") {
+                setUpdateSkill(true)
+            }
             reset();
             GetAllSkillUser();
         }
@@ -238,10 +272,11 @@ const User = ({
                                                     autoComplete="on"
                                                     required
                                                 />
+
                                             </span>
 
-
                                             <button disabled={isValid}>VALIDER</button>
+                                            {updateSkill && <span>  modifications validées </span>}
                                         </fieldset>
                                     </form>
                                 </div>

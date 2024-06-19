@@ -62,8 +62,8 @@ const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory,
         }
         catch (error) {
             console.error("catch GetSubCategoriesList:", error);
-            setError("Selectionnez une sous-categorie");
-            handleNotFoundError("Selectionnez une sous-categorie");
+            // setError("Selectionnez une sous-categorie");
+            // handleNotFoundError("Selectionnez une sous-categorie");
         }
     }, [selectedCategory]);
 
