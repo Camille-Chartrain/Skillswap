@@ -120,19 +120,20 @@ const User = ({
     }, []);
 
     //=post method to send info
-    const PatchCompetence = useCallback(async (skill) => {
+    const PatchCompetence = useCallback(async (data, skill) => {
         try {
 
-            console.log('try skill:', skill);
+            console.log('try skill dans patchCompetence:', skill);
+            console.log('try data dans patchCompetence:', data);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/admin/skill/${skill.id}`, {
-                method: "patch",
+                method: "PATCH",
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(skill)
+                body: JSON.stringify(data)
                 // credentials: 'include'
             })
 
@@ -203,8 +204,10 @@ const User = ({
                         skillsList.rows.map((skill) => (
                             <div key={skill.id}>
                                 <h4>Titre : {skill.title}</h4>
-                                {console.log("skillList dans JSX=", skillsList)}
-                                <form method="POST" onSubmit={handleSubmit(PatchCompetence)} className="skill">
+
+                                <form method="POST" onSubmit={handleSubmit(function (data) { PatchCompetence(data, skill) })} className="skill">
+                                    {/* <form method="POST" onSubmit={handleSubmit(PatchCompetence)} className="skill"> */}
+
                                     <fieldset className="changeSkill">
                                         <label htmlFor="duration">Durée :</label>
                                         <input
