@@ -157,7 +157,7 @@ const User = ({
                     {skillList && skillList.length > 0 && skillList?.rows?.map((skill) => (
                         <>
                             <h4>Titre  : {skill.title}</h4>
-                            <form method="POST" onSubmit={handleSubmit(PatchCompetence)} className="skill">
+                            <form method="Post" onSubmit={handleSubmit(PatchCompetence)} className="skill">
                                 <fieldset className="changeSkill">
                                     <label htmlFor="duration">Duree :</label>
                                     <input id="duration" type="text" name="duration" {...register("duration")} size="25" autoComplete="duration" />
