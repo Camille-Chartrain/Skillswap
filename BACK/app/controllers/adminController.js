@@ -77,9 +77,8 @@ const adminController = {
         try {
             // req.params contains data from url
             //rew.body contains body of request from forms
-            console.log(req.body);
-            console.log(req.params.skillId);
-            console.log(req.params);
+            console.log("req.body", req.body);
+            console.log("req.params", req.params);
 
             const updateFieldsProfile = {
 

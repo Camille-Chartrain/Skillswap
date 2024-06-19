@@ -163,6 +163,8 @@ const authController = {
 
                                 const userExist = await User.findOne({ where: { email: req.body.email } });
 
+                                console.log("userExist", userExist)
+
                                 const username = {
                                     email: req.body.email,
                                     id: userExist.id
@@ -171,7 +173,7 @@ const authController = {
                                 console.log('token crée dans login + deconnection ancien user =================', accessToken);
 
                                 if (userExist.role === 'admin') {
-                                    console.log("user.role", user.role);
+                                    console.log("userExist.role =", userExist.role);
                                     res.status(200).json(
                                         {
                                             accessToken: accessToken,
@@ -189,8 +191,8 @@ const authController = {
                                     return;
                                 }
                             }
-                            else if (userExist.role === 'admin') {
-                                console.log("user.role", user.role);
+                            else if (user.role === 'admin') {
+                                console.log("user.role =", user.role);
                                 res.status(200).json(
                                     {
                                         message: "token validé",
