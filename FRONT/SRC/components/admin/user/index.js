@@ -229,20 +229,20 @@ const User = ({
                             <span className="user-info">
                                 <label htmlFor="firstname">Prénom :</label>
                                 <input id="firstname" type="text" name="firstname" {...register("firstname")}
-                                    defaultValue={oneUser.firstname || ''} onChange={handleChangeUser} size="15" />
+                                    value={oneUser.firstname || ''} onChange={handleChangeUser} size="15" />
 
                                 <label htmlFor="lastname">Nom :</label>
                                 <input id="lastname" type="text" name="lastname"{...register("lastname")}
-                                    defaultValue={oneUser.lastname || ''} onChange={handleChangeUser} size="15" />
+                                    value={oneUser.lastname || ''} onChange={handleChangeUser} size="15" />
                             </span>
                             <span className="user-status">
                                 <label htmlFor="presentation">Presentez vous :</label>
                                 <textarea id="presentation" name="presentation" {...register("presentation")}
-                                    defaultValue={oneUser.presentation || ''} onChange={handleChangeUser} rows="3" cols="20" />
+                                    value={oneUser.presentation || ''} onChange={handleChangeUser} rows="3" cols="20" />
 
                                 <label htmlFor="swappies">Swappies :</label>
                                 <input id="swappies" type="number" name="swappies"{...register("swappies")}
-                                    defaultValue={oneUser.swappies || ''} onChange={handleChangeUser} size="5" />
+                                    value={oneUser.swappies || ''} onChange={handleChangeUser} size="5" />
                             </span>
                             <span className="user-h4">
                                 <h4>Email :</h4><span> {oneUser.email}</span>
@@ -277,7 +277,7 @@ const User = ({
                                                         type="text"
                                                         name="duration"
                                                         {...register("duration")}
-                                                        defaultValue={skill.duration || ''}
+                                                        value={skill.duration || ''}
                                                         onChange={handleChangeSkill}
                                                         size="15"
                                                         autoComplete="duration"
@@ -289,7 +289,7 @@ const User = ({
                                                         type="availability"
                                                         name="availability"
                                                         {...register("availability")}
-                                                        defaultValue={skill.availability || ''}
+                                                        value={skill.availability || ''}
                                                         onChange={handleChangeSkill}
                                                         size="25"
                                                         autoComplete="on"
@@ -301,7 +301,7 @@ const User = ({
                                                     id="description"
                                                     name="description"
                                                     {...register("description")}
-                                                    defaultValue={skill.description || ''}
+                                                    value={skill.description || ''}
                                                     onChange={handleChangeSkill}
                                                     rows="5"
                                                     cols="33"
