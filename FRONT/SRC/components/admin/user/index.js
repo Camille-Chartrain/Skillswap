@@ -44,6 +44,7 @@ const User = ({
         console.log("user ds User avant le state:", user);
     }, [user]);
 
+    console.log('yo oes looser!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
 
 
 
@@ -54,7 +55,7 @@ const User = ({
         setValue(name, value);
     };
 
-    //= to refresh the skillsList state between two changes
+    // = to refresh the skillsList state between two changes
     const handleChangeSkill = (e, id) => {
         const { name, value } = e.target;
         setSkillsList((prevSkillsList) =>
@@ -135,9 +136,9 @@ const User = ({
         }
     }, [GetAllSkillUser, user]);
 
-    useEffect(() => {
-        console.log("skillsList updated", skillsList);
-    }, [skillsList]);
+    // useEffect(() => {
+    //     console.log("skillsList updated", skillsList);
+    // }, [skillsList]);
 
     //=post method to send info
     const UserPatch = useCallback(async (data, setError, error, handleNotFoundError) => {
@@ -278,7 +279,7 @@ const User = ({
                                                         name="duration"
                                                         {...register("duration")}
                                                         value={skill.duration || ''}
-                                                        onChange={handleChangeSkill}
+                                                        onChange={(e) => handleChangeSkill(e, skill.id)}
                                                         size="15"
                                                         autoComplete="duration"
                                                     />
@@ -286,13 +287,13 @@ const User = ({
                                                     <label htmlFor="availability">Disponibilité :</label>
                                                     <input
                                                         id="availability"
-                                                        type="availability"
+                                                        type="text"
                                                         name="availability"
                                                         {...register("availability")}
                                                         value={skill.availability || ''}
-                                                        onChange={handleChangeSkill}
+                                                        onChange={(e) => handleChangeSkill(e, skill.id)}
                                                         size="25"
-                                                        autoComplete="on"
+
 
                                                     />
                                                 </span>
@@ -302,7 +303,7 @@ const User = ({
                                                     name="description"
                                                     {...register("description")}
                                                     value={skill.description || ''}
-                                                    onChange={handleChangeSkill}
+                                                    onChange={(e) => handleChangeSkill(e, skill.id)}
                                                     rows="5"
                                                     cols="33"
                                                     autoComplete="on"
