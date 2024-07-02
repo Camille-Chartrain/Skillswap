@@ -41,11 +41,8 @@ const User = ({
     })
 
     useEffect(() => {
-        console.log("user ds User avant le state:", user);
+        // console.log("user ds User avant le state:", user);
     }, [user]);
-
-    console.log('yo oes looser!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-
 
 
     //= to refresh the oneUser state between two changes
@@ -100,7 +97,7 @@ const User = ({
     const GetAllSkillUser = useCallback(async () => {
         try {
 
-            console.log('try GetAllSkillUser user=:', user);
+            // console.log('try GetAllSkillUser user=:', user);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/admin/${user.id}`, {
                 method: "get",
@@ -114,12 +111,12 @@ const User = ({
             })
 
             //=traduct api response in Json
-            console.log("response avant .json", response);
+            // console.log("response avant .json", response);
             const dataskills = await response.json();
-            console.log(" response 'dataskills' apres .json:", dataskills);
+            // console.log(" response 'dataskills' apres .json:", dataskills);
             // console.log("dataskills.rows", dataskills.rows);
             setSkillsList(dataskills.rows)
-            console.log("skillsList getAllSkillsUser", skillsList);
+            // console.log("skillsList getAllSkillsUser", skillsList);
         }
         catch (error) {
             console.log("erreur cath :", error);
@@ -144,7 +141,7 @@ const User = ({
     const UserPatch = useCallback(async (data, setError, error, handleNotFoundError) => {
 
         try {
-            console.log('data envoyees:', data);
+            // console.log('data envoyees:', data);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/admin/${user.id}`, {
                 method: 'PATCH',
@@ -157,14 +154,14 @@ const User = ({
                 // credentials: 'include',
             })
 
-            console.log('response.status:', response.status);
+            // console.log('response.status:', response.status);
 
             //=traduct api response in Json
-            console.log("response post User avant .json", response);
+            // console.log("response post User avant .json", response);
             const dataUser = await response.json();
-            console.log(" response apres .json:", dataUser);
+            // console.log(" response apres .json:", dataUser);
             if (dataUser === "update admin du profile ok") {
-                console.log("datauser=", dataUser);
+                // console.log("datauser=", dataUser);
                 setUpdateUser(true)
             }
 
@@ -180,8 +177,8 @@ const User = ({
     const PatchCompetence = useCallback(async (data, skill) => {
         try {
 
-            console.log('try skillList dans patchCompetence:', skillsList);
-            console.log('try data dans patchCompetence:', data);
+            // console.log('try skillList dans patchCompetence:', skillsList);
+            // console.log('try data dans patchCompetence:', data);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/admin/skill/${skill.id}`, {
                 method: "PATCH",
@@ -195,9 +192,9 @@ const User = ({
             })
 
             //=traduct api response in Json
-            console.log("response avant .json", response);
+            // console.log("response avant .json", response);
             const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
+            // console.log(" response apres .json:", dataSkill);
             if (dataSkill === "admin update du skill ok") {
                 setUpdateSkill(true)
             }

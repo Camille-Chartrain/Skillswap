@@ -58,11 +58,11 @@ const Admin = (reset, setError, error, handleNotFoundError) => {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-            console.log("data avt Json:", response);
+            // console.log("data avt Json:", response);
             const dataUser = await response.json();
-            console.log("data aps Json:", dataUser);
+            // console.log("data aps Json:", dataUser);
             setUsersList(dataUser);
-            console.log("state getUser:", usersList);
+            // console.log("state getUser:", usersList);
         }
         catch (error) {
             console.error("erreur du catch GetUsersList", error);
@@ -76,9 +76,9 @@ const Admin = (reset, setError, error, handleNotFoundError) => {
 
     //=  user's datas before go to user component
     const handlechange = (user) => {
-        console.log('handlechange: ', user)
+        // console.log('handlechange: ', user)
         const id = user.id;
-        console.log('HC recup id:', id);
+        // console.log('HC recup id:', id);
         navigate('/admin/user/',
             {
                 state: { user }
@@ -99,23 +99,15 @@ const Admin = (reset, setError, error, handleNotFoundError) => {
                 body: JSON.stringify()
             })
 
-            console.log("response avant .json", response);
+            // console.log("response avant .json", response);
             //=traduct api response from Json to JS
             const dataUser = await response.json();
-            console.log("response json analysee:", dataUser);
+            // console.log("response json analysee:", dataUser);
 
             if (dataUser === 'admin user + skill deletion completed') {
                 // reset();
                 setdeleteUser(true)
                 GetUsersList()
-
-                // // delete cookie JWT on client's side
-                // let token = Cookies.remove('token');
-                // token = null
-                // if (token == null) {
-                //     console.log("token", token);
-                //     navigate("/");
-                // }
             }
             else {
                 throw new Error("Invalid response from API");
@@ -147,7 +139,7 @@ const Admin = (reset, setError, error, handleNotFoundError) => {
                         usersList.rows && usersList.rows.length > 0 && usersList?.rows?.map((user) => (
 
                             <li key={user.id} className="user-li">
-                                {console.log("user", user)}
+                                {/* {console.log("user", user)} */}
                                 <h3>{user?.id}</h3>
 
                                 <h5>{user?.firstname}</h5>
