@@ -5,7 +5,7 @@ import logout from '../../../style/pictures/logout.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { useCallback, useState, useEffect } from 'react';
-import skillList from '../../skillList/index';
+
 
 
 const User = ({
@@ -41,10 +41,20 @@ const User = ({
         count: '',
     })
 
+
+
+
     //= to refresh the oneUser state between two changes
     const handleChangeUser = (e) => {
         const { name, value } = e.target;
         setOneUser((prevOneUser) => ({ ...prevOneUser, [name]: value }));
+        setValue(name, value);
+    };
+
+    //= to refresh the oneUser state between two changes
+    const handleChangeSkill = (e) => {
+        const { name, value } = e.target;
+        setOneSkill((prevSkillsList) => ({ ...prevSkillsList, [name]: value }));
         setValue(name, value);
     };
 
@@ -104,8 +114,8 @@ const User = ({
         }
         catch (error) {
             console.log("erreur cath :", error);
-            setError("Erreur lors de la creation de Competence");
-            handleNotFoundError("Erreur lors de la creation de Competence");
+            setError("Erreur lors de la recuperation des Competence");
+            handleNotFoundError("Erreur lors de la recuperation des Competence");
         }
     }, []);
     useEffect(() => { GetAllSkillUser() }, [])
@@ -141,8 +151,8 @@ const User = ({
         }
         catch (error) {
             console.error("catch UserPatch : ", error);
-            // setError("Erreur lors de la modification de l'utilisateur");
-            // handleNotFoundError("Erreur lors de la modification de l'utilisateur");
+            setError("Erreur lors de la modification de l'utilisateur");
+            handleNotFoundError("Erreur lors de la modification de l'utilisateur");
         }
     }, []);
 
@@ -248,6 +258,8 @@ const User = ({
                                                         type="text"
                                                         name="duration"
                                                         {...register("duration")}
+                                                        defaultValue={skill.duration || ''}
+                                                        onChange={handleChangeSkill}
                                                         size="15"
                                                         autoComplete="duration"
                                                     />
@@ -258,9 +270,11 @@ const User = ({
                                                         type="availability"
                                                         name="availability"
                                                         {...register("availability")}
+                                                        defaultValue={skill.availability || ''}
+                                                        onChange={handleChangeSkill}
                                                         size="25"
                                                         autoComplete="on"
-                                                        required
+
                                                     />
                                                 </span>
                                                 <label htmlFor="description">Descriptif :</label>
@@ -268,10 +282,12 @@ const User = ({
                                                     id="description"
                                                     name="description"
                                                     {...register("description")}
+                                                    defaultValue={skill.description || ''}
+                                                    onChange={handleChangeSkill}
                                                     rows="5"
                                                     cols="33"
                                                     autoComplete="on"
-                                                    required
+
                                                 />
 
                                             </span>
