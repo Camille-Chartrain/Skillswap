@@ -28,8 +28,7 @@ const User = ({
     const user = location.state?.user;
     const [updateUser, setUpdateUser] = useState(false)
     const [updateSkill, setUpdateSkill] = useState(false)
-    const [skillsList, setSkillsList] = useState(null);
-    console.log("user ds User avant le state:", user);
+    const [skillsList, setSkillsList] = useState([]);
     const [oneUser, setOneUser] = useState(user || {
         id: [],
         firstname: '',
@@ -41,6 +40,10 @@ const User = ({
         count: '',
     })
 
+    useEffect(() => {
+        console.log("user ds User avant le state:", user);
+    }, [user]);
+
 
 
 
@@ -51,10 +54,14 @@ const User = ({
         setValue(name, value);
     };
 
-    //= to refresh the oneUser state between two changes
-    const handleChangeSkill = (e) => {
+    //= to refresh the skillsList state between two changes
+    const handleChangeSkill = (e, id) => {
         const { name, value } = e.target;
-        setOneSkill((prevSkillsList) => ({ ...prevSkillsList, [name]: value }));
+        setSkillsList((prevSkillsList) =>
+            prevSkillsList.map((skill) =>
+                skill.id === id ? { ...skill, [name]: value } : skill
+            )
+        );
         setValue(name, value);
     };
 
@@ -109,16 +116,28 @@ const User = ({
             console.log("response avant .json", response);
             const dataskills = await response.json();
             console.log(" response 'dataskills' apres .json:", dataskills);
-            setSkillsList(dataskills)
-
+            // console.log("dataskills.rows", dataskills.rows);
+            setSkillsList(dataskills.rows)
+            console.log("skillsList getAllSkillsUser", skillsList);
         }
         catch (error) {
             console.log("erreur cath :", error);
             setError("Erreur lors de la recuperation des Competence");
             handleNotFoundError("Erreur lors de la recuperation des Competence");
         }
-    }, []);
-    useEffect(() => { GetAllSkillUser() }, [])
+    }, [user]);
+
+
+
+    useEffect(() => {
+        if (user) {
+            GetAllSkillUser();
+        }
+    }, [GetAllSkillUser, user]);
+
+    useEffect(() => {
+        console.log("skillsList updated", skillsList);
+    }, [skillsList]);
 
     //=post method to send info
     const UserPatch = useCallback(async (data, setError, error, handleNotFoundError) => {
@@ -154,13 +173,13 @@ const User = ({
             setError("Erreur lors de la modification de l'utilisateur");
             handleNotFoundError("Erreur lors de la modification de l'utilisateur");
         }
-    }, []);
+    }, [user]);
 
     //=post method to send info
     const PatchCompetence = useCallback(async (data, skill) => {
         try {
 
-            console.log('try skill dans patchCompetence:', skill);
+            console.log('try skillList dans patchCompetence:', skillsList);
             console.log('try data dans patchCompetence:', data);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/admin/skill/${skill.id}`, {
@@ -178,7 +197,7 @@ const User = ({
             console.log("response avant .json", response);
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
-            if (dataSkill === "update admin du profile ok") {
+            if (dataSkill === "admin update du skill ok") {
                 setUpdateSkill(true)
             }
             reset();
@@ -189,7 +208,7 @@ const User = ({
             setError("Erreur lors de la creation de Competence");
             handleNotFoundError("Erreur lors de la creation de Competence");
         }
-    }, []);
+    }, [GetAllSkillUser]);
 
     return (
         <>
@@ -240,14 +259,14 @@ const User = ({
 
                     <span className="user-skill">
                         <h2>Liste des compétences</h2>
+                        {/* {console.log("skillList dans JSX=", skillsList)} */}
 
-                        {skillsList && skillsList?.rows?.length > 0 ? (
-                            skillsList.rows.map((skill) => (
+                        {skillsList && skillsList?.length > 0 ? (
+                            skillsList.map((skill) => (
                                 <div key={skill.id}>
 
-                                    {console.log("skillList dans JSX=", skillsList)}
-                                    <form method="POST" onSubmit={handleSubmit(PatchCompetence)} className="skill">
-
+                                    {/* {console.log("skillList dans JSX=", skillsList)} */}
+                                    <form method="POST" onSubmit={handleSubmit((data) => PatchCompetence(data, skill))} className="skill">
                                         <fieldset className="changeSkill">
                                             <h3>Titre : {skill.title}</h3>
                                             <span className="skillChange">
@@ -304,7 +323,7 @@ const User = ({
                     </span>
 
                 </span >
-            </div>
+            </div >
         </>
     )
 };
