@@ -4,30 +4,23 @@ import CourseStudent from "./courseStudent";
 import CourseTeached from "./courseTeached";
 
 
-const Learning = () => {
+const Learning = ({ GetMoney }) => {
 
 
 
 
     return (
-        <main>
-            <div className="learning">
-                <h2 id="learning">Apprentissage</h2>
 
-                <span className="learning-section">
-                    <div className="skillsList">
-                        <h3>Apprentissage en cours</h3>
-                        <CourseStudent />
-                    </div>
+        <span className="learning">
+            <h2 id="learning">Apprentissage</h2>
+            <span className="learning-section">
+                <CourseStudent />
+                <CourseTeached
+                    GetMoney={GetMoney}
+                />
+            </span>
+        </span >
 
-                    <div className="skillsList">
-                        <h3>Cours dispenses</h3>
-                        <CourseTeached />
-                    </div>
-                </span>
-
-            </div >
-        </main >
     )
 };
 export default Learning;

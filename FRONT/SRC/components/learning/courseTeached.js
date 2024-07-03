@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { link } from "fs";
 import { useNavigate } from "react-router-dom";
+import Error from '../error/error';
 
 
 //=manage reception notification
-const CourseTeached = () => {
+const CourseTeached = ({ handleNotFoundError, error, setError, GetMoney }) => {
     const [teacherReq, setTeacherReq] = useState([]);
     //=redirect for update skill
     const navigate = useNavigate();
@@ -29,21 +30,20 @@ const CourseTeached = () => {
             if (!response.ok) {
                 throw new Error('Failed to fetch courses');
             }
-
-            //=traduct api response in Json
-            // console.log("data CourseTeacheravant .json", response);
-            const dataTeacher = await response.json();
-            // console.log(" data CourseTeacherapres .json:", dataTeacher);
-            setTeacherReq(dataTeacher);
-
-
+            else {
+                //=traduct api response in Json
+                // console.log("data CourseTeacheravant .json", response);
+                const dataTeacher = await response.json();
+                // console.log(" data CourseTeacherapres .json:", dataTeacher);
+                setTeacherReq(dataTeacher);
+            }
         }
         catch (error) {
-            // console.log("catch GetCourseReqTeach: ", error)
-            // throw error;
+            console.log("catch GetCourseReqTeach: ", error);
+            setError("Erreur lors de la recuperation des donnees");
+            handleNotFoundError("Erreur lors de la recuperation des donnees");
         }
     }
-    useEffect(() => { getCourseTeacher() }, [])
 
 
     //= to manage  requests received 
@@ -59,28 +59,24 @@ const CourseTeached = () => {
                     'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(item),
-                // credentials: 'include'
             })
 
-            if (!response.ok) {
-                throw new Error('Failed to fetch courses');
-            }
+            if (response.ok) {
 
-            // //=traduct api response in Json
-            const dataTeacher = await response.json();
-            // console.log('dataItem avant if:', dataTeacher);
-            setTeacherReq(dataTeacher);
+                // console.log("dans le reponse.ok validate");
+                // console.log("response", response);
+                getCourseTeacher();
 
-            setTeacherReq(dataTeacher);
-            if (dataFinish === "meeting closed, swappie handled") {
-                navigate("/dashboard");
-            }
-            else {
+            } else {
                 throw new Error("Invalid response from API");
             }
+
+
         }
         catch (error) {
             console.log("catch de patchCourseValidate:", error);
+            setError("Erreur lors de la recuperation des donnees");
+            handleNotFoundError("impossible de valider ce cours");
         }
     }
 
@@ -101,23 +97,23 @@ const CourseTeached = () => {
             })
 
             // //=traduct api response in Json
-
-            const dataReject = await response.json();
             // console.log('dataReject avant if:', response);
+            const dataReject = await response.json();
+            // console.log('dataRejeect apres json', dataReject);
 
-            setTeacherReq(dataReject);
-
-            setTeacherReq(dataReject);
-            if (dataFinish === "meeting closed, swappie handled") {
-                navigate("/dashboard");
+            if (dataReject == "meeting declined") {
+                // console.log("dans le reponse reject");
+                // console.log("response", response);
+                getCourseTeacher();
             }
             else {
                 throw new Error("Invalid response from API");
             }
-
         }
         catch (error) {
             console.log("catch de patchCourseRejeted:", error);
+            setError("Erreur lors de la recuperation des donnees");
+            handleNotFoundError("Impossible de rejeter ce cours");
         }
     }
 
@@ -135,18 +131,21 @@ const CourseTeached = () => {
                     'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(item),
-                // credentials: 'include'
             })
 
             // //=traduct api response in Json
 
             const dataFinish = await response.json();
             // console.log('dataFinish avant if:', response);
+            // console.log('rep json:', dataFinish);
 
 
-            setTeacherReq(dataFinish);
-            if (dataFinish === "meeting closed, swappie handled") {
-                navigate("/dashboard");
+            if (dataFinish == "meeting closed, swappies handled") {
+                // console.log("dans le reponse terminer cours");
+                // console.log("response", response);
+                getCourseTeacher();
+                GetMoney();
+
             }
             else {
                 throw new Error("Invalid response from API");
@@ -154,39 +153,53 @@ const CourseTeached = () => {
 
         }
         catch (error) {
-            // console.log("catch de patchCourseFinished:", error);
+            console.log("catch de patchCourseFinished:", error);
+            setError("Impossible de terminer ce cours");
+            handleNotFoundError("Impossible de terminer ce cours");
         }
     }
 
+    useEffect(() => { getCourseTeacher() }, [])
+
+
     return (
-        <>
-            <ul>
-                {teacherReq?.map((item) => (
-                    <>
-                        {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
+        <span className="learningList">
+            <h3>Section Enseignant</h3>
+            {
+                error && <Error error={error} /> ? Error : (
+                    <ul>
+                        {teacherReq && teacherReq.length > 0 ?
+                            teacherReq?.map((item) => (
+                                <>
+                                    {/* { console.log("qu'est ce que item.title ?:", item.Skill.title) } */}
 
-                        <li li key={item.id} >
-                            <h5> {item.Skill.title}</h5>
-                            <h5>{item.User.firstname} {item.User.lastname}</h5>
-                            <div className="status" >
-                                {item.status === "en attente" &&
-                                    <>
-                                        <button onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE</button>
-                                        <button onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
-                                    </>
-                                }
-                                {item.status === "refusé" && <h4>COURS REFUSÉ</h4>}
-                                {item.status === "en cours" && <button onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
-                                {item.status === "terminé" && <h5>COURS TERMINÉ</h5>}
-                                {/* {item.status === "noté" && <h5>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</h5>} */}
-                                {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <h5>STATUT INCONNU</h5>}
-                            </div>
-                        </li>
-                    </>
-                ))}
-            </ul >
-
-        </>
+                                    <li className="learning-li btn" key={item.id} >
+                                        <span> {item.Skill.title}</span>
+                                        <span>{item.User.firstname} {item.User.lastname}</span>
+                                        <span span className="status btn" >
+                                            {
+                                                item.status === "en attente" &&
+                                                <>
+                                                    <button className="blueBtn" onClick={patchCourseValidate.bind(null, item)}>VALIDER LA DEMANDE</button>
+                                                    <button className="redBtn" onClick={patchCourseRejeted.bind(null, item)} >REJETER LA DEMANDE</button>
+                                                </>
+                                            }
+                                            {item.status === "refusé" && <span className="status-reject">COURS REFUSÉ</span>}
+                                            {item.status === "en cours" && <button className="orangeBtn" onClick={patchCourseFinished.bind(null, item)}>TERMINER LE COURS</button>}
+                                            {item.status === "terminé" && <><span className="status-finish" >TERMINÉ </span><span className="status-congrat">Bravo ! Vous gagnez 1 Swappie</span></>}
+                                            {/* {item.status === "noté" && <span>TERMINÉ - NOTE REÇUE:{item.Skill.mark-chemin à revoir}</span>} */}
+                                            {item.status !== "en attente" && item.status !== "noté" && item.status !== "refusé" && item.status !== "en cours" && item.status !== "terminé" && <span>STATUT INCONNU</ span>}
+                                        </span>
+                                    </li >
+                                </>
+                            )) : (
+                                <p> Pas de cours en attente </p>
+                            )
+                        }
+                    </ul >
+                )
+            }
+        </span>
     )
 }
 export default CourseTeached;

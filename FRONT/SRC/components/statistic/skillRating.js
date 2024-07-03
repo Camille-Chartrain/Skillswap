@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Error from '../error/error';
 
 
 
-const SkillRating = () => {
+const SkillRating = (error, setError, handleNotFoundError) => {
 
     const [rating, setRating] = useState([]);
     let stars = Array(5).fill();
@@ -35,6 +36,8 @@ const SkillRating = () => {
         }
         catch (error) {
             console.log("catch de Get Rating:", error.message);
+            setError("Votre demande n'a pas ete prise en compte");
+            handleNotFoundError("Votre demande n'a pas ete prise en compte");
         }
     }
     useEffect(() => { GetRating() }, []);
@@ -42,29 +45,29 @@ const SkillRating = () => {
 
 
     return (
-        <>
-            <div className="skillsList">
-                <h3>Notations competences</h3>
-                <ul>
-                    {rating.length > 0 && rating?.map((item) => (
-                        <div key={item.id}>
-                            <li>{item?.title} </li>
-                            {item && item.averageMark && item.averageMark ? (
-                                <span>{
-                                    stars?.map((_, index) => (
-                                        <span key={index}
-                                            style={{ color: index < item?.averageMark ? 'gold' : 'gray' }} >
-                                            < FontAwesomeIcon icon={faStar} />
-                                        </span>))}
-                                </span>
-                            ) : (
-                                <p>Aucune note attribuée</p>
-                            )}
-                        </div>
-                    ))}
-                </ul >
-            </div >
-        </>
+        <span className="statisticList">
+            <h3>Notes des competences</h3>
+            {error && <Error error={error} />}
+            <ul>
+                {rating.length > 0 && rating?.map((item) => (
+                    <span className="rating" key={item.id}>
+                        <li>{item?.title} </li>
+                        {item && item.averageMark && item.averageMark ? (
+                            <span>{
+                                stars?.map((_, index) => (
+                                    <span key={index}
+                                        style={{ color: index < item?.averageMark ? 'gold' : 'gray' }} >
+                                        < FontAwesomeIcon icon={faStar} />
+                                    </span>))}
+                            </span>
+                        ) : (
+                            <p>Aucune note attribuée</p>
+                        )}
+                    </span>
+                ))}
+            </ul >
+        </span >
+
     )
 
 

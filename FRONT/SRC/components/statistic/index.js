@@ -2,19 +2,22 @@
 import Money from "./money";
 import SkillRating from './skillRating';
 
-const Statistic = () => {
+const Statistic = ({ wallet, GetMoney }) => {
 
 
     return (
-        <main>
-            <div className="statistic">
-                <h2 id="statistic">STATISTIQUES</h2>
-                <span className="statistic-section">
-                    <Money />
-                    <SkillRating />
-                </span>
-            </div >
-        </main >
+
+        <span className="statistic">
+            <h2 id="statistic">STATISTIQUES</h2>
+            <span className="statistic-section">
+                <Money
+                    wallet={wallet}
+                    GetMoney={GetMoney}
+                />
+                <SkillRating />
+            </span>
+        </span >
+
     )
 };
 export default Statistic;

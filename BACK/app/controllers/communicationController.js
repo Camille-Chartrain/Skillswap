@@ -41,6 +41,7 @@ const communicationController = {
 
     communicationSkillToRate: async function (req, res) {
         try {
+            console.log("on est dans communicationSkillToRate");
             const skillsToRate = await Skill.findAll({
                 // Find the skills that need to be rated by the student 
                 // (those linked to meetings with a status of 'terminé'), 
@@ -74,7 +75,11 @@ const communicationController = {
 
     rateSkill: async function (req, res) {
         try {
+            console.log(" req.body", req.body);
+            console.log(" typeof req.body[0]", typeof req.body[0]);
+            console.log("req.params", req.params);
             console.log("req.params.skillId:", req.params.skillId);
+
 
             // check if the user (as a student) is associated with this skill in 
             // a meeting with "terminé" status
@@ -88,18 +93,18 @@ const communicationController = {
                 required: true
             })
 
-            console.log("meeting", meeting);
+            // console.log("meeting", meeting);
             if (!meeting) {
                 res.send("This meeting doesn't exist - is not over -  already rated");
             }
             else if (meeting) {
                 // console.log('Type of myVariable:', typeof req.body.mark, req.body.mark);
                 // parse the string into a number
-                const mark = parseFloat(req.body.mark);
+                const mark = parseFloat(req.body[0]);
                 // console.log('Type of myVariable:', typeof mark after parseFloat, mark);
 
                 if (isNaN(mark)) {
-                    return res.status(400).send('Invalid mark, not a number');
+                    return res.status(400).json('Invalid mark, not a number');
                 }
                 const skill = meeting.Skill
                 // console.log("skill du meeting", skill);
@@ -132,4 +137,6 @@ const communicationController = {
     },
 }
 
+
+export const rateSkill = communicationController.rateSkill;
 export default communicationController;

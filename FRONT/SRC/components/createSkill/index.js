@@ -2,18 +2,18 @@
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import SearchCategory from '../search/SearchCategory';
-import SearchSubCategory from '../search/SearchSubCategory';
 import SearchLevel from '../search/SearchLevel';
 import SearchTransmission from '../search/SearchTransmission';
+import Error from '../error/error';
 
 
-const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
+const CreateSkill = ({ handleSubmit, register, isValid, reset, GetAllSkillUser, handleNotFoundError, error, setError }) => {
 
     const [createSkill, setDataCreateSkill] = useState({
         id: [],
         title: (''),
-        Category: (''),
-        SubCategory: (''),
+        Category: '',
+        SubCategory: '',
         duration: (''),
         level: (''),
         price: (''),
@@ -23,13 +23,20 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
         mark: (''),
     });
 
+    const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectLevel, setSelectLevel] = useState('all');
 
     //=post method to send info
     const PostCompetence = async (data) => {
         try {
+
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
+            console.log("selectLevel dans try", selectLevel);
             console.log('try data:', data);
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/skill', {
+            const response = await fetch(`http://localhost:3000/skill/?&CategoryId=${selectedCategory?.id}&SubCategoryId=${selectedSubCategory?.id}`, {
                 method: "post",
                 status: 200,
                 headers: {
@@ -41,15 +48,16 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
             })
 
             //=traduct api response in Json
-            // console.log("response avant .json", response);
+            console.log("response avant .json", response);
             const dataSkill = await response.json();
-            // console.log(" response apres .json:", dataSkill);
-
+            console.log(" response apres .json:", dataSkill);
             reset();
-
+            GetAllSkillUser();
         }
         catch (error) {
             console.log("erreur cath :", error);
+            setError("Erreur lors de la creation de Competence");
+            handleNotFoundError("Erreur lors de la creation de Competence");
         }
     }
 
@@ -57,25 +65,38 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset }) => {
     return (
 
         <>
+            {error && <Error error={error} />}
             <form method="POST" onSubmit={handleSubmit(PostCompetence)} className="skill">
                 <fieldset className="createSkill">
                     <legend><h3>Creation de competence</h3></legend>
-                    <div></div>
+                    <span></span>
                     <label htmlFor="title">Titre * :</label>
                     <small> Merci de donner un titre explicite</small>
                     <input id="title" type="text" name="title" {...register("title")} size="25" autoComplete="on" required />
 
-                    <label htmlFor="CategoryId">Categorie * :</label>
-                    <SearchCategory register={register} />
+                    <label htmlFor="CategoryId">Categorie et Sous-categorie * :</label>
+                    <SearchCategory
+                        register={register}
+                        handleSubmit={handleSubmit}
 
-                    <label htmlFor="SubCategoryId">Sous Categorie * :</label>
-                    <SearchSubCategory register={register} />
+                        setSelectedCategory={setSelectedCategory}
+                        selectedCategory={selectedCategory}
+
+                        setSelectedSubCategory={setSelectedSubCategory}
+                        selectedSubCategory={selectedSubCategory}
+                    />
+
 
                     <label htmlFor="duration">Duree * :</label>
                     <input id="duration" type="text" name="duration" {...register("duration")} size="25" autoComplete="duration" required />
 
                     <label htmlFor="level">Niveau * :</label>
-                    <SearchLevel register={register} />
+                    <SearchLevel
+                        register={register}
+                        handleSubmit={handleSubmit}
+                        setSelectLevel={setSelectLevel}
+                        selectLevel={selectLevel}
+                    />
 
                     <label htmlFor="transmission"> Mode de transmission * :</label>
                     <SearchTransmission register={register} />

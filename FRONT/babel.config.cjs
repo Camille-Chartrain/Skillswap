@@ -7,3 +7,7 @@
 //     //     '^.+\\.(js|jsx)?$': 'babel-jest',
 //     // },
 // };
+
+
+
+//* voir si extension de ce dossier peux passer en json?

@@ -3,10 +3,11 @@ import Cookies from 'js-cookie';
 import CreateSkill from "../createSkill";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Error from "../error/error";
 
 
 
-const Profile = () => {
+const Profile = ({ handleNotFoundError, error, setError }) => {
     const { register, handleSubmit, setValue, reset, formState: { isValid, errors } } = useForm();
 
     //= get method to show info & autocomplete
@@ -16,7 +17,6 @@ const Profile = () => {
         birthday: '',
         grade_level: '',
         presentation: '',
-        interests: [],
         skill: [],
     });
 
@@ -68,6 +68,8 @@ const Profile = () => {
         }
         catch (error) {
             console.error("error catch:", error.message);
+            setError("Erreur lors de la recuperation des donnees");
+            handleNotFoundError("Erreur lors de la recuperation des donnees");
         }
     },
         []);
@@ -78,7 +80,7 @@ const Profile = () => {
 
 
     useEffect(() => {
-        // Synchronize profileData with form values
+        //= Synchronize profileData with form values
         Object.keys(profileData).forEach(key => {
             setValue(key, profileData[key]);
         });
@@ -106,16 +108,19 @@ const Profile = () => {
             //=traduct api response in Json
             // console.log("response post profile avant .json", response);
             const dataProfile = await response.json();
-            console.log(" response apres .json:", dataProfile);
+            // console.log(" response apres .json:", dataProfile);
 
             //=fetch back side's  errors
             // console.log("error?:", dataProfile.error);
+            // setError(error);
 
         }
         catch (error) {
-            console.log("erreur : ", error);
+            console.error("catch profilePatch : ", error);
+            setError("Erreur lors de la modification du profil");
+            handleNotFoundError("Erreur lors de la modification du profil");
         }
-    }
+    };
 
     const ProfileDelete = useCallback(async () => {
         try {
@@ -129,10 +134,10 @@ const Profile = () => {
                 },
             })
 
-            console.log("response avant .json", response);
+            // console.log("response avant .json", response);
             //=traduct api response from Json to JS
             const dataProfile = await response.json();
-            console.log("response json analysee:", dataProfile);
+            // console.log("response json analysee:", dataProfile);
 
             if (dataProfile === "deletion ok") {
                 reset();
@@ -141,18 +146,21 @@ const Profile = () => {
                 let token = Cookies.remove('token');
                 token = null
                 if (token == null) {
-                    console.log("token", token);
+                    // console.log("token", token);
                     navigate("/");
                 }
             }
             else {
                 throw new Error("Invalid response from API");
+                setError(error);
             }
         }
         catch (error) {
             console.log("catch profileDelete :", error);
+            setError("Le profil n'a pas pu etre supprime");
+            handleNotFoundError("Le profil n'a pas pu etre supprime");
         }
-    })
+    });
 
     //= manage skill's list user
     const [skillsUser, setSkillsUser] = useState([]);
@@ -182,6 +190,8 @@ const Profile = () => {
         }
         catch (error) {
             console.error(error.message);
+            setError("Erreur d'affichage de la liste des competences");
+            handleNotFoundError("Erreur d'affichage de la liste des competences");
         }
     }
     useEffect(() => { GetAllSkillUser() }, [])
@@ -191,7 +201,7 @@ const Profile = () => {
 
     //=  skill's datas before go to skillUpDate component
     const handlechange = (skill) => {
-        console.log('handlechange: ', skill)
+        // console.log('handlechange: ', skill)
         const id = skill.id;
         // console.log('HC recup id:', id);
         navigate('/oneSkill/',
@@ -203,7 +213,7 @@ const Profile = () => {
     //=to delete a skill
     const PostSkillDelete = useCallback(async (skill) => {
         try {
-            console.log("id recup ds le try PSD :", skill.id);
+            // console.log("id recup ds le try PSD :", skill.id);
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
                 method: "delete",
@@ -217,49 +227,57 @@ const Profile = () => {
             })
 
             //=traduct api response in Json
-            console.log("response avant .json", response);
+            // console.log("response avant .json", response);
             const dataSkill = await response.json();
-            console.log("dataSkill ds le  PSD :", dataSkill);
+            // console.log("dataSkill ds le  PSD :", dataSkill);
             //=fetch back side's  errors
             // console.log("error?:", dataSkill.error);
             setError(dataSkill.error);
         }
         catch (error) {
             console.log("catch postSkillDelete:", error);
+            setError("Impossible de sdupprimer cette competence");
+            handleNotFoundError("Impossible de sdupprimer cette competence");
+
         }
-    })
+    });
 
 
 
     return (
-        <div className="changeProfile" >
-            <h2 id="profile">Profil</h2>
-            <form method="POST"
-                onSubmit={handleSubmit(ProfilePatch)}
-                className="profile">
 
-                <fieldset className="profileChange">
-                    <legend><h3>Modifier votre profil</h3></legend>
 
-                    <label htmlFor="firstname">Prénom* :</label>
-                    <input id="firstname" type="text" name="firstname" {...register("firstname")} defaultValue={profileData.firstname || ''} onChange={handleChangeProfile} size="25" required />
 
-                    <label htmlFor="lastname">Nom* :</label>
-                    <input id="lastname" type="text" name="lastname"{...register("lastname")} defaultValue={profileData.lastname || ''} onChange={handleChangeProfile} size="25" required />
 
-                    <label htmlFor="birthday">Date de naissance :</label>
-                    <input id="birthday" type="date" name="birthday" {...register("birthday")} defaultValue={profileData.birthday || ''} onChange={handleChangeProfile} size="25" />
+        < span className="profile" id="profile" >
+            <h2 >Profil</h2>
+            {error && <Error error={error} />}
+            <span className="profile-section">
+                <form method="POST"
+                    onSubmit={handleSubmit(ProfilePatch)}>
 
-                    <label htmlFor="grade_level">Niveau d'etude :</label>
-                    <input id="grade_level" type="text" name="grade_level" {...register("grade_level")} defaultValue={profileData.grade_level || ''} onChange={handleChangeProfile} size="25" />
+                    <fieldset className="profileChange">
+                        <legend><h3>Modifier votre profil</h3></legend>
 
-                    <label htmlFor="presentation">Presentez vous :</label>
-                    <textarea id="presentation" name="presentation" {...register("presentation")} defaultValue={profileData.presentation || ''} onChange={handleChangeProfile} rows="5" cols="33" />
+                        <label htmlFor="firstname">Prénom* :</label>
+                        <input id="firstname" type="text" name="firstname" {...register("firstname")} defaultValue={profileData.firstname || ''} onChange={handleChangeProfile} size="25" required />
 
-                    {/* <label htmlFor="email">Email * :</label>
+                        <label htmlFor="lastname">Nom* :</label>
+                        <input id="lastname" type="text" name="lastname"{...register("lastname")} defaultValue={profileData.lastname || ''} onChange={handleChangeProfile} size="25" required />
+
+                        <label htmlFor="birthday">Date de naissance :</label>
+                        <input id="birthday" type="date" name="birthday" {...register("birthday")} defaultValue={profileData.birthday || ''} onChange={handleChangeProfile} size="25" />
+
+                        <label htmlFor="grade_level">Niveau d'etude :</label>
+                        <input id="grade_level" type="text" name="grade_level" {...register("grade_level")} defaultValue={profileData.grade_level || ''} onChange={handleChangeProfile} size="25" />
+
+                        <label htmlFor="presentation">Presentez vous :</label>
+                        <textarea id="presentation" name="presentation" {...register("presentation")} defaultValue={profileData.presentation || ''} onChange={handleChangeProfile} rows="5" cols="33" />
+
+                        {/* <label htmlFor="email">Email * :</label>
                         <input  id="email" type="email"  name="email" {...register("email")}  onChange={handleChangeProfile}size="35" placeholder="  monadresse@gmail.com" required /> */}
 
-                    {/* //=section in place for later version 2
+                        {/* //=section in place for later version 2
                         <>
                             <label htmlFor="password">Modifier mot de passe :</label>
                             <input id="password" type="password"  name="password" {...register("newPassword")}  onChange={handleChangeProfile}size="35" placeholder="  12 caracteres minimun" />
@@ -267,70 +285,71 @@ const Profile = () => {
                             <input  id="password" type="password" name="confPassword" {...register("confPassword")}  onChange={handleChangeProfile}size="35" />
                         </> */}
 
-                    <fieldset className="interest" {...register("interests")} defaultValue={interests} >
-                        <legend><h4>Centres d'interets</h4></legend>
-                        <div>
-                            <input id="1" type="checkbox" defaultValue="1"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("1")}
-                                onChange={handleInterestChange} />
-                            <label htmlFor="1">Language</label>
-                        </div><div>
-                            <input id="2" type="checkbox" defaultValue="2"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("2")}
-                                onChange={handleInterestChange} />
-                            <label htmlFor="2">Bricolage</label>
-                        </div>  <div>
-                            <input id="3" type="checkbox" defaultValue="3"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("3")}
-                                onChange={handleInterestChange} />
-                            <label htmlFor="3">DIY</label>
-                        </div> <div>
-                            <input id="4" type="checkbox" defaultValue="4" {...register("interests")} checked={profileData.interests && profileData.interests.includes("4")}
-                                onChange={handleInterestChange} />
-                            <label htmlFor="4">Cuisine</label>
-                        </div><div>
-                            <input id="5" type="checkbox" defaultValue="5"   {...register("interests")} checked={profileData.interests && profileData.interests.includes("5")}
-                                onChange={handleInterestChange} />
-                            <label htmlFor="5">Art</label>
-                        </div> <div>
-                            <input id="6" type="checkbox" defaultValue="6"   {...register("interests")} checked={profileData.interests && profileData.interests.includes("6")}
-                                onChange={handleInterestChange} />
-                            <label htmlFor="6">Scolaire</label>
-                        </div>
+                        <fieldset className="interest" {...register("interests")} defaultValue={interests} >
+                            <legend><h4>Centres d'interets</h4></legend>
+                            <span>
+                                <input id="1" type="checkbox" defaultValue="1"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("1")}
+                                    onChange={handleInterestChange} />
+                                <label htmlFor="1">Language</label>
+                            </span><span>
+                                <input id="2" type="checkbox" defaultValue="2"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("2")}
+                                    onChange={handleInterestChange} />
+                                <label htmlFor="2">Bricolage</label>
+                            </span>  <span>
+                                <input id="3" type="checkbox" defaultValue="3"  {...register("interests")} checked={profileData.interests && profileData.interests.includes("3")}
+                                    onChange={handleInterestChange} />
+                                <label htmlFor="3">DIY</label>
+                            </span> <span>
+                                <input id="4" type="checkbox" defaultValue="4" {...register("interests")} checked={profileData.interests && profileData.interests.includes("4")}
+                                    onChange={handleInterestChange} />
+                                <label htmlFor="4">Cuisine</label>
+                            </span><span>
+                                <input id="5" type="checkbox" defaultValue="5"   {...register("interests")} checked={profileData.interests && profileData.interests.includes("5")}
+                                    onChange={handleInterestChange} />
+                                <label htmlFor="5">Art</label>
+                            </span> <span>
+                                <input id="6" type="checkbox" defaultValue="6"   {...register("interests")} checked={profileData.interests && profileData.interests.includes("6")}
+                                    onChange={handleInterestChange} />
+                                <label htmlFor="6">Scolaire</label>
+                            </span>
+                        </fieldset>
+
+                        <button type="submit" disabled={!isValid} >VALIDER</button>
                     </fieldset>
+                </form>
 
-                    <button type="submit" disabled={!isValid} >VALIDER</button>
-                </fieldset>
-            </form>
-
-            <CreateSkill handleSubmit={handleSubmit} register={register} reset={reset} />
-
-            < div className="skillsList" >
+                <CreateSkill
+                    handleSubmit={handleSubmit}
+                    register={register} reset={reset}
+                    GetAllSkillUser={GetAllSkillUser}
+                />
+            </span>
+            < span className="skillsList" >
                 <h3>Liste des competences</h3>
                 <ul>
-                    <span>
+                    {skillsUser?.map((skill) => (
+                        <>
+                            <li key={skill?.id} className="skillList-li">
 
-                        {skillsUser?.map((skill) => (
-                            <>
-                                <li key={skill?.id} >
-                                    <>
-                                        <span>
-                                            <p>{skill?.title}</p>
-                                        </span>
-                                        <span className="btn">
-                                            <button className="orangeBtn" onClick={handlechange.bind(null, skill)}>MODIFIER</button>
-                                            <button aria-label="bouton supprimer competence" onClick={PostSkillDelete.bind(null, skill)} type="reset" className="redBtn">SUPPRIMER</button>
-                                        </span>
-                                    </>
-                                </li >
-                            </>
-                        ))
-                        }
-                    </span>
+                                <span className="title">{skill?.title}</span>
+                                <span className="btn">
+                                    <button className="orangeBtn" onClick={handlechange.bind(null, skill)}>MODIFIER</button>
+                                    <button className=
+                                        "redBtn" aria-label="bouton supprimer competence" onClick={PostSkillDelete.bind(null, skill)} type="reset" >SUPPRIMER</button>
+                                </span>
+
+                            </li >
+                        </>
+                    ))
+                    }
                 </ul>
-            </div >
-            <button onClick={ProfileDelete} type="reset" className="redBtn" size="30" >SUPPRIMER LE COMPTE</button>
-        </div >
-
+            </span >
+            <button onClick={ProfileDelete} type="reset" className="redBtnProfile" size="30" >SUPPRIMER LE COMPTE</button>
+        </span >
     )
+}
 
-};
+
+
 
 export default Profile;

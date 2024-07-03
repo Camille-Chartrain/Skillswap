@@ -1,4 +1,5 @@
-
+import dashboard from '../../../style/pictures/dashboard.svg';
+import logout from '../../../style/pictures/logout.svg';
 import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import SearchCategory from '../../search/SearchCategory';
@@ -6,12 +7,18 @@ import SearchSubCategory from '../../search/SearchSubCategory';
 import SearchLevel from '../../search/SearchLevel';
 import SearchTransmission from '../../search/SearchTransmission';
 import { useLocation, useNavigate } from "react-router-dom";
+import Error from '../../error/error';
 
 
-const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
+const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleLogout, setError, error, handleNotFoundError
+}) => {
 
     const location = useLocation();
     const skill = location.state?.skill;
+
+    const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectLevel, setSelectLevel] = useState("");
 
     // //= to fetch datas
     const [skillUpdate, setSkillUpDate] = useState(skill
@@ -42,7 +49,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
     }
 
     const getSkillUpDate = async () => {
-        console.log('id depuis skill:', skill.id)
+        // console.log('id depuis skill:', skill.id)
         try {
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/oneSkill/${skill.id}`, {
@@ -63,9 +70,11 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
         }
         catch (error) {
             console.error("catch de skillUpDate:", error);
+            setError("Votre demande n'a pas ete prise en compte");
+            handleNotFoundError("Votre demande n'a pas ete prise en compte");
         }
     }
-    useEffect(() => { getSkillUpDate() }, [])
+    useEffect(() => { }, [])
 
     //=redirect for update skill
     const navigate = useNavigate();
@@ -110,35 +119,56 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset }) => {
         }
         catch (error) {
             console.log("catch de patchSkillUpDate:", error);
+            setError("Votre modification n'a pas ete prise en compte");
+            handleNotFoundError("Votre modification n'a pas ete prise en compte");
         }
     }
 
 
     if (!skillUpdate) {
-        return <div>Loading....</div>
+        return <span>Loading....</span>
     }
 
     return (
         <>
-            <form method="POST" onSubmit={handleSubmit(patchSkillUpdate.bind(null, skillUpdate))} className="skill">
+            {error && <Error error={error} />}
+            <span className='ancre'>
+                <>
+                    <a href="/dashboard#profile" alt=" communication " ><img className="" src={dashboard} alt='icone de communication ' /></a>
+                    <img className="" src={logout} alt='icone de deconnexion' onClick={handleLogout} />
+                </>
+            </span>
+
+            <form method="POST" onSubmit={handleSubmit(patchSkillUpdate.bind(null, skillUpdate))} className="updateAskill">
                 <fieldset className="skillUpDate">
                     <legend><h3>Modification de competence</h3></legend>
-                    <div></div>
+
                     <label htmlFor="title">Titre * :</label>
                     <small> Merci de donner un titre explicite</small>
                     <input id="title" type="text" name="title" defaultValue={skillUpdate.title} {...register("title")} onChange={handleChangeSkill} size="25" required />
 
-                    <label htmlFor="CategoryId">Categorie * :</label>
-                    <SearchCategory register={register} />
+                    <label htmlFor="CategoryId">Categorie et Sous -categorie * :</label>
+                    <SearchCategory
+                        register={register}
+                        selectedSubCategory={selectedSubCategory}
+                        setSelectedSubCategory={setSelectedSubCategory}
 
-                    <label htmlFor="SubCategoryId">Sous Categorie * :</label>
-                    <SearchSubCategory register={register} />
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                    />
+
+                    {/* <label htmlFor="SubCategoryId">Sous Categorie * :</label>
+                    <SearchSubCategory register={register} /> */}
 
                     <label htmlFor="duration">Duree * :</label>
                     <input id="duration" type="text" name="duration" defaultValue={skillUpdate.duration} {...register("duration")} onChange={handleChangeSkill} size="25" required />
 
                     <label htmlFor="level">Niveau * :</label>
-                    <SearchLevel register={register} />
+                    <SearchLevel
+                        register={register}
+                        selectLevel={selectLevel}
+                        setSelectLevel={setSelectLevel}
+                    />
 
                     <label htmlFor="transmission"> Mode de transmission * :</label>
                     <SearchTransmission register={register} />

@@ -1,15 +1,16 @@
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
+import Error from '../error/error';
 
 
-const NotificationsList = ({ handleDeleteNotification }) => {
+const NotificationsList = ({ handleNotFoundError, setError, error }) => {
 
     const [notification, setNotification] = useState([]);
     const navigate = useNavigate();
 
-    const GetNotificationsList = async () => {
+    const GetNotificationsList = useCallback(async () => {
         try {
             const token = Cookies.get('token');
             const response = await fetch(`http://localhost:3000/communication`, {
@@ -23,48 +24,87 @@ const NotificationsList = ({ handleDeleteNotification }) => {
 
             });
             const dataNotifications = await response.json();
-            console.log("dataNotifications:", dataNotifications);
+            // console.log("dataNotifications:", dataNotifications);
 
             setNotification(dataNotifications);
             console.log("setNotification:", dataNotifications);
         }
         catch (error) {
             console.log("catch de GNL:", error);
+            setError("Probleme d'affichage de la liste");
+            handleNotFoundError("Probleme d'affichage de la liste");
         }
-    }
+    }, []);
 
     useEffect(() => { GetNotificationsList() }, []);
 
-    const handleChange = (item) => {
-        navigate('/oneSkill/', {
+    const handleClick = (item) => {
+
+        console.log('ds HandleClick navigate item:', item);
+        navigate('/dashboard/seeASkill', {
             state: { item }
         });
     }
 
+    // //= version2 coding
+    // //=delete notification
+    // const handleDeleteNotif = (item) => {
+    //     navigate('/communication',
+    //         {
+    //             state: { item }
+    //         }
+    //     )
+    // };
+
+    // //=to delete a notification
+    // const NotificationDelete = useCallback(async (item) => {
+    //     try {
+    //         console.log("id recup ds le try ND :", item);
+    //         const token = Cookies.get('token');
+    //         const response = await fetch(`http://localhost:3000/communication/${item.id}`, {
+    //             method: "delete",
+    //             status: 200,
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': `Bearer ${token}`,
+    //             },
+    //             body: JSON.stringify(item),
+    //             // credentials: 'include'
+    //         })
+
+    //         //=traduct api response in Json
+    //         console.log("response avant .json", response);
+    //         const dataNotification = await response.json();
+    //         console.log("dataNotification ds le  notifDelete :", dataNotification);
+    //     }
+    //     catch (error) {
+    //         console.log("catch NotificationDelete:", error);
+    //     }
+    // })
+
 
     return (
-        <div className='container'>
-            {
+        <span className='interestList'>
+            {error && <Error error={error} />}
+            <h4>Nos nouveautes selon vos interets: </h4>
+            <ul> {
                 notification?.map((item) => (
-                    <>
-                        <ul>
-                            <li key={item?.id}>
-                                <p>"Ceci pourrait vous interesser: "{item.title}</p>
-                                <button onClick={handleChange.bind(null, item)}>VOIR PLUS</button>
-                                <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
+                    <li className="interest-li" key={item?.id}>
+                        <span>{item.title}</span>
+                        <button className="blueBtn" onClick={() => handleClick(item)}>VOIR PLUS</button>
 
-                            </li>
-                        </ul>
-                    </>
+                        {/* //= coding for version2
+                            <button  type="reset" className="btn" onClick={NotificationDelete.bind(null, item)} onChange={handleDeleteNotif}>SUPPRIMER</button> */}
+
+                    </li>
                 ))
-            }
-        </div >
+            }</ul>
+        </span >
     )
 
 }
 export default NotificationsList;
 
-// ->get id ds btn avec un navigate http oneSkill/:skillId
 
 
 

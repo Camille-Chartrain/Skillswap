@@ -17,6 +17,12 @@
     button:focus-visible,
     link:focus-visible {
         background: $color;
+        color: var.$bgWhite;
+    }
+
+    select option:nth-child(n) {
+        background: $color;
+        color: var.$bgWhite;
     }
 }
 
@@ -43,22 +49,26 @@
     background-color: var.$blueBtn;
     text-align: center;
     color: var.$yellowBtn;
-    padding: 2rem 20rem;
+    padding: 2rem 4rem;
+    margin: 0rem 15rem 0rem 15rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
 
 }
 
 //*media query mobile first
-@mixin mobileFirst {
-    @media screen and (max-width:50rem) {
+@mixin mobileFirst($flex-direction, $wrap) {
+    @media screen and (max-width:43rem) {
         display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        width: 85%;
+        flex-direction: $flex-direction;
+        justify-items: center;
+        align-items: center;
+        flex-wrap: $wrap;
+        text-align: justify;
+
 
         h2 {
-            padding: 2rem 5rem;
+            padding: 2rem 15rem;
         }
 
         button {

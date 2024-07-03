@@ -45,11 +45,21 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { firstname: "Jeanne", lastname: "aipazenvi", email: 'detravailler@gmail.com', hash: 'Cochise1234.', presentation: "Dans la lune que je trouve mes meilleurs idées" },
 //     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Cochise1234.', presentation: "Vous pouvez me contacter je vous répondrai si je suis disponible" },
 //     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Cochise1234.', presentation: "Mains toutes vertes et vie en rose" },
+
 // ]);
 
+// await User.create(
+//     { firstname: "Ali", lastname: "Baba", email: 'tapis@volant.com', hash: 'Cochise1234.', role: "admin" },);
+
+
 // // Camille
+
+// await User.create(
+//     { firstname: "Ali", lastname: "Baba", email: 'tapis@gmail.com', hash: 'Azertyuiop12!', role: "admin" },);
+
+
 // await User.bulkCreate([
-//     { firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!.', presentation: " j'adore gagner" },
+//     { firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!', presentation: " j'adore gagner" },
 //     { firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Azertyuiop12!', presentation: "toujours de bonne humeur" },
 //     { firstname: "José", lastname: "Paledire", email: 'chut@gmail.com', hash: 'Azertyuiop12!', presentation: "discret mais solide" },
 //     { firstname: "Gus", lastname: "GusLucifer", email: 'estmechant@gmail.com', hash: 'Azertyuiop12!', presentation: "j'adore les petits zétoné" },
@@ -67,7 +77,7 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 
 //     { title: "Bouture de basilic", level: "débutant", transmission: 'presentiel et visio', description: "Apprenez à faire vos propres boutures de basilic pour avoir des tonnes de basilic tout l'été", availability: 'dimanche matin', CategoryId: 2, SubCategoryId: 11, UserId: 8, averageMark: 4, duration: "15mn" },
 
-//     { title: "Communication non violente", level: "débutant", transmission: 'presentiel', description: 'Apprenez à communiquer dans la bienveillance, dites ce que vous avez sur le coeur sans froisser votre entourage !', availability: 'jeudi soir', CategoryId: 1, SubCategoryId: 4, UserId: 4, averageMark: 4, duration: "1h" },
+//     { title: "Communication non violente", level: "débutant", transmission: 'presentiel', description: 'Apprenez à communiquer dans la bienveillance, dites ce que vous avez sur le coeur sans froisser votre entourage !', availability: 'jeudi soir', CategoryId: 1, SubCategoryId: 4, UserId: 3, averageMark: 4, duration: "1h" },
 
 //     { title: "Couture robe mariée", level: "avancé", transmission: 'presentiel', description: 'Créez vous-même la robe de vos rêves pour le plus beau jour de votre vie sans accro!', availability: 'lundi et mercredi après-midi', CategoryId: 3, SubCategoryId: 14, UserId: 2, averageMark: 4, duration: "2h" },
 

@@ -21,7 +21,7 @@
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\search\\",
-            "color": "foldercolorizer.LightPink"
+            "color": "foldercolorizer.LightYellow"
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\navBar\\",
@@ -77,6 +77,46 @@
         },
         {
             "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\skillRating.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\search\\SearchCategory.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\search\\SearchLevel.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\search\\SearchSubCategory.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\search\\SearchTransmission.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\notificationsList\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\communication\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\navBar\\NavBar.scss\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\results\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\APP\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\error\\",
             "color": "foldercolorizer.LightYellow"
         }
     ]

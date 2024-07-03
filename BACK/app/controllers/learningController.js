@@ -17,16 +17,17 @@ const learningController = {
             if (student.swappies <= 0) {
                 throw new Error("User doesn't have enough swapppies - createLearning learningController")
             }
+            // changer pour envoyer reponse direct
 
             const meeting = await Meeting.create({
                 status: "en attente",
                 SkillId: req.params.skillId,
-                StudentsId: req.user.id,
+                UserId: req.user.id,
 
             });
             // je pourrais rajouter un update pour associer l'id du teacher au meeting
-            res.send(
-                meeting
+            res.json(
+                "cours en attente de validation"
             );
         } catch (error) {
             console.error("erreur createLearning:", error);

@@ -10,21 +10,20 @@ import categoryController from './controllers/categoryController.js'
 import verifyToken from './middlewares.js/verifyToken.js';
 import dashboardController from './controllers/dashboardController.js';
 import authSearch from './middlewares.js/authSearch.js';
+import adminController from './controllers/adminController.js';
+
 
 const router = express.Router();
 
 // home search visitors
 router.get('/', homeController.home);
-router.get('/searchVisitor/:input?/:level?/:category?/:subCategory?', homeController.searchVisitor);
+router.get('/searchVisitor/:input?/:level?/:category?/:subCategory?', authSearch, homeController.searchVisitor);
 
 // authorisations membre
 router.post('/registration', authController.registration);
 router.post('/login', authController.login);
 router.get('/dashboard', dashboardController.dashboard);
-// router.post('/logout', authController.logout);
-
-//search for members
-// router.get('/search/:input?/:level?/:category?/:subCategory?', mainController.search);
+router.post('/logout', authController.logout);
 
 //profile
 router.get('/profile', verifyToken, profileController.profile);
@@ -34,7 +33,7 @@ router.delete('/profile', verifyToken, profileController.deleteProfile);
 //skill
 router.get('/skill', verifyToken, skillController.skill);
 router.get('/oneSkill/:skillId', verifyToken, skillController.oneSkill);
-router.post('/skill', verifyToken, skillController.createSkill);
+router.post('/skill/:category?/:subCategory?', verifyToken, skillController.createSkill);
 router.patch('/skill/:skillId', verifyToken, skillController.modifSkill);
 router.delete('/skill/:skillId', verifyToken, skillController.deleteSkill);
 
@@ -60,13 +59,18 @@ router.get('/categories', categoryController.getAllCategories);
 router.get('/subCategories/:categoryId?', categoryController.getSubCategories);
 
 
-// //admin
-// router.get('/admin', adminController.admin);
-// router.patch('/admin/statistic', adminController.modifStatistic);
+//admin
+router.get('/admin', adminController.admin);
+router.get('/admin/:userId', adminController.adminGetSkillsOfOneUser);
+router.patch('/admin/:userId', adminController.adminModifUser);
+router.patch('/admin/skill/:skillId', adminController.adminModifSkill);
+router.delete('/admin/:userId', adminController.adminDeleteUser);
+router.delete('/admin/skill/:skillId', adminController.adminDeleteOneSkill);
 
 
 export default router;
 
+// pseudocode for authentification
 
 // user? (verif si mail existe dans bdd)
 //      oui => comparaison hash

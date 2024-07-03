@@ -3,96 +3,151 @@
 
 
 .learning {
-
+    @include mixin.focus(var.$orangeBtn);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    align-items: center;
     border: solid 0.3rem var.$blueBtn ;
     border-radius: 1rem;
     margin: 2rem;
-    // justify-content: center;
-    // align-items: center;
+    width: 90%;
 
     h2 {
         @include mixin.h2Dashboard();
     }
 
-    #learning {
-        @include mixin.mobileFirst();
-        @include mixin.focus(var.$orangeBtn);
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        line-height: 1.1rem;
-        border-radius: 1rem;
-        border-color: solid 0.2rem var.$yellowBtn;
-        padding: 2rem;
-        color: rgb(109, 90, 90);
-        width: 90%;
-    }
-
     .learning-section {
-
-        flex-direction: row;
+        @include mixin.mobileFirst(column, wrap);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
         margin: 1rem;
         width: 95%;
 
+        .learningList {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding: 1rem;
+            margin: 3rem;
+            background-color: var.$lightGreyWrite;
+            border-radius: 1rem;
+            border-color: 0.2rem solid;
+            width: 95%;
 
-    }
-
-    .skillsList {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        padding: 1rem;
-        margin: 3rem;
-        background-color: var.$lightGreyWrite;
-        border-radius: 1rem;
-        border-color: 0.2rem solid;
-        width: 50%;
-
-        h3 {
-            padding: 1rem 1rem;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0rem;
-
-            span {
+            ul {
                 display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-                margin: auto;
-                border-radius: 1.8rem;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                list-style-type: none;
                 padding: 0.5rem;
-                border-color: 0.2 rem solid var.$bgGrey;
-                background-color: var.$bgGrey;
+                background-color: var.$yelloWrite;
+                border-radius: 0.8rem;
+                width: 100%;
 
-                .btn {
+                .learning-li {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 2.3rem;
+                    margin: 0.4rem;
+                    border-radius: 1.8rem;
+                    padding: 0.5rem;
+                    border-color: 0.2 rem solid var.$bgGrey;
+                    width: 95%;
+                    background-color: var.$bgGrey;
 
-                    @include mixin.focus(var.$blueBtn);
-                    @include mixin.buttonStyle (var.$lightGreyWrite, var.$blueBtn);
-                    width: 10rem;
-                    height: 2.5rem;
+                    .status {
+                        @include mixin.focus(var.$blueBtn);
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+                        align-items: right;
+                        width: 40%;
+
+
+                        .status-send,
+                        .status-reject,
+                        .status-wait,
+                        .status-finish,
+                        .status-congrat {
+                            text-align: center;
+                            padding: 0.2rem 0.5rem;
+                            margin: 0.1rem;
+                            border-radius: 1.2rem;
+                            font-size: 0.8rem;
+                            height: 2rem;
+                            font-weight: bolder;
+                            width: 50%;
+                        }
+
+                        .status-send {
+                            background-color: var.$orangeBtn;
+                        }
+
+                        .status-reject {
+                            background-color: var.$redBtn;
+                            color: var.$lightGreyWrite;
+                        }
+
+                        .status--wait {
+                            background-color: var.$yelloWrite;
+                        }
+
+                        .status-finish {
+                            background-color: var.$bgGrey;
+
+                        }
+
+                        .status-congrat {
+                            color: var.$blackWrite;
+                            font-size: 0.8rem;
+                            width: 80%;
+                        }
+                    }
                 }
 
                 li {
-                    @include mixin.focus(var.$orangeBtn);
-                    color: var.$yelloWrite;
-                    padding: 0.5rem;
-                    border-radius: 1rem;
-                    width: 55%;
-                    justify-content: right;
-                    align-items: center;
+                    .title {
+                        font-size: 1.5rem;
+                    }
+
+                    .btn {
+                        @include mixin.focus(var.$blueBtn);
+                        display: flex;
+                        flex-direction: row;
+                        align-items: right;
+                        width: 40%;
+
+                        .blueBtn {
+                            @include mixin.buttonStyle(var.$blueBtn, var.$lightGreyWrite);
+                            width: 52%;
+                            height: 2rem;
+                            @include mixin.mobileFirst(column, wrap);
+                        }
+
+                        .orangeBtn {
+                            @include mixin.buttonStyle(var.$orangeBtn, var.$blackWrite);
+                            width: 52%;
+                            height: 2rem;
+                            @include mixin.mobileFirst(column, wrap);
+                        }
+
+                        .redBtn {
+                            @include mixin.buttonStyle(var.$redBtn, var.$lightGreyWrite);
+                            width: 52%;
+                            @include mixin.mobileFirst(column, wrap);
+                        }
+                    }
                 }
             }
         }
     }
 
-
-
-    @include mixin.mobileFirst();
 }

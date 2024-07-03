@@ -36,27 +36,11 @@ export const PageError = () => {
     console.status(error.message);
 }
 
-//= Routes displayed depending if you are logged or not..
-export const isLogged = false;
+//= function to hide or show 
+export const isLogged = true;
 
 
 
 
-// //= logout function -> a voir plus tard
 
-// export const logOut = () => {
-//     try {
-//         console.log("dans la fonction handleclick");
-//         // delete cookie JWT on client's side
-//         let token = Cookies.remove('token');
-//         token = null
-//         if (token == null) {
-//             console.log("token", token);
-//             navigate("/");
-//         }
-//     }
-//     catch (error) {
-//         console.log("erreur :", error);
-//     };
-// }
 

@@ -1,12 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
+import Error from '../error/error';
 
 
-const NotificationRating = (item, handleDeleteNotification) => {
+const NotificationRating = ({ handleNotFoundError, setError, error }) => {
 
     const [rating, setRating] = useState([]);
+    const [skillsToRate, setSkillstoRate] = useState([]);
 
     const GetSkillToRate = async () => {
         try {
@@ -22,17 +24,23 @@ const NotificationRating = (item, handleDeleteNotification) => {
 
             });
             const dataSkillToRate = await response.json();
-            console.log("dataSkillToRate:", dataSkillToRate);
+            // console.log("dataSkillToRate:", dataSkillToRate);
 
-            setRating(dataSkillToRate);
-            console.log("setRating:", dataSkillToRate);
+            setSkillstoRate(dataSkillToRate);
+            // console.log(" state skillsTORate:", skillsToRate);
+            // console.log("type of skillsToRAte", typeof skillsToRate);
         }
         catch (error) {
             console.log("catch de GSTR:", error);
+            setError("Erreur de chargement des donnees");
+            handleNotFoundError("Erreur de chargement des donnees");
         }
-    }
+    };
+    useEffect(() => { GetSkillToRate(); }, []);
 
-    useEffect(() => { GetSkillToRate() }, []);
+    const handleRatingChange = (newRating) => {
+        setRating(newRating);
+    };
 
     const renderStars = () => {
         const stars = [];
@@ -49,26 +57,24 @@ const NotificationRating = (item, handleDeleteNotification) => {
         }
         return stars;
     };
-    //=rating update
-    const handleRatingChange = (newRating) => {
-        setRating(newRating);
-        // RatingPatch();
-    };
+
     //=patch method to send the mark to skill
-    const RatingPatch = async (data) => {
+    const RatingPatch = async (item) => {
+
         try {
-            console.log('data envoyees:', data);
+            // console.log('id url envoye:', item.id);
+            // console.log("rating", rating);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/communication/${skill.id}`, {
+            const response = await fetch(`http://localhost:3000/communication/${item.id}`, {
                 method: 'PATCH',
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify([rating])
                 // credentials: 'include',
-            })
+            });
 
             console.log('response.status:', response.status);
 
@@ -76,31 +82,48 @@ const NotificationRating = (item, handleDeleteNotification) => {
             // console.log("response patch data avant .json", response);
             const dataRating = await response.json();
             console.log(" response apres .json:", dataRating);
+            GetSkillToRate();
 
-            //=fetch back side's  errors
-            // console.log("error?:", dataRating.error);
 
         }
         catch (error) {
             console.log("catch de RatingPatch : ", error);
+            setError("Erreur lors de la notation");
+            handleNotFoundError("Erreur lors de la notation");
         }
-    }
+    };
 
 
 
     return (
+        <span className='markList'>
+            {error && <Error error={error} />}
+            <h4>Notez les cours suivis: </h4>
+            <ul>
+                {/* {console.log("rating jsx", skillsToRate)} */}
+                {skillsToRate && skillsToRate.length > 0 ?
 
-        <ul>
-            {rating?.map((item) => {
-                <li>
-                    <h6> {item.title}</h6>
-                    <span>Souhaitez vous le noter: {renderStars()}</span>
-                    <button onClick={handleRatingChange(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
-                    <button type="reset" className="btn" onClick={handleDeleteNotification}>SUPPRIMER</button>
-                </li>
-            })}
-        </ul>
+                    skillsToRate?.map((item) => (
+                        <>
+                            <li className="mark-li" key={item.id}>
+                                <span>{item.title}</span>
+                                <span className='stars'>{renderStars()}
+                                    <button className='blueBtn' onClick={(RatingPatch.bind(null, item))}>VALIDER LA NOTE</button>
+                                </span>
+                            </li>
+
+                            {/* //=version2 coding
+                        <button type="reset" className="btn" onClick={() => handleDeleteNotification(null, item)}>SUPPRIMER</button> */}
+                        </>
+                    ))
+                    : (
+                        <p> Pas de cours à noter </p>
+                    )}
+
+            </ul>
+        </span>
     );
+
 };
 
 export default NotificationRating;

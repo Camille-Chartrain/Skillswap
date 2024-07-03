@@ -1,8 +1,9 @@
 import { useState } from "react"
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
+import Error from '../error/error';
 
-const Registration = ({ handleSubmit, register, isValid }) => {
+const Registration = ({ handleSubmit, register, isValid, handleNotFoundError }) => {
 
     //= show error from back{
     const [error, setError] = useState([]);
@@ -40,10 +41,12 @@ const Registration = ({ handleSubmit, register, isValid }) => {
             if (dataFetch.accessToken) {
                 navigate("/dashboard");
             }
-            else { <div className="error">return({error?.message})</div> }
+            else { <span className="error">return({error?.message})</span> }
         }
         catch (error) {
             console.log("erreur", error);
+            setError("Erreur lors de votre inscription");
+            handleNotFoundError("Erreur lors de votre inscription");
         };
     }
 
@@ -51,7 +54,7 @@ const Registration = ({ handleSubmit, register, isValid }) => {
     return (
         <main>
             <h2>Inscription</h2>
-
+            {error && <Error error={error} />}
             <form method="POST" onSubmit={handleSubmit(onSubmit)} className="formRegistration">
 
                 {/* //= with register from useForm, it possible to fetch or send values to the back */}

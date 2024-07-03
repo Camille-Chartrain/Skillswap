@@ -10,14 +10,17 @@ function authSearch(req, res, next) {
     console.log('token dans middleware authSearch', token);
 
     try {
-        if (token == null || token == undefined) {
+        console.log("1er log du token:", token);
+        console.log("typeof token", typeof token);
+        if (token == null || token == undefined || token == "undefined") {
             console.log("check s'il y a token");
+            console.log("typeof token", typeof token);
             req.user = undefined;
             next();
         }
-        else if (token) {
+        else if (token !== null && token !== undefined && token !== "undefined") {
             jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-                console.log('dans la fonction authSearch');
+                console.log(' verify du token dans le middleware authSearch');
                 if (err) {
                     throw new Error('Token invalide')
                 }

@@ -2,10 +2,13 @@
 @use'../../../style/mixin';
 
 section {
+
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: center;
+    width: 95%;
+
 
     .section {
         width: 95%;
@@ -14,10 +17,10 @@ section {
         align-items: center;
         flex-direction: column;
 
-        #skill {
-            @include mixin.mobileFirst(row, wrap);
+        #skillToSee {
+            @include mixin.mobileFirst(row, nowrap);
             display: flex;
-            flex-direction: row;
+            flex-wrap: nowrap;
             justify-content: center;
             align-content: center;
             line-height: 1rem;

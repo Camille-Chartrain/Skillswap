@@ -1,4 +1,4 @@
-import { updateReceivedMoney, updateDonatedMoney, handleChangeAmount } from './money.js';
+
 
 describe('updateReceivedMoney', () => {
 
@@ -37,5 +37,6 @@ describe('updateDonatedMoney', () => {
     });
 
 });
+
 
 

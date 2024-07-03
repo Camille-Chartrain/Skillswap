@@ -7,16 +7,26 @@
 @use './components/APP/style.scss';
 @use './components/footer/footer.scss';
 @use './components/header/header.scss';
-@use './components/home/home.scss';
-@use './components/skillList/skill/skill.scss';
+@use './components/footer/footer.scss';
+
 @use './components/navBar/NavBar.scss';
-@use './components/login/login.scss';
+@use './components/home/home.scss';
+
 @use './components/registration/registration.scss';
+@use './components/login/login.scss';
+
+
 @use './components/profile/profile.scss';
-@use './components/createSkill/createSkill.scss';
+
+@use './components/skillList/skillList.scss';
+@use './components/skillList/skill/skill.scss';
+@use './components/skillList/skillUpDate/skillUpDate.scss';
+@use './components/skillList/skillToSee/skillToSee.scss';
+
 @use './components/learning/learning.scss';
-@use './components/communication/communication.scss';
 @use './components/statistic/statistic.scss';
+
+@use './components/communication/communication.scss';
+
 @use './components/admin/user/user.scss';
 @use './components/admin/usersList.scss';
-@use './components/skillList/skillUpDate/skillUpDate.scss';
