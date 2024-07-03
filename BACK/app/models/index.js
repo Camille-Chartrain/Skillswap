@@ -1,6 +1,6 @@
 import User from "./User.js";
 import Category from "./Category.js";
-import Skill from "./skill.js";
+import Skill from "./Skill.js";
 import Interest from "./Interest.js";
 import SubCategory from "./SubCategory.js";
 import Meeting from "./Meeting.js";
