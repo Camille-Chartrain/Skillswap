@@ -137,4 +137,6 @@ const communicationController = {
     },
 }
 
+
+export const rateSkill = communicationController.rateSkill;
 export default communicationController;

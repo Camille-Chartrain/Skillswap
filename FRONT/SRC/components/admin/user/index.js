@@ -40,10 +40,6 @@ const User = ({
         count: '',
     })
 
-    useEffect(() => {
-        // console.log("user ds User avant le state:", user);
-    }, [user]);
-
 
     //= to refresh the oneUser state between two changes
     const handleChangeUser = (e) => {
