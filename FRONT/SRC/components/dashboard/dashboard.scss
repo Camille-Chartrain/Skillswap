@@ -1,0 +1,8 @@
+@use '../../style/mixin';
+@use '../../style/var';
+
+dashboard {
+    display: flex;
+    flex-direction: column;
+    @include mixin.focus(var.$orangeBtn);
+}

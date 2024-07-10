@@ -1,0 +1,123 @@
+{
+    "codesnap.realLineNumbers": true,
+    "codesnap.showWindowTitle": true,
+    "codesnap.transparentBackground": true,
+    "folder-color.pathColors": [
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\login\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\registration\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\home\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\skillList\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\search\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\navBar\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\footer\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\header\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\dashboard\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\profile\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\createSkill\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\courseStudent.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\index.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\learning\\courseTeached.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\money.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\index.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\statistic\\skillRating.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\search\\SearchCategory.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\search\\SearchLevel.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\search\\SearchSubCategory.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\search\\SearchTransmission.js\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\notificationsList\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\communication\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\navBar\\NavBar.scss\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\results\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\APP\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "APO-skill-swap\\FRONT\\SRC\\components\\error\\",
+            "color": "foldercolorizer.LightYellow"
+        }
+    ]
+}

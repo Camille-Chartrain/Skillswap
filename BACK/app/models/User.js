@@ -3,8 +3,6 @@ import { Model, DataTypes } from 'sequelize';
 // on importe notre client connecté à la base de données
 import sequelize from '../database.js';
 import bcrypt from 'bcrypt';
-import Category from './Category.js';
-import Interest from './Interest.js';
 
 // on définit le modèle qui étend la classe mère et hérite donc de ses méthodes
 class User extends Model { }
@@ -40,6 +38,25 @@ User.init(
                 // }
             },
         },
+        swappies: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 2,
+            validate: {
+                notEmpty: true,
+                min: 0 // doesn't allow values below 0
+            },
+        },
+        swappiesWinned: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 2,
+        },
+        swappiesSpent: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0,
+        },
         hash: {
             type: DataTypes.TEXT,
             allowNull: false,
@@ -56,11 +73,12 @@ User.init(
         birthday: {
             type: DataTypes.DATE,
             allowNull: true,
-            validate: {
-                isNumeric: {
-                    msg: "Vous devez entrer une date au format JJ/MM/AAAA"
-                }
-            },
+            // validate: {
+            //     isDate: true,
+            //     isNumeric: {
+            //         msg: "Vous devez entrer une date au format JJ/MM/AAAA"
+            //     }
+            // },
         },
         grade_level: {
             type: DataTypes.TEXT,
@@ -78,65 +96,36 @@ User.init(
                 notEmpty: true,
             },
         },
-        swappies: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue: 2,
-            validate: {
-                notEmpty: true,
-            },
-        },
     }, { // In the second object we say in which db the info will be persistant
-    sequelize, // lient connected to the db
+    sequelize, // client connected to the db
+
+    // hooks and validate ignored by query, handled with js in controller.
+    // hooks: {
+    //     beforeUpdate: (user, options) => {
+    //         console.log('dans le before  update');
+    //         if (user.swappies <= 0) {
+    //             user.swappies = 0;
+    //             throw new Error("User doesn't have enough swappies");
+    //         }
+    //     },
+    // },
+
+    // validate: {
+    //     enoughSwappie() {
+    //         if ((this.swappies < 0)) {
+    //             throw new Error("User doesn't have enough swappies!");
+    //         }
+    //     },
+    // },
     modelName: 'User', //name of the model
     tableName: 'user', // in which table we want sequelize to put the informations of this model
 });
 
-User.belongsToMany(Category, { through: Interest });
-
-
-// User.create({
-//     firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Mdp'
-// });
-// User.create({
-//     firstname: "José", lastname: "Paledire", email: 'chut@gmail.com', hash: 'Mdp'
-// });
-// User.create({
-//     firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Mdp'
-// });
-// User.create({
-//     firstname: "Gus", lastname: "GusLucifer", email: 'estmechant@gmail.com', hash: 'Mdp'
-// });
-
-// await User.bulkCreate([
-//     { firstname: "Patrick", lastname: "Apéro", email: 'leurequelquepart@gmail.com', hash: 'Mdp' },
-//     { firstname: "Jeanne", lastname: "aipazenvi", email: 'detravailler@gmail.com', hash: 'Mdp' },
-//     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Mdp' },
-//     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Mdp' },
-// ]);
-
-// async () => {
-//     try {
-//         await sequelize.sync({ alter: true });
-//         console.log('Tables synchronized with database');
-//     } catch (error) {
-//         console.log("Error syncing the table and model!");
-//         console.log(error);
+// User.beforeUpdate(user => {
+//     console.log('dans le before  update');
+//     if (user.swappies <= 0) {
+//         throw new Error("User doesn't have enough swappies");
 //     }
-
-// };
-
-// sequelize.sync({ alter: true }).then(() => {
-//     console.log("table and model synced successfully!")
-//     // return User.create({ firstname: "bandida", lastname: "lafolita", email: 'null', hash: 'Mdp' });
-//     // Skill.create({ title: "baston", level: "super fort", transmission: 'presentiel', description: 'apprenez à casser des nez', availability: 'soir et we' })
-// }).then((data) => {
-//     console.log(data);
-// }).catch((err) => {
-//     console.log("Error syncing the table and model!");
-//     console.log(err);
-// })
-
-
+// });
 
 export default User;

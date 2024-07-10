@@ -1,10 +1,87 @@
 @use './var';
-@use './global';
 
 
-//= li 's list
+//* li's list
 @mixin skillList {
     background-color: var.$bgGrey;
     border-radius: 1rem;
     color: var.$blackWrite;
+}
+
+//* focus for help and accessibility
+@mixin focus ($color) {
+
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    button:focus-visible,
+    link:focus-visible {
+        background: $color;
+        color: var.$bgWhite;
+    }
+
+    select option:nth-child(n) {
+        background: $color;
+        color: var.$bgWhite;
+    }
+}
+
+//* buttons
+@mixin buttonStyle($color, $fontColor) {
+    background-color: $color;
+    color: $fontColor;
+    width: 6rem;
+    font-family: 'sugo pro display';
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    border-radius: 1rem;
+    border-color: var.$bgGrey;
+    margin: 0.4rem;
+    margin: auto;
+    padding: 0.3rem;
+    text-align: center;
+}
+
+//* h2 dashboard
+
+@mixin h2Dashboard {
+    margin: 0rem;
+    background-color: var.$blueBtn;
+    text-align: center;
+    color: var.$yellowBtn;
+    padding: 2rem 4rem;
+    margin: 0rem 15rem 0rem 15rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+}
+
+//*media query mobile first
+@mixin mobileFirst($flex-direction, $wrap) {
+    @media screen and (max-width:43rem) {
+        display: flex;
+        flex-direction: $flex-direction;
+        justify-items: center;
+        align-items: center;
+        flex-wrap: $wrap;
+        text-align: justify;
+
+
+        h2 {
+            padding: 2rem 15rem;
+        }
+
+        button {
+            font-size: 0.5rem;
+        }
+    }
+}
+
+//*show message error and success
+@mixin showMessage($color) {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: $color;
+    color: var.$yellowBtn;
 }

@@ -1,0 +1,25 @@
+@use '../../../style/var';
+@use '../../../style/mixin';
+
+#user {
+    @include mixin.mobileFirst(column, wrap);
+    display: flex;
+    flex-direction: row;
+    justify-items: right;
+    line-height: 1rem;
+    background-color: var.$yellowBtn;
+    border-radius: 1rem;
+    border-color: solid 0.2rem var.$yellowBtn;
+    padding: 1rem;
+    margin: 1rem;
+    color: rgb(59, 58, 58);
+
+
+    .skill-info {
+        padding: 1rem;
+        flex-direction: column;
+        width: calc(100%/3);
+    }
+
+
+}

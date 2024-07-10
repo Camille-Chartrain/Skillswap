@@ -1,0 +1,17 @@
+@use '../../style/var';
+@use '../../style/mixin';
+
+a {
+    text-decoration: none;
+
+}
+
+.footer {
+    @include mixin.focus(var.$orangeBtn);
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    background-color: var.$yelloWrite;
+    padding: 2rem;
+    color: var.$blackWrite;
+}

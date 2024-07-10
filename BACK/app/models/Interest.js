@@ -1,12 +1,17 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
-// import Category from './Category.js';
-// import User from './User.js';
 
 class Interest extends Model { }
 
 Interest.init(
     {
+        UserId: {
+            type: DataTypes.INTEGER,
+            primaryKey: false,
+        },
+        CategoryId: {
+            type: DataTypes.INTEGER,
+        }
     }, {
     timestamps: false,
     sequelize,

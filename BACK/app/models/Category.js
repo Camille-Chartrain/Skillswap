@@ -25,5 +25,4 @@ Category.init(
     tableName: 'category',
 });
 
-
 export default Category;

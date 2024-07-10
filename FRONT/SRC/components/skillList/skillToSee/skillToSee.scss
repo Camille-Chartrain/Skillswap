@@ -1,0 +1,63 @@
+@use '../../../style/var';
+@use'../../../style/mixin';
+
+section {
+
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+
+
+    .section {
+        width: 95%;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        #skillToSee {
+            @include mixin.mobileFirst(row, nowrap);
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-content: center;
+            line-height: 1rem;
+            background-color: var.$yellowBtn;
+            border-radius: 1rem;
+            border-color: solid 0.2rem var.$yellowBtn;
+            padding: 1rem;
+            margin: 1rem;
+            color: rgb(59, 58, 58);
+
+
+            .skill-header,
+            .skill-info,
+            .skill-teacher {
+                padding: 1rem;
+                flex-direction: column;
+                width: calc(100%/3);
+            }
+
+            img {
+                width: 90%;
+            }
+
+            .skillBtn {
+                text-orientation: sideways-right;
+                width: 4rem;
+                height: 50rem;
+                background-color: var.$yelloWrite;
+                color: var.$blueBtn;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                font-size: 1.4rem;
+                font-weight: bolder;
+                writing-mode: vertical-lr;
+                text-orientation: upright;
+            }
+        }
+    }
+}

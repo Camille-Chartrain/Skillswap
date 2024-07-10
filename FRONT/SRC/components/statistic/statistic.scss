@@ -1,0 +1,94 @@
+@use '../../style/var';
+@use '../../style/mixin';
+
+
+.statistic {
+    @include mixin.focus(var.$orangeBtn);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: nowrap;
+    border: solid 0.3rem var.$blueBtn ;
+    border-radius: 1rem;
+    margin: 2rem;
+    width: 90%;
+
+    h2 {
+        @include mixin.h2Dashboard();
+    }
+
+
+    .statistic-section {
+        @include mixin.mobileFirst(column, wrap);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        margin: 1rem;
+        width: 95%;
+        margin: auto;
+
+        .statisticList {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding: 1rem;
+            margin: 3rem;
+            background-color: var.$lightGreyWrite;
+            border-radius: 1rem;
+            border-color: 0.2rem solid;
+            width: 95%;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                list-style-type: none;
+                padding: 0.5rem;
+                background-color: var.$yelloWrite;
+                border-radius: 0.8rem;
+                width: 100%;
+
+                .rating {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .money {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .int {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: var.$blueBtn;
+                    margin: 1rem 4rem;
+                }
+
+                .statistic-li {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 2.3rem;
+                    margin: auto;
+                    margin: 0.2rem;
+                    border-radius: 1.8rem;
+                    padding: 0.5rem;
+                    border-color: 0.2 rem solid var.$bgGrey;
+                    width: 90%;
+                    background-color: var.$bgGrey;
+
+
+                }
+            }
+        }
+    }
+
+    @include mixin.mobileFirst(column, wrap);
+}

@@ -1,7 +1,7 @@
 
 //= create dark mode context
 import { createContext, useContext, useState } from "react";
-
+import sunAndMoon from './style/pictures/sunAndMoon.svg';
 //-> need to create a context
 
 
@@ -23,10 +23,9 @@ export const DarkModeProvider = ({ children }) => {
 //-> the toggle button
 export const ToggleBtn = () => {
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-    console.log(darkMode);
-    return <button onClick={toggleDarkMode} className="darkBtn"> Dark</button>
+    // console.log(darkMode);
+    return <button onClick={toggleDarkMode} className="darkBtn"> <img className="" src={sunAndMoon} alt='icone dark theme' /></button>
 }
-
 
 
 
@@ -36,3 +35,12 @@ export const PageError = () => {
     <h1>Une erreur est survenue</h1>
     console.status(error.message);
 }
+
+//= function to hide or show 
+export const isLogged = true;
+
+
+
+
+
+

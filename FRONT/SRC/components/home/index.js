@@ -1,17 +1,34 @@
 
+import SkillList from "../skillList";
+
+const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch }) => {
+    console.log("state match dans Home", match);
+    console.log("state noMatch dans Home", noMatch);
+
+    console.log("state dataSearch dans Home", dataSearch);
 
 
-const Home = () => {
+
     return (
-        <main>
-            <article>
+        <>
+            <article  >
                 <h1>SKILLSWAP C'est...</h1>
-                <p>presentation concept</p>
+                <span>Une plateforme d'échange et d’apprentissage qui permet de mettre en relation des personnes de tout âge et aux profils variés qui souhaitent apprendre ou partager leur compétence et leurs talents avec les autres.
+                    Fonctionnant sur le principe que chaque utilisateur est à la fois professeur et élève, elle
+                    donne accès à une communauté de gens très variée, et une foule de savoir à dispositions.
+                    Le swappie; la monnaie virtuelle de notre site; est là pour encourager ce système. A chaque fois qu’un cours est donne, on recoit un swappie, que l’on pourra  ensuite dépenser pour assister aux cours de son choix.
+                </span>
             </article>
             <section>
-                <p>ici seront mises les 4 dernieres comp crees... essaie pour voir si ca marche</p>
+                < SkillList
+                    skillList={skillsList}
+                    setSkillsList={setSkillsList}
+                    dataSearch={dataSearch}
+                    match={match}
+                    noMatch={noMatch}
+                />
             </section>
-        </main>
+        </>
     )
 
 }

@@ -1,0 +1,34 @@
+@use '../../style/var';
+@use '../../style/mixin';
+
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+
+
+    label {
+        margin: 0.5rem;
+        border-radius: 0.2rem;
+
+    }
+
+    Input {
+        margin: 0.5rem;
+        border-radius: 0.2rem;
+        background-color: var.$yelloWrite;
+        width: 30rem;
+        border-radius: 0.8rem;
+    }
+
+    button {
+        @include mixin.buttonStyle(var.$blueBtn, var.$yelloWrite);
+        width: 10rem;
+        height: 2.3rem;
+        margin: 1.5rem;
+    }
+
+    @include mixin.focus(var.$orangeBtn);
+}

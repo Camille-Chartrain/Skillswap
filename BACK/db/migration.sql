@@ -1,8 +1,29 @@
+-- SQLBook: Code
 BEGIN;
 
 SET CLIENT_ENCODING TO 'UTF-8';
 
-DROP TABLE IF EXISTS "user", "category","sub_category","skill","meeting", "interest";
+-- DROP TABLE IF EXISTS  "user",
+-- "category",
+-- "subcategory",
+-- "skill",
+-- "meeting",
+-- "interest";
+
+DROP TABLE IF EXISTS "user" CASCADE;
+
+DROP TABLE IF EXISTS "category" CASCADE;
+
+DROP TABLE IF EXISTS "subcategory" CASCADE;
+
+DROP TABLE IF EXISTS "SubCategory" CASCADE;
+
+DROP TABLE IF EXISTS "sub_category" CASCADE;
+DROP TABLE IF EXISTS "skill" CASCADE;
+
+DROP TABLE IF EXISTS "meeting" CASCADE;
+
+DROP TABLE IF EXISTS "interest" CASCADE;
 
 CREATE TABLE "user" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -17,47 +38,43 @@ CREATE TABLE "user" (
     "swappies" INTEGER
 );
 
-CREATE TABLE "category" ( 
+CREATE TABLE "category" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
     "picture" TEXT NOT NULL
 );
 
-CREATE TABLE "sub_category" (
+CREATE TABLE "subcategory" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
-    "CategoryId" INTEGER REFERENCES "category"("id") NOT NULL
+    "category_id" INTEGER REFERENCES "category" ("id") NOT NULL
 );
 
 CREATE TABLE "skill" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "title" TEXT NOT NULL,
     "duration" INTEGER,
-    "price"  INTEGER,
+    "price" INTEGER,
     "mark" INTEGER,
     "level" TEXT NOT NULL,
     "transmission" TEXT,
     "description" TEXT NOT NULL,
-    "availability"TEXT NOT NULL,
-    "sub_category_id" INTEGER REFERENCES "sub_category"("id") NOT NULL,
-    "category_id" INTEGER REFERENCES "category"("id") NOT NULL,
-    "user_id" INTEGER REFERENCES "user"("id") NOT NULL
-); 
-
+    "availability" TEXT NOT NULL,
+    "subcategory_id" INTEGER REFERENCES "subcategory" ("id") NOT NULL,
+    "category_id" INTEGER REFERENCES "category" ("id") NOT NULL,
+    "user_id" INTEGER REFERENCES "user" ("id") NOT NULL
+);
 
 CREATE TABLE "meeting" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "date" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    "skill_id" INTEGER REFERENCES "skill"("id") NOT NULL,
-    "user_id" INTEGER REFERENCES "user"("id") NOT NULL
-);  
-
-
+    "skill_id" INTEGER REFERENCES "skill" ("id") NOT NULL,
+    "user_id" INTEGER REFERENCES "user" ("id") NOT NULL
+);
 
 CREATE TABLE "interest" (
-    "category_id" INTEGER REFERENCES "category"("id") NOT NULL,
-    "user_id" INTEGER REFERENCES "user"("id") NOT NULL
-);  
+    "category_id" INTEGER REFERENCES "category" ("id") NOT NULL,
+    "user_id" INTEGER REFERENCES "user" ("id") NOT NULL
+);
 
 COMMIT;
-

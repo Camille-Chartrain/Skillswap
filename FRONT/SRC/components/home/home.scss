@@ -1,0 +1,28 @@
+@use '../../style/var';
+@use '../../style/mixin';
+
+h1 {
+    text-align: center;
+}
+
+article {
+    background-color: var.$lightGreyWrite;
+    border-radius: 1rem;
+    border-color: solid 0.2rem var.$bgGrey;
+    padding: 2rem;
+    margin: 1rem;
+}
+
+.search-result {
+    font-size: 3rem;
+    font-weight: bolder;
+    color: var.$blueBtn;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    line-height: 2.4rem;
+
+}
+
+home {
+    @include mixin.focus(var.$orangeBtn);
+}
