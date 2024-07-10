@@ -21,7 +21,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch, setMatch,
         try {
             // setIsAuthenticated(false)
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/logout`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/logout`, {
                 method: "POST",
                 status: 200,
                 headers: {

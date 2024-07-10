@@ -117,7 +117,9 @@ const App = ({ darkMode }) => {
                             register={register}
                             setValue={setValue}
                             reset={reset}
-                            handleNotFoundError={handleNotFoundError} error={error} setError={setError}
+                            handleNotFoundError={handleNotFoundError}
+                            error={error}
+                            setError={setError}
                         />}
                     />
 

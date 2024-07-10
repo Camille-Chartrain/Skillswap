@@ -46,7 +46,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         // console.log('yo declenchement getprofile');
         try {
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/profile', {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/profile`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         try {
             console.log('data envoyees:', data);
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/profile', {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/profile`, {
                 method: 'PATCH',
                 status: 200,
                 headers: {
@@ -125,7 +125,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
     const ProfileDelete = useCallback(async () => {
         try {
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/profile', {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/profile`, {
                 method: "delete",
                 status: 200,
                 headers: {
@@ -168,7 +168,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
     const GetAllSkillUser = async () => {
         try {
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/skill', {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill`, {
                 method: "get",
                 status: 200,
                 headers: {
@@ -215,7 +215,7 @@ const Profile = ({ handleNotFoundError, error, setError }) => {
         try {
             // console.log("id recup ds le try PSD :", skill.id);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/${skill.id}`, {
                 method: "delete",
                 status: 200,
                 headers: {

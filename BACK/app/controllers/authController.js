@@ -90,6 +90,7 @@ const authController = {
         }
 
         try {
+            console.log('ON RENTRE DANS LAUTHENTIFICATION');
             // Authentification of the user, check if a mating user is founded in the db
             const user = await User.findOne({ where: { email: req.body.email } });
 

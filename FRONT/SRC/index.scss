@@ -3,11 +3,10 @@
 @use './style/global';
 
 
-@use './style/components/_card';
+// @use './style/components/_card';
 @use './components/APP/style.scss';
 @use './components/footer/footer.scss';
 @use './components/header/header.scss';
-@use './components/footer/footer.scss';
 
 @use './components/navBar/NavBar.scss';
 @use './components/home/home.scss';

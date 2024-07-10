@@ -26,7 +26,7 @@ const homeController = {
                 }],
             });
             //send the answer to the front
-
+            console.log("les skills:::::::::::::::::::::::::::::::::::", skill);
             res.send(
                 skill
             );

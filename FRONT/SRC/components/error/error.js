@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import dashboard from '../../style/pictures/dashboard.svg';
 import logout from '../../style/pictures/logout.svg';
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 
 
 const Error = ({ error, SetError }) => {
@@ -18,7 +18,7 @@ const Error = ({ error, SetError }) => {
             // setIsAuthenticated(false)
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/logout`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/logout`, {
                 method: "POST",
                 status: 200,
                 headers: {
@@ -55,7 +55,7 @@ const Error = ({ error, SetError }) => {
         };
 
         if (location.pathname === '*') {
-            handleNotFoundError();
+            handleNotFoundError(error);
         }
     }, []);
 

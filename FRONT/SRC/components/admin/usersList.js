@@ -20,7 +20,7 @@ const Admin = (reset, setError, error, handleNotFoundError) => {
         try {
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/logout`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/logout`, {
                 method: "POST",
                 status: 200,
                 headers: {
@@ -51,7 +51,7 @@ const Admin = (reset, setError, error, handleNotFoundError) => {
         try {
             // console.log('dans fetch UserList');
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/admin`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/admin`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ const Admin = (reset, setError, error, handleNotFoundError) => {
         try {
             // console.log('dans fonction userDelete, user =', user);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/admin/${user.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/admin/${user.id}`, {
                 method: "delete",
                 status: 200,
                 headers: {

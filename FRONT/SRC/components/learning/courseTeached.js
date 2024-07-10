@@ -15,7 +15,7 @@ const CourseTeached = ({ handleNotFoundError, error, setError, GetMoney }) => {
     const getCourseTeacher = async () => {
         try {
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/teacherLearning', {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/teacherLearning`, {
                 method: "GET",
                 status: 200,
                 headers: {
@@ -51,7 +51,7 @@ const CourseTeached = ({ handleNotFoundError, error, setError, GetMoney }) => {
         // console.log('skill dans patchCourseValidate: ', item)
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/acceptLearning/${item.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/acceptLearning/${item.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
@@ -85,7 +85,7 @@ const CourseTeached = ({ handleNotFoundError, error, setError, GetMoney }) => {
 
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/declineLearning/${item.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/declineLearning/${item.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
@@ -123,7 +123,7 @@ const CourseTeached = ({ handleNotFoundError, error, setError, GetMoney }) => {
         try {
             // console.log("fais voir ton... id:", item.id);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/closeLearning/${item.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/closeLearning/${item.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {

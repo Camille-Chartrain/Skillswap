@@ -39,7 +39,7 @@ const SearchSubCategory = ({ setValue, setSelectedSubCategory, selectedCategory,
     const getSubCategoriesList = useCallback(async () => {
 
         try {
-            let endpoint = "http://localhost:3000/subCategories"
+            let endpoint = `http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/subCategories`
 
             const token = Cookies.get('token');
             const response = await fetch(endpoint, {

@@ -5,14 +5,18 @@ dotenv.config();
 
 
 //connection to the db with client sequelize, with our identifiers written in the .env
-const sequelize = new Sequelize(process.env.PG, process.env.PG1, process.env.PG2, {
-    host: 'localhost',
-    dialect: 'postgres'
+console.log("Dans le fichier DATABASE.js, essai de sequelize");
+const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER, process.env.PGPASSWORD, {
+    host: process.env.PGHOST,
+    dialect: 'postgres',
+    port: process.env.PGPORT,
 });
+console.log("on est apres const sequelize");
 
 
 //test of the connection to the db 
 try {
+    console.log("on essaie authenticate");
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');
 } catch (error) {

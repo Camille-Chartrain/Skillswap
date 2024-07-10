@@ -13,7 +13,7 @@ const NotificationsList = ({ handleNotFoundError, setError, error }) => {
     const GetNotificationsList = useCallback(async () => {
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/communication`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/communication`, {
                 method: "get",
                 status: 200,
                 headers: {
@@ -61,7 +61,7 @@ const NotificationsList = ({ handleNotFoundError, setError, error }) => {
     //     try {
     //         console.log("id recup ds le try ND :", item);
     //         const token = Cookies.get('token');
-    //         const response = await fetch(`http://localhost:3000/communication/${item.id}`, {
+    //         const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/communication/${item.id}`, {
     //             method: "delete",
     //             status: 200,
     //             headers: {

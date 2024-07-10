@@ -6,7 +6,7 @@ import Error from '../error/error';
 
 
 
-const SkillRating = (error, setError, handleNotFoundError) => {
+const SkillRating = ({ error, setError, handleNotFoundError }) => {
 
     const [rating, setRating] = useState([]);
     let stars = Array(5).fill();
@@ -16,7 +16,7 @@ const SkillRating = (error, setError, handleNotFoundError) => {
 
         try {
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/Statistic', {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/Statistic`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',

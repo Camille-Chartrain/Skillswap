@@ -13,7 +13,7 @@ const NotificationRating = ({ handleNotFoundError, setError, error }) => {
     const GetSkillToRate = async () => {
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/communicationSkillToRate`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/communicationSkillToRate`, {
                 method: "get",
                 status: 200,
                 headers: {
@@ -65,7 +65,7 @@ const NotificationRating = ({ handleNotFoundError, setError, error }) => {
             // console.log('id url envoye:', item.id);
             // console.log("rating", rating);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/communication/${item.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/communication/${item.id}`, {
                 method: 'PATCH',
                 status: 200,
                 headers: {

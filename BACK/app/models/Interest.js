@@ -7,6 +7,7 @@ Interest.init(
     {
         UserId: {
             type: DataTypes.INTEGER,
+            primaryKey: false,
         },
         CategoryId: {
             type: DataTypes.INTEGER,

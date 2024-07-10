@@ -13,7 +13,7 @@ const Registration = ({ handleSubmit, register, isValid, handleNotFoundError }) 
     const onSubmit = async (data) => {
         try {
             console.log('try data:', data);
-            const response = await fetch('http://localhost:3000/registration', {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/registration`, {
                 method: "post",
                 status: 200,
                 headers: {

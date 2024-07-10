@@ -39,7 +39,7 @@ const Dashboard = ({
         console.log("qui a t il dans wallet:", wallet);
         try {
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/statistic', {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/statistic`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const Dashboard = ({
         try {
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/logout`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/logout`, {
                 method: "POST",
                 status: 200,
                 headers: {
@@ -103,7 +103,7 @@ const Dashboard = ({
         else if (token) {
             try {
                 // console.log('on essaie de fetch dans dashboard');
-                const response = await fetch(`http://localhost:3000/dashboard`, {
+                const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
                     method: "GET",
                     status: 200,
                     headers: {

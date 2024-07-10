@@ -15,6 +15,7 @@ import cookieParser from 'cookie-parser';
 import router from './app/router.js';
 import redis from 'redis';
 
+
 // import sequelize from './app/database.js';
 
 // sequelize.sync({ alter: true }).then(() => {
@@ -25,6 +26,7 @@ import redis from 'redis';
 //     console.log("Error syncing the table and model!");
 //     console.log(err);
 // })
+
 
 
 // const redis = require('redis');
@@ -56,7 +58,7 @@ app.use(cookieParser());
 
 // gestion of CORS
 app.use(cors({
-    // origin: ['http://localhost:1234', 'http://localhost:3000'], // Autoriser les requêtes uniquement à partir de ce domaine
+    // origin: ['http://localhost:1234', `http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}'], // Autoriser les requêtes uniquement à partir de ce domaine
     origin: '*',
     methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
     credentials: true

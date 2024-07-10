@@ -19,7 +19,7 @@ const SkillList = ({ dataSearch, match, noMatch, title, error, setError, handleN
 
     const GetSkillsList = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/`);
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`);
             const dataSkill = await response.json();
             setSkillsList(dataSkill);
             // console.log("reponse dataSkill du get skill page home", dataSkill);

@@ -12,8 +12,8 @@ const SearchLevel = ({ register, setSelectLevel, selectLevel, setError, error, h
     const handleChangeLevel = (e) => {
         console.log("e.target.value", e.target.value);
         setSelectLevel(e.target.value);
-        setError("Selectionnez un niveau");
-        handleNotFoundError("Selectionnez un niveau");
+        // setError("Selectionnez un niveau");
+        // handleNotFoundError("Selectionnez un niveau");
     };
 
 
@@ -29,7 +29,7 @@ const SearchLevel = ({ register, setSelectLevel, selectLevel, setError, error, h
                 aria-label="ajouter un niveau"
             // required onChange={handleChangeLevel}
             >
-                <option Value="" >Un niveau</option>
+                <option value="" >Un niveau</option>
                 <option value="débutant" >Débutant</option>
                 <option value="intermediaire" >Intermédiaire</option>
                 <option value="avancé" >Avancé</option>

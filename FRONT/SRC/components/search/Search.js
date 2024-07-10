@@ -42,7 +42,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
 
             const token = Cookies.get('token');
 
-            const response = await fetch(`http://localhost:3000/searchVisitor?input=${searchInput}&level=${selectLevel}&CategoryId=${selectedCategory?.id}&SubCategoryId=${selectedSubCategory?.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/searchVisitor?input=${searchInput}&level=${selectLevel}&CategoryId=${selectedCategory?.id}&SubCategoryId=${selectedSubCategory?.id}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const Search = ({ dataSearch, setDataSearch, match, setMatch, noMatch, setNoMatc
                 try {
                     console.log('dans le search apres match ok, verif si logué');
                     const token = Cookies.get('token');
-                    const response = await fetch(`http://localhost:3000/dashboard`, {
+                    const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
                         method: "get",
                         headers: {
                             'Content-Type': 'application/json',

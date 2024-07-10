@@ -52,7 +52,7 @@ const Skill = ({
 
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/dashboard`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const Skill = ({
                 try {
                     // console.log('dans le try AskInscriptionCourse');
                     const token = Cookies.get('token');
-                    const response = await fetch(`http://localhost:3000/learning/${skillId}`, {
+                    const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/learning/${skillId}`, {
                         method: 'POST',
                         status: 200,
                         headers: {
@@ -123,7 +123,7 @@ const Skill = ({
         console.log('id depuis item:', item)
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/oneSkill/${skill.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/oneSkill/${skill.id}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -158,7 +158,7 @@ const Skill = ({
                 {!isLogged ? (
                     <>
                         <span className="skill-header">
-                            <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
+                            <img src={`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${picture}`} alt="photo de la categorie" />
                             <h4>Description :</h4> <span>{description}</span>
                             <h4>Duree :</h4><span>{duration}</span>
                         </span>
@@ -188,7 +188,7 @@ const Skill = ({
                 ) : (
                     <>
                         <span className="skill-header">
-                            <img src={`http://localhost:3000/${picture}`} alt="photo de la categorie" />
+                            <img src={`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${picture}`} alt="photo de la categorie" />
                             <h4>Description :</h4> <span>{description}  </span>
                             <h4>Duree :</h4><span>{duration}</span>
                         </span>

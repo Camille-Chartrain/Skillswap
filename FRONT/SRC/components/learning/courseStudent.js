@@ -11,7 +11,7 @@ const CourseStudent = ({ handleNotFoundError, setError, error }) => {
     const getCourse = async () => {
         try {
             const token = Cookies.get('token');
-            const response = await fetch('http://localhost:3000/studentLearning', {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/studentLearning`, {
                 method: "GET",
                 status: 200,
                 headers: {

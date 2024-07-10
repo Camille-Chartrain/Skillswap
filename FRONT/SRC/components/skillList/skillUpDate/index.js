@@ -52,7 +52,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleL
         // console.log('id depuis skill:', skill.id)
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/oneSkill/${skill.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/oneSkill/${skill.id}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const SkillUpDate = ({ handleSubmit, register, isValid, setValue, reset, handleL
 
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/${skill.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/${skill.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {

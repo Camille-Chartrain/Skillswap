@@ -7,9 +7,11 @@ const SearchTransmission = ({ handleSubmit, register, isValid, handleNotFoundErr
     const [selectTrans, setSelectTrans] = useState('all');
     const handleChangeTransm = (e) => {
         setSelectTrans(e.target.value);
+
+        // ne fonctionne pas
         //->manage errors
-        setError("Merci de choisir un mode de transmission");
-        handleNotFoundError("Merci de choisir un mode de transmission");
+        // setError("Merci de choisir un mode de transmission");
+        // handleNotFoundError("Merci de choisir un mode de transmission");
     };
 
 
@@ -17,7 +19,7 @@ const SearchTransmission = ({ handleSubmit, register, isValid, handleNotFoundErr
         <>
             {error && <Error error={error} />}
             <select id="transmission" name="transmission" {...register("transmission")} value={selectTrans} onChange={handleChangeTransm} aria-label="ajouter un mode de transmission" required >
-                <option defaultValue="all">Mode de transmission</option>
+                <option value="all">Mode de transmission</option>
                 <option value="online">En ligne</option>
                 <option value="video">Video</option>
                 <option value="email">Email</option>

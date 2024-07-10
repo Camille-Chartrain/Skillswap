@@ -45,7 +45,7 @@ const SkillToSee = ({ setValue, setIsAuthenticated, error, setError, handleNotFo
             // setIsAuthenticated(false)
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/logout`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/logout`, {
                 method: "POST",
                 status: 200,
                 headers: {
@@ -79,7 +79,7 @@ const SkillToSee = ({ setValue, setIsAuthenticated, error, setError, handleNotFo
         // console.log("skillSaw avt try:", seeASkill)
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/oneSkill/${seeASkill.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/oneSkill/${seeASkill.id}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ const SkillToSee = ({ setValue, setIsAuthenticated, error, setError, handleNotFo
             console.log('dans la fonction AskInscriptionCourse');
             console.log('data envoyees:', seeASkill);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/learning/${seeASkill.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/learning/${seeASkill.id}`, {
                 method: 'POST',
                 status: 200,
                 headers: {

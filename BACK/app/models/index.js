@@ -4,6 +4,7 @@ import Skill from "./Skill.js";
 import Interest from "./Interest.js";
 import SubCategory from "./SubCategory.js";
 import Meeting from "./Meeting.js";
+console.log('on est  dans le model et les associations de index.js');
 
 //description of the relation, parent table first, child table next
 //association many to many category user
@@ -11,7 +12,7 @@ User.belongsToMany(Category, { through: Interest, });
 Category.belongsToMany(User, { through: Interest, });
 
 //meeting one to one
-// User.hasOne(Meeting);
+
 User.hasMany(Meeting);
 Meeting.belongsTo(User);
 // { as: 'Students' }
@@ -52,10 +53,7 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { firstname: "Ali", lastname: "Baba", email: 'tapis@volant.com', hash: 'Cochise1234.', role: "admin" },);
 
 
-// // Camille
-
-// await User.create(
-//     { firstname: "Ali", lastname: "Baba", email: 'tapis@gmail.com', hash: 'Azertyuiop12!', role: "admin" },);
+// Camille
 
 
 // await User.bulkCreate([
@@ -67,6 +65,7 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { firstname: "Jeanne", lastname: "aipazenvi", email: 'detravailler@gmail.com', hash: 'Azertyuiop12!', presentation: "Dans la lune que je trouve mes meilleurs idées" },
 //     { firstname: "Elodie", lastname: "toujournon", email: 'pasfun@gmail.com', hash: 'Azertyuiop12!', presentation: "Vous pouvez me contacter je vous répondrai si je suis disponible" },
 //     { firstname: "Olivier", lastname: "Vert", email: 'belarbuste@gmail.com', hash: 'Azertyuiop12!', presentation: "Mains toutes vertes et vie en rose" },
+//     { firstname: "Ali", lastname: "Baba", email: 'tapis@gmail.com', hash: 'Azertyuiop12!', role: "admin" }
 // ]);
 
 

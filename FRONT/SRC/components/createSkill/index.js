@@ -36,7 +36,7 @@ const CreateSkill = ({ handleSubmit, register, isValid, reset, GetAllSkillUser, 
             console.log("selectLevel dans try", selectLevel);
             console.log('try data:', data);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/skill/?&CategoryId=${selectedCategory?.id}&SubCategoryId=${selectedSubCategory?.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/?&CategoryId=${selectedCategory?.id}&SubCategoryId=${selectedSubCategory?.id}`, {
                 method: "post",
                 status: 200,
                 headers: {

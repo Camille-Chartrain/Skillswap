@@ -64,7 +64,7 @@ const User = ({
         try {
             // console.log("deconnection => supprimer cookie. (composant Dashboard)");
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/logout`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/logout`, {
                 method: "POST",
                 status: 200,
                 headers: {
@@ -95,7 +95,7 @@ const User = ({
 
             // console.log('try GetAllSkillUser user=:', user);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/admin/${user.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/admin/${user.id}`, {
                 method: "get",
                 status: 200,
                 headers: {
@@ -139,7 +139,7 @@ const User = ({
         try {
             // console.log('data envoyees:', data);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/admin/${user.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/admin/${user.id}`, {
                 method: 'PATCH',
                 status: 200,
                 headers: {
@@ -176,7 +176,7 @@ const User = ({
             // console.log('try skillList dans patchCompetence:', skillsList);
             // console.log('try data dans patchCompetence:', data);
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/admin/skill/${skill.id}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/admin/skill/${skill.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
