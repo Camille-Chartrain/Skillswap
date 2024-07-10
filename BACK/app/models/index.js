@@ -53,7 +53,7 @@ SubCategory.belongsTo(Category, { foreignKey: 'category_id' });
 //     { firstname: "Ali", lastname: "Baba", email: 'tapis@volant.com', hash: 'Cochise1234.', role: "admin" },);
 
 
-// Camille
+// // Camille
 
 
 // await User.bulkCreate([

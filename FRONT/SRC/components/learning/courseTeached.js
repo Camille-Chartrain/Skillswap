@@ -24,17 +24,19 @@ const CourseTeached = ({ handleNotFoundError, error, setError, GetMoney }) => {
                 },
 
             })
-            // console.log('response.status:', response.status);
-            // console.log("response", response);
+            console.log('response.status:', response.status);
+            console.log("response", response);
 
             if (!response.ok) {
                 throw new Error('Failed to fetch courses');
             }
             else {
                 //=traduct api response in Json
-                // console.log("data CourseTeacheravant .json", response);
+                console.log("data CourseTeacheravant .json", response);
                 const dataTeacher = await response.json();
-                // console.log(" data CourseTeacherapres .json:", dataTeacher);
+                console.log("dataTeacher.message", dataTeacher.message);
+                console.log(" data CourseTeacherapres .json:", dataTeacher);
+
                 setTeacherReq(dataTeacher);
             }
         }
