@@ -1,10 +1,8 @@
-import './index.scss';
-// import 'reset-css'
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from "react-dom"
 import App from './components/APP';
-import { DarkModeProvider } from './util';
-import themeClass from './components/APP';
+import { BrowserRouter } from "react-router-dom"
+
 
 
 
@@ -19,12 +17,9 @@ const root = createRoot(container);
 
 
 
-root.render(
-    <>
-        <React.StrictMode>
-            {/* <DarkModeProvider value={themeClass}> */}
-            < App />
-            {/* </DarkModeProvider > */}
-        </React.StrictMode >
-    </>
+ReactDOM.render(
+    <BrowserRouter>
+        < App />
+    </BrowserRouter>,
+    document.getElementById("root")
 )
