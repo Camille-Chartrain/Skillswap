@@ -1,24 +1,25 @@
 {
-  "name": "apo-skill-swap",
+  "name": "Skillswap",
   "version": "1.0.0",
-  "description": "",
+  "description": "app côté FRONT",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "parcel SRC/index.html",
-    "build": "parcel build"
+    "start": "node-dev server.js --notify=false",
+    "dev": "parcel SRC/index.html",
+    "build": "parcel build SRC/index.html"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/O-clock-Ra/APO-skill-swap.git"
+    "url": "git+https://github.com/Camille-Chartrain/Skillswap.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/O-clock-Ra/APO-skill-swap/issues"
+    "url": "https://github.com/Camille-Chartrain/Skillswap/issues"
   },
-  "homepage": "https://github.com/O-clock-Ra/APO-skill-swap#readme",
+  "homepage": "https://github.com/Camille-Chartrain/Skillswap#readme",
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
@@ -42,6 +43,7 @@
     "@parcel/transformer-sass": "^2.12.0",
     "assert": "^2.1.0",
     "console-browserify": "^1.2.0",
+    "node-dev": "^8.0.0",
     "util": "^0.12.5"
   }
 }

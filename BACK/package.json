@@ -1,7 +1,7 @@
 {
-  "name": "apo-skill-swap",
+  "name": "Skillswap",
   "version": "1.0.0",
-  "description": "notre app branche back API",
+  "description": "app côté back API",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/O-clock-Ra/APO-skill-swap.git"
+    "url": "git+https://github.com/Camille-Chartrain/Skillswap.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/O-clock-Ra/APO-skill-swap/issues"
+    "url": "https://github.com/Camille-Chartrain/Skillswap/issues"
   },
-  "homepage": "https://github.com/O-clock-Ra/APO-skill-swap#readme",
+  "homepage": "https://github.com/Camille-Chartrain/Skillswap#readme",
   "devDependencies": {
     "jest": "^29.7.0",
     "node-dev": "^8.0.0"

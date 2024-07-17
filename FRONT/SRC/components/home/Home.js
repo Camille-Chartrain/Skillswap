@@ -19,7 +19,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch }) => {
                     Le swappie; la monnaie virtuelle de notre site; est là pour encourager ce système. A chaque fois qu’un cours est donne, on recoit un swappie, que l’on pourra  ensuite dépenser pour assister aux cours de son choix.
                 </span>
             </article>
-            <section>
+            {/* <section>
                 < SkillList
                     skillList={skillsList}
                     setSkillsList={setSkillsList}
@@ -27,7 +27,7 @@ const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch }) => {
                     match={match}
                     noMatch={noMatch}
                 />
-            </section>
+            </section> */}
         </>
     )
 
