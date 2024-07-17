@@ -1,0 +1,1726 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: prompt, "sans-serif";
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+body main {
+  flex-direction: column;
+  display: flex;
+}
+
+body form {
+  display: flex;
+}
+
+body span {
+  text-align: justify;
+  line-height: 1.8rem;
+}
+
+body .dark {
+  color: fff;
+  background: #333;
+}
+
+body .light {
+  color: #333;
+  background: #fff;
+  transition: background-color .3s;
+}
+
+@font-face {
+  font-family: sugo pro display;
+  src: url("Sugo-Pro-Display-Regular-trial.6e601ec7.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body .success {
+  text-align: center;
+  color: #eeb451;
+  background-color: #6cf9836a;
+  justify-content: center;
+  align-items: center;
+}
+
+body .error {
+  text-align: center;
+  color: #eeb451;
+  background-color: #f2816544;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (width <= 43rem) {
+  body {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  body h2 {
+    padding: 2rem 15rem;
+  }
+
+  body button {
+    font-size: .5rem;
+  }
+}
+
+h1, h2 {
+  text-align: center;
+  letter-spacing: .5rem;
+  margin: 1.2rem;
+  padding: 1rem;
+  font-family: sugo pro display, "sans-serif";
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}
+
+h1 {
+  color: #174c8c;
+}
+
+h3 {
+  color: #7a6000;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+h4, label {
+  color: #174c8c;
+  letter-spacing: .1rem;
+  margin: .5rem;
+  padding: .2rem;
+  font-family: sugo pro display;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  line-height: 3rem;
+}
+
+input, select, textarea {
+  text-align: justify;
+  border-radius: .5rem;
+  width: 25rem;
+  height: 2.5rem;
+  margin: .4rem;
+  padding: .2rem;
+  font-size: 1.5rem;
+}
+
+textarea {
+  height: auto;
+}
+
+input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible, link:focus-visible, select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.headerSite {
+  position: static;
+}
+
+.dark {
+  color: fff;
+  background: #333;
+}
+
+.light {
+  color: #333;
+  background: #fff;
+  transition: background-color .3s;
+}
+
+a {
+  text-decoration: none;
+}
+
+.footer {
+  color: #000;
+  background-color: #fff8e1;
+  place-content: space-around;
+  padding: 2rem;
+  display: flex;
+}
+
+.footer input:focus-visible, .footer textarea:focus-visible, .footer select:focus-visible, .footer button:focus-visible, .footer link:focus-visible, .footer select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+header {
+  flex-direction: column;
+  display: flex;
+}
+
+.banner {
+  width: 100%;
+  margin: 0;
+}
+
+.arianaWire {
+  background-color: #fff8e1;
+  flex-flow: row;
+  place-content: center start;
+  align-items: center;
+  display: flex;
+}
+
+.arianaWire input:focus-visible, .arianaWire textarea:focus-visible, .arianaWire select:focus-visible, .arianaWire button:focus-visible, .arianaWire link:focus-visible, .arianaWire select option:nth-child(n) {
+  color: #fff8e1;
+  background: #174c8c;
+}
+
+.arianaWire .searchBar {
+  background-color: #fff8e1;
+  border-radius: .3rem;
+  flex-direction: row;
+  justify-content: center;
+  gap: .2rem;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.arianaWire .searchBar a {
+  align-content: center;
+}
+
+.arianaWire .searchBar select {
+  position: relative;
+}
+
+.arianaWire .logo {
+  align-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+}
+
+.arianaWire input, .arianaWire select, .arianaWire option {
+  color: #000;
+  border-color: solid .2rem #ef9700;
+  text-align: center;
+  background-color: #ef9700;
+  border-radius: .8rem;
+  width: 18rem;
+  height: 4rem;
+  margin: .4rem;
+  padding: .2rem;
+  font-size: 1.5rem;
+}
+
+.arianaWire button {
+  background-color: #ef9700;
+  border-radius: .8rem;
+  width: 7rem;
+  height: 4rem;
+  margin: .4rem;
+  padding: .2rem;
+}
+
+.arianaWire button img {
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+}
+
+.arianaWire button .btnSearch {
+  justify-content: center;
+}
+
+.arianaWire .darkBtn {
+  justify-content: right;
+}
+
+@media screen and (width <= 43rem) {
+  .arianaWire {
+    flex-flow: column;
+    width: 100%;
+    font-size: 80%;
+    display: flex;
+  }
+
+  .arianaWire h2 {
+    padding: 2rem 5rem;
+  }
+
+  .arianaWire img {
+    align-items: center;
+    width: 80%;
+  }
+
+  .arianaWire button {
+    font-size: .5rem;
+  }
+
+  .arianaWire .skillList {
+    flex-direction: column;
+    width: 50%;
+    display: flex;
+  }
+}
+
+.ancre, .nav {
+  z-index: 1;
+  background-color: #fff8e1;
+  border-color: #ef9700;
+  border-radius: 1rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 4rem;
+  padding: 0;
+  display: flex;
+  position: fixed;
+  top: 12.9rem;
+  right: 0;
+}
+
+.ancre img, .nav img {
+  width: 3rem;
+  height: 3rem;
+  margin: .5rem;
+}
+
+@media screen and (width <= 43rem) {
+  .ancre, .nav {
+    z-index: 1;
+    flex-wrap: wrap;
+    place-content: center;
+    align-items: center;
+    width: 5rem;
+    display: flex;
+    top: 17rem;
+  }
+
+  .ancre .logo, .nav .logo {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+article {
+  border-color: solid .2rem #a3a2a2;
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 2rem;
+}
+
+.search-result {
+  color: #174c8c;
+  text-align: center;
+  letter-spacing: .2rem;
+  font-size: 3rem;
+  font-weight: bolder;
+  line-height: 2.4rem;
+}
+
+home input:focus-visible, home textarea:focus-visible, home select:focus-visible, home button:focus-visible, home link:focus-visible, home select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.formRegistration {
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  display: flex;
+}
+
+.formRegistration input:focus-visible, .formRegistration textarea:focus-visible, .formRegistration select:focus-visible, .formRegistration button:focus-visible, .formRegistration link:focus-visible, .formRegistration select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.formRegistration label {
+  border-radius: .2rem;
+  margin: .5rem;
+}
+
+.formRegistration Input {
+  background-color: #fff8e1;
+  border-radius: .8rem;
+  margin: .5rem;
+}
+
+.formRegistration button {
+  color: #fff8e1;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #174c8c;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 10rem;
+  height: 2.3rem;
+  margin: 1.5rem;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+.formLogin {
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  display: flex;
+}
+
+.formLogin label {
+  border-radius: .2rem;
+  margin: .5rem;
+}
+
+.formLogin Input {
+  background-color: #fff8e1;
+  border-radius: .8rem;
+  width: 30rem;
+  margin: .5rem;
+}
+
+.formLogin button {
+  color: #fff8e1;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #174c8c;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 10rem;
+  height: 2.3rem;
+  margin: 1.5rem;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+.formLogin input:focus-visible, .formLogin textarea:focus-visible, .formLogin select:focus-visible, .formLogin button:focus-visible, .formLogin link:focus-visible, .formLogin select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.profile {
+  border: .3rem solid #174c8c;
+  border-radius: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 2rem;
+  display: flex;
+}
+
+.profile input:focus-visible, .profile textarea:focus-visible, .profile select:focus-visible, .profile button:focus-visible, .profile link:focus-visible, .profile select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.profile h2 {
+  text-align: center;
+  color: #eeb451;
+  background-color: #174c8c;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  margin: 0 15rem;
+  padding: 2rem 4rem;
+}
+
+.profile .profile-section {
+  flex-direction: row;
+  place-content: center;
+  align-items: center;
+  width: 95%;
+  margin: 1rem;
+  display: flex;
+}
+
+@media screen and (width <= 43rem) {
+  .profile .profile-section {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .profile .profile-section h2 {
+    padding: 2rem 15rem;
+  }
+
+  .profile .profile-section button {
+    font-size: .5rem;
+  }
+}
+
+.profile .profile-section Input, .profile .profile-section option, .profile .profile-section textarea {
+  size: 2rem;
+  background-color: #fff8e1;
+  border-radius: .8rem;
+  margin: .5rem;
+}
+
+.profile .profile-section button {
+  color: #fff8e1;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #174c8c;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 10rem;
+  height: 2.3rem;
+  margin: 1.5rem;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+.profile .profile-section button input:focus-visible, .profile .profile-section button textarea:focus-visible, .profile .profile-section button select:focus-visible, .profile .profile-section button button:focus-visible, .profile .profile-section button link:focus-visible, .profile .profile-section button select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.profile .profile-section .profileChange {
+  border-color: .2rem solid;
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  flex-flow: column;
+  align-items: center;
+  width: 95%;
+  margin: 3rem;
+  padding: 1rem;
+  display: flex;
+}
+
+.profile .profile-section .profileChange input:focus-visible, .profile .profile-section .profileChange textarea:focus-visible, .profile .profile-section .profileChange select:focus-visible, .profile .profile-section .profileChange button:focus-visible, .profile .profile-section .profileChange link:focus-visible, .profile .profile-section .profileChange select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.profile .profile-section .profileChange fieldset {
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  flex-flow: column;
+  margin: 1.3rem;
+  padding: .8rem;
+}
+
+.profile .profile-section .profileChange .interest {
+  align-content: center;
+  width: 25rem;
+}
+
+.profile .profile-section .profileChange .interest input {
+  border-radius: .8rem;
+  width: 4rem;
+}
+
+.profile .profile-section .profileChange .interest span {
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.profile .profile-section .createSkill {
+  border-color: .2rem solid;
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  flex-flow: column;
+  align-items: center;
+  width: 95%;
+  margin: 3rem;
+  padding: 1rem;
+  display: flex;
+}
+
+.profile .profile-section .createSkill input:focus-visible, .profile .profile-section .createSkill textarea:focus-visible, .profile .profile-section .createSkill select:focus-visible, .profile .profile-section .createSkill button:focus-visible, .profile .profile-section .createSkill link:focus-visible, .profile .profile-section .createSkill select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.profile .profile-section .createSkill .categories {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.profile .redBtnProfile {
+  color: #f1eaea;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #c83030;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 30rem;
+  margin: 1rem;
+  padding: .8rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+.profile .skillsList {
+  border-color: .2rem solid;
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  flex-flow: column;
+  width: 85%;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+}
+
+.profile .skillsList ul {
+  background-color: #fff8e1;
+  border-radius: .8rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: .5rem;
+  list-style-type: none;
+  display: flex;
+}
+
+.profile .skillsList ul .skillList-li {
+  border-color: .2 rem solid #a3a2a2;
+  background-color: #a3a2a2;
+  border-radius: 1.8rem;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 98%;
+  height: 2rem;
+  margin: .3rem;
+  padding: .5rem;
+  font-size: 1rem;
+  display: flex;
+}
+
+.profile .skillsList ul .skillList-li .title {
+  font-size: 1.5rem;
+}
+
+.profile .skillsList ul .skillList-li .btn {
+  flex-direction: row;
+  align-items: flex-end;
+  width: 40%;
+  display: flex;
+}
+
+.profile .skillsList ul .skillList-li .btn input:focus-visible, .profile .skillsList ul .skillList-li .btn textarea:focus-visible, .profile .skillsList ul .skillList-li .btn select:focus-visible, .profile .skillsList ul .skillList-li .btn button:focus-visible, .profile .skillsList ul .skillList-li .btn link:focus-visible, .profile .skillsList ul .skillList-li .btn select option:nth-child(n) {
+  color: #fff8e1;
+  background: #174c8c;
+}
+
+.profile .skillsList ul .skillList-li .btn .orangeBtn {
+  color: #000;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #ef9700;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 52%;
+  height: 2rem;
+  margin: auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+@media screen and (width <= 43rem) {
+  .profile .skillsList ul .skillList-li .btn .orangeBtn {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .profile .skillsList ul .skillList-li .btn .orangeBtn h2 {
+    padding: 2rem 15rem;
+  }
+
+  .profile .skillsList ul .skillList-li .btn .orangeBtn button {
+    font-size: .5rem;
+  }
+}
+
+.profile .skillsList ul .skillList-li .btn .redBtn {
+  color: #f1eaea;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #c83030;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 52%;
+  margin: auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+@media screen and (width <= 43rem) {
+  .profile .skillsList ul .skillList-li .btn .redBtn {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .profile .skillsList ul .skillList-li .btn .redBtn h2 {
+    padding: 2rem 15rem;
+  }
+
+  .profile .skillsList ul .skillList-li .btn .redBtn button {
+    font-size: .5rem;
+  }
+}
+
+.skillsList {
+  border-color: .2rem solid;
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  flex-flow: column;
+  width: 85%;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+}
+
+.skillsList ul {
+  background-color: #fff8e1;
+  border-radius: .8rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: .5rem;
+  list-style-type: none;
+  display: flex;
+}
+
+.skillsList ul .skillList-li {
+  border-color: .2 rem solid #a3a2a2;
+  background-color: #a3a2a2;
+  border-radius: 1.8rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 98%;
+  height: 2rem;
+  margin: auto;
+  padding: .5rem;
+  display: flex;
+}
+
+.skillsList ul .skillList-li li {
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1rem;
+  display: flex;
+}
+
+.skillsList ul .skillList-li li .title {
+  font-size: 1.5rem;
+}
+
+.skillsList ul .skillList-li li .btn {
+  flex-direction: row;
+  align-items: flex-end;
+  width: 40%;
+  display: flex;
+}
+
+.skillsList ul .skillList-li li .btn input:focus-visible, .skillsList ul .skillList-li li .btn textarea:focus-visible, .skillsList ul .skillList-li li .btn select:focus-visible, .skillsList ul .skillList-li li .btn button:focus-visible, .skillsList ul .skillList-li li .btn link:focus-visible, .skillsList ul .skillList-li li .btn select option:nth-child(n) {
+  color: #fff8e1;
+  background: #174c8c;
+}
+
+.skillsList ul .skillList-li li .btn .orangeBtn {
+  color: #000;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #ef9700;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 52%;
+  height: 2rem;
+  margin: auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+@media screen and (width <= 43rem) {
+  .skillsList ul .skillList-li li .btn .orangeBtn {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .skillsList ul .skillList-li li .btn .orangeBtn h2 {
+    padding: 2rem 15rem;
+  }
+
+  .skillsList ul .skillList-li li .btn .orangeBtn button {
+    font-size: .5rem;
+  }
+}
+
+.skillsList ul .skillList-li li .btn .redBtn {
+  color: #f1eaea;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #c83030;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 52%;
+  margin: auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+@media screen and (width <= 43rem) {
+  .skillsList ul .skillList-li li .btn .redBtn {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .skillsList ul .skillList-li li .btn .redBtn h2 {
+    padding: 2rem 15rem;
+  }
+
+  .skillsList ul .skillList-li li .btn .redBtn button {
+    font-size: .5rem;
+  }
+}
+
+section {
+  place-content: center;
+  align-items: center;
+  display: flex;
+}
+
+section .section #skill {
+  border-color: solid .2rem #eeb451;
+  color: #3b3a3a;
+  background-color: #eeb451;
+  border-radius: 1rem;
+  flex-direction: row;
+  place-content: center;
+  margin: 1rem;
+  padding: 1rem;
+  line-height: 1rem;
+  display: flex;
+}
+
+@media screen and (width <= 43rem) {
+  section .section #skill {
+    text-align: justify;
+    flex-flow: wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  section .section #skill h2 {
+    padding: 2rem 15rem;
+  }
+
+  section .section #skill button {
+    font-size: .5rem;
+  }
+}
+
+section .section #skill .skill-header, section .section #skill .skill-info, section .section #skill .skill-teacher {
+  flex-direction: column;
+  width: 33.3333%;
+  padding: 1rem;
+}
+
+section .section #skill img {
+  width: 90%;
+}
+
+section .section #skill .skillBtn {
+  text-orientation: sideways-right;
+  color: #174c8c;
+  text-align: center;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  background-color: #fff8e1;
+  border: none;
+  border-radius: 5px;
+  width: 4rem;
+  height: 50rem;
+  font-size: 1.4rem;
+  font-weight: bolder;
+}
+
+.skillUpDate {
+  border-color: .2rem solid;
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  flex-flow: column;
+  align-items: center;
+  width: 95%;
+  margin: 3rem;
+  padding: 1rem;
+  display: flex;
+}
+
+@media screen and (width <= 43rem) {
+  .skillUpDate {
+    text-align: justify;
+    flex-flow: column;
+    place-items: center;
+    display: flex;
+  }
+
+  .skillUpDate h2 {
+    padding: 2rem 15rem;
+  }
+
+  .skillUpDate button {
+    font-size: .5rem;
+  }
+}
+
+.skillUpDate input:focus-visible, .skillUpDate textarea:focus-visible, .skillUpDate select:focus-visible, .skillUpDate button:focus-visible, .skillUpDate link:focus-visible, .skillUpDate select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.skillUpDate .categories {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.skillUpDate button {
+  color: #fff8e1;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #174c8c;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 10rem;
+  height: 2.3rem;
+  margin: 1.5rem;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+.skillUpDate button input:focus-visible, .skillUpDate button textarea:focus-visible, .skillUpDate button select:focus-visible, .skillUpDate button button:focus-visible, .skillUpDate button link:focus-visible, .skillUpDate button select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+section {
+  place-content: center;
+  align-items: center;
+  width: 95%;
+  display: flex;
+}
+
+section .section {
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  width: 95%;
+  display: flex;
+}
+
+section .section #skillToSee {
+  border-color: solid .2rem #eeb451;
+  color: #3b3a3a;
+  background-color: #eeb451;
+  border-radius: 1rem;
+  flex-wrap: nowrap;
+  place-content: center;
+  margin: 1rem;
+  padding: 1rem;
+  line-height: 1rem;
+  display: flex;
+}
+
+@media screen and (width <= 43rem) {
+  section .section #skillToSee {
+    text-align: justify;
+    flex-flow: row;
+    place-items: center;
+    display: flex;
+  }
+
+  section .section #skillToSee h2 {
+    padding: 2rem 15rem;
+  }
+
+  section .section #skillToSee button {
+    font-size: .5rem;
+  }
+}
+
+section .section #skillToSee .skill-header, section .section #skillToSee .skill-info, section .section #skillToSee .skill-teacher {
+  flex-direction: column;
+  width: 33.3333%;
+  padding: 1rem;
+}
+
+section .section #skillToSee img {
+  width: 90%;
+}
+
+section .section #skillToSee .skillBtn {
+  text-orientation: sideways-right;
+  color: #174c8c;
+  text-align: center;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  background-color: #fff8e1;
+  border: none;
+  border-radius: 5px;
+  width: 4rem;
+  height: 50rem;
+  font-size: 1.4rem;
+  font-weight: bolder;
+}
+
+.learning {
+  border: .3rem solid #174c8c;
+  border-radius: 1rem;
+  flex-flow: column;
+  align-items: center;
+  width: 90%;
+  margin: 2rem;
+  display: flex;
+}
+
+.learning input:focus-visible, .learning textarea:focus-visible, .learning select:focus-visible, .learning button:focus-visible, .learning link:focus-visible, .learning select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.learning h2 {
+  text-align: center;
+  color: #eeb451;
+  background-color: #174c8c;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  margin: 0 15rem;
+  padding: 2rem 4rem;
+}
+
+.learning .learning-section {
+  flex-direction: column;
+  place-content: center;
+  align-items: center;
+  width: 95%;
+  margin: 1rem;
+  display: flex;
+}
+
+@media screen and (width <= 43rem) {
+  .learning .learning-section {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .learning .learning-section h2 {
+    padding: 2rem 15rem;
+  }
+
+  .learning .learning-section button {
+    font-size: .5rem;
+  }
+}
+
+.learning .learning-section .learningList {
+  border-color: .2rem solid;
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  flex-flow: column;
+  align-items: center;
+  width: 95%;
+  margin: 3rem;
+  padding: 1rem;
+  display: flex;
+}
+
+.learning .learning-section .learningList ul {
+  background-color: #fff8e1;
+  border-radius: .8rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: .5rem;
+  list-style-type: none;
+  display: flex;
+}
+
+.learning .learning-section .learningList ul .learning-li {
+  border-color: .2 rem solid #a3a2a2;
+  background-color: #a3a2a2;
+  border-radius: 1.8rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 2.3rem;
+  margin: .4rem;
+  padding: .5rem;
+  display: flex;
+}
+
+.learning .learning-section .learningList ul .learning-li .status {
+  justify-content: flex-end;
+  align-items: right;
+  flex-direction: row;
+  width: 40%;
+  display: flex;
+}
+
+.learning .learning-section .learningList ul .learning-li .status input:focus-visible, .learning .learning-section .learningList ul .learning-li .status textarea:focus-visible, .learning .learning-section .learningList ul .learning-li .status select:focus-visible, .learning .learning-section .learningList ul .learning-li .status button:focus-visible, .learning .learning-section .learningList ul .learning-li .status link:focus-visible, .learning .learning-section .learningList ul .learning-li .status select option:nth-child(n) {
+  color: #fff8e1;
+  background: #174c8c;
+}
+
+.learning .learning-section .learningList ul .learning-li .status .status-send, .learning .learning-section .learningList ul .learning-li .status .status-reject, .learning .learning-section .learningList ul .learning-li .status .status-wait, .learning .learning-section .learningList ul .learning-li .status .status-finish, .learning .learning-section .learningList ul .learning-li .status .status-congrat {
+  text-align: center;
+  border-radius: 1.2rem;
+  width: 50%;
+  height: 2rem;
+  margin: .1rem;
+  padding: .2rem .5rem;
+  font-size: .8rem;
+  font-weight: bolder;
+}
+
+.learning .learning-section .learningList ul .learning-li .status .status-send {
+  background-color: #ef9700;
+}
+
+.learning .learning-section .learningList ul .learning-li .status .status-reject {
+  color: #f1eaea;
+  background-color: #c83030;
+}
+
+.learning .learning-section .learningList ul .learning-li .status .status--wait {
+  background-color: #fff8e1;
+}
+
+.learning .learning-section .learningList ul .learning-li .status .status-finish {
+  background-color: #a3a2a2;
+}
+
+.learning .learning-section .learningList ul .learning-li .status .status-congrat {
+  color: #000;
+  width: 80%;
+  font-size: .8rem;
+}
+
+.learning .learning-section .learningList ul li .title {
+  font-size: 1.5rem;
+}
+
+.learning .learning-section .learningList ul li .btn {
+  align-items: right;
+  flex-direction: row;
+  width: 40%;
+  display: flex;
+}
+
+.learning .learning-section .learningList ul li .btn input:focus-visible, .learning .learning-section .learningList ul li .btn textarea:focus-visible, .learning .learning-section .learningList ul li .btn select:focus-visible, .learning .learning-section .learningList ul li .btn button:focus-visible, .learning .learning-section .learningList ul li .btn link:focus-visible, .learning .learning-section .learningList ul li .btn select option:nth-child(n) {
+  color: #fff8e1;
+  background: #174c8c;
+}
+
+.learning .learning-section .learningList ul li .btn .blueBtn {
+  color: #f1eaea;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #174c8c;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 52%;
+  height: 2rem;
+  margin: auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+@media screen and (width <= 43rem) {
+  .learning .learning-section .learningList ul li .btn .blueBtn {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .learning .learning-section .learningList ul li .btn .blueBtn h2 {
+    padding: 2rem 15rem;
+  }
+
+  .learning .learning-section .learningList ul li .btn .blueBtn button {
+    font-size: .5rem;
+  }
+}
+
+.learning .learning-section .learningList ul li .btn .orangeBtn {
+  color: #000;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #ef9700;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 52%;
+  height: 2rem;
+  margin: auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+@media screen and (width <= 43rem) {
+  .learning .learning-section .learningList ul li .btn .orangeBtn {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .learning .learning-section .learningList ul li .btn .orangeBtn h2 {
+    padding: 2rem 15rem;
+  }
+
+  .learning .learning-section .learningList ul li .btn .orangeBtn button {
+    font-size: .5rem;
+  }
+}
+
+.learning .learning-section .learningList ul li .btn .redBtn {
+  color: #f1eaea;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #c83030;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 52%;
+  margin: auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+@media screen and (width <= 43rem) {
+  .learning .learning-section .learningList ul li .btn .redBtn {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .learning .learning-section .learningList ul li .btn .redBtn h2 {
+    padding: 2rem 15rem;
+  }
+
+  .learning .learning-section .learningList ul li .btn .redBtn button {
+    font-size: .5rem;
+  }
+}
+
+.statistic {
+  border: .3rem solid #174c8c;
+  border-radius: 1rem;
+  flex-flow: column;
+  align-content: center;
+  width: 90%;
+  margin: 2rem;
+  display: flex;
+}
+
+.statistic input:focus-visible, .statistic textarea:focus-visible, .statistic select:focus-visible, .statistic button:focus-visible, .statistic link:focus-visible, .statistic select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.statistic h2 {
+  text-align: center;
+  color: #eeb451;
+  background-color: #174c8c;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  margin: 0 15rem;
+  padding: 2rem 4rem;
+}
+
+.statistic .statistic-section {
+  flex-direction: column;
+  place-content: center;
+  align-items: center;
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+
+@media screen and (width <= 43rem) {
+  .statistic .statistic-section {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .statistic .statistic-section h2 {
+    padding: 2rem 15rem;
+  }
+
+  .statistic .statistic-section button {
+    font-size: .5rem;
+  }
+}
+
+.statistic .statistic-section .statisticList {
+  border-color: .2rem solid;
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  flex-flow: column;
+  align-items: center;
+  width: 95%;
+  margin: 3rem;
+  padding: 1rem;
+  display: flex;
+}
+
+.statistic .statistic-section .statisticList ul {
+  background-color: #fff8e1;
+  border-radius: .8rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: .5rem;
+  list-style-type: none;
+  display: flex;
+}
+
+.statistic .statistic-section .statisticList ul .rating {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.statistic .statistic-section .statisticList ul .money {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.statistic .statistic-section .statisticList ul .int {
+  color: #174c8c;
+  margin: 1rem 4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.statistic .statistic-section .statisticList ul .statistic-li {
+  border-color: .2 rem solid #a3a2a2;
+  background-color: #a3a2a2;
+  border-radius: 1.8rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 2.3rem;
+  margin: .2rem;
+  padding: .5rem;
+  display: flex;
+}
+
+@media screen and (width <= 43rem) {
+  .statistic {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .statistic h2 {
+    padding: 2rem 15rem;
+  }
+
+  .statistic button {
+    font-size: .5rem;
+  }
+}
+
+.communication {
+  border: .3rem solid #174c8c;
+  border-radius: 1rem;
+  flex-flow: column;
+  align-content: center;
+  width: 90%;
+  margin: 2rem;
+  display: flex;
+}
+
+.communication input:focus-visible, .communication textarea:focus-visible, .communication select:focus-visible, .communication button:focus-visible, .communication link:focus-visible, .communication select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.communication h2 {
+  text-align: center;
+  color: #eeb451;
+  background-color: #174c8c;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  margin: 0 15rem;
+  padding: 2rem 4rem;
+}
+
+.communication .communication-section {
+  flex-direction: column;
+  place-content: center;
+  align-items: center;
+  width: 95%;
+  margin: 1rem;
+  display: flex;
+}
+
+.communication .communication-section .communicationList {
+  border-color: .2rem solid;
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  flex-flow: column;
+  width: 95%;
+  margin: 3rem;
+  padding: 1rem;
+  display: flex;
+}
+
+.communication .communication-section .communicationList .notif-section {
+  flex-direction: column;
+  place-content: center;
+  margin: 2rem;
+  display: flex;
+}
+
+@media screen and (width <= 43rem) {
+  .communication .communication-section .communicationList .notif-section {
+    text-align: justify;
+    flex-flow: column;
+    place-items: center;
+    display: flex;
+  }
+
+  .communication .communication-section .communicationList .notif-section h2 {
+    padding: 2rem 15rem;
+  }
+
+  .communication .communication-section .communicationList .notif-section button {
+    font-size: .5rem;
+  }
+}
+
+.communication .communication-section .communicationList .notif-section .interestList {
+  border-color: .2rem solid;
+  background-color: #fff8e1;
+  border-radius: 1rem;
+  width: 95%;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.communication .communication-section .communicationList .notif-section .interestList ul {
+  flex-direction: column;
+  padding: 0 0 1rem;
+  list-style-type: none;
+  display: flex;
+}
+
+.communication .communication-section .communicationList .notif-section .interestList ul .interest-li {
+  border-color: .2 rem solid #a3a2a2;
+  background-color: #a3a2a2;
+  border-radius: 1.8rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 2.3rem;
+  margin: .4rem;
+  padding: .5rem;
+  display: flex;
+}
+
+.communication .communication-section .communicationList .notif-section .interestList ul .interest-li .blueBtn {
+  color: #f1eaea;
+  letter-spacing: .2rem;
+  text-align: center;
+  align-items: right;
+  background-color: #174c8c;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 40%;
+  height: 2rem;
+  margin: auto .5rem auto auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+.communication .communication-section .communicationList .notif-section .interestList ul .interest-li .blueBtn input:focus-visible, .communication .communication-section .communicationList .notif-section .interestList ul .interest-li .blueBtn textarea:focus-visible, .communication .communication-section .communicationList .notif-section .interestList ul .interest-li .blueBtn select:focus-visible, .communication .communication-section .communicationList .notif-section .interestList ul .interest-li .blueBtn button:focus-visible, .communication .communication-section .communicationList .notif-section .interestList ul .interest-li .blueBtn link:focus-visible, .communication .communication-section .communicationList .notif-section .interestList ul .interest-li .blueBtn select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+.communication .communication-section .communicationList .notif-section .markList {
+  border-color: .2rem solid;
+  background-color: #fff8e1;
+  border-radius: 1rem;
+  width: 95%;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.communication .communication-section .communicationList .notif-section .markList ul {
+  background-color: #fff8e1;
+  border-radius: .8rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: .5rem;
+  list-style-type: none;
+  display: flex;
+}
+
+.communication .communication-section .communicationList .notif-section .markList ul .mark-li {
+  border-color: .2 rem solid #a3a2a2;
+  background-color: #a3a2a2;
+  border-radius: 1.8rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 2.3rem;
+  margin: .4rem;
+  padding: .5rem;
+  display: flex;
+}
+
+.communication .communication-section .communicationList .notif-section .markList ul .mark-li .stars {
+  color: #174c8c;
+  align-items: center;
+  width: 50%;
+  margin: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+}
+
+.communication .communication-section .communicationList .notif-section .markList ul .mark-li .blueBtn {
+  color: #f1eaea;
+  letter-spacing: .2rem;
+  text-align: center;
+  align-items: right;
+  background-color: #174c8c;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 28%;
+  height: 2rem;
+  margin: auto .5rem auto auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+.communication .communication-section .communicationList .notif-section .markList ul .mark-li .blueBtn input:focus-visible, .communication .communication-section .communicationList .notif-section .markList ul .mark-li .blueBtn textarea:focus-visible, .communication .communication-section .communicationList .notif-section .markList ul .mark-li .blueBtn select:focus-visible, .communication .communication-section .communicationList .notif-section .markList ul .mark-li .blueBtn button:focus-visible, .communication .communication-section .communicationList .notif-section .markList ul .mark-li .blueBtn link:focus-visible, .communication .communication-section .communicationList .notif-section .markList ul .mark-li .blueBtn select option:nth-child(n) {
+  color: #fff8e1;
+  background: #ef9700;
+}
+
+#user {
+  border-color: solid .2rem #eeb451;
+  color: #3b3a3a;
+  background-color: #eeb451;
+  border-radius: 1rem;
+  flex-direction: row;
+  justify-items: right;
+  margin: 1rem;
+  padding: 1rem;
+  line-height: 1rem;
+  display: flex;
+}
+
+@media screen and (width <= 43rem) {
+  #user {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  #user h2 {
+    padding: 2rem 15rem;
+  }
+
+  #user button {
+    font-size: .5rem;
+  }
+}
+
+#user .skill-info {
+  flex-direction: column;
+  width: 33.3333%;
+  padding: 1rem;
+}
+
+.numberMember {
+  place-content: center;
+  align-items: center;
+  display: flex;
+}
+
+h3 {
+  text-align: center;
+}
+
+.user {
+  border-color: .2rem solid;
+  background-color: #f1eaea;
+  border-radius: 1rem;
+  flex-flow: column;
+  place-content: center;
+  align-items: center;
+  width: 95%;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+}
+
+.user ul {
+  background-color: #fff8e1;
+  border-radius: .8rem;
+  flex-direction: column;
+  place-content: center;
+  align-items: center;
+  width: 98%;
+  margin: 1rem;
+  padding: .5rem;
+  list-style-type: none;
+  display: flex;
+}
+
+.user ul .user-li {
+  border-color: .2 rem solid #a3a2a2;
+  background-color: #a3a2a2;
+  border-radius: 1.8rem;
+  place-content: center space-between;
+  align-items: center;
+  width: 98%;
+  height: 2rem;
+  margin: 1rem;
+  padding: .5rem;
+  font-size: 1.5rem;
+  display: flex;
+}
+
+.user ul .user-li .btn {
+  flex-direction: row;
+  align-items: flex-end;
+  width: 30%;
+  display: flex;
+}
+
+.user ul .user-li .btn input:focus-visible, .user ul .user-li .btn textarea:focus-visible, .user ul .user-li .btn select:focus-visible, .user ul .user-li .btn button:focus-visible, .user ul .user-li .btn link:focus-visible, .user ul .user-li .btn select option:nth-child(n) {
+  color: #fff8e1;
+  background: #174c8c;
+}
+
+.user ul .user-li .btn .orangeBtn {
+  color: #000;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #ef9700;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 52%;
+  height: 2rem;
+  margin: auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+@media screen and (width <= 43rem) {
+  .user ul .user-li .btn .orangeBtn {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .user ul .user-li .btn .orangeBtn h2 {
+    padding: 2rem 15rem;
+  }
+
+  .user ul .user-li .btn .orangeBtn button {
+    font-size: .5rem;
+  }
+}
+
+.user ul .user-li .btn .redBtn {
+  color: #f1eaea;
+  letter-spacing: .2rem;
+  text-align: center;
+  background-color: #c83030;
+  border-color: #a3a2a2;
+  border-radius: 1rem;
+  width: 52%;
+  margin: auto;
+  padding: .3rem;
+  font-family: sugo pro display;
+  font-weight: bold;
+}
+
+@media screen and (width <= 43rem) {
+  .user ul .user-li .btn .redBtn {
+    text-align: justify;
+    flex-flow: column wrap;
+    place-items: center;
+    display: flex;
+  }
+
+  .user ul .user-li .btn .redBtn h2 {
+    padding: 2rem 15rem;
+  }
+
+  .user ul .user-li .btn .redBtn button {
+    font-size: .5rem;
+  }
+
+  .user ul .user-li {
+    text-align: justify;
+    flex-flow: row;
+    place-items: center;
+    height: 8rem;
+    display: flex;
+  }
+
+  .user ul .user-li h2 {
+    padding: 2rem 15rem;
+  }
+
+  .user ul .user-li button {
+    font-size: .5rem;
+  }
+}
+/*# sourceMappingURL=index.917ca03d.css.map */

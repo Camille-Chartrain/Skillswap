@@ -1,5 +1,5 @@
 
-import SkillList from "../skillList";
+// import SkillList from "../skillList";
 
 const Home = ({ skillsList, setSkillsList, dataSearch, match, noMatch }) => {
     console.log("state match dans Home", match);
