@@ -1,13 +1,12 @@
 {
-  "name": "Skillswap",
+  "name": "skillswap",
   "version": "1.0.0",
   "description": "app côté FRONT",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node-dev server.js --notify=false",
-    "dev": "parcel SRC/index.html",
-    "build": "parcel build SRC/index.html"
+    "start": "parcel SRC/index.html",
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",

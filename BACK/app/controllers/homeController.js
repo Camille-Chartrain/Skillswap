@@ -10,7 +10,7 @@ const homeController = {
         try {
 
             // takes list of skill with a method in class Skill
-            const skill = await Skill.findAll({
+            const { count, rows } = await Skill.findAndCountAll({
                 order: [['id', 'DESC']], // order by descent with id
                 limit: 4, // Limit to 4 results
                 include: [{
@@ -26,9 +26,16 @@ const homeController = {
                 }],
             });
             //send the answer to the front
-            console.log("les skills:::::::::::::::::::::::::::::::::::", skill);
+            console.log("count", count);
+            const resultCount = rows.length;
+            console.log(resultCount);
+            console.log("les skills avec rows:::::::::::::::::::::::::::::::::::", rows);
             res.send(
-                skill
+                {
+                    rows,
+                    count,
+                    resultCount
+                }
             );
         } catch (error) {
             console.log('je suis ds la catch');
@@ -63,7 +70,7 @@ const homeController = {
             // Construire la clause WHERE avec plusieurs conditions
             const whereClause = {};
 
-            if (CategoryId !== "undefined" && CategoryId !== null && CategoryId !== "") {
+            if (CategoryId !== "undefined" && CategoryId !== null && CategoryId !== "" && CategoryId !== "null") {
                 console.log("'''''''''''''''''''''''''''rentré dans categoryId != undefined");
                 console.log("typeof CategoryId", typeof CategoryId);
 
@@ -73,7 +80,7 @@ const homeController = {
 
                 whereClause.CategoryId = categoryIdNumber;
             }
-            if (SubCategoryId !== "undefined") {
+            if (SubCategoryId !== "undefined" && SubCategoryId !== "null") {
                 console.log("'''''''''''''''''''''''''''rentré dans subcategoryId != 'undefined'");
                 console.log("type of subcategoryid", typeof SubCategoryId);
 
@@ -87,7 +94,7 @@ const homeController = {
                 console.log('rentré dans level !== null ou ""');
                 whereClause.level = level;
             }
-            if (input) {
+            if (input !== "undefined") {
                 whereClause[Op.or] = [
                     { title: { [Op.iLike]: `%${input}%` } },
                     { description: { [Op.iLike]: `%${input}%` } }

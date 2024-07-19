@@ -15,7 +15,7 @@ services:
 
   back:
     image: "node:18"
-    working_dir: /home/server/apo-skill-swap/BACK
+    working_dir: /home/server/Skillswap/BACK
     environment:
       - SECRET_POUR_EXPRESS_SESSION=dmfhmidfghmhifgd
       - PGUSER=admin
@@ -26,23 +26,23 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./BACK:/home/server/apo-skill-swap/BACK
-      - node_modules_back:/home/server/apo-skill-swap/BACK/node_modules
+      - ./BACK:/home/server/Skillswap/BACK
+      - node_modules_back:/home/server/Skillswap/BACK/node_modules
     command: >
-      sh -c "ls -al /home/server/apo-skill-swap/BACK && npm install && npm run dev"
+      sh -c "ls -al /home/server/Skillswap/BACK && npm install && npm run dev"
     depends_on:
       - bdd
 
   front:
     image: "node:18"
-    working_dir: /home/server/apo-skill-swap/FRONT
+    working_dir: /home/server/Skillswap/FRONT
     ports:
       - "1234:1234"
     volumes:
-      - ./FRONT:/home/server/apo-skill-swap/FRONT
-      - node_modules_front:/home/server/apo-skill-swap/FRONT/node_modules
+      - ./FRONT:/home/server/Skillswap/FRONT
+      - node_modules_front:/home/server/Skillswap/FRONT/node_modules
     command: >
-      sh -c "ls -al /home/server/apo-skill-swap/FRONT && npm install && npm start"
+      sh -c "ls -al /home/server/Skillswap/FRONT && npm install && npm start"
     depends_on:
       - back
 

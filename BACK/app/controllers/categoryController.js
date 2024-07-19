@@ -23,7 +23,13 @@ const categoryController = {
 
     getSubCategories: async function (req, res) {
         try {
-            const categoryId = req.params.categoryId;
+            // console.log("req.params=", req.params);
+            // console.log("req.params.categoryId", req.params.categoryId);
+            // console.log("typoeof params", typeof req.params.categoryId);
+            let categoryId = req.params.categoryId;
+            if (categoryId === "null" || categoryId === "undefined" || categoryId === undefined) {
+                categoryId = false;
+            }
             // ternary: if categoryId is defined by the reqeuest then it sets its value in whereClause, if it's undefined then it's false and whereClause becomes an empty object to pass in the query sequelize.
             const whereClause = categoryId ? { category_id: categoryId } : {};
 
