@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
+import NavHome from "../NavHome";
 
 export default function Registration() {
 
@@ -83,6 +84,7 @@ export default function Registration() {
 
     return (
         <>
+            <NavHome />
             <h2>Inscription</h2>
             <main>
                 {error && <span className="error">{error}</span>}
