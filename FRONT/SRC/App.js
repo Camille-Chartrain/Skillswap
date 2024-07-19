@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
-import Profile from "./components/profile";
+import Profile from "./components/Profile";
 import Statistics from "./components/statistic";
 import Notifications from "./components/Notification";
 import Desk from "./components/Desk";

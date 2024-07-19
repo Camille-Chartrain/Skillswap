@@ -81,7 +81,6 @@ const Home = ({
                     Le swappie; la monnaie virtuelle de notre site; est là pour encourager ce système. A chaque fois qu’un cours est donne, on recoit un swappie, que l’on pourra  ensuite dépenser pour assister aux cours de son choix.
                 </span>
             </article>
-            {!match && <p>Cours les plus récents sur la plateforme</p>}
             <Cards
                 dataCards={dataCards}
                 match={match}

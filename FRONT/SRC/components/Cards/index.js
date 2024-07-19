@@ -13,6 +13,13 @@ export default function Cards({
     return (
         <>
             {loading && <p>chargement...</p>}
+
+            {match && dataCards.resultCount == 1 && (<p className="search-result">{dataCards.resultCount} résultat</p>)}
+
+            {match && dataCards.resultCount > 1 && (<p className="search-result">{dataCards.resultCount} résultats</p>)}
+
+            {noMatch && <p className="search-result">Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
+
             {dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card) => (
                 <article key={card.id} className="card">
                     <p>{card.title}</p>

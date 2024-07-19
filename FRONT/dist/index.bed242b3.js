@@ -5715,7 +5715,7 @@ var _home = require("./components/Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
 var _dashboard = require("./components/Dashboard");
 var _dashboardDefault = parcelHelpers.interopDefault(_dashboard);
-var _profile = require("./components/profile");
+var _profile = require("./components/Profile");
 var _profileDefault = parcelHelpers.interopDefault(_profile);
 var _statistic = require("./components/statistic");
 var _statisticDefault = parcelHelpers.interopDefault(_statistic);
@@ -5926,7 +5926,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./components/Notification":"4Kn7L","./components/Desk":"9q5wF","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Dashboard":"7KL8w","./components/profile":"k9yXI","./components/Home":"ggupi","./components/statistic":"gPcum","./components/Admin":"78PF1"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./components/Notification":"4Kn7L","./components/Desk":"9q5wF","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Dashboard":"7KL8w","./components/Home":"ggupi","./components/statistic":"gPcum","./components/Admin":"78PF1","./components/Profile":"9xfWJ"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.25.1
  *
@@ -35415,6 +35415,36 @@ function Cards({ dataCards, match, noMatch, loading }) {
                 lineNumber: 15,
                 columnNumber: 25
             }, this),
+            match && dataCards.resultCount == 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                className: "search-result",
+                children: [
+                    dataCards.resultCount,
+                    " r\xe9sultat"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Cards/index.js",
+                lineNumber: 17,
+                columnNumber: 54
+            }, this),
+            match && dataCards.resultCount > 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                className: "search-result",
+                children: [
+                    dataCards.resultCount,
+                    " r\xe9sultats"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Cards/index.js",
+                lineNumber: 19,
+                columnNumber: 53
+            }, this),
+            noMatch && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                className: "search-result",
+                children: "Pas encore de cours pour vos crit\xe8res, voici nos derni\xe8res nouveaut\xe9s:"
+            }, void 0, false, {
+                fileName: "SRC/components/Cards/index.js",
+                lineNumber: 21,
+                columnNumber: 25
+            }, this),
             dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
                     className: "card",
                     children: [
@@ -35422,56 +35452,56 @@ function Cards({ dataCards, match, noMatch, loading }) {
                             children: card.title
                         }, void 0, false, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 18,
+                            lineNumber: 25,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: card.User.grade_level
                         }, void 0, false, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 19,
+                            lineNumber: 26,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: card.level
                         }, void 0, false, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 20,
+                            lineNumber: 27,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: card.description
                         }, void 0, false, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 21,
+                            lineNumber: 28,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: card.Category.name
                         }, void 0, false, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 22,
+                            lineNumber: 29,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: card.SubCategory.name
                         }, void 0, false, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 23,
+                            lineNumber: 30,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: card.availability
                         }, void 0, false, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 25,
+                            lineNumber: 32,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: card.transmission
                         }, void 0, false, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 27,
+                            lineNumber: 34,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35481,7 +35511,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                             ]
                         }, void 0, true, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 28,
+                            lineNumber: 35,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35492,7 +35522,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                             ]
                         }, void 0, true, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 29,
+                            lineNumber: 36,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35502,13 +35532,13 @@ function Cards({ dataCards, match, noMatch, loading }) {
                             ]
                         }, void 0, true, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 30,
+                            lineNumber: 37,
                             columnNumber: 21
                         }, this)
                     ]
                 }, card.id, true, {
                     fileName: "SRC/components/Cards/index.js",
-                    lineNumber: 17,
+                    lineNumber: 24,
                     columnNumber: 17
                 }, this))
         ]
@@ -36104,53 +36134,7 @@ $RefreshReg$(_c, "Logout");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"k9yXI":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$e6be = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$e6be.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Profile);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _s = $RefreshSig$();
-function Profile({ setDataCards }) {
-    _s();
-    (0, _react.useEffect)(()=>{
-        setDataCards({
-            rows: [],
-            count: 0,
-            resultCount: 0
-        });
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Profil"
-        }, void 0, false, {
-            fileName: "SRC/components/profile/index.js",
-            lineNumber: 15,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/profile/index.js",
-        lineNumber: 14,
-        columnNumber: 9
-    }, this);
-}
-_s(Profile, "OD7bBpZva5O2jO+Puf00hKivP7c=");
-_c = Profile;
-var _c;
-$RefreshReg$(_c, "Profile");
-
-  $parcel$ReactRefreshHelpers$e6be.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ggupi":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ggupi":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2815 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36247,13 +36231,6 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 lineNumber: 76,
                 columnNumber: 13
             }, undefined),
-            !match && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Cours les plus r\xe9cents sur la plateforme"
-            }, void 0, false, {
-                fileName: "SRC/components/Home/index.js",
-                lineNumber: 84,
-                columnNumber: 24
-            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
                 dataCards: dataCards,
                 match: match,
@@ -36261,14 +36238,14 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 loading: loading
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 85,
+                lineNumber: 84,
                 columnNumber: 13
             }, undefined),
             !match && !loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Voir plus ICONE INSCRIPTION"
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 91,
+                lineNumber: 90,
                 columnNumber: 36
             }, undefined)
         ]
@@ -36379,7 +36356,53 @@ $RefreshReg$(_c, "Admin");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Logout":"5BNmm"}],"lOjBx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Logout":"5BNmm"}],"9xfWJ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$72ab = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$72ab.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Profile);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
+function Profile({ setDataCards }) {
+    _s();
+    (0, _react.useEffect)(()=>{
+        setDataCards({
+            rows: [],
+            count: 0,
+            resultCount: 0
+        });
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: "Profil"
+        }, void 0, false, {
+            fileName: "SRC/components/Profile/index.js",
+            lineNumber: 15,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "SRC/components/Profile/index.js",
+        lineNumber: 14,
+        columnNumber: 9
+    }, this);
+}
+_s(Profile, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = Profile;
+var _c;
+$RefreshReg$(_c, "Profile");
+
+  $parcel$ReactRefreshHelpers$72ab.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("aaccff5d309d9239");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
