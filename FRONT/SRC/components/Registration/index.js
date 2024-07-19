@@ -1,14 +1,42 @@
-import React, { useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 
 export default function Registration() {
 
     const navigate = useNavigate();
+    const [error, setError] = useState("");
 
     async function handleSubmit(event) {
 
         event.preventDefault();
+        console.log("event.target", event.target);
+        // Récupération des données du formulaire
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+
+        // Validation de l'email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            setError("L'adresse email est invalide.");
+            return; // Arrête la soumission du formulaire
+        }
+
+        // Validation du mot de passe
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,64}$/;
+        if (!passwordPattern.test(password)) {
+            setError("Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial @$!%*?&.");
+            return; // Arrête la soumission du formulaire
+        }
+
+
+        // Si la validation est réussie, réinitialisation des erreurs
+        setError("");
+
+
+
         const myFormData = new FormData(event.target);
         const formDataEncoded = new URLSearchParams(myFormData);
 
@@ -57,7 +85,7 @@ export default function Registration() {
         <>
             <h2>Inscription</h2>
             <main>
-                {/* {error && <Error error={error} />} */}
+                {error && <span className="error">{error}</span>}
                 <form method="POST" onSubmit={handleSubmit} className="formRegistration">
                     <label htmlFor="firstname">Prénom * :</label>
                     <input type="text" id="firstname" name="firstname" maxLength="50" required />

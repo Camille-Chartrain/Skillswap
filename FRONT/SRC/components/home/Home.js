@@ -1,6 +1,9 @@
 import { React, useEffect, useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import Cards from "../Cards";
+import Login from "../Login";
+import Registration from "../Registration";
+import { useNavigate } from 'react-router-dom';
 
 const Home = ({
     selectedCategory,
@@ -21,6 +24,7 @@ const Home = ({
     setLoading
 }) => {
 
+    const navigate = useNavigate();
     console.log("state match dans Home", match);
     console.log("state noMatch dans Home", noMatch);
 
@@ -47,8 +51,19 @@ const Home = ({
         Get4Courses();
     }, []);
 
+    function handleClickRegistration() {
+        navigate('/registration');
+    }
+
+    function handleClickLogin() {
+        navigate('/login');
+    }
     return (
         <>
+            <nav>
+                <p onClick={handleClickRegistration}>Inscription</p>
+                <p onClick={handleClickLogin}>Connexion</p>
+            </nav>
             <SearchBar
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}

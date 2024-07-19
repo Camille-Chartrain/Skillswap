@@ -99,7 +99,7 @@ function App() {
                     element={<Registration />}
                 />
                 <Route path="/login"
-                    element={<Registration />}
+                    element={<Login />}
                 />
             </Routes>
         </div >

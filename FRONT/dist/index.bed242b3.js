@@ -5876,7 +5876,7 @@ function App() {
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "/login",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, {
                         fileName: "SRC/App.js",
                         lineNumber: 102,
                         columnNumber: 30
@@ -34515,9 +34515,15 @@ var _searchBar = require("../SearchBar/SearchBar");
 var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _cards = require("../Cards");
 var _cardsDefault = parcelHelpers.interopDefault(_cards);
+var _login = require("../Login");
+var _loginDefault = parcelHelpers.interopDefault(_login);
+var _registration = require("../Registration");
+var _registrationDefault = parcelHelpers.interopDefault(_registration);
+var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, dataCards, setDataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading })=>{
     _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
     console.log("state match dans Home", match);
     console.log("state noMatch dans Home", noMatch);
     const Get4Courses = async ()=>{
@@ -34538,8 +34544,38 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
     (0, _react.useEffect)(()=>{
         Get4Courses();
     }, []);
+    function handleClickRegistration() {
+        navigate("/registration");
+    }
+    function handleClickLogin() {
+        navigate("/login");
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        onClick: handleClickRegistration,
+                        children: "Inscription"
+                    }, void 0, false, {
+                        fileName: "SRC/components/home/Home.js",
+                        lineNumber: 64,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        onClick: handleClickLogin,
+                        children: "Connexion"
+                    }, void 0, false, {
+                        fileName: "SRC/components/home/Home.js",
+                        lineNumber: 65,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/home/Home.js",
+                lineNumber: 63,
+                columnNumber: 13
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
                 selectedCategory: selectedCategory,
                 setSelectedCategory: setSelectedCategory,
@@ -34558,7 +34594,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 setLoading: setLoading
             }, void 0, false, {
                 fileName: "SRC/components/home/Home.js",
-                lineNumber: 52,
+                lineNumber: 67,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
@@ -34567,27 +34603,27 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                         children: "SKILLSWAP "
                     }, void 0, false, {
                         fileName: "SRC/components/home/Home.js",
-                        lineNumber: 71,
+                        lineNumber: 86,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: "Une plateforme d'\xe9change et d\u2019apprentissage qui permet de mettre en relation des personnes de tout \xe2ge et aux profils vari\xe9s qui souhaitent apprendre ou partager leur comp\xe9tence et leurs talents avec les autres. Fonctionnant sur le principe que chaque utilisateur est \xe0 la fois professeur et \xe9l\xe8ve, elle donne acc\xe8s \xe0 une communaut\xe9 de gens tr\xe8s vari\xe9e, et une foule de savoir \xe0 dispositions. Le swappie; la monnaie virtuelle de notre site; est l\xe0 pour encourager ce syst\xe8me. A chaque fois qu\u2019un cours est donne, on recoit un swappie, que l\u2019on pourra  ensuite d\xe9penser pour assister aux cours de son choix."
                     }, void 0, false, {
                         fileName: "SRC/components/home/Home.js",
-                        lineNumber: 72,
+                        lineNumber: 87,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/home/Home.js",
-                lineNumber: 70,
+                lineNumber: 85,
                 columnNumber: 13
             }, undefined),
             !match && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Cours les plus r\xe9cents sur la plateforme"
             }, void 0, false, {
                 fileName: "SRC/components/home/Home.js",
-                lineNumber: 78,
+                lineNumber: 93,
                 columnNumber: 24
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
@@ -34597,20 +34633,24 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 loading: loading
             }, void 0, false, {
                 fileName: "SRC/components/home/Home.js",
-                lineNumber: 79,
+                lineNumber: 94,
                 columnNumber: 13
             }, undefined),
             !match && !loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Voir plus ICONE INSCRIPTION"
             }, void 0, false, {
                 fileName: "SRC/components/home/Home.js",
-                lineNumber: 85,
+                lineNumber: 100,
                 columnNumber: 36
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(Home, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_s(Home, "0pNeyzXk/ByIxyERsdaIrG6js9s=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
 _c = Home;
 exports.default = Home;
 var _c;
@@ -34621,7 +34661,7 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","../SearchBar/SearchBar":"dGqEc","../Cards":"jUXwJ"}],"km3Ru":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","../SearchBar/SearchBar":"dGqEc","../Cards":"jUXwJ","../Login":"fVCjh","../Registration":"9HgkV","react-router-dom":"9xmpe"}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -35394,7 +35434,265 @@ $RefreshReg$(_c, "Cards");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"b7mF6":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fVCjh":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9e3d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9e3d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Login);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function Login() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: "Connexion"
+        }, void 0, false, {
+            fileName: "SRC/components/Login/index.js",
+            lineNumber: 7,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "SRC/components/Login/index.js",
+        lineNumber: 6,
+        columnNumber: 9
+    }, this);
+}
+_c = Login;
+var _c;
+$RefreshReg$(_c, "Login");
+
+  $parcel$ReactRefreshHelpers$9e3d.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9HgkV":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8f0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8f0d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Registration);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactRouterDom = require("react-router-dom");
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _s = $RefreshSig$();
+function Registration() {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const [error, setError] = (0, _react.useState)("");
+    async function handleSubmit(event) {
+        event.preventDefault();
+        console.log("event.target", event.target);
+        // Récupération des données du formulaire
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        // Validation de l'email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            setError("L'adresse email est invalide.");
+            return; // Arrête la soumission du formulaire
+        }
+        // Validation du mot de passe
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,64}$/;
+        if (!passwordPattern.test(password)) {
+            setError("Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caract\xe8re sp\xe9cial @$!%*?&.");
+            return; // Arrête la soumission du formulaire
+        }
+        // Si la validation est réussie, réinitialisation des erreurs
+        setError("");
+        const myFormData = new FormData(event.target);
+        const formDataEncoded = new URLSearchParams(myFormData);
+        try {
+            console.log("try data:", formDataEncoded);
+            const response = await fetch(`http://${"localhost"}:${"3000"}/registration`, {
+                method: "post",
+                status: 200,
+                headers: {
+                    // 'Content-Type': 'application/json',
+                    "Authorization": "accessToken"
+                },
+                body: formDataEncoded
+            });
+            console.log("response.status:", response.status);
+            //=traduct api response in Json
+            const dataFetch = await response.json();
+            console.log(" response apres .json:", dataFetch);
+            //= fetch the user token in the data and store with Cookies.set
+            const token = dataFetch.accessToken;
+            console.log("token", token);
+            (0, _jsCookieDefault.default).set("token", token);
+            //=fetch back side's  errors
+            console.log("error?:", dataFetch.error);
+            if (dataFetch.accessToken) navigate("/dashboard");
+            else /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                className: "error",
+                children: [
+                    "return(",
+                    error?.message,
+                    ")"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Registration/index.js",
+                lineNumber: 74,
+                columnNumber: 20
+            }, this);
+        } catch (error) {
+            console.log("erreur", error);
+        // setError("Erreur lors de votre inscription");
+        // handleNotFoundError("Erreur lors de votre inscription");
+        }
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "Inscription"
+            }, void 0, false, {
+                fileName: "SRC/components/Registration/index.js",
+                lineNumber: 86,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+                children: [
+                    error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "error",
+                        children: error
+                    }, void 0, false, {
+                        fileName: "SRC/components/Registration/index.js",
+                        lineNumber: 88,
+                        columnNumber: 27
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                        method: "POST",
+                        onSubmit: handleSubmit,
+                        className: "formRegistration",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                htmlFor: "firstname",
+                                children: "Pr\xe9nom * :"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Registration/index.js",
+                                lineNumber: 90,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "text",
+                                id: "firstname",
+                                name: "firstname",
+                                maxLength: "50",
+                                required: true
+                            }, void 0, false, {
+                                fileName: "SRC/components/Registration/index.js",
+                                lineNumber: 91,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                htmlFor: "lastname",
+                                children: "Nom * :"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Registration/index.js",
+                                lineNumber: 93,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "text",
+                                id: "lastname",
+                                name: "lastname",
+                                maxLength: "100",
+                                required: true
+                            }, void 0, false, {
+                                fileName: "SRC/components/Registration/index.js",
+                                lineNumber: 94,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                htmlFor: "email",
+                                children: "Email * :"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Registration/index.js",
+                                lineNumber: 96,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "email",
+                                id: "email",
+                                name: "email",
+                                maxLength: "254",
+                                required: true
+                            }, void 0, false, {
+                                fileName: "SRC/components/Registration/index.js",
+                                lineNumber: 97,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                htmlFor: "password",
+                                children: "Mot de passe * :"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Registration/index.js",
+                                lineNumber: 99,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "password",
+                                id: "password",
+                                name: "password",
+                                minLength: "12",
+                                maxLength: "64",
+                                required: true
+                            }, void 0, false, {
+                                fileName: "SRC/components/Registration/index.js",
+                                lineNumber: 100,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                type: "submit",
+                                children: "Envoyer"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Registration/index.js",
+                                lineNumber: 102,
+                                columnNumber: 21
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Registration/index.js",
+                        lineNumber: 89,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Registration/index.js",
+                lineNumber: 87,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true);
+}
+_s(Registration, "jUP0uAh7TVPiOgV113kAnfFQr/s=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = Registration;
+var _c;
+$RefreshReg$(_c, "Registration");
+
+  $parcel$ReactRefreshHelpers$8f0d.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","js-cookie":"c8bBu"}],"b7mF6":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9c50 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35411,6 +35709,8 @@ var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _reactRouterDom = require("react-router-dom");
 var _cards = require("../Cards");
 var _cardsDefault = parcelHelpers.interopDefault(_cards);
+var _logout = require("../Logout");
+var _logoutDefault = parcelHelpers.interopDefault(_logout);
 function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -35418,7 +35718,7 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 children: "Dashboard"
             }, void 0, false, {
                 fileName: "SRC/components/dashboard/Dashboard.js",
-                lineNumber: 27,
+                lineNumber: 28,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
@@ -35428,7 +35728,7 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         children: "notifs "
                     }, void 0, false, {
                         fileName: "SRC/components/dashboard/Dashboard.js",
-                        lineNumber: 29,
+                        lineNumber: 30,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -35436,7 +35736,7 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         children: "Stats "
                     }, void 0, false, {
                         fileName: "SRC/components/dashboard/Dashboard.js",
-                        lineNumber: 30,
+                        lineNumber: 31,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -35444,7 +35744,7 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         children: "profil "
                     }, void 0, false, {
                         fileName: "SRC/components/dashboard/Dashboard.js",
-                        lineNumber: 31,
+                        lineNumber: 32,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -35452,13 +35752,18 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         children: "bureau"
                     }, void 0, false, {
                         fileName: "SRC/components/dashboard/Dashboard.js",
-                        lineNumber: 32,
+                        lineNumber: 33,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {}, void 0, false, {
+                        fileName: "SRC/components/dashboard/Dashboard.js",
+                        lineNumber: 34,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/dashboard/Dashboard.js",
-                lineNumber: 28,
+                lineNumber: 29,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
@@ -35478,12 +35783,12 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setLoading: setLoading
             }, void 0, false, {
                 fileName: "SRC/components/dashboard/Dashboard.js",
-                lineNumber: 35,
+                lineNumber: 37,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "SRC/components/dashboard/Dashboard.js",
-                lineNumber: 51,
+                lineNumber: 53,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
@@ -35493,13 +35798,13 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 loading: loading
             }, void 0, false, {
                 fileName: "SRC/components/dashboard/Dashboard.js",
-                lineNumber: 52,
+                lineNumber: 54,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/dashboard/Dashboard.js",
-        lineNumber: 26,
+        lineNumber: 27,
         columnNumber: 9
     }, this);
 }
@@ -35512,7 +35817,82 @@ $RefreshReg$(_c, "Dashboard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../SearchBar/SearchBar":"dGqEc","../Cards":"jUXwJ"}],"fA7QW":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../SearchBar/SearchBar":"dGqEc","../Cards":"jUXwJ","../Logout":"5BNmm"}],"5BNmm":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$fd5b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$fd5b.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Logout);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+function Logout() {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const handleClick = async ()=>{
+        try {
+            console.log("deconnection => supprimer cookie. (composant Logout)");
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/logout`, {
+                method: "POST",
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            console.log("response", response);
+            const resultLogout = await response.json();
+            // console.log('response component dashboard logout:', resultLogout);
+            // delete cookie JWT on client's side
+            let thisToken = (0, _jsCookieDefault.default).remove("token");
+            thisToken = null;
+            if (thisToken == null) {
+                console.log("token", thisToken);
+                navigate("/");
+            }
+        } catch (error) {
+            console.log("erreur :", error);
+        }
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            onClick: handleClick,
+            children: "Deconnexion"
+        }, void 0, false, {
+            fileName: "SRC/components/Logout/index.js",
+            lineNumber: 41,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "SRC/components/Logout/index.js",
+        lineNumber: 40,
+        columnNumber: 9
+    }, this);
+}
+_s(Logout, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = Logout;
+var _c;
+$RefreshReg$(_c, "Logout");
+
+  $parcel$ReactRefreshHelpers$fd5b.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","js-cookie":"c8bBu","react-router-dom":"9xmpe"}],"fA7QW":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$b218 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35524,7 +35904,6 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>Profile);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _s = $RefreshSig$();
 function Profile({ setDataCards }) {
     _s();
@@ -35696,235 +36075,6 @@ var _c;
 $RefreshReg$(_c, "Desk");
 
   $parcel$ReactRefreshHelpers$5fbe.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9HgkV":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8f0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8f0d.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Registration);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
-var _jsCookie = require("js-cookie");
-var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _s = $RefreshSig$();
-function Registration() {
-    _s();
-    const navigate = (0, _reactRouterDom.useNavigate)();
-    async function handleSubmit(event) {
-        event.preventDefault();
-        const myFormData = new FormData(event.target);
-        const formDataEncoded = new URLSearchParams(myFormData);
-        try {
-            console.log("try data:", formDataEncoded);
-            const response = await fetch(`http://${"localhost"}:${"3000"}/registration`, {
-                method: "post",
-                status: 200,
-                headers: {
-                    // 'Content-Type': 'application/json',
-                    "Authorization": "accessToken"
-                },
-                body: formDataEncoded
-            });
-            console.log("response.status:", response.status);
-            //=traduct api response in Json
-            const dataFetch = await response.json();
-            console.log(" response apres .json:", dataFetch);
-            //= fetch the user token in the data and store with Cookies.set
-            const token = dataFetch.accessToken;
-            console.log("token", token);
-            (0, _jsCookieDefault.default).set("token", token);
-            //=fetch back side's  errors
-            console.log("error?:", dataFetch.error);
-            if (dataFetch.accessToken) navigate("/dashboard");
-            else /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                className: "error",
-                children: [
-                    "return(",
-                    error?.message,
-                    ")"
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Registration/index.js",
-                lineNumber: 46,
-                columnNumber: 20
-            }, this);
-        } catch (error1) {
-            console.log("erreur", error1);
-        // setError("Erreur lors de votre inscription");
-        // handleNotFoundError("Erreur lors de votre inscription");
-        }
-    }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: "Inscription"
-            }, void 0, false, {
-                fileName: "SRC/components/Registration/index.js",
-                lineNumber: 58,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                    method: "POST",
-                    onSubmit: handleSubmit,
-                    className: "formRegistration",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                            htmlFor: "firstname",
-                            children: "Pr\xe9nom * :"
-                        }, void 0, false, {
-                            fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 62,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                            type: "text",
-                            id: "firstname",
-                            name: "firstname",
-                            maxLength: "50",
-                            required: true
-                        }, void 0, false, {
-                            fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 63,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                            htmlFor: "lastname",
-                            children: "Nom * :"
-                        }, void 0, false, {
-                            fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 65,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                            type: "text",
-                            id: "lastname",
-                            name: "lastname",
-                            maxLength: "100",
-                            required: true
-                        }, void 0, false, {
-                            fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 66,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                            htmlFor: "email",
-                            children: "Email * :"
-                        }, void 0, false, {
-                            fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 68,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                            type: "email",
-                            id: "email",
-                            name: "email",
-                            maxLength: "254",
-                            required: true
-                        }, void 0, false, {
-                            fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 69,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                            htmlFor: "password",
-                            children: "Mot de passe * :"
-                        }, void 0, false, {
-                            fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 71,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                            type: "password",
-                            id: "password",
-                            name: "password",
-                            minLength: "12",
-                            maxLength: "64",
-                            required: true
-                        }, void 0, false, {
-                            fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 72,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            type: "submit",
-                            children: "Envoyer"
-                        }, void 0, false, {
-                            fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 74,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "SRC/components/Registration/index.js",
-                    lineNumber: 61,
-                    columnNumber: 17
-                }, this)
-            }, void 0, false, {
-                fileName: "SRC/components/Registration/index.js",
-                lineNumber: 59,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true);
-}
-_s(Registration, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
-    return [
-        (0, _reactRouterDom.useNavigate)
-    ];
-});
-_c = Registration;
-var _c;
-$RefreshReg$(_c, "Registration");
-
-  $parcel$ReactRefreshHelpers$8f0d.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","js-cookie":"c8bBu"}],"fVCjh":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$9e3d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$9e3d.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Login);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-function Login() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Connexion"
-        }, void 0, false, {
-            fileName: "SRC/components/Login/index.js",
-            lineNumber: 7,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/Login/index.js",
-        lineNumber: 6,
-        columnNumber: 9
-    }, this);
-}
-_c = Login;
-var _c;
-$RefreshReg$(_c, "Login");
-
-  $parcel$ReactRefreshHelpers$9e3d.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;

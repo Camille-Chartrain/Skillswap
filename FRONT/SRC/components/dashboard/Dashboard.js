@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link, Outlet } from "react-router-dom";
 import Cards from "../Cards";
+import Logout from "../Logout";
 
 export default function Dashboard({
     selectedCategory,
@@ -30,6 +31,7 @@ export default function Dashboard({
                 <Link to="/dashboard/statistics">Stats </Link>
                 <Link to="/dashboard/profile">profil </Link>
                 <Link to="/dashboard/desk">bureau</Link>
+                <Logout />
             </nav>
 
             <SearchBar
