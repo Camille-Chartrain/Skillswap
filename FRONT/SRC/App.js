@@ -1,13 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import { React, useEffect, useState } from "react";
-import Home from "./components/home/Home";
-import Dashboard from "./components/dashboard/Dashboard";
-import Profile from "./components/profile/Profile";
-import Statistics from "./components/statistic/Statistics";
+import Home from "./components/Home";
+import Dashboard from "./components/Dashboard";
+import Profile from "./components/profile";
+import Statistics from "./components/statistic";
 import Notifications from "./components/Notification";
 import Desk from "./components/Desk";
 import Registration from "./components/Registration";
 import Login from "./components/Login";
+import Admin from "./components/Admin";
 
 
 
@@ -28,6 +29,7 @@ function App() {
     const [selectedSubCategory, setSelectedSubCategory] = useState(null);
     const [selectedLevel, setSelectedLevel] = useState("");
     const [searchInput, setSearchInput] = useState("");
+    const [logged, setLogged] = useState(false)
 
 
     return (
@@ -51,7 +53,7 @@ function App() {
                         setNoMatch={setNoMatch}
                         loading={loading}
                         setLoading={setLoading}
-
+                        logged={logged}
                     />}
                 />
                 <Route path="/dashboard"
@@ -72,7 +74,9 @@ function App() {
                         setNoMatch={setNoMatch}
                         loading={loading}
                         setLoading={setLoading}
-                    />} >
+                        setLogged={setLogged}
+                    />}
+                >
                     <Route path="/dashboard/profile"
                         element={<Profile
                             setDataCards={setDataCards}
@@ -100,6 +104,9 @@ function App() {
                 />
                 <Route path="/login"
                     element={<Login />}
+                />
+                <Route path="/admin"
+                    element={<Admin />}
                 />
             </Routes>
         </div >

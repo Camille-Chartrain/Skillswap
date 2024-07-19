@@ -5711,14 +5711,14 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
 var _react = require("react");
-var _home = require("./components/home/Home");
+var _home = require("./components/Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
-var _dashboard = require("./components/dashboard/Dashboard");
+var _dashboard = require("./components/Dashboard");
 var _dashboardDefault = parcelHelpers.interopDefault(_dashboard);
-var _profile = require("./components/profile/Profile");
+var _profile = require("./components/profile");
 var _profileDefault = parcelHelpers.interopDefault(_profile);
-var _statistics = require("./components/statistic/Statistics");
-var _statisticsDefault = parcelHelpers.interopDefault(_statistics);
+var _statistic = require("./components/statistic");
+var _statisticDefault = parcelHelpers.interopDefault(_statistic);
 var _notification = require("./components/Notification");
 var _notificationDefault = parcelHelpers.interopDefault(_notification);
 var _desk = require("./components/Desk");
@@ -5727,6 +5727,8 @@ var _registration = require("./components/Registration");
 var _registrationDefault = parcelHelpers.interopDefault(_registration);
 var _login = require("./components/Login");
 var _loginDefault = parcelHelpers.interopDefault(_login);
+var _admin = require("./components/Admin");
+var _adminDefault = parcelHelpers.interopDefault(_admin);
 var _s = $RefreshSig$();
 function App() {
     _s();
@@ -5742,6 +5744,7 @@ function App() {
     const [selectedSubCategory, setSelectedSubCategory] = (0, _react.useState)(null);
     const [selectedLevel, setSelectedLevel] = (0, _react.useState)("");
     const [searchInput, setSearchInput] = (0, _react.useState)("");
+    const [logged, setLogged] = (0, _react.useState)(false);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "App",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
@@ -5764,15 +5767,16 @@ function App() {
                         noMatch: noMatch,
                         setNoMatch: setNoMatch,
                         loading: loading,
-                        setLoading: setLoading
+                        setLoading: setLoading,
+                        logged: logged
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 37,
+                        lineNumber: 39,
                         columnNumber: 30
                     }, void 0)
                 }, void 0, false, {
                     fileName: "SRC/App.js",
-                    lineNumber: 36,
+                    lineNumber: 38,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5793,10 +5797,11 @@ function App() {
                         noMatch: noMatch,
                         setNoMatch: setNoMatch,
                         loading: loading,
-                        setLoading: setLoading
+                        setLoading: setLoading,
+                        setLogged: setLogged
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 58,
+                        lineNumber: 60,
                         columnNumber: 30
                     }, void 0),
                     children: [
@@ -5806,26 +5811,26 @@ function App() {
                                 setDataCards: setDataCards
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 77,
+                                lineNumber: 81,
                                 columnNumber: 34
                             }, void 0)
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 76,
+                            lineNumber: 80,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                             path: "/dashboard/statistics",
-                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statisticsDefault.default), {
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statisticDefault.default), {
                                 setDataCards: setDataCards
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 82,
+                                lineNumber: 86,
                                 columnNumber: 34
                             }, void 0)
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 81,
+                            lineNumber: 85,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5834,12 +5839,12 @@ function App() {
                                 setDataCards: setDataCards
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 87,
+                                lineNumber: 91,
                                 columnNumber: 34
                             }, void 0)
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 86,
+                            lineNumber: 90,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5848,57 +5853,69 @@ function App() {
                                 setDataCards: setDataCards
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 92,
+                                lineNumber: 96,
                                 columnNumber: 34
                             }, void 0)
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 91,
+                            lineNumber: 95,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "SRC/App.js",
-                    lineNumber: 57,
+                    lineNumber: 59,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "/registration",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 99,
+                        lineNumber: 103,
                         columnNumber: 30
                     }, void 0)
                 }, void 0, false, {
                     fileName: "SRC/App.js",
-                    lineNumber: 98,
+                    lineNumber: 102,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "/login",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 102,
+                        lineNumber: 106,
                         columnNumber: 30
                     }, void 0)
                 }, void 0, false, {
                     fileName: "SRC/App.js",
-                    lineNumber: 101,
+                    lineNumber: 105,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                    path: "/admin",
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminDefault.default), {}, void 0, false, {
+                        fileName: "SRC/App.js",
+                        lineNumber: 109,
+                        columnNumber: 30
+                    }, void 0)
+                }, void 0, false, {
+                    fileName: "SRC/App.js",
+                    lineNumber: 108,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "SRC/App.js",
-            lineNumber: 35,
+            lineNumber: 37,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "SRC/App.js",
-        lineNumber: 34,
+        lineNumber: 36,
         columnNumber: 9
     }, this);
 }
-_s(App, "btU/LfFQGIRuMOQQQnI6M7KdKXY=");
+_s(App, "U47YOWwOsoDPra9NEvHNLbMCZxQ=");
 _c = App;
 exports.default = App;
 var _c;
@@ -5909,7 +5926,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","./components/home/Home":"5wekS","./components/dashboard/Dashboard":"b7mF6","./components/profile/Profile":"fA7QW","./components/statistic/Statistics":"8StZH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./components/Notification":"4Kn7L","./components/Desk":"9q5wF","./components/Registration":"9HgkV","./components/Login":"fVCjh"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./components/Notification":"4Kn7L","./components/Desk":"9q5wF","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Dashboard":"7KL8w","./components/profile":"k9yXI","./components/Home":"ggupi","./components/statistic":"gPcum","./components/Admin":"78PF1"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.25.1
  *
@@ -34500,135 +34517,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"5wekS":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$53c4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$53c4.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _searchBar = require("../SearchBar/SearchBar");
-var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
-var _cards = require("../Cards");
-var _cardsDefault = parcelHelpers.interopDefault(_cards);
-var _navHome = require("../NavHome");
-var _navHomeDefault = parcelHelpers.interopDefault(_navHome);
-var _s = $RefreshSig$();
-const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, dataCards, setDataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading })=>{
-    _s();
-    console.log("state match dans Home", match);
-    console.log("state noMatch dans Home", noMatch);
-    const Get4Courses = async ()=>{
-        setLoading(true);
-        try {
-            const response = await fetch(`http://${"localhost"}:${"3000"}`);
-            const dataCardsHome = await response.json();
-            setDataCards(dataCardsHome);
-            console.log("reponse dataCardsHome du get4courses page home", dataCardsHome);
-            console.log("state dataCards", dataCards);
-            setLoading(false);
-        } catch (error) {
-            console.error(error.message);
-            setError("Votre demmande n'a pas ete prise en compte");
-            handleNotFoundError("Votre demande n'a pas ete prise en compte");
-        }
-    };
-    (0, _react.useEffect)(()=>{
-        Get4Courses();
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
-                fileName: "SRC/components/home/Home.js",
-                lineNumber: 54,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
-                selectedCategory: selectedCategory,
-                setSelectedCategory: setSelectedCategory,
-                selectedSubCategory: selectedSubCategory,
-                setSelectedSubCategory: setSelectedSubCategory,
-                selectedLevel: selectedLevel,
-                setSelectedLevel: setSelectedLevel,
-                searchInput: searchInput,
-                setSearchInput: setSearchInput,
-                dataCards: dataCards,
-                setDataCards: setDataCards,
-                match: match,
-                setMatch: setMatch,
-                noMatch: noMatch,
-                setNoMatch: setNoMatch,
-                setLoading: setLoading
-            }, void 0, false, {
-                fileName: "SRC/components/home/Home.js",
-                lineNumber: 55,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                        children: "SKILLSWAP "
-                    }, void 0, false, {
-                        fileName: "SRC/components/home/Home.js",
-                        lineNumber: 74,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: "Une plateforme d'\xe9change et d\u2019apprentissage qui permet de mettre en relation des personnes de tout \xe2ge et aux profils vari\xe9s qui souhaitent apprendre ou partager leur comp\xe9tence et leurs talents avec les autres. Fonctionnant sur le principe que chaque utilisateur est \xe0 la fois professeur et \xe9l\xe8ve, elle donne acc\xe8s \xe0 une communaut\xe9 de gens tr\xe8s vari\xe9e, et une foule de savoir \xe0 dispositions. Le swappie; la monnaie virtuelle de notre site; est l\xe0 pour encourager ce syst\xe8me. A chaque fois qu\u2019un cours est donne, on recoit un swappie, que l\u2019on pourra  ensuite d\xe9penser pour assister aux cours de son choix."
-                    }, void 0, false, {
-                        fileName: "SRC/components/home/Home.js",
-                        lineNumber: 75,
-                        columnNumber: 17
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/home/Home.js",
-                lineNumber: 73,
-                columnNumber: 13
-            }, undefined),
-            !match && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Cours les plus r\xe9cents sur la plateforme"
-            }, void 0, false, {
-                fileName: "SRC/components/home/Home.js",
-                lineNumber: 81,
-                columnNumber: 24
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
-                dataCards: dataCards,
-                match: match,
-                noMatch: noMatch,
-                loading: loading
-            }, void 0, false, {
-                fileName: "SRC/components/home/Home.js",
-                lineNumber: 82,
-                columnNumber: 13
-            }, undefined),
-            !match && !loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Voir plus ICONE INSCRIPTION"
-            }, void 0, false, {
-                fileName: "SRC/components/home/Home.js",
-                lineNumber: 88,
-                columnNumber: 36
-            }, undefined)
-        ]
-    }, void 0, true);
-};
-_s(Home, "OD7bBpZva5O2jO+Puf00hKivP7c=");
-_c = Home;
-exports.default = Home;
-var _c;
-$RefreshReg$(_c, "Home");
-
-  $parcel$ReactRefreshHelpers$53c4.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","../SearchBar/SearchBar":"dGqEc","../Cards":"jUXwJ","../NavHome":"8DCBt"}],"km3Ru":[function(require,module,exports) {
+},{}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -34766,1009 +34655,7 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}],"dGqEc":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$f6a9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$f6a9.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>SearchBar);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _jsCookie = require("js-cookie");
-var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _categories = require("./Categories");
-var _categoriesDefault = parcelHelpers.interopDefault(_categories);
-var _subCategories = require("./SubCategories");
-var _subCategoriesDefault = parcelHelpers.interopDefault(_subCategories);
-var _level = require("./Level");
-var _levelDefault = parcelHelpers.interopDefault(_level);
-var _reactRouterDom = require("react-router-dom");
-var _s = $RefreshSig$();
-function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, dataCards, setDataCards, match, setMatch, noMatch, setNoMatch, setLoading }) {
-    _s();
-    const location = (0, _reactRouterDom.useLocation)();
-    const navigate = (0, _reactRouterDom.useNavigate)();
-    async function handleSearch(event) {
-        event.preventDefault();
-        try {
-            console.log("nous sommes dans la fonction getSearch");
-            setLoading(true);
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectedLevel);
-            const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
-                method: "get",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            const responseDataSearch = await response.json();
-            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
-            console.log("typeof responseDataSearch", typeof responseDataSearch);
-            setSelectedSubCategory(null);
-            if (responseDataSearch === "no match") {
-                setMatch(false);
-                setNoMatch(true);
-                setLoading(false);
-                console.log("NO MATCH state match dans Search", match);
-                console.log("NOT MATCH state noMatch dans Search", noMatch);
-            } else if (responseDataSearch) {
-                console.log("on est dans la condition il y a match");
-                console.log("responseDataseaarch", responseDataSearch);
-                setDataCards(responseDataSearch);
-                setMatch(true);
-                setNoMatch(false);
-                setLoading(false);
-                // console.log("MATCH State dataSearch", dataSearch);
-                // console.log("MATCH state Match dans Search", match);
-                // console.log("MATCH state noMatch dans Search", noMatch);
-                if (location.pathname === "/dashboard/profile" || location.pathname === "/dashboard/statistics" || location.pathname === "/dashboard/notifications" || location.pathname === "/dashboard/desk") // try {
-                //     console.log('dans le search apres match ok, verif si logué');
-                //     const token = Cookies.get('token');
-                //     const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
-                //         method: "get",
-                //         headers: {
-                //             'Content-Type': 'application/json',
-                //             'Authorization': `Bearer ${token}`,
-                //         },
-                //     });
-                //     // console.log("response avant json:", response)
-                //     const authResult = await response.json();
-                //     // console.log("authResult apres json dans Search pour voir  resultats:", authResult)
-                //     if (authResult == "access granted") {
-                //         console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /dashboard");
-                navigate("/dashboard");
-            }
-        } catch (error) {
-            console.log("erreur du catch GetSearch:", error);
-        // setError("Votre recherche n'aq pas pu aboutir");
-        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
-        }
-    }
-    (0, _react.useEffect)(()=>{}, [
-        searchInput,
-        selectedLevel,
-        selectedCategory,
-        selectedSubCategory
-    ]);
-    const handleChangeInput = (event)=>{
-        setSearchInput(event.target.value);
-        console.log("input:", event.target.value);
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-        method: "GET",
-        action: "",
-        onSubmit: handleSearch,
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                htmlFor: "keyWord",
-                children: "Mot cl\xe9"
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 130,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "text",
-                name: "keyWord",
-                id: "keyword",
-                onChange: handleChangeInput
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 131,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
-                selectedCategory: selectedCategory,
-                setSelectedCategory: setSelectedCategory
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 133,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
-                selectedCategory: selectedCategory,
-                setSelectedSubCategory: setSelectedSubCategory
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 137,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
-                setSelectedLevel: setSelectedLevel
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 141,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                type: "submit",
-                children: "Envoyer"
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 144,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "SRC/components/SearchBar/SearchBar.js",
-        lineNumber: 128,
-        columnNumber: 9
-    }, this);
-}
-_s(SearchBar, "fPjCxODVr6jVvib6o2c9VLE4s84=", false, function() {
-    return [
-        (0, _reactRouterDom.useLocation),
-        (0, _reactRouterDom.useNavigate)
-    ];
-});
-_c = SearchBar;
-var _c;
-$RefreshReg$(_c, "SearchBar");
-
-  $parcel$ReactRefreshHelpers$f6a9.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","js-cookie":"c8bBu","./Categories":"04ePd","./SubCategories":"laIPr","./Level":"8e1BU","react-router-dom":"9xmpe"}],"c8bBu":[function(require,module,exports) {
-(function(global, factory) {
-    module.exports = factory();
-})(this, function() {
-    "use strict";
-    /* eslint-disable no-var */ function assign(target) {
-        for(var i = 1; i < arguments.length; i++){
-            var source = arguments[i];
-            for(var key in source)target[key] = source[key];
-        }
-        return target;
-    }
-    /* eslint-enable no-var */ /* eslint-disable no-var */ var defaultConverter = {
-        read: function(value) {
-            if (value[0] === '"') value = value.slice(1, -1);
-            return value.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent);
-        },
-        write: function(value) {
-            return encodeURIComponent(value).replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g, decodeURIComponent);
-        }
-    };
-    /* eslint-enable no-var */ /* eslint-disable no-var */ function init(converter, defaultAttributes) {
-        function set(name, value, attributes) {
-            if (typeof document === "undefined") return;
-            attributes = assign({}, defaultAttributes, attributes);
-            if (typeof attributes.expires === "number") attributes.expires = new Date(Date.now() + attributes.expires * 864e5);
-            if (attributes.expires) attributes.expires = attributes.expires.toUTCString();
-            name = encodeURIComponent(name).replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent).replace(/[()]/g, escape);
-            var stringifiedAttributes = "";
-            for(var attributeName in attributes){
-                if (!attributes[attributeName]) continue;
-                stringifiedAttributes += "; " + attributeName;
-                if (attributes[attributeName] === true) continue;
-                // Considers RFC 6265 section 5.2:
-                // ...
-                // 3.  If the remaining unparsed-attributes contains a %x3B (";")
-                //     character:
-                // Consume the characters of the unparsed-attributes up to,
-                // not including, the first %x3B (";") character.
-                // ...
-                stringifiedAttributes += "=" + attributes[attributeName].split(";")[0];
-            }
-            return document.cookie = name + "=" + converter.write(value, name) + stringifiedAttributes;
-        }
-        function get(name) {
-            if (typeof document === "undefined" || arguments.length && !name) return;
-            // To prevent the for loop in the first place assign an empty array
-            // in case there are no cookies at all.
-            var cookies = document.cookie ? document.cookie.split("; ") : [];
-            var jar = {};
-            for(var i = 0; i < cookies.length; i++){
-                var parts = cookies[i].split("=");
-                var value = parts.slice(1).join("=");
-                try {
-                    var found = decodeURIComponent(parts[0]);
-                    jar[found] = converter.read(value, found);
-                    if (name === found) break;
-                } catch (e) {}
-            }
-            return name ? jar[name] : jar;
-        }
-        return Object.create({
-            set,
-            get,
-            remove: function(name, attributes) {
-                set(name, "", assign({}, attributes, {
-                    expires: -1
-                }));
-            },
-            withAttributes: function(attributes) {
-                return init(this.converter, assign({}, this.attributes, attributes));
-            },
-            withConverter: function(converter) {
-                return init(assign({}, this.converter, converter), this.attributes);
-            }
-        }, {
-            attributes: {
-                value: Object.freeze(defaultAttributes)
-            },
-            converter: {
-                value: Object.freeze(converter)
-            }
-        });
-    }
-    var api = init(defaultConverter, {
-        path: "/"
-    });
-    /* eslint-enable no-var */ return api;
-});
-
-},{}],"04ePd":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8330 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8330.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Categories);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _jsCookie = require("js-cookie");
-var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _s = $RefreshSig$();
-function Categories({ selectedCategory, setSelectedCategory }) {
-    _s();
-    const [categories, setCategories] = (0, _react.useState)([]);
-    async function getCategories() {
-        try {
-            // console.log("essai de fetch categories");
-            const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://localhost:3000/categories`, {
-                method: "get",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            const dataCategories = await response.json();
-            setCategories(dataCategories);
-        // console.log("recup liste des cat après JSON:", dataCategories);
-        } catch (error) {
-            console.error("erreur lors de la r\xe9cup des cat\xe9gories:", error.message);
-        // setError("Selectionnez une categorie");
-        // handleNotFoundError("Selectionnez une categorie");
-        }
-    }
-    // Je veux appeler du code lors du premier chargement du composant et pas lorsque le composant se recharge de nouveau (on limite ainsi les effets de bords et donc une boucle infinie)
-    (0, _react.useEffect)(()=>{
-        getCategories();
-    }, []);
-    const handleCategoryChange = (event)=>{
-        console.log("Cat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
-        setSelectedCategory(event.target.value);
-        console.log("Cat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-        onChange: handleCategoryChange,
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                value: "",
-                children: "cat\xe9gorie"
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/Categories/index.js",
-                lineNumber: 46,
-                columnNumber: 13
-            }, this),
-            categories && categories.length > 0 && categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                    value: category.id,
-                    children: category.name
-                }, category.id, false, {
-                    fileName: "SRC/components/SearchBar/Categories/index.js",
-                    lineNumber: 49,
-                    columnNumber: 21
-                }, this))
-        ]
-    }, void 0, true, {
-        fileName: "SRC/components/SearchBar/Categories/index.js",
-        lineNumber: 45,
-        columnNumber: 9
-    }, this);
-}
-_s(Categories, "+ijgB8ROEl0Dkz53OTIi8GynN6s=");
-_c = Categories;
-var _c;
-$RefreshReg$(_c, "Categories");
-
-  $parcel$ReactRefreshHelpers$8330.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"laIPr":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$1357 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$1357.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>SubCategories);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _jsCookie = require("js-cookie");
-var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _s = $RefreshSig$();
-function SubCategories({ selectedCategory, setSelectedSubCategory }) {
-    _s();
-    const [subCategories, setSubCategories] = (0, _react.useState)([]);
-    async function getSubCategories() {
-        try {
-            console.log("essai de fetch subategories");
-            console.log("valeur de selectedCategory:", selectedCategory);
-            const token = (0, _jsCookieDefault.default).get("token");
-            console.log(`http://localhost:3000/subCategories/${selectedCategory}`);
-            const response = await fetch(`http://localhost:3000/subCategories/${selectedCategory}`, {
-                method: "get",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            const dataSubCategories = await response.json();
-            setSubCategories(dataSubCategories);
-            console.log("recup liste des cat apr\xe8s JSON:", dataSubCategories);
-        } catch (error) {
-            console.error("erreur lors de la r\xe9cup des cat\xe9gories:", error.message);
-        // setError("Selectionnez une categorie");
-        // handleNotFoundError("Selectionnez une categorie");
-        }
-    }
-    // Je veux appeler du code lors du premier chargement du composant et pas lorsque le composant se recharge de nouveau (on limite ainsi les effets de bords et donc une boucle infinie)
-    (0, _react.useEffect)(()=>{
-        getSubCategories();
-        console.log("selectedCategory has been updated:", selectedCategory);
-    }, [
-        selectedCategory
-    ]);
-    const handleSubCategoryChange = (event)=>{
-        setSelectedSubCategory(event.target.value);
-        console.log("SousCat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-        onChange: handleSubCategoryChange,
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                value: "",
-                children: "sous-cat\xe9gorie"
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/SubCategories/index.js",
-                lineNumber: 48,
-                columnNumber: 13
-            }, this),
-            subCategories && subCategories.length > 0 && subCategories.map((subCategory)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                    value: subCategory.id,
-                    children: subCategory.name
-                }, subCategory.id, false, {
-                    fileName: "SRC/components/SearchBar/SubCategories/index.js",
-                    lineNumber: 50,
-                    columnNumber: 17
-                }, this))
-        ]
-    }, void 0, true, {
-        fileName: "SRC/components/SearchBar/SubCategories/index.js",
-        lineNumber: 47,
-        columnNumber: 9
-    }, this);
-}
-_s(SubCategories, "U2RVSNSbTgpe2mlVGe/DNSOYsLs=");
-_c = SubCategories;
-var _c;
-$RefreshReg$(_c, "SubCategories");
-
-  $parcel$ReactRefreshHelpers$1357.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8e1BU":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$cc76 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$cc76.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Level);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-function Level({ setSelectedLevel }) {
-    const handleLevelChange = (event)=>{
-        setSelectedLevel(event.target.value);
-        console.log("Level s\xe9lectionn\xe9e :", event.target.value);
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-        onChange: handleLevelChange,
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                value: "",
-                children: "Niveau"
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 12,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                value: "d\xe9butant",
-                children: "D\xe9butant"
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 13,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                value: "interm\xe9diaire",
-                children: "Interm\xe9diaire"
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 14,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                value: "avanc\xe9e",
-                children: "Avanc\xe9"
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 15,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "SRC/components/SearchBar/Level/index.js",
-        lineNumber: 11,
-        columnNumber: 9
-    }, this);
-}
-_c = Level;
-var _c;
-$RefreshReg$(_c, "Level");
-
-  $parcel$ReactRefreshHelpers$cc76.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jUXwJ":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$1908 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$1908.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Cards);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-function Cards({ dataCards, match, noMatch, loading }) {
-    console.log("dataCards", dataCards);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "chargement..."
-            }, void 0, false, {
-                fileName: "SRC/components/Cards/index.js",
-                lineNumber: 15,
-                columnNumber: 25
-            }, this),
-            dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
-                    className: "card",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.title
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 18,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.User.grade_level
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 19,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.level
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 20,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.description
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 21,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.Category.name
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 22,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.SubCategory.name
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 23,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.availability
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 25,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.transmission
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 27,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: [
-                                "SKILLSWAPEUR:",
-                                `${card.User.firstname} ${card.User.lastname}`
-                            ]
-                        }, void 0, true, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 28,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: [
-                                '"',
-                                card.User.presentation,
-                                '"'
-                            ]
-                        }, void 0, true, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 29,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: [
-                                "Contact: ",
-                                card.User.email
-                            ]
-                        }, void 0, true, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 30,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, card.id, true, {
-                    fileName: "SRC/components/Cards/index.js",
-                    lineNumber: 17,
-                    columnNumber: 17
-                }, this))
-        ]
-    }, void 0, true);
-}
-_c = Cards;
-var _c;
-$RefreshReg$(_c, "Cards");
-
-  $parcel$ReactRefreshHelpers$1908.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8DCBt":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$3d66 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3d66.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>NavHome);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
-var _s = $RefreshSig$();
-function NavHome() {
-    _s();
-    const navigate = (0, _reactRouterDom.useNavigate)();
-    function handleClickRegistration() {
-        navigate("/registration");
-    }
-    function handleClickLogin() {
-        navigate("/login");
-    }
-    function handleClickHome() {
-        navigate("/");
-    }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                onClick: handleClickHome,
-                children: "Accueil"
-            }, void 0, false, {
-                fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 22,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                onClick: handleClickRegistration,
-                children: "Inscription"
-            }, void 0, false, {
-                fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 23,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                onClick: handleClickLogin,
-                children: "Connexion"
-            }, void 0, false, {
-                fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 24,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "SRC/components/NavHome/index.js",
-        lineNumber: 21,
-        columnNumber: 9
-    }, this);
-}
-_s(NavHome, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
-    return [
-        (0, _reactRouterDom.useNavigate)
-    ];
-});
-_c = NavHome;
-var _c;
-$RefreshReg$(_c, "NavHome");
-
-  $parcel$ReactRefreshHelpers$3d66.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"b7mF6":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$9c50 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$9c50.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Dashboard);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _searchBar = require("../SearchBar/SearchBar");
-var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
-var _reactRouterDom = require("react-router-dom");
-var _cards = require("../Cards");
-var _cardsDefault = parcelHelpers.interopDefault(_cards);
-var _logout = require("../Logout");
-var _logoutDefault = parcelHelpers.interopDefault(_logout);
-function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading }) {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Dashboard"
-            }, void 0, false, {
-                fileName: "SRC/components/dashboard/Dashboard.js",
-                lineNumber: 28,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/dashboard/notifications",
-                        children: "notifs "
-                    }, void 0, false, {
-                        fileName: "SRC/components/dashboard/Dashboard.js",
-                        lineNumber: 30,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/dashboard/statistics",
-                        children: "Stats "
-                    }, void 0, false, {
-                        fileName: "SRC/components/dashboard/Dashboard.js",
-                        lineNumber: 31,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/dashboard/profile",
-                        children: "profil "
-                    }, void 0, false, {
-                        fileName: "SRC/components/dashboard/Dashboard.js",
-                        lineNumber: 32,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/dashboard/desk",
-                        children: "bureau"
-                    }, void 0, false, {
-                        fileName: "SRC/components/dashboard/Dashboard.js",
-                        lineNumber: 33,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {}, void 0, false, {
-                        fileName: "SRC/components/dashboard/Dashboard.js",
-                        lineNumber: 34,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/dashboard/Dashboard.js",
-                lineNumber: 29,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
-                selectedCategory: selectedCategory,
-                setSelectedCategory: setSelectedCategory,
-                selectedSubCategory: selectedSubCategory,
-                setSelectedSubCategory: setSelectedSubCategory,
-                selectedLevel: selectedLevel,
-                setSelectedLevel: setSelectedLevel,
-                searchInput: searchInput,
-                setSearchInput: setSearchInput,
-                setDataCards: setDataCards,
-                match: match,
-                setMatch: setMatch,
-                noMatch: noMatch,
-                setNoMatch: setNoMatch,
-                setLoading: setLoading
-            }, void 0, false, {
-                fileName: "SRC/components/dashboard/Dashboard.js",
-                lineNumber: 37,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
-                fileName: "SRC/components/dashboard/Dashboard.js",
-                lineNumber: 53,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
-                dataCards: dataCards,
-                match: match,
-                noMatch: noMatch,
-                loading: loading
-            }, void 0, false, {
-                fileName: "SRC/components/dashboard/Dashboard.js",
-                lineNumber: 54,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "SRC/components/dashboard/Dashboard.js",
-        lineNumber: 27,
-        columnNumber: 9
-    }, this);
-}
-_c = Dashboard;
-var _c;
-$RefreshReg$(_c, "Dashboard");
-
-  $parcel$ReactRefreshHelpers$9c50.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../SearchBar/SearchBar":"dGqEc","../Cards":"jUXwJ","../Logout":"5BNmm"}],"5BNmm":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$fd5b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$fd5b.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Logout);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _jsCookie = require("js-cookie");
-var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _reactRouterDom = require("react-router-dom");
-var _s = $RefreshSig$();
-function Logout() {
-    _s();
-    const navigate = (0, _reactRouterDom.useNavigate)();
-    const handleClick = async ()=>{
-        try {
-            console.log("deconnection => supprimer cookie. (composant Logout)");
-            const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/logout`, {
-                method: "POST",
-                status: 200,
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            console.log("response", response);
-            const resultLogout = await response.json();
-            // console.log('response component dashboard logout:', resultLogout);
-            // delete cookie JWT on client's side
-            let thisToken = (0, _jsCookieDefault.default).remove("token");
-            thisToken = null;
-            if (thisToken == null) {
-                console.log("token", thisToken);
-                navigate("/");
-            }
-        } catch (error) {
-            console.log("erreur :", error);
-        }
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            onClick: handleClick,
-            children: "Deconnexion"
-        }, void 0, false, {
-            fileName: "SRC/components/Logout/index.js",
-            lineNumber: 41,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/Logout/index.js",
-        lineNumber: 40,
-        columnNumber: 9
-    }, this);
-}
-_s(Logout, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
-    return [
-        (0, _reactRouterDom.useNavigate)
-    ];
-});
-_c = Logout;
-var _c;
-$RefreshReg$(_c, "Logout");
-
-  $parcel$ReactRefreshHelpers$fd5b.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","js-cookie":"c8bBu","react-router-dom":"9xmpe"}],"fA7QW":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$b218 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$b218.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Profile);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _s = $RefreshSig$();
-function Profile({ setDataCards }) {
-    _s();
-    (0, _react.useEffect)(()=>{
-        setDataCards({
-            rows: [],
-            count: 0,
-            resultCount: 0
-        });
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Profil"
-        }, void 0, false, {
-            fileName: "SRC/components/profile/Profile.js",
-            lineNumber: 15,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/profile/Profile.js",
-        lineNumber: 14,
-        columnNumber: 9
-    }, this);
-}
-_s(Profile, "OD7bBpZva5O2jO+Puf00hKivP7c=");
-_c = Profile;
-var _c;
-$RefreshReg$(_c, "Profile");
-
-  $parcel$ReactRefreshHelpers$b218.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8StZH":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$6477 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$6477.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Statistics);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _s = $RefreshSig$();
-function Statistics({ setDataCards }) {
-    _s();
-    (0, _react.useEffect)(()=>{
-        setDataCards({
-            rows: [],
-            count: 0,
-            resultCount: 0
-        });
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Statistiques"
-        }, void 0, false, {
-            fileName: "SRC/components/statistic/Statistics.js",
-            lineNumber: 15,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/statistic/Statistics.js",
-        lineNumber: 14,
-        columnNumber: 9
-    }, this);
-}
-_s(Statistics, "OD7bBpZva5O2jO+Puf00hKivP7c=");
-_c = Statistics;
-var _c;
-$RefreshReg$(_c, "Statistics");
-
-  $parcel$ReactRefreshHelpers$6477.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4Kn7L":[function(require,module,exports) {
+},{"7422ead32dcc1e6b":"786KC"}],"4Kn7L":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1088 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36090,7 +34977,171 @@ $RefreshReg$(_c, "Registration");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","js-cookie":"c8bBu","../NavHome":"8DCBt"}],"fVCjh":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","js-cookie":"c8bBu","../NavHome":"8DCBt"}],"c8bBu":[function(require,module,exports) {
+(function(global, factory) {
+    module.exports = factory();
+})(this, function() {
+    "use strict";
+    /* eslint-disable no-var */ function assign(target) {
+        for(var i = 1; i < arguments.length; i++){
+            var source = arguments[i];
+            for(var key in source)target[key] = source[key];
+        }
+        return target;
+    }
+    /* eslint-enable no-var */ /* eslint-disable no-var */ var defaultConverter = {
+        read: function(value) {
+            if (value[0] === '"') value = value.slice(1, -1);
+            return value.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent);
+        },
+        write: function(value) {
+            return encodeURIComponent(value).replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g, decodeURIComponent);
+        }
+    };
+    /* eslint-enable no-var */ /* eslint-disable no-var */ function init(converter, defaultAttributes) {
+        function set(name, value, attributes) {
+            if (typeof document === "undefined") return;
+            attributes = assign({}, defaultAttributes, attributes);
+            if (typeof attributes.expires === "number") attributes.expires = new Date(Date.now() + attributes.expires * 864e5);
+            if (attributes.expires) attributes.expires = attributes.expires.toUTCString();
+            name = encodeURIComponent(name).replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent).replace(/[()]/g, escape);
+            var stringifiedAttributes = "";
+            for(var attributeName in attributes){
+                if (!attributes[attributeName]) continue;
+                stringifiedAttributes += "; " + attributeName;
+                if (attributes[attributeName] === true) continue;
+                // Considers RFC 6265 section 5.2:
+                // ...
+                // 3.  If the remaining unparsed-attributes contains a %x3B (";")
+                //     character:
+                // Consume the characters of the unparsed-attributes up to,
+                // not including, the first %x3B (";") character.
+                // ...
+                stringifiedAttributes += "=" + attributes[attributeName].split(";")[0];
+            }
+            return document.cookie = name + "=" + converter.write(value, name) + stringifiedAttributes;
+        }
+        function get(name) {
+            if (typeof document === "undefined" || arguments.length && !name) return;
+            // To prevent the for loop in the first place assign an empty array
+            // in case there are no cookies at all.
+            var cookies = document.cookie ? document.cookie.split("; ") : [];
+            var jar = {};
+            for(var i = 0; i < cookies.length; i++){
+                var parts = cookies[i].split("=");
+                var value = parts.slice(1).join("=");
+                try {
+                    var found = decodeURIComponent(parts[0]);
+                    jar[found] = converter.read(value, found);
+                    if (name === found) break;
+                } catch (e) {}
+            }
+            return name ? jar[name] : jar;
+        }
+        return Object.create({
+            set,
+            get,
+            remove: function(name, attributes) {
+                set(name, "", assign({}, attributes, {
+                    expires: -1
+                }));
+            },
+            withAttributes: function(attributes) {
+                return init(this.converter, assign({}, this.attributes, attributes));
+            },
+            withConverter: function(converter) {
+                return init(assign({}, this.converter, converter), this.attributes);
+            }
+        }, {
+            attributes: {
+                value: Object.freeze(defaultAttributes)
+            },
+            converter: {
+                value: Object.freeze(converter)
+            }
+        });
+    }
+    var api = init(defaultConverter, {
+        path: "/"
+    });
+    /* eslint-enable no-var */ return api;
+});
+
+},{}],"8DCBt":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3d66 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3d66.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>NavHome);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+function NavHome() {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    function handleClickRegistration() {
+        navigate("/registration");
+    }
+    function handleClickLogin() {
+        navigate("/login");
+    }
+    function handleClickHome() {
+        navigate("/");
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                onClick: handleClickHome,
+                children: "Accueil"
+            }, void 0, false, {
+                fileName: "SRC/components/NavHome/index.js",
+                lineNumber: 22,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                onClick: handleClickRegistration,
+                children: "Inscription"
+            }, void 0, false, {
+                fileName: "SRC/components/NavHome/index.js",
+                lineNumber: 23,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                onClick: handleClickLogin,
+                children: "Connexion"
+            }, void 0, false, {
+                fileName: "SRC/components/NavHome/index.js",
+                lineNumber: 24,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/NavHome/index.js",
+        lineNumber: 21,
+        columnNumber: 9
+    }, this);
+}
+_s(NavHome, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = NavHome;
+var _c;
+$RefreshReg$(_c, "NavHome");
+
+  $parcel$ReactRefreshHelpers$3d66.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fVCjh":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9e3d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36102,31 +35153,148 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>Login);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _navHome = require("../NavHome");
 var _navHomeDefault = parcelHelpers.interopDefault(_navHome);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
 function Login() {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const [error, setError] = (0, _react.useState)("");
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const myFormData = new FormData(event.target);
+        const formDataEncoded = new URLSearchParams(myFormData);
+        try {
+            console.log("try data:", formDataEncoded);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/login`, {
+                method: "post",
+                status: 200,
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                },
+                body: formDataEncoded
+            });
+            console.log("login response avant .json", response);
+            const dataIsLogged = await response.json();
+            console.log("login reponse apres .json :", dataIsLogged);
+            console.log("dataIslogged.error", dataIsLogged.error);
+            if (dataIsLogged.error === "2Mauvais couple identifiant/mot de passe" || dataIsLogged.error === "Mauvais couple identifiant/mot de passe") setError("Mauvais couple identifiant / mot de passe");
+            //= check if there is a new token associated with the user and store it with Cookies.set
+            if (dataIsLogged.accessToken) {
+                const newToken = dataIsLogged.accessToken;
+                console.log("token", newToken);
+                (0, _jsCookieDefault.default).set("token", newToken);
+                if (dataIsLogged.role === "admin") {
+                    console.log("dataIsLogged.role", dataIsLogged.role);
+                    navigate("/admin");
+                } else navigate("/dashboard");
+            } else if (dataIsLogged.message === "token valid\xe9") {
+                console.log("redirection vers dashboard ou admin sans nouveau token");
+                if (dataIsLogged.role === "admin") {
+                    console.log("dataIsLogged.role", dataIsLogged.role);
+                    navigate("/admin");
+                } else navigate("/dashboard");
+            }
+        } catch (error) {
+            console.log("erreur: ", error);
+            setError("erreur lors de la connexion");
+        }
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 8,
+                lineNumber: 73,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Connexion"
             }, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 9,
+                lineNumber: 74,
+                columnNumber: 13
+            }, this),
+            error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: error
+            }, void 0, false, {
+                fileName: "SRC/components/Login/index.js",
+                lineNumber: 75,
+                columnNumber: 23
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                method: "POST",
+                onSubmit: handleSubmit,
+                className: "formLogin",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        htmlFor: "email",
+                        children: "Email * :"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Login/index.js",
+                        lineNumber: 79,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "email",
+                        id: "email",
+                        name: "email",
+                        maxLength: "254",
+                        required: true
+                    }, void 0, false, {
+                        fileName: "SRC/components/Login/index.js",
+                        lineNumber: 80,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        htmlFor: "password",
+                        children: "Mot de passe * :"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Login/index.js",
+                        lineNumber: 82,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "password",
+                        id: "password",
+                        name: "password",
+                        minLength: "12",
+                        maxLength: "64",
+                        required: true
+                    }, void 0, false, {
+                        fileName: "SRC/components/Login/index.js",
+                        lineNumber: 83,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        type: "submit",
+                        children: "Envoyer"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Login/index.js",
+                        lineNumber: 85,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Login/index.js",
+                lineNumber: 77,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Login/index.js",
-        lineNumber: 7,
+        lineNumber: 72,
         columnNumber: 9
     }, this);
 }
+_s(Login, "jUP0uAh7TVPiOgV113kAnfFQr/s=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
 _c = Login;
 var _c;
 $RefreshReg$(_c, "Login");
@@ -36136,7 +35304,1082 @@ $RefreshReg$(_c, "Login");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../NavHome":"8DCBt"}],"lOjBx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../NavHome":"8DCBt","js-cookie":"c8bBu","react-router-dom":"9xmpe"}],"7KL8w":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$93b3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$93b3.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Dashboard);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _searchBar = require("../SearchBar");
+var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
+var _cards = require("../Cards");
+var _cardsDefault = parcelHelpers.interopDefault(_cards);
+var _navLogged = require("../NavLogged");
+var _navLoggedDefault = parcelHelpers.interopDefault(_navLogged);
+var _s = $RefreshSig$();
+function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged }) {
+    _s();
+    (0, _react.useEffect)(()=>{
+        setLogged(true);
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Dashboard"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/index.js",
+                lineNumber: 32,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
+                setLogged: setLogged
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/index.js",
+                lineNumber: 33,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                selectedCategory: selectedCategory,
+                setSelectedCategory: setSelectedCategory,
+                selectedSubCategory: selectedSubCategory,
+                setSelectedSubCategory: setSelectedSubCategory,
+                selectedLevel: selectedLevel,
+                setSelectedLevel: setSelectedLevel,
+                searchInput: searchInput,
+                setSearchInput: setSearchInput,
+                setDataCards: setDataCards,
+                match: match,
+                setMatch: setMatch,
+                noMatch: noMatch,
+                setNoMatch: setNoMatch,
+                setLoading: setLoading
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/index.js",
+                lineNumber: 36,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
+                dataCards: dataCards,
+                match: match,
+                noMatch: noMatch,
+                loading: loading
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/index.js",
+                lineNumber: 52,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/Dashboard/index.js",
+        lineNumber: 31,
+        columnNumber: 9
+    }, this);
+}
+_s(Dashboard, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = Dashboard;
+var _c;
+$RefreshReg$(_c, "Dashboard");
+
+  $parcel$ReactRefreshHelpers$93b3.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Cards":"jUXwJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../SearchBar":"kxQdC","../NavLogged":"h6Y1N"}],"jUXwJ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1908 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1908.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Cards);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function Cards({ dataCards, match, noMatch, loading }) {
+    console.log("dataCards", dataCards);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "chargement..."
+            }, void 0, false, {
+                fileName: "SRC/components/Cards/index.js",
+                lineNumber: 15,
+                columnNumber: 25
+            }, this),
+            dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
+                    className: "card",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: card.title
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 18,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: card.User.grade_level
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 19,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: card.level
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 20,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: card.description
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 21,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: card.Category.name
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 22,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: card.SubCategory.name
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 23,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: card.availability
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 25,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: card.transmission
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 27,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: [
+                                "SKILLSWAPEUR:",
+                                `${card.User.firstname} ${card.User.lastname}`
+                            ]
+                        }, void 0, true, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 28,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: [
+                                '"',
+                                card.User.presentation,
+                                '"'
+                            ]
+                        }, void 0, true, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 29,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: [
+                                "Contact: ",
+                                card.User.email
+                            ]
+                        }, void 0, true, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 30,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, card.id, true, {
+                    fileName: "SRC/components/Cards/index.js",
+                    lineNumber: 17,
+                    columnNumber: 17
+                }, this))
+        ]
+    }, void 0, true);
+}
+_c = Cards;
+var _c;
+$RefreshReg$(_c, "Cards");
+
+  $parcel$ReactRefreshHelpers$1908.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kxQdC":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2835 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2835.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>SearchBar);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _categories = require("./Categories");
+var _categoriesDefault = parcelHelpers.interopDefault(_categories);
+var _subCategories = require("./SubCategories");
+var _subCategoriesDefault = parcelHelpers.interopDefault(_subCategories);
+var _level = require("./Level");
+var _levelDefault = parcelHelpers.interopDefault(_level);
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, dataCards, setDataCards, match, setMatch, noMatch, setNoMatch, setLoading }) {
+    _s();
+    const location = (0, _reactRouterDom.useLocation)();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    async function handleSearch(event) {
+        event.preventDefault();
+        try {
+            console.log("nous sommes dans la fonction getSearch");
+            setLoading(true);
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
+            console.log("selectLevel dans try", selectedLevel);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const responseDataSearch = await response.json();
+            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
+            console.log("typeof responseDataSearch", typeof responseDataSearch);
+            setSelectedSubCategory(null);
+            if (responseDataSearch === "no match") {
+                setMatch(false);
+                setNoMatch(true);
+                setLoading(false);
+                console.log("NO MATCH state match dans Search", match);
+                console.log("NOT MATCH state noMatch dans Search", noMatch);
+            } else if (responseDataSearch) {
+                console.log("on est dans la condition il y a match");
+                console.log("responseDataseaarch", responseDataSearch);
+                setDataCards(responseDataSearch);
+                setMatch(true);
+                setNoMatch(false);
+                setLoading(false);
+                // console.log("MATCH State dataSearch", dataSearch);
+                // console.log("MATCH state Match dans Search", match);
+                // console.log("MATCH state noMatch dans Search", noMatch);
+                if (location.pathname === "/dashboard/profile" || location.pathname === "/dashboard/statistics" || location.pathname === "/dashboard/notifications" || location.pathname === "/dashboard/desk") // try {
+                //     console.log('dans le search apres match ok, verif si logué');
+                //     const token = Cookies.get('token');
+                //     const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
+                //         method: "get",
+                //         headers: {
+                //             'Content-Type': 'application/json',
+                //             'Authorization': `Bearer ${token}`,
+                //         },
+                //     });
+                //     // console.log("response avant json:", response)
+                //     const authResult = await response.json();
+                //     // console.log("authResult apres json dans Search pour voir  resultats:", authResult)
+                //     if (authResult == "access granted") {
+                //         console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /dashboard");
+                navigate("/dashboard");
+            }
+        } catch (error) {
+            console.log("erreur du catch GetSearch:", error);
+        // setError("Votre recherche n'aq pas pu aboutir");
+        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+        }
+    }
+    (0, _react.useEffect)(()=>{}, [
+        searchInput,
+        selectedLevel,
+        selectedCategory,
+        selectedSubCategory
+    ]);
+    const handleChangeInput = (event)=>{
+        setSearchInput(event.target.value);
+        console.log("input:", event.target.value);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+        method: "GET",
+        action: "",
+        onSubmit: handleSearch,
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "keyWord",
+                children: "Mot cl\xe9"
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 130,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: "text",
+                name: "keyWord",
+                id: "keyword",
+                onChange: handleChangeInput
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 131,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
+                selectedCategory: selectedCategory,
+                setSelectedCategory: setSelectedCategory
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 133,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
+                selectedCategory: selectedCategory,
+                setSelectedSubCategory: setSelectedSubCategory
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 137,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
+                setSelectedLevel: setSelectedLevel
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 141,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                type: "submit",
+                children: "Envoyer"
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 144,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/SearchBar/index.js",
+        lineNumber: 128,
+        columnNumber: 9
+    }, this);
+}
+_s(SearchBar, "fPjCxODVr6jVvib6o2c9VLE4s84=", false, function() {
+    return [
+        (0, _reactRouterDom.useLocation),
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = SearchBar;
+var _c;
+$RefreshReg$(_c, "SearchBar");
+
+  $parcel$ReactRefreshHelpers$2835.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","./Categories":"04ePd","./SubCategories":"laIPr","./Level":"8e1BU","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"04ePd":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8330 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8330.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Categories);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _s = $RefreshSig$();
+function Categories({ selectedCategory, setSelectedCategory }) {
+    _s();
+    const [categories, setCategories] = (0, _react.useState)([]);
+    async function getCategories() {
+        try {
+            // console.log("essai de fetch categories");
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://localhost:3000/categories`, {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const dataCategories = await response.json();
+            setCategories(dataCategories);
+        // console.log("recup liste des cat après JSON:", dataCategories);
+        } catch (error) {
+            console.error("erreur lors de la r\xe9cup des cat\xe9gories:", error.message);
+        // setError("Selectionnez une categorie");
+        // handleNotFoundError("Selectionnez une categorie");
+        }
+    }
+    // Je veux appeler du code lors du premier chargement du composant et pas lorsque le composant se recharge de nouveau (on limite ainsi les effets de bords et donc une boucle infinie)
+    (0, _react.useEffect)(()=>{
+        getCategories();
+    }, []);
+    const handleCategoryChange = (event)=>{
+        console.log("Cat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
+        setSelectedCategory(event.target.value);
+        console.log("Cat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+        onChange: handleCategoryChange,
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                value: "",
+                children: "cat\xe9gorie"
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/Categories/index.js",
+                lineNumber: 46,
+                columnNumber: 13
+            }, this),
+            categories && categories.length > 0 && categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                    value: category.id,
+                    children: category.name
+                }, category.id, false, {
+                    fileName: "SRC/components/SearchBar/Categories/index.js",
+                    lineNumber: 49,
+                    columnNumber: 21
+                }, this))
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/SearchBar/Categories/index.js",
+        lineNumber: 45,
+        columnNumber: 9
+    }, this);
+}
+_s(Categories, "+ijgB8ROEl0Dkz53OTIi8GynN6s=");
+_c = Categories;
+var _c;
+$RefreshReg$(_c, "Categories");
+
+  $parcel$ReactRefreshHelpers$8330.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"laIPr":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1357 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1357.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>SubCategories);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _s = $RefreshSig$();
+function SubCategories({ selectedCategory, setSelectedSubCategory }) {
+    _s();
+    const [subCategories, setSubCategories] = (0, _react.useState)([]);
+    async function getSubCategories() {
+        try {
+            console.log("essai de fetch subategories");
+            console.log("valeur de selectedCategory:", selectedCategory);
+            const token = (0, _jsCookieDefault.default).get("token");
+            console.log(`http://localhost:3000/subCategories/${selectedCategory}`);
+            const response = await fetch(`http://localhost:3000/subCategories/${selectedCategory}`, {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const dataSubCategories = await response.json();
+            setSubCategories(dataSubCategories);
+            console.log("recup liste des cat apr\xe8s JSON:", dataSubCategories);
+        } catch (error) {
+            console.error("erreur lors de la r\xe9cup des cat\xe9gories:", error.message);
+        // setError("Selectionnez une categorie");
+        // handleNotFoundError("Selectionnez une categorie");
+        }
+    }
+    // Je veux appeler du code lors du premier chargement du composant et pas lorsque le composant se recharge de nouveau (on limite ainsi les effets de bords et donc une boucle infinie)
+    (0, _react.useEffect)(()=>{
+        getSubCategories();
+        console.log("selectedCategory has been updated:", selectedCategory);
+    }, [
+        selectedCategory
+    ]);
+    const handleSubCategoryChange = (event)=>{
+        setSelectedSubCategory(event.target.value);
+        console.log("SousCat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+        onChange: handleSubCategoryChange,
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                value: "",
+                children: "sous-cat\xe9gorie"
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/SubCategories/index.js",
+                lineNumber: 48,
+                columnNumber: 13
+            }, this),
+            subCategories && subCategories.length > 0 && subCategories.map((subCategory)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                    value: subCategory.id,
+                    children: subCategory.name
+                }, subCategory.id, false, {
+                    fileName: "SRC/components/SearchBar/SubCategories/index.js",
+                    lineNumber: 50,
+                    columnNumber: 17
+                }, this))
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/SearchBar/SubCategories/index.js",
+        lineNumber: 47,
+        columnNumber: 9
+    }, this);
+}
+_s(SubCategories, "U2RVSNSbTgpe2mlVGe/DNSOYsLs=");
+_c = SubCategories;
+var _c;
+$RefreshReg$(_c, "SubCategories");
+
+  $parcel$ReactRefreshHelpers$1357.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8e1BU":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$cc76 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$cc76.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Level);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function Level({ setSelectedLevel }) {
+    const handleLevelChange = (event)=>{
+        setSelectedLevel(event.target.value);
+        console.log("Level s\xe9lectionn\xe9e :", event.target.value);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+        onChange: handleLevelChange,
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                value: "",
+                children: "Niveau"
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/Level/index.js",
+                lineNumber: 12,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                value: "d\xe9butant",
+                children: "D\xe9butant"
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/Level/index.js",
+                lineNumber: 13,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                value: "interm\xe9diaire",
+                children: "Interm\xe9diaire"
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/Level/index.js",
+                lineNumber: 14,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                value: "avanc\xe9e",
+                children: "Avanc\xe9"
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/Level/index.js",
+                lineNumber: 15,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/SearchBar/Level/index.js",
+        lineNumber: 11,
+        columnNumber: 9
+    }, this);
+}
+_c = Level;
+var _c;
+$RefreshReg$(_c, "Level");
+
+  $parcel$ReactRefreshHelpers$cc76.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h6Y1N":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$da7b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$da7b.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>NavLogged);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _logout = require("../Logout");
+var _logoutDefault = parcelHelpers.interopDefault(_logout);
+var _s = $RefreshSig$();
+function NavLogged({ setLogged }) {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    function handleClickHome() {
+        navigate("/");
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                to: "/dashboard/notifications",
+                children: "Notifs "
+            }, void 0, false, {
+                fileName: "SRC/components/NavLogged/index.js",
+                lineNumber: 17,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                to: "/dashboard/statistics",
+                children: "Stats "
+            }, void 0, false, {
+                fileName: "SRC/components/NavLogged/index.js",
+                lineNumber: 18,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                to: "/dashboard/profile",
+                children: "Profil "
+            }, void 0, false, {
+                fileName: "SRC/components/NavLogged/index.js",
+                lineNumber: 19,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                to: "/dashboard/desk",
+                children: "bureau "
+            }, void 0, false, {
+                fileName: "SRC/components/NavLogged/index.js",
+                lineNumber: 20,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
+                setLogged: setLogged
+            }, void 0, false, {
+                fileName: "SRC/components/NavLogged/index.js",
+                lineNumber: 21,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                onClick: handleClickHome,
+                children: "Accueil"
+            }, void 0, false, {
+                fileName: "SRC/components/NavLogged/index.js",
+                lineNumber: 24,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
+                fileName: "SRC/components/NavLogged/index.js",
+                lineNumber: 25,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/NavLogged/index.js",
+        lineNumber: 16,
+        columnNumber: 9
+    }, this);
+}
+_s(NavLogged, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = NavLogged;
+var _c;
+$RefreshReg$(_c, "NavLogged");
+
+  $parcel$ReactRefreshHelpers$da7b.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../Logout":"5BNmm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5BNmm":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$fd5b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$fd5b.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Logout);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+function Logout({ setLogged }) {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const handleClick = async ()=>{
+        setLogged(false);
+        try {
+            console.log("deconnection => supprimer cookie. (composant Logout)");
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/logout`, {
+                method: "POST",
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            console.log("response", response);
+            const resultLogout = await response.json();
+            // console.log('response component dashboard logout:', resultLogout);
+            // delete cookie JWT on client's side
+            let thisToken = (0, _jsCookieDefault.default).remove("token");
+            thisToken = null;
+            if (thisToken == null) {
+                console.log("token", thisToken);
+                navigate("/");
+            }
+        } catch (error) {
+            console.log("erreur :", error);
+        }
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+        onClick: handleClick,
+        children: "Deconnexion"
+    }, void 0, false, {
+        fileName: "SRC/components/Logout/index.js",
+        lineNumber: 42,
+        columnNumber: 9
+    }, this);
+}
+_s(Logout, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = Logout;
+var _c;
+$RefreshReg$(_c, "Logout");
+
+  $parcel$ReactRefreshHelpers$fd5b.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"k9yXI":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e6be = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e6be.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Profile);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
+function Profile({ setDataCards }) {
+    _s();
+    (0, _react.useEffect)(()=>{
+        setDataCards({
+            rows: [],
+            count: 0,
+            resultCount: 0
+        });
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: "Profil"
+        }, void 0, false, {
+            fileName: "SRC/components/profile/index.js",
+            lineNumber: 15,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "SRC/components/profile/index.js",
+        lineNumber: 14,
+        columnNumber: 9
+    }, this);
+}
+_s(Profile, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = Profile;
+var _c;
+$RefreshReg$(_c, "Profile");
+
+  $parcel$ReactRefreshHelpers$e6be.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ggupi":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2815 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2815.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _searchBar = require("../SearchBar");
+var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
+var _cards = require("../Cards");
+var _cardsDefault = parcelHelpers.interopDefault(_cards);
+var _navHome = require("../NavHome");
+var _navHomeDefault = parcelHelpers.interopDefault(_navHome);
+var _navLogged = require("../NavLogged");
+var _navLoggedDefault = parcelHelpers.interopDefault(_navLogged);
+var _s = $RefreshSig$();
+const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, dataCards, setDataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, logged })=>{
+    _s();
+    console.log("state match dans Home", match);
+    console.log("state noMatch dans Home", noMatch);
+    const Get4Courses = async ()=>{
+        setLoading(true);
+        try {
+            const response = await fetch(`http://${"localhost"}:${"3000"}`);
+            const dataCardsHome = await response.json();
+            setDataCards(dataCardsHome);
+            console.log("reponse dataCardsHome du get4courses page home", dataCardsHome);
+            console.log("state dataCards", dataCards);
+            setLoading(false);
+        } catch (error) {
+            console.error(error.message);
+            setError("Votre demmande n'a pas ete prise en compte");
+            handleNotFoundError("Votre demande n'a pas ete prise en compte");
+        }
+    };
+    (0, _react.useEffect)(()=>{
+        Get4Courses();
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {}, void 0, false, {
+                fileName: "SRC/components/Home/index.js",
+                lineNumber: 56,
+                columnNumber: 24
+            }, undefined),
+            !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
+                fileName: "SRC/components/Home/index.js",
+                lineNumber: 57,
+                columnNumber: 25
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                selectedCategory: selectedCategory,
+                setSelectedCategory: setSelectedCategory,
+                selectedSubCategory: selectedSubCategory,
+                setSelectedSubCategory: setSelectedSubCategory,
+                selectedLevel: selectedLevel,
+                setSelectedLevel: setSelectedLevel,
+                searchInput: searchInput,
+                setSearchInput: setSearchInput,
+                dataCards: dataCards,
+                setDataCards: setDataCards,
+                match: match,
+                setMatch: setMatch,
+                noMatch: noMatch,
+                setNoMatch: setNoMatch,
+                setLoading: setLoading
+            }, void 0, false, {
+                fileName: "SRC/components/Home/index.js",
+                lineNumber: 58,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        children: "SKILLSWAP "
+                    }, void 0, false, {
+                        fileName: "SRC/components/Home/index.js",
+                        lineNumber: 77,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Une plateforme d'\xe9change et d\u2019apprentissage qui permet de mettre en relation des personnes de tout \xe2ge et aux profils vari\xe9s qui souhaitent apprendre ou partager leur comp\xe9tence et leurs talents avec les autres. Fonctionnant sur le principe que chaque utilisateur est \xe0 la fois professeur et \xe9l\xe8ve, elle donne acc\xe8s \xe0 une communaut\xe9 de gens tr\xe8s vari\xe9e, et une foule de savoir \xe0 dispositions. Le swappie; la monnaie virtuelle de notre site; est l\xe0 pour encourager ce syst\xe8me. A chaque fois qu\u2019un cours est donne, on recoit un swappie, que l\u2019on pourra  ensuite d\xe9penser pour assister aux cours de son choix."
+                    }, void 0, false, {
+                        fileName: "SRC/components/Home/index.js",
+                        lineNumber: 78,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Home/index.js",
+                lineNumber: 76,
+                columnNumber: 13
+            }, undefined),
+            !match && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "Cours les plus r\xe9cents sur la plateforme"
+            }, void 0, false, {
+                fileName: "SRC/components/Home/index.js",
+                lineNumber: 84,
+                columnNumber: 24
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
+                dataCards: dataCards,
+                match: match,
+                noMatch: noMatch,
+                loading: loading
+            }, void 0, false, {
+                fileName: "SRC/components/Home/index.js",
+                lineNumber: 85,
+                columnNumber: 13
+            }, undefined),
+            !match && !loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "Voir plus ICONE INSCRIPTION"
+            }, void 0, false, {
+                fileName: "SRC/components/Home/index.js",
+                lineNumber: 91,
+                columnNumber: 36
+            }, undefined)
+        ]
+    }, void 0, true);
+};
+_s(Home, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = Home;
+exports.default = Home;
+var _c;
+$RefreshReg$(_c, "Home");
+
+  $parcel$ReactRefreshHelpers$2815.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Cards":"jUXwJ","../NavHome":"8DCBt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../SearchBar":"kxQdC","../NavLogged":"h6Y1N"}],"gPcum":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$dd37 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$dd37.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Statistics);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+function Statistics({ setDataCards }) {
+    _s();
+    (0, _react.useEffect)(()=>{
+        setDataCards({
+            rows: [],
+            count: 0,
+            resultCount: 0
+        });
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: "Statistiques"
+        }, void 0, false, {
+            fileName: "SRC/components/statistic/index.js",
+            lineNumber: 15,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "SRC/components/statistic/index.js",
+        lineNumber: 14,
+        columnNumber: 9
+    }, this);
+}
+_s(Statistics, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = Statistics;
+var _c;
+$RefreshReg$(_c, "Statistics");
+
+  $parcel$ReactRefreshHelpers$dd37.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"78PF1":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d771 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$d771.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Admin);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _logout = require("../Logout");
+var _logoutDefault = parcelHelpers.interopDefault(_logout);
+function Admin() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {}, void 0, false, {
+                    fileName: "SRC/components/Admin/index.js",
+                    lineNumber: 9,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "SRC/components/Admin/index.js",
+                lineNumber: 8,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Admin"
+            }, void 0, false, {
+                fileName: "SRC/components/Admin/index.js",
+                lineNumber: 11,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true);
+}
+_c = Admin;
+var _c;
+$RefreshReg$(_c, "Admin");
+
+  $parcel$ReactRefreshHelpers$d771.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Logout":"5BNmm"}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("aaccff5d309d9239");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;

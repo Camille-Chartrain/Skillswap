@@ -2,10 +2,12 @@ import React from "react";
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 
-export default function Logout() {
+export default function Logout({ setLogged }) {
     const navigate = useNavigate();
 
     const handleClick = async () => {
+
+        setLogged(false);
 
         try {
             console.log("deconnection => supprimer cookie. (composant Logout)");
@@ -37,8 +39,6 @@ export default function Logout() {
     }
 
     return (
-        <div>
-            <h1 onClick={handleClick}>Deconnexion</h1>
-        </div>
+        <p onClick={handleClick}>Deconnexion</p>
     )
 }
