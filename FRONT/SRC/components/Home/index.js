@@ -87,7 +87,7 @@ const Home = ({
                 noMatch={noMatch}
                 loading={loading}
             />
-            {!match && !loading && <p>Voir plus ICONE INSCRIPTION</p>}
+            {!loading && <p>Voir plus ICONE INSCRIPTION</p>}
         </>
     )
 

@@ -3,10 +3,11 @@ import NavHome from "../NavHome";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ setNoMatch }) {
 
     const navigate = useNavigate();
     const [error, setError] = useState("");
+    setNoMatch(false)
 
     async function handleSubmit(event) {
 

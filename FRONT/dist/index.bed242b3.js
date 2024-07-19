@@ -5881,7 +5881,9 @@ function App() {
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "/login",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, {
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
+                        setNoMatch: setNoMatch
+                    }, void 0, false, {
                         fileName: "SRC/App.js",
                         lineNumber: 106,
                         columnNumber: 30
@@ -5895,12 +5897,12 @@ function App() {
                     path: "/admin",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminDefault.default), {}, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 109,
+                        lineNumber: 110,
                         columnNumber: 30
                     }, void 0)
                 }, void 0, false, {
                     fileName: "SRC/App.js",
-                    lineNumber: 108,
+                    lineNumber: 109,
                     columnNumber: 17
                 }, this)
             ]
@@ -35159,10 +35161,11 @@ var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
-function Login() {
+function Login({ setNoMatch }) {
     _s();
     const navigate = (0, _reactRouterDom.useNavigate)();
     const [error, setError] = (0, _react.useState)("");
+    setNoMatch(false);
     async function handleSubmit(event) {
         event.preventDefault();
         const myFormData = new FormData(event.target);
@@ -35208,21 +35211,21 @@ function Login() {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 73,
+                lineNumber: 74,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Connexion"
             }, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 74,
+                lineNumber: 75,
                 columnNumber: 13
             }, this),
             error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: error
             }, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 75,
+                lineNumber: 76,
                 columnNumber: 23
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -35235,7 +35238,7 @@ function Login() {
                         children: "Email * :"
                     }, void 0, false, {
                         fileName: "SRC/components/Login/index.js",
-                        lineNumber: 79,
+                        lineNumber: 80,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -35246,7 +35249,7 @@ function Login() {
                         required: true
                     }, void 0, false, {
                         fileName: "SRC/components/Login/index.js",
-                        lineNumber: 80,
+                        lineNumber: 81,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -35254,7 +35257,7 @@ function Login() {
                         children: "Mot de passe * :"
                     }, void 0, false, {
                         fileName: "SRC/components/Login/index.js",
-                        lineNumber: 82,
+                        lineNumber: 83,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -35266,7 +35269,7 @@ function Login() {
                         required: true
                     }, void 0, false, {
                         fileName: "SRC/components/Login/index.js",
-                        lineNumber: 83,
+                        lineNumber: 84,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35274,19 +35277,19 @@ function Login() {
                         children: "Envoyer"
                     }, void 0, false, {
                         fileName: "SRC/components/Login/index.js",
-                        lineNumber: 85,
+                        lineNumber: 86,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 77,
+                lineNumber: 78,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Login/index.js",
-        lineNumber: 72,
+        lineNumber: 73,
         columnNumber: 9
     }, this);
 }
@@ -35583,7 +35586,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
     async function handleSearch(event) {
         event.preventDefault();
         try {
-            console.log("nous sommes dans la fonction getSearch");
+            console.log("nous sommes dans la fonction handleSearch");
             setLoading(true);
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
@@ -35600,6 +35603,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
             console.log("reponse GetSearch responseDataSearch", responseDataSearch);
             console.log("typeof responseDataSearch", typeof responseDataSearch);
             setSelectedSubCategory(null);
+            setSearchInput("");
             if (responseDataSearch === "no match") {
                 setMatch(false);
                 setNoMatch(true);
@@ -35616,22 +35620,28 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 // console.log("MATCH State dataSearch", dataSearch);
                 // console.log("MATCH state Match dans Search", match);
                 // console.log("MATCH state noMatch dans Search", noMatch);
-                if (location.pathname === "/dashboard/profile" || location.pathname === "/dashboard/statistics" || location.pathname === "/dashboard/notifications" || location.pathname === "/dashboard/desk") // try {
-                //     console.log('dans le search apres match ok, verif si logué');
-                //     const token = Cookies.get('token');
-                //     const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
-                //         method: "get",
-                //         headers: {
-                //             'Content-Type': 'application/json',
-                //             'Authorization': `Bearer ${token}`,
-                //         },
-                //     });
-                //     // console.log("response avant json:", response)
-                //     const authResult = await response.json();
-                //     // console.log("authResult apres json dans Search pour voir  resultats:", authResult)
-                //     if (authResult == "access granted") {
-                //         console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /dashboard");
-                navigate("/dashboard");
+                if (location.pathname === "/dashboard/profile" || location.pathname === "/dashboard/statistics" || location.pathname === "/dashboard/notifications" || location.pathname === "/dashboard/desk" || location.pathname === "/dashboard") try {
+                    console.log("dans le search apres match ok, verif si logu\xe9");
+                    const token = (0, _jsCookieDefault.default).get("token");
+                    const response = await fetch(`http://${"localhost"}:${"3000"}/dashboard`, {
+                        method: "get",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        }
+                    });
+                    console.log("response avant json:", response);
+                    const authResult = await response.json();
+                    console.log("authResult apres json dans Search pour voir  resultats:", authResult);
+                    if (authResult == "access granted") {
+                        console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /dashboard");
+                        navigate("/dashboard");
+                    }
+                } catch (error) {
+                    console.error("catch de handleClick dans Skill:", error);
+                // setError("Votre recherche n'aq pas pu aboutir");
+                // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+                }
             }
         } catch (error) {
             console.log("erreur du catch GetSearch:", error);
@@ -35659,7 +35669,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 children: "Mot cl\xe9"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 130,
+                lineNumber: 132,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -35669,7 +35679,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 onChange: handleChangeInput
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 131,
+                lineNumber: 133,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
@@ -35677,7 +35687,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setSelectedCategory: setSelectedCategory
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 133,
+                lineNumber: 135,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
@@ -35685,14 +35695,14 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setSelectedSubCategory: setSelectedSubCategory
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 137,
+                lineNumber: 139,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
                 setSelectedLevel: setSelectedLevel
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 141,
+                lineNumber: 143,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35700,13 +35710,13 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 children: "Envoyer"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 144,
+                lineNumber: 146,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/index.js",
-        lineNumber: 128,
+        lineNumber: 130,
         columnNumber: 9
     }, this);
 }
@@ -36241,12 +36251,12 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 lineNumber: 84,
                 columnNumber: 13
             }, undefined),
-            !match && !loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+            !loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Voir plus ICONE INSCRIPTION"
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
                 lineNumber: 90,
-                columnNumber: 36
+                columnNumber: 26
             }, undefined)
         ]
     }, void 0, true);

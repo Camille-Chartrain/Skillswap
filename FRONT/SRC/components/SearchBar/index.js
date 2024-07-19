@@ -36,7 +36,7 @@ export default function SearchBar({
         try {
 
 
-            console.log("nous sommes dans la fonction getSearch");
+            console.log("nous sommes dans la fonction handleSearch");
             setLoading(true)
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
@@ -57,6 +57,7 @@ export default function SearchBar({
             console.log("typeof responseDataSearch", typeof responseDataSearch);
 
             setSelectedSubCategory(null)
+            setSearchInput("");
 
             if (responseDataSearch === "no match") {
                 setMatch(false)
@@ -82,31 +83,32 @@ export default function SearchBar({
                     || location.pathname === '/dashboard/statistics'
                     || location.pathname === '/dashboard/notifications'
                     || location.pathname === '/dashboard/desk'
+                    || location.pathname === '/dashboard'
                 ) {
-                    // try {
-                    //     console.log('dans le search apres match ok, verif si logué');
-                    //     const token = Cookies.get('token');
-                    //     const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
-                    //         method: "get",
-                    //         headers: {
-                    //             'Content-Type': 'application/json',
-                    //             'Authorization': `Bearer ${token}`,
-                    //         },
-                    //     });
-                    //     // console.log("response avant json:", response)
-                    //     const authResult = await response.json();
-                    //     // console.log("authResult apres json dans Search pour voir  resultats:", authResult)
+                    try {
+                        console.log('dans le search apres match ok, verif si logué');
+                        const token = Cookies.get('token');
+                        const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
+                            method: "get",
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`,
+                            },
+                        });
+                        console.log("response avant json:", response)
+                        const authResult = await response.json();
+                        console.log("authResult apres json dans Search pour voir  resultats:", authResult)
 
-                    //     if (authResult == "access granted") {
-                    //         console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /dashboard");
-                    navigate('/dashboard');
-                    //     }
-                    // }
-                    // catch (error) {
-                    //     console.error("catch de handleClick dans Skill:", error);
-                    //     // setError("Votre recherche n'aq pas pu aboutir");
-                    //     // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
-                    // }
+                        if (authResult == "access granted") {
+                            console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /dashboard");
+                            navigate('/dashboard');
+                        }
+                    }
+                    catch (error) {
+                        console.error("catch de handleClick dans Skill:", error);
+                        // setError("Votre recherche n'aq pas pu aboutir");
+                        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+                    }
                 }
             };
         }

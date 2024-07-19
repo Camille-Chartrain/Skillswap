@@ -103,7 +103,8 @@ function App() {
                     element={<Registration />}
                 />
                 <Route path="/login"
-                    element={<Login />}
+                    element={<Login
+                        setNoMatch={setNoMatch} />}
                 />
                 <Route path="/admin"
                     element={<Admin />}
