@@ -1,0 +1,81 @@
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
+
+export default function Registration() {
+
+    const navigate = useNavigate();
+
+    async function handleSubmit(event) {
+
+        event.preventDefault();
+        const myFormData = new FormData(event.target);
+        const formDataEncoded = new URLSearchParams(myFormData);
+
+
+        try {
+            console.log('try data:', formDataEncoded);
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/registration`, {
+                method: "post",
+                status: 200,
+                headers: {
+                    // 'Content-Type': 'application/json',
+                    'Authorization': 'accessToken',
+                },
+                body: formDataEncoded
+            });
+            console.log('response.status:', response.status);
+
+            //=traduct api response in Json
+            const dataFetch = await response.json();
+            console.log(" response apres .json:", dataFetch);
+
+            //= fetch the user token in the data and store with Cookies.set
+            const token = dataFetch.accessToken;
+            console.log("token", token);
+            Cookies.set('token', token);
+
+            //=fetch back side's  errors
+            console.log("error?:", dataFetch.error);
+            // setError(dataFetch.error);
+
+            {/* //= manage and show error for user */ }
+            if (dataFetch.accessToken) {
+                navigate("/dashboard");
+            }
+            else { <span className="error">return({error?.message})</span> }
+        }
+        catch (error) {
+            console.log("erreur", error);
+            // setError("Erreur lors de votre inscription");
+            // handleNotFoundError("Erreur lors de votre inscription");
+        };
+    }
+
+
+    return (
+        <>
+            <h2>Inscription</h2>
+            <main>
+                {/* {error && <Error error={error} />} */}
+                <form method="POST" onSubmit={handleSubmit} className="formRegistration">
+                    <label htmlFor="firstname">Prénom * :</label>
+                    <input type="text" id="firstname" name="firstname" maxLength="50" required />
+
+                    <label htmlFor="lastname">Nom * :</label>
+                    <input type="text" id="lastname" name="lastname" maxLength="100" required />
+
+                    <label htmlFor="email">Email * :</label>
+                    <input type="email" id="email" name="email" maxLength="254" required />
+
+                    <label htmlFor="password">Mot de passe * :</label>
+                    <input type="password" id="password" name="password" minLength="12" maxLength="64" required />
+
+                    <button type="submit">Envoyer</button>
+                </form>
+            </main >
+        </>
+    )
+
+
+}

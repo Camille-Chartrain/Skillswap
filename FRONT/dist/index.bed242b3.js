@@ -5721,8 +5721,12 @@ var _statistics = require("./components/statistic/Statistics");
 var _statisticsDefault = parcelHelpers.interopDefault(_statistics);
 var _notification = require("./components/Notification");
 var _notificationDefault = parcelHelpers.interopDefault(_notification);
-var _teachingSpace = require("./components/learning/TeachingSpace");
-var _teachingSpaceDefault = parcelHelpers.interopDefault(_teachingSpace);
+var _desk = require("./components/Desk");
+var _deskDefault = parcelHelpers.interopDefault(_desk);
+var _registration = require("./components/Registration");
+var _registrationDefault = parcelHelpers.interopDefault(_registration);
+var _login = require("./components/Login");
+var _loginDefault = parcelHelpers.interopDefault(_login);
 var _s = $RefreshSig$();
 function App() {
     _s();
@@ -5763,12 +5767,12 @@ function App() {
                         setLoading: setLoading
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 35,
+                        lineNumber: 37,
                         columnNumber: 30
                     }, void 0)
                 }, void 0, false, {
                     fileName: "SRC/App.js",
-                    lineNumber: 34,
+                    lineNumber: 36,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5792,7 +5796,7 @@ function App() {
                         setLoading: setLoading
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 56,
+                        lineNumber: 58,
                         columnNumber: 30
                     }, void 0),
                     children: [
@@ -5802,12 +5806,12 @@ function App() {
                                 setDataCards: setDataCards
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 75,
+                                lineNumber: 77,
                                 columnNumber: 34
                             }, void 0)
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 74,
+                            lineNumber: 76,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5816,12 +5820,12 @@ function App() {
                                 setDataCards: setDataCards
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 80,
+                                lineNumber: 82,
                                 columnNumber: 34
                             }, void 0)
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 79,
+                            lineNumber: 81,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5830,43 +5834,67 @@ function App() {
                                 setDataCards: setDataCards
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 85,
+                                lineNumber: 87,
                                 columnNumber: 34
                             }, void 0)
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 84,
+                            lineNumber: 86,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                             path: "/dashboard/desk",
-                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _teachingSpaceDefault.default), {
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deskDefault.default), {
                                 setDataCards: setDataCards
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 90,
+                                lineNumber: 92,
                                 columnNumber: 34
                             }, void 0)
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 89,
+                            lineNumber: 91,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "SRC/App.js",
-                    lineNumber: 55,
+                    lineNumber: 57,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                    path: "/registration",
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
+                        fileName: "SRC/App.js",
+                        lineNumber: 99,
+                        columnNumber: 30
+                    }, void 0)
+                }, void 0, false, {
+                    fileName: "SRC/App.js",
+                    lineNumber: 98,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                    path: "/login",
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
+                        fileName: "SRC/App.js",
+                        lineNumber: 102,
+                        columnNumber: 30
+                    }, void 0)
+                }, void 0, false, {
+                    fileName: "SRC/App.js",
+                    lineNumber: 101,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "SRC/App.js",
-            lineNumber: 33,
+            lineNumber: 35,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "SRC/App.js",
-        lineNumber: 32,
+        lineNumber: 34,
         columnNumber: 9
     }, this);
 }
@@ -5881,7 +5909,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","./components/home/Home":"5wekS","./components/dashboard/Dashboard":"b7mF6","./components/profile/Profile":"fA7QW","./components/statistic/Statistics":"8StZH","./components/learning/TeachingSpace":"5TxvH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./components/Notification":"4Kn7L"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","./components/home/Home":"5wekS","./components/dashboard/Dashboard":"b7mF6","./components/profile/Profile":"fA7QW","./components/statistic/Statistics":"8StZH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./components/Notification":"4Kn7L","./components/Desk":"9q5wF","./components/Registration":"9HgkV","./components/Login":"fVCjh"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.25.1
  *
@@ -34837,7 +34865,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 children: "Mot cl\xe9"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 131,
+                lineNumber: 130,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34847,7 +34875,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 onChange: handleChangeInput
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 132,
+                lineNumber: 131,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
@@ -34855,7 +34883,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setSelectedCategory: setSelectedCategory
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 134,
+                lineNumber: 133,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
@@ -34863,14 +34891,14 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setSelectedSubCategory: setSelectedSubCategory
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 138,
+                lineNumber: 137,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
                 setSelectedLevel: setSelectedLevel
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 142,
+                lineNumber: 141,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34878,13 +34906,13 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 children: "Envoyer"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/SearchBar.js",
-                lineNumber: 145,
+                lineNumber: 144,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/SearchBar.js",
-        lineNumber: 129,
+        lineNumber: 128,
         columnNumber: 9
     }, this);
 }
@@ -35497,44 +35525,31 @@ parcelHelpers.export(exports, "default", ()=>Profile);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 function Profile({ setDataCards }) {
     _s();
-    const location = (0, _reactRouterDom.useLocation)();
-    const removeData = ()=>{
-        console.log("declenchement removeData()");
+    (0, _react.useEffect)(()=>{
         setDataCards({
             rows: [],
             count: 0,
             resultCount: 0
         });
-    };
-    (0, _react.useEffect)(()=>{
-        if (location.pathname === "/dashboard/profile" || location.pathname === "/dashboard/statistics" || location.pathname === "/dashboard/notifications" || location.pathname === "/dashboard/desk") // Exécuter la fonction lorsque l'URL est '/example'
-        removeData();
-    }, [
-        location.pathname
-    ]);
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
             children: "Profil"
         }, void 0, false, {
             fileName: "SRC/components/profile/Profile.js",
-            lineNumber: 30,
+            lineNumber: 15,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "SRC/components/profile/Profile.js",
-        lineNumber: 29,
+        lineNumber: 14,
         columnNumber: 9
     }, this);
 }
-_s(Profile, "BXcZrDMM76mmm4zA8/QV5UbMNXE=", false, function() {
-    return [
-        (0, _reactRouterDom.useLocation)
-    ];
-});
+_s(Profile, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = Profile;
 var _c;
 $RefreshReg$(_c, "Profile");
@@ -35544,7 +35559,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"8StZH":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8StZH":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$6477 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35557,63 +35572,36 @@ parcelHelpers.export(exports, "default", ()=>Statistics);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function Statistics() {
+var _s = $RefreshSig$();
+function Statistics({ setDataCards }) {
+    _s();
+    (0, _react.useEffect)(()=>{
+        setDataCards({
+            rows: [],
+            count: 0,
+            resultCount: 0
+        });
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
             children: "Statistiques"
         }, void 0, false, {
             fileName: "SRC/components/statistic/Statistics.js",
-            lineNumber: 6,
+            lineNumber: 15,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "SRC/components/statistic/Statistics.js",
-        lineNumber: 5,
+        lineNumber: 14,
         columnNumber: 9
     }, this);
 }
+_s(Statistics, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = Statistics;
 var _c;
 $RefreshReg$(_c, "Statistics");
 
   $parcel$ReactRefreshHelpers$6477.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5TxvH":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$1c4f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$1c4f.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>TeachingDesk);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-function TeachingDesk() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Espace prof eleve"
-        }, void 0, false, {
-            fileName: "SRC/components/learning/TeachingSpace.js",
-            lineNumber: 6,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/learning/TeachingSpace.js",
-        lineNumber: 5,
-        columnNumber: 9
-    }, this);
-}
-_c = TeachingDesk;
-var _c;
-$RefreshReg$(_c, "TeachingDesk");
-
-  $parcel$ReactRefreshHelpers$1c4f.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -35631,26 +35619,312 @@ parcelHelpers.export(exports, "default", ()=>Notifications);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function Notifications() {
+var _s = $RefreshSig$();
+function Notifications({ setDataCards }) {
+    _s();
+    (0, _react.useEffect)(()=>{
+        setDataCards({
+            rows: [],
+            count: 0,
+            resultCount: 0
+        });
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
             children: "Notifications"
         }, void 0, false, {
             fileName: "SRC/components/Notification/index.js",
-            lineNumber: 7,
+            lineNumber: 16,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "SRC/components/Notification/index.js",
-        lineNumber: 6,
+        lineNumber: 15,
         columnNumber: 9
     }, this);
 }
+_s(Notifications, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = Notifications;
 var _c;
 $RefreshReg$(_c, "Notifications");
 
   $parcel$ReactRefreshHelpers$1088.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9q5wF":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5fbe = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$5fbe.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Desk);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+function Desk({ setDataCards }) {
+    _s();
+    (0, _react.useEffect)(()=>{
+        setDataCards({
+            rows: [],
+            count: 0,
+            resultCount: 0
+        });
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: "Espace prof eleve"
+        }, void 0, false, {
+            fileName: "SRC/components/Desk/index.js",
+            lineNumber: 15,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "SRC/components/Desk/index.js",
+        lineNumber: 14,
+        columnNumber: 9
+    }, this);
+}
+_s(Desk, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = Desk;
+var _c;
+$RefreshReg$(_c, "Desk");
+
+  $parcel$ReactRefreshHelpers$5fbe.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9HgkV":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8f0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8f0d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Registration);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _s = $RefreshSig$();
+function Registration() {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const myFormData = new FormData(event.target);
+        const formDataEncoded = new URLSearchParams(myFormData);
+        try {
+            console.log("try data:", formDataEncoded);
+            const response = await fetch(`http://${"localhost"}:${"3000"}/registration`, {
+                method: "post",
+                status: 200,
+                headers: {
+                    // 'Content-Type': 'application/json',
+                    "Authorization": "accessToken"
+                },
+                body: formDataEncoded
+            });
+            console.log("response.status:", response.status);
+            //=traduct api response in Json
+            const dataFetch = await response.json();
+            console.log(" response apres .json:", dataFetch);
+            //= fetch the user token in the data and store with Cookies.set
+            const token = dataFetch.accessToken;
+            console.log("token", token);
+            (0, _jsCookieDefault.default).set("token", token);
+            //=fetch back side's  errors
+            console.log("error?:", dataFetch.error);
+            if (dataFetch.accessToken) navigate("/dashboard");
+            else /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                className: "error",
+                children: [
+                    "return(",
+                    error?.message,
+                    ")"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Registration/index.js",
+                lineNumber: 46,
+                columnNumber: 20
+            }, this);
+        } catch (error1) {
+            console.log("erreur", error1);
+        // setError("Erreur lors de votre inscription");
+        // handleNotFoundError("Erreur lors de votre inscription");
+        }
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "Inscription"
+            }, void 0, false, {
+                fileName: "SRC/components/Registration/index.js",
+                lineNumber: 58,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                    method: "POST",
+                    onSubmit: handleSubmit,
+                    className: "formRegistration",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: "firstname",
+                            children: "Pr\xe9nom * :"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 62,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            type: "text",
+                            id: "firstname",
+                            name: "firstname",
+                            maxLength: "50",
+                            required: true
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 63,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: "lastname",
+                            children: "Nom * :"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 65,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            type: "text",
+                            id: "lastname",
+                            name: "lastname",
+                            maxLength: "100",
+                            required: true
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 66,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: "email",
+                            children: "Email * :"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 68,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            type: "email",
+                            id: "email",
+                            name: "email",
+                            maxLength: "254",
+                            required: true
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 69,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: "password",
+                            children: "Mot de passe * :"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 71,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            type: "password",
+                            id: "password",
+                            name: "password",
+                            minLength: "12",
+                            maxLength: "64",
+                            required: true
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 72,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            type: "submit",
+                            children: "Envoyer"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 74,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "SRC/components/Registration/index.js",
+                    lineNumber: 61,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "SRC/components/Registration/index.js",
+                lineNumber: 59,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true);
+}
+_s(Registration, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = Registration;
+var _c;
+$RefreshReg$(_c, "Registration");
+
+  $parcel$ReactRefreshHelpers$8f0d.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","js-cookie":"c8bBu"}],"fVCjh":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9e3d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9e3d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Login);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function Login() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: "Connexion"
+        }, void 0, false, {
+            fileName: "SRC/components/Login/index.js",
+            lineNumber: 7,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "SRC/components/Login/index.js",
+        lineNumber: 6,
+        columnNumber: 9
+    }, this);
+}
+_c = Login;
+var _c;
+$RefreshReg$(_c, "Login");
+
+  $parcel$ReactRefreshHelpers$9e3d.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;

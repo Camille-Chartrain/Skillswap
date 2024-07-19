@@ -5,7 +5,9 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Profile from "./components/profile/Profile";
 import Statistics from "./components/statistic/Statistics";
 import Notifications from "./components/Notification";
-import TeachingDesk from "./components/learning/TeachingSpace";
+import Desk from "./components/Desk";
+import Registration from "./components/Registration";
+import Login from "./components/Login";
 
 
 
@@ -87,11 +89,18 @@ function App() {
                         />}
                     />
                     <Route path="/dashboard/desk"
-                        element={<TeachingDesk
+                        element={<Desk
                             setDataCards={setDataCards}
                         />}
                     />
                 </Route>
+
+                <Route path="/registration"
+                    element={<Registration />}
+                />
+                <Route path="/login"
+                    element={<Registration />}
+                />
             </Routes>
         </div >
     );
