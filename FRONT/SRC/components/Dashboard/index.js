@@ -4,25 +4,27 @@ import Cards from "../Cards";
 import NavLogged from "../NavLogged";
 import Cookies from 'js-cookie';
 
-export default function Dashboard({
-    selectedCategory,
-    setSelectedCategory,
-    selectedSubCategory,
-    setSelectedSubCategory,
-    selectedLevel,
-    setSelectedLevel,
-    searchInput,
-    setSearchInput,
-    setDataCards,
-    dataCards,
-    match,
-    setMatch,
-    noMatch,
-    setNoMatch,
-    loading,
-    setLoading,
-    setLogged
-}) {
+export default function Dashboard(
+    {
+        selectedCategory,
+        setSelectedCategory,
+        selectedSubCategory,
+        setSelectedSubCategory,
+        selectedLevel,
+        setSelectedLevel,
+        searchInput,
+        setSearchInput,
+        setDataCards,
+        dataCards,
+        match,
+        setMatch,
+        noMatch,
+        setNoMatch,
+        loading,
+        setLoading,
+        setLogged
+    }
+) {
 
 
     async function getData() {
@@ -31,11 +33,11 @@ export default function Dashboard({
 
             console.log("déclenchement fonction getData comp Dashboard");
 
-            setSelectedSubCategory(null)
-            setSearchInput("");
-            setSelectedCategory(null);
-            setSelectedLevel("");
-            setLoading(true)
+            // setSelectedSubCategory(null)
+            // setSearchInput("");
+            // setSelectedCategory(null);
+            // setSelectedLevel("");
+            // :setLoading(true)
 
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);

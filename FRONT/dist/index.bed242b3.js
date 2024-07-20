@@ -5729,6 +5729,8 @@ var _login = require("./components/Login");
 var _loginDefault = parcelHelpers.interopDefault(_login);
 var _admin = require("./components/Admin");
 var _adminDefault = parcelHelpers.interopDefault(_admin);
+var _pageTracking = require("./components/PageTracking");
+var _pageTrackingDefault = parcelHelpers.interopDefault(_pageTracking);
 var _s = $RefreshSig$();
 function App() {
     _s();
@@ -5747,172 +5749,184 @@ function App() {
     const [logged, setLogged] = (0, _react.useState)(false);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "App",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                    path: "/",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {
-                        selectedCategory: selectedCategory,
-                        setSelectedCategory: setSelectedCategory,
-                        selectedSubCategory: selectedSubCategory,
-                        setSelectedSubCategory: setSelectedSubCategory,
-                        selectedLevel: selectedLevel,
-                        setSelectedLevel: setSelectedLevel,
-                        searchInput: searchInput,
-                        setSearchInput: setSearchInput,
-                        dataCards: dataCards,
-                        setDataCards: setDataCards,
-                        match: match,
-                        setMatch: setMatch,
-                        noMatch: noMatch,
-                        setNoMatch: setNoMatch,
-                        loading: loading,
-                        setLoading: setLoading,
-                        logged: logged
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _pageTrackingDefault.default), {
+                setSelectedCategory: setSelectedCategory,
+                setSelectedSubCategory: setSelectedSubCategory,
+                setSearchInput: setSearchInput,
+                setSelectedLevel: setSelectedLevel
+            }, void 0, false, {
+                fileName: "SRC/App.js",
+                lineNumber: 37,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "/",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {
+                            selectedCategory: selectedCategory,
+                            setSelectedCategory: setSelectedCategory,
+                            selectedSubCategory: selectedSubCategory,
+                            setSelectedSubCategory: setSelectedSubCategory,
+                            selectedLevel: selectedLevel,
+                            setSelectedLevel: setSelectedLevel,
+                            searchInput: searchInput,
+                            setSearchInput: setSearchInput,
+                            dataCards: dataCards,
+                            setDataCards: setDataCards,
+                            match: match,
+                            setMatch: setMatch,
+                            noMatch: noMatch,
+                            setNoMatch: setNoMatch,
+                            loading: loading,
+                            setLoading: setLoading,
+                            logged: logged
+                        }, void 0, false, {
+                            fileName: "SRC/App.js",
+                            lineNumber: 46,
+                            columnNumber: 30
+                        }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 39,
-                        columnNumber: 30
-                    }, void 0)
-                }, void 0, false, {
-                    fileName: "SRC/App.js",
-                    lineNumber: 38,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                    path: "/dashboard",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dashboardDefault.default), {
-                        selectedCategory: selectedCategory,
-                        setSelectedCategory: setSelectedCategory,
-                        selectedSubCategory: selectedSubCategory,
-                        setSelectedSubCategory: setSelectedSubCategory,
-                        selectedLevel: selectedLevel,
-                        setSelectedLevel: setSelectedLevel,
-                        searchInput: searchInput,
-                        setSearchInput: setSearchInput,
-                        dataCards: dataCards,
-                        setDataCards: setDataCards,
-                        match: match,
-                        setMatch: setMatch,
-                        noMatch: noMatch,
-                        setNoMatch: setNoMatch,
-                        loading: loading,
-                        setLoading: setLoading,
-                        setLogged: setLogged
+                        lineNumber: 45,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "/dashboard",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dashboardDefault.default), {
+                            selectedCategory: selectedCategory,
+                            setSelectedCategory: setSelectedCategory,
+                            selectedSubCategory: selectedSubCategory,
+                            setSelectedSubCategory: setSelectedSubCategory,
+                            selectedLevel: selectedLevel,
+                            setSelectedLevel: setSelectedLevel,
+                            searchInput: searchInput,
+                            setSearchInput: setSearchInput,
+                            dataCards: dataCards,
+                            setDataCards: setDataCards,
+                            match: match,
+                            setMatch: setMatch,
+                            noMatch: noMatch,
+                            setNoMatch: setNoMatch,
+                            loading: loading,
+                            setLoading: setLoading,
+                            setLogged: setLogged
+                        }, void 0, false, {
+                            fileName: "SRC/App.js",
+                            lineNumber: 67,
+                            columnNumber: 30
+                        }, void 0),
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/dashboard/profile",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileDefault.default), {
+                                    setDataCards: setDataCards
+                                }, void 0, false, {
+                                    fileName: "SRC/App.js",
+                                    lineNumber: 88,
+                                    columnNumber: 34
+                                }, void 0)
+                            }, void 0, false, {
+                                fileName: "SRC/App.js",
+                                lineNumber: 87,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/dashboard/statistics",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statisticDefault.default), {
+                                    setDataCards: setDataCards
+                                }, void 0, false, {
+                                    fileName: "SRC/App.js",
+                                    lineNumber: 93,
+                                    columnNumber: 34
+                                }, void 0)
+                            }, void 0, false, {
+                                fileName: "SRC/App.js",
+                                lineNumber: 92,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/dashboard/notifications",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _notificationDefault.default), {
+                                    setDataCards: setDataCards
+                                }, void 0, false, {
+                                    fileName: "SRC/App.js",
+                                    lineNumber: 98,
+                                    columnNumber: 34
+                                }, void 0)
+                            }, void 0, false, {
+                                fileName: "SRC/App.js",
+                                lineNumber: 97,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/dashboard/desk",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deskDefault.default), {
+                                    setDataCards: setDataCards
+                                }, void 0, false, {
+                                    fileName: "SRC/App.js",
+                                    lineNumber: 103,
+                                    columnNumber: 34
+                                }, void 0)
+                            }, void 0, false, {
+                                fileName: "SRC/App.js",
+                                lineNumber: 102,
+                                columnNumber: 21
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/App.js",
+                        lineNumber: 66,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "/registration",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
+                            fileName: "SRC/App.js",
+                            lineNumber: 110,
+                            columnNumber: 30
+                        }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 60,
-                        columnNumber: 30
-                    }, void 0),
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/dashboard/profile",
-                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileDefault.default), {
-                                setDataCards: setDataCards
-                            }, void 0, false, {
-                                fileName: "SRC/App.js",
-                                lineNumber: 81,
-                                columnNumber: 34
-                            }, void 0)
+                        lineNumber: 109,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "/login",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
+                            setNoMatch: setNoMatch,
+                            setDataCards: setDataCards
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 80,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/dashboard/statistics",
-                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statisticDefault.default), {
-                                setDataCards: setDataCards
-                            }, void 0, false, {
-                                fileName: "SRC/App.js",
-                                lineNumber: 86,
-                                columnNumber: 34
-                            }, void 0)
-                        }, void 0, false, {
-                            fileName: "SRC/App.js",
-                            lineNumber: 85,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/dashboard/notifications",
-                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _notificationDefault.default), {
-                                setDataCards: setDataCards
-                            }, void 0, false, {
-                                fileName: "SRC/App.js",
-                                lineNumber: 91,
-                                columnNumber: 34
-                            }, void 0)
-                        }, void 0, false, {
-                            fileName: "SRC/App.js",
-                            lineNumber: 90,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/dashboard/desk",
-                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deskDefault.default), {
-                                setDataCards: setDataCards
-                            }, void 0, false, {
-                                fileName: "SRC/App.js",
-                                lineNumber: 96,
-                                columnNumber: 34
-                            }, void 0)
-                        }, void 0, false, {
-                            fileName: "SRC/App.js",
-                            lineNumber: 95,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "SRC/App.js",
-                    lineNumber: 59,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                    path: "/registration",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
-                        fileName: "SRC/App.js",
-                        lineNumber: 103,
-                        columnNumber: 30
-                    }, void 0)
-                }, void 0, false, {
-                    fileName: "SRC/App.js",
-                    lineNumber: 102,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                    path: "/login",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
-                        setNoMatch: setNoMatch,
-                        setDataCards: setDataCards
+                            lineNumber: 113,
+                            columnNumber: 30
+                        }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 106,
-                        columnNumber: 30
-                    }, void 0)
-                }, void 0, false, {
-                    fileName: "SRC/App.js",
-                    lineNumber: 105,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                    path: "/admin",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminDefault.default), {}, void 0, false, {
+                        lineNumber: 112,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "/admin",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminDefault.default), {}, void 0, false, {
+                            fileName: "SRC/App.js",
+                            lineNumber: 118,
+                            columnNumber: 30
+                        }, void 0)
+                    }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 111,
-                        columnNumber: 30
-                    }, void 0)
-                }, void 0, false, {
-                    fileName: "SRC/App.js",
-                    lineNumber: 110,
-                    columnNumber: 17
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "SRC/App.js",
-            lineNumber: 37,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
+                        lineNumber: 117,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/App.js",
+                lineNumber: 43,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "SRC/App.js",
         lineNumber: 36,
         columnNumber: 9
@@ -5929,7 +5943,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./components/Notification":"4Kn7L","./components/Desk":"9q5wF","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Dashboard":"7KL8w","./components/Home":"ggupi","./components/statistic":"gPcum","./components/Admin":"78PF1","./components/Profile":"9xfWJ"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./components/Notification":"4Kn7L","./components/Desk":"9q5wF","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Dashboard":"7KL8w","./components/Home":"ggupi","./components/statistic":"gPcum","./components/Admin":"78PF1","./components/Profile":"9xfWJ","./components/PageTracking":"bO3q7"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.25.1
  *
@@ -35338,11 +35352,11 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
     async function getData() {
         try {
             console.log("d\xe9clenchement fonction getData comp Dashboard");
-            setSelectedSubCategory(null);
-            setSearchInput("");
-            setSelectedCategory(null);
-            setSelectedLevel("");
-            setLoading(true);
+            // setSelectedSubCategory(null)
+            // setSearchInput("");
+            // setSelectedCategory(null);
+            // setSelectedLevel("");
+            // :setLoading(true)
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
             console.log("selectLevel dans try", selectedLevel);
@@ -35390,14 +35404,14 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 children: "Dashboard"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 94,
+                lineNumber: 96,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
                 setLogged: setLogged
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 95,
+                lineNumber: 97,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
@@ -35417,7 +35431,7 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setLoading: setLoading
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 98,
+                lineNumber: 100,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
@@ -35427,13 +35441,13 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 loading: loading
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 114,
+                lineNumber: 116,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Dashboard/index.js",
-        lineNumber: 93,
+        lineNumber: 95,
         columnNumber: 9
     }, this);
 }
@@ -36467,7 +36481,55 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bO3q7":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2239 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2239.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>PageTracking);
+var _react = require("react");
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchInput, setSelectedLevel }) {
+    _s();
+    const location = (0, _reactRouterDom.useLocation)();
+    (0, _react.useEffect)(()=>{
+        const previousPath = sessionStorage.getItem("previousPath");
+        sessionStorage.setItem("previousPath", location.pathname);
+        console.log("Previous path:", previousPath);
+        console.log("Current path:", location.pathname);
+        // Logique pour déclencher des comportements différents en fonction de la provenance
+        if (previousPath === "/login" && location.pathname === "/dashboard") {
+            console.log("Navigated from Page login to Page dashboard");
+            setSelectedSubCategory(null);
+            setSearchInput("");
+            setSelectedCategory(null);
+            setSelectedLevel("");
+        }
+    }, [
+        location
+    ]);
+    return null; // Ce hook n'a pas besoin de retourner quoi que ce soit pour l'UI
+}
+_s(PageTracking, "BXcZrDMM76mmm4zA8/QV5UbMNXE=", false, function() {
+    return [
+        (0, _reactRouterDom.useLocation)
+    ];
+});
+_c = PageTracking;
+var _c;
+$RefreshReg$(_c, "PageTracking");
+
+  $parcel$ReactRefreshHelpers$2239.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("aaccff5d309d9239");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;

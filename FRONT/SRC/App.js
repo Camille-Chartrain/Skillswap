@@ -9,7 +9,7 @@ import Desk from "./components/Desk";
 import Registration from "./components/Registration";
 import Login from "./components/Login";
 import Admin from "./components/Admin";
-
+import PageTracking from "./components/PageTracking";
 
 
 
@@ -34,7 +34,14 @@ function App() {
 
     return (
         <div className="App">
+            <PageTracking
+                setSelectedCategory={setSelectedCategory}
+                setSelectedSubCategory={setSelectedSubCategory}
+                setSearchInput={setSearchInput}
+                setSelectedLevel={setSelectedLevel}
+            />
             <Routes>
+
                 <Route path="/"
                     element={<Home
                         selectedCategory={selectedCategory}
