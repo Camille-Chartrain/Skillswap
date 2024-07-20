@@ -52,6 +52,7 @@ const homeController = {
             console.log("req.query.level", req.query.level);
             console.log("req.query.subCategoryId", req.query.SubCategoryId);
             console.log("req.query.input", req.query.input);
+            console.log("req.user", req.user);
 
             // const categoryId = req.query.categoryId;
             // const subCategoryId = req.query.subCategoryId;
@@ -106,7 +107,7 @@ const homeController = {
                 where: whereClause,
             };
 
-            let isLogged = undefined;
+            let isLogged = false;
 
             console.log("req.user", req.user);
             if (!req.user) {
@@ -164,11 +165,21 @@ const homeController = {
             });
 
 
+            // if (!rows || rows.length === 0) {
+            //     console.log('no match');
+            //     res.status(200).json('no match');
+            //     return;
+            // }
+
             if (!rows || rows.length === 0) {
                 console.log('no match');
-                res.status(200).json('no match');
+                res.status(200).json({
+                    message: 'no match',
+                    isLogged: isLogged
+                });
                 return;
             }
+
             // addition of table meeting to keep tracks of the courses the user already applied to
             if (req.user) {
                 console.log("dans le if req.user.id pour ajouter table meeting au resultat du search");

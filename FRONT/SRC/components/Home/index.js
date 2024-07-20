@@ -21,7 +21,8 @@ const Home = ({
     setNoMatch,
     loading,
     setLoading,
-    logged
+    logged,
+    setLogged
 }) => {
 
     console.log("state match dans Home", match);
@@ -42,8 +43,8 @@ const Home = ({
         }
         catch (error) {
             console.error(error.message);
-            setError("Votre demmande n'a pas ete prise en compte");
-            handleNotFoundError("Votre demande n'a pas ete prise en compte");
+            // setError("Votre demmande n'a pas ete prise en compte");
+            // handleNotFoundError("Votre demande n'a pas ete prise en compte");
         }
     }
     useEffect(() => {
@@ -71,6 +72,7 @@ const Home = ({
                 noMatch={noMatch}
                 setNoMatch={setNoMatch}
                 setLoading={setLoading}
+                setLogged={setLogged}
 
             />
             <article  >

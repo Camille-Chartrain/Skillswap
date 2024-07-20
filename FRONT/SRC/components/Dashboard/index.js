@@ -3,6 +3,8 @@ import SearchBar from "../SearchBar";
 import Cards from "../Cards";
 import NavLogged from "../NavLogged";
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Dashboard(
     {
@@ -26,18 +28,12 @@ export default function Dashboard(
     }
 ) {
 
+    const navigate = useNavigate();
 
     async function getData() {
         try {
 
-
             console.log("déclenchement fonction getData comp Dashboard");
-
-            // setSelectedSubCategory(null)
-            // setSearchInput("");
-            // setSelectedCategory(null);
-            // setSelectedLevel("");
-            // :setLoading(true)
 
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
@@ -56,22 +52,42 @@ export default function Dashboard(
             const responseDataSearch = await response.json();
             console.log("reponse GetSearch responseDataSearch", responseDataSearch)
             console.log("typeof responseDataSearch", typeof responseDataSearch);
+            if (responseDataSearch.error === "Token invalide") {
+                navigate('/login')
+            }
 
-
-            if (responseDataSearch === "no match") {
-                setMatch(false)
-                setNoMatch(true)
-                setLoading(false)
+            if (responseDataSearch.message === "no match") {
+                setMatch(false);
+                setNoMatch(true);
+                setLoading(false);
                 console.log("NO MATCH state match dans Search", match);
                 console.log("NOT MATCH state noMatch dans Search", noMatch);
+
+                if (responseDataSearch.isLogged === false) {
+                    setLogged(false);
+                    navigate('/');
+                }
+                else if (responseDataSearch.isLogged === true) {
+                    setLogged(true);
+                    navigate('/dashboard');
+                }
             }
             else if (responseDataSearch) {
                 console.log("on est dans la condition il y a match");
                 console.log("responseDataseaarch", responseDataSearch);
                 setDataCards(responseDataSearch);
                 setMatch(true);
-                setNoMatch(false)
-                setLoading(false)
+                setNoMatch(false);
+                setLoading(false);
+
+                if (responseDataSearch.isLogged === false) {
+                    setLogged(false);
+                    navigate('/');
+                }
+                else if (responseDataSearch.isLogged === true) {
+                    setLogged(true);
+                    navigate('/dashboard');
+                }
 
                 // console.log("MATCH State dataSearch", dataSearch);
                 // console.log("MATCH state Match dans Search", match);
@@ -112,6 +128,7 @@ export default function Dashboard(
                 noMatch={noMatch}
                 setNoMatch={setNoMatch}
                 setLoading={setLoading}
+                setLogged={setLogged}
             />
             <Cards
                 dataCards={dataCards}

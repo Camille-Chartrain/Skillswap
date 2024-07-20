@@ -22,7 +22,8 @@ export default function SearchBar({
     setMatch,
     noMatch,
     setNoMatch,
-    setLoading
+    setLoading,
+    setLogged
 }) {
 
     const location = useLocation();
@@ -34,7 +35,6 @@ export default function SearchBar({
         event.preventDefault();
 
         try {
-
 
             console.log("nous sommes dans la fonction handleSearch");
             setLoading(true)
@@ -53,66 +53,77 @@ export default function SearchBar({
             });
 
             const responseDataSearch = await response.json();
-            console.log("reponse GetSearch responseDataSearch", responseDataSearch)
+            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
+            console.log("responseDataSearch.message", responseDataSearch.message);
             console.log("typeof responseDataSearch", typeof responseDataSearch);
 
-            setSelectedSubCategory(null)
-            setSearchInput("");
-            setSelectedCategory(null);
-            setSelectedLevel("");
 
-
-            if (responseDataSearch === "no match") {
-                setMatch(false)
-                setNoMatch(true)
-                setLoading(false)
+            if (responseDataSearch.message === "no match") {
+                setMatch(false);
+                setNoMatch(true);
+                setLoading(false);
                 console.log("NO MATCH state match dans Search", match);
                 console.log("NOT MATCH state noMatch dans Search", noMatch);
+
+                if (responseDataSearch.isLogged === false) {
+                    setLogged(false);
+                    navigate('/');
+                }
+                else if (responseDataSearch.isLogged === true) {
+                    setLogged(true);
+                    navigate('/dashboard');
+                }
             }
             else if (responseDataSearch) {
                 console.log("on est dans la condition il y a match");
                 console.log("responseDataseaarch", responseDataSearch);
                 setDataCards(responseDataSearch);
                 setMatch(true);
-                setNoMatch(false)
-                setLoading(false)
+                setNoMatch(false);
+                setLoading(false);
+
+                if (responseDataSearch.isLogged === false) {
+                    setLogged(false);
+                    navigate('/');
+                }
+                else if (responseDataSearch.isLogged === true) {
+                    setLogged(true);
+                    navigate('/dashboard');
+                }
 
                 // console.log("MATCH State dataSearch", dataSearch);
                 // console.log("MATCH state Match dans Search", match);
                 // console.log("MATCH state noMatch dans Search", noMatch);
 
+                //     try {
+                //         console.log('dans le search apres match ok, verif si logué');
+                //         const token = Cookies.get('token');
+                //         const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
+                //             method: "get",
+                //             headers: {
+                //                 'Content-Type': 'application/json',
+                //                 'Authorization': `Bearer ${token}`,
+                //             },
+                //         });
+                //         console.log("response avant json:", response)
+                //         const authResult = await response.json();
+                //         console.log("authResult apres json dans Search pour voir  resultats:", authResult)
 
-                if (location.pathname === '/dashboard/profile'
-                    || location.pathname === '/dashboard/statistics'
-                    || location.pathname === '/dashboard/notifications'
-                    || location.pathname === '/dashboard/desk'
-                    || location.pathname === '/dashboard'
-                ) {
-                    try {
-                        console.log('dans le search apres match ok, verif si logué');
-                        const token = Cookies.get('token');
-                        const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
-                            method: "get",
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': `Bearer ${token}`,
-                            },
-                        });
-                        console.log("response avant json:", response)
-                        const authResult = await response.json();
-                        console.log("authResult apres json dans Search pour voir  resultats:", authResult)
-
-                        if (authResult == "access granted") {
-                            console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /dashboard");
-                            navigate('/dashboard');
-                        }
-                    }
-                    catch (error) {
-                        console.error("catch de handleClick dans Skill:", error);
-                        // setError("Votre recherche n'aq pas pu aboutir");
-                        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
-                    }
-                }
+                //         if (authResult == "access granted") {
+                //             console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /dashboard");
+                //             navigate('/dashboard');
+                //         }
+                //         else {
+                //             setLogged(false);
+                //             navigate('/')
+                //         }
+                //     }
+                //     catch (error) {
+                //         console.error("catch de handleClick dans Skill:", error);
+                //         // setError("Votre recherche n'aq pas pu aboutir");
+                //         // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+                //     }
+                // }
             };
         }
         catch (error) {
@@ -121,8 +132,6 @@ export default function SearchBar({
             // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
         }
     }
-
-    useEffect(() => { }, [searchInput, selectedLevel, selectedCategory, selectedSubCategory]);
 
     const handleChangeInput = (event) => {
         setSearchInput(event.target.value);

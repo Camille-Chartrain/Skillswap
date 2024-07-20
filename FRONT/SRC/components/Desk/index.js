@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export default function Desk({ setDataCards }) {
+export default function Desk({ setDataCards, setNoMatch }) {
 
     useEffect(() => {
         setDataCards({
@@ -8,6 +8,7 @@ export default function Desk({ setDataCards }) {
             count: 0,
             resultCount: 0,
         })
+        setNoMatch(false);
     }, []);
 
     return (

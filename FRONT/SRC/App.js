@@ -19,6 +19,7 @@ function App() {
         rows: [],
         count: 0,
         resultCount: 0,
+        isLogged: false
     });
     const [match, setMatch] = useState(false);
     const [noMatch, setNoMatch] = useState(false);
@@ -39,6 +40,8 @@ function App() {
                 setSelectedSubCategory={setSelectedSubCategory}
                 setSearchInput={setSearchInput}
                 setSelectedLevel={setSelectedLevel}
+                setDataCards={setDataCards}
+                setNoMatch={setNoMatch}
             />
             <Routes>
 
@@ -61,6 +64,7 @@ function App() {
                         loading={loading}
                         setLoading={setLoading}
                         logged={logged}
+                        setLogged={setLogged}
                     />}
                 />
                 <Route path="/dashboard"
@@ -102,6 +106,7 @@ function App() {
                     <Route path="/dashboard/desk"
                         element={<Desk
                             setDataCards={setDataCards}
+                            setNoMatch={setNoMatch}
                         />}
                     />
                 </Route>
