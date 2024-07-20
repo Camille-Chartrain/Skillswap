@@ -104,7 +104,8 @@ function App() {
                 />
                 <Route path="/login"
                     element={<Login
-                        setNoMatch={setNoMatch} />}
+                        setNoMatch={setNoMatch}
+                        setDataCards={setDataCards} />}
                 />
                 <Route path="/admin"
                     element={<Admin />}

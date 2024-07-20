@@ -106,9 +106,17 @@ const homeController = {
                 where: whereClause,
             };
 
+            let isLogged = undefined;
+
             console.log("req.user", req.user);
             if (!req.user) {
+                console.log("pas de req.user");
                 options.limit = 4;
+                isLogged = false;
+            }
+            else if (req.user) {
+                console.log("req.user", req.user);
+                isLogged = true;
             }
 
             // options.attributes = ['id', 'title', 'description', 'level', "CategoryId", "SubCategoryId", 'firstname', 'lastname', "email", 'grade_level', "presentation"]
@@ -185,7 +193,8 @@ const homeController = {
             res.send({
                 rows,
                 count,
-                resultCount
+                resultCount,
+                isLogged
             });
         }
         catch (error) {

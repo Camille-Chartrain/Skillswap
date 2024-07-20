@@ -58,6 +58,9 @@ export default function SearchBar({
 
             setSelectedSubCategory(null)
             setSearchInput("");
+            setSelectedCategory(null);
+            setSelectedLevel("");
+
 
             if (responseDataSearch === "no match") {
                 setMatch(false)

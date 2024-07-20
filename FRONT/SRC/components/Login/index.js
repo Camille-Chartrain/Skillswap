@@ -3,11 +3,14 @@ import NavHome from "../NavHome";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
-export default function Login({ setNoMatch }) {
+export default function Login({ setNoMatch, setDataCards }) {
 
     const navigate = useNavigate();
     const [error, setError] = useState("");
-    setNoMatch(false)
+    // a verif
+    // setNoMatch(false)
+
+
 
     async function handleSubmit(event) {
 
@@ -68,6 +71,10 @@ export default function Login({ setNoMatch }) {
             setError('erreur lors de la connexion');
         }
     }
+
+    useEffect(() => {
+        setDataCards(null);
+    }, []);
 
     return (
         <div>
