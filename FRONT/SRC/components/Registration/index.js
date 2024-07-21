@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import NavHome from "../NavHome";
+import PasswordInput from "./PasswordInput";
 
 export default function Registration() {
 
@@ -95,16 +96,29 @@ export default function Registration() {
                 {error && <span className="error">{error}</span>}
                 <form method="POST" onSubmit={handleSubmit} className="formRegistration">
                     <label htmlFor="firstname">Prénom * :</label>
-                    <input type="text" id="firstname" name="firstname" maxLength="50" required />
+                    <input
+                        type="text"
+                        id="firstname"
+                        name="firstname"
+                        maxLength="50"
+                        required />
 
                     <label htmlFor="lastname">Nom * :</label>
-                    <input type="text" id="lastname" name="lastname" maxLength="100" required />
+                    <input
+                        type="text"
+                        id="lastname"
+                        name="lastname"
+                        maxLength="100"
+                        required />
 
                     <label htmlFor="email">Email * :</label>
-                    <input type="email" id="email" name="email" maxLength="254" required />
+                    <input type="email"
+                        id="email"
+                        name="email"
+                        maxLength="254"
+                        required />
 
-                    <label htmlFor="password">Mot de passe * :</label>
-                    <input type="password" id="password" name="password" minLength="12" maxLength="64" required />
+                    <PasswordInput />
 
                     <button type="submit">Envoyer</button>
                 </form>

@@ -34722,6 +34722,8 @@ var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _navHome = require("../NavHome");
 var _navHomeDefault = parcelHelpers.interopDefault(_navHome);
+var _passwordInput = require("./PasswordInput");
+var _passwordInputDefault = parcelHelpers.interopDefault(_passwordInput);
 var _s = $RefreshSig$();
 function Registration() {
     _s();
@@ -34781,7 +34783,7 @@ function Registration() {
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 75,
+                lineNumber: 76,
                 columnNumber: 20
             }, this);
         } catch (error) {
@@ -34798,14 +34800,14 @@ function Registration() {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 92,
+                lineNumber: 93,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: "Inscription"
             }, void 0, false, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 93,
+                lineNumber: 94,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
@@ -34815,7 +34817,7 @@ function Registration() {
                         children: error
                     }, void 0, false, {
                         fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 95,
+                        lineNumber: 96,
                         columnNumber: 27
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -34828,7 +34830,7 @@ function Registration() {
                                 children: "Pr\xe9nom * :"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 97,
+                                lineNumber: 98,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34839,7 +34841,7 @@ function Registration() {
                                 required: true
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 98,
+                                lineNumber: 99,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -34847,7 +34849,7 @@ function Registration() {
                                 children: "Nom * :"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 100,
+                                lineNumber: 106,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34858,7 +34860,7 @@ function Registration() {
                                 required: true
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 101,
+                                lineNumber: 107,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -34866,7 +34868,7 @@ function Registration() {
                                 children: "Email * :"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 103,
+                                lineNumber: 114,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34877,27 +34879,12 @@ function Registration() {
                                 required: true
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 104,
+                                lineNumber: 115,
                                 columnNumber: 21
                             }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                htmlFor: "password",
-                                children: "Mot de passe * :"
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _passwordInputDefault.default), {}, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 106,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "password",
-                                id: "password",
-                                name: "password",
-                                minLength: "12",
-                                maxLength: "64",
-                                required: true
-                            }, void 0, false, {
-                                fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 107,
+                                lineNumber: 121,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34905,20 +34892,20 @@ function Registration() {
                                 children: "Envoyer"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 109,
+                                lineNumber: 123,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 96,
+                        lineNumber: 97,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: "J'ai d\xe9j\xe0 un compte"
                     }, void 0, false, {
                         fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 112,
+                        lineNumber: 126,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34926,13 +34913,13 @@ function Registration() {
                         children: "Me connecter"
                     }, void 0, false, {
                         fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 113,
+                        lineNumber: 127,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 94,
+                lineNumber: 95,
                 columnNumber: 13
             }, this)
         ]
@@ -34952,7 +34939,7 @@ $RefreshReg$(_c, "Registration");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","js-cookie":"c8bBu","../NavHome":"8DCBt"}],"c8bBu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","js-cookie":"c8bBu","../NavHome":"8DCBt","./PasswordInput":"4Q2t3"}],"c8bBu":[function(require,module,exports) {
 (function(global, factory) {
     module.exports = factory();
 })(this, function() {
@@ -35116,7 +35103,182 @@ $RefreshReg$(_c, "NavHome");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fVCjh":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4Q2t3":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e21d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e21d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>PasswordInput);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+function PasswordInput() {
+    _s();
+    const [password, setPassword] = (0, _react.useState)("");
+    const [showPassword, setShowPassword] = (0, _react.useState)(false);
+    const [validations, setValidations] = (0, _react.useState)({
+        hasUpperCase: false,
+        hasLowerCase: false,
+        hasNumber: false,
+        hasSpecialChar: false,
+        hasMinLength: false
+    });
+    const specialCharPattern = /[@$!%*?&]/;
+    const validatePassword = (value)=>{
+        setValidations({
+            hasUpperCase: /[A-Z]/.test(value),
+            hasLowerCase: /[a-z]/.test(value),
+            hasNumber: /\d/.test(value),
+            hasSpecialChar: specialCharPattern.test(value),
+            hasMinLength: value.length >= 12
+        });
+    };
+    const handleChange = (e)=>{
+        const { value } = e.target;
+        setPassword(value);
+        validatePassword(value);
+    };
+    const toggleShowPassword = ()=>{
+        setShowPassword(!showPassword);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "password",
+                children: "Mot de passe * :"
+            }, void 0, false, {
+                fileName: "SRC/components/Registration/PasswordInput/index.js",
+                lineNumber: 38,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: showPassword ? "text" : "password",
+                id: "password",
+                name: "password",
+                value: password,
+                onChange: handleChange,
+                minLength: "12",
+                maxLength: "64",
+                required: true
+            }, void 0, false, {
+                fileName: "SRC/components/Registration/PasswordInput/index.js",
+                lineNumber: 39,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "checkbox",
+                        checked: showPassword,
+                        onChange: toggleShowPassword
+                    }, void 0, false, {
+                        fileName: "SRC/components/Registration/PasswordInput/index.js",
+                        lineNumber: 50,
+                        columnNumber: 17
+                    }, this),
+                    "Afficher le mot de passe"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Registration/PasswordInput/index.js",
+                lineNumber: 49,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        style: {
+                            color: validations.hasUpperCase ? "green" : "red"
+                        },
+                        children: [
+                            validations.hasUpperCase ? "\u2714" : "\u2716",
+                            " Contient une majuscule"
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Registration/PasswordInput/index.js",
+                        lineNumber: 58,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        style: {
+                            color: validations.hasLowerCase ? "green" : "red"
+                        },
+                        children: [
+                            validations.hasLowerCase ? "\u2714" : "\u2716",
+                            " Contient une minuscule"
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Registration/PasswordInput/index.js",
+                        lineNumber: 61,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        style: {
+                            color: validations.hasNumber ? "green" : "red"
+                        },
+                        children: [
+                            validations.hasNumber ? "\u2714" : "\u2716",
+                            " Contient un chiffre"
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Registration/PasswordInput/index.js",
+                        lineNumber: 64,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        style: {
+                            color: validations.hasSpecialChar ? "green" : "red"
+                        },
+                        children: [
+                            validations.hasSpecialChar ? "\u2714" : "\u2716",
+                            " Contient un caract\xe8re sp\xe9cial (@$!%*?&)"
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Registration/PasswordInput/index.js",
+                        lineNumber: 67,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        style: {
+                            color: validations.hasMinLength ? "green" : "red"
+                        },
+                        children: [
+                            validations.hasMinLength ? "\u2714" : "\u2716",
+                            " Contient au moins 12 caract\xe8res"
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Registration/PasswordInput/index.js",
+                        lineNumber: 70,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Registration/PasswordInput/index.js",
+                lineNumber: 57,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/Registration/PasswordInput/index.js",
+        lineNumber: 37,
+        columnNumber: 9
+    }, this);
+}
+_s(PasswordInput, "kO9+oYKhFE+mniN1YcIVxF0krhk=");
+_c = PasswordInput;
+var _c;
+$RefreshReg$(_c, "PasswordInput");
+
+  $parcel$ReactRefreshHelpers$e21d.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fVCjh":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9e3d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
