@@ -124,7 +124,7 @@ export default function Registration() {
                 </form>
 
                 <p>J'ai déjà un compte</p>
-                <button onClick={goLogin}>Me connecter</button>
+                <button type="button" onClick={goLogin}>Me connecter</button>
             </main >
         </>
     )

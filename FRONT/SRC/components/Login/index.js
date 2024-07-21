@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import NavHome from "../NavHome";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
+import PswdLogin from "./PswdLogin";
 
 export default function Login({ setNoMatch, setDataCards }) {
 
@@ -90,16 +91,20 @@ export default function Login({ setNoMatch, setDataCards }) {
             <form method="POST" onSubmit={handleSubmit} className="formLogin">
 
                 <label htmlFor="email">Email * :</label>
-                <input type="email" id="email" name="email" maxLength="254" required />
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    maxLength="254"
+                    required />
 
-                <label htmlFor="password">Mot de passe * :</label>
-                <input type="password" id="password" name="password" minLength="12" maxLength="64" required />
+                <PswdLogin />
 
                 <button type="submit">Envoyer</button>
             </form>
             <p>Pas encore inscrit?</p>
 
-            <button onClick={goRegistration}>S'inscrire</button>
+            <button type="button" onClick={goRegistration}>S'inscrire</button>
         </div>
     )
 }

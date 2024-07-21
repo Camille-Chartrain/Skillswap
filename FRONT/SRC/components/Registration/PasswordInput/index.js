@@ -8,7 +8,6 @@ export default function PasswordInput() {
         hasLowerCase: false,
         hasNumber: false,
         hasSpecialChar: false,
-        hasMinLength: false,
     });
 
     const specialCharPattern = /[@$!%*?&]/;
@@ -19,7 +18,6 @@ export default function PasswordInput() {
             hasLowerCase: /[a-z]/.test(value),
             hasNumber: /\d/.test(value),
             hasSpecialChar: specialCharPattern.test(value),
-            hasMinLength: value.length >= 12,
         });
     };
 
@@ -46,14 +44,11 @@ export default function PasswordInput() {
                 maxLength="64"
                 required
             />
-            <label>
-                <input
-                    type="checkbox"
-                    checked={showPassword}
-                    onChange={toggleShowPassword}
-                />
-                Afficher le mot de passe
-            </label>
+
+            <button type="button" onClick={toggleShowPassword} aria-label={showPassword ? "Cacher le mot de passe" : "Afficher le mot de passe"}>
+                {showPassword ? 'Cacher' : 'Afficher'}
+            </button>
+
             <ul>
                 <li style={{ color: validations.hasUpperCase ? 'green' : 'red' }}>
                     {validations.hasUpperCase ? '✔' : '✖'} Contient une majuscule
@@ -65,10 +60,7 @@ export default function PasswordInput() {
                     {validations.hasNumber ? '✔' : '✖'} Contient un chiffre
                 </li>
                 <li style={{ color: validations.hasSpecialChar ? 'green' : 'red' }}>
-                    {validations.hasSpecialChar ? '✔' : '✖'} Contient un caractère spécial (@$!%*?&)
-                </li>
-                <li style={{ color: validations.hasMinLength ? 'green' : 'red' }}>
-                    {validations.hasMinLength ? '✔' : '✖'} Contient au moins 12 caractères
+                    {validations.hasSpecialChar ? '✔' : '✖'} Contient un caractère spécial @$!%*?&
                 </li>
             </ul>
         </div>

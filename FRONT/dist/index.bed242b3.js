@@ -34909,6 +34909,7 @@ function Registration() {
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        type: "button",
                         onClick: goLogin,
                         children: "Me connecter"
                     }, void 0, false, {
@@ -35125,8 +35126,7 @@ function PasswordInput() {
         hasUpperCase: false,
         hasLowerCase: false,
         hasNumber: false,
-        hasSpecialChar: false,
-        hasMinLength: false
+        hasSpecialChar: false
     });
     const specialCharPattern = /[@$!%*?&]/;
     const validatePassword = (value)=>{
@@ -35134,8 +35134,7 @@ function PasswordInput() {
             hasUpperCase: /[A-Z]/.test(value),
             hasLowerCase: /[a-z]/.test(value),
             hasNumber: /\d/.test(value),
-            hasSpecialChar: specialCharPattern.test(value),
-            hasMinLength: value.length >= 12
+            hasSpecialChar: specialCharPattern.test(value)
         });
     };
     const handleChange = (e)=>{
@@ -35153,7 +35152,7 @@ function PasswordInput() {
                 children: "Mot de passe * :"
             }, void 0, false, {
                 fileName: "SRC/components/Registration/PasswordInput/index.js",
-                lineNumber: 38,
+                lineNumber: 36,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -35167,25 +35166,17 @@ function PasswordInput() {
                 required: true
             }, void 0, false, {
                 fileName: "SRC/components/Registration/PasswordInput/index.js",
-                lineNumber: 39,
+                lineNumber: 37,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "checkbox",
-                        checked: showPassword,
-                        onChange: toggleShowPassword
-                    }, void 0, false, {
-                        fileName: "SRC/components/Registration/PasswordInput/index.js",
-                        lineNumber: 50,
-                        columnNumber: 17
-                    }, this),
-                    "Afficher le mot de passe"
-                ]
-            }, void 0, true, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                type: "button",
+                onClick: toggleShowPassword,
+                "aria-label": showPassword ? "Cacher le mot de passe" : "Afficher le mot de passe",
+                children: showPassword ? "Cacher" : "Afficher"
+            }, void 0, false, {
                 fileName: "SRC/components/Registration/PasswordInput/index.js",
-                lineNumber: 49,
+                lineNumber: 48,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -35200,7 +35191,7 @@ function PasswordInput() {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Registration/PasswordInput/index.js",
-                        lineNumber: 58,
+                        lineNumber: 53,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -35213,7 +35204,7 @@ function PasswordInput() {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Registration/PasswordInput/index.js",
-                        lineNumber: 61,
+                        lineNumber: 56,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -35226,7 +35217,7 @@ function PasswordInput() {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Registration/PasswordInput/index.js",
-                        lineNumber: 64,
+                        lineNumber: 59,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -35235,40 +35226,27 @@ function PasswordInput() {
                         },
                         children: [
                             validations.hasSpecialChar ? "\u2714" : "\u2716",
-                            " Contient un caract\xe8re sp\xe9cial (@$!%*?&)"
+                            " Contient un caract\xe8re sp\xe9cial @$!%*?&"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Registration/PasswordInput/index.js",
-                        lineNumber: 67,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        style: {
-                            color: validations.hasMinLength ? "green" : "red"
-                        },
-                        children: [
-                            validations.hasMinLength ? "\u2714" : "\u2716",
-                            " Contient au moins 12 caract\xe8res"
-                        ]
-                    }, void 0, true, {
-                        fileName: "SRC/components/Registration/PasswordInput/index.js",
-                        lineNumber: 70,
+                        lineNumber: 62,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Registration/PasswordInput/index.js",
-                lineNumber: 57,
+                lineNumber: 52,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Registration/PasswordInput/index.js",
-        lineNumber: 37,
+        lineNumber: 35,
         columnNumber: 9
     }, this);
 }
-_s(PasswordInput, "kO9+oYKhFE+mniN1YcIVxF0krhk=");
+_s(PasswordInput, "v5rPl3YO04NYEjpaNmfSAQ84r/M=");
 _c = PasswordInput;
 var _c;
 $RefreshReg$(_c, "PasswordInput");
@@ -35295,6 +35273,8 @@ var _navHomeDefault = parcelHelpers.interopDefault(_navHome);
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _reactRouterDom = require("react-router-dom");
+var _pswdLogin = require("./PswdLogin");
+var _pswdLoginDefault = parcelHelpers.interopDefault(_pswdLogin);
 var _s = $RefreshSig$();
 function Login({ setNoMatch, setDataCards }) {
     _s();
@@ -35354,21 +35334,21 @@ function Login({ setNoMatch, setDataCards }) {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 86,
+                lineNumber: 87,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Connexion"
             }, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 87,
+                lineNumber: 88,
                 columnNumber: 13
             }, this),
             error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: error
             }, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 88,
+                lineNumber: 89,
                 columnNumber: 23
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -35381,7 +35361,7 @@ function Login({ setNoMatch, setDataCards }) {
                         children: "Email * :"
                     }, void 0, false, {
                         fileName: "SRC/components/Login/index.js",
-                        lineNumber: 92,
+                        lineNumber: 93,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -35392,27 +35372,12 @@ function Login({ setNoMatch, setDataCards }) {
                         required: true
                     }, void 0, false, {
                         fileName: "SRC/components/Login/index.js",
-                        lineNumber: 93,
+                        lineNumber: 94,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                        htmlFor: "password",
-                        children: "Mot de passe * :"
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _pswdLoginDefault.default), {}, void 0, false, {
                         fileName: "SRC/components/Login/index.js",
-                        lineNumber: 95,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "password",
-                        id: "password",
-                        name: "password",
-                        minLength: "12",
-                        maxLength: "64",
-                        required: true
-                    }, void 0, false, {
-                        fileName: "SRC/components/Login/index.js",
-                        lineNumber: 96,
+                        lineNumber: 101,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35420,34 +35385,35 @@ function Login({ setNoMatch, setDataCards }) {
                         children: "Envoyer"
                     }, void 0, false, {
                         fileName: "SRC/components/Login/index.js",
-                        lineNumber: 98,
+                        lineNumber: 103,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 90,
+                lineNumber: 91,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Pas encore inscrit?"
             }, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 100,
+                lineNumber: 105,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                type: "button",
                 onClick: goRegistration,
                 children: "S'inscrire"
             }, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 102,
+                lineNumber: 107,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Login/index.js",
-        lineNumber: 85,
+        lineNumber: 86,
         columnNumber: 9
     }, this);
 }
@@ -35465,7 +35431,83 @@ $RefreshReg$(_c, "Login");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../NavHome":"8DCBt","js-cookie":"c8bBu","react-router-dom":"9xmpe"}],"7KL8w":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../NavHome":"8DCBt","js-cookie":"c8bBu","react-router-dom":"9xmpe","./PswdLogin":"8UCBO"}],"8UCBO":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d6b8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$d6b8.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>PswdLogin);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+function PswdLogin() {
+    _s();
+    // const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = (0, _react.useState)(false);
+    // const handleChange = (e) => {
+    //     const { value } = e.target;
+    //     setPassword(value);
+    // };
+    const toggleShowPassword = ()=>{
+        setShowPassword(!showPassword);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "password",
+                children: "Mot de passe * :"
+            }, void 0, false, {
+                fileName: "SRC/components/Login/PswdLogin/index.js",
+                lineNumber: 19,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: showPassword ? "text" : "password",
+                id: "password",
+                name: "password",
+                // value={password}
+                // onChange={handleChange}
+                minLength: "12",
+                maxLength: "64",
+                required: true
+            }, void 0, false, {
+                fileName: "SRC/components/Login/PswdLogin/index.js",
+                lineNumber: 20,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                type: "button",
+                onClick: toggleShowPassword,
+                "aria-label": showPassword ? "Cacher le mot de passe" : "Afficher le mot de passe",
+                children: showPassword ? "Cacher" : "Afficher"
+            }, void 0, false, {
+                fileName: "SRC/components/Login/PswdLogin/index.js",
+                lineNumber: 30,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/Login/PswdLogin/index.js",
+        lineNumber: 18,
+        columnNumber: 9
+    }, this);
+}
+_s(PswdLogin, "daguiRHWMFkqPgCh/ppD7CF5VuQ=");
+_c = PswdLogin;
+var _c;
+$RefreshReg$(_c, "PswdLogin");
+
+  $parcel$ReactRefreshHelpers$d6b8.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7KL8w":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$93b3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
