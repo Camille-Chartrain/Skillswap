@@ -45,6 +45,7 @@ export default function Registration() {
 
         try {
             console.log('try data:', formDataEncoded);
+            // console.log('try myformdata:', myFormData);
             const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/registration`, {
                 method: "post",
                 status: 200,
@@ -71,7 +72,7 @@ export default function Registration() {
 
             {/* //= manage and show error for user */ }
             if (dataFetch.accessToken) {
-                navigate("/dashboard");
+                navigate("/dashboard/results");
             }
             else { <span className="error">return({error?.message})</span> }
         }
@@ -94,7 +95,12 @@ export default function Registration() {
             <h2>Inscription</h2>
             <main>
                 {error && <span className="error">{error}</span>}
-                <form method="POST" onSubmit={handleSubmit} className="formRegistration">
+
+                <form
+                    method="POST"
+                    onSubmit={handleSubmit}
+                    className="formRegistration"
+                >
                     <label htmlFor="firstname">Prénom * :</label>
                     <input
                         type="text"

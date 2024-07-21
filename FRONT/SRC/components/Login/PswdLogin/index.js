@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 
 export default function PswdLogin() {
-    // const [password, setPassword] = useState('');
+
     const [showPassword, setShowPassword] = useState(false);
-
-
-    // const handleChange = (e) => {
-    //     const { value } = e.target;
-    //     setPassword(value);
-    // };
 
     const toggleShowPassword = () => {
         setShowPassword(!showPassword);
@@ -21,8 +15,6 @@ export default function PswdLogin() {
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 name="password"
-                // value={password}
-                // onChange={handleChange}
                 minLength="12"
                 maxLength="64"
                 required

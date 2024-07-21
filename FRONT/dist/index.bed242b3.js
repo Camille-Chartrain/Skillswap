@@ -34754,6 +34754,7 @@ function Registration() {
         const formDataEncoded = new URLSearchParams(myFormData);
         try {
             console.log("try data:", formDataEncoded);
+            // console.log('try myformdata:', myFormData);
             const response = await fetch(`http://${"localhost"}:${"3000"}/registration`, {
                 method: "post",
                 status: 200,
@@ -34773,7 +34774,7 @@ function Registration() {
             (0, _jsCookieDefault.default).set("token", token);
             //=fetch back side's  errors
             console.log("error?:", dataFetch.error);
-            if (dataFetch.accessToken) navigate("/dashboard");
+            if (dataFetch.accessToken) navigate("/dashboard/results");
             else /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                 className: "error",
                 children: [
@@ -34783,7 +34784,7 @@ function Registration() {
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 76,
+                lineNumber: 77,
                 columnNumber: 20
             }, this);
         } catch (error) {
@@ -34800,14 +34801,14 @@ function Registration() {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 93,
+                lineNumber: 94,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: "Inscription"
             }, void 0, false, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 94,
+                lineNumber: 95,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
@@ -34817,7 +34818,7 @@ function Registration() {
                         children: error
                     }, void 0, false, {
                         fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 96,
+                        lineNumber: 97,
                         columnNumber: 27
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -34830,7 +34831,7 @@ function Registration() {
                                 children: "Pr\xe9nom * :"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 98,
+                                lineNumber: 104,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34841,7 +34842,7 @@ function Registration() {
                                 required: true
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 99,
+                                lineNumber: 105,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -34849,7 +34850,7 @@ function Registration() {
                                 children: "Nom * :"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 106,
+                                lineNumber: 112,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34860,7 +34861,7 @@ function Registration() {
                                 required: true
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 107,
+                                lineNumber: 113,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -34868,7 +34869,7 @@ function Registration() {
                                 children: "Email * :"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 114,
+                                lineNumber: 120,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34879,12 +34880,12 @@ function Registration() {
                                 required: true
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 115,
+                                lineNumber: 121,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _passwordInputDefault.default), {}, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 121,
+                                lineNumber: 127,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34892,20 +34893,20 @@ function Registration() {
                                 children: "Envoyer"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 123,
+                                lineNumber: 129,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 97,
+                        lineNumber: 99,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: "J'ai d\xe9j\xe0 un compte"
                     }, void 0, false, {
                         fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 126,
+                        lineNumber: 132,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34914,13 +34915,13 @@ function Registration() {
                         children: "Me connecter"
                     }, void 0, false, {
                         fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 127,
+                        lineNumber: 133,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 95,
+                lineNumber: 96,
                 columnNumber: 13
             }, this)
         ]
@@ -35447,12 +35448,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _s = $RefreshSig$();
 function PswdLogin() {
     _s();
-    // const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = (0, _react.useState)(false);
-    // const handleChange = (e) => {
-    //     const { value } = e.target;
-    //     setPassword(value);
-    // };
     const toggleShowPassword = ()=>{
         setShowPassword(!showPassword);
     };
@@ -35463,21 +35459,19 @@ function PswdLogin() {
                 children: "Mot de passe * :"
             }, void 0, false, {
                 fileName: "SRC/components/Login/PswdLogin/index.js",
-                lineNumber: 19,
+                lineNumber: 13,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 type: showPassword ? "text" : "password",
                 id: "password",
                 name: "password",
-                // value={password}
-                // onChange={handleChange}
                 minLength: "12",
                 maxLength: "64",
                 required: true
             }, void 0, false, {
                 fileName: "SRC/components/Login/PswdLogin/index.js",
-                lineNumber: 20,
+                lineNumber: 14,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35487,13 +35481,13 @@ function PswdLogin() {
                 children: showPassword ? "Cacher" : "Afficher"
             }, void 0, false, {
                 fileName: "SRC/components/Login/PswdLogin/index.js",
-                lineNumber: 30,
+                lineNumber: 22,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Login/PswdLogin/index.js",
-        lineNumber: 18,
+        lineNumber: 12,
         columnNumber: 9
     }, this);
 }
@@ -35524,73 +35518,10 @@ var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _navLogged = require("./NavLogged");
 var _navLoggedDefault = parcelHelpers.interopDefault(_navLogged);
 var _s = $RefreshSig$();
-function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged }) {
+function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, match, setMatch, noMatch, setNoMatch, setLoading, setLogged }) {
     _s();
-    // const navigate = useNavigate();
-    // async function getData() {
-    //     try {
-    //         console.log("déclenchement fonction getData comp Dashboard");
-    //         console.log("selectedCategory dans try", selectedCategory);
-    //         console.log("selectedSubCategory dans try", selectedSubCategory);
-    //         console.log("selectLevel dans try", selectedLevel);
-    //         const token = Cookies.get('token');
-    //         const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
-    //             method: "get",
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${token}`,
-    //             },
-    //         });
-    //         const responseDataSearch = await response.json();
-    //         console.log("reponse GetSearch responseDataSearch", responseDataSearch)
-    //         console.log("typeof responseDataSearch", typeof responseDataSearch);
-    //         if (responseDataSearch.error === "Token invalide") {
-    //             navigate('/login')
-    //         }
-    //         if (responseDataSearch.message === "no match") {
-    //             setMatch(false);
-    //             setNoMatch(true);
-    //             setLoading(false);
-    //             console.log("NO MATCH state match dans Search", match);
-    //             console.log("NOT MATCH state noMatch dans Search", noMatch);
-    //             if (responseDataSearch.isLogged === false) {
-    //                 setLogged(false);
-    //                 navigate('/');
-    //             }
-    //             else if (responseDataSearch.isLogged === true) {
-    //                 setLogged(true);
-    //                 navigate('/dashboard');
-    //             }
-    //         }
-    //         else if (responseDataSearch) {
-    //             console.log("on est dans la condition il y a match");
-    //             console.log("responseDataseaarch", responseDataSearch);
-    //             setDataCards(responseDataSearch);
-    //             setMatch(true);
-    //             setNoMatch(false);
-    //             setLoading(false);
-    //             if (responseDataSearch.isLogged === false) {
-    //                 setLogged(false);
-    //                 navigate('/');
-    //             }
-    //             else if (responseDataSearch.isLogged === true) {
-    //                 setLogged(true);
-    //                 navigate('/dashboard');
-    //             }
-    //             // console.log("MATCH State dataSearch", dataSearch);
-    //             // console.log("MATCH state Match dans Search", match);
-    //             // console.log("MATCH state noMatch dans Search", noMatch);
-    //         };
-    //     }
-    //     catch (error) {
-    //         console.log('erreur du catch GetSearch:', error);
-    //         // setError("Votre recherche n'aq pas pu aboutir");
-    //         // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
-    //     }
-    // }
     (0, _react.useEffect)(()=>{
         setLogged(true);
-    // getData();
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -35598,14 +35529,14 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 children: "Dashboard"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 109,
+                lineNumber: 33,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
                 setLogged: setLogged
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 110,
+                lineNumber: 34,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
@@ -35626,13 +35557,13 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setLogged: setLogged
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 113,
+                lineNumber: 37,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Dashboard/index.js",
-        lineNumber: 108,
+        lineNumber: 32,
         columnNumber: 9
     }, this);
 }
@@ -35703,7 +35634,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                     navigate("/");
                 } else if (responseDataSearch.isLogged === true) {
                     setLogged(true);
-                    navigate("/dashboard.results");
+                    navigate("/dashboard/results");
                 }
             } else if (responseDataSearch) {
                 console.log("on est dans la condition il y a match");
@@ -35747,6 +35678,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 type: "text",
                 name: "keyWord",
                 id: "keyword",
+                value: searchInput,
                 onChange: handleChangeInput
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
@@ -35758,7 +35690,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setSelectedCategory: setSelectedCategory
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 110,
+                lineNumber: 117,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
@@ -35766,14 +35698,14 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setSelectedSubCategory: setSelectedSubCategory
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 114,
+                lineNumber: 121,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
                 setSelectedLevel: setSelectedLevel
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 118,
+                lineNumber: 125,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35781,7 +35713,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 children: "Envoyer"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 121,
+                lineNumber: 128,
                 columnNumber: 13
             }, this)
         ]
@@ -36258,14 +36190,16 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {}, void 0, false, {
+            logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
+                setLogged: setLogged
+            }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
                 lineNumber: 57,
                 columnNumber: 24
             }, undefined),
             !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 58,
+                lineNumber: 59,
                 columnNumber: 25
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
@@ -36287,7 +36221,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 setLogged: setLogged
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 59,
+                lineNumber: 60,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
@@ -36296,20 +36230,20 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                         children: "SKILLSWAP "
                     }, void 0, false, {
                         fileName: "SRC/components/Home/index.js",
-                        lineNumber: 79,
+                        lineNumber: 80,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: "Une plateforme d'\xe9change et d\u2019apprentissage qui permet de mettre en relation des personnes de tout \xe2ge et aux profils vari\xe9s qui souhaitent apprendre ou partager leur comp\xe9tence et leurs talents avec les autres. Fonctionnant sur le principe que chaque utilisateur est \xe0 la fois professeur et \xe9l\xe8ve, elle donne acc\xe8s \xe0 une communaut\xe9 de gens tr\xe8s vari\xe9e, et une foule de savoir \xe0 dispositions. Le swappie; la monnaie virtuelle de notre site; est l\xe0 pour encourager ce syst\xe8me. A chaque fois qu\u2019un cours est donne, on recoit un swappie, que l\u2019on pourra  ensuite d\xe9penser pour assister aux cours de son choix."
                     }, void 0, false, {
                         fileName: "SRC/components/Home/index.js",
-                        lineNumber: 80,
+                        lineNumber: 81,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 78,
+                lineNumber: 79,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
@@ -36319,14 +36253,14 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 loading: loading
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 86,
+                lineNumber: 87,
                 columnNumber: 13
             }, undefined),
             !loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Voir plus ICONE INSCRIPTION"
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 92,
+                lineNumber: 93,
                 columnNumber: 26
             }, undefined)
         ]
@@ -36689,11 +36623,6 @@ function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchIn
         if (previousPath === "/" && subPages.includes(location.pathname)) {
             console.log("Page Tracking activated / to subpages");
             console.log(`Navigated from Page ${previousPath} to ${location.pathname}`);
-            setDataCards({
-                rows: [],
-                count: 0,
-                resultCount: 0
-            });
             setNoMatch(false);
         }
     }, [
@@ -36738,7 +36667,7 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
     const navigate = (0, _reactRouterDom.useNavigate)();
     async function getData() {
         try {
-            console.log("d\xe9clenchement fonction getData comp Dashboard");
+            console.log("d\xe9clenchement fonction getData comp Result");
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
             console.log("selectLevel dans try", selectedLevel);
@@ -36791,11 +36720,11 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: "Results"
             }, void 0, false, {
                 fileName: "SRC/Results/index.js",
-                lineNumber: 110,
+                lineNumber: 108,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
@@ -36805,13 +36734,13 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 loading: loading
             }, void 0, false, {
                 fileName: "SRC/Results/index.js",
-                lineNumber: 112,
+                lineNumber: 110,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/Results/index.js",
-        lineNumber: 109,
+        lineNumber: 107,
         columnNumber: 9
     }, this);
 }

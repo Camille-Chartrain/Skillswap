@@ -45,11 +45,7 @@ export default function PageTracking(
         if (previousPath === '/' && subPages.includes(location.pathname)) {
             console.log("Page Tracking activated / to subpages");
             console.log(`Navigated from Page ${previousPath} to ${location.pathname}`);
-            setDataCards({
-                rows: [],
-                count: 0,
-                resultCount: 0,
-            });
+
             setNoMatch(false);
         }
 

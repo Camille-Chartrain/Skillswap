@@ -31,7 +31,7 @@ export default function Results(
     async function getData() {
         try {
 
-            console.log("déclenchement fonction getData comp Dashboard");
+            console.log("déclenchement fonction getData comp Result");
 
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
@@ -67,7 +67,6 @@ export default function Results(
                 }
                 else if (responseDataSearch.isLogged === true) {
                     setLogged(true);
-                    // navigate('/dashboard');
                 }
             }
             else if (responseDataSearch) {
@@ -84,7 +83,6 @@ export default function Results(
                 }
                 else if (responseDataSearch.isLogged === true) {
                     setLogged(true);
-                    // navigate('/dashboard');
                 }
 
                 // console.log("MATCH State dataSearch", dataSearch);
@@ -107,7 +105,7 @@ export default function Results(
 
     return (
         <div>
-            <h1>Results</h1>
+            <h2>Results</h2>
 
             <Cards
                 dataCards={dataCards}

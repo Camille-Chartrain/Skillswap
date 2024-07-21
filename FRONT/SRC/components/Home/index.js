@@ -54,7 +54,8 @@ const Home = ({
 
     return (
         <>
-            {logged && <NavLogged />}
+            {logged && <NavLogged
+                setLogged={setLogged} />}
             {!logged && <NavHome />}
             <SearchBar
                 selectedCategory={selectedCategory}

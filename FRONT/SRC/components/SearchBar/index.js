@@ -68,7 +68,7 @@ export default function SearchBar({
                 }
                 else if (responseDataSearch.isLogged === true) {
                     setLogged(true);
-                    navigate('/dashboard.results');
+                    navigate('/dashboard/results');
                 }
             }
             else if (responseDataSearch) {
@@ -105,7 +105,14 @@ export default function SearchBar({
         <form method="GET" action="" onSubmit={handleSearch}>
 
             <label htmlFor="keyWord">Mot clé</label>
-            <input type="text" name="keyWord" id="keyword" onChange={handleChangeInput}></input>
+            <input
+                type="text"
+                name="keyWord"
+                id="keyword"
+                value={searchInput}
+                onChange={handleChangeInput}
+            >
+            </input>
 
             <Categories
                 selectedCategory={selectedCategory}
