@@ -72,6 +72,11 @@ export default function Login({ setNoMatch, setDataCards }) {
         }
     }
 
+    function goRegistration() {
+        console.log("dans goRegistration");
+        navigate("/registration");
+    }
+
     useEffect(() => {
         setDataCards(null);
     }, []);
@@ -92,6 +97,9 @@ export default function Login({ setNoMatch, setDataCards }) {
 
                 <button type="submit">Envoyer</button>
             </form>
+            <p>Pas encore inscrit?</p>
+
+            <button onClick={goRegistration}>S'inscrire</button>
         </div>
     )
 }

@@ -82,6 +82,11 @@ export default function Registration() {
     }
 
 
+    function goLogin() {
+        console.log("dans goLogin");
+        navigate("/login");
+    }
+
     return (
         <>
             <NavHome />
@@ -103,6 +108,9 @@ export default function Registration() {
 
                     <button type="submit">Envoyer</button>
                 </form>
+
+                <p>J'ai déjà un compte</p>
+                <button onClick={goLogin}>Me connecter</button>
             </main >
         </>
     )

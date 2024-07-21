@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import SearchBar from "../SearchBar";
 import Cards from "../Cards";
 import NavHome from "../NavHome";
-import NavLogged from "../NavLogged";
+import NavLogged from "../dashboard/NavLogged";
 
 const Home = ({
     selectedCategory,

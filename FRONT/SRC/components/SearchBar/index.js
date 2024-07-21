@@ -1,10 +1,9 @@
 import React from "react";
-import Cookies from 'js-cookie';
-import { useEffect, useState } from "react";
 import Categories from "./Categories";
 import SubCategories from "./SubCategories";
 import Level from "./Level";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 
 export default function SearchBar({
@@ -16,7 +15,6 @@ export default function SearchBar({
     setSelectedLevel,
     searchInput,
     setSearchInput,
-    dataCards,
     setDataCards,
     match,
     setMatch,
@@ -26,7 +24,6 @@ export default function SearchBar({
     setLogged
 }) {
 
-    const location = useLocation();
     const navigate = useNavigate();
 
 
@@ -89,42 +86,8 @@ export default function SearchBar({
                 else if (responseDataSearch.isLogged === true) {
                     setLogged(true);
                     navigate('/dashboard/results');
-                }
-
-                // console.log("MATCH State dataSearch", dataSearch);
-                // console.log("MATCH state Match dans Search", match);
-                // console.log("MATCH state noMatch dans Search", noMatch);
-
-                //     try {
-                //         console.log('dans le search apres match ok, verif si logué');
-                //         const token = Cookies.get('token');
-                //         const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/dashboard`, {
-                //             method: "get",
-                //             headers: {
-                //                 'Content-Type': 'application/json',
-                //                 'Authorization': `Bearer ${token}`,
-                //             },
-                //         });
-                //         console.log("response avant json:", response)
-                //         const authResult = await response.json();
-                //         console.log("authResult apres json dans Search pour voir  resultats:", authResult)
-
-                //         if (authResult == "access granted") {
-                //             console.log("acces granted dans handleclik Skill, on va afficher les resultats dans /dashboard");
-                //             navigate('/dashboard');
-                //         }
-                //         else {
-                //             setLogged(false);
-                //             navigate('/')
-                //         }
-                //     }
-                //     catch (error) {
-                //         console.error("catch de handleClick dans Skill:", error);
-                //         // setError("Votre recherche n'aq pas pu aboutir");
-                //         // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
-                //     }
-                // }
-            };
+                };
+            }
         }
         catch (error) {
             console.log('erreur du catch GetSearch:', error);

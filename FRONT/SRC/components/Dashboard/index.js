@@ -1,9 +1,6 @@
 import { React, useEffect } from "react";
 import SearchBar from "../SearchBar";
-import Cards from "../Cards";
-import NavLogged from "../NavLogged";
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import NavLogged from "./NavLogged";
 
 
 export default function Dashboard(
