@@ -36587,15 +36587,15 @@ parcelHelpers.export(exports, "default", ()=>PageTracking);
 var _react = require("react");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
-function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchInput, setSelectedLevel, setDataCards, setNoMatch }) {
+function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchInput, setSelectedLevel }) {
     _s();
     const location = (0, _reactRouterDom.useLocation)();
-    const subPages = [
-        "/dashboard/profile",
-        "/dashboard/desk",
-        "/dashboard/statistics",
-        "/dashboard/notifications"
-    ];
+    // const subPages = [
+    //     '/dashboard/profile',
+    //     '/dashboard/desk',
+    //     '/dashboard/statistics',
+    //     '/dashboard/notifications'
+    // ];
     (0, _react.useEffect)(()=>{
         const previousPath = sessionStorage.getItem("previousPath");
         sessionStorage.setItem("previousPath", location.pathname);
@@ -36610,11 +36610,6 @@ function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchIn
             setSelectedCategory(null);
             setSelectedLevel("");
         }
-    // if (previousPath === '/' && subPages.includes(location.pathname)) {
-    //     console.log("Page Tracking activated / to subpages");
-    //     console.log(`Navigated from Page ${previousPath} to ${location.pathname}`);
-    //     setNoMatch(false);
-    // }
     }, [
         location
     ]);
@@ -36681,10 +36676,10 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 setLoading(false);
                 console.log("NO MATCH state match dans Search", match);
                 console.log("NOT MATCH state noMatch dans Search", noMatch);
-                if (responseDataSearch.isLogged === false) {
+                if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate("/");
-                } else if (responseDataSearch.isLogged === true) setLogged(true);
+                } else if (responseDataSearch.isLogged) setLogged(true);
             } else if (responseDataSearch) {
                 console.log("on est dans la condition il y a match");
                 console.log("responseDataseaarch", responseDataSearch);
@@ -36692,10 +36687,10 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 setMatch(true);
                 setNoMatch(false);
                 setLoading(false);
-                if (responseDataSearch.isLogged === false) {
+                if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate("/");
-                } else if (responseDataSearch.isLogged === true) setLogged(true);
+                } else if (responseDataSearch.isLogged) setLogged(true);
             // console.log("MATCH State dataSearch", dataSearch);
             // console.log("MATCH state Match dans Search", match);
             // console.log("MATCH state noMatch dans Search", noMatch);
@@ -36707,7 +36702,6 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
         }
     }
     (0, _react.useEffect)(()=>{
-        setLogged(true);
         getData();
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36730,14 +36724,14 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 setLogged: setLogged
             }, void 0, false, {
                 fileName: "SRC/Results/index.js",
-                lineNumber: 109,
+                lineNumber: 108,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: "Results"
             }, void 0, false, {
                 fileName: "SRC/Results/index.js",
-                lineNumber: 126,
+                lineNumber: 125,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
@@ -36747,13 +36741,13 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 loading: loading
             }, void 0, false, {
                 fileName: "SRC/Results/index.js",
-                lineNumber: 128,
+                lineNumber: 127,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/Results/index.js",
-        lineNumber: 108,
+        lineNumber: 107,
         columnNumber: 9
     }, this);
 }

@@ -62,11 +62,11 @@ export default function Results(
                 console.log("NO MATCH state match dans Search", match);
                 console.log("NOT MATCH state noMatch dans Search", noMatch);
 
-                if (responseDataSearch.isLogged === false) {
+                if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate('/');
                 }
-                else if (responseDataSearch.isLogged === true) {
+                else if (responseDataSearch.isLogged) {
                     setLogged(true);
                 }
             }
@@ -78,11 +78,11 @@ export default function Results(
                 setNoMatch(false);
                 setLoading(false);
 
-                if (responseDataSearch.isLogged === false) {
+                if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate('/');
                 }
-                else if (responseDataSearch.isLogged === true) {
+                else if (responseDataSearch.isLogged) {
                     setLogged(true);
                 }
 
@@ -100,7 +100,6 @@ export default function Results(
     }
 
     useEffect(() => {
-        setLogged(true);
         getData();
     }, []);
 

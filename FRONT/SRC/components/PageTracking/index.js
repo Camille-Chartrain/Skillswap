@@ -8,19 +8,20 @@ export default function PageTracking(
         setSelectedSubCategory,
         setSearchInput,
         setSelectedLevel,
-        setDataCards,
-        setNoMatch,
+        // setDataCards,
+        // setNoMatch,
         // setGetData
     }
 ) {
 
     const location = useLocation();
-    const subPages = [
-        '/dashboard/profile',
-        '/dashboard/desk',
-        '/dashboard/statistics',
-        '/dashboard/notifications'
-    ];
+
+    // const subPages = [
+    //     '/dashboard/profile',
+    //     '/dashboard/desk',
+    //     '/dashboard/statistics',
+    //     '/dashboard/notifications'
+    // ];
 
     useEffect(() => {
         const previousPath = sessionStorage.getItem('previousPath');
@@ -38,16 +39,7 @@ export default function PageTracking(
             setSearchInput("");
             setSelectedCategory(null);
             setSelectedLevel("");
-
         }
-
-
-        // if (previousPath === '/' && subPages.includes(location.pathname)) {
-        //     console.log("Page Tracking activated / to subpages");
-        //     console.log(`Navigated from Page ${previousPath} to ${location.pathname}`);
-
-        //     setNoMatch(false);
-        // }
 
     }, [location]);
 
