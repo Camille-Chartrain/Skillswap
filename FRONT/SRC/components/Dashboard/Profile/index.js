@@ -1,14 +1,10 @@
 import { React, useEffect } from "react";
 
-export default function Profile({ setDataCards }) {
+export default function Profile({ }) {
 
     useEffect(() => {
         console.log("dans le use effect de profil rest dataCards");
-        setDataCards({
-            rows: [],
-            count: 0,
-            resultCount: 0,
-        })
+
     }, []);
 
     return (

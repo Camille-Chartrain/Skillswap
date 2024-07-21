@@ -70,31 +70,19 @@ function App() {
                 />
                 <Route path="/dashboard"
                     element={<Dashboard
-                        selectedCategory={selectedCategory}
-                        setSelectedCategory={setSelectedCategory}
-                        selectedSubCategory={selectedSubCategory}
-                        setSelectedSubCategory={setSelectedSubCategory}
-                        selectedLevel={selectedLevel}
-                        setSelectedLevel={setSelectedLevel}
-                        searchInput={searchInput}
-                        setSearchInput={setSearchInput}
-                        // dataCards={dataCards}
-                        setDataCards={setDataCards}
-                        match={match}
-                        setMatch={setMatch}
-                        noMatch={noMatch}
-                        setNoMatch={setNoMatch}
-                        // loading={loading}
-                        setLoading={setLoading}
                         setLogged={setLogged}
                     />}
                 >
                     <Route path="/dashboard/results"
                         element={<Results
                             selectedCategory={selectedCategory}
+                            setSelectedCategory={setSelectedCategory}
                             selectedSubCategory={selectedSubCategory}
+                            setSelectedSubCategory={setSelectedSubCategory}
                             selectedLevel={selectedLevel}
+                            setSelectedLevel={setSelectedLevel}
                             searchInput={searchInput}
+                            setSearchInput={setSearchInput}
                             dataCards={dataCards}
                             setDataCards={setDataCards}
                             match={match}
@@ -108,23 +96,22 @@ function App() {
                     />
                     <Route path="/dashboard/profile"
                         element={<Profile
-                            setDataCards={setDataCards}
+
                         />}
                     />
                     <Route path="/dashboard/statistics"
                         element={<Statistics
-                            setDataCards={setDataCards}
+
                         />}
                     />
                     <Route path="/dashboard/notifications"
                         element={<Notifications
-                            setDataCards={setDataCards}
+
                         />}
                     />
                     <Route path="/dashboard/desk"
                         element={<Desk
-                            setDataCards={setDataCards}
-                            setNoMatch={setNoMatch}
+
                         />}
                     />
                 </Route>

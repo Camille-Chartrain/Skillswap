@@ -11,12 +11,13 @@ import verifyToken from './middlewares.js/verifyToken.js';
 import dashboardController from './controllers/dashboardController.js';
 import authSearch from './middlewares.js/authSearch.js';
 import adminController from './controllers/adminController.js';
+import isLogged from './middlewares.js/isLogged.js';
 
 
 const router = express.Router();
 
 // home search visitors
-router.get('/', homeController.home);
+router.get('/', isLogged, homeController.home);
 router.get('/searchVisitor/:input?/:level?/:category?/:subCategory?', authSearch, homeController.searchVisitor);
 
 // authorisations membre

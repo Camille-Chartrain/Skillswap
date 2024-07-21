@@ -18,6 +18,7 @@ export default function NavLogged({ setLogged }) {
             <Link to="/dashboard/statistics">Stats </Link>
             <Link to="/dashboard/profile">Profil </Link>
             <Link to="/dashboard/desk">bureau </Link>
+            <Link to="/dashboard/results">recherche </Link>
             <Logout
                 setLogged={setLogged}
             />

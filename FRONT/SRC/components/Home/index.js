@@ -3,6 +3,7 @@ import SearchBar from "../SearchBar";
 import Cards from "../Cards";
 import NavHome from "../NavHome";
 import NavLogged from "../dashboard/NavLogged";
+import Cookies from 'js-cookie';
 
 const Home = ({
     selectedCategory,
@@ -33,9 +34,22 @@ const Home = ({
         setLoading(true)
 
         try {
-            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`);
+
+            const token = Cookies.get('token');
+
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`, {
+                method: "get",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
 
             const dataCardsHome = await response.json();
+
+            console.log("dataCardsHome.isLogged", dataCardsHome.isLogged);
+            setLogged(dataCardsHome.isLogged);
+
             setDataCards(dataCardsHome);
             console.log("reponse dataCardsHome du get4courses page home", dataCardsHome);
             console.log("state dataCards", dataCards);
@@ -46,6 +60,8 @@ const Home = ({
             // setError("Votre demmande n'a pas ete prise en compte");
             // handleNotFoundError("Votre demande n'a pas ete prise en compte");
         }
+
+
     }
     useEffect(() => {
         Get4Courses();
@@ -57,7 +73,7 @@ const Home = ({
             {logged && <NavLogged
                 setLogged={setLogged} />}
             {!logged && <NavHome />}
-            <SearchBar
+            {!logged && <SearchBar
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
                 selectedSubCategory={selectedSubCategory}
@@ -75,7 +91,7 @@ const Home = ({
                 setLoading={setLoading}
                 setLogged={setLogged}
 
-            />
+            />}
             <article  >
                 <h1>SKILLSWAP </h1>
                 <span>Une plateforme d'échange et d’apprentissage qui permet de mettre en relation des personnes de tout âge et aux profils variés qui souhaitent apprendre ou partager leur compétence et leurs talents avec les autres.
@@ -90,7 +106,7 @@ const Home = ({
                 noMatch={noMatch}
                 loading={loading}
             />
-            {!loading && <p>Voir plus ICONE INSCRIPTION</p>}
+            {!loading && !logged && <p>Voir plus ICONE INSCRIPTION</p>}
         </>
     )
 

@@ -2,6 +2,7 @@ import { React, useEffect } from "react";
 import Cards from "../components/Cards";
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import SearchBar from "../components/SearchBar";
 
 
 export default function Results(
@@ -105,6 +106,23 @@ export default function Results(
 
     return (
         <div>
+            <SearchBar
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                selectedSubCategory={selectedSubCategory}
+                setSelectedSubCategory={setSelectedSubCategory}
+                selectedLevel={selectedLevel}
+                setSelectedLevel={setSelectedLevel}
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+                setDataCards={setDataCards}
+                match={match}
+                setMatch={setMatch}
+                noMatch={noMatch}
+                setNoMatch={setNoMatch}
+                setLoading={setLoading}
+                setLogged={setLogged} />
+
             <h2>Results</h2>
 
             <Cards

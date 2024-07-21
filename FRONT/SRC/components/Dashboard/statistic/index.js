@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
 
-export default function Statistics({ setDataCards }) {
+export default function Statistics({ }) {
 
     useEffect(() => {
-        setDataCards({
-            rows: [],
-            count: 0,
-            resultCount: 0,
-        })
+
     }, []);
 
     return (

@@ -42,12 +42,12 @@ export default function PageTracking(
         }
 
 
-        if (previousPath === '/' && subPages.includes(location.pathname)) {
-            console.log("Page Tracking activated / to subpages");
-            console.log(`Navigated from Page ${previousPath} to ${location.pathname}`);
+        // if (previousPath === '/' && subPages.includes(location.pathname)) {
+        //     console.log("Page Tracking activated / to subpages");
+        //     console.log(`Navigated from Page ${previousPath} to ${location.pathname}`);
 
-            setNoMatch(false);
-        }
+        //     setNoMatch(false);
+        // }
 
     }, [location]);
 

@@ -8,6 +8,19 @@ const homeController = {
 
     home: async function (req, res) {
         try {
+            console.log("req.user dans homeCOntroller home", req.user);
+
+            let isLogged = false;
+
+            if (!req.user) {
+                console.log("pas de req.user");
+                isLogged = false;
+            }
+            else if (req.user) {
+                console.log("il y a un req.user", req.user);
+                isLogged = true;
+            }
+
 
             // takes list of skill with a method in class Skill
             const { count, rows } = await Skill.findAndCountAll({
@@ -29,12 +42,13 @@ const homeController = {
             console.log("count", count);
             const resultCount = rows.length;
             console.log(resultCount);
-            console.log("les skills avec rows:::::::::::::::::::::::::::::::::::", rows);
+            // console.log("les skills avec rows:::::::::::::::::::::::::::::::::::", rows);
             res.send(
                 {
                     rows,
                     count,
-                    resultCount
+                    resultCount,
+                    isLogged
                 }
             );
         } catch (error) {
@@ -163,13 +177,6 @@ const homeController = {
                 ],
                 // required: true,
             });
-
-
-            // if (!rows || rows.length === 0) {
-            //     console.log('no match');
-            //     res.status(200).json('no match');
-            //     return;
-            // }
 
             if (!rows || rows.length === 0) {
                 console.log('no match');

@@ -44,9 +44,15 @@ export default function Categories({ selectedCategory, setSelectedCategory }) {
     return (
         <select onChange={handleCategoryChange}>
             <option value="">catégorie</option>
+            <option value={selectedCategory}></option>
             {
                 categories && categories.length > 0 && categories.map((category) => (
-                    <option key={category.id} value={category.id}>{category.name}</option>
+                    <option
+                        key={category.id}
+                        value={category.id}
+                    >
+                        {category.name}
+                    </option>
                 ))
             }
         </select >

@@ -1,14 +1,10 @@
 import React, { useEffect } from "react";
 
 
-export default function Notifications({ setDataCards }) {
+export default function Notifications({ }) {
 
     useEffect(() => {
-        setDataCards({
-            rows: [],
-            count: 0,
-            resultCount: 0,
-        })
+
     }, []);
 
     return (
