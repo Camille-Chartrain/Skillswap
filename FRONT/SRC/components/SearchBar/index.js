@@ -71,7 +71,7 @@ export default function SearchBar({
                 }
                 else if (responseDataSearch.isLogged === true) {
                     setLogged(true);
-                    navigate('/dashboard');
+                    navigate('/dashboard.results');
                 }
             }
             else if (responseDataSearch) {
@@ -88,7 +88,7 @@ export default function SearchBar({
                 }
                 else if (responseDataSearch.isLogged === true) {
                     setLogged(true);
-                    navigate('/dashboard');
+                    navigate('/dashboard/results');
                 }
 
                 // console.log("MATCH State dataSearch", dataSearch);

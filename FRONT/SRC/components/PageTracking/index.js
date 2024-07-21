@@ -9,7 +9,8 @@ export default function PageTracking(
         setSearchInput,
         setSelectedLevel,
         setDataCards,
-        setNoMatch
+        setNoMatch,
+        // setGetData
     }
 ) {
 
@@ -29,7 +30,7 @@ export default function PageTracking(
         console.log('Current path:', location.pathname);
 
         // Logique pour déclencher des comportements différents en fonction de la provenance
-        if (previousPath === '/login' && location.pathname === '/dashboard') {
+        if (previousPath === '/login' && location.pathname === '/dashboard/results') {
 
             console.log('Navigated from Page login to Page dashboard');
             // state to null so db send us all the courses available on the website
@@ -37,6 +38,7 @@ export default function PageTracking(
             setSearchInput("");
             setSelectedCategory(null);
             setSelectedLevel("");
+
         }
 
 
@@ -53,6 +55,6 @@ export default function PageTracking(
 
     }, [location]);
 
-    return null; // Ce hook n'a pas besoin de retourner quoi que ce soit pour l'UI
+    return null;
 }
 

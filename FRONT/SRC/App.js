@@ -10,6 +10,7 @@ import Registration from "./components/Registration";
 import Login from "./components/Login";
 import Admin from "./components/Admin";
 import PageTracking from "./components/PageTracking";
+import Results from "./Results";
 
 
 
@@ -77,17 +78,34 @@ function App() {
                         setSelectedLevel={setSelectedLevel}
                         searchInput={searchInput}
                         setSearchInput={setSearchInput}
-                        dataCards={dataCards}
+                        // dataCards={dataCards}
                         setDataCards={setDataCards}
                         match={match}
                         setMatch={setMatch}
                         noMatch={noMatch}
                         setNoMatch={setNoMatch}
-                        loading={loading}
+                        // loading={loading}
                         setLoading={setLoading}
                         setLogged={setLogged}
                     />}
                 >
+                    <Route path="/dashboard/results"
+                        element={<Results
+                            selectedCategory={selectedCategory}
+                            selectedSubCategory={selectedSubCategory}
+                            selectedLevel={selectedLevel}
+                            searchInput={searchInput}
+                            dataCards={dataCards}
+                            setDataCards={setDataCards}
+                            match={match}
+                            setMatch={setMatch}
+                            noMatch={noMatch}
+                            setNoMatch={setNoMatch}
+                            loading={loading}
+                            setLoading={setLoading}
+                            setLogged={setLogged}
+                        />}
+                    />
                     <Route path="/dashboard/profile"
                         element={<Profile
                             setDataCards={setDataCards}

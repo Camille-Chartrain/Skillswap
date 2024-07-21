@@ -51,7 +51,7 @@ export default function Login({ setNoMatch, setDataCards }) {
                     navigate("/admin");
                 }
                 else {
-                    navigate("/dashboard");
+                    navigate("/dashboard/results");
                 }
 
             }
@@ -62,7 +62,7 @@ export default function Login({ setNoMatch, setDataCards }) {
                     navigate("/admin");
                 }
                 else {
-                    navigate("/dashboard");
+                    navigate("/dashboard/results");
                 }
             }
         }

@@ -5731,6 +5731,8 @@ var _admin = require("./components/Admin");
 var _adminDefault = parcelHelpers.interopDefault(_admin);
 var _pageTracking = require("./components/PageTracking");
 var _pageTrackingDefault = parcelHelpers.interopDefault(_pageTracking);
+var _results = require("./Results");
+var _resultsDefault = parcelHelpers.interopDefault(_results);
 var _s = $RefreshSig$();
 function App() {
     _s();
@@ -5760,7 +5762,7 @@ function App() {
                 setNoMatch: setNoMatch
             }, void 0, false, {
                 fileName: "SRC/App.js",
-                lineNumber: 38,
+                lineNumber: 39,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
@@ -5788,12 +5790,12 @@ function App() {
                             setLogged: setLogged
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 49,
+                            lineNumber: 50,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 48,
+                        lineNumber: 49,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5807,33 +5809,59 @@ function App() {
                             setSelectedLevel: setSelectedLevel,
                             searchInput: searchInput,
                             setSearchInput: setSearchInput,
-                            dataCards: dataCards,
+                            // dataCards={dataCards}
                             setDataCards: setDataCards,
                             match: match,
                             setMatch: setMatch,
                             noMatch: noMatch,
                             setNoMatch: setNoMatch,
-                            loading: loading,
+                            // loading={loading}
                             setLoading: setLoading,
                             setLogged: setLogged
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 71,
+                            lineNumber: 72,
                             columnNumber: 30
                         }, void 0),
                         children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/dashboard/results",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _resultsDefault.default), {
+                                    selectedCategory: selectedCategory,
+                                    selectedSubCategory: selectedSubCategory,
+                                    selectedLevel: selectedLevel,
+                                    searchInput: searchInput,
+                                    dataCards: dataCards,
+                                    setDataCards: setDataCards,
+                                    match: match,
+                                    setMatch: setMatch,
+                                    noMatch: noMatch,
+                                    setNoMatch: setNoMatch,
+                                    loading: loading,
+                                    setLoading: setLoading,
+                                    setLogged: setLogged
+                                }, void 0, false, {
+                                    fileName: "SRC/App.js",
+                                    lineNumber: 93,
+                                    columnNumber: 34
+                                }, void 0)
+                            }, void 0, false, {
+                                fileName: "SRC/App.js",
+                                lineNumber: 92,
+                                columnNumber: 21
+                            }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                 path: "/dashboard/profile",
                                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileDefault.default), {
                                     setDataCards: setDataCards
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 92,
+                                    lineNumber: 110,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 91,
+                                lineNumber: 109,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5842,12 +5870,12 @@ function App() {
                                     setDataCards: setDataCards
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 97,
+                                    lineNumber: 115,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 96,
+                                lineNumber: 114,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5856,12 +5884,12 @@ function App() {
                                     setDataCards: setDataCards
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 102,
+                                    lineNumber: 120,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 101,
+                                lineNumber: 119,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5871,30 +5899,30 @@ function App() {
                                     setNoMatch: setNoMatch
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 107,
+                                    lineNumber: 125,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 106,
+                                lineNumber: 124,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "SRC/App.js",
-                        lineNumber: 70,
+                        lineNumber: 71,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/registration",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 115,
+                            lineNumber: 133,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 114,
+                        lineNumber: 132,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5904,36 +5932,36 @@ function App() {
                             setDataCards: setDataCards
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 118,
+                            lineNumber: 136,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 117,
+                        lineNumber: 135,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/admin",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 123,
+                            lineNumber: 141,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 122,
+                        lineNumber: 140,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/App.js",
-                lineNumber: 46,
+                lineNumber: 47,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/App.js",
-        lineNumber: 37,
+        lineNumber: 38,
         columnNumber: 9
     }, this);
 }
@@ -5948,7 +5976,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./components/Notification":"4Kn7L","./components/Desk":"9q5wF","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Dashboard":"7KL8w","./components/Home":"ggupi","./components/statistic":"gPcum","./components/Admin":"78PF1","./components/Profile":"9xfWJ","./components/PageTracking":"bO3q7"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./components/Notification":"4Kn7L","./components/Desk":"9q5wF","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Dashboard":"7KL8w","./components/Home":"ggupi","./components/statistic":"gPcum","./components/Admin":"78PF1","./components/Profile":"9xfWJ","./components/PageTracking":"bO3q7","./Results":"lUyxf"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.25.1
  *
@@ -35216,13 +35244,13 @@ function Login({ setNoMatch, setDataCards }) {
                 if (dataIsLogged.role === "admin") {
                     console.log("dataIsLogged.role", dataIsLogged.role);
                     navigate("/admin");
-                } else navigate("/dashboard");
+                } else navigate("/dashboard/results");
             } else if (dataIsLogged.message === "token valid\xe9") {
                 console.log("redirection vers dashboard ou admin sans nouveau token");
                 if (dataIsLogged.role === "admin") {
                     console.log("dataIsLogged.role", dataIsLogged.role);
                     navigate("/admin");
-                } else navigate("/dashboard");
+                } else navigate("/dashboard/results");
             }
         } catch (error) {
             console.log("erreur: ", error);
@@ -35356,65 +35384,71 @@ var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged }) {
     _s();
-    const navigate = (0, _reactRouterDom.useNavigate)();
-    async function getData() {
-        try {
-            console.log("d\xe9clenchement fonction getData comp Dashboard");
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectedLevel);
-            const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
-                method: "get",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            const responseDataSearch = await response.json();
-            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
-            console.log("typeof responseDataSearch", typeof responseDataSearch);
-            if (responseDataSearch.error === "Token invalide") navigate("/login");
-            if (responseDataSearch.message === "no match") {
-                setMatch(false);
-                setNoMatch(true);
-                setLoading(false);
-                console.log("NO MATCH state match dans Search", match);
-                console.log("NOT MATCH state noMatch dans Search", noMatch);
-                if (responseDataSearch.isLogged === false) {
-                    setLogged(false);
-                    navigate("/");
-                } else if (responseDataSearch.isLogged === true) {
-                    setLogged(true);
-                    navigate("/dashboard");
-                }
-            } else if (responseDataSearch) {
-                console.log("on est dans la condition il y a match");
-                console.log("responseDataseaarch", responseDataSearch);
-                setDataCards(responseDataSearch);
-                setMatch(true);
-                setNoMatch(false);
-                setLoading(false);
-                if (responseDataSearch.isLogged === false) {
-                    setLogged(false);
-                    navigate("/");
-                } else if (responseDataSearch.isLogged === true) {
-                    setLogged(true);
-                    navigate("/dashboard");
-                }
-            // console.log("MATCH State dataSearch", dataSearch);
-            // console.log("MATCH state Match dans Search", match);
-            // console.log("MATCH state noMatch dans Search", noMatch);
-            }
-        } catch (error) {
-            console.log("erreur du catch GetSearch:", error);
-        // setError("Votre recherche n'aq pas pu aboutir");
-        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
-        }
-    }
+    // const navigate = useNavigate();
+    // async function getData() {
+    //     try {
+    //         console.log("déclenchement fonction getData comp Dashboard");
+    //         console.log("selectedCategory dans try", selectedCategory);
+    //         console.log("selectedSubCategory dans try", selectedSubCategory);
+    //         console.log("selectLevel dans try", selectedLevel);
+    //         const token = Cookies.get('token');
+    //         const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+    //             method: "get",
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': `Bearer ${token}`,
+    //             },
+    //         });
+    //         const responseDataSearch = await response.json();
+    //         console.log("reponse GetSearch responseDataSearch", responseDataSearch)
+    //         console.log("typeof responseDataSearch", typeof responseDataSearch);
+    //         if (responseDataSearch.error === "Token invalide") {
+    //             navigate('/login')
+    //         }
+    //         if (responseDataSearch.message === "no match") {
+    //             setMatch(false);
+    //             setNoMatch(true);
+    //             setLoading(false);
+    //             console.log("NO MATCH state match dans Search", match);
+    //             console.log("NOT MATCH state noMatch dans Search", noMatch);
+    //             if (responseDataSearch.isLogged === false) {
+    //                 setLogged(false);
+    //                 navigate('/');
+    //             }
+    //             else if (responseDataSearch.isLogged === true) {
+    //                 setLogged(true);
+    //                 navigate('/dashboard');
+    //             }
+    //         }
+    //         else if (responseDataSearch) {
+    //             console.log("on est dans la condition il y a match");
+    //             console.log("responseDataseaarch", responseDataSearch);
+    //             setDataCards(responseDataSearch);
+    //             setMatch(true);
+    //             setNoMatch(false);
+    //             setLoading(false);
+    //             if (responseDataSearch.isLogged === false) {
+    //                 setLogged(false);
+    //                 navigate('/');
+    //             }
+    //             else if (responseDataSearch.isLogged === true) {
+    //                 setLogged(true);
+    //                 navigate('/dashboard');
+    //             }
+    //             // console.log("MATCH State dataSearch", dataSearch);
+    //             // console.log("MATCH state Match dans Search", match);
+    //             // console.log("MATCH state noMatch dans Search", noMatch);
+    //         };
+    //     }
+    //     catch (error) {
+    //         console.log('erreur du catch GetSearch:', error);
+    //         // setError("Votre recherche n'aq pas pu aboutir");
+    //         // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+    //     }
+    // }
     (0, _react.useEffect)(()=>{
         setLogged(true);
-        getData();
+    // getData();
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -35452,16 +35486,6 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 fileName: "SRC/components/Dashboard/index.js",
                 lineNumber: 116,
                 columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
-                dataCards: dataCards,
-                match: match,
-                noMatch: noMatch,
-                loading: loading
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 133,
-                columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
@@ -35470,11 +35494,7 @@ function Dashboard({ selectedCategory, setSelectedCategory, selectedSubCategory,
         columnNumber: 9
     }, this);
 }
-_s(Dashboard, "0pNeyzXk/ByIxyERsdaIrG6js9s=", false, function() {
-    return [
-        (0, _reactRouterDom.useNavigate)
-    ];
-});
+_s(Dashboard, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = Dashboard;
 var _c;
 $RefreshReg$(_c, "Dashboard");
@@ -35704,7 +35724,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                     navigate("/");
                 } else if (responseDataSearch.isLogged === true) {
                     setLogged(true);
-                    navigate("/dashboard");
+                    navigate("/dashboard.results");
                 }
             } else if (responseDataSearch) {
                 console.log("on est dans la condition il y a match");
@@ -35718,7 +35738,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                     navigate("/");
                 } else if (responseDataSearch.isLogged === true) {
                     setLogged(true);
-                    navigate("/dashboard");
+                    navigate("/dashboard/results");
                 }
             // console.log("MATCH State dataSearch", dataSearch);
             // console.log("MATCH state Match dans Search", match);
@@ -36545,7 +36565,7 @@ function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchIn
         console.log("Previous path:", previousPath);
         console.log("Current path:", location.pathname);
         // Logique pour déclencher des comportements différents en fonction de la provenance
-        if (previousPath === "/login" && location.pathname === "/dashboard") {
+        if (previousPath === "/login" && location.pathname === "/dashboard/results") {
             console.log("Navigated from Page login to Page dashboard");
             // state to null so db send us all the courses available on the website
             setSelectedSubCategory(null);
@@ -36566,7 +36586,7 @@ function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchIn
     }, [
         location
     ]);
-    return null; // Ce hook n'a pas besoin de retourner quoi que ce soit pour l'UI
+    return null;
 }
 _s(PageTracking, "BXcZrDMM76mmm4zA8/QV5UbMNXE=", false, function() {
     return [
@@ -36582,7 +36602,121 @@ $RefreshReg$(_c, "PageTracking");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
+},{"react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lUyxf":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b73c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b73c.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Results);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _cards = require("../components/Cards");
+var _cardsDefault = parcelHelpers.interopDefault(_cards);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged }) {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    async function getData() {
+        try {
+            console.log("d\xe9clenchement fonction getData comp Dashboard");
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
+            console.log("selectLevel dans try", selectedLevel);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const responseDataSearch = await response.json();
+            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
+            console.log("typeof responseDataSearch", typeof responseDataSearch);
+            if (responseDataSearch.error === "Token invalide") navigate("/login");
+            if (responseDataSearch.message === "no match") {
+                setMatch(false);
+                setNoMatch(true);
+                setLoading(false);
+                console.log("NO MATCH state match dans Search", match);
+                console.log("NOT MATCH state noMatch dans Search", noMatch);
+                if (responseDataSearch.isLogged === false) {
+                    setLogged(false);
+                    navigate("/");
+                } else if (responseDataSearch.isLogged === true) setLogged(true);
+            } else if (responseDataSearch) {
+                console.log("on est dans la condition il y a match");
+                console.log("responseDataseaarch", responseDataSearch);
+                setDataCards(responseDataSearch);
+                setMatch(true);
+                setNoMatch(false);
+                setLoading(false);
+                if (responseDataSearch.isLogged === false) {
+                    setLogged(false);
+                    navigate("/");
+                } else if (responseDataSearch.isLogged === true) setLogged(true);
+            // console.log("MATCH State dataSearch", dataSearch);
+            // console.log("MATCH state Match dans Search", match);
+            // console.log("MATCH state noMatch dans Search", noMatch);
+            }
+        } catch (error) {
+            console.log("erreur du catch GetSearch:", error);
+        // setError("Votre recherche n'aq pas pu aboutir");
+        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+        }
+    }
+    (0, _react.useEffect)(()=>{
+        setLogged(true);
+        getData();
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Results"
+            }, void 0, false, {
+                fileName: "SRC/Results/index.js",
+                lineNumber: 110,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
+                dataCards: dataCards,
+                match: match,
+                noMatch: noMatch,
+                loading: loading
+            }, void 0, false, {
+                fileName: "SRC/Results/index.js",
+                lineNumber: 112,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "SRC/Results/index.js",
+        lineNumber: 109,
+        columnNumber: 9
+    }, this);
+}
+_s(Results, "0pNeyzXk/ByIxyERsdaIrG6js9s=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = Results;
+var _c;
+$RefreshReg$(_c, "Results");
+
+  $parcel$ReactRefreshHelpers$b73c.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../components/Cards":"jUXwJ"}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("aaccff5d309d9239");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
