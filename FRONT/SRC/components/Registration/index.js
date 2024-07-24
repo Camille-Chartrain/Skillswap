@@ -107,7 +107,8 @@ export default function Registration() {
                         id="firstname"
                         name="firstname"
                         maxLength="50"
-                        required />
+                        required
+                    />
 
                     <label htmlFor="lastname">Nom * :</label>
                     <input
@@ -115,14 +116,16 @@ export default function Registration() {
                         id="lastname"
                         name="lastname"
                         maxLength="100"
-                        required />
+                        required
+                    />
 
                     <label htmlFor="email">Email * :</label>
                     <input type="email"
                         id="email"
                         name="email"
                         maxLength="254"
-                        required />
+                        required
+                    />
 
                     <PasswordInput />
 

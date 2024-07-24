@@ -62,11 +62,11 @@ export default function SearchBar({
                 console.log("NO MATCH state match dans Search", match);
                 console.log("NOT MATCH state noMatch dans Search", noMatch);
 
-                if (responseDataSearch.isLogged === false) {
+                if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate('/');
                 }
-                else if (responseDataSearch.isLogged === true) {
+                else if (responseDataSearch.isLogged) {
                     setLogged(true);
                     navigate('/dashboard/results');
                 }
@@ -79,11 +79,11 @@ export default function SearchBar({
                 setNoMatch(false);
                 setLoading(false);
 
-                if (responseDataSearch.isLogged === false) {
+                if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate('/');
                 }
-                else if (responseDataSearch.isLogged === true) {
+                else if (responseDataSearch.isLogged) {
                     setLogged(true);
                     navigate('/dashboard/results');
                 };

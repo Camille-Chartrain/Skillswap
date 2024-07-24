@@ -96,21 +96,29 @@ function App() {
                     />
                     <Route path="/dashboard/profile"
                         element={<Profile
+                            loading={loading}
+                            setLoading={setLoading}
 
                         />}
                     />
                     <Route path="/dashboard/statistics"
                         element={<Statistics
+                            loading={loading}
+                            setLoading={setLoading}
 
                         />}
                     />
                     <Route path="/dashboard/notifications"
                         element={<Notifications
+                            loading={loading}
+                            setLoading={setLoading}
 
                         />}
                     />
                     <Route path="/dashboard/desk"
                         element={<Desk
+                            loading={loading}
+                            setLoading={setLoading}
 
                         />}
                     />

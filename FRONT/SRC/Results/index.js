@@ -37,6 +37,7 @@ export default function Results(
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
             console.log("selectLevel dans try", selectedLevel);
+            console.log("searchInput dans try", searchInput);
 
             const token = Cookies.get('token');
 

@@ -5840,7 +5840,10 @@ function App() {
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                 path: "/dashboard/profile",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileDefault.default), {}, void 0, false, {
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileDefault.default), {
+                                    loading: loading,
+                                    setLoading: setLoading
+                                }, void 0, false, {
                                     fileName: "SRC/App.js",
                                     lineNumber: 98,
                                     columnNumber: 34
@@ -5852,38 +5855,47 @@ function App() {
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                 path: "/dashboard/statistics",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statisticDefault.default), {}, void 0, false, {
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statisticDefault.default), {
+                                    loading: loading,
+                                    setLoading: setLoading
+                                }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 103,
+                                    lineNumber: 105,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 102,
+                                lineNumber: 104,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                 path: "/dashboard/notifications",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _notificationDefault.default), {}, void 0, false, {
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _notificationDefault.default), {
+                                    loading: loading,
+                                    setLoading: setLoading
+                                }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 108,
+                                    lineNumber: 112,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 107,
+                                lineNumber: 111,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                 path: "/dashboard/desk",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deskDefault.default), {}, void 0, false, {
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deskDefault.default), {
+                                    loading: loading,
+                                    setLoading: setLoading
+                                }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 113,
+                                    lineNumber: 119,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 112,
+                                lineNumber: 118,
                                 columnNumber: 21
                             }, this)
                         ]
@@ -5896,12 +5908,12 @@ function App() {
                         path: "/registration",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 120,
+                            lineNumber: 128,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 119,
+                        lineNumber: 127,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5911,24 +5923,24 @@ function App() {
                             setDataCards: setDataCards
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 123,
+                            lineNumber: 131,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 122,
+                        lineNumber: 130,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/admin",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 128,
+                            lineNumber: 136,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 127,
+                        lineNumber: 135,
                         columnNumber: 17
                     }, this)
                 ]
@@ -34829,7 +34841,7 @@ function Registration() {
                                 children: "Nom * :"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 112,
+                                lineNumber: 113,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34840,7 +34852,7 @@ function Registration() {
                                 required: true
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 113,
+                                lineNumber: 114,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -34848,7 +34860,7 @@ function Registration() {
                                 children: "Email * :"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 120,
+                                lineNumber: 122,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -34859,12 +34871,12 @@ function Registration() {
                                 required: true
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 121,
+                                lineNumber: 123,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _passwordInputDefault.default), {}, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 127,
+                                lineNumber: 130,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34872,7 +34884,7 @@ function Registration() {
                                 children: "Envoyer"
                             }, void 0, false, {
                                 fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 129,
+                                lineNumber: 132,
                                 columnNumber: 21
                             }, this)
                         ]
@@ -34885,7 +34897,7 @@ function Registration() {
                         children: "J'ai d\xe9j\xe0 un compte"
                     }, void 0, false, {
                         fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 132,
+                        lineNumber: 135,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34894,7 +34906,7 @@ function Registration() {
                         children: "Me connecter"
                     }, void 0, false, {
                         fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 133,
+                        lineNumber: 136,
                         columnNumber: 17
                     }, this)
                 ]
@@ -36065,10 +36077,10 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setLoading(false);
                 console.log("NO MATCH state match dans Search", match);
                 console.log("NOT MATCH state noMatch dans Search", noMatch);
-                if (responseDataSearch.isLogged === false) {
+                if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate("/");
-                } else if (responseDataSearch.isLogged === true) {
+                } else if (responseDataSearch.isLogged) {
                     setLogged(true);
                     navigate("/dashboard/results");
                 }
@@ -36079,10 +36091,10 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 setMatch(true);
                 setNoMatch(false);
                 setLoading(false);
-                if (responseDataSearch.isLogged === false) {
+                if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate("/");
-                } else if (responseDataSearch.isLogged === true) {
+                } else if (responseDataSearch.isLogged) {
                     setLogged(true);
                     navigate("/dashboard/results");
                 }
@@ -36658,6 +36670,7 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
             console.log("selectedCategory dans try", selectedCategory);
             console.log("selectedSubCategory dans try", selectedSubCategory);
             console.log("selectLevel dans try", selectedLevel);
+            console.log("searchInput dans try", searchInput);
             const token = (0, _jsCookieDefault.default).get("token");
             const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
                 method: "get",
@@ -36724,14 +36737,14 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 setLogged: setLogged
             }, void 0, false, {
                 fileName: "SRC/Results/index.js",
-                lineNumber: 108,
+                lineNumber: 109,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: "Results"
             }, void 0, false, {
                 fileName: "SRC/Results/index.js",
-                lineNumber: 125,
+                lineNumber: 126,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
@@ -36741,13 +36754,13 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 loading: loading
             }, void 0, false, {
                 fileName: "SRC/Results/index.js",
-                lineNumber: 127,
+                lineNumber: 128,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/Results/index.js",
-        lineNumber: 107,
+        lineNumber: 108,
         columnNumber: 9
     }, this);
 }
@@ -36777,27 +36790,287 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>Profile);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
-function Profile({}) {
+function Profile({ loading, setLoading }) {
     _s();
+    const [dataProfile, setDataProfile] = (0, _react.useState)({
+        firstname: "",
+        lastname: "",
+        birthday: "",
+        grade_level: "",
+        presentation: "",
+        Categories: []
+    });
+    async function getProfile() {
+        try {
+            setLoading(true);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/profile`, {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            // console.log("response avant .json", response);
+            const profileResponse = await response.json();
+            console.log("response apres .json:", profileResponse);
+            setDataProfile(profileResponse);
+            console.log("donnees profile data du state:", dataProfile);
+            setLoading(false);
+            // //= to transform us'date into french's date
+            const dateUs = dataProfile.birthday;
+            const dateObj = new Date(dateUs);
+            const dateFr = dateObj.toLocaleDateString("fr-FR");
+        // console.log("date en francais:", dateFr);
+        } catch (error) {
+            console.error("error catch:", error.message);
+        // setError("Erreur lors de la recuperation des donnees");
+        // handleNotFoundError("Erreur lors de la recuperation des donnees");
+        }
+    }
+    async function handleSubmit() {
+        console.log("dans le handlesubmit");
+    }
     (0, _react.useEffect)(()=>{
-        console.log("dans le use effect de profil rest dataCards");
+        console.log("dans le use effect de profil");
+        getProfile();
     }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Profil"
-        }, void 0, false, {
-            fileName: "SRC/components/Dashboard/Profile/index.js",
-            lineNumber: 12,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+        method: "POST",
+        onSubmit: handleSubmit,
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    children: "Modifier votre profil"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/index.js",
+                    lineNumber: 65,
+                    columnNumber: 21
+                }, this)
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 65,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "firstname",
+                children: "Pr\xe9nom* :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 67,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                id: "firstname",
+                type: "text",
+                name: "firstname",
+                value: dataProfile && dataProfile.firstname,
+                size: "25",
+                required: true
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 68,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "lastname",
+                children: "Nom* :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 77,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                id: "lastname",
+                type: "text",
+                name: "lastname",
+                value: dataProfile && dataProfile.lastname,
+                size: "25",
+                required: true
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 78,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "birthday",
+                children: "Date de naissance :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 86,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                id: "birthday",
+                type: "date",
+                name: "birthday",
+                value: dataProfile && dataProfile.birthday,
+                size: "25"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 87,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "grade_level",
+                children: "Niveau d'etude :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 95,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                id: "grade_level",
+                type: "text",
+                name: "grade_level",
+                value: dataProfile && dataProfile.grade_level,
+                size: "25"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 96,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "presentation",
+                children: "Presentez vous :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 104,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                id: "presentation",
+                name: "presentation",
+                value: dataProfile && dataProfile.presentation,
+                rows: "5",
+                cols: "33"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 105,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "Centres d'int\xe9r\xeats :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 113,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "checkbox",
+                        value: "apple",
+                        // onChange={handleCheckboxChange}
+                        checked: selectedFruits.includes("apple")
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/index.js",
+                        lineNumber: 115,
+                        columnNumber: 17
+                    }, this),
+                    " Pomme"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 114,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "checkbox",
+                        value: "banana",
+                        // onChange={handleCheckboxChange}
+                        checked: selectedFruits.includes("banana")
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/index.js",
+                        lineNumber: 123,
+                        columnNumber: 17
+                    }, this),
+                    " Banane"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 122,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "checkbox",
+                        value: "cherry",
+                        // onChange={handleCheckboxChange}
+                        checked: selectedFruits.includes("cherry")
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/index.js",
+                        lineNumber: 131,
+                        columnNumber: 17
+                    }, this),
+                    " Cerise"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 130,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "checkbox",
+                        value: "date",
+                        // onChange={handleCheckboxChange}
+                        checked: selectedFruits.includes("date")
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/index.js",
+                        lineNumber: 139,
+                        columnNumber: 17
+                    }, this),
+                    " Date"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 138,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "checkbox",
+                        value: "fig",
+                        // onChange={handleCheckboxChange}
+                        checked: selectedFruits.includes("fig")
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/index.js",
+                        lineNumber: 147,
+                        columnNumber: 17
+                    }, this),
+                    " Figue"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 146,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                type: "submit",
+                children: "Envoyer"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 155,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "SRC/components/Dashboard/Profile/index.js",
-        lineNumber: 11,
+        lineNumber: 61,
         columnNumber: 9
     }, this);
 }
-_s(Profile, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_s(Profile, "kRoJYuf1uA9Z+AmyqjXS8FgPKok=");
 _c = Profile;
 var _c;
 $RefreshReg$(_c, "Profile");
@@ -36807,7 +37080,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"amOpm":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","js-cookie":"c8bBu","react-router-dom":"9xmpe"}],"amOpm":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d953 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
