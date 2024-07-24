@@ -20,7 +20,7 @@ const profileController = {
                 // }], //apparently no nedd to include the liaison table sequelize does it on its own
                 include: [{
                     model: Category, // Table to join
-                    attributes: ['name'] // Select specified attributs of the table Commande
+                    attributes: ['name', "id"] // Select specified attributs of the table Commande
                 }],
             });
             if (profile === null) {
