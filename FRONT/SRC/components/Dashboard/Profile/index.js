@@ -1,11 +1,10 @@
-import { React, useEffect, useState } from "react";
-import handleSubmitPatchProfile from "./patchProfile";
-import CategoriesCheckboxes from "./CategoriesCheckboxes";
-import DataProfile from "./DataProfile";
+import { React, useState } from "react";
+import ProfilePatch from "./ProfilePatch";
+import SkillPatch from "./SkillPatch";
 
 
 
-export default function Profile({ loading, setLoading }) {
+export default function ProfilePatch({ loading, setLoading }) {
 
     const [dataProfile, setDataProfile] = useState({
         firstname: '',
@@ -19,19 +18,12 @@ export default function Profile({ loading, setLoading }) {
     const [selectedCategories, setSelectedCategories] = useState([]);
 
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        await handleSubmitPatchProfile(dataProfile, selectedCategories);
-    };
-
-
     return (
-        <form method="POST"
-            onSubmit={handleSubmit}>
-
-            <legend><h3>Modifier votre profil</h3></legend>
-
-            <DataProfile
+        <>
+            <h2>
+                Profil
+            </h2>
+            <ProfilePatch
                 selectedCategories={selectedCategories}
                 setSelectedCategories={setSelectedCategories}
                 loading={loading}
@@ -40,16 +32,7 @@ export default function Profile({ loading, setLoading }) {
                 setDataProfile={setDataProfile}
             />
 
-            <CategoriesCheckboxes
-                selectedCategories={selectedCategories}
-                setSelectedCategories={setSelectedCategories}
-                loading={loading}
-                setLoading={setLoading}
-            />
-
-            {loading && <p>chargement...</p>}
-
-            <button type="submit">Envoyer</button>
-        </form>
+            <SkillPatch />
+        </>
     )
 }
