@@ -4,7 +4,7 @@ import SkillPatch from "./SkillPatch";
 
 
 
-export default function ProfilePatch({ loading, setLoading }) {
+export default function Profile({ loading, setLoading }) {
 
     const [dataProfile, setDataProfile] = useState({
         firstname: '',
@@ -32,7 +32,10 @@ export default function ProfilePatch({ loading, setLoading }) {
                 setDataProfile={setDataProfile}
             />
 
-            <SkillPatch />
+            <SkillPatch
+                loading={loading}
+                setLoading={setLoading}
+            />
         </>
     )
 }

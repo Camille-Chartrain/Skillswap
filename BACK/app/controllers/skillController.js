@@ -9,10 +9,21 @@ const skillController = {
             const skill = await Skill.findAll({
                 where: {
                     UserId: req.user.id
-                }
+                },
+                include: [
+                    {
+                        model: Category,
+                        attributes: ['name', 'picture'],
+                    },
+                    {
+                        model: SubCategory,
+                        attributes: ['name'],
+                    }
+
+                ]
             });
             // console.log(skill);
-            if (skill === null) {
+            if (skill.length === 0) {
                 console.log('skills Not found!');
             }
             //send the answer to the front
