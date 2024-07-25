@@ -12,7 +12,7 @@ export default function CardsSkills({ loading, setLoading, skills }) {
 
         console.log('skill handlePatchSkill: ', skill)
 
-        navigate('/oneSkill/',
+        navigate('/dashboard/profile/modifSkill',
             {
                 state: { skill }
             })
@@ -20,7 +20,7 @@ export default function CardsSkills({ loading, setLoading, skills }) {
 
 
 
-    async function handleDeleteSkill() {
+    async function handleDeleteSkill(skill) {
         confirmAlert({
             title: 'Confirmation de suppression',
             message: 'Êtes-vous sûr de vouloir supprimer cette compétence ?',

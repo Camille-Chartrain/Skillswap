@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import Admin from "./components/Admin";
 import PageTracking from "./components/PageTracking";
 import Results from "./Results";
+import ModifSkill from "./components/Dashboard/Profile/modifSkill";
 
 
 
@@ -131,6 +132,14 @@ function App() {
                     element={<Login
                         setNoMatch={setNoMatch}
                         setDataCards={setDataCards} />}
+                />
+
+                <Route path="/dashboard/profile/modifSkill"
+                    element={<ModifSkill
+                        loading={loading}
+                        setLoading={setLoading}
+
+                    />}
                 />
                 <Route path="/admin"
                     element={<Admin />}
