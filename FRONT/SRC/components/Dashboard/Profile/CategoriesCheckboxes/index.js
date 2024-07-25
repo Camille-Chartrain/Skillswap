@@ -3,8 +3,15 @@ import Cookies from 'js-cookie';
 import { useEffect, useState } from "react";
 
 
-export default function CategoriesCheckboxes({ selectedCategories, setSelectedCategories }) {
+export default function CategoriesCheckboxes({
+    selectedCategories,
+    setSelectedCategories,
+    loading,
+    setLoading }) {
 
+
+    // pour récupérer toutes les choix de categories à cocher
+    // to catch all choices of category to check
     const [categories, setCategories] = useState([]);
 
 
@@ -22,6 +29,7 @@ export default function CategoriesCheckboxes({ selectedCategories, setSelectedCa
             const dataCategories = await response.json();
             setCategories(dataCategories);
             console.log("recup liste des cat après JSON:", dataCategories);
+            setLoading(false);
         }
         catch (error) {
             console.error("erreur lors de la récup des catégories:", error.message);
@@ -30,6 +38,7 @@ export default function CategoriesCheckboxes({ selectedCategories, setSelectedCa
         }
     }
 
+    // to put the selected categories on the state to send to the back
     const handleCheckboxChange = (event) => {
         const categoryId = parseInt(event.target.value, 10);
         setSelectedCategories((prevSelectedCategories) =>
@@ -44,21 +53,11 @@ export default function CategoriesCheckboxes({ selectedCategories, setSelectedCa
         getCategories();
     }, [])
 
-    // const handleCheckboxChange = (event) => {
-    //     console.log("Catégorie sélectionnée :", event.target.value);
-    //     // setSelectedCategory(event.target.value);
-    //     console.log("event.target :", event.target);
-    //     if (event.target == true) {
-    //         console.log('event target true');
-    //     }
-    //     if (event.target == false) {
-    //         console.log('event target true');
-    //     }
 
-    // };
 
     return (
         <>
+            {/* {loading && <p>chargement...</p>} */}
             {categories && categories.length > 0 && categories.map((category) => {
                 console.log('Category ID:', typeof category.id); // Log the ID
                 return (

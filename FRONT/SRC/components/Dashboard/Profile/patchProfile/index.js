@@ -7,7 +7,7 @@ export default async function handleSubmitPatchProfile(dataProfile, selectedCate
 
     const profileData = {
         ...dataProfile,
-        categories: selectedCategories,
+        Categories: selectedCategories,
     };
 
     console.log("profileData", profileData);
