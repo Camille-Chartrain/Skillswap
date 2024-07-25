@@ -35940,13 +35940,12 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>Profile);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _jsCookie = require("js-cookie");
-var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _reactRouterDom = require("react-router-dom");
 var _patchProfile = require("./patchProfile");
 var _patchProfileDefault = parcelHelpers.interopDefault(_patchProfile);
 var _categoriesCheckboxes = require("./CategoriesCheckboxes");
 var _categoriesCheckboxesDefault = parcelHelpers.interopDefault(_categoriesCheckboxes);
+var _dataProfile = require("./DataProfile");
+var _dataProfileDefault = parcelHelpers.interopDefault(_dataProfile);
 var _s = $RefreshSig$();
 function Profile({ loading, setLoading }) {
     _s();
@@ -35959,43 +35958,10 @@ function Profile({ loading, setLoading }) {
         Categories: []
     });
     const [selectedCategories, setSelectedCategories] = (0, _react.useState)([]);
-    async function getProfile() {
-        try {
-            setLoading(true);
-            const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/profile`, {
-                method: "get",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            const profileResponse = await response.json();
-            console.log("response apres .json:", profileResponse);
-            const categoryIds = profileResponse.Categories.map((category)=>category.id);
-            setDataProfile(profileResponse);
-            setSelectedCategories(categoryIds);
-            console.log("donnees profile data du state:", dataProfile);
-        } catch (error) {
-            console.error("error catch:", error.message);
-        }
-    }
-    const handleChange = (event)=>{
-        const { name, value } = event.target;
-        setDataProfile((prevData)=>({
-                ...prevData,
-                [name]: value
-            }));
-        console.log("input:", event.target.value);
-    };
     const handleSubmit = async (event)=>{
         event.preventDefault();
         await (0, _patchProfileDefault.default)(dataProfile, selectedCategories);
     };
-    (0, _react.useEffect)(()=>{
-        console.log("dans le use effect de profil");
-        getProfile();
-    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         method: "POST",
         onSubmit: handleSubmit,
@@ -36005,114 +35971,24 @@ function Profile({ loading, setLoading }) {
                     children: "Modifier votre profil"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/index.js",
-                    lineNumber: 73,
+                    lineNumber: 32,
                     columnNumber: 21
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 73,
+                lineNumber: 32,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                htmlFor: "firstname",
-                children: "Pr\xe9nom* :"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dataProfileDefault.default), {
+                selectedCategories: selectedCategories,
+                setSelectedCategories: setSelectedCategories,
+                loading: loading,
+                setLoading: setLoading,
+                dataProfile: dataProfile,
+                setDataProfile: setDataProfile
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 75,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                id: "firstname",
-                type: "text",
-                name: "firstname",
-                value: dataProfile.firstname || "",
-                size: "25",
-                required: true,
-                onChange: handleChange
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 76,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                htmlFor: "lastname",
-                children: "Nom* :"
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 86,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                id: "lastname",
-                type: "text",
-                name: "lastname",
-                value: dataProfile.lastname || "",
-                size: "25",
-                required: true,
-                onChange: handleChange
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 87,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                htmlFor: "birthday",
-                children: "Date de naissance :"
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 97,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                id: "birthday",
-                type: "date",
-                name: "birthday",
-                value: dataProfile.birthday || "",
-                size: "25",
-                onChange: handleChange
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 98,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                htmlFor: "grade_level",
-                children: "Niveau d'etude :"
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 107,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                id: "grade_level",
-                type: "text",
-                name: "grade_level",
-                value: dataProfile.grade_level || "",
-                size: "25",
-                onChange: handleChange
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 108,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                htmlFor: "presentation",
-                children: "Presentez vous :"
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 117,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                id: "presentation",
-                name: "presentation",
-                value: dataProfile.presentation || "",
-                rows: "5",
-                cols: "33",
-                onChange: handleChange
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 118,
+                lineNumber: 34,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesCheckboxesDefault.default), {
@@ -36122,14 +35998,14 @@ function Profile({ loading, setLoading }) {
                 setLoading: setLoading
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 128,
+                lineNumber: 43,
                 columnNumber: 13
             }, this),
             loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "chargement..."
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 134,
+                lineNumber: 50,
                 columnNumber: 25
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36137,17 +36013,17 @@ function Profile({ loading, setLoading }) {
                 children: "Envoyer"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 136,
+                lineNumber: 52,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Dashboard/Profile/index.js",
-        lineNumber: 70,
+        lineNumber: 29,
         columnNumber: 9
     }, this);
 }
-_s(Profile, "FlRqNSqXmhaTkEYDd3hvyCG/R/A=");
+_s(Profile, "847iKqYdZMhmILotAg+0VNRmX2c=");
 _c = Profile;
 var _c;
 $RefreshReg$(_c, "Profile");
@@ -36157,7 +36033,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","./patchProfile":"6QkDr","./CategoriesCheckboxes":"ki9FQ"}],"6QkDr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./patchProfile":"6QkDr","./CategoriesCheckboxes":"ki9FQ","./DataProfile":"61uYQ"}],"6QkDr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a1fa = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36296,6 +36172,173 @@ var _c;
 $RefreshReg$(_c, "CategoriesCheckboxes");
 
   $parcel$ReactRefreshHelpers$a0a4.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"61uYQ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b47f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b47f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>DataProfile);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _s = $RefreshSig$();
+function DataProfile({ setLoading, dataProfile, setDataProfile, setSelectedCategories }) {
+    _s();
+    async function getProfile() {
+        try {
+            setLoading(true);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/profile`, {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const profileResponse = await response.json();
+            console.log("response apres .json:", profileResponse);
+            const categoryIds = profileResponse.Categories.map((category)=>category.id);
+            setDataProfile(profileResponse);
+            setSelectedCategories(categoryIds);
+            console.log("donnees profile data du state:", dataProfile);
+        } catch (error) {
+            console.error("error catch:", error.message);
+        }
+    }
+    const handleChange = (event)=>{
+        const { name, value } = event.target;
+        setDataProfile((prevData)=>({
+                ...prevData,
+                [name]: value
+            }));
+        console.log("input:", event.target.value);
+    };
+    (0, _react.useEffect)(()=>{
+        console.log("dans le use effect de DataProfile");
+        getProfile();
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "firstname",
+                children: "Pr\xe9nom* :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/DataProfile/index.js",
+                lineNumber: 58,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                id: "firstname",
+                type: "text",
+                name: "firstname",
+                value: dataProfile.firstname || "",
+                size: "25",
+                required: true,
+                onChange: handleChange
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/DataProfile/index.js",
+                lineNumber: 59,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "lastname",
+                children: "Nom* :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/DataProfile/index.js",
+                lineNumber: 69,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                id: "lastname",
+                type: "text",
+                name: "lastname",
+                value: dataProfile.lastname || "",
+                size: "25",
+                required: true,
+                onChange: handleChange
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/DataProfile/index.js",
+                lineNumber: 70,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "birthday",
+                children: "Date de naissance :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/DataProfile/index.js",
+                lineNumber: 80,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                id: "birthday",
+                type: "date",
+                name: "birthday",
+                value: dataProfile.birthday || "",
+                size: "25",
+                onChange: handleChange
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/DataProfile/index.js",
+                lineNumber: 81,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "grade_level",
+                children: "Niveau d'etude :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/DataProfile/index.js",
+                lineNumber: 90,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                id: "grade_level",
+                type: "text",
+                name: "grade_level",
+                value: dataProfile.grade_level || "",
+                size: "25",
+                onChange: handleChange
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/DataProfile/index.js",
+                lineNumber: 91,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: "presentation",
+                children: "Presentez vous :"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/DataProfile/index.js",
+                lineNumber: 100,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                id: "presentation",
+                name: "presentation",
+                value: dataProfile.presentation || "",
+                rows: "5",
+                cols: "33",
+                onChange: handleChange
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/DataProfile/index.js",
+                lineNumber: 101,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true);
+}
+_s(DataProfile, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = DataProfile;
+var _c;
+$RefreshReg$(_c, "DataProfile");
+
+  $parcel$ReactRefreshHelpers$b47f.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
