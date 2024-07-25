@@ -1,14 +1,16 @@
 import React from "react";
 import Cookies from 'js-cookie';
 
-export default async function handleSubmitPatchProfile(event) {
+export default async function handleSubmitPatchProfile(dataProfile, selectedCategories) {
 
     console.log('envoi formulaire');
-    event.preventDefault();
 
-    const myFormData = new FormData(event.target);
-    const formDataEncoded = new URLSearchParams(myFormData);
-    console.log("formDataEncoded", formDataEncoded);
+    const profileData = {
+        ...dataProfile,
+        categories: selectedCategories,
+    };
+
+    console.log("profileData", profileData);
 
     try {
         const token = Cookies.get('token');
@@ -19,7 +21,7 @@ export default async function handleSubmitPatchProfile(event) {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
             },
-            body: JSON.stringify(formDataEncoded)
+            body: JSON.stringify(profileData)
             // credentials: 'include',
         })
 

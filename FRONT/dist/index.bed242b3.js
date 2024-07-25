@@ -35945,6 +35945,8 @@ var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _reactRouterDom = require("react-router-dom");
 var _patchProfile = require("./patchProfile");
 var _patchProfileDefault = parcelHelpers.interopDefault(_patchProfile);
+var _categoriesCheckboxes = require("./CategoriesCheckboxes");
+var _categoriesCheckboxesDefault = parcelHelpers.interopDefault(_categoriesCheckboxes);
 var _s = $RefreshSig$();
 function Profile({ loading, setLoading }) {
     _s();
@@ -35953,8 +35955,7 @@ function Profile({ loading, setLoading }) {
         lastname: "",
         birthday: "",
         grade_level: "",
-        presentation: "",
-        Categories: []
+        presentation: ""
     });
     const [selectedCategories, setSelectedCategories] = (0, _react.useState)([]);
     async function getProfile() {
@@ -35987,16 +35988,9 @@ function Profile({ loading, setLoading }) {
             }));
         console.log("input:", event.target.value);
     };
-    const handleCheckboxChange = (event)=>{
-        const { value, checked } = event.target;
-        setSelectedCategories((prev)=>{
-            if (checked) return [
-                ...prev,
-                parseInt(value)
-            ];
-            else return prev.filter((id)=>id !== parseInt(value));
-        });
-        console.log("selectedCategories", selectedCategories);
+    const handleSubmit = async (event)=>{
+        event.preventDefault();
+        await (0, _patchProfileDefault.default)(dataProfile, selectedCategories);
     };
     (0, _react.useEffect)(()=>{
         console.log("dans le use effect de profil");
@@ -36004,19 +35998,19 @@ function Profile({ loading, setLoading }) {
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         method: "POST",
-        onSubmit: (0, _patchProfileDefault.default),
+        onSubmit: handleSubmit,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                     children: "Modifier votre profil"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/index.js",
-                    lineNumber: 79,
+                    lineNumber: 74,
                     columnNumber: 21
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 79,
+                lineNumber: 74,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -36024,7 +36018,7 @@ function Profile({ loading, setLoading }) {
                 children: "Pr\xe9nom* :"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 81,
+                lineNumber: 76,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -36037,7 +36031,7 @@ function Profile({ loading, setLoading }) {
                 onChange: handleChange
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 82,
+                lineNumber: 77,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -36045,12 +36039,11 @@ function Profile({ loading, setLoading }) {
                 children: "Nom* :"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 92,
+                lineNumber: 87,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 id: "lastname",
-                name: "lastname",
                 type: "text",
                 name: "lastname",
                 value: dataProfile.lastname || "",
@@ -36059,7 +36052,7 @@ function Profile({ loading, setLoading }) {
                 onChange: handleChange
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 93,
+                lineNumber: 88,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -36067,7 +36060,7 @@ function Profile({ loading, setLoading }) {
                 children: "Date de naissance :"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 103,
+                lineNumber: 98,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -36079,7 +36072,7 @@ function Profile({ loading, setLoading }) {
                 onChange: handleChange
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 104,
+                lineNumber: 99,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -36087,7 +36080,7 @@ function Profile({ loading, setLoading }) {
                 children: "Niveau d'etude :"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 113,
+                lineNumber: 108,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -36099,7 +36092,7 @@ function Profile({ loading, setLoading }) {
                 onChange: handleChange
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 114,
+                lineNumber: 109,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -36107,7 +36100,7 @@ function Profile({ loading, setLoading }) {
                 children: "Presentez vous :"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 123,
+                lineNumber: 118,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -36119,128 +36112,15 @@ function Profile({ loading, setLoading }) {
                 onChange: handleChange
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 124,
+                lineNumber: 119,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Centres d'int\xe9r\xeats :"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesCheckboxesDefault.default), {
+                selectedCategories: selectedCategories,
+                setSelectedCategories: setSelectedCategories
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 133,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "checkbox",
-                        value: "1",
-                        onChange: handleCheckboxChange,
-                        checked: selectedCategories.includes(1)
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/index.js",
-                        lineNumber: 135,
-                        columnNumber: 17
-                    }, this),
-                    " Pomme"
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 134,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "checkbox",
-                        value: "2",
-                        onChange: handleCheckboxChange,
-                        checked: selectedCategories.includes(2)
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/index.js",
-                        lineNumber: 143,
-                        columnNumber: 17
-                    }, this),
-                    " Banane"
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 142,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "checkbox",
-                        value: "3",
-                        onChange: handleCheckboxChange,
-                        checked: selectedCategories.includes(3)
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/index.js",
-                        lineNumber: 151,
-                        columnNumber: 17
-                    }, this),
-                    " Cerise"
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 150,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "checkbox",
-                        value: "4",
-                        onChange: handleCheckboxChange,
-                        checked: selectedCategories.includes(4)
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/index.js",
-                        lineNumber: 159,
-                        columnNumber: 17
-                    }, this),
-                    " Date"
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 158,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "checkbox",
-                        value: "5",
-                        onChange: handleCheckboxChange,
-                        checked: selectedCategories.includes(5)
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/index.js",
-                        lineNumber: 167,
-                        columnNumber: 17
-                    }, this),
-                    " Figue"
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 166,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "checkbox",
-                        value: "6",
-                        onChange: handleCheckboxChange,
-                        checked: selectedCategories.includes(6)
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/index.js",
-                        lineNumber: 175,
-                        columnNumber: 17
-                    }, this),
-                    " Autre"
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 174,
+                lineNumber: 129,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36248,13 +36128,13 @@ function Profile({ loading, setLoading }) {
                 children: "Envoyer"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 183,
+                lineNumber: 134,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Dashboard/Profile/index.js",
-        lineNumber: 76,
+        lineNumber: 71,
         columnNumber: 9
     }, this);
 } // export default function Profile({ loading, setLoading }) {
@@ -36423,7 +36303,7 @@ function Profile({ loading, setLoading }) {
  //         </form>
  //     )
  // }
-_s(Profile, "FlRqNSqXmhaTkEYDd3hvyCG/R/A=");
+_s(Profile, "AyHV6IdZFy+Tp3KR4euw5w18KYE=");
 _c = Profile;
 var _c;
 $RefreshReg$(_c, "Profile");
@@ -36433,7 +36313,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","./patchProfile":"6QkDr"}],"6QkDr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","./patchProfile":"6QkDr","./CategoriesCheckboxes":"ki9FQ"}],"6QkDr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a1fa = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36447,12 +36327,13 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-async function handleSubmitPatchProfile(event) {
+async function handleSubmitPatchProfile(dataProfile, selectedCategories) {
     console.log("envoi formulaire");
-    event.preventDefault();
-    const myFormData = new FormData(event.target);
-    const formDataEncoded = new URLSearchParams(myFormData);
-    console.log("formDataEncoded", formDataEncoded);
+    const profileData = {
+        ...dataProfile,
+        categories: selectedCategories
+    };
+    console.log("profileData", profileData);
     try {
         const token = (0, _jsCookieDefault.default).get("token");
         const response = await fetch(`http://${"localhost"}:${"3000"}/profile`, {
@@ -36462,7 +36343,7 @@ async function handleSubmitPatchProfile(event) {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
             },
-            body: JSON.stringify(formDataEncoded)
+            body: JSON.stringify(profileData)
         });
         // console.log('response.status:', response.status);
         //=traduct api response in Json
@@ -36484,7 +36365,105 @@ async function handleSubmitPatchProfile(event) {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"amOpm":[function(require,module,exports) {
+},{"react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ki9FQ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a0a4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a0a4.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>CategoriesCheckboxes);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _s = $RefreshSig$();
+function CategoriesCheckboxes({ selectedCategories, setSelectedCategories }) {
+    _s();
+    const [categories, setCategories] = (0, _react.useState)([]);
+    async function getCategories() {
+        try {
+            console.log("essai de fetch categories");
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://localhost:3000/categories`, {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const dataCategories = await response.json();
+            setCategories(dataCategories);
+            console.log("recup liste des cat apr\xe8s JSON:", dataCategories);
+        } catch (error) {
+            console.error("erreur lors de la r\xe9cup des cat\xe9gories:", error.message);
+        // setError("Selectionnez une categorie");
+        // handleNotFoundError("Selectionnez une categorie");
+        }
+    }
+    const handleCheckboxChange = (event)=>{
+        const categoryId = parseInt(event.target.value, 10);
+        setSelectedCategories((prevSelectedCategories)=>prevSelectedCategories.includes(categoryId) ? prevSelectedCategories.filter((id)=>id !== categoryId) : [
+                ...prevSelectedCategories,
+                categoryId
+            ]);
+    };
+    // Je veux appeler du code lors du premier chargement du composant et pas lorsque le composant se recharge de nouveau (on limite ainsi les effets de bords et donc une boucle infinie)
+    (0, _react.useEffect)(()=>{
+        getCategories();
+    }, []);
+    // const handleCheckboxChange = (event) => {
+    //     console.log("Catégorie sélectionnée :", event.target.value);
+    //     // setSelectedCategory(event.target.value);
+    //     console.log("event.target :", event.target);
+    //     if (event.target == true) {
+    //         console.log('event target true');
+    //     }
+    //     if (event.target == false) {
+    //         console.log('event target true');
+    //     }
+    // };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: categories && categories.length > 0 && categories.map((category)=>{
+            console.log("Category ID:", typeof category.id); // Log the ID
+            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        id: category.id,
+                        type: "checkbox",
+                        value: category.id,
+                        onChange: handleCheckboxChange,
+                        // includes renvoie une valeur booleenne donc je peux l'utiliser comme valeur de "checked"
+                        checked: selectedCategories.includes(category.id)
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/CategoriesCheckboxes/index.js",
+                        lineNumber: 66,
+                        columnNumber: 25
+                    }, this),
+                    category.name
+                ]
+            }, category.id, true, {
+                fileName: "SRC/components/Dashboard/Profile/CategoriesCheckboxes/index.js",
+                lineNumber: 65,
+                columnNumber: 21
+            }, this);
+        })
+    }, void 0, false);
+}
+_s(CategoriesCheckboxes, "+ijgB8ROEl0Dkz53OTIi8GynN6s=");
+_c = CategoriesCheckboxes;
+var _c;
+$RefreshReg$(_c, "CategoriesCheckboxes");
+
+  $parcel$ReactRefreshHelpers$a0a4.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"amOpm":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d953 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

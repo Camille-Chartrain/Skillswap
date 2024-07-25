@@ -42,7 +42,7 @@ const profileController = {
             // req.params contains data from url
             //req.body contains body of request from forms
             console.log("req.body", req.body);
-            console.log("req.body.interests", req.body.interests);
+            console.log("req.body.categories", req.body.categories);
             const updateFields = {
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
@@ -73,7 +73,7 @@ const profileController = {
             console.log("interets:", allInterests);
 
             if (Object.keys(allInterests).length === 0) {
-                for (const eachCategory of req.body.interests) {
+                for (const eachCategory of req.body.categories) {
                     console.log("eachCategory initialisation:", eachCategory);
                     await Interest.create(
                         {
@@ -90,9 +90,9 @@ const profileController = {
                             UserId: req.user.id,
                         }
                     })
-                if (req.body.interests) {
-                    console.log("req.body.interests 2", req.body.interests);
-                    for (const eachCategory of req.body.interests) {
+                if (req.body.categories) {
+                    console.log("req.body.categories 2", req.body.categories);
+                    for (const eachCategory of req.body.categories) {
                         console.log("eachCategory pour update", eachCategory);
                         await Interest.create(
                             {

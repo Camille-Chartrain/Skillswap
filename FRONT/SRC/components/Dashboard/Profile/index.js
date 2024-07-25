@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 import handleSubmitPatchProfile from "./patchProfile";
+import CategoriesCheckboxes from "./CategoriesCheckboxes";
 
 
 
@@ -13,7 +14,7 @@ export default function Profile({ loading, setLoading }) {
         birthday: '',
         grade_level: '',
         presentation: '',
-        Categories: [],
+        // Categories: [],
     });
 
     const [selectedCategories, setSelectedCategories] = useState([]);
@@ -55,17 +56,11 @@ export default function Profile({ loading, setLoading }) {
         console.log("input:", event.target.value);
     };
 
-    const handleCheckboxChange = (event) => {
-        const { value, checked } = event.target;
-        setSelectedCategories(prev => {
-            if (checked) {
-                return [...prev, parseInt(value)];
-            } else {
-                return prev.filter(id => id !== parseInt(value));
-            }
-        });
-        console.log("selectedCategories", selectedCategories);
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        await handleSubmitPatchProfile(dataProfile, selectedCategories);
     };
+
 
     useEffect(() => {
         console.log("dans le use effect de profil");
@@ -74,7 +69,7 @@ export default function Profile({ loading, setLoading }) {
 
     return (
         <form method="POST"
-            onSubmit={handleSubmitPatchProfile}>
+            onSubmit={handleSubmit}>
 
             <legend><h3>Modifier votre profil</h3></legend>
 
@@ -130,55 +125,11 @@ export default function Profile({ loading, setLoading }) {
                 onChange={handleChange}
             />
 
-            <p>Centres d'intérêts :</p>
-            <label>
-                <input
-                    type="checkbox"
-                    value="1"
-                    onChange={handleCheckboxChange}
-                    checked={selectedCategories.includes(1)}
-                /> Pomme
-            </label>
-            <label>
-                <input
-                    type="checkbox"
-                    value="2"
-                    onChange={handleCheckboxChange}
-                    checked={selectedCategories.includes(2)}
-                /> Banane
-            </label>
-            <label>
-                <input
-                    type="checkbox"
-                    value="3"
-                    onChange={handleCheckboxChange}
-                    checked={selectedCategories.includes(3)}
-                /> Cerise
-            </label>
-            <label>
-                <input
-                    type="checkbox"
-                    value="4"
-                    onChange={handleCheckboxChange}
-                    checked={selectedCategories.includes(4)}
-                /> Date
-            </label>
-            <label>
-                <input
-                    type="checkbox"
-                    value="5"
-                    onChange={handleCheckboxChange}
-                    checked={selectedCategories.includes(5)}
-                /> Figue
-            </label>
-            <label>
-                <input
-                    type="checkbox"
-                    value="6"
-                    onChange={handleCheckboxChange}
-                    checked={selectedCategories.includes(6)}
-                /> Autre
-            </label>
+
+            <CategoriesCheckboxes
+                selectedCategories={selectedCategories}
+                setSelectedCategories={setSelectedCategories}
+            />
 
             <button type="submit">Envoyer</button>
         </form>
