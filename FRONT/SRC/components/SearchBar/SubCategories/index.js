@@ -3,7 +3,13 @@ import Cookies from 'js-cookie';
 import { useEffect, useState } from "react";
 
 
-export default function SubCategories({ selectedCategory, setSelectedSubCategory }) {
+export default function SubCategories(
+    {
+        selectedCategory,
+        setSelectedSubCategory,
+        optionsHTML
+    }
+) {
 
     const [subCategories, setSubCategories] = useState([]);
 
@@ -44,7 +50,10 @@ export default function SubCategories({ selectedCategory, setSelectedSubCategory
     };
 
     return (
-        <select onChange={handleSubCategoryChange}>
+        <select
+            onChange={handleSubCategoryChange}
+            required={optionsHTML}
+        >
             <option value="">sous-catégorie</option>
             {subCategories && subCategories.length > 0 && subCategories.map((subCategory) => (
                 <option key={subCategory.id} value={subCategory.id}>{subCategory.name}</option>

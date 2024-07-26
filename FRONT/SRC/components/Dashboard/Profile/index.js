@@ -1,10 +1,24 @@
 import { React, useState } from "react";
 import ProfilePatch from "./ProfilePatch";
-import SkillPatch from "./SkillPatch";
+import SkillPatch from "./SkillssData";
+import CreateSkill from "./CreateSkill";
 
 
 
-export default function Profile({ loading, setLoading }) {
+export default function Profile(
+    {
+        loading,
+        setLoading,
+        selectedCategory,
+        setSelectedCategory,
+        selectedSubCategory,
+        setSelectedSubCategory,
+        selectedLevel,
+        setSelectedLevel,
+        optionsHTML,
+        setOptionsHTML
+    }
+) {
 
     const [dataProfile, setDataProfile] = useState({
         firstname: '',
@@ -16,6 +30,7 @@ export default function Profile({ loading, setLoading }) {
     });
 
     const [selectedCategories, setSelectedCategories] = useState([]);
+
 
 
     return (
@@ -32,9 +47,30 @@ export default function Profile({ loading, setLoading }) {
                 setDataProfile={setDataProfile}
             />
 
+            <CreateSkill
+                loading={loading}
+                setLoading={setLoading}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                selectedSubCategory={selectedSubCategory}
+                setSelectedSubCategory={setSelectedSubCategory}
+                selectedLevel={selectedLevel}
+                setSelectedLevel={setSelectedLevel}
+                optionsHTML={optionsHTML}
+                setOptionsHTML={setOptionsHTML}
+            />
+
             <SkillPatch
                 loading={loading}
                 setLoading={setLoading}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                selectedSubCategory={selectedSubCategory}
+                setSelectedSubCategory={setSelectedSubCategory}
+                selectedLevel={selectedLevel}
+                setSelectedLevel={setSelectedLevel}
+                optionsHTML={optionsHTML}
+                setOptionsHTML={setOptionsHTML}
             />
         </>
     )

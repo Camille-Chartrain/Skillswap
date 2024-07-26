@@ -8,6 +8,8 @@ export default function PageTracking(
         setSelectedSubCategory,
         setSearchInput,
         setSelectedLevel,
+        optionsHTML,
+        setOptionsHTML
         // setDataCards,
         // setNoMatch,
         // setGetData
@@ -40,6 +42,22 @@ export default function PageTracking(
             setSelectedCategory(null);
             setSelectedLevel("");
         }
+
+
+        // to modify the select lists "required" option on cat subcat and level
+        if (location.pathname === '/dashboard/profile/modifSkill'
+            || location.pathname === '/dashboard/profile'
+        ) {
+            setOptionsHTML(true);
+            console.log("optionHTML = true");
+        }
+        else {
+            setOptionsHTML(false);
+            console.log("optionHTML = false");
+        }
+
+
+
 
     }, [location]);
 

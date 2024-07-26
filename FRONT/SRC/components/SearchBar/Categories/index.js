@@ -3,7 +3,13 @@ import Cookies from 'js-cookie';
 import { useEffect, useState } from "react";
 
 
-export default function Categories({ selectedCategory, setSelectedCategory }) {
+export default function Categories(
+    {
+        selectedCategory,
+        setSelectedCategory,
+        optionsHTML
+    }
+) {
 
     const [categories, setCategories] = useState([]);
 
@@ -42,9 +48,12 @@ export default function Categories({ selectedCategory, setSelectedCategory }) {
     };
 
     return (
-        <select onChange={handleCategoryChange}>
+        <select
+            onChange={handleCategoryChange}
+            required={optionsHTML}
+        >
             <option value="">catégorie</option>
-            <option value={selectedCategory}></option>
+
             {
                 categories && categories.length > 0 && categories.map((category) => (
                     <option

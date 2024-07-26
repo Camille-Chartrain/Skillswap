@@ -27257,7 +27257,7 @@ var _pageTracking = require("./components/PageTracking");
 var _pageTrackingDefault = parcelHelpers.interopDefault(_pageTracking);
 var _results = require("./Results");
 var _resultsDefault = parcelHelpers.interopDefault(_results);
-var _modifSkill = require("./components/Dashboard/Profile/modifSkill");
+var _modifSkill = require("./components/Dashboard/Profile/SkillssData/modifSkill");
 var _modifSkillDefault = parcelHelpers.interopDefault(_modifSkill);
 var _s = $RefreshSig$();
 function App() {
@@ -27276,6 +27276,7 @@ function App() {
     const [selectedLevel, setSelectedLevel] = (0, _react.useState)("");
     const [searchInput, setSearchInput] = (0, _react.useState)("");
     const [logged, setLogged] = (0, _react.useState)(false);
+    const [optionsHTML, setOptionsHTML] = (0, _react.useState)(false);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "App",
         children: [
@@ -27285,10 +27286,11 @@ function App() {
                 setSearchInput: setSearchInput,
                 setSelectedLevel: setSelectedLevel,
                 setDataCards: setDataCards,
-                setNoMatch: setNoMatch
+                setNoMatch: setNoMatch,
+                setOptionsHTML: setOptionsHTML
             }, void 0, false, {
                 fileName: "SRC/App.js",
-                lineNumber: 40,
+                lineNumber: 41,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
@@ -27313,15 +27315,17 @@ function App() {
                             loading: loading,
                             setLoading: setLoading,
                             logged: logged,
-                            setLogged: setLogged
+                            setLogged: setLogged,
+                            optionsHTML: optionsHTML,
+                            setOptionsHTML: setOptionsHTML
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 51,
+                            lineNumber: 53,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 50,
+                        lineNumber: 52,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27330,7 +27334,7 @@ function App() {
                             setLogged: setLogged
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 73,
+                            lineNumber: 77,
                             columnNumber: 30
                         }, void 0),
                         children: [
@@ -27353,65 +27357,45 @@ function App() {
                                     setNoMatch: setNoMatch,
                                     loading: loading,
                                     setLoading: setLoading,
-                                    setLogged: setLogged
+                                    setLogged: setLogged,
+                                    optionsHTML: optionsHTML,
+                                    setOptionsHTML: setOptionsHTML
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 78,
+                                    lineNumber: 82,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 77,
+                                lineNumber: 81,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                 path: "/dashboard/profile",
                                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileDefault.default), {
                                     loading: loading,
-                                    setLoading: setLoading
+                                    setLoading: setLoading,
+                                    selectedCategory: selectedCategory,
+                                    setSelectedCategory: setSelectedCategory,
+                                    selectedSubCategory: selectedSubCategory,
+                                    setSelectedSubCategory: setSelectedSubCategory,
+                                    selectedLevel: selectedLevel,
+                                    setSelectedLevel: setSelectedLevel,
+                                    optionsHTML: optionsHTML,
+                                    setOptionsHTML: setOptionsHTML
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 99,
+                                    lineNumber: 105,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 98,
+                                lineNumber: 104,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                 path: "/dashboard/statistics",
                                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statisticDefault.default), {
-                                    loading: loading,
-                                    setLoading: setLoading
-                                }, void 0, false, {
-                                    fileName: "SRC/App.js",
-                                    lineNumber: 106,
-                                    columnNumber: 34
-                                }, void 0)
-                            }, void 0, false, {
-                                fileName: "SRC/App.js",
-                                lineNumber: 105,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/dashboard/notifications",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _notificationDefault.default), {
-                                    loading: loading,
-                                    setLoading: setLoading
-                                }, void 0, false, {
-                                    fileName: "SRC/App.js",
-                                    lineNumber: 113,
-                                    columnNumber: 34
-                                }, void 0)
-                            }, void 0, false, {
-                                fileName: "SRC/App.js",
-                                lineNumber: 112,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/dashboard/desk",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deskDefault.default), {
                                     loading: loading,
                                     setLoading: setLoading
                                 }, void 0, false, {
@@ -27423,23 +27407,53 @@ function App() {
                                 fileName: "SRC/App.js",
                                 lineNumber: 119,
                                 columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/dashboard/notifications",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _notificationDefault.default), {
+                                    loading: loading,
+                                    setLoading: setLoading
+                                }, void 0, false, {
+                                    fileName: "SRC/App.js",
+                                    lineNumber: 127,
+                                    columnNumber: 34
+                                }, void 0)
+                            }, void 0, false, {
+                                fileName: "SRC/App.js",
+                                lineNumber: 126,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/dashboard/desk",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deskDefault.default), {
+                                    loading: loading,
+                                    setLoading: setLoading
+                                }, void 0, false, {
+                                    fileName: "SRC/App.js",
+                                    lineNumber: 134,
+                                    columnNumber: 34
+                                }, void 0)
+                            }, void 0, false, {
+                                fileName: "SRC/App.js",
+                                lineNumber: 133,
+                                columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "SRC/App.js",
-                        lineNumber: 72,
+                        lineNumber: 76,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/registration",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 129,
+                            lineNumber: 143,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 128,
+                        lineNumber: 142,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27449,55 +27463,63 @@ function App() {
                             setDataCards: setDataCards
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 132,
+                            lineNumber: 146,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 131,
+                        lineNumber: 145,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                        path: "/dashboard/profile/modifSkill",
+                        path: "/dashboard/profile/modifications",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modifSkillDefault.default), {
                             loading: loading,
-                            setLoading: setLoading
+                            setLoading: setLoading,
+                            optionsHTML: optionsHTML,
+                            setOptionsHTML: setOptionsHTML,
+                            selectedCategory: selectedCategory,
+                            setSelectedCategory: setSelectedCategory,
+                            selectedSubCategory: selectedSubCategory,
+                            setSelectedSubCategory: setSelectedSubCategory,
+                            selectedLevel: selectedLevel,
+                            setSelectedLevel: setSelectedLevel
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 138,
+                            lineNumber: 152,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 137,
+                        lineNumber: 151,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/admin",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 145,
+                            lineNumber: 168,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 144,
+                        lineNumber: 167,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/App.js",
-                lineNumber: 48,
+                lineNumber: 50,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/App.js",
-        lineNumber: 39,
+        lineNumber: 40,
         columnNumber: 9
     }, this);
 }
-_s(App, "sW+iD/nNo6LvTs6z/FvsMHomOps=");
+_s(App, "JTZMEqR+cbMYEuT6MnY4UBk7N8I=");
 _c = App;
 exports.default = App;
 var _c;
@@ -27508,7 +27530,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","./components/Home":"ggupi","./components/Dashboard":"7KL8w","./components/Dashboard/Profile":"lfwej","./components/Dashboard/statistic":"amOpm","./components/Dashboard/Notification":"dADDe","./components/Dashboard/Desk":"b9wt4","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Admin":"78PF1","./components/PageTracking":"bO3q7","./Results":"lUyxf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/Dashboard/Profile/modifSkill":"9Sj8x"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","./components/Home":"ggupi","./components/Dashboard":"7KL8w","./components/Dashboard/Profile":"lfwej","./components/Dashboard/statistic":"amOpm","./components/Dashboard/Notification":"dADDe","./components/Dashboard/Desk":"b9wt4","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Admin":"78PF1","./components/PageTracking":"bO3q7","./Results":"lUyxf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/Dashboard/Profile/SkillssData/modifSkill":"d1uAp"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.25.1
  *
@@ -34914,7 +34936,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _s = $RefreshSig$();
-function Categories({ selectedCategory, setSelectedCategory }) {
+function Categories({ selectedCategory, setSelectedCategory, optionsHTML }) {
     _s();
     const [categories, setCategories] = (0, _react.useState)([]);
     async function getCategories() {
@@ -34948,20 +34970,14 @@ function Categories({ selectedCategory, setSelectedCategory }) {
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
         onChange: handleCategoryChange,
+        required: optionsHTML,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                 value: "",
                 children: "cat\xe9gorie"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Categories/index.js",
-                lineNumber: 46,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                value: selectedCategory
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/Categories/index.js",
-                lineNumber: 47,
+                lineNumber: 55,
                 columnNumber: 13
             }, this),
             categories && categories.length > 0 && categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -34969,13 +34985,13 @@ function Categories({ selectedCategory, setSelectedCategory }) {
                     children: category.name
                 }, category.id, false, {
                     fileName: "SRC/components/SearchBar/Categories/index.js",
-                    lineNumber: 50,
+                    lineNumber: 59,
                     columnNumber: 21
                 }, this))
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/Categories/index.js",
-        lineNumber: 45,
+        lineNumber: 51,
         columnNumber: 9
     }, this);
 }
@@ -35233,7 +35249,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _s = $RefreshSig$();
-function SubCategories({ selectedCategory, setSelectedSubCategory }) {
+function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }) {
     _s();
     const [subCategories, setSubCategories] = (0, _react.useState)([]);
     async function getSubCategories() {
@@ -35271,13 +35287,14 @@ function SubCategories({ selectedCategory, setSelectedSubCategory }) {
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
         onChange: handleSubCategoryChange,
+        required: optionsHTML,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                 value: "",
                 children: "sous-cat\xe9gorie"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/SubCategories/index.js",
-                lineNumber: 48,
+                lineNumber: 57,
                 columnNumber: 13
             }, this),
             subCategories && subCategories.length > 0 && subCategories.map((subCategory)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35285,13 +35302,13 @@ function SubCategories({ selectedCategory, setSelectedSubCategory }) {
                     children: subCategory.name
                 }, subCategory.id, false, {
                     fileName: "SRC/components/SearchBar/SubCategories/index.js",
-                    lineNumber: 50,
+                    lineNumber: 59,
                     columnNumber: 17
                 }, this))
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/SubCategories/index.js",
-        lineNumber: 47,
+        lineNumber: 53,
         columnNumber: 9
     }, this);
 }
@@ -35318,20 +35335,21 @@ parcelHelpers.export(exports, "default", ()=>Level);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function Level({ setSelectedLevel }) {
+function Level({ setSelectedLevel, optionsHTML }) {
     const handleLevelChange = (event)=>{
         setSelectedLevel(event.target.value);
         console.log("Level s\xe9lectionn\xe9e :", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
         onChange: handleLevelChange,
+        required: optionsHTML,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                 value: "",
                 children: "Niveau"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 12,
+                lineNumber: 23,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35339,7 +35357,7 @@ function Level({ setSelectedLevel }) {
                 children: "D\xe9butant"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 13,
+                lineNumber: 24,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35347,7 +35365,7 @@ function Level({ setSelectedLevel }) {
                 children: "Interm\xe9diaire"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 14,
+                lineNumber: 25,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35355,13 +35373,13 @@ function Level({ setSelectedLevel }) {
                 children: "Avanc\xe9"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 15,
+                lineNumber: 26,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/Level/index.js",
-        lineNumber: 11,
+        lineNumber: 19,
         columnNumber: 9
     }, this);
 }
@@ -35959,10 +35977,12 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _profilePatch = require("./ProfilePatch");
 var _profilePatchDefault = parcelHelpers.interopDefault(_profilePatch);
-var _skillPatch = require("./SkillPatch");
-var _skillPatchDefault = parcelHelpers.interopDefault(_skillPatch);
+var _skillssData = require("./SkillssData");
+var _skillssDataDefault = parcelHelpers.interopDefault(_skillssData);
+var _createSkill = require("./CreateSkill");
+var _createSkillDefault = parcelHelpers.interopDefault(_createSkill);
 var _s = $RefreshSig$();
-function Profile({ loading, setLoading }) {
+function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML, setOptionsHTML }) {
     _s();
     const [dataProfile, setDataProfile] = (0, _react.useState)({
         firstname: "",
@@ -35979,7 +35999,7 @@ function Profile({ loading, setLoading }) {
                 children: "Profil"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 23,
+                lineNumber: 38,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profilePatchDefault.default), {
@@ -35991,15 +36011,39 @@ function Profile({ loading, setLoading }) {
                 setDataProfile: setDataProfile
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 26,
+                lineNumber: 41,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skillPatchDefault.default), {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _createSkillDefault.default), {
                 loading: loading,
-                setLoading: setLoading
+                setLoading: setLoading,
+                selectedCategory: selectedCategory,
+                setSelectedCategory: setSelectedCategory,
+                selectedSubCategory: selectedSubCategory,
+                setSelectedSubCategory: setSelectedSubCategory,
+                selectedLevel: selectedLevel,
+                setSelectedLevel: setSelectedLevel,
+                optionsHTML: optionsHTML,
+                setOptionsHTML: setOptionsHTML
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 35,
+                lineNumber: 50,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skillssDataDefault.default), {
+                loading: loading,
+                setLoading: setLoading,
+                selectedCategory: selectedCategory,
+                setSelectedCategory: setSelectedCategory,
+                selectedSubCategory: selectedSubCategory,
+                setSelectedSubCategory: setSelectedSubCategory,
+                selectedLevel: selectedLevel,
+                setSelectedLevel: setSelectedLevel,
+                optionsHTML: optionsHTML,
+                setOptionsHTML: setOptionsHTML
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 63,
                 columnNumber: 13
             }, this)
         ]
@@ -36015,7 +36059,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","./SkillPatch":"iXRWs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cLUE2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SkillssData":"iCCVN","./CreateSkill":"2JxV8"}],"cLUE2":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1375 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36393,24 +36437,24 @@ $RefreshReg$(_c, "DataProfile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iXRWs":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$d330 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iCCVN":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$6fd6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$d330.prelude(module);
+$parcel$ReactRefreshHelpers$6fd6.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>SkillData);
+parcelHelpers.export(exports, "default", ()=>SkillsData);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _skillData = require("./SkillData");
-var _skillDataDefault = parcelHelpers.interopDefault(_skillData);
+var _cardsSkills = require("./CardsSkills");
+var _cardsSkillsDefault = parcelHelpers.interopDefault(_cardsSkills);
 var _s = $RefreshSig$();
-function SkillData({ loading, setLoading }) {
+function SkillsData({ loading, setLoading }) {
     _s();
     const [skills, setSkills] = (0, _react.useState)([]);
     const GetSkills = async ()=>{
@@ -36440,30 +36484,30 @@ function SkillData({ loading, setLoading }) {
     (0, _react.useEffect)(()=>{
         GetSkills();
     }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skillDataDefault.default), {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsSkillsDefault.default), {
         loading: loading,
         skills: skills
     }, void 0, false, {
-        fileName: "SRC/components/Dashboard/Profile/SkillPatch/index.js",
+        fileName: "SRC/components/Dashboard/Profile/SkillssData/index.js",
         lineNumber: 42,
         columnNumber: 9
     }, this);
 }
-_s(SkillData, "5GNcl9Dk8gl3IGzVJXf3o3LIPSE=");
-_c = SkillData;
+_s(SkillsData, "5GNcl9Dk8gl3IGzVJXf3o3LIPSE=");
+_c = SkillsData;
 var _c;
-$RefreshReg$(_c, "SkillData");
+$RefreshReg$(_c, "SkillsData");
 
-  $parcel$ReactRefreshHelpers$d330.postlude(module);
+  $parcel$ReactRefreshHelpers$6fd6.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","./SkillData":"4QrGQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4QrGQ":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$151b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","./CardsSkills":"dmhbt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dmhbt":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$ec71 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$151b.prelude(module);
+$parcel$ReactRefreshHelpers$ec71.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -36480,7 +36524,8 @@ function CardsSkills({ loading, setLoading, skills }) {
     const navigate = (0, _reactRouterDom.useNavigate)();
     async function handlePatchSkill(skill) {
         console.log("skill handlePatchSkill: ", skill);
-        navigate("/dashboard/profile/modifSkill", {
+        // we send the state to the other page
+        navigate("/dashboard/profile/modifications", {
             state: {
                 skill
             }
@@ -36510,83 +36555,86 @@ function CardsSkills({ loading, setLoading, skills }) {
             loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Chargement..."
             }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/SkillPatch/SkillData/index.js",
-                lineNumber: 45,
+                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                lineNumber: 46,
                 columnNumber: 25
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
                 children: skills?.map((skill)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
-                        className: "skillList-li",
+                        className: "",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                className: "title",
+                                className: "",
                                 children: [
                                     skill?.title,
                                     " "
                                 ]
                             }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillPatch/SkillData/index.js",
-                                lineNumber: 53,
+                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                lineNumber: 54,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.level
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillPatch/SkillData/index.js",
-                                lineNumber: 54,
+                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                lineNumber: 55,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.Category.name
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillPatch/SkillData/index.js",
-                                lineNumber: 55,
+                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                lineNumber: 56,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.SubCategory.name
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillPatch/SkillData/index.js",
-                                lineNumber: 56,
+                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                lineNumber: 57,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.createdAt
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillPatch/SkillData/index.js",
-                                lineNumber: 57,
+                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                lineNumber: 58,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                 className: "",
+                                // type "button" n'a pas de comportement prédéfini => pour exécuter une action personnalisée JS.
+                                type: "button",
+                                "aria-label": "modifier la comp\xe9tence",
                                 // fonction fléchée pour ne pas executer la fonction directement
                                 onClick: ()=>handlePatchSkill(skill),
                                 children: "MODIFIER"
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillPatch/SkillData/index.js",
-                                lineNumber: 59,
+                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                lineNumber: 60,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                 className: "",
-                                "aria-label": "bouton supprimer competence",
+                                "aria-label": "supprimer la comp\xe9tence",
                                 onClick: ()=>handleDeleteSkill(skill),
-                                type: "reset",
+                                type: "button",
                                 children: "SUPPRIMER"
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillPatch/SkillData/index.js",
-                                lineNumber: 67,
+                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                lineNumber: 71,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, skill?.id, true, {
-                        fileName: "SRC/components/Dashboard/Profile/SkillPatch/SkillData/index.js",
-                        lineNumber: 49,
+                        fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                        lineNumber: 50,
                         columnNumber: 21
                     }, this))
             }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/SkillPatch/SkillData/index.js",
-                lineNumber: 46,
+                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                lineNumber: 47,
                 columnNumber: 13
             }, this)
         ]
@@ -36601,7 +36649,7 @@ _c = CardsSkills;
 var _c;
 $RefreshReg$(_c, "CardsSkills");
 
-  $parcel$ReactRefreshHelpers$151b.postlude(module);
+  $parcel$ReactRefreshHelpers$ec71.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -37603,7 +37651,218 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"81Zmr":[function() {},{}],"amOpm":[function(require,module,exports) {
+},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"81Zmr":[function() {},{}],"2JxV8":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2280 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2280.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>CreateSkill);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _categories = require("../../../SearchBar/Categories");
+var _categoriesDefault = parcelHelpers.interopDefault(_categories);
+var _subCategories = require("../../../SearchBar/SubCategories");
+var _subCategoriesDefault = parcelHelpers.interopDefault(_subCategories);
+var _level = require("../../../SearchBar/Level");
+var _levelDefault = parcelHelpers.interopDefault(_level);
+var _s = $RefreshSig$();
+function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, optionsHTML }) {
+    _s();
+    const handleSubmit = async ()=>{
+        try {
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
+            console.log("selectLevel dans try", selectLevel);
+            console.log("try data:", data);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/?&CategoryId=${selectedCategory?.id}&SubCategoryId=${selectedSubCategory?.id}`, {
+                method: "post",
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(data)
+            });
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
+            reset();
+            GetAllSkillUser();
+        } catch (error) {
+            console.log("erreur cath :", error);
+            setError("Erreur lors de la creation de Competence");
+            handleNotFoundError("Erreur lors de la creation de Competence");
+        }
+    };
+    (0, _react.useEffect)(()=>{}, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+        method: "POST",
+        onSubmit: handleSubmit,
+        className: "updateAskill",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+            className: "skillUpDate",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        children: "Cr\xe9ation de competence"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                        lineNumber: 66,
+                        columnNumber: 25
+                    }, this)
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 66,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "title",
+                    children: "Titre * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 68,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "title",
+                    type: "text",
+                    name: "title",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 69,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
+                    selectedCategory: selectedCategory,
+                    setSelectedCategory: setSelectedCategory,
+                    optionsHTML: optionsHTML
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 76,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
+                    selectedCategory: selectedCategory,
+                    setSelectedSubCategory: setSelectedSubCategory,
+                    optionsHTML: optionsHTML
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 82,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
+                    setSelectedLevel: setSelectedLevel,
+                    optionsHTML: optionsHTML
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 88,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "duration",
+                    children: "Duree * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 93,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "duration",
+                    type: "text",
+                    name: "duration",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 94,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "transmission",
+                    children: " Mode de transmission * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 101,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "description",
+                    children: "Descriptif * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 104,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                    id: "description",
+                    type: "text",
+                    name: "description",
+                    rows: "5",
+                    cols: "33",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 105,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "availability",
+                    children: "Disponibilite * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 114,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "availability",
+                    type: "text",
+                    name: "availability",
+                    size: "25",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 115,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    type: "submit",
+                    children: "VALIDER"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 123,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+            lineNumber: 65,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+        lineNumber: 60,
+        columnNumber: 9
+    }, this);
+}
+_s(CreateSkill, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = CreateSkill;
+var _c;
+$RefreshReg$(_c, "CreateSkill");
+
+  $parcel$ReactRefreshHelpers$2280.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","../../../SearchBar/Level":"8e1BU"}],"amOpm":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d953 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -38418,7 +38677,7 @@ parcelHelpers.export(exports, "default", ()=>PageTracking);
 var _react = require("react");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
-function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchInput, setSelectedLevel }) {
+function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchInput, setSelectedLevel, optionsHTML, setOptionsHTML }) {
     _s();
     const location = (0, _reactRouterDom.useLocation)();
     // const subPages = [
@@ -38440,6 +38699,14 @@ function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchIn
             setSearchInput("");
             setSelectedCategory(null);
             setSelectedLevel("");
+        }
+        // to modify the select lists "required" option on cat subcat and level
+        if (location.pathname === "/dashboard/profile/modifSkill" || location.pathname === "/dashboard/profile") {
+            setOptionsHTML(true);
+            console.log("optionHTML = true");
+        } else {
+            setOptionsHTML(false);
+            console.log("optionHTML = false");
         }
     }, [
         location
@@ -38597,11 +38864,11 @@ $RefreshReg$(_c, "Results");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../components/Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../components/SearchBar":"kxQdC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9Sj8x":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$4385 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../components/Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../components/SearchBar":"kxQdC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"d1uAp":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8c5e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$4385.prelude(module);
+$parcel$ReactRefreshHelpers$8c5e.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -38611,74 +38878,194 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
+var _level = require("../../../../SearchBar/Level");
+var _levelDefault = parcelHelpers.interopDefault(_level);
+var _categoriesCheckboxes = require("../../ProfilePatch/CategoriesCheckboxes");
+var _categoriesCheckboxesDefault = parcelHelpers.interopDefault(_categoriesCheckboxes);
 var _s = $RefreshSig$();
-function ModifSkill() {
+function ModifSkill({}) {
     _s();
-    // Utiliser useLocation pour accéder à l'état passé
+    // Utiliser useLocation pour accéder à l'état passé depuis l'autre page
     const location = (0, _reactRouterDom.useLocation)();
     // Extraire l'état depuis location.state
     const { skill } = location.state || {};
+    async function handleSubmit() {
+        try {
+            const token = Cookies.get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/${skill.id}`, {
+                method: "PATCH",
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(skill)
+            });
+            // //=traduct api response in Json
+            const res = await response.json();
+            console.log("qui est res avant if:", res);
+            if (res === "update du skill ok") {
+                reset();
+                navigate("/dashboard");
+            } else throw new Error("Invalid response from API");
+            setSkillUpDate(res.data);
+        } catch (error) {
+            console.log("catch de patchSkillUpDate:", error);
+        //     setError("Votre modification n'a pas ete prise en compte");
+        //     handleNotFoundError("Votre modification n'a pas ete prise en compte");
+        // }
+        }
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Modifier Comp\xe9tence"
             }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/modifSkill/index.js",
-                lineNumber: 13,
+                fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                lineNumber: 60,
                 columnNumber: 13
             }, this),
-            skill ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                                children: "Titre:"
+            skill ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                method: "POST",
+                onSubmit: handleSubmit,
+                className: "updateAskill",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+                    className: "skillUpDate",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                children: "Modification de competence"
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/modifSkill/index.js",
-                                lineNumber: 16,
-                                columnNumber: 24
-                            }, this),
-                            " ",
-                            skill.title
-                        ]
-                    }, void 0, true, {
-                        fileName: "SRC/components/Dashboard/Profile/modifSkill/index.js",
-                        lineNumber: 16,
-                        columnNumber: 21
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                                children: "Niveau:"
-                            }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/modifSkill/index.js",
-                                lineNumber: 17,
-                                columnNumber: 24
-                            }, this),
-                            " ",
-                            skill.level
-                        ]
-                    }, void 0, true, {
-                        fileName: "SRC/components/Dashboard/Profile/modifSkill/index.js",
-                        lineNumber: 17,
-                        columnNumber: 21
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Dashboard/Profile/modifSkill/index.js",
-                lineNumber: 15,
+                                fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                                lineNumber: 68,
+                                columnNumber: 33
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 68,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: "title",
+                            children: "Titre * :"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 70,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            id: "title",
+                            type: "text",
+                            name: "title",
+                            value: skill.title,
+                            // onChange={handleChangeSkill}
+                            required: true
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 71,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: "duration",
+                            children: "Duree * :"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 86,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            id: "duration",
+                            type: "text",
+                            name: "duration",
+                            value: skill.duration,
+                            // onChange={handleChangeSkill}
+                            required: true
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 87,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: "transmission",
+                            children: " Mode de transmission * :"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 96,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: "description",
+                            children: "Descriptif * :"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 99,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                            id: "description",
+                            type: "text",
+                            name: "description",
+                            value: skill.description,
+                            // onChange={handleChangeSkill}
+                            rows: "5",
+                            cols: "33",
+                            required: true
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 100,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: "availability",
+                            children: "Disponibilite * :"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 111,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            id: "availability",
+                            type: "text",
+                            name: "availability",
+                            value: skill.availability,
+                            // onChange={handleChangeSkill}
+                            size: "25",
+                            required: true
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 112,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            // onClick={handlechange.bind(null, skillUpdate)}
+                            type: "submit",
+                            children: "VALIDER"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                            lineNumber: 122,
+                            columnNumber: 25
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                    lineNumber: 67,
+                    columnNumber: 21
+                }, this)
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                lineNumber: 63,
                 columnNumber: 17
             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Aucune comp\xe9tence trouv\xe9e."
             }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/modifSkill/index.js",
-                lineNumber: 21,
+                fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+                lineNumber: 133,
                 columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
-        fileName: "SRC/components/Dashboard/Profile/modifSkill/index.js",
-        lineNumber: 12,
+        fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
+        lineNumber: 59,
         columnNumber: 9
     }, this);
 }
@@ -38691,11 +39078,11 @@ _c = ModifSkill;
 var _c;
 $RefreshReg$(_c, "ModifSkill");
 
-  $parcel$ReactRefreshHelpers$4385.postlude(module);
+  $parcel$ReactRefreshHelpers$8c5e.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","react-router-dom":"9xmpe"}]},["5l8qM","1xC6H","hQ0Dx"], "hQ0Dx", "parcelRequireb2c8")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../../../SearchBar/Level":"8e1BU","../../ProfilePatch/CategoriesCheckboxes":"2ckmV"}]},["5l8qM","1xC6H","hQ0Dx"], "hQ0Dx", "parcelRequireb2c8")
 
 //# sourceMappingURL=index.bed242b3.js.map

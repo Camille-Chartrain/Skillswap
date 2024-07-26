@@ -11,7 +11,7 @@ import Login from "./components/Login";
 import Admin from "./components/Admin";
 import PageTracking from "./components/PageTracking";
 import Results from "./Results";
-import ModifSkill from "./components/Dashboard/Profile/modifSkill";
+import ModifSkill from "./components/Dashboard/Profile/SkillssData/modifSkill";
 
 
 
@@ -34,6 +34,7 @@ function App() {
     const [searchInput, setSearchInput] = useState("");
     const [logged, setLogged] = useState(false)
 
+    const [optionsHTML, setOptionsHTML] = useState(false);
 
     return (
         <div className="App">
@@ -44,6 +45,7 @@ function App() {
                 setSelectedLevel={setSelectedLevel}
                 setDataCards={setDataCards}
                 setNoMatch={setNoMatch}
+                setOptionsHTML={setOptionsHTML}
             />
             <Routes>
 
@@ -67,6 +69,8 @@ function App() {
                         setLoading={setLoading}
                         logged={logged}
                         setLogged={setLogged}
+                        optionsHTML={optionsHTML}
+                        setOptionsHTML={setOptionsHTML}
                     />}
                 />
                 <Route path="/dashboard"
@@ -93,12 +97,22 @@ function App() {
                             loading={loading}
                             setLoading={setLoading}
                             setLogged={setLogged}
+                            optionsHTML={optionsHTML}
+                            setOptionsHTML={setOptionsHTML}
                         />}
                     />
                     <Route path="/dashboard/profile"
                         element={<Profile
                             loading={loading}
                             setLoading={setLoading}
+                            selectedCategory={selectedCategory}
+                            setSelectedCategory={setSelectedCategory}
+                            selectedSubCategory={selectedSubCategory}
+                            setSelectedSubCategory={setSelectedSubCategory}
+                            selectedLevel={selectedLevel}
+                            setSelectedLevel={setSelectedLevel}
+                            optionsHTML={optionsHTML}
+                            setOptionsHTML={setOptionsHTML}
 
                         />}
                     />
@@ -134,10 +148,19 @@ function App() {
                         setDataCards={setDataCards} />}
                 />
 
-                <Route path="/dashboard/profile/modifSkill"
+                <Route path="/dashboard/profile/modifications"
                     element={<ModifSkill
                         loading={loading}
                         setLoading={setLoading}
+                        optionsHTML={optionsHTML}
+                        setOptionsHTML={setOptionsHTML}
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                        selectedSubCategory={selectedSubCategory}
+                        setSelectedSubCategory={setSelectedSubCategory}
+                        selectedLevel={selectedLevel}
+                        setSelectedLevel={setSelectedLevel}
+
 
                     />}
                 />
