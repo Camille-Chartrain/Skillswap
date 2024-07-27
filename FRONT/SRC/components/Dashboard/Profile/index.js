@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from "react";
 import ProfilePatch from "./ProfilePatch";
-import SkillsData from "./SkillssData";
-import CreateSkill from "./CreateSkill";
 import Cookies from 'js-cookie';
+import CardsSkills from "./CardsSkills";
+import CreateSkill from "./CreateSkill";
 
 
 
@@ -95,7 +95,7 @@ export default function Profile(
                 getSkills={getSkills}
             />
 
-            <SkillsData
+            <CardsSkills
                 loading={loading}
                 setLoading={setLoading}
                 selectedCategory={selectedCategory}

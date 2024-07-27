@@ -35977,12 +35977,12 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _profilePatch = require("./ProfilePatch");
 var _profilePatchDefault = parcelHelpers.interopDefault(_profilePatch);
-var _skillssData = require("./SkillssData");
-var _skillssDataDefault = parcelHelpers.interopDefault(_skillssData);
-var _createSkill = require("./CreateSkill");
-var _createSkillDefault = parcelHelpers.interopDefault(_createSkill);
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _cardsSkills = require("./CardsSkills");
+var _cardsSkillsDefault = parcelHelpers.interopDefault(_cardsSkills);
+var _createSkill = require("./CreateSkill");
+var _createSkillDefault = parcelHelpers.interopDefault(_createSkill);
 var _s = $RefreshSig$();
 function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML, setOptionsHTML }) {
     _s();
@@ -36062,7 +36062,7 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
                 lineNumber: 84,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skillssDataDefault.default), {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsSkillsDefault.default), {
                 loading: loading,
                 setLoading: setLoading,
                 selectedCategory: selectedCategory,
@@ -36092,7 +36092,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SkillssData":"iCCVN","./CreateSkill":"2JxV8","js-cookie":"c8bBu"}],"cLUE2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","js-cookie":"c8bBu","./CreateSkill":"2JxV8","./CardsSkills":"bOaxI"}],"cLUE2":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1375 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36470,74 +36470,243 @@ $RefreshReg$(_c, "DataProfile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iCCVN":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$6fd6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2JxV8":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2280 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$6fd6.prelude(module);
+$parcel$ReactRefreshHelpers$2280.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>SkillsData);
+parcelHelpers.export(exports, "default", ()=>CreateSkill);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _cardsSkills = require("./CardsSkills");
-var _cardsSkillsDefault = parcelHelpers.interopDefault(_cardsSkills);
-function SkillsData({ loading, setLoading, skills }) {
-    // const [skills, setSkills] = useState([]);
-    // const GetSkills = async () => {
-    //     try {
-    //         console.log("dans getsskills()");
-    //         setLoading(true)
-    //         const token = Cookies.get('token');
-    //         const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill`, {
-    //             method: "get",
-    //             status: 200,
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${token}`,
-    //             },
-    //         })
-    //         // console.log('response.status:', response.status);
-    //         console.log("skillUser avant .json", response);
-    //         const dataSkills = await response.json();
-    //         console.log(" response apres .json:", dataSkills);
-    //         setSkills(dataSkills);
-    //         setLoading(false)
-    //     }
-    //     catch (error) {
-    //         console.error(error.message);
-    //         // setError("Erreur d'affichage de la liste des competences");
-    //         // handleNotFoundError("Erreur d'affichage de la liste des competences");
-    //     }
-    // }
-    // useEffect(() => { GetSkills() }, [])
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsSkillsDefault.default), {
-        loading: loading,
-        skills: skills
+var _categories = require("../../../SearchBar/Categories");
+var _categoriesDefault = parcelHelpers.interopDefault(_categories);
+var _subCategories = require("../../../SearchBar/SubCategories");
+var _subCategoriesDefault = parcelHelpers.interopDefault(_subCategories);
+var _level = require("../../../SearchBar/Level");
+var _levelDefault = parcelHelpers.interopDefault(_level);
+var _s = $RefreshSig$();
+function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML, getSkills }) {
+    _s();
+    const formRef = (0, _react.useRef)(null);
+    const handleSubmit = async (event)=>{
+        event.preventDefault();
+        const myFormData = new FormData(event.target);
+        myFormData.append("level", selectedLevel);
+        console.log("myformdata", myFormData);
+        const formDataEncoded = new URLSearchParams(myFormData);
+        try {
+            // console.log("selectedCategory dans CreateSkill", selectedCategory);
+            // console.log("selectedSubCategory dans CreateSkill", selectedSubCategory);
+            // console.log("selectLevel dans CreateSkill", selectedLevel);
+            // console.log('formDataEncoded CreateSkill:', formDataEncoded);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+                method: "POST",
+                status: 200,
+                headers: {
+                    // 'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${token}`
+                },
+                body: formDataEncoded
+            });
+            console.log("response avant .json", response);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
+            // reload displays of all skills
+            getSkills();
+            // Réinitialiser le formulaire et les states
+            formRef.current.reset();
+            setSelectedCategory(null);
+            setSelectedSubCategory(null);
+            setSelectedLevel("");
+        } catch (error) {
+            console.log("erreur cath :", error);
+        // setError("Erreur lors de la creation de Competence");
+        // handleNotFoundError("Erreur lors de la creation de Competence");
+        }
+    };
+    (0, _react.useEffect)(()=>{}, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+        ref: formRef,
+        method: "POST",
+        onSubmit: handleSubmit,
+        className: "updateAskill",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+            className: "skillUpDate",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        children: "Cr\xe9ation de competence"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                        lineNumber: 86,
+                        columnNumber: 25
+                    }, this)
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 86,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "title",
+                    children: "Titre * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 88,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "title",
+                    type: "text",
+                    name: "title",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 89,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
+                    selectedCategory: selectedCategory,
+                    setSelectedCategory: setSelectedCategory,
+                    optionsHTML: optionsHTML
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 96,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
+                    selectedCategory: selectedCategory,
+                    setSelectedSubCategory: setSelectedSubCategory,
+                    optionsHTML: optionsHTML
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 102,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
+                    setSelectedLevel: setSelectedLevel,
+                    optionsHTML: optionsHTML
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 108,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "duration",
+                    children: "Duree * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 113,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "duration",
+                    type: "text",
+                    name: "duration",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 114,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "transmission",
+                    children: " Mode de transmission * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 121,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "transmission",
+                    type: "text",
+                    name: "transmission",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 122,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "description",
+                    children: "Descriptif * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 129,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                    id: "description",
+                    type: "text",
+                    name: "description",
+                    rows: "5",
+                    cols: "33",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 130,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "availability",
+                    children: "Disponibilite * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 139,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "availability",
+                    type: "text",
+                    name: "availability",
+                    size: "25",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 140,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    type: "submit",
+                    children: "VALIDER"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 148,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+            lineNumber: 85,
+            columnNumber: 13
+        }, this)
     }, void 0, false, {
-        fileName: "SRC/components/Dashboard/Profile/SkillssData/index.js",
-        lineNumber: 43,
+        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+        lineNumber: 79,
         columnNumber: 9
     }, this);
 }
-_c = SkillsData;
+_s(CreateSkill, "tWkBqXdviTvDZU5Xns358AVz/g8=");
+_c = CreateSkill;
 var _c;
-$RefreshReg$(_c, "SkillsData");
+$RefreshReg$(_c, "CreateSkill");
 
-  $parcel$ReactRefreshHelpers$6fd6.postlude(module);
+  $parcel$ReactRefreshHelpers$2280.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","./CardsSkills":"dmhbt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dmhbt":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$ec71 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","../../../SearchBar/Level":"8e1BU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bOaxI":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a0c6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$ec71.prelude(module);
+$parcel$ReactRefreshHelpers$a0c6.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -36585,7 +36754,7 @@ function CardsSkills({ loading, setLoading, skills }) {
             loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Chargement..."
             }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
                 lineNumber: 46,
                 columnNumber: 25
             }, this),
@@ -36600,35 +36769,35 @@ function CardsSkills({ loading, setLoading, skills }) {
                                     " "
                                 ]
                             }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
                                 lineNumber: 54,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.level
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
                                 lineNumber: 55,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.Category.name
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
                                 lineNumber: 56,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.SubCategory.name
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
                                 lineNumber: 57,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.createdAt
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
                                 lineNumber: 58,
                                 columnNumber: 25
                             }, this),
@@ -36641,7 +36810,7 @@ function CardsSkills({ loading, setLoading, skills }) {
                                 onClick: ()=>handlePatchSkill(skill),
                                 children: "MODIFIER"
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
                                 lineNumber: 60,
                                 columnNumber: 25
                             }, this),
@@ -36652,18 +36821,18 @@ function CardsSkills({ loading, setLoading, skills }) {
                                 type: "button",
                                 children: "SUPPRIMER"
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
                                 lineNumber: 71,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, skill?.id, true, {
-                        fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                        fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
                         lineNumber: 50,
                         columnNumber: 21
                     }, this))
             }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/SkillssData/CardsSkills/index.js",
+                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
                 lineNumber: 47,
                 columnNumber: 13
             }, this)
@@ -36679,7 +36848,7 @@ _c = CardsSkills;
 var _c;
 $RefreshReg$(_c, "CardsSkills");
 
-  $parcel$ReactRefreshHelpers$ec71.postlude(module);
+  $parcel$ReactRefreshHelpers$a0c6.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -37681,231 +37850,7 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"81Zmr":[function() {},{}],"2JxV8":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$2280 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$2280.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>CreateSkill);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _jsCookie = require("js-cookie");
-var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _categories = require("../../../SearchBar/Categories");
-var _categoriesDefault = parcelHelpers.interopDefault(_categories);
-var _subCategories = require("../../../SearchBar/SubCategories");
-var _subCategoriesDefault = parcelHelpers.interopDefault(_subCategories);
-var _level = require("../../../SearchBar/Level");
-var _levelDefault = parcelHelpers.interopDefault(_level);
-var _s = $RefreshSig$();
-function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML, getSkills }) {
-    _s();
-    const handleSubmit = async (event)=>{
-        event.preventDefault();
-        const myFormData = new FormData(event.target);
-        myFormData.append("level", selectedLevel);
-        console.log("myformdata", myFormData);
-        const formDataEncoded = new URLSearchParams(myFormData);
-        try {
-            // console.log("selectedCategory dans CreateSkill", selectedCategory);
-            // console.log("selectedSubCategory dans CreateSkill", selectedSubCategory);
-            // console.log("selectLevel dans CreateSkill", selectedLevel);
-            // console.log('formDataEncoded CreateSkill:', formDataEncoded);
-            const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
-                method: "POST",
-                status: 200,
-                headers: {
-                    // 'Content-Type': 'application/json',
-                    "Authorization": `Bearer ${token}`
-                },
-                body: formDataEncoded
-            });
-            console.log("response avant .json", response);
-            const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
-            getSkills();
-        } catch (error) {
-            console.log("erreur cath :", error);
-        // setError("Erreur lors de la creation de Competence");
-        // handleNotFoundError("Erreur lors de la creation de Competence");
-        }
-    };
-    (0, _react.useEffect)(()=>{}, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-        method: "POST",
-        onSubmit: handleSubmit,
-        className: "updateAskill",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
-            className: "skillUpDate",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                        children: "Cr\xe9ation de competence"
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                        lineNumber: 78,
-                        columnNumber: 25
-                    }, this)
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 78,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "title",
-                    children: "Titre * :"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 80,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    id: "title",
-                    type: "text",
-                    name: "title",
-                    required: true
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 81,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
-                    selectedCategory: selectedCategory,
-                    setSelectedCategory: setSelectedCategory,
-                    optionsHTML: optionsHTML
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 88,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
-                    selectedCategory: selectedCategory,
-                    setSelectedSubCategory: setSelectedSubCategory,
-                    optionsHTML: optionsHTML
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 94,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
-                    setSelectedLevel: setSelectedLevel,
-                    optionsHTML: optionsHTML
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 100,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "duration",
-                    children: "Duree * :"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 105,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    id: "duration",
-                    type: "text",
-                    name: "duration",
-                    required: true
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 106,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "transmission",
-                    children: " Mode de transmission * :"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 113,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    id: "transmission",
-                    type: "text",
-                    name: "transmission",
-                    required: true
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 114,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "description",
-                    children: "Descriptif * :"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 121,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                    id: "description",
-                    type: "text",
-                    name: "description",
-                    rows: "5",
-                    cols: "33",
-                    required: true
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 122,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "availability",
-                    children: "Disponibilite * :"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 131,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    id: "availability",
-                    type: "text",
-                    name: "availability",
-                    size: "25",
-                    required: true
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 132,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    type: "submit",
-                    children: "VALIDER"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 140,
-                    columnNumber: 17
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-            lineNumber: 77,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-        lineNumber: 72,
-        columnNumber: 9
-    }, this);
-}
-_s(CreateSkill, "OD7bBpZva5O2jO+Puf00hKivP7c=");
-_c = CreateSkill;
-var _c;
-$RefreshReg$(_c, "CreateSkill");
-
-  $parcel$ReactRefreshHelpers$2280.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","../../../SearchBar/Level":"8e1BU"}],"amOpm":[function(require,module,exports) {
+},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"81Zmr":[function() {},{}],"amOpm":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d953 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import Cookies from 'js-cookie';
 import Categories from "../../../SearchBar/Categories";
 import SubCategories from "../../../SearchBar/SubCategories";
@@ -21,6 +21,7 @@ export default function CreateSkill(
     }
 ) {
 
+    const formRef = useRef(null);
 
     const handleSubmit = async (event) => {
 
@@ -55,7 +56,13 @@ export default function CreateSkill(
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
 
-            getSkills()
+            // reload displays of all skills
+            getSkills();
+            // Réinitialiser le formulaire et les states
+            formRef.current.reset();
+            setSelectedCategory(null);
+            setSelectedSubCategory(null);
+            setSelectedLevel("");
 
         }
         catch (error) {
@@ -70,6 +77,7 @@ export default function CreateSkill(
 
     return (
         <form
+            ref={formRef} // Référence au formulaire
             method="POST"
             onSubmit={handleSubmit}
             className="updateAskill">

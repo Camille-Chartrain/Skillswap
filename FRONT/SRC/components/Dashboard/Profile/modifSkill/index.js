@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Level from '../../../../SearchBar/Level';
-import CategoriesCheckboxes from '../../ProfilePatch/CategoriesCheckboxes';
+import Level from '../../../SearchBar/Level';
+import CategoriesCheckboxes from '../ProfilePatch/CategoriesCheckboxes';
 
 export default function ModifSkill({
     // loading,
