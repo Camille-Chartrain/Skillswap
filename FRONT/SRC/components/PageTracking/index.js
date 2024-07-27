@@ -45,7 +45,7 @@ export default function PageTracking(
 
 
         // to modify the select lists "required" option on cat subcat and level
-        if (location.pathname === '/dashboard/profile/modifSkill'
+        if (location.pathname === '/dashboard/profile/modifications'
             || location.pathname === '/dashboard/profile'
         ) {
             setOptionsHTML(true);

@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 
 export default function Categories(
     {
-        selectedCategory,
         setSelectedCategory,
         optionsHTML
     }

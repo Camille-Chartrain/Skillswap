@@ -11,7 +11,7 @@ import Login from "./components/Login";
 import Admin from "./components/Admin";
 import PageTracking from "./components/PageTracking";
 import Results from "./Results";
-import ModifSkill from "./components/Dashboard/Profile/SkillssData/modifSkill";
+import ModifSkill from "./components/Dashboard/Profile/ModifSkill";
 
 
 
@@ -70,7 +70,6 @@ function App() {
                         logged={logged}
                         setLogged={setLogged}
                         optionsHTML={optionsHTML}
-                        setOptionsHTML={setOptionsHTML}
                     />}
                 />
                 <Route path="/dashboard"
@@ -98,7 +97,6 @@ function App() {
                             setLoading={setLoading}
                             setLogged={setLogged}
                             optionsHTML={optionsHTML}
-                            setOptionsHTML={setOptionsHTML}
                         />}
                     />
                     <Route path="/dashboard/profile"
@@ -112,7 +110,6 @@ function App() {
                             selectedLevel={selectedLevel}
                             setSelectedLevel={setSelectedLevel}
                             optionsHTML={optionsHTML}
-                            setOptionsHTML={setOptionsHTML}
 
                         />}
                     />
@@ -153,7 +150,6 @@ function App() {
                         loading={loading}
                         setLoading={setLoading}
                         optionsHTML={optionsHTML}
-                        setOptionsHTML={setOptionsHTML}
                         selectedCategory={selectedCategory}
                         setSelectedCategory={setSelectedCategory}
                         selectedSubCategory={selectedSubCategory}

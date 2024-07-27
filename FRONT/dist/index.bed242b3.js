@@ -27257,7 +27257,7 @@ var _pageTracking = require("./components/PageTracking");
 var _pageTrackingDefault = parcelHelpers.interopDefault(_pageTracking);
 var _results = require("./Results");
 var _resultsDefault = parcelHelpers.interopDefault(_results);
-var _modifSkill = require("./components/Dashboard/Profile/SkillssData/modifSkill");
+var _modifSkill = require("./components/Dashboard/Profile/ModifSkill");
 var _modifSkillDefault = parcelHelpers.interopDefault(_modifSkill);
 var _s = $RefreshSig$();
 function App() {
@@ -27316,8 +27316,7 @@ function App() {
                             setLoading: setLoading,
                             logged: logged,
                             setLogged: setLogged,
-                            optionsHTML: optionsHTML,
-                            setOptionsHTML: setOptionsHTML
+                            optionsHTML: optionsHTML
                         }, void 0, false, {
                             fileName: "SRC/App.js",
                             lineNumber: 53,
@@ -27334,7 +27333,7 @@ function App() {
                             setLogged: setLogged
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 77,
+                            lineNumber: 76,
                             columnNumber: 30
                         }, void 0),
                         children: [
@@ -27358,16 +27357,15 @@ function App() {
                                     loading: loading,
                                     setLoading: setLoading,
                                     setLogged: setLogged,
-                                    optionsHTML: optionsHTML,
-                                    setOptionsHTML: setOptionsHTML
+                                    optionsHTML: optionsHTML
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 82,
+                                    lineNumber: 81,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 81,
+                                lineNumber: 80,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27381,16 +27379,15 @@ function App() {
                                     setSelectedSubCategory: setSelectedSubCategory,
                                     selectedLevel: selectedLevel,
                                     setSelectedLevel: setSelectedLevel,
-                                    optionsHTML: optionsHTML,
-                                    setOptionsHTML: setOptionsHTML
+                                    optionsHTML: optionsHTML
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 105,
+                                    lineNumber: 103,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 104,
+                                lineNumber: 102,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27400,12 +27397,12 @@ function App() {
                                     setLoading: setLoading
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 120,
+                                    lineNumber: 117,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 119,
+                                lineNumber: 116,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27415,12 +27412,12 @@ function App() {
                                     setLoading: setLoading
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 127,
+                                    lineNumber: 124,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 126,
+                                lineNumber: 123,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27430,23 +27427,38 @@ function App() {
                                     setLoading: setLoading
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 134,
+                                    lineNumber: 131,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 133,
+                                lineNumber: 130,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "SRC/App.js",
-                        lineNumber: 76,
+                        lineNumber: 75,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/registration",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
+                            fileName: "SRC/App.js",
+                            lineNumber: 140,
+                            columnNumber: 30
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "SRC/App.js",
+                        lineNumber: 139,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "/login",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
+                            setNoMatch: setNoMatch,
+                            setDataCards: setDataCards
+                        }, void 0, false, {
                             fileName: "SRC/App.js",
                             lineNumber: 143,
                             columnNumber: 30
@@ -27457,27 +27469,11 @@ function App() {
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                        path: "/login",
-                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
-                            setNoMatch: setNoMatch,
-                            setDataCards: setDataCards
-                        }, void 0, false, {
-                            fileName: "SRC/App.js",
-                            lineNumber: 146,
-                            columnNumber: 30
-                        }, void 0)
-                    }, void 0, false, {
-                        fileName: "SRC/App.js",
-                        lineNumber: 145,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/dashboard/profile/modifications",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modifSkillDefault.default), {
                             loading: loading,
                             setLoading: setLoading,
                             optionsHTML: optionsHTML,
-                            setOptionsHTML: setOptionsHTML,
                             selectedCategory: selectedCategory,
                             setSelectedCategory: setSelectedCategory,
                             selectedSubCategory: selectedSubCategory,
@@ -27486,24 +27482,24 @@ function App() {
                             setSelectedLevel: setSelectedLevel
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 152,
+                            lineNumber: 149,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 151,
+                        lineNumber: 148,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/admin",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 168,
+                            lineNumber: 164,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 167,
+                        lineNumber: 163,
                         columnNumber: 17
                     }, this)
                 ]
@@ -27530,7 +27526,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","./components/Home":"ggupi","./components/Dashboard":"7KL8w","./components/Dashboard/Profile":"lfwej","./components/Dashboard/statistic":"amOpm","./components/Dashboard/Notification":"dADDe","./components/Dashboard/Desk":"b9wt4","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Admin":"78PF1","./components/PageTracking":"bO3q7","./Results":"lUyxf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/Dashboard/Profile/SkillssData/modifSkill":"d1uAp"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","./components/Home":"ggupi","./components/Dashboard":"7KL8w","./components/Dashboard/Profile":"lfwej","./components/Dashboard/statistic":"amOpm","./components/Dashboard/Notification":"dADDe","./components/Dashboard/Desk":"b9wt4","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Admin":"78PF1","./components/PageTracking":"bO3q7","./Results":"lUyxf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/Dashboard/Profile/ModifSkill":"4hke4"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.25.1
  *
@@ -34936,7 +34932,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _s = $RefreshSig$();
-function Categories({ selectedCategory, setSelectedCategory, optionsHTML }) {
+function Categories({ setSelectedCategory, optionsHTML }) {
     _s();
     const [categories, setCategories] = (0, _react.useState)([]);
     async function getCategories() {
@@ -34977,7 +34973,7 @@ function Categories({ selectedCategory, setSelectedCategory, optionsHTML }) {
                 children: "cat\xe9gorie"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Categories/index.js",
-                lineNumber: 55,
+                lineNumber: 54,
                 columnNumber: 13
             }, this),
             categories && categories.length > 0 && categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -34985,13 +34981,13 @@ function Categories({ selectedCategory, setSelectedCategory, optionsHTML }) {
                     children: category.name
                 }, category.id, false, {
                     fileName: "SRC/components/SearchBar/Categories/index.js",
-                    lineNumber: 59,
+                    lineNumber: 58,
                     columnNumber: 21
                 }, this))
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/Categories/index.js",
-        lineNumber: 51,
+        lineNumber: 50,
         columnNumber: 9
     }, this);
 }
@@ -38689,7 +38685,7 @@ function PageTracking({ setSelectedCategory, setSelectedSubCategory, setSearchIn
             setSelectedLevel("");
         }
         // to modify the select lists "required" option on cat subcat and level
-        if (location.pathname === "/dashboard/profile/modifSkill" || location.pathname === "/dashboard/profile") {
+        if (location.pathname === "/dashboard/profile/modifications" || location.pathname === "/dashboard/profile") {
             setOptionsHTML(true);
             console.log("optionHTML = true");
         } else {
@@ -38852,11 +38848,11 @@ $RefreshReg$(_c, "Results");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../components/Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../components/SearchBar":"kxQdC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"d1uAp":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8c5e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../components/Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../components/SearchBar":"kxQdC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4hke4":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d466 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8c5e.prelude(module);
+$parcel$ReactRefreshHelpers$d466.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -38866,37 +38862,68 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
-var _level = require("../../../../SearchBar/Level");
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _level = require("../../../SearchBar/Level");
 var _levelDefault = parcelHelpers.interopDefault(_level);
-var _categoriesCheckboxes = require("../../ProfilePatch/CategoriesCheckboxes");
-var _categoriesCheckboxesDefault = parcelHelpers.interopDefault(_categoriesCheckboxes);
+var _categories = require("../../../SearchBar/Categories");
+var _categoriesDefault = parcelHelpers.interopDefault(_categories);
+var _subCategories = require("../../../SearchBar/SubCategories");
+var _subCategoriesDefault = parcelHelpers.interopDefault(_subCategories);
 var _s = $RefreshSig$();
-function ModifSkill({}) {
+function ModifSkill({ // loading,
+// setLoading,
+selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML }) {
     _s();
+    const formRef = (0, _react.useRef)(null);
     // Utiliser useLocation pour accéder à l'état passé depuis l'autre page
     const location = (0, _reactRouterDom.useLocation)();
     // Extraire l'état depuis location.state
     const { skill } = location.state || {};
+    const [skillData, setSkillData] = (0, _react.useState)({
+        title: skill?.title || "",
+        duration: skill?.duration || "",
+        transmission: skill?.transmission || "",
+        description: skill?.description || "",
+        availability: skill?.availability || ""
+    });
+    function handleChange(event) {
+        const { name, value } = event.target;
+        setSkillData((prevSkillData)=>({
+                ...prevSkillData,
+                [name]: value
+            }));
+    }
     async function handleSubmit() {
+        console.log("Dans la handleSubmit formulaire modifSkill");
+        const dataSkill = {
+            ...skillData,
+            CategoryId: selectedCategory,
+            SubCategoryId: selectedSubCategory,
+            level: selectedLevel
+        };
+        console.log("dataskill", dataSkill);
         try {
-            const token = Cookies.get("token");
+            console.log("dans le try modifskill");
+            const token = (0, _jsCookieDefault.default).get("token");
             const response = await fetch(`http://${"localhost"}:${"3000"}/skill/${skill.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
-                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/json',
                     "Authorization": `Bearer ${token}`
                 },
-                body: JSON.stringify(skill)
+                body: dataSkill
             });
-            // //=traduct api response in Json
             const res = await response.json();
             console.log("qui est res avant if:", res);
             if (res === "update du skill ok") {
-                reset();
-                navigate("/dashboard");
+                formRef.current.reset();
+                setSelectedCategory(null);
+                setSelectedSubCategory(null);
+                setSelectedLevel("");
+                navigate("/profile");
             } else throw new Error("Invalid response from API");
-            setSkillUpDate(res.data);
         } catch (error) {
             console.log("catch de patchSkillUpDate:", error);
         //     setError("Votre modification n'a pas ete prise en compte");
@@ -38909,12 +38936,13 @@ function ModifSkill({}) {
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Modifier Comp\xe9tence"
             }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                lineNumber: 60,
+                fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                lineNumber: 106,
                 columnNumber: 13
             }, this),
             skill ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                method: "POST",
+                ref: formRef,
+                method: "PATCH",
                 onSubmit: handleSubmit,
                 className: "updateAskill",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
@@ -38924,140 +38952,165 @@ function ModifSkill({}) {
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                                 children: "Modification de competence"
                             }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                                lineNumber: 68,
+                                fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                                lineNumber: 115,
                                 columnNumber: 33
                             }, this)
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 68,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 115,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                             htmlFor: "title",
                             children: "Titre * :"
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 70,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 117,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                             id: "title",
                             type: "text",
                             name: "title",
-                            value: skill.title,
-                            // onChange={handleChangeSkill}
+                            value: skillData.title,
+                            onChange: handleChange,
                             required: true
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 71,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 118,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
+                            selectedCategory: selectedCategory,
+                            setSelectedCategory: setSelectedCategory,
+                            optionsHTML: optionsHTML
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 127,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
+                            selectedCategory: selectedCategory,
+                            setSelectedSubCategory: setSelectedSubCategory,
+                            optionsHTML: optionsHTML
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 133,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
+                            setSelectedLevel: setSelectedLevel,
+                            optionsHTML: optionsHTML
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 139,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                             htmlFor: "duration",
                             children: "Duree * :"
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 86,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 145,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                             id: "duration",
                             type: "text",
                             name: "duration",
-                            value: skill.duration,
-                            // onChange={handleChangeSkill}
+                            value: skillData.duration,
+                            onChange: handleChange,
                             required: true
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 87,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 146,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                             htmlFor: "transmission",
                             children: " Mode de transmission * :"
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 96,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 155,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                             htmlFor: "description",
                             children: "Descriptif * :"
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 99,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 158,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
                             id: "description",
                             type: "text",
                             name: "description",
-                            value: skill.description,
-                            // onChange={handleChangeSkill}
+                            value: skillData.description,
+                            onChange: handleChange,
                             rows: "5",
                             cols: "33",
                             required: true
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 100,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 159,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                             htmlFor: "availability",
                             children: "Disponibilite * :"
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 111,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 170,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                             id: "availability",
                             type: "text",
                             name: "availability",
-                            value: skill.availability,
-                            // onChange={handleChangeSkill}
+                            value: skillData.availability,
+                            onChange: handleChange,
                             size: "25",
                             required: true
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 112,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 171,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            // onClick={handlechange.bind(null, skillUpdate)}
                             type: "submit",
                             children: "VALIDER"
                         }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                            lineNumber: 122,
+                            fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                            lineNumber: 181,
                             columnNumber: 25
                         }, this)
                     ]
                 }, void 0, true, {
-                    fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                    lineNumber: 67,
+                    fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                    lineNumber: 114,
                     columnNumber: 21
                 }, this)
             }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                lineNumber: 63,
+                fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                lineNumber: 109,
                 columnNumber: 17
             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Aucune comp\xe9tence trouv\xe9e."
             }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-                lineNumber: 133,
+                fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                lineNumber: 191,
                 columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
-        fileName: "SRC/components/Dashboard/Profile/SkillssData/modifSkill/index.js",
-        lineNumber: 59,
+        fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+        lineNumber: 105,
         columnNumber: 9
     }, this);
 }
-_s(ModifSkill, "pkHmaVRPskBaU4tMJuJJpV42k1I=", false, function() {
+_s(ModifSkill, "3DtV7C4TU8NivSn8b4u0GU0P9ik=", false, function() {
     return [
         (0, _reactRouterDom.useLocation)
     ];
@@ -39066,11 +39119,11 @@ _c = ModifSkill;
 var _c;
 $RefreshReg$(_c, "ModifSkill");
 
-  $parcel$ReactRefreshHelpers$8c5e.postlude(module);
+  $parcel$ReactRefreshHelpers$d466.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../../../SearchBar/Level":"8e1BU","../../ProfilePatch/CategoriesCheckboxes":"2ckmV"}]},["5l8qM","1xC6H","hQ0Dx"], "hQ0Dx", "parcelRequireb2c8")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../../../SearchBar/Level":"8e1BU","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","js-cookie":"c8bBu"}]},["5l8qM","1xC6H","hQ0Dx"], "hQ0Dx", "parcelRequireb2c8")
 
 //# sourceMappingURL=index.bed242b3.js.map
