@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Level from '../../../SearchBar/Level';
 import Categories from '../../../SearchBar/Categories';
@@ -19,6 +19,7 @@ export default function ModifSkill({
 }) {
 
     const formRef = useRef(null);
+    const navigate = useNavigate();
 
     // Utiliser useLocation pour accéder à l'état passé depuis l'autre page
     const location = useLocation();
@@ -40,6 +41,7 @@ export default function ModifSkill({
 
     function handleChange(event) {
         const { name, value } = event.target;
+        console.log("event.target.value", event.target.value);
         setSkillData(prevSkillData => ({
             ...prevSkillData,
             [name]: value
@@ -47,10 +49,9 @@ export default function ModifSkill({
     }
 
 
-    async function handleSubmit() {
-
-        console.log("Dans la handleSubmit formulaire modifSkill");
-
+    async function handleSubmit(event) {
+        event.preventDefault()
+        console.log("dans le handlesubmit modifskill");
 
         const dataSkill = {
             ...skillData,
@@ -59,7 +60,7 @@ export default function ModifSkill({
             level: selectedLevel
         };
 
-        console.log("dataskill", dataSkill);
+        console.log("dataskill dans handleSubmit", dataSkill);
 
         try {
             console.log("dans le try modifskill");
@@ -70,10 +71,10 @@ export default function ModifSkill({
                 method: "PATCH",
                 status: 200,
                 headers: {
-                    // 'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: dataSkill
+                body: JSON.stringify(dataSkill)
                 // credentials: 'include'
             })
 
@@ -85,7 +86,7 @@ export default function ModifSkill({
                 setSelectedCategory(null);
                 setSelectedSubCategory(null);
                 setSelectedLevel("");
-                navigate('/profile');
+                navigate('/dashboard/profile');
             }
             else {
                 throw new Error("Invalid response from API");

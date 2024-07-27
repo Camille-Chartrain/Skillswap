@@ -27526,7 +27526,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","./components/Home":"ggupi","./components/Dashboard":"7KL8w","./components/Dashboard/Profile":"lfwej","./components/Dashboard/statistic":"amOpm","./components/Dashboard/Notification":"dADDe","./components/Dashboard/Desk":"b9wt4","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Admin":"78PF1","./components/PageTracking":"bO3q7","./Results":"lUyxf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/Dashboard/Profile/ModifSkill":"4hke4"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","./components/Home":"ggupi","./components/Dashboard":"7KL8w","./components/Dashboard/Profile":"lfwej","./components/Dashboard/statistic":"amOpm","./components/Dashboard/Notification":"dADDe","./components/Dashboard/Desk":"b9wt4","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Admin":"78PF1","./components/PageTracking":"bO3q7","./Results":"lUyxf","./components/Dashboard/Profile/ModifSkill":"4hke4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.25.1
  *
@@ -36088,7 +36088,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","js-cookie":"c8bBu","./CreateSkill":"2JxV8","./CardsSkills":"bOaxI"}],"cLUE2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","js-cookie":"c8bBu","./CardsSkills":"bOaxI","./CreateSkill":"2JxV8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cLUE2":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1375 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36466,239 +36466,7 @@ $RefreshReg$(_c, "DataProfile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2JxV8":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$2280 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$2280.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>CreateSkill);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _jsCookie = require("js-cookie");
-var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _categories = require("../../../SearchBar/Categories");
-var _categoriesDefault = parcelHelpers.interopDefault(_categories);
-var _subCategories = require("../../../SearchBar/SubCategories");
-var _subCategoriesDefault = parcelHelpers.interopDefault(_subCategories);
-var _level = require("../../../SearchBar/Level");
-var _levelDefault = parcelHelpers.interopDefault(_level);
-var _s = $RefreshSig$();
-function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML, getSkills }) {
-    _s();
-    const formRef = (0, _react.useRef)(null);
-    const handleSubmit = async (event)=>{
-        event.preventDefault();
-        const myFormData = new FormData(event.target);
-        myFormData.append("level", selectedLevel);
-        console.log("myformdata", myFormData);
-        const formDataEncoded = new URLSearchParams(myFormData);
-        try {
-            // console.log("selectedCategory dans CreateSkill", selectedCategory);
-            // console.log("selectedSubCategory dans CreateSkill", selectedSubCategory);
-            // console.log("selectLevel dans CreateSkill", selectedLevel);
-            // console.log('formDataEncoded CreateSkill:', formDataEncoded);
-            const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
-                method: "POST",
-                status: 200,
-                headers: {
-                    // 'Content-Type': 'application/json',
-                    "Authorization": `Bearer ${token}`
-                },
-                body: formDataEncoded
-            });
-            console.log("response avant .json", response);
-            const dataSkill = await response.json();
-            console.log(" response apres .json:", dataSkill);
-            // reload displays of all skills
-            getSkills();
-            // Réinitialiser le formulaire et les states
-            formRef.current.reset();
-            setSelectedCategory(null);
-            setSelectedSubCategory(null);
-            setSelectedLevel("");
-        } catch (error) {
-            console.log("erreur cath :", error);
-        // setError("Erreur lors de la creation de Competence");
-        // handleNotFoundError("Erreur lors de la creation de Competence");
-        }
-    };
-    (0, _react.useEffect)(()=>{}, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-        ref: formRef,
-        method: "POST",
-        onSubmit: handleSubmit,
-        className: "updateAskill",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
-            className: "skillUpDate",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                        children: "Cr\xe9ation de competence"
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                        lineNumber: 86,
-                        columnNumber: 25
-                    }, this)
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 86,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "title",
-                    children: "Titre * :"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 88,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    id: "title",
-                    type: "text",
-                    name: "title",
-                    required: true
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 89,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
-                    selectedCategory: selectedCategory,
-                    setSelectedCategory: setSelectedCategory,
-                    optionsHTML: optionsHTML
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 96,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
-                    selectedCategory: selectedCategory,
-                    setSelectedSubCategory: setSelectedSubCategory,
-                    optionsHTML: optionsHTML
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 102,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
-                    setSelectedLevel: setSelectedLevel,
-                    optionsHTML: optionsHTML
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 108,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "duration",
-                    children: "Duree * :"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 113,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    id: "duration",
-                    type: "text",
-                    name: "duration",
-                    required: true
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 114,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "transmission",
-                    children: " Mode de transmission * :"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 121,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    id: "transmission",
-                    type: "text",
-                    name: "transmission",
-                    required: true
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 122,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "description",
-                    children: "Descriptif * :"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 129,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                    id: "description",
-                    type: "text",
-                    name: "description",
-                    rows: "5",
-                    cols: "33",
-                    required: true
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 130,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                    htmlFor: "availability",
-                    children: "Disponibilite * :"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 139,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    id: "availability",
-                    type: "text",
-                    name: "availability",
-                    size: "25",
-                    required: true
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 140,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    type: "submit",
-                    children: "VALIDER"
-                }, void 0, false, {
-                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 148,
-                    columnNumber: 17
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-            lineNumber: 85,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-        lineNumber: 79,
-        columnNumber: 9
-    }, this);
-}
-_s(CreateSkill, "tWkBqXdviTvDZU5Xns358AVz/g8=");
-_c = CreateSkill;
-var _c;
-$RefreshReg$(_c, "CreateSkill");
-
-  $parcel$ReactRefreshHelpers$2280.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","../../../SearchBar/Level":"8e1BU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bOaxI":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bOaxI":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a0c6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -37846,7 +37614,239 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"81Zmr":[function() {},{}],"amOpm":[function(require,module,exports) {
+},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"81Zmr":[function() {},{}],"2JxV8":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2280 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2280.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>CreateSkill);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _categories = require("../../../SearchBar/Categories");
+var _categoriesDefault = parcelHelpers.interopDefault(_categories);
+var _subCategories = require("../../../SearchBar/SubCategories");
+var _subCategoriesDefault = parcelHelpers.interopDefault(_subCategories);
+var _level = require("../../../SearchBar/Level");
+var _levelDefault = parcelHelpers.interopDefault(_level);
+var _s = $RefreshSig$();
+function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML, getSkills }) {
+    _s();
+    const formRef = (0, _react.useRef)(null);
+    const handleSubmit = async (event)=>{
+        event.preventDefault();
+        const myFormData = new FormData(event.target);
+        myFormData.append("level", selectedLevel);
+        console.log("myformdata", myFormData);
+        const formDataEncoded = new URLSearchParams(myFormData);
+        try {
+            // console.log("selectedCategory dans CreateSkill", selectedCategory);
+            // console.log("selectedSubCategory dans CreateSkill", selectedSubCategory);
+            // console.log("selectLevel dans CreateSkill", selectedLevel);
+            // console.log('formDataEncoded CreateSkill:', formDataEncoded);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+                method: "POST",
+                status: 200,
+                headers: {
+                    // 'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${token}`
+                },
+                body: formDataEncoded
+            });
+            console.log("response avant .json", response);
+            const dataSkill = await response.json();
+            console.log(" response apres .json:", dataSkill);
+            // reload displays of all skills
+            getSkills();
+            // Réinitialiser le formulaire et les states
+            formRef.current.reset();
+            setSelectedCategory(null);
+            setSelectedSubCategory(null);
+            setSelectedLevel("");
+        } catch (error) {
+            console.log("erreur cath :", error);
+        // setError("Erreur lors de la creation de Competence");
+        // handleNotFoundError("Erreur lors de la creation de Competence");
+        }
+    };
+    (0, _react.useEffect)(()=>{}, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+        ref: formRef,
+        method: "POST",
+        onSubmit: handleSubmit,
+        className: "updateAskill",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+            className: "skillUpDate",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        children: "Cr\xe9ation de competence"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                        lineNumber: 86,
+                        columnNumber: 25
+                    }, this)
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 86,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "title",
+                    children: "Titre * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 88,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "title",
+                    type: "text",
+                    name: "title",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 89,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
+                    selectedCategory: selectedCategory,
+                    setSelectedCategory: setSelectedCategory,
+                    optionsHTML: optionsHTML
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 96,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
+                    selectedCategory: selectedCategory,
+                    setSelectedSubCategory: setSelectedSubCategory,
+                    optionsHTML: optionsHTML
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 102,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
+                    setSelectedLevel: setSelectedLevel,
+                    optionsHTML: optionsHTML
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 108,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "duration",
+                    children: "Duree * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 113,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "duration",
+                    type: "text",
+                    name: "duration",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 114,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "transmission",
+                    children: " Mode de transmission * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 121,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "transmission",
+                    type: "text",
+                    name: "transmission",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 122,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "description",
+                    children: "Descriptif * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 129,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                    id: "description",
+                    type: "text",
+                    name: "description",
+                    rows: "5",
+                    cols: "33",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 130,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    htmlFor: "availability",
+                    children: "Disponibilite * :"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 139,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "availability",
+                    type: "text",
+                    name: "availability",
+                    size: "25",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 140,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    type: "submit",
+                    children: "VALIDER"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 148,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+            lineNumber: 85,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
+        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+        lineNumber: 79,
+        columnNumber: 9
+    }, this);
+}
+_s(CreateSkill, "tWkBqXdviTvDZU5Xns358AVz/g8=");
+_c = CreateSkill;
+var _c;
+$RefreshReg$(_c, "CreateSkill");
+
+  $parcel$ReactRefreshHelpers$2280.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","../../../SearchBar/Level":"8e1BU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"amOpm":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d953 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -38876,6 +38876,7 @@ function ModifSkill({ // loading,
 selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML }) {
     _s();
     const formRef = (0, _react.useRef)(null);
+    const navigate = (0, _reactRouterDom.useNavigate)();
     // Utiliser useLocation pour accéder à l'état passé depuis l'autre page
     const location = (0, _reactRouterDom.useLocation)();
     // Extraire l'état depuis location.state
@@ -38889,20 +38890,22 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
     });
     function handleChange(event) {
         const { name, value } = event.target;
+        console.log("event.target.value", event.target.value);
         setSkillData((prevSkillData)=>({
                 ...prevSkillData,
                 [name]: value
             }));
     }
-    async function handleSubmit() {
-        console.log("Dans la handleSubmit formulaire modifSkill");
+    async function handleSubmit(event) {
+        event.preventDefault();
+        console.log("dans le handlesubmit modifskill");
         const dataSkill = {
             ...skillData,
             CategoryId: selectedCategory,
             SubCategoryId: selectedSubCategory,
             level: selectedLevel
         };
-        console.log("dataskill", dataSkill);
+        console.log("dataskill dans handleSubmit", dataSkill);
         try {
             console.log("dans le try modifskill");
             const token = (0, _jsCookieDefault.default).get("token");
@@ -38910,10 +38913,10 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                 method: "PATCH",
                 status: 200,
                 headers: {
-                    // 'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`
                 },
-                body: dataSkill
+                body: JSON.stringify(dataSkill)
             });
             const res = await response.json();
             console.log("qui est res avant if:", res);
@@ -38922,7 +38925,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                 setSelectedCategory(null);
                 setSelectedSubCategory(null);
                 setSelectedLevel("");
-                navigate("/profile");
+                navigate("/dashboard/profile");
             } else throw new Error("Invalid response from API");
         } catch (error) {
             console.log("catch de patchSkillUpDate:", error);
@@ -38937,7 +38940,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                 children: "Modifier Comp\xe9tence"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                lineNumber: 106,
+                lineNumber: 107,
                 columnNumber: 13
             }, this),
             skill ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -38953,12 +38956,12 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                                 children: "Modification de competence"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                                lineNumber: 115,
+                                lineNumber: 116,
                                 columnNumber: 33
                             }, this)
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 115,
+                            lineNumber: 116,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -38966,7 +38969,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             children: "Titre * :"
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 117,
+                            lineNumber: 118,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -38978,7 +38981,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             required: true
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 118,
+                            lineNumber: 119,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
@@ -38987,7 +38990,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             optionsHTML: optionsHTML
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 127,
+                            lineNumber: 128,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
@@ -38996,7 +38999,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             optionsHTML: optionsHTML
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 133,
+                            lineNumber: 134,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
@@ -39004,7 +39007,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             optionsHTML: optionsHTML
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 139,
+                            lineNumber: 140,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -39012,7 +39015,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             children: "Duree * :"
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 145,
+                            lineNumber: 146,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -39024,7 +39027,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             required: true
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 146,
+                            lineNumber: 147,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -39032,7 +39035,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             children: " Mode de transmission * :"
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 155,
+                            lineNumber: 156,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -39040,7 +39043,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             children: "Descriptif * :"
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 158,
+                            lineNumber: 159,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -39054,7 +39057,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             required: true
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 159,
+                            lineNumber: 160,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -39062,7 +39065,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             children: "Disponibilite * :"
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 170,
+                            lineNumber: 171,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -39075,7 +39078,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             required: true
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 171,
+                            lineNumber: 172,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -39083,35 +39086,36 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                             children: "VALIDER"
                         }, void 0, false, {
                             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                            lineNumber: 181,
+                            lineNumber: 182,
                             columnNumber: 25
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                    lineNumber: 114,
+                    lineNumber: 115,
                     columnNumber: 21
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                lineNumber: 109,
+                lineNumber: 110,
                 columnNumber: 17
             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Aucune comp\xe9tence trouv\xe9e."
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                lineNumber: 191,
+                lineNumber: 192,
                 columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-        lineNumber: 105,
+        lineNumber: 106,
         columnNumber: 9
     }, this);
 }
-_s(ModifSkill, "3DtV7C4TU8NivSn8b4u0GU0P9ik=", false, function() {
+_s(ModifSkill, "PHX5ooPaH3XOMhcl3A+nJCYw62U=", false, function() {
     return [
+        (0, _reactRouterDom.useNavigate),
         (0, _reactRouterDom.useLocation)
     ];
 });
@@ -39124,6 +39128,6 @@ $RefreshReg$(_c, "ModifSkill");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../../../SearchBar/Level":"8e1BU","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","js-cookie":"c8bBu"}]},["5l8qM","1xC6H","hQ0Dx"], "hQ0Dx", "parcelRequireb2c8")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../../../SearchBar/Level":"8e1BU","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["5l8qM","1xC6H","hQ0Dx"], "hQ0Dx", "parcelRequireb2c8")
 
 //# sourceMappingURL=index.bed242b3.js.map
