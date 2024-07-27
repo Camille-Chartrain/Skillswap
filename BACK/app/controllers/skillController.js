@@ -83,6 +83,8 @@ const skillController = {
         try {
             console.log("ici ma req")
             console.log(req.body);
+            console.log(req.query);
+            console.log("typeof req.query.SubCategoryId", typeof req.query.SubCategoryId);
 
             await Skill.create({
                 title: req.body.title,

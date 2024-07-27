@@ -1,7 +1,8 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import ProfilePatch from "./ProfilePatch";
-import SkillPatch from "./SkillssData";
+import SkillsData from "./SkillssData";
 import CreateSkill from "./CreateSkill";
+import Cookies from 'js-cookie';
 
 
 
@@ -31,6 +32,39 @@ export default function Profile(
 
     const [selectedCategories, setSelectedCategories] = useState([]);
 
+    const [skills, setSkills] = useState([]);
+
+    const getSkills = async () => {
+
+        try {
+            console.log("dans getsskills()");
+            setLoading(true)
+            const token = Cookies.get('token');
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill`, {
+                method: "get",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+            // console.log('response.status:', response.status);
+            console.log("skillUser avant .json", response);
+            const dataSkills = await response.json();
+            console.log(" response apres .json:", dataSkills);
+            setSkills(dataSkills);
+            setLoading(false)
+
+
+        }
+        catch (error) {
+            console.error(error.message);
+            // setError("Erreur d'affichage de la liste des competences");
+            // handleNotFoundError("Erreur d'affichage de la liste des competences");
+        }
+    }
+    useEffect(() => { getSkills() }, [])
+
 
 
     return (
@@ -58,9 +92,10 @@ export default function Profile(
                 setSelectedLevel={setSelectedLevel}
                 optionsHTML={optionsHTML}
                 setOptionsHTML={setOptionsHTML}
+                getSkills={getSkills}
             />
 
-            <SkillPatch
+            <SkillsData
                 loading={loading}
                 setLoading={setLoading}
                 selectedCategory={selectedCategory}
@@ -71,6 +106,7 @@ export default function Profile(
                 setSelectedLevel={setSelectedLevel}
                 optionsHTML={optionsHTML}
                 setOptionsHTML={setOptionsHTML}
+                skills={skills}
             />
         </>
     )

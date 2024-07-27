@@ -35981,6 +35981,8 @@ var _skillssData = require("./SkillssData");
 var _skillssDataDefault = parcelHelpers.interopDefault(_skillssData);
 var _createSkill = require("./CreateSkill");
 var _createSkillDefault = parcelHelpers.interopDefault(_createSkill);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _s = $RefreshSig$();
 function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML, setOptionsHTML }) {
     _s();
@@ -35993,13 +35995,42 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
         Categories: []
     });
     const [selectedCategories, setSelectedCategories] = (0, _react.useState)([]);
+    const [skills, setSkills] = (0, _react.useState)([]);
+    const getSkills = async ()=>{
+        try {
+            console.log("dans getsskills()");
+            setLoading(true);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/skill`, {
+                method: "get",
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            // console.log('response.status:', response.status);
+            console.log("skillUser avant .json", response);
+            const dataSkills = await response.json();
+            console.log(" response apres .json:", dataSkills);
+            setSkills(dataSkills);
+            setLoading(false);
+        } catch (error) {
+            console.error(error.message);
+        // setError("Erreur d'affichage de la liste des competences");
+        // handleNotFoundError("Erreur d'affichage de la liste des competences");
+        }
+    };
+    (0, _react.useEffect)(()=>{
+        getSkills();
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: "Profil"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 38,
+                lineNumber: 72,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profilePatchDefault.default), {
@@ -36011,7 +36042,7 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
                 setDataProfile: setDataProfile
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 41,
+                lineNumber: 75,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _createSkillDefault.default), {
@@ -36024,10 +36055,11 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
                 selectedLevel: selectedLevel,
                 setSelectedLevel: setSelectedLevel,
                 optionsHTML: optionsHTML,
-                setOptionsHTML: setOptionsHTML
+                setOptionsHTML: setOptionsHTML,
+                getSkills: getSkills
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 50,
+                lineNumber: 84,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skillssDataDefault.default), {
@@ -36040,16 +36072,17 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
                 selectedLevel: selectedLevel,
                 setSelectedLevel: setSelectedLevel,
                 optionsHTML: optionsHTML,
-                setOptionsHTML: setOptionsHTML
+                setOptionsHTML: setOptionsHTML,
+                skills: skills
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 63,
+                lineNumber: 98,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true);
 }
-_s(Profile, "847iKqYdZMhmILotAg+0VNRmX2c=");
+_s(Profile, "hN4/NGFXWbK716tESbinUKi2ulg=");
 _c = Profile;
 var _c;
 $RefreshReg$(_c, "Profile");
@@ -36059,7 +36092,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SkillssData":"iCCVN","./CreateSkill":"2JxV8"}],"cLUE2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SkillssData":"iCCVN","./CreateSkill":"2JxV8","js-cookie":"c8bBu"}],"cLUE2":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1375 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36118,7 +36151,7 @@ function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, select
                     children: "Modifier votre profil"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-                    lineNumber: 64,
+                    lineNumber: 66,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dataProfileDefault.default), {
@@ -36130,7 +36163,7 @@ function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, select
                     setDataProfile: setDataProfile
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-                    lineNumber: 66,
+                    lineNumber: 68,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesCheckboxesDefault.default), {
@@ -36140,14 +36173,14 @@ function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, select
                     setLoading: setLoading
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-                    lineNumber: 75,
+                    lineNumber: 77,
                     columnNumber: 17
                 }, this),
                 loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: "chargement..."
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-                    lineNumber: 82,
+                    lineNumber: 84,
                     columnNumber: 29
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36155,18 +36188,18 @@ function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, select
                     children: "Envoyer"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-                    lineNumber: 84,
+                    lineNumber: 86,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-            lineNumber: 63,
+            lineNumber: 65,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-        lineNumber: 59,
+        lineNumber: 61,
         columnNumber: 9
     }, this);
 }
@@ -36453,47 +36486,44 @@ var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _cardsSkills = require("./CardsSkills");
 var _cardsSkillsDefault = parcelHelpers.interopDefault(_cardsSkills);
-var _s = $RefreshSig$();
-function SkillsData({ loading, setLoading }) {
-    _s();
-    const [skills, setSkills] = (0, _react.useState)([]);
-    const GetSkills = async ()=>{
-        try {
-            setLoading(true);
-            const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/skill`, {
-                method: "get",
-                status: 200,
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            // console.log('response.status:', response.status);
-            console.log("skillUser avant .json", response);
-            const dataSkills = await response.json();
-            console.log(" response apres .json:", dataSkills);
-            setSkills(dataSkills);
-            setLoading(false);
-        } catch (error) {
-            console.error(error.message);
-        // setError("Erreur d'affichage de la liste des competences");
-        // handleNotFoundError("Erreur d'affichage de la liste des competences");
-        }
-    };
-    (0, _react.useEffect)(()=>{
-        GetSkills();
-    }, []);
+function SkillsData({ loading, setLoading, skills }) {
+    // const [skills, setSkills] = useState([]);
+    // const GetSkills = async () => {
+    //     try {
+    //         console.log("dans getsskills()");
+    //         setLoading(true)
+    //         const token = Cookies.get('token');
+    //         const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill`, {
+    //             method: "get",
+    //             status: 200,
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': `Bearer ${token}`,
+    //             },
+    //         })
+    //         // console.log('response.status:', response.status);
+    //         console.log("skillUser avant .json", response);
+    //         const dataSkills = await response.json();
+    //         console.log(" response apres .json:", dataSkills);
+    //         setSkills(dataSkills);
+    //         setLoading(false)
+    //     }
+    //     catch (error) {
+    //         console.error(error.message);
+    //         // setError("Erreur d'affichage de la liste des competences");
+    //         // handleNotFoundError("Erreur d'affichage de la liste des competences");
+    //     }
+    // }
+    // useEffect(() => { GetSkills() }, [])
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsSkillsDefault.default), {
         loading: loading,
         skills: skills
     }, void 0, false, {
         fileName: "SRC/components/Dashboard/Profile/SkillssData/index.js",
-        lineNumber: 42,
+        lineNumber: 43,
         columnNumber: 9
     }, this);
 }
-_s(SkillsData, "5GNcl9Dk8gl3IGzVJXf3o3LIPSE=");
 _c = SkillsData;
 var _c;
 $RefreshReg$(_c, "SkillsData");
@@ -37672,34 +37702,37 @@ var _subCategoriesDefault = parcelHelpers.interopDefault(_subCategories);
 var _level = require("../../../SearchBar/Level");
 var _levelDefault = parcelHelpers.interopDefault(_level);
 var _s = $RefreshSig$();
-function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, optionsHTML }) {
+function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML, getSkills }) {
     _s();
-    const handleSubmit = async ()=>{
+    const handleSubmit = async (event)=>{
+        event.preventDefault();
+        const myFormData = new FormData(event.target);
+        myFormData.append("level", selectedLevel);
+        console.log("myformdata", myFormData);
+        const formDataEncoded = new URLSearchParams(myFormData);
         try {
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectLevel);
-            console.log("try data:", data);
+            // console.log("selectedCategory dans CreateSkill", selectedCategory);
+            // console.log("selectedSubCategory dans CreateSkill", selectedSubCategory);
+            // console.log("selectLevel dans CreateSkill", selectedLevel);
+            // console.log('formDataEncoded CreateSkill:', formDataEncoded);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/?&CategoryId=${selectedCategory?.id}&SubCategoryId=${selectedSubCategory?.id}`, {
-                method: "post",
+            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+                method: "POST",
                 status: 200,
                 headers: {
-                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/json',
                     "Authorization": `Bearer ${token}`
                 },
-                body: JSON.stringify(data)
+                body: formDataEncoded
             });
-            //=traduct api response in Json
             console.log("response avant .json", response);
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
-            reset();
-            GetAllSkillUser();
+            getSkills();
         } catch (error) {
             console.log("erreur cath :", error);
-            setError("Erreur lors de la creation de Competence");
-            handleNotFoundError("Erreur lors de la creation de Competence");
+        // setError("Erreur lors de la creation de Competence");
+        // handleNotFoundError("Erreur lors de la creation de Competence");
         }
     };
     (0, _react.useEffect)(()=>{}, []);
@@ -37715,12 +37748,12 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                         children: "Cr\xe9ation de competence"
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                        lineNumber: 66,
+                        lineNumber: 78,
                         columnNumber: 25
                     }, this)
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 66,
+                    lineNumber: 78,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -37728,7 +37761,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     children: "Titre * :"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 68,
+                    lineNumber: 80,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37738,7 +37771,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     required: true
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 69,
+                    lineNumber: 81,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
@@ -37747,7 +37780,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     optionsHTML: optionsHTML
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 76,
+                    lineNumber: 88,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
@@ -37756,7 +37789,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     optionsHTML: optionsHTML
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 82,
+                    lineNumber: 94,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
@@ -37764,7 +37797,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     optionsHTML: optionsHTML
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 88,
+                    lineNumber: 100,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -37772,7 +37805,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     children: "Duree * :"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 93,
+                    lineNumber: 105,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37782,7 +37815,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     required: true
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 94,
+                    lineNumber: 106,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -37790,7 +37823,17 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     children: " Mode de transmission * :"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 101,
+                    lineNumber: 113,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    id: "transmission",
+                    type: "text",
+                    name: "transmission",
+                    required: true
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
+                    lineNumber: 114,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -37798,7 +37841,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     children: "Descriptif * :"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 104,
+                    lineNumber: 121,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -37810,7 +37853,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     required: true
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 105,
+                    lineNumber: 122,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -37818,7 +37861,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     children: "Disponibilite * :"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 114,
+                    lineNumber: 131,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37829,7 +37872,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     required: true
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 115,
+                    lineNumber: 132,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -37837,18 +37880,18 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                     children: "VALIDER"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                    lineNumber: 123,
+                    lineNumber: 140,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-            lineNumber: 65,
+            lineNumber: 77,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-        lineNumber: 60,
+        lineNumber: 72,
         columnNumber: 9
     }, this);
 }

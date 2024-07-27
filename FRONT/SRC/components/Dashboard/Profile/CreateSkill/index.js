@@ -12,44 +12,56 @@ export default function CreateSkill(
         setLoading,
         selectedCategory,
         setSelectedCategory,
+        selectedSubCategory,
         setSelectedSubCategory,
+        selectedLevel,
         setSelectedLevel,
-        optionsHTML
+        optionsHTML,
+        getSkills
     }
 ) {
 
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
+
+
+        event.preventDefault();
+
+        const myFormData = new FormData(event.target);
+        myFormData.append('level', selectedLevel);
+        console.log("myformdata", myFormData);
+        const formDataEncoded = new URLSearchParams(myFormData);
+
 
         try {
 
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectLevel);
-            console.log('try data:', data);
+            // console.log("selectedCategory dans CreateSkill", selectedCategory);
+            // console.log("selectedSubCategory dans CreateSkill", selectedSubCategory);
+            // console.log("selectLevel dans CreateSkill", selectedLevel);
+            // console.log('formDataEncoded CreateSkill:', formDataEncoded);
+
             const token = Cookies.get('token');
-            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/?&CategoryId=${selectedCategory?.id}&SubCategoryId=${selectedSubCategory?.id}`, {
-                method: "post",
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+                method: "POST",
                 status: 200,
                 headers: {
-                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data)
-                // credentials: 'include'
+                body: formDataEncoded
             })
 
-            //=traduct api response in Json
             console.log("response avant .json", response);
             const dataSkill = await response.json();
             console.log(" response apres .json:", dataSkill);
-            reset();
-            GetAllSkillUser();
+
+            getSkills()
+
         }
         catch (error) {
             console.log("erreur cath :", error);
-            setError("Erreur lors de la creation de Competence");
-            handleNotFoundError("Erreur lors de la creation de Competence");
+            // setError("Erreur lors de la creation de Competence");
+            // handleNotFoundError("Erreur lors de la creation de Competence");
         }
 
     }
@@ -99,7 +111,12 @@ export default function CreateSkill(
                 />
 
                 <label htmlFor="transmission"> Mode de transmission * :</label>
-                {/* <SearchTransmission  /> */}
+                <input
+                    id="transmission"
+                    type="text"
+                    name="transmission"
+                    required
+                />
 
                 <label htmlFor="description">Descriptif * :</label>
                 <textarea

@@ -17,6 +17,7 @@ export default function ProfilePatch(
     }
 ) {
 
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log('envoi formulaire');
@@ -52,6 +53,7 @@ export default function ProfilePatch(
             // setError("Erreur lors de la modification du profil");
             // handleNotFoundError("Erreur lors de la modification du profil");
         }
+
     };
 
 
