@@ -107,6 +107,7 @@ export default function Profile(
                 optionsHTML={optionsHTML}
                 setOptionsHTML={setOptionsHTML}
                 skills={skills}
+                getSkills={getSkills}
             />
         </>
     )

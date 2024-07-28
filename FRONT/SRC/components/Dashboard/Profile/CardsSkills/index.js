@@ -5,7 +5,12 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the css
 import Cookies from 'js-cookie';
 
 
-export default function CardsSkills({ loading, setLoading, skills }) {
+export default function CardsSkills(
+    {
+        loading,
+        setLoading,
+        skills,
+        getSkills }) {
 
     const navigate = useNavigate();
 
@@ -22,7 +27,6 @@ export default function CardsSkills({ loading, setLoading, skills }) {
 
     async function deleteSkill(skill) {
         try {
-            // console.log("id recup ds le try PSD :", skill.id);
             const token = Cookies.get('token');
             const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/${skill.id}`, {
                 method: "delete",
@@ -35,13 +39,13 @@ export default function CardsSkills({ loading, setLoading, skills }) {
                 // credentials: 'include'
             })
 
-            //=traduct api response in Json
             console.log("response avant .json", response);
             const responseDelete = await response.json();
             console.log("responseDelete apres json :", responseDelete);
+            getSkills();
         }
         catch (error) {
-            console.log("catch postSkillDelete:", error);
+            console.log("catch deleSkill:", error);
             // setError("Impossible de sdupprimer cette competence");
             // handleNotFoundError("Impossible de sdupprimer cette competence");
 
@@ -58,7 +62,6 @@ export default function CardsSkills({ loading, setLoading, skills }) {
                     onClick: () => {
                         console.log("on supprime ce skill:", skill);
                         deleteSkill(skill);
-
                     }
                 },
                 {

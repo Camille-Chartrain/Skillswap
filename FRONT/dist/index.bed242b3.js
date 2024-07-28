@@ -35979,7 +35979,8 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
                 setSelectedLevel: setSelectedLevel,
                 optionsHTML: optionsHTML,
                 setOptionsHTML: setOptionsHTML,
-                skills: skills
+                skills: skills,
+                getSkills: getSkills
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
                 lineNumber: 98,
@@ -36394,7 +36395,7 @@ var _reactConfirmAlertCss = require("react-confirm-alert/src/react-confirm-alert
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _s = $RefreshSig$();
-function CardsSkills({ loading, setLoading, skills }) {
+function CardsSkills({ loading, setLoading, skills, getSkills }) {
     _s();
     const navigate = (0, _reactRouterDom.useNavigate)();
     async function handlePatchSkill(skill) {
@@ -36408,7 +36409,6 @@ function CardsSkills({ loading, setLoading, skills }) {
     }
     async function deleteSkill(skill) {
         try {
-            // console.log("id recup ds le try PSD :", skill.id);
             const token = (0, _jsCookieDefault.default).get("token");
             const response = await fetch(`http://${"localhost"}:${"3000"}/skill/${skill.id}`, {
                 method: "delete",
@@ -36419,12 +36419,12 @@ function CardsSkills({ loading, setLoading, skills }) {
                 },
                 body: JSON.stringify(skill)
             });
-            //=traduct api response in Json
             console.log("response avant .json", response);
             const responseDelete = await response.json();
             console.log("responseDelete apres json :", responseDelete);
+            getSkills();
         } catch (error) {
-            console.log("catch postSkillDelete:", error);
+            console.log("catch deleSkill:", error);
         // setError("Impossible de sdupprimer cette competence");
         // handleNotFoundError("Impossible de sdupprimer cette competence");
         }
@@ -36454,7 +36454,7 @@ function CardsSkills({ loading, setLoading, skills }) {
                 children: "Chargement..."
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                lineNumber: 74,
+                lineNumber: 77,
                 columnNumber: 25
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -36469,35 +36469,35 @@ function CardsSkills({ loading, setLoading, skills }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 82,
+                                lineNumber: 85,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.level
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 83,
+                                lineNumber: 86,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.Category.name
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 84,
+                                lineNumber: 87,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.SubCategory.name
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 85,
+                                lineNumber: 88,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.createdAt
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 86,
+                                lineNumber: 89,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36510,7 +36510,7 @@ function CardsSkills({ loading, setLoading, skills }) {
                                 children: "MODIFIER"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 88,
+                                lineNumber: 91,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36521,18 +36521,18 @@ function CardsSkills({ loading, setLoading, skills }) {
                                 children: "SUPPRIMER"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 99,
+                                lineNumber: 102,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, skill?.id, true, {
                         fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                        lineNumber: 78,
+                        lineNumber: 81,
                         columnNumber: 21
                     }, this))
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                lineNumber: 75,
+                lineNumber: 78,
                 columnNumber: 13
             }, this)
         ]
