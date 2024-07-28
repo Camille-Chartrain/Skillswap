@@ -8,7 +8,6 @@ export default function Dashboard(
         setSelectedSubCategory,
         setSelectedLevel,
         setSearchInput,
-        setMatch,
         setNoMatch
     }
 ) {
@@ -27,7 +26,6 @@ export default function Dashboard(
                 setSelectedSubCategory={setSelectedSubCategory}
                 setSelectedLevel={setSelectedLevel}
                 setSearchInput={setSearchInput}
-                setMatch={setMatch}
                 setNoMatch={setNoMatch}
             />
         </div>

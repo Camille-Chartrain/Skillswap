@@ -27335,7 +27335,6 @@ function App() {
                             setSelectedSubCategory: setSelectedSubCategory,
                             setSelectedLevel: setSelectedLevel,
                             setSearchInput: setSearchInput,
-                            setMatch: setMatch,
                             setNoMatch: setNoMatch
                         }, void 0, false, {
                             fileName: "SRC/App.js",
@@ -27366,12 +27365,12 @@ function App() {
                                     optionsHTML: optionsHTML
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 87,
+                                    lineNumber: 86,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 86,
+                                lineNumber: 85,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27388,12 +27387,12 @@ function App() {
                                     optionsHTML: optionsHTML
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 109,
+                                    lineNumber: 108,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 108,
+                                lineNumber: 107,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27403,12 +27402,12 @@ function App() {
                                     setLoading: setLoading
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 123,
+                                    lineNumber: 122,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 122,
+                                lineNumber: 121,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27418,12 +27417,12 @@ function App() {
                                     setLoading: setLoading
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 130,
+                                    lineNumber: 129,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 129,
+                                lineNumber: 128,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27433,12 +27432,12 @@ function App() {
                                     setLoading: setLoading
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 137,
+                                    lineNumber: 136,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 136,
+                                lineNumber: 135,
                                 columnNumber: 21
                             }, this)
                         ]
@@ -27451,12 +27450,12 @@ function App() {
                         path: "/registration",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 146,
+                            lineNumber: 145,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 145,
+                        lineNumber: 144,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27466,12 +27465,12 @@ function App() {
                             setDataCards: setDataCards
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 149,
+                            lineNumber: 148,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 148,
+                        lineNumber: 147,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27488,24 +27487,24 @@ function App() {
                             setSelectedLevel: setSelectedLevel
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 155,
+                            lineNumber: 154,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 154,
+                        lineNumber: 153,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/admin",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 170,
+                            lineNumber: 169,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 169,
+                        lineNumber: 168,
                         columnNumber: 17
                     }, this)
                 ]
@@ -35647,7 +35646,7 @@ var _reactRouterDom = require("react-router-dom");
 var _logout = require("../../Logout");
 var _logoutDefault = parcelHelpers.interopDefault(_logout);
 var _s = $RefreshSig$();
-function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setMatch, setNoMatch }) {
+function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setNoMatch }) {
     _s();
     const navigate = (0, _reactRouterDom.useNavigate)();
     function handleClickHome() {
@@ -35666,7 +35665,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 children: "Notifs "
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 33,
+                lineNumber: 32,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -35674,7 +35673,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 children: "Stats "
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 34,
+                lineNumber: 33,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -35682,7 +35681,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 children: "Profil "
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 35,
+                lineNumber: 34,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -35690,7 +35689,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 children: "bureau "
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 36,
+                lineNumber: 35,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -35698,14 +35697,14 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 children: "recherche "
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 37,
+                lineNumber: 36,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
                 setLogged: setLogged
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 38,
+                lineNumber: 37,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35713,18 +35712,18 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 children: "Accueil"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 41,
+                lineNumber: 40,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 42,
+                lineNumber: 41,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-        lineNumber: 32,
+        lineNumber: 31,
         columnNumber: 9
     }, this);
 }
@@ -35827,7 +35826,7 @@ var _react = require("react");
 var _navLogged = require("./NavLogged");
 var _navLoggedDefault = parcelHelpers.interopDefault(_navLogged);
 var _s = $RefreshSig$();
-function Dashboard({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setMatch, setNoMatch }) {
+function Dashboard({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setNoMatch }) {
     _s();
     (0, _react.useEffect)(()=>{
         setLogged(true);
@@ -35838,7 +35837,7 @@ function Dashboard({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 children: "Dashboard"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 23,
+                lineNumber: 22,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
@@ -35847,17 +35846,16 @@ function Dashboard({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 setSelectedSubCategory: setSelectedSubCategory,
                 setSelectedLevel: setSelectedLevel,
                 setSearchInput: setSearchInput,
-                setMatch: setMatch,
                 setNoMatch: setNoMatch
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 24,
+                lineNumber: 23,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Dashboard/index.js",
-        lineNumber: 22,
+        lineNumber: 21,
         columnNumber: 9
     }, this);
 }
@@ -36393,6 +36391,8 @@ var _react = require("react");
 var _reactRouterDom = require("react-router-dom");
 var _reactConfirmAlert = require("react-confirm-alert"); // Import the library
 var _reactConfirmAlertCss = require("react-confirm-alert/src/react-confirm-alert.css"); // Import the css
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _s = $RefreshSig$();
 function CardsSkills({ loading, setLoading, skills }) {
     _s();
@@ -36406,6 +36406,29 @@ function CardsSkills({ loading, setLoading, skills }) {
             }
         });
     }
+    async function deleteSkill(skill) {
+        try {
+            // console.log("id recup ds le try PSD :", skill.id);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/${skill.id}`, {
+                method: "delete",
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(skill)
+            });
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const responseDelete = await response.json();
+            console.log("responseDelete apres json :", responseDelete);
+        } catch (error) {
+            console.log("catch postSkillDelete:", error);
+        // setError("Impossible de sdupprimer cette competence");
+        // handleNotFoundError("Impossible de sdupprimer cette competence");
+        }
+    }
     async function handleDeleteSkill(skill) {
         (0, _reactConfirmAlert.confirmAlert)({
             title: "Confirmation de suppression",
@@ -36414,8 +36437,8 @@ function CardsSkills({ loading, setLoading, skills }) {
                 {
                     label: "Oui",
                     onClick: ()=>{
-                        console.log("il faudra supprimer", skill);
-                    // Ajoutez ici la logique pour supprimer la compétence
+                        console.log("on supprime ce skill:", skill);
+                        deleteSkill(skill);
                     }
                 },
                 {
@@ -36431,7 +36454,7 @@ function CardsSkills({ loading, setLoading, skills }) {
                 children: "Chargement..."
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                lineNumber: 46,
+                lineNumber: 74,
                 columnNumber: 25
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -36446,35 +36469,35 @@ function CardsSkills({ loading, setLoading, skills }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 54,
+                                lineNumber: 82,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.level
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 55,
+                                lineNumber: 83,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.Category.name
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 56,
+                                lineNumber: 84,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.SubCategory.name
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 57,
+                                lineNumber: 85,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: skill?.createdAt
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 58,
+                                lineNumber: 86,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36487,7 +36510,7 @@ function CardsSkills({ loading, setLoading, skills }) {
                                 children: "MODIFIER"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 60,
+                                lineNumber: 88,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36498,18 +36521,18 @@ function CardsSkills({ loading, setLoading, skills }) {
                                 children: "SUPPRIMER"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 71,
+                                lineNumber: 99,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, skill?.id, true, {
                         fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                        lineNumber: 50,
+                        lineNumber: 78,
                         columnNumber: 21
                     }, this))
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                lineNumber: 47,
+                lineNumber: 75,
                 columnNumber: 13
             }, this)
         ]
@@ -36529,7 +36552,7 @@ $RefreshReg$(_c, "CardsSkills");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","react-confirm-alert":"c1JOB","react-confirm-alert/src/react-confirm-alert.css":"81Zmr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"c1JOB":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","react-confirm-alert":"c1JOB","react-confirm-alert/src/react-confirm-alert.css":"81Zmr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","js-cookie":"c8bBu"}],"c1JOB":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true

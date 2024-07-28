@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { confirmAlert } from 'react-confirm-alert'; // Import the library
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the css
+import Cookies from 'js-cookie';
 
 
 export default function CardsSkills({ loading, setLoading, skills }) {
@@ -19,7 +20,33 @@ export default function CardsSkills({ loading, setLoading, skills }) {
             })
     };
 
+    async function deleteSkill(skill) {
+        try {
+            // console.log("id recup ds le try PSD :", skill.id);
+            const token = Cookies.get('token');
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/${skill.id}`, {
+                method: "delete",
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(skill),
+                // credentials: 'include'
+            })
 
+            //=traduct api response in Json
+            console.log("response avant .json", response);
+            const responseDelete = await response.json();
+            console.log("responseDelete apres json :", responseDelete);
+        }
+        catch (error) {
+            console.log("catch postSkillDelete:", error);
+            // setError("Impossible de sdupprimer cette competence");
+            // handleNotFoundError("Impossible de sdupprimer cette competence");
+
+        }
+    };
 
     async function handleDeleteSkill(skill) {
         confirmAlert({
@@ -29,8 +56,9 @@ export default function CardsSkills({ loading, setLoading, skills }) {
                 {
                     label: 'Oui',
                     onClick: () => {
-                        console.log("il faudra supprimer", skill);
-                        // Ajoutez ici la logique pour supprimer la compétence
+                        console.log("on supprime ce skill:", skill);
+                        deleteSkill(skill);
+
                     }
                 },
                 {

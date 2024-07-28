@@ -10,7 +10,6 @@ export default function NavLogged(
         setSelectedSubCategory,
         setSelectedLevel,
         setSearchInput,
-        setMatch,
         setNoMatch
     }
 ) {

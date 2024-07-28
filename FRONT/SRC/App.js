@@ -79,7 +79,6 @@ function App() {
                         setSelectedSubCategory={setSelectedSubCategory}
                         setSelectedLevel={setSelectedLevel}
                         setSearchInput={setSearchInput}
-                        setMatch={setMatch}
                         setNoMatch={setNoMatch}
                     />}
                 >
