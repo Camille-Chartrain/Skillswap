@@ -75,6 +75,12 @@ function App() {
                 <Route path="/dashboard"
                     element={<Dashboard
                         setLogged={setLogged}
+                        setSelectedCategory={setSelectedCategory}
+                        setSelectedSubCategory={setSelectedSubCategory}
+                        setSelectedLevel={setSelectedLevel}
+                        setSearchInput={setSearchInput}
+                        setMatch={setMatch}
+                        setNoMatch={setNoMatch}
                     />}
                 >
                     <Route path="/dashboard/results"

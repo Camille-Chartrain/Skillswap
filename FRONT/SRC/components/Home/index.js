@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import SearchBar from "../SearchBar";
 import Cards from "../Cards";
 import NavHome from "../NavHome";
-import NavLogged from "../dashboard/NavLogged";
+import NavLogged from "../Dashboard/NavLogged";
 import Cookies from 'js-cookie';
 
 const Home = ({
@@ -71,7 +71,8 @@ const Home = ({
     return (
         <>
             {logged && <NavLogged
-                setLogged={setLogged} />}
+                setLogged={setLogged}
+            />}
             {!logged && <NavHome />}
             {!logged && <SearchBar
                 selectedCategory={selectedCategory}

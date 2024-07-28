@@ -3,7 +3,13 @@ import NavLogged from "./NavLogged";
 
 export default function Dashboard(
     {
-        setLogged
+        setLogged,
+        setSelectedCategory,
+        setSelectedSubCategory,
+        setSelectedLevel,
+        setSearchInput,
+        setMatch,
+        setNoMatch
     }
 ) {
 
@@ -17,6 +23,12 @@ export default function Dashboard(
             <h1>Dashboard</h1>
             <NavLogged
                 setLogged={setLogged}
+                setSelectedCategory={setSelectedCategory}
+                setSelectedSubCategory={setSelectedSubCategory}
+                setSelectedLevel={setSelectedLevel}
+                setSearchInput={setSearchInput}
+                setMatch={setMatch}
+                setNoMatch={setNoMatch}
             />
         </div>
     )
