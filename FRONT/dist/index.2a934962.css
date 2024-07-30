@@ -1,3 +1,46 @@
+.navHome {
+  background-color: #ffecad;
+  border-color: #000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  max-height: 5%;
+  display: flex;
+}
+
+.navHome button .icone {
+  color: #008cff;
+  height: 27px;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.navHome button h1 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+body {
+  background-color: #ff9100;
+}
+
+section {
+  color: #fff;
+  margin: 30px;
+  font-size: 1.7rem;
+}
+
+section .display {
+  background-color: #3aaef1;
+  border-radius: 10px;
+}
+
+button {
+  background-color: #ffebcd;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 body.react-confirm-alert-body-element {
   overflow: hidden;
 }

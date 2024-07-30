@@ -1,5 +1,9 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons';
+import styles from './navHome.scss'; // Import SCSS as a module
+
 
 export default function NavHome() {
 
@@ -18,10 +22,37 @@ export default function NavHome() {
     }
 
     return (
-        <nav>
-            <p onClick={handleClickHome}>Accueil</p>
-            <p onClick={handleClickRegistration}>Inscription</p>
-            <p onClick={handleClickLogin}>Connexion</p>
+        <nav className="navHome">
+            <button
+                onClick={handleClickHome} aria-label="Accueil"
+            >
+                <h1>
+                    <FontAwesomeIcon
+                        icon={faHome}
+                        className="icone iconeHome"
+                    />
+                    SKILLSWAP
+                </h1>
+            </button>
+
+            <button
+                onClick={handleClickLogin} aria-label="connection"
+            >
+                <FontAwesomeIcon
+                    icon={faUser}
+                    className="icone iconeLogin"
+                />
+            </button>
+
+            <button
+                onClick={handleClickRegistration} aria-label="Inscription"
+            >
+                <FontAwesomeIcon
+                    icon={faUserPlus}
+                    className="icone iconeRegister"
+                />
+            </button>
+
         </nav>
     );
 }

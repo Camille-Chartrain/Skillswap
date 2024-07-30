@@ -1,0 +1,57 @@
+/* src/styles/reset.css */
+
+/* Reset box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove margin and padding */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dt, dd, table, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set default font size */
+body {
+  font-size: 100%;
+  line-height: 1.6;
+}
+
+/* Remove list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Remove text decoration */
+a {
+  text-decoration: none;
+}
+
+/* Add other resets as needed */
+
+
+button, input[type="button"], input[type="submit"] {
+    /* Remove default appearance */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* Remove default margin and padding */
+    margin: 0;
+    padding: 0;
+  
+    /* Remove default border and background */
+    border: none;
+    background: none;
+  
+    /* Remove default font styles */
+    font: inherit;
+    color: inherit;
+  
+    /* Reset other properties as needed */
+    text-align: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }

@@ -4,6 +4,8 @@ import Cards from "../Cards";
 import NavHome from "../NavHome";
 import NavLogged from "../Dashboard/NavLogged";
 import Cookies from 'js-cookie';
+import style from './home.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Home = ({
     selectedCategory,
@@ -68,12 +70,28 @@ const Home = ({
     }, []);
 
 
+    const navigate = useNavigate();
+
+    function handleClickRegistration() {
+        navigate('/registration');
+    }
+
+
     return (
         <>
             {logged && <NavLogged
                 setLogged={setLogged}
             />}
             {!logged && <NavHome />}
+
+            <section>
+                Dilettants, curieux, professionnels,
+                <span className="display">
+
+                    partagez </span>vos talents  !
+
+            </section >
+
             {!logged && <SearchBar
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
@@ -92,22 +110,26 @@ const Home = ({
                 setLoading={setLoading}
                 setLogged={setLogged}
 
-            />}
-            <article  >
-                <h1>SKILLSWAP </h1>
-                <span>Une plateforme d'échange et d’apprentissage qui permet de mettre en relation des personnes de tout âge et aux profils variés qui souhaitent apprendre ou partager leur compétence et leurs talents avec les autres.
-                    Fonctionnant sur le principe que chaque utilisateur est à la fois professeur et élève, elle
-                    donne accès à une communauté de gens très variée, et une foule de savoir à dispositions.
-                    Le swappie; la monnaie virtuelle de notre site; est là pour encourager ce système. A chaque fois qu’un cours est donne, on recoit un swappie, que l’on pourra  ensuite dépenser pour assister aux cours de son choix.
-                </span>
-            </article>
-            <Cards
-                dataCards={dataCards}
-                match={match}
-                noMatch={noMatch}
-                loading={loading}
             />
-            {!loading && !logged && <p>Voir plus ICONE INSCRIPTION</p>}
+            }
+
+            <section className="allCards">
+                <Cards
+                    dataCards={dataCards}
+                    match={match}
+                    noMatch={noMatch}
+                    loading={loading}
+                />
+            </section>
+            {!loading && !logged &&
+                <button
+                    onClick={handleClickRegistration}
+                    aria-label="Inscription"
+                    className="join_button"
+                >
+                    Rejoindre la communauté
+
+                </button>}
         </>
     )
 

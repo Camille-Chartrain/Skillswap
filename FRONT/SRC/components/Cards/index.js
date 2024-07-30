@@ -21,6 +21,7 @@ export default function Cards({
             {noMatch && <p className="search-result">Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
 
             {dataCards && dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card) => (
+
                 <article key={card.id} className="card">
                     <p>{card.title}</p>
                     <p>{card.User.grade_level}</p>
@@ -36,6 +37,7 @@ export default function Cards({
                     <p>"{card.User.presentation}"</p>
                     <p>Contact: {card.User.email}</p>
                 </article>
+
             ))}
 
         </>

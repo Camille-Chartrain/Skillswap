@@ -1,0 +1,22 @@
+.navHome{
+    display: flex;
+    // height:40px;
+    background-color: rgb(255, 236, 173);
+    border-bottom: 1px solid;
+    border-color: black;
+    max-height: 5%;
+
+    button{
+        .icone{
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            height:27px;
+            color: rgb(0, 140, 255);
+        }
+        h1{
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+}
+
