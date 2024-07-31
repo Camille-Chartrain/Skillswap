@@ -111,7 +111,8 @@ export default function SearchBar({
                         type="text"
                         name="keyWord"
                         id="keyword"
-                        value={searchInput || "bouture, crochet, robe..."}
+                        value={searchInput}
+                        placeholder="bouture, crochet, robe..."
                         onChange={handleChangeInput}
                     >
                     </input>

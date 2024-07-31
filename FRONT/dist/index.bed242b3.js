@@ -34893,7 +34893,8 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                             type: "text",
                             name: "keyWord",
                             id: "keyword",
-                            value: searchInput || "bouture, crochet, robe...",
+                            value: searchInput,
+                            placeholder: "bouture, crochet, robe...",
                             onChange: handleChangeInput
                         }, void 0, false, {
                             fileName: "SRC/components/SearchBar/index.js",
@@ -34904,7 +34905,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                             htmlFor: "keyWord"
                         }, void 0, false, {
                             fileName: "SRC/components/SearchBar/index.js",
-                            lineNumber: 118,
+                            lineNumber: 119,
                             columnNumber: 21
                         }, this)
                     ]
@@ -34919,12 +34920,12 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         setSelectedCategory: setSelectedCategory
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 122,
+                        lineNumber: 123,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 121,
+                    lineNumber: 122,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34933,12 +34934,12 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         setSelectedSubCategory: setSelectedSubCategory
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 129,
+                        lineNumber: 130,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 128,
+                    lineNumber: 129,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34946,12 +34947,12 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         setSelectedLevel: setSelectedLevel
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 136,
+                        lineNumber: 137,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 135,
+                    lineNumber: 136,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34960,7 +34961,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                     children: "Envoyer"
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 140,
+                    lineNumber: 141,
                     columnNumber: 17
                 }, this)
             ]

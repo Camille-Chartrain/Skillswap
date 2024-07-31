@@ -6,22 +6,31 @@
   display: flex;
 }
 
+.searchBar .searchElement:first-child {
+  margin-top: 1rem;
+}
+
 .searchBar .searchElement, .searchBar .searchButton {
   box-sizing: border-box;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 10px;
   width: 90%;
-  margin: .5rem 1rem;
+  margin: 0 1rem;
   padding: .8rem;
   font-size: 1rem;
 }
 
 .searchBar .searchButton {
+  color: #fff;
   background-color: #008cff;
+  border: none;
   justify-content: center;
   align-self: center;
   align-items: center;
+  height: 2.8rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
 }
 
