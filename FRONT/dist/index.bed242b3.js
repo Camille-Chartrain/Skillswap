@@ -34815,6 +34815,8 @@ var _levelDefault = parcelHelpers.interopDefault(_level);
 var _reactRouterDom = require("react-router-dom");
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _searchBarScss = require("./searchBar.scss");
+var _searchBarScssDefault = parcelHelpers.interopDefault(_searchBarScss);
 var _s = $RefreshSig$();
 function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, match, setMatch, noMatch, setNoMatch, setLoading, setLogged }) {
     _s();
@@ -34885,47 +34887,44 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
             className: "searchBar",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "searchElement",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                             className: "searchElement",
                             type: "text",
                             name: "keyWord",
                             id: "keyword",
-                            value: searchInput,
+                            value: searchInput || "bouture, crochet, robe...",
                             onChange: handleChangeInput
                         }, void 0, false, {
                             fileName: "SRC/components/SearchBar/index.js",
-                            lineNumber: 108,
+                            lineNumber: 109,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                            htmlFor: "keyWord",
-                            children: "Mot cl\xe9"
+                            htmlFor: "keyWord"
                         }, void 0, false, {
                             fileName: "SRC/components/SearchBar/index.js",
-                            lineNumber: 117,
+                            lineNumber: 118,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 107,
+                    lineNumber: 108,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "searchElement",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
                         selectedCategory: selectedCategory,
                         setSelectedCategory: setSelectedCategory
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 121,
+                        lineNumber: 122,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 120,
+                    lineNumber: 121,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34934,12 +34933,12 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         setSelectedSubCategory: setSelectedSubCategory
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 128,
+                        lineNumber: 129,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 127,
+                    lineNumber: 128,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34947,31 +34946,32 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         setSelectedLevel: setSelectedLevel
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 135,
+                        lineNumber: 136,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 134,
+                    lineNumber: 135,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "searchButton",
                     type: "submit",
                     children: "Envoyer"
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 139,
+                    lineNumber: 140,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "SRC/components/SearchBar/index.js",
-            lineNumber: 106,
+            lineNumber: 107,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "SRC/components/SearchBar/index.js",
-        lineNumber: 105,
+        lineNumber: 106,
         columnNumber: 9
     }, this);
 }
@@ -34989,7 +34989,7 @@ $RefreshReg$(_c, "SearchBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Categories":"04ePd","./SubCategories":"laIPr","./Level":"8e1BU","react-router-dom":"9xmpe","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"04ePd":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Categories":"04ePd","./SubCategories":"laIPr","./Level":"8e1BU","react-router-dom":"9xmpe","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./searchBar.scss":"d4uxJ"}],"04ePd":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8330 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35038,6 +35038,7 @@ function Categories({ setSelectedCategory, optionsHTML }) {
         console.log("Cat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+        className: "searchElement",
         onChange: handleCategoryChange,
         required: optionsHTML,
         children: [
@@ -35046,7 +35047,7 @@ function Categories({ setSelectedCategory, optionsHTML }) {
                 children: "cat\xe9gorie"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Categories/index.js",
-                lineNumber: 54,
+                lineNumber: 55,
                 columnNumber: 13
             }, this),
             categories && categories.length > 0 && categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35054,7 +35055,7 @@ function Categories({ setSelectedCategory, optionsHTML }) {
                     children: category.name
                 }, category.id, false, {
                     fileName: "SRC/components/SearchBar/Categories/index.js",
-                    lineNumber: 58,
+                    lineNumber: 59,
                     columnNumber: 21
                 }, this))
         ]
@@ -35355,6 +35356,7 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
         console.log("SousCat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+        className: "searchElement",
         onChange: handleSubCategoryChange,
         required: optionsHTML,
         children: [
@@ -35363,7 +35365,7 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
                 children: "sous-cat\xe9gorie"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/SubCategories/index.js",
-                lineNumber: 57,
+                lineNumber: 58,
                 columnNumber: 13
             }, this),
             subCategories && subCategories.length > 0 && subCategories.map((subCategory)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35371,7 +35373,7 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
                     children: subCategory.name
                 }, subCategory.id, false, {
                     fileName: "SRC/components/SearchBar/SubCategories/index.js",
-                    lineNumber: 59,
+                    lineNumber: 60,
                     columnNumber: 17
                 }, this))
         ]
@@ -35410,6 +35412,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
         console.log("Level s\xe9lectionn\xe9e :", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+        className: "searchElement",
         onChange: handleLevelChange,
         required: optionsHTML,
         children: [
@@ -35418,7 +35421,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "Niveau"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 23,
+                lineNumber: 24,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35426,7 +35429,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "D\xe9butant"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 24,
+                lineNumber: 25,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35434,7 +35437,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "Interm\xe9diaire"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 25,
+                lineNumber: 26,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35442,7 +35445,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "Avanc\xe9"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 26,
+                lineNumber: 27,
                 columnNumber: 13
             }, this)
         ]
@@ -35461,7 +35464,7 @@ $RefreshReg$(_c, "Level");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jUXwJ":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"d4uxJ":[function() {},{}],"jUXwJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1908 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

@@ -1,3 +1,30 @@
+.searchBar {
+  background-color: #fff;
+  border-radius: 15px;
+  flex-direction: column;
+  margin: 10%;
+  display: flex;
+}
+
+.searchBar .searchElement, .searchBar .searchButton {
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 90%;
+  margin: .5rem 1rem;
+  padding: .8rem;
+  font-size: 1rem;
+}
+
+.searchBar .searchButton {
+  background-color: #008cff;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  display: flex;
+}
+
 .navHome {
   background-color: #fff;
   border-bottom: .03125rem solid #979292;

@@ -35,13 +35,6 @@ button, input[type="button"], input[type="submit"] {
 
 select, input {
   appearance: none;
-  box-sizing: border-box;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 60%;
-  padding: .5rem;
-  font-size: 1rem;
 }
 
 select::-ms-expand {

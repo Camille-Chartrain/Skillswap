@@ -4,6 +4,7 @@ import SubCategories from "./SubCategories";
 import Level from "./Level";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import styles from './searchBar.scss';
 
 
 export default function SearchBar({
@@ -104,20 +105,20 @@ export default function SearchBar({
     return (
         <form method="GET" action="" onSubmit={handleSearch}>
             <div className="searchBar">
-                <div className="searchElement">
+                <div >
                     <input
                         className="searchElement"
                         type="text"
                         name="keyWord"
                         id="keyword"
-                        value={searchInput}
+                        value={searchInput || "bouture, crochet, robe..."}
                         onChange={handleChangeInput}
                     >
                     </input>
-                    <label htmlFor="keyWord">Mot clé</label>
+                    <label htmlFor="keyWord"></label>
                 </div>
 
-                <div className="searchElement">
+                <div >
                     <Categories
                         selectedCategory={selectedCategory}
                         setSelectedCategory={setSelectedCategory}
@@ -136,8 +137,8 @@ export default function SearchBar({
                         setSelectedLevel={setSelectedLevel}
                     />
                 </div>
-                <button type="submit">Envoyer</button>
+                <button className="searchButton" type="submit">Envoyer</button>
             </div>
-        </form>
+        </form >
     )
 }

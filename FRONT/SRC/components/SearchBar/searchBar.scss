@@ -3,24 +3,37 @@
 .searchBar {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    box-sizing: border-box;
-  
-    .searchElement {
-      width: 100%;
-      box-sizing: border-box; /* Inclure padding et bordure dans le calcul de la largeur */
-      margin-bottom: 1rem; /* Espacement entre les éléments */
-  
-      select {
-        width: 50%;
+    background-color: $background-color;
+    border-radius: 15px;
+    margin:10%;
+    // align-items: center;
+
+    .searchElement, .searchButton {
+        border: 1px solid #ccc; /* Ajouter une bordure simple */
+        border-radius: 10px; /* Ajouter un rayon de bordure si désiré */
+        background-color: #fff; /* Définir une couleur de fond */
+        padding: 0.8rem; /* Ajouter du padding pour un espace interne */
+        margin: 0.5rem 1rem;
+        font-size: 1rem; /* Définir une taille de police */
+        width: 90%; /* Assurer que le select occupe la largeur de son conteneur */
         box-sizing: border-box; /* Inclure padding et bordure dans le calcul de la largeur */
-        padding: 0.5rem; /* Exemple de padding */
-      }
-  
-      input {
-        width: 50%;
-        box-sizing: border-box; /* Inclure padding et bordure dans le calcul de la largeur */
-        padding: 0.5rem; /* Exemple de padding */
-      }
     }
-  }
+
+    .searchButton{
+        background-color: $secondary-color;
+        // color: white;
+        // border: 1px solid #ccc; 
+        // border-radius: 8px; 
+        // height: 3rem;
+        // margin-top: 1rem;
+        // margin-bottom: 1rem;
+        // width: 90%;
+    
+        display: flex; /* Utiliser flexbox pour centrer le contenu */
+        justify-content: center; /* Centrer horizontalement */
+        align-items: center;
+        align-self: center; /* centre l'élément parent = le bloc bleu */
+    }
+}
+
+

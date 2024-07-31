@@ -51,6 +51,7 @@ export default function SubCategories(
 
     return (
         <select
+            className="searchElement"
             onChange={handleSubCategoryChange}
             required={optionsHTML}
         >

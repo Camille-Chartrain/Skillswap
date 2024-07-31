@@ -48,6 +48,7 @@ export default function Categories(
 
     return (
         <select
+            className="searchElement"
             onChange={handleCategoryChange}
             required={optionsHTML}
         >

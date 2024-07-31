@@ -60,13 +60,14 @@ button, input[type="button"], input[type="submit"] {
     appearance: none; /* Supprimer les styles par défaut spécifiques au navigateur */
     -webkit-appearance: none; /* Pour les navigateurs Webkit comme Chrome */
     -moz-appearance: none; /* Pour Firefox */
-    border: 1px solid #ccc; /* Ajouter une bordure simple */
-    border-radius: 4px; /* Ajouter un rayon de bordure si désiré */
-    background-color: #fff; /* Définir une couleur de fond */
-    padding: 0.5rem; /* Ajouter du padding pour un espace interne */
-    font-size: 1rem; /* Définir une taille de police */
-    width: 60%; /* Assurer que le select occupe la largeur de son conteneur */
-    box-sizing: border-box; /* Inclure padding et bordure dans le calcul de la largeur */
+    // border: 1px solid #ccc; /* Ajouter une bordure simple */
+    // border-radius: 10px; /* Ajouter un rayon de bordure si désiré */
+    // background-color: #fff; /* Définir une couleur de fond */
+    // padding: 0.5rem; /* Ajouter du padding pour un espace interne */
+    // margin: 0.5rem 2rem;
+    // font-size: 1rem; /* Définir une taille de police */
+    // width: 60%; /* Assurer que le select occupe la largeur de son conteneur */
+    // box-sizing: border-box; /* Inclure padding et bordure dans le calcul de la largeur */
   }
   
   /* Supprimer la flèche du select dans certains navigateurs (comme Chrome) */

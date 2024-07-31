@@ -17,6 +17,7 @@ export default function Level(
 
     return (
         <select
+            className="searchElement"
             onChange={handleLevelChange}
             required={optionsHTML}
         >
