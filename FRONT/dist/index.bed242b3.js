@@ -35598,6 +35598,8 @@ var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
 var _navHomeScss = require("./navHome.scss"); // Import SCSS as a module
 var _navHomeScssDefault = parcelHelpers.interopDefault(_navHomeScss);
+var _skillswapJpg = require("../../style/base/icones/skillswap.jpg");
+var _skillswapJpgDefault = parcelHelpers.interopDefault(_skillswapJpg);
 var _s = $RefreshSig$();
 function NavHome() {
     _s();
@@ -35618,25 +35620,22 @@ function NavHome() {
                 onClick: handleClickHome,
                 "aria-label": "Accueil",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faHome),
-                            className: "icone iconeHome"
-                        }, void 0, false, {
-                            fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 30,
-                            columnNumber: 21
-                        }, this),
-                        "SKILLSWAP"
-                    ]
-                }, void 0, true, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        src: (0, _skillswapJpgDefault.default),
+                        alt: "SkillSwap"
+                    }, void 0, false, {
+                        fileName: "SRC/components/NavHome/index.js",
+                        lineNumber: 31,
+                        columnNumber: 21
+                    }, this)
+                }, void 0, false, {
                     fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 29,
+                    lineNumber: 30,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 26,
+                lineNumber: 27,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35647,12 +35646,12 @@ function NavHome() {
                     className: "icone iconeLogin"
                 }, void 0, false, {
                     fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 41,
+                    lineNumber: 38,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 38,
+                lineNumber: 35,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35663,18 +35662,18 @@ function NavHome() {
                     className: "icone iconeRegister"
                 }, void 0, false, {
                     fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 50,
+                    lineNumber: 47,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 47,
+                lineNumber: 44,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/NavHome/index.js",
-        lineNumber: 25,
+        lineNumber: 26,
         columnNumber: 9
     }, this);
 }
@@ -35692,7 +35691,7 @@ $RefreshReg$(_c, "NavHome");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./navHome.scss":"62QH8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"clIT3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./navHome.scss":"62QH8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../style/base/icones/skillswap.jpg":"8g4Xs"}],"clIT3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "FontAwesomeIcon", ()=>FontAwesomeIcon);
@@ -61149,7 +61148,45 @@ var icons = {
     faLevelUpAlt
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"62QH8":[function() {},{}],"dYmlb":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"62QH8":[function() {},{}],"8g4Xs":[function(require,module,exports) {
+module.exports = require("7f10dcacb3c567e3").getBundleURL("c2MLH") + "skillswap.72b7b476.jpg" + "?" + Date.now();
+
+},{"7f10dcacb3c567e3":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"dYmlb":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$77af = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

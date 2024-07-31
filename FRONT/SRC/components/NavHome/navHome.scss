@@ -6,20 +6,23 @@
     // height:40px;
     background-color:$background-color;
     border-bottom: 0.03125rem solid rgb(151, 146, 146);
-    max-height: 5%;
+    // max-height: 5%;
+    width: auto;
 
     button{
         .icone{
             margin-left: 0.5rem;
             margin-right: 0.5rem;
             height:27px;
-            color:$skillswap-color
+            color:$skillswap-color;
+            background-color: white;
         }
         h1{
-            margin-left: 1rem;
             margin-right: 1rem;
-            color:$skillswap-color;
-            letter-spacing: 0.2rem;
+                img{
+                width: auto;
+                // max-height: 5%;
+            }
         }
     }
 }

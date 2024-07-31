@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from './navHome.scss'; // Import SCSS as a module
+import skillswap from '../../style/base/icones/skillswap.jpg';
 
 
 export default function NavHome() {
@@ -27,11 +28,7 @@ export default function NavHome() {
                 onClick={handleClickHome} aria-label="Accueil"
             >
                 <h1>
-                    <FontAwesomeIcon
-                        icon={faHome}
-                        className="icone iconeHome"
-                    />
-                    SKILLSWAP
+                    <img src={skillswap} alt="SkillSwap" />
                 </h1>
             </button>
 
