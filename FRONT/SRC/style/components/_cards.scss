@@ -1,3 +1,6 @@
+@import "../../style/abstract/variables";
+
+
 .allCards{
     display: flex;
     flex-direction: column;
@@ -5,11 +8,11 @@
 
         .card {
             border-radius: 40px;
-            background-color: rgb(255, 253, 253);
-            margin: 5px;
+            background-color: $background-color;
+            margin:5px;
             color: black;
             font-size: 1rem;
-}
+        }
 
 }
 

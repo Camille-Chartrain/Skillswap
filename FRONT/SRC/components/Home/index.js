@@ -85,11 +85,11 @@ const Home = ({
             {!logged && <NavHome />}
 
             <section>
-                Dilettants, curieux, professionnels,
-                <span className="display">
-
-                    partagez </span>vos talents  !
-
+                Dilettants, passionés, professionnels,
+                <div>
+                    <span className="display">
+                        partagez </span>vos talents  !
+                </div>
             </section >
 
             {!logged && <SearchBar
@@ -127,7 +127,7 @@ const Home = ({
                     aria-label="Inscription"
                     className="join_button"
                 >
-                    Rejoindre la communauté
+                    En voir plus, Rejoindre la communauté
 
                 </button>}
         </>

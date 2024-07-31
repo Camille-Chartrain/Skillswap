@@ -1,8 +1,6 @@
 .navHome {
-  background-color: #ffecad;
-  border-color: #000;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
+  background-color: #fffdf8;
+  border-bottom: .03125rem solid #979292;
   max-height: 5%;
   display: flex;
 }
@@ -15,12 +13,14 @@
 }
 
 .navHome button h1 {
+  color: #008cff;
+  letter-spacing: .2rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
 
 body {
-  background-color: #ff9100;
+  background-color: #ff7f00;
 }
 
 section {
@@ -30,11 +30,11 @@ section {
 }
 
 section .display {
-  background-color: #3aaef1;
+  background-color: #008cff;
   border-radius: 10px;
 }
 
-button {
+section button {
   background-color: #ffebcd;
   border-radius: 10px;
   margin-left: 20px;

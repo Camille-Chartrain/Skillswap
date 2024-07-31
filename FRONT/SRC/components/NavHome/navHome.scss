@@ -1,9 +1,11 @@
+@import "../../style/abstract/variables";
+
+
 .navHome{
     display: flex;
     // height:40px;
-    background-color: rgb(255, 236, 173);
-    border-bottom: 1px solid;
-    border-color: black;
+    background-color:$background-color;
+    border-bottom: 0.03125rem solid rgb(151, 146, 146);
     max-height: 5%;
 
     button{
@@ -11,11 +13,13 @@
             margin-left: 0.5rem;
             margin-right: 0.5rem;
             height:27px;
-            color: rgb(0, 140, 255);
+            color:$skillswap-color
         }
         h1{
             margin-left: 1rem;
             margin-right: 1rem;
+            color:$skillswap-color;
+            letter-spacing: 0.2rem;
         }
     }
 }
