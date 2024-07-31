@@ -54,8 +54,9 @@
 
 .navHome button .logoIdea {
   width: 3rem;
-  margin-left: .8rem;
-  margin-right: .2rem;
+  margin-bottom: 5%;
+  margin-left: .7rem;
+  margin-right: .5rem;
 }
 
 .navHome button .logoSkillswap {
@@ -65,11 +66,15 @@
 }
 
 .navHome button .icone {
-  color: #646363;
+  color: #494848;
   background-color: #fff;
   height: 27px;
   margin-left: .5rem;
-  margin-right: .5rem;
+  margin-right: .6rem;
+}
+
+.navHome button .icone .iconeLogin {
+  width: 10px;
 }
 
 .logoUsers {

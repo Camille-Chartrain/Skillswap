@@ -1,10 +1,11 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faHome, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from './navHome.scss'; // Import SCSS as a module
 import skillswap_icone from '../../style/base/icones/skillswap_icone.png';
 import idea_icone from '../../style/base/icones/idea_icone.png';
+
 
 
 export default function NavHome() {
@@ -45,7 +46,7 @@ export default function NavHome() {
                     onClick={handleClickLogin} aria-label="connection"
                 >
                     <FontAwesomeIcon
-                        icon={faUser}
+                        icon={faCircleUser}
                         className="icone iconeLogin"
                     />
                 </button>

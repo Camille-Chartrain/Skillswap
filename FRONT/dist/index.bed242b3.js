@@ -35678,7 +35678,7 @@ function NavHome() {
                             className: "logoIdea"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 33,
+                            lineNumber: 34,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -35687,18 +35687,18 @@ function NavHome() {
                             className: "logoSkillswap"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 37,
+                            lineNumber: 38,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 29,
+                    lineNumber: 30,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 28,
+                lineNumber: 29,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35708,16 +35708,16 @@ function NavHome() {
                         onClick: handleClickLogin,
                         "aria-label": "connection",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faUser),
+                            icon: (0, _freeSolidSvgIcons.faCircleUser),
                             className: "icone iconeLogin"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 47,
+                            lineNumber: 48,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 44,
+                        lineNumber: 45,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35728,24 +35728,24 @@ function NavHome() {
                             className: "icone iconeRegister"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 56,
+                            lineNumber: 57,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 53,
+                        lineNumber: 54,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 43,
+                lineNumber: 44,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/NavHome/index.js",
-        lineNumber: 27,
+        lineNumber: 28,
         columnNumber: 9
     }, this);
 }
