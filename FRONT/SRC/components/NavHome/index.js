@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from './navHome.scss'; // Import SCSS as a module
-import skillswap from '../../style/base/icones/skillswap.jpg';
+import skillswap_icone from '../../style/base/icones/skillswap_icone.png';
+import idea_icone from '../../style/base/icones/idea_icone.png';
 
 
 export default function NavHome() {
@@ -24,32 +25,40 @@ export default function NavHome() {
 
     return (
         <nav className="navHome">
-            <button
-                onClick={handleClickHome} aria-label="Accueil"
-            >
-                <h1>
-                    <img src={skillswap} alt="SkillSwap" />
-                </h1>
-            </button>
+            <div className="navLeft">
+                <button
+                    onClick={handleClickHome} aria-label="Accueil"
+                    className="logo"
+                >
+                    <img
+                        src={idea_icone} alt="accueil-SkillSwap"
+                        className="logoIdea" />
+                    {/* <h1> */}
+                    <img
+                        src={skillswap_icone} alt="accueil-SkillSwap"
+                        className="logoSkillswap" />
+                    {/* </h1> */}
+                </button>
+            </div>
+            <div className="logoUsers">
+                <button
+                    onClick={handleClickLogin} aria-label="connection"
+                >
+                    <FontAwesomeIcon
+                        icon={faUser}
+                        className="icone iconeLogin"
+                    />
+                </button>
 
-            <button
-                onClick={handleClickLogin} aria-label="connection"
-            >
-                <FontAwesomeIcon
-                    icon={faUser}
-                    className="icone iconeLogin"
-                />
-            </button>
-
-            <button
-                onClick={handleClickRegistration} aria-label="Inscription"
-            >
-                <FontAwesomeIcon
-                    icon={faUserPlus}
-                    className="icone iconeRegister"
-                />
-            </button>
-
+                <button
+                    onClick={handleClickRegistration} aria-label="Inscription"
+                >
+                    <FontAwesomeIcon
+                        icon={faUserPlus}
+                        className="icone iconeRegister"
+                    />
+                </button>
+            </div>
         </nav>
     );
 }

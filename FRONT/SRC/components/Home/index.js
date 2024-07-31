@@ -85,7 +85,9 @@ const Home = ({
             {!logged && <NavHome />}
 
             <section>
-                Dilettants, passionés, professionnels,
+                <div className="border-display">
+                    Dilettants, passionés, professionnels,
+                </div>
                 <div>
                     <span className="display">
                         partagez </span>vos talents  !

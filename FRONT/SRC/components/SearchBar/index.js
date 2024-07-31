@@ -103,29 +103,41 @@ export default function SearchBar({
 
     return (
         <form method="GET" action="" onSubmit={handleSearch}>
+            <div className="searchBar">
+                <div className="searchElement">
+                    <input
+                        className="searchElement"
+                        type="text"
+                        name="keyWord"
+                        id="keyword"
+                        value={searchInput}
+                        onChange={handleChangeInput}
+                    >
+                    </input>
+                    <label htmlFor="keyWord">Mot clé</label>
+                </div>
 
-            <label htmlFor="keyWord">Mot clé</label>
-            <input
-                type="text"
-                name="keyWord"
-                id="keyword"
-                value={searchInput}
-                onChange={handleChangeInput}
-            >
-            </input>
+                <div className="searchElement">
+                    <Categories
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                    />
+                </div>
 
-            <Categories
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-            />
-            <SubCategories
-                selectedCategory={selectedCategory}
-                setSelectedSubCategory={setSelectedSubCategory}
-            />
-            <Level
-                setSelectedLevel={setSelectedLevel}
-            />
-            <button type="submit">Envoyer</button>
+                <div>
+                    <SubCategories
+                        selectedCategory={selectedCategory}
+                        setSelectedSubCategory={setSelectedSubCategory}
+                    />
+                </div>
+
+                <div>
+                    <Level
+                        setSelectedLevel={setSelectedLevel}
+                    />
+                </div>
+                <button type="submit">Envoyer</button>
+            </div>
         </form>
     )
 }

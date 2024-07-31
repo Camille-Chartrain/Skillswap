@@ -3,27 +3,46 @@
 
 .navHome{
     display: flex;
-    // height:40px;
     background-color:$background-color;
     border-bottom: 0.03125rem solid rgb(151, 146, 146);
-    // max-height: 5%;
-    width: auto;
+    width: 100%;
+    justify-content: space-between;
 
     button{
+        background-color:$background-color;
+        display: flex;
+        align-items: center;
+
+        .logo{
+            margin-right :auto;
+        }
+
+        .logoIdea{
+            width: 3rem;
+            margin-left: 0.8rem;
+            margin-right: 0.2rem;
+        }
+
+        .logoSkillswap{
+            // width: 70%;
+            height: 4.5rem;
+            margin-top: 0.4rem;
+            margin-bottom: 0.1rem;         
+        }
+        
         .icone{
             margin-left: 0.5rem;
             margin-right: 0.5rem;
-            height:27px;
-            color:$skillswap-color;
-            background-color: white;
-        }
-        h1{
-            margin-right: 1rem;
-                img{
-                width: auto;
-                // max-height: 5%;
-            }
+            height:27px; 
+            color:$dark-grey-color;
+            background-color:$background-color
         }
     }
 }
 
+.logoUsers{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-right: 0%;
+}

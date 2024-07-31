@@ -34695,7 +34695,14 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
                 children: [
-                    "Dilettants, passion\xe9s, professionnels,",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "border-display",
+                        children: "Dilettants, passion\xe9s, professionnels,"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Home/index.js",
+                        lineNumber: 88,
+                        columnNumber: 17
+                    }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -34703,14 +34710,14 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                                 children: "partagez "
                             }, void 0, false, {
                                 fileName: "SRC/components/Home/index.js",
-                                lineNumber: 90,
+                                lineNumber: 92,
                                 columnNumber: 21
                             }, undefined),
                             "vos talents  !"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Home/index.js",
-                        lineNumber: 89,
+                        lineNumber: 91,
                         columnNumber: 17
                     }, undefined)
                 ]
@@ -34738,7 +34745,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 setLogged: setLogged
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 95,
+                lineNumber: 97,
                 columnNumber: 25
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -34750,12 +34757,12 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                     loading: loading
                 }, void 0, false, {
                     fileName: "SRC/components/Home/index.js",
-                    lineNumber: 117,
+                    lineNumber: 119,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 116,
+                lineNumber: 118,
                 columnNumber: 13
             }, undefined),
             !loading && !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34765,7 +34772,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 children: "En voir plus, Rejoindre la communaut\xe9"
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 125,
+                lineNumber: 127,
                 columnNumber: 17
             }, undefined)
         ]
@@ -34874,59 +34881,95 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
         method: "GET",
         action: "",
         onSubmit: handleSearch,
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                htmlFor: "keyWord",
-                children: "Mot cl\xe9"
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 107,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "text",
-                name: "keyWord",
-                id: "keyword",
-                value: searchInput,
-                onChange: handleChangeInput
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 108,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
-                selectedCategory: selectedCategory,
-                setSelectedCategory: setSelectedCategory
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 117,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
-                selectedCategory: selectedCategory,
-                setSelectedSubCategory: setSelectedSubCategory
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 121,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
-                setSelectedLevel: setSelectedLevel
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 125,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                type: "submit",
-                children: "Envoyer"
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 128,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true, {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "searchBar",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "searchElement",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            className: "searchElement",
+                            type: "text",
+                            name: "keyWord",
+                            id: "keyword",
+                            value: searchInput,
+                            onChange: handleChangeInput
+                        }, void 0, false, {
+                            fileName: "SRC/components/SearchBar/index.js",
+                            lineNumber: 108,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: "keyWord",
+                            children: "Mot cl\xe9"
+                        }, void 0, false, {
+                            fileName: "SRC/components/SearchBar/index.js",
+                            lineNumber: 117,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "SRC/components/SearchBar/index.js",
+                    lineNumber: 107,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "searchElement",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
+                        selectedCategory: selectedCategory,
+                        setSelectedCategory: setSelectedCategory
+                    }, void 0, false, {
+                        fileName: "SRC/components/SearchBar/index.js",
+                        lineNumber: 121,
+                        columnNumber: 21
+                    }, this)
+                }, void 0, false, {
+                    fileName: "SRC/components/SearchBar/index.js",
+                    lineNumber: 120,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
+                        selectedCategory: selectedCategory,
+                        setSelectedSubCategory: setSelectedSubCategory
+                    }, void 0, false, {
+                        fileName: "SRC/components/SearchBar/index.js",
+                        lineNumber: 128,
+                        columnNumber: 21
+                    }, this)
+                }, void 0, false, {
+                    fileName: "SRC/components/SearchBar/index.js",
+                    lineNumber: 127,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
+                        setSelectedLevel: setSelectedLevel
+                    }, void 0, false, {
+                        fileName: "SRC/components/SearchBar/index.js",
+                        lineNumber: 135,
+                        columnNumber: 21
+                    }, this)
+                }, void 0, false, {
+                    fileName: "SRC/components/SearchBar/index.js",
+                    lineNumber: 134,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    type: "submit",
+                    children: "Envoyer"
+                }, void 0, false, {
+                    fileName: "SRC/components/SearchBar/index.js",
+                    lineNumber: 139,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "SRC/components/SearchBar/index.js",
+            lineNumber: 106,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
         fileName: "SRC/components/SearchBar/index.js",
         lineNumber: 105,
         columnNumber: 9
@@ -35598,8 +35641,10 @@ var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
 var _navHomeScss = require("./navHome.scss"); // Import SCSS as a module
 var _navHomeScssDefault = parcelHelpers.interopDefault(_navHomeScss);
-var _skillswapJpg = require("../../style/base/icones/skillswap.jpg");
-var _skillswapJpgDefault = parcelHelpers.interopDefault(_skillswapJpg);
+var _skillswapIconePng = require("../../style/base/icones/skillswap_icone.png");
+var _skillswapIconePngDefault = parcelHelpers.interopDefault(_skillswapIconePng);
+var _ideaIconePng = require("../../style/base/icones/idea_icone.png");
+var _ideaIconePngDefault = parcelHelpers.interopDefault(_ideaIconePng);
 var _s = $RefreshSig$();
 function NavHome() {
     _s();
@@ -35616,64 +35661,87 @@ function NavHome() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
         className: "navHome",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: handleClickHome,
-                "aria-label": "Accueil",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        src: (0, _skillswapJpgDefault.default),
-                        alt: "SkillSwap"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "navLeft",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: handleClickHome,
+                    "aria-label": "Accueil",
+                    className: "logo",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            src: (0, _ideaIconePngDefault.default),
+                            alt: "accueil-SkillSwap",
+                            className: "logoIdea"
+                        }, void 0, false, {
+                            fileName: "SRC/components/NavHome/index.js",
+                            lineNumber: 33,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            src: (0, _skillswapIconePngDefault.default),
+                            alt: "accueil-SkillSwap",
+                            className: "logoSkillswap"
+                        }, void 0, false, {
+                            fileName: "SRC/components/NavHome/index.js",
+                            lineNumber: 37,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "SRC/components/NavHome/index.js",
+                    lineNumber: 29,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "SRC/components/NavHome/index.js",
+                lineNumber: 28,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "logoUsers",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: handleClickLogin,
+                        "aria-label": "connection",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                            icon: (0, _freeSolidSvgIcons.faUser),
+                            className: "icone iconeLogin"
+                        }, void 0, false, {
+                            fileName: "SRC/components/NavHome/index.js",
+                            lineNumber: 47,
+                            columnNumber: 21
+                        }, this)
                     }, void 0, false, {
                         fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 31,
-                        columnNumber: 21
+                        lineNumber: 44,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: handleClickRegistration,
+                        "aria-label": "Inscription",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                            icon: (0, _freeSolidSvgIcons.faUserPlus),
+                            className: "icone iconeRegister"
+                        }, void 0, false, {
+                            fileName: "SRC/components/NavHome/index.js",
+                            lineNumber: 56,
+                            columnNumber: 21
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "SRC/components/NavHome/index.js",
+                        lineNumber: 53,
+                        columnNumber: 17
                     }, this)
-                }, void 0, false, {
-                    fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 30,
-                    columnNumber: 17
-                }, this)
-            }, void 0, false, {
+                ]
+            }, void 0, true, {
                 fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 27,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: handleClickLogin,
-                "aria-label": "connection",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                    icon: (0, _freeSolidSvgIcons.faUser),
-                    className: "icone iconeLogin"
-                }, void 0, false, {
-                    fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 38,
-                    columnNumber: 17
-                }, this)
-            }, void 0, false, {
-                fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 35,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: handleClickRegistration,
-                "aria-label": "Inscription",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                    icon: (0, _freeSolidSvgIcons.faUserPlus),
-                    className: "icone iconeRegister"
-                }, void 0, false, {
-                    fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 47,
-                    columnNumber: 17
-                }, this)
-            }, void 0, false, {
-                fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 44,
+                lineNumber: 43,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/NavHome/index.js",
-        lineNumber: 26,
+        lineNumber: 27,
         columnNumber: 9
     }, this);
 }
@@ -35691,7 +35759,7 @@ $RefreshReg$(_c, "NavHome");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./navHome.scss":"62QH8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../style/base/icones/skillswap.jpg":"8g4Xs"}],"clIT3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./navHome.scss":"62QH8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../style/base/icones/skillswap_icone.png":"cFLU0","../../style/base/icones/idea_icone.png":"4c55E"}],"clIT3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "FontAwesomeIcon", ()=>FontAwesomeIcon);
@@ -61148,10 +61216,10 @@ var icons = {
     faLevelUpAlt
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"62QH8":[function() {},{}],"8g4Xs":[function(require,module,exports) {
-module.exports = require("7f10dcacb3c567e3").getBundleURL("c2MLH") + "skillswap.72b7b476.jpg" + "?" + Date.now();
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"62QH8":[function() {},{}],"cFLU0":[function(require,module,exports) {
+module.exports = require("b2b3f3f7f626f71a").getBundleURL("c2MLH") + "skillswap_icone.5a8d4ee7.png" + "?" + Date.now();
 
-},{"7f10dcacb3c567e3":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"b2b3f3f7f626f71a":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -61186,7 +61254,10 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"dYmlb":[function(require,module,exports) {
+},{}],"4c55E":[function(require,module,exports) {
+module.exports = require("19a2f84356fb893").getBundleURL("c2MLH") + "idea_icone.650c4698.png" + "?" + Date.now();
+
+},{"19a2f84356fb893":"lgJ39"}],"dYmlb":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$77af = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

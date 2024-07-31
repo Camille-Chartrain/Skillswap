@@ -1,0 +1,26 @@
+@import "../../style/abstract/variables";
+
+.searchBar {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    box-sizing: border-box;
+  
+    .searchElement {
+      width: 100%;
+      box-sizing: border-box; /* Inclure padding et bordure dans le calcul de la largeur */
+      margin-bottom: 1rem; /* Espacement entre les éléments */
+  
+      select {
+        width: 50%;
+        box-sizing: border-box; /* Inclure padding et bordure dans le calcul de la largeur */
+        padding: 0.5rem; /* Exemple de padding */
+      }
+  
+      input {
+        width: 50%;
+        box-sizing: border-box; /* Inclure padding et bordure dans le calcul de la largeur */
+        padding: 0.5rem; /* Exemple de padding */
+      }
+    }
+  }

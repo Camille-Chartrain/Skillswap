@@ -5,18 +5,28 @@ body{
 }
 
 section {
-            margin:30px;
-            color: white;
-            font-size: 1.7rem;
-            .display{
-                border-radius: 10px;
-                background-color: $secondary-color;
-    }
+    margin:30px;
+    color: $background-color;
+    font-size: 1.7rem;
 
-button{
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-color: blanchedalmond;
-}
+    .border-display{
+        margin-left: 1rem; 
+        
+    }
+        .display{
+            // box-sizing: content-box;
+            background-color: $secondary-color;
+            border: solid 1px $secondary-color;
+            border-radius: 30px; 
+            padding-left: 0.8rem;
+            padding-bottom: 0.3rem;
+            margin-right: 0.3rem;
+        }
+
+    button{
+        border-radius: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+        background-color: $background-color;
+    }
 }

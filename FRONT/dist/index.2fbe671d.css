@@ -33,6 +33,21 @@ button, input[type="button"], input[type="submit"] {
   text-decoration: none;
 }
 
+select, input {
+  appearance: none;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60%;
+  padding: .5rem;
+  font-size: 1rem;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
 @font-face {
   font-family: sugo pro display;
   src: url("Sugo-Pro-Display-Regular-trial.14d232e8.ttf") format("truetype");
@@ -46,8 +61,13 @@ h1, h2 {
 
 body {
   color: #000;
+  box-sizing: border-box;
   background-color: #fceddb;
   font-family: prompt, "sans-serif";
+}
+
+.App {
+  width: 100%;
 }
 
 .allCards {
