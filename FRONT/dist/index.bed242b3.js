@@ -35705,22 +35705,6 @@ function NavHome() {
                 className: "logoUsers",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        onClick: handleClickLogin,
-                        "aria-label": "connection",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faCircleUser),
-                            className: "icone iconeLogin"
-                        }, void 0, false, {
-                            fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 48,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 45,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: handleClickRegistration,
                         "aria-label": "Inscription",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
@@ -35728,12 +35712,28 @@ function NavHome() {
                             className: "icone iconeRegister"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 57,
+                            lineNumber: 50,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 54,
+                        lineNumber: 47,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: handleClickLogin,
+                        "aria-label": "connection",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                            icon: (0, _freeSolidSvgIcons.faCircleUser),
+                            className: "icone iconeLogin"
+                        }, void 0, false, {
+                            fileName: "SRC/components/NavHome/index.js",
+                            lineNumber: 59,
+                            columnNumber: 21
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "SRC/components/NavHome/index.js",
+                        lineNumber: 56,
                         columnNumber: 17
                     }, this)
                 ]

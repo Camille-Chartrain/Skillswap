@@ -42,14 +42,7 @@ export default function NavHome() {
                 </button>
             </div>
             <div className="logoUsers">
-                <button
-                    onClick={handleClickLogin} aria-label="connection"
-                >
-                    <FontAwesomeIcon
-                        icon={faCircleUser}
-                        className="icone iconeLogin"
-                    />
-                </button>
+
 
                 <button
                     onClick={handleClickRegistration} aria-label="Inscription"
@@ -59,6 +52,16 @@ export default function NavHome() {
                         className="icone iconeRegister"
                     />
                 </button>
+
+                <button
+                    onClick={handleClickLogin} aria-label="connection"
+                >
+                    <FontAwesomeIcon
+                        icon={faCircleUser}
+                        className="icone iconeLogin"
+                    />
+                </button>
+
             </div>
         </nav>
     );

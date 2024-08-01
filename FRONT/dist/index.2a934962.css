@@ -56,7 +56,7 @@
   width: 3rem;
   margin-bottom: 5%;
   margin-left: .7rem;
-  margin-right: .5rem;
+  margin-right: .2rem;
 }
 
 .navHome button .logoSkillswap {
@@ -68,19 +68,24 @@
 .navHome button .icone {
   color: #494848;
   background-color: #fff;
-  height: 27px;
   margin-left: .5rem;
-  margin-right: .6rem;
 }
 
-.navHome button .icone .iconeLogin {
-  width: 10px;
+.navHome button .iconeRegister {
+  border: .13rem solid #494848;
+  border-radius: 100%;
+  height: 18px;
+  padding: .5rem .4rem;
+}
+
+.navHome button .iconeLogin {
+  height: 2.4rem;
 }
 
 .logoUsers {
   flex-direction: row;
   justify-content: end;
-  margin-right: 0%;
+  margin-right: .7rem;
   display: flex;
 }
 
