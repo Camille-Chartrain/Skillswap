@@ -2,12 +2,10 @@
   background-color: #fff;
   border-radius: 15px;
   flex-direction: column;
-  margin: 10%;
+  width: 21rem;
+  margin: auto;
+  padding-top: .5rem;
   display: flex;
-}
-
-.searchBar .searchElement:first-child {
-  margin-top: 1rem;
 }
 
 .searchBar .searchElement, .searchBar .searchButton {
@@ -16,9 +14,16 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   width: 90%;
-  margin: 0 1rem;
+  margin: auto;
   padding: .8rem;
   font-size: 1rem;
+}
+
+.searchBar .searchElement {
+  justify-content: center;
+  align-items: center;
+  margin-top: .5rem;
+  display: flex;
 }
 
 .searchBar .searchButton {
@@ -29,7 +34,7 @@
   align-self: center;
   align-items: center;
   height: 2.8rem;
-  margin-top: 1rem;
+  margin-top: .5rem;
   margin-bottom: 1rem;
   display: flex;
 }
@@ -79,7 +84,7 @@
 }
 
 .navHome button .iconeLogin {
-  height: 2.4rem;
+  height: 2.37rem;
 }
 
 .logoUsers {
