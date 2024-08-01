@@ -41,6 +41,10 @@ select::-ms-expand {
   display: none;
 }
 
+select:not(:-internal-list-box) {
+  overflow: hidden !important;
+}
+
 @font-face {
   font-family: sugo pro display;
   src: url("Sugo-Pro-Display-Regular-trial.14d232e8.ttf") format("truetype");

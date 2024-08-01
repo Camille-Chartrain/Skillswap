@@ -44,4 +44,16 @@
     }
 }
 
+select option {
+    max-height: 150px; /* Hauteur maximale pour les options */
+    max-width: 80px;
+    
+
+  }
+ /* Ajoutez cette règle après le reset.css pour écraser la règle précédente */
+select:not(:-internal-list-box) {
+    overflow: auto !important; /* Changez overflow à 'auto' ou une autre valeur souhaitée */
+    overflow-x: auto; /* Spécifiez une valeur pour overflow-x */
+    overflow-y: auto; /* Spécifiez une valeur pour overflow-y */
+}
 

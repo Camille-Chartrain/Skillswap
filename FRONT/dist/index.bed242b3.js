@@ -35478,6 +35478,8 @@ parcelHelpers.export(exports, "default", ()=>Cards);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _cardsScss = require("./cards.scss");
+var _cardsScssDefault = parcelHelpers.interopDefault(_cardsScss);
 function Cards({ dataCards, match, noMatch, loading }) {
     console.log("dataCards", dataCards);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -35486,7 +35488,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                 children: "chargement..."
             }, void 0, false, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 15,
+                lineNumber: 16,
                 columnNumber: 25
             }, this),
             match && dataCards && dataCards.resultCount == 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35497,7 +35499,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 17,
+                lineNumber: 18,
                 columnNumber: 67
             }, this),
             match && dataCards && dataCards.resultCount > 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35508,7 +35510,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 19,
+                lineNumber: 20,
                 columnNumber: 66
             }, this),
             noMatch && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35516,29 +35518,78 @@ function Cards({ dataCards, match, noMatch, loading }) {
                 children: "Pas encore de cours pour vos crit\xe8res, voici nos derni\xe8res nouveaut\xe9s:"
             }, void 0, false, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 21,
+                lineNumber: 22,
                 columnNumber: 25
             }, this),
             dataCards && dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
                     className: "card",
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.title
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 26,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.User.grade_level
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 27,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.level
-                        }, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "boxHeader",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "childBoxHeader",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            children: card.title
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Cards/index.js",
+                                            lineNumber: 31,
+                                            columnNumber: 29
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            children: card.level
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Cards/index.js",
+                                            lineNumber: 32,
+                                            columnNumber: 29
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            children: card.averageMark
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Cards/index.js",
+                                            lineNumber: 33,
+                                            columnNumber: 29
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Cards/index.js",
+                                    lineNumber: 30,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "chil2dBoxHeader",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                            src: `http://${"localhost"}:${"3000"}/${card.Category.picture}`,
+                                            alt: "photo des categories"
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Cards/index.js",
+                                            lineNumber: 37,
+                                            columnNumber: 29
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            children: card.Category.name
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Cards/index.js",
+                                            lineNumber: 39,
+                                            columnNumber: 29
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            children: card.SubCategory.name
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Cards/index.js",
+                                            lineNumber: 40,
+                                            columnNumber: 29
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Cards/index.js",
+                                    lineNumber: 36,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
                             fileName: "SRC/components/Cards/index.js",
                             lineNumber: 28,
                             columnNumber: 21
@@ -35547,35 +35598,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                             children: card.description
                         }, void 0, false, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 29,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.Category.name
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 30,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.SubCategory.name
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 31,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.availability
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 33,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.transmission
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 35,
+                            lineNumber: 45,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35585,7 +35608,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                             ]
                         }, void 0, true, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 36,
+                            lineNumber: 47,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35596,23 +35619,43 @@ function Cards({ dataCards, match, noMatch, loading }) {
                             ]
                         }, void 0, true, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 37,
+                            lineNumber: 48,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: [
-                                "Contact: ",
-                                card.User.email
-                            ]
-                        }, void 0, true, {
+                            children: card.availability
+                        }, void 0, false, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 38,
+                            lineNumber: 50,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: card.transmission
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 51,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            type: "button",
+                            children: "consulter le profil"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 55,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            type: "button",
+                            children: "S'inscrire et participer"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 56,
                             columnNumber: 21
                         }, this)
                     ]
                 }, card.id, true, {
                     fileName: "SRC/components/Cards/index.js",
-                    lineNumber: 25,
+                    lineNumber: 26,
                     columnNumber: 17
                 }, this))
         ]
@@ -35627,7 +35670,7 @@ $RefreshReg$(_c, "Cards");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8DCBt":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./cards.scss":"coXVN"}],"coXVN":[function() {},{}],"8DCBt":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3d66 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
