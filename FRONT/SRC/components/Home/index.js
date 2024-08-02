@@ -87,7 +87,7 @@ const Home = ({
             <div className="pres_search">
                 <section className="presentation">
                     <div className="border-display">
-                        Dilettants, passionés, professionnels,
+                        Dilettants, passionnés, professionnels,
                     </div>
                     <div >
                         <span className="display">

@@ -1,3 +1,9 @@
+@mixin medium {
+    @media screen and (min-width:60rem){
+        @content;
+    } 
+}
+
 @mixin big {
     @media screen and (min-width:90rem){
         @content;

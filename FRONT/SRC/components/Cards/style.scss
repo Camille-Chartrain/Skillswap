@@ -1,4 +1,5 @@
 @use '../../style/var';
+@use '../../style/mixin';
 
 .loading, .search-result{
     color: var.$xtra-dark-grey;
@@ -13,6 +14,15 @@
     flex-wrap: wrap;
     justify-content: center;
 
+    @include mixin.medium {
+        
+        justify-content: space-evenly;
+    }
+
+    @include mixin.big {
+        justify-content: space-evenly;
+}
+
     .card{
         padding: 20px;
         border-radius: 30px;
@@ -20,8 +30,15 @@
         margin-top: 20px;
         margin-right: 20px;
         margin-left: 20px;
-        width: 380px;
+        width: 95%;
         height: 300px;
+
+        @include mixin.medium {
+            width: 40%;
+    }
+    @include mixin.big {
+        width: 23%;
+}
     
         img{
             width: 100px;

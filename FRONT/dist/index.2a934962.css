@@ -58,15 +58,39 @@
   display: flex;
 }
 
+@media screen and (width >= 60rem) {
+  .allCards {
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (width >= 90rem) {
+  .allCards {
+    justify-content: space-evenly;
+  }
+}
+
 .allCards .card {
   background-color: #fff;
   border-radius: 30px;
-  width: 380px;
+  width: 95%;
   height: 300px;
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
   padding: 20px;
+}
+
+@media screen and (width >= 60rem) {
+  .allCards .card {
+    width: 40%;
+  }
+}
+
+@media screen and (width >= 90rem) {
+  .allCards .card {
+    width: 23%;
+  }
 }
 
 .allCards .card img {
@@ -89,7 +113,9 @@
   border-bottom: .03125rem solid #979292;
   justify-content: space-between;
   width: 100%;
+  height: 81px;
   display: flex;
+  position: fixed;
 }
 
 .navHome button {
@@ -149,6 +175,7 @@
 .home .pres_search {
   flex-direction: column;
   align-items: center;
+  margin-top: 84px;
   display: flex;
 }
 

@@ -2,6 +2,10 @@
 
 
 .navHome{
+    position: fixed;
+    // top: 0;
+    // left: 0;
+    height: 81px; 
     display: flex;
     background-color:var.$background-color;
     border-bottom: 0.03125rem solid rgb(151, 146, 146);

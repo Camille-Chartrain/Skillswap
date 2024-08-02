@@ -34701,7 +34701,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "border-display",
-                                children: "Dilettants, passion\xe9s, professionnels,"
+                                children: "Dilettants, passionn\xe9s, professionnels,"
                             }, void 0, false, {
                                 fileName: "SRC/components/Home/index.js",
                                 lineNumber: 89,
