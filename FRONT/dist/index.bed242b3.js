@@ -34806,7 +34806,7 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../SearchBar":"kxQdC","../Cards":"jUXwJ","../NavHome":"8DCBt","../Dashboard/NavLogged":"dYmlb","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"8u0qZ"}],"kxQdC":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../SearchBar":"kxQdC","../Cards":"jUXwJ","../NavHome":"8DCBt","../Dashboard/NavLogged":"dYmlb","js-cookie":"c8bBu","./style.scss":"8u0qZ","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kxQdC":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2835 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34996,7 +34996,7 @@ $RefreshReg$(_c, "SearchBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Categories":"04ePd","./SubCategories":"laIPr","./Level":"8e1BU","react-router-dom":"9xmpe","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"977jm"}],"04ePd":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Categories":"04ePd","./SubCategories":"laIPr","./Level":"8e1BU","react-router-dom":"9xmpe","js-cookie":"c8bBu","./style.scss":"977jm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"04ePd":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8330 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35485,8 +35485,14 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _styleScss = require("./style.scss");
+var _reactFontawesome = require("@fortawesome/react-fontawesome");
+var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
 function Cards({ dataCards, match, noMatch, loading }) {
     console.log("dataCards", dataCards);
+    const truncateString = (str, num)=>{
+        if (str.length <= num) return str;
+        return str.slice(0, num) + "...";
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35496,7 +35502,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                         children: "chargement..."
                     }, void 0, false, {
                         fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 17,
+                        lineNumber: 27,
                         columnNumber: 29
                     }, this),
                     match && dataCards && dataCards.resultCount == 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35507,7 +35513,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 19,
+                        lineNumber: 29,
                         columnNumber: 71
                     }, this),
                     match && dataCards && dataCards.resultCount > 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35518,7 +35524,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 21,
+                        lineNumber: 31,
                         columnNumber: 70
                     }, this),
                     noMatch && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35526,13 +35532,13 @@ function Cards({ dataCards, match, noMatch, loading }) {
                         children: "Pas encore de cours pour vos crit\xe8res, voici nos derni\xe8res nouveaut\xe9s:"
                     }, void 0, false, {
                         fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 23,
+                        lineNumber: 33,
                         columnNumber: 29
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 16,
+                lineNumber: 26,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35540,6 +35546,13 @@ function Cards({ dataCards, match, noMatch, loading }) {
                 children: dataCards && dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
                         className: "card",
                         children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                children: card.title.toUpperCase()
+                            }, void 0, false, {
+                                fileName: "SRC/components/Cards/index.js",
+                                lineNumber: 42,
+                                columnNumber: 25
+                            }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "boxHeader",
                                 children: [
@@ -35547,30 +35560,74 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                         className: "childBoxHeader",
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                children: card.title
-                                            }, void 0, false, {
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                                        icon: (0, _freeSolidSvgIcons.faSignal)
+                                                    }, void 0, false, {
+                                                        fileName: "SRC/components/Cards/index.js",
+                                                        lineNumber: 49,
+                                                        columnNumber: 37
+                                                    }, this),
+                                                    "\xa0",
+                                                    card.level
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 35,
+                                                lineNumber: 48,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                children: card.level
-                                            }, void 0, false, {
+                                                children: [
+                                                    "note globale: ",
+                                                    card.averageMark,
+                                                    "/5",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                                        icon: (0, _freeSolidSvgIcons.faStar)
+                                                    }, void 0, false, {
+                                                        fileName: "SRC/components/Cards/index.js",
+                                                        lineNumber: 57,
+                                                        columnNumber: 37
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 36,
+                                                lineNumber: 56,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                children: card.averageMark
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                                        icon: (0, _freeSolidSvgIcons.faGraduationCap)
+                                                    }, void 0, false, {
+                                                        fileName: "SRC/components/Cards/index.js",
+                                                        lineNumber: 63,
+                                                        columnNumber: 37
+                                                    }, this),
+                                                    ` ${card.User.firstname} ${card.User.lastname}`
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "SRC/components/Cards/index.js",
+                                                lineNumber: 62,
+                                                columnNumber: 33
+                                            }, this),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: card.availability
                                             }, void 0, false, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 37,
+                                                lineNumber: 69,
+                                                columnNumber: 33
+                                            }, this),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: card.transmission
+                                            }, void 0, false, {
+                                                fileName: "SRC/components/Cards/index.js",
+                                                lineNumber: 70,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 34,
+                                        lineNumber: 46,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35582,84 +35639,49 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                 alt: "photo des categories"
                                             }, void 0, false, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 41,
+                                                lineNumber: 74,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                children: card.Category.name
-                                            }, void 0, false, {
+                                                className: "category",
+                                                children: [
+                                                    truncateString(card.Category.name, 11),
+                                                    " ",
+                                                    truncateString(card.SubCategory.name, 4)
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 43,
-                                                columnNumber: 33
-                                            }, this),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                children: card.SubCategory.name
-                                            }, void 0, false, {
-                                                fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 44,
+                                                lineNumber: 79,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 40,
+                                        lineNumber: 73,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Cards/index.js",
-                                lineNumber: 32,
+                                lineNumber: 44,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "boxContent",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                        children: card.description
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 50,
-                                        columnNumber: 29
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                        children: [
-                                            "SKILLSWAPEUR:",
-                                            `${card.User.firstname} ${card.User.lastname}`
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 52,
-                                        columnNumber: 29
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                        children: [
-                                            '"',
-                                            card.User.presentation,
-                                            '"'
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 53,
-                                        columnNumber: 29
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                        children: card.availability
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 55,
-                                        columnNumber: 29
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                        children: card.transmission
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 56,
-                                        columnNumber: 29
-                                    }, this)
-                                ]
-                            }, void 0, true, {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    children: [
+                                        '"',
+                                        card.description,
+                                        '"'
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Cards/index.js",
+                                    lineNumber: 91,
+                                    columnNumber: 29
+                                }, this)
+                            }, void 0, false, {
                                 fileName: "SRC/components/Cards/index.js",
-                                lineNumber: 49,
+                                lineNumber: 84,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35668,36 +35690,36 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                         className: "boxButton1",
                                         type: "button",
-                                        children: "consulter le profil"
+                                        children: "Voir profil"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 60,
+                                        lineNumber: 95,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                         className: "boxButton1",
                                         type: "button",
-                                        children: "S'inscrire et participer"
+                                        children: "Participer"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 61,
+                                        lineNumber: 96,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Cards/index.js",
-                                lineNumber: 59,
+                                lineNumber: 94,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, card.id, true, {
                         fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 30,
+                        lineNumber: 40,
                         columnNumber: 21
                     }, this))
             }, void 0, false, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 26,
+                lineNumber: 36,
                 columnNumber: 13
             }, this)
         ]
@@ -35712,142 +35734,7 @@ $RefreshReg$(_c, "Cards");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"aktsk"}],"aktsk":[function() {},{}],"8DCBt":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$3d66 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3d66.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>NavHome);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
-var _reactFontawesome = require("@fortawesome/react-fontawesome");
-var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
-var _styleScss = require("./style.scss");
-var _skillswapIconePng = require("../../style/icones/skillswap_icone.png");
-var _skillswapIconePngDefault = parcelHelpers.interopDefault(_skillswapIconePng);
-var _ideaIconePng = require("../../style/icones/idea_icone.png");
-var _ideaIconePngDefault = parcelHelpers.interopDefault(_ideaIconePng);
-var _s = $RefreshSig$();
-function NavHome() {
-    _s();
-    const navigate = (0, _reactRouterDom.useNavigate)();
-    function handleClickRegistration() {
-        navigate("/registration");
-    }
-    function handleClickLogin() {
-        navigate("/login");
-    }
-    function handleClickHome() {
-        navigate("/");
-    }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-        className: "navHome",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "navLeft",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: handleClickHome,
-                    "aria-label": "Accueil",
-                    className: "logo",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            src: (0, _ideaIconePngDefault.default),
-                            alt: "accueil-SkillSwap",
-                            className: "logoIdea"
-                        }, void 0, false, {
-                            fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 37,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            src: (0, _skillswapIconePngDefault.default),
-                            alt: "accueil-SkillSwap",
-                            className: "logoSkillswap"
-                        }, void 0, false, {
-                            fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 43,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 32,
-                    columnNumber: 17
-                }, this)
-            }, void 0, false, {
-                fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 30,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "logoUsers",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        onClick: handleClickRegistration,
-                        "aria-label": "Inscription",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faUserPlus),
-                            className: "icone iconeRegister"
-                        }, void 0, false, {
-                            fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 59,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 55,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        onClick: handleClickLogin,
-                        "aria-label": "connection",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faCircleUser),
-                            className: "icone iconeLogin"
-                        }, void 0, false, {
-                            fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 69,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 65,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 53,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "SRC/components/NavHome/index.js",
-        lineNumber: 28,
-        columnNumber: 9
-    }, this);
-}
-_s(NavHome, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
-    return [
-        (0, _reactRouterDom.useNavigate)
-    ];
-});
-_c = NavHome;
-var _c;
-$RefreshReg$(_c, "NavHome");
-
-  $parcel$ReactRefreshHelpers$3d66.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../style/icones/skillswap_icone.png":"jJZjR","../../style/icones/idea_icone.png":"6DVFh","./style.scss":"bPS58"}],"clIT3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.scss":"aktsk","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aktsk":[function() {},{}],"clIT3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "FontAwesomeIcon", ()=>FontAwesomeIcon);
@@ -61304,7 +61191,142 @@ var icons = {
     faLevelUpAlt
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jJZjR":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8DCBt":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3d66 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3d66.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>NavHome);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _reactFontawesome = require("@fortawesome/react-fontawesome");
+var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
+var _styleScss = require("./style.scss");
+var _skillswapIconePng = require("../../style/icones/skillswap_icone.png");
+var _skillswapIconePngDefault = parcelHelpers.interopDefault(_skillswapIconePng);
+var _ideaIconePng = require("../../style/icones/idea_icone.png");
+var _ideaIconePngDefault = parcelHelpers.interopDefault(_ideaIconePng);
+var _s = $RefreshSig$();
+function NavHome() {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    function handleClickRegistration() {
+        navigate("/registration");
+    }
+    function handleClickLogin() {
+        navigate("/login");
+    }
+    function handleClickHome() {
+        navigate("/");
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+        className: "navHome",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "navLeft",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: handleClickHome,
+                    "aria-label": "Accueil",
+                    className: "logo",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            src: (0, _ideaIconePngDefault.default),
+                            alt: "accueil-SkillSwap",
+                            className: "logoIdea"
+                        }, void 0, false, {
+                            fileName: "SRC/components/NavHome/index.js",
+                            lineNumber: 37,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            src: (0, _skillswapIconePngDefault.default),
+                            alt: "accueil-SkillSwap",
+                            className: "logoSkillswap"
+                        }, void 0, false, {
+                            fileName: "SRC/components/NavHome/index.js",
+                            lineNumber: 43,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "SRC/components/NavHome/index.js",
+                    lineNumber: 32,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "SRC/components/NavHome/index.js",
+                lineNumber: 30,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "logoUsers",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: handleClickRegistration,
+                        "aria-label": "Inscription",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                            icon: (0, _freeSolidSvgIcons.faUserPlus),
+                            className: "icone iconeRegister"
+                        }, void 0, false, {
+                            fileName: "SRC/components/NavHome/index.js",
+                            lineNumber: 59,
+                            columnNumber: 21
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "SRC/components/NavHome/index.js",
+                        lineNumber: 55,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: handleClickLogin,
+                        "aria-label": "connection",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                            icon: (0, _freeSolidSvgIcons.faCircleUser),
+                            className: "icone iconeLogin"
+                        }, void 0, false, {
+                            fileName: "SRC/components/NavHome/index.js",
+                            lineNumber: 69,
+                            columnNumber: 21
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "SRC/components/NavHome/index.js",
+                        lineNumber: 65,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/NavHome/index.js",
+                lineNumber: 53,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/NavHome/index.js",
+        lineNumber: 28,
+        columnNumber: 9
+    }, this);
+}
+_s(NavHome, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = NavHome;
+var _c;
+$RefreshReg$(_c, "NavHome");
+
+  $parcel$ReactRefreshHelpers$3d66.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"bPS58","../../style/icones/skillswap_icone.png":"jJZjR","../../style/icones/idea_icone.png":"6DVFh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bPS58":[function() {},{}],"jJZjR":[function(require,module,exports) {
 module.exports = require("b7e66ae45c6d70a1").getBundleURL("c2MLH") + "skillswap_icone.aa6d1d7a.png" + "?" + Date.now();
 
 },{"b7e66ae45c6d70a1":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -61345,7 +61367,7 @@ exports.getOrigin = getOrigin;
 },{}],"6DVFh":[function(require,module,exports) {
 module.exports = require("762cec6c89425929").getBundleURL("c2MLH") + "idea_icone.621f21a9.png" + "?" + Date.now();
 
-},{"762cec6c89425929":"lgJ39"}],"bPS58":[function() {},{}],"dYmlb":[function(require,module,exports) {
+},{"762cec6c89425929":"lgJ39"}],"dYmlb":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$77af = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

@@ -43,6 +43,7 @@
   height: 2.8rem;
   margin-top: .5rem;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
   display: flex;
 }
 
@@ -89,7 +90,7 @@
 
 @media screen and (width >= 90rem) {
   .allCards .card {
-    width: 23%;
+    width: 22%;
   }
 }
 
@@ -99,12 +100,34 @@
 
 .allCards .card .boxHeader {
   flex-direction: row;
+  justify-content: space-between;
   display: flex;
 }
 
-.allCards .card .boxButton1 {
-  border: 1px solid #494848;
+.allCards .card .boxHeader .childBoxHeader {
+  height: min-content;
+}
+
+.allCards .card .boxHeader .chil2dBoxHeader .category {
+  font-size: small;
+}
+
+.allCards .card .boxContent {
+  margin-top: 0%;
+}
+
+.allCards .card .boxButton {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.allCards .card .boxButton .boxButton1 {
+  color: #fff;
+  background-color: #008cff;
+  border-radius: 10px;
   flex-flow: row;
+  margin-left: 10px;
+  padding: 5px;
   display: flex;
 }
 
@@ -176,6 +199,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 84px;
+  font-weight: 500;
   display: flex;
 }
 
