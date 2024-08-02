@@ -4,7 +4,7 @@ import Cards from "../Cards";
 import NavHome from "../NavHome";
 import NavLogged from "../Dashboard/NavLogged";
 import Cookies from 'js-cookie';
-import style from './home.scss';
+import './style.scss';
 import { useNavigate } from 'react-router-dom';
 
 const Home = ({
@@ -78,44 +78,45 @@ const Home = ({
 
 
     return (
-        <>
+        <div className="home">
             {logged && <NavLogged
                 setLogged={setLogged}
             />}
             {!logged && <NavHome />}
 
+            <div className="pres_search">
+                <section className="presentation">
+                    <div className="border-display">
+                        Dilettants, passionés, professionnels,
+                    </div>
+                    <div >
+                        <span className="display">
+                            partagez </span>vos talents  !
+                    </div>
+                </section >
+
+                {!logged && <SearchBar
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+                    selectedSubCategory={selectedSubCategory}
+                    setSelectedSubCategory={setSelectedSubCategory}
+                    selectedLevel={selectedLevel}
+                    setSelectedLevel={setSelectedLevel}
+                    searchInput={searchInput}
+                    setSearchInput={setSearchInput}
+                    dataCards={dataCards}
+                    setDataCards={setDataCards}
+                    match={match}
+                    setMatch={setMatch}
+                    noMatch={noMatch}
+                    setNoMatch={setNoMatch}
+                    setLoading={setLoading}
+                    setLogged={setLogged}
+                />
+                }
+            </div>
+
             <section>
-                <div className="border-display">
-                    Dilettants, passionés, professionnels,
-                </div>
-                <div>
-                    <span className="display">
-                        partagez </span>vos talents  !
-                </div>
-            </section >
-
-            {!logged && <SearchBar
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                selectedSubCategory={selectedSubCategory}
-                setSelectedSubCategory={setSelectedSubCategory}
-                selectedLevel={selectedLevel}
-                setSelectedLevel={setSelectedLevel}
-                searchInput={searchInput}
-                setSearchInput={setSearchInput}
-                dataCards={dataCards}
-                setDataCards={setDataCards}
-                match={match}
-                setMatch={setMatch}
-                noMatch={noMatch}
-                setNoMatch={setNoMatch}
-                setLoading={setLoading}
-                setLogged={setLogged}
-
-            />
-            }
-
-            <section className="allCards">
                 <Cards
                     dataCards={dataCards}
                     match={match}
@@ -123,16 +124,18 @@ const Home = ({
                     loading={loading}
                 />
             </section>
-            {!loading && !logged &&
+            {
+                !loading && !logged &&
                 <button
+                    className="join_button"
                     onClick={handleClickRegistration}
                     aria-label="Inscription"
-                    className="join_button"
                 >
-                    En voir plus, Rejoindre la communauté
+                    Rejoindre la communauté
 
-                </button>}
-        </>
+                </button>
+            }
+        </div >
     )
 
 }

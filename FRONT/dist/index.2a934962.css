@@ -3,9 +3,16 @@
   border-radius: 15px;
   flex-direction: column;
   width: 21rem;
-  margin: auto;
+  margin-bottom: 20px;
   padding-top: .5rem;
   display: flex;
+}
+
+@media screen and (width >= 90rem) {
+  .searchBar {
+    margin-top: 4%;
+    margin-right: 14%;
+  }
 }
 
 .searchBar .searchElement, .searchBar .searchButton {
@@ -39,18 +46,42 @@
   display: flex;
 }
 
-select option {
-  max-width: 80px;
-  max-height: 150px;
+.loading, .search-result {
+  color: #1f1e1e;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-select:not(:-internal-list-box) {
-  overflow: auto;
-  overflow: auto !important;
+.allCards {
+  flex-wrap: wrap;
+  justify-content: center;
+  display: flex;
 }
 
-img {
-  width: 30%;
+.allCards .card {
+  background-color: #fff;
+  border-radius: 30px;
+  width: 380px;
+  height: 300px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+.allCards .card img {
+  width: 100px;
+}
+
+.allCards .card .boxHeader {
+  flex-direction: row;
+  display: flex;
+}
+
+.allCards .card .boxButton1 {
+  border: 1px solid #494848;
+  flex-flow: row;
+  display: flex;
 }
 
 .navHome {
@@ -108,23 +139,62 @@ img {
   display: flex;
 }
 
-body {
+.home {
   background-color: #ff7f00;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
 }
 
-section {
+.home .pres_search {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+@media screen and (width >= 90rem) {
+  .home .pres_search {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: baseline;
+    width: 100%;
+    height: 26rem;
+    margin-left: 20%;
+    display: flex;
+  }
+}
+
+.home .presentation {
   color: #fff;
-  background-position: 100% 0;
-  background-repeat: no-repeat;
-  margin: 30px;
+  flex-direction: column;
+  align-items: center;
+  width: 21rem;
+  margin-top: 40px;
+  margin-bottom: 50px;
   font-size: 1.7rem;
+  display: flex;
 }
 
-section .border-display {
-  margin-left: 1rem;
+@media screen and (width >= 90rem) {
+  .home .presentation {
+    align-items: flex-start;
+    width: auto;
+    margin-top: 0%;
+    display: flex;
+  }
 }
 
-section .display {
+.home .presentation .border-display {
+  margin-left: 2rem;
+}
+
+@media screen and (width >= 90rem) {
+  .home .presentation .border-display {
+    margin-left: 1rem;
+  }
+}
+
+.home .presentation .display {
   background-color: #008cff;
   border: 1px solid #008cff;
   border-radius: 30px;
@@ -133,11 +203,14 @@ section .display {
   padding-left: .8rem;
 }
 
-section button {
+.home .join_button {
   background-color: #fff;
   border-radius: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
+  align-self: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  padding: .5rem .7rem;
+  display: flex;
 }
 
 body.react-confirm-alert-body-element {

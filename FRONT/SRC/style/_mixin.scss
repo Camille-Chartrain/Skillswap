@@ -1,0 +1,5 @@
+@mixin big {
+    @media screen and (min-width:90rem){
+        @content;
+    } 
+}

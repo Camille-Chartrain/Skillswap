@@ -4,7 +4,7 @@ import SubCategories from "./SubCategories";
 import Level from "./Level";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import styles from './searchBar.scss';
+import "./style.scss"
 
 
 export default function SearchBar({
@@ -103,43 +103,48 @@ export default function SearchBar({
     };
 
     return (
-        <form method="GET" action="" onSubmit={handleSearch}>
-            <div className="searchBar">
-                <div >
-                    <input
-                        className="searchElement"
-                        type="text"
-                        name="keyWord"
-                        id="keyword"
-                        value={searchInput}
-                        placeholder="bouture, crochet, robe..."
-                        onChange={handleChangeInput}
-                    >
-                    </input>
-                    <label htmlFor="keyWord"></label>
-                </div>
+        <form
+            className="searchBar"
+            method="GET"
+            action=""
+            onSubmit={handleSearch}
+        >
 
-                <div >
-                    <Categories
-                        selectedCategory={selectedCategory}
-                        setSelectedCategory={setSelectedCategory}
-                    />
-                </div>
-
-                <div>
-                    <SubCategories
-                        selectedCategory={selectedCategory}
-                        setSelectedSubCategory={setSelectedSubCategory}
-                    />
-                </div>
-
-                <div>
-                    <Level
-                        setSelectedLevel={setSelectedLevel}
-                    />
-                </div>
-                <button className="searchButton" type="submit">Envoyer</button>
+            <div >
+                <input
+                    className="searchElement"
+                    type="text"
+                    name="keyWord"
+                    id="keyword"
+                    value={searchInput}
+                    placeholder="bouture, crochet, robe..."
+                    onChange={handleChangeInput}
+                >
+                </input>
+                <label htmlFor="keyWord"></label>
             </div>
+
+            <div >
+                <Categories
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+                />
+            </div>
+
+            <div>
+                <SubCategories
+                    selectedCategory={selectedCategory}
+                    setSelectedSubCategory={setSelectedSubCategory}
+                />
+            </div>
+
+            <div>
+                <Level
+                    setSelectedLevel={setSelectedLevel}
+                />
+            </div>
+            <button className="searchButton" type="submit">Rechercher</button>
+
         </form >
     )
 }

@@ -37,10 +37,6 @@ select, input {
   appearance: none;
 }
 
-select::-ms-expand {
-  display: none;
-}
-
 select:not(:-internal-list-box) {
   overflow: hidden !important;
 }

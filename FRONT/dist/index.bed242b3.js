@@ -34640,8 +34640,7 @@ var _navLogged = require("../Dashboard/NavLogged");
 var _navLoggedDefault = parcelHelpers.interopDefault(_navLogged);
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _homeScss = require("./home.scss");
-var _homeScssDefault = parcelHelpers.interopDefault(_homeScss);
+var _styleScss = require("./style.scss");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, dataCards, setDataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, logged, setLogged })=>{
@@ -34679,7 +34678,8 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
     function handleClickRegistration() {
         navigate("/registration");
     }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "home",
         children: [
             logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
                 setLogged: setLogged
@@ -34693,32 +34693,64 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 lineNumber: 85,
                 columnNumber: 25
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pres_search",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "border-display",
-                        children: "Dilettants, passion\xe9s, professionnels,"
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+                        className: "presentation",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "border-display",
+                                children: "Dilettants, passion\xe9s, professionnels,"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Home/index.js",
+                                lineNumber: 89,
+                                columnNumber: 21
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        className: "display",
+                                        children: "partagez "
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Home/index.js",
+                                        lineNumber: 93,
+                                        columnNumber: 25
+                                    }, undefined),
+                                    "vos talents  !"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Home/index.js",
+                                lineNumber: 92,
+                                columnNumber: 21
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "SRC/components/Home/index.js",
                         lineNumber: 88,
                         columnNumber: 17
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "display",
-                                children: "partagez "
-                            }, void 0, false, {
-                                fileName: "SRC/components/Home/index.js",
-                                lineNumber: 92,
-                                columnNumber: 21
-                            }, undefined),
-                            "vos talents  !"
-                        ]
-                    }, void 0, true, {
+                    !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                        selectedCategory: selectedCategory,
+                        setSelectedCategory: setSelectedCategory,
+                        selectedSubCategory: selectedSubCategory,
+                        setSelectedSubCategory: setSelectedSubCategory,
+                        selectedLevel: selectedLevel,
+                        setSelectedLevel: setSelectedLevel,
+                        searchInput: searchInput,
+                        setSearchInput: setSearchInput,
+                        dataCards: dataCards,
+                        setDataCards: setDataCards,
+                        match: match,
+                        setMatch: setMatch,
+                        noMatch: noMatch,
+                        setNoMatch: setNoMatch,
+                        setLoading: setLoading,
+                        setLogged: setLogged
+                    }, void 0, false, {
                         fileName: "SRC/components/Home/index.js",
-                        lineNumber: 91,
-                        columnNumber: 17
+                        lineNumber: 98,
+                        columnNumber: 29
                     }, undefined)
                 ]
             }, void 0, true, {
@@ -34726,30 +34758,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 lineNumber: 87,
                 columnNumber: 13
             }, undefined),
-            !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
-                selectedCategory: selectedCategory,
-                setSelectedCategory: setSelectedCategory,
-                selectedSubCategory: selectedSubCategory,
-                setSelectedSubCategory: setSelectedSubCategory,
-                selectedLevel: selectedLevel,
-                setSelectedLevel: setSelectedLevel,
-                searchInput: searchInput,
-                setSearchInput: setSearchInput,
-                dataCards: dataCards,
-                setDataCards: setDataCards,
-                match: match,
-                setMatch: setMatch,
-                noMatch: noMatch,
-                setNoMatch: setNoMatch,
-                setLoading: setLoading,
-                setLogged: setLogged
-            }, void 0, false, {
-                fileName: "SRC/components/Home/index.js",
-                lineNumber: 97,
-                columnNumber: 25
-            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-                className: "allCards",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
                     dataCards: dataCards,
                     match: match,
@@ -34757,26 +34766,30 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                     loading: loading
                 }, void 0, false, {
                     fileName: "SRC/components/Home/index.js",
-                    lineNumber: 119,
+                    lineNumber: 120,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 118,
+                lineNumber: 119,
                 columnNumber: 13
             }, undefined),
             !loading && !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                className: "join_button",
                 onClick: handleClickRegistration,
                 "aria-label": "Inscription",
-                className: "join_button",
-                children: "En voir plus, Rejoindre la communaut\xe9"
+                children: "Rejoindre la communaut\xe9"
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 127,
+                lineNumber: 129,
                 columnNumber: 17
             }, undefined)
         ]
-    }, void 0, true);
+    }, void 0, true, {
+        fileName: "SRC/components/Home/index.js",
+        lineNumber: 81,
+        columnNumber: 9
+    }, undefined);
 };
 _s(Home, "ozcc7agSozDt5Ds+4CzVCamyzlI=", false, function() {
     return [
@@ -34793,7 +34806,7 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../SearchBar":"kxQdC","../Cards":"jUXwJ","../NavHome":"8DCBt","../Dashboard/NavLogged":"dYmlb","js-cookie":"c8bBu","./home.scss":"eAKUB","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kxQdC":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../SearchBar":"kxQdC","../Cards":"jUXwJ","../NavHome":"8DCBt","../Dashboard/NavLogged":"dYmlb","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"8u0qZ"}],"kxQdC":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2835 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34815,8 +34828,7 @@ var _levelDefault = parcelHelpers.interopDefault(_level);
 var _reactRouterDom = require("react-router-dom");
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _searchBarScss = require("./searchBar.scss");
-var _searchBarScssDefault = parcelHelpers.interopDefault(_searchBarScss);
+var _styleScss = require("./style.scss");
 var _s = $RefreshSig$();
 function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, match, setMatch, noMatch, setNoMatch, setLoading, setLogged }) {
     _s();
@@ -34880,97 +34892,91 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
         console.log("input:", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+        className: "searchBar",
         method: "GET",
         action: "",
         onSubmit: handleSearch,
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "searchBar",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                            className: "searchElement",
-                            type: "text",
-                            name: "keyWord",
-                            id: "keyword",
-                            value: searchInput,
-                            placeholder: "bouture, crochet, robe...",
-                            onChange: handleChangeInput
-                        }, void 0, false, {
-                            fileName: "SRC/components/SearchBar/index.js",
-                            lineNumber: 109,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                            htmlFor: "keyWord"
-                        }, void 0, false, {
-                            fileName: "SRC/components/SearchBar/index.js",
-                            lineNumber: 119,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 108,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
-                        selectedCategory: selectedCategory,
-                        setSelectedCategory: setSelectedCategory
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        className: "searchElement",
+                        type: "text",
+                        name: "keyWord",
+                        id: "keyword",
+                        value: searchInput,
+                        placeholder: "bouture, crochet, robe...",
+                        onChange: handleChangeInput
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 123,
-                        columnNumber: 21
-                    }, this)
-                }, void 0, false, {
-                    fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 122,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
-                        selectedCategory: selectedCategory,
-                        setSelectedSubCategory: setSelectedSubCategory
+                        lineNumber: 114,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        htmlFor: "keyWord"
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 130,
-                        columnNumber: 21
+                        lineNumber: 124,
+                        columnNumber: 17
                     }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 113,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
+                    selectedCategory: selectedCategory,
+                    setSelectedCategory: setSelectedCategory
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 129,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
-                        setSelectedLevel: setSelectedLevel
-                    }, void 0, false, {
-                        fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 137,
-                        columnNumber: 21
-                    }, this)
-                }, void 0, false, {
-                    fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 136,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    className: "searchButton",
-                    type: "submit",
-                    children: "Envoyer"
-                }, void 0, false, {
-                    fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 141,
+                    lineNumber: 128,
                     columnNumber: 17
                 }, this)
-            ]
-        }, void 0, true, {
-            fileName: "SRC/components/SearchBar/index.js",
-            lineNumber: 107,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 127,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
+                    selectedCategory: selectedCategory,
+                    setSelectedSubCategory: setSelectedSubCategory
+                }, void 0, false, {
+                    fileName: "SRC/components/SearchBar/index.js",
+                    lineNumber: 135,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 134,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
+                    setSelectedLevel: setSelectedLevel
+                }, void 0, false, {
+                    fileName: "SRC/components/SearchBar/index.js",
+                    lineNumber: 142,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 141,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                className: "searchButton",
+                type: "submit",
+                children: "Rechercher"
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 146,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "SRC/components/SearchBar/index.js",
         lineNumber: 106,
         columnNumber: 9
@@ -34990,7 +34996,7 @@ $RefreshReg$(_c, "SearchBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Categories":"04ePd","./SubCategories":"laIPr","./Level":"8e1BU","react-router-dom":"9xmpe","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./searchBar.scss":"d4uxJ"}],"04ePd":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Categories":"04ePd","./SubCategories":"laIPr","./Level":"8e1BU","react-router-dom":"9xmpe","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"977jm"}],"04ePd":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8330 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35465,7 +35471,7 @@ $RefreshReg$(_c, "Level");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"d4uxJ":[function() {},{}],"jUXwJ":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"977jm":[function() {},{}],"jUXwJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1908 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35478,186 +35484,222 @@ parcelHelpers.export(exports, "default", ()=>Cards);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _cardsScss = require("./cards.scss");
-var _cardsScssDefault = parcelHelpers.interopDefault(_cardsScss);
+var _styleScss = require("./style.scss");
 function Cards({ dataCards, match, noMatch, loading }) {
     console.log("dataCards", dataCards);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "chargement..."
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "loading",
+                        children: "chargement..."
+                    }, void 0, false, {
+                        fileName: "SRC/components/Cards/index.js",
+                        lineNumber: 17,
+                        columnNumber: 29
+                    }, this),
+                    match && dataCards && dataCards.resultCount == 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "search-result",
+                        children: [
+                            dataCards.resultCount,
+                            " r\xe9sultat"
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Cards/index.js",
+                        lineNumber: 19,
+                        columnNumber: 71
+                    }, this),
+                    match && dataCards && dataCards.resultCount > 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "search-result",
+                        children: [
+                            dataCards.resultCount,
+                            " r\xe9sultats"
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Cards/index.js",
+                        lineNumber: 21,
+                        columnNumber: 70
+                    }, this),
+                    noMatch && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "search-result",
+                        children: "Pas encore de cours pour vos crit\xe8res, voici nos derni\xe8res nouveaut\xe9s:"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Cards/index.js",
+                        lineNumber: 23,
+                        columnNumber: 29
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "SRC/components/Cards/index.js",
                 lineNumber: 16,
-                columnNumber: 25
+                columnNumber: 13
             }, this),
-            match && dataCards && dataCards.resultCount == 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                className: "search-result",
-                children: [
-                    dataCards.resultCount,
-                    " r\xe9sultat"
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Cards/index.js",
-                lineNumber: 18,
-                columnNumber: 67
-            }, this),
-            match && dataCards && dataCards.resultCount > 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                className: "search-result",
-                children: [
-                    dataCards.resultCount,
-                    " r\xe9sultats"
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Cards/index.js",
-                lineNumber: 20,
-                columnNumber: 66
-            }, this),
-            noMatch && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                className: "search-result",
-                children: "Pas encore de cours pour vos crit\xe8res, voici nos derni\xe8res nouveaut\xe9s:"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "allCards",
+                children: dataCards && dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
+                        className: "card",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "boxHeader",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "childBoxHeader",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: card.title
+                                            }, void 0, false, {
+                                                fileName: "SRC/components/Cards/index.js",
+                                                lineNumber: 35,
+                                                columnNumber: 33
+                                            }, this),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: card.level
+                                            }, void 0, false, {
+                                                fileName: "SRC/components/Cards/index.js",
+                                                lineNumber: 36,
+                                                columnNumber: 33
+                                            }, this),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: card.averageMark
+                                            }, void 0, false, {
+                                                fileName: "SRC/components/Cards/index.js",
+                                                lineNumber: 37,
+                                                columnNumber: 33
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "SRC/components/Cards/index.js",
+                                        lineNumber: 34,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "chil2dBoxHeader",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                className: "avatar",
+                                                src: `http://${"localhost"}:${"3000"}/${card.Category.picture}`,
+                                                alt: "photo des categories"
+                                            }, void 0, false, {
+                                                fileName: "SRC/components/Cards/index.js",
+                                                lineNumber: 41,
+                                                columnNumber: 33
+                                            }, this),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: card.Category.name
+                                            }, void 0, false, {
+                                                fileName: "SRC/components/Cards/index.js",
+                                                lineNumber: 43,
+                                                columnNumber: 33
+                                            }, this),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: card.SubCategory.name
+                                            }, void 0, false, {
+                                                fileName: "SRC/components/Cards/index.js",
+                                                lineNumber: 44,
+                                                columnNumber: 33
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "SRC/components/Cards/index.js",
+                                        lineNumber: 40,
+                                        columnNumber: 29
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Cards/index.js",
+                                lineNumber: 32,
+                                columnNumber: 25
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "boxContent",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        children: card.description
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Cards/index.js",
+                                        lineNumber: 50,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        children: [
+                                            "SKILLSWAPEUR:",
+                                            `${card.User.firstname} ${card.User.lastname}`
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "SRC/components/Cards/index.js",
+                                        lineNumber: 52,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        children: [
+                                            '"',
+                                            card.User.presentation,
+                                            '"'
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "SRC/components/Cards/index.js",
+                                        lineNumber: 53,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        children: card.availability
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Cards/index.js",
+                                        lineNumber: 55,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        children: card.transmission
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Cards/index.js",
+                                        lineNumber: 56,
+                                        columnNumber: 29
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Cards/index.js",
+                                lineNumber: 49,
+                                columnNumber: 25
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "boxButton",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        className: "boxButton1",
+                                        type: "button",
+                                        children: "consulter le profil"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Cards/index.js",
+                                        lineNumber: 60,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        className: "boxButton1",
+                                        type: "button",
+                                        children: "S'inscrire et participer"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Cards/index.js",
+                                        lineNumber: 61,
+                                        columnNumber: 29
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Cards/index.js",
+                                lineNumber: 59,
+                                columnNumber: 25
+                            }, this)
+                        ]
+                    }, card.id, true, {
+                        fileName: "SRC/components/Cards/index.js",
+                        lineNumber: 30,
+                        columnNumber: 21
+                    }, this))
             }, void 0, false, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 22,
-                columnNumber: 25
-            }, this),
-            dataCards && dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
-                    className: "card",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "boxHeader",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "childBoxHeader",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            children: card.title
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 31,
-                                            columnNumber: 29
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            children: card.level
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 32,
-                                            columnNumber: 29
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            children: card.averageMark
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 33,
-                                            columnNumber: 29
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "SRC/components/Cards/index.js",
-                                    lineNumber: 30,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "chil2dBoxHeader",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            src: `http://${"localhost"}:${"3000"}/${card.Category.picture}`,
-                                            alt: "photo des categories"
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 37,
-                                            columnNumber: 29
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            children: card.Category.name
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 39,
-                                            columnNumber: 29
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            children: card.SubCategory.name
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 40,
-                                            columnNumber: 29
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "SRC/components/Cards/index.js",
-                                    lineNumber: 36,
-                                    columnNumber: 25
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 28,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.description
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 45,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: [
-                                "SKILLSWAPEUR:",
-                                `${card.User.firstname} ${card.User.lastname}`
-                            ]
-                        }, void 0, true, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 47,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: [
-                                '"',
-                                card.User.presentation,
-                                '"'
-                            ]
-                        }, void 0, true, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 48,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.availability
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 50,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: card.transmission
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 51,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            type: "button",
-                            children: "consulter le profil"
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 55,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            type: "button",
-                            children: "S'inscrire et participer"
-                        }, void 0, false, {
-                            fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 56,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, card.id, true, {
-                    fileName: "SRC/components/Cards/index.js",
-                    lineNumber: 26,
-                    columnNumber: 17
-                }, this))
+                lineNumber: 26,
+                columnNumber: 13
+            }, this)
         ]
     }, void 0, true);
 }
@@ -35670,7 +35712,7 @@ $RefreshReg$(_c, "Cards");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./cards.scss":"coXVN"}],"coXVN":[function() {},{}],"8DCBt":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"aktsk"}],"aktsk":[function() {},{}],"8DCBt":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3d66 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35686,11 +35728,10 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
-var _navHomeScss = require("./navHome.scss"); // Import SCSS as a module
-var _navHomeScssDefault = parcelHelpers.interopDefault(_navHomeScss);
-var _skillswapIconePng = require("../../style/base/icones/skillswap_icone.png");
+var _styleScss = require("./style.scss");
+var _skillswapIconePng = require("../../style/icones/skillswap_icone.png");
 var _skillswapIconePngDefault = parcelHelpers.interopDefault(_skillswapIconePng);
-var _ideaIconePng = require("../../style/base/icones/idea_icone.png");
+var _ideaIconePng = require("../../style/icones/idea_icone.png");
 var _ideaIconePngDefault = parcelHelpers.interopDefault(_ideaIconePng);
 var _s = $RefreshSig$();
 function NavHome() {
@@ -35721,7 +35762,7 @@ function NavHome() {
                             className: "logoIdea"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 34,
+                            lineNumber: 37,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -35730,18 +35771,18 @@ function NavHome() {
                             className: "logoSkillswap"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 38,
+                            lineNumber: 43,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 30,
+                    lineNumber: 32,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 29,
+                lineNumber: 30,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35755,12 +35796,12 @@ function NavHome() {
                             className: "icone iconeRegister"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 50,
+                            lineNumber: 59,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 47,
+                        lineNumber: 55,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35771,18 +35812,18 @@ function NavHome() {
                             className: "icone iconeLogin"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 59,
+                            lineNumber: 69,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 56,
+                        lineNumber: 65,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 44,
+                lineNumber: 53,
                 columnNumber: 13
             }, this)
         ]
@@ -35806,7 +35847,7 @@ $RefreshReg$(_c, "NavHome");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./navHome.scss":"62QH8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../style/base/icones/skillswap_icone.png":"cFLU0","../../style/base/icones/idea_icone.png":"4c55E"}],"clIT3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../style/icones/skillswap_icone.png":"jJZjR","../../style/icones/idea_icone.png":"6DVFh","./style.scss":"bPS58"}],"clIT3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "FontAwesomeIcon", ()=>FontAwesomeIcon);
@@ -61263,10 +61304,10 @@ var icons = {
     faLevelUpAlt
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"62QH8":[function() {},{}],"cFLU0":[function(require,module,exports) {
-module.exports = require("b2b3f3f7f626f71a").getBundleURL("c2MLH") + "skillswap_icone.5a8d4ee7.png" + "?" + Date.now();
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jJZjR":[function(require,module,exports) {
+module.exports = require("b7e66ae45c6d70a1").getBundleURL("c2MLH") + "skillswap_icone.aa6d1d7a.png" + "?" + Date.now();
 
-},{"b2b3f3f7f626f71a":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"b7e66ae45c6d70a1":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -61301,10 +61342,10 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"4c55E":[function(require,module,exports) {
-module.exports = require("19a2f84356fb893").getBundleURL("c2MLH") + "idea_icone.650c4698.png" + "?" + Date.now();
+},{}],"6DVFh":[function(require,module,exports) {
+module.exports = require("762cec6c89425929").getBundleURL("c2MLH") + "idea_icone.621f21a9.png" + "?" + Date.now();
 
-},{"19a2f84356fb893":"lgJ39"}],"dYmlb":[function(require,module,exports) {
+},{"762cec6c89425929":"lgJ39"}],"bPS58":[function() {},{}],"dYmlb":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$77af = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -61486,7 +61527,7 @@ $RefreshReg$(_c, "Logout");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eAKUB":[function() {},{}],"7KL8w":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8u0qZ":[function() {},{}],"7KL8w":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$93b3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

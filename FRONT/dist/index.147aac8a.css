@@ -1,0 +1,65 @@
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dt, dd, table, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 100%;
+  line-height: 1.6;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button, input[type="button"], input[type="submit"] {
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+select, input {
+  appearance: none;
+}
+
+select:not(:-internal-list-box) {
+  overflow: hidden !important;
+}
+
+@font-face {
+  font-family: sugo pro display;
+  src: url("Sugo-Pro-Display-Regular-trial.6e601ec7.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2 {
+  font-family: sugo pro display, "sans-serif";
+}
+
+body {
+  color: #000;
+  box-sizing: border-box;
+  background-color: #fceddb;
+  font-family: prompt, "sans-serif";
+}
+
+.App {
+  width: 100%;
+}
+/*# sourceMappingURL=index.147aac8a.css.map */
