@@ -25,7 +25,8 @@
 
     .card{
         padding: 20px;
-        border-radius: 30px;
+        border: solid 1px var.$soft-grey-color;
+        border-radius: 20px;
         background-color: var.$background-color;
         margin-top: 20px;
         margin-right: 20px;
@@ -35,9 +36,13 @@
 
         @include mixin.medium {
             width: 40%;
+            margin-top: 40px;
     }
     @include mixin.big {
-        width: 22%;
+        width: 24%;
+        margin-top: 70px;
+        margin-right: 5px;
+        margin-left: 5px;
 }
     
         img{

@@ -73,7 +73,8 @@
 
 .allCards .card {
   background-color: #fff;
-  border-radius: 30px;
+  border: 1px solid #817f7f;
+  border-radius: 20px;
   width: 95%;
   height: 300px;
   margin-top: 20px;
@@ -85,12 +86,16 @@
 @media screen and (width >= 60rem) {
   .allCards .card {
     width: 40%;
+    margin-top: 40px;
   }
 }
 
 @media screen and (width >= 90rem) {
   .allCards .card {
-    width: 22%;
+    width: 24%;
+    margin-top: 70px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }
 

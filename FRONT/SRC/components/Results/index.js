@@ -131,6 +131,7 @@ export default function Results(
                 noMatch={noMatch}
                 loading={loading}
             />
+            <p>Fin des résultats</p>
         </div>
     )
 }

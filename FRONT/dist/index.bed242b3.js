@@ -63752,6 +63752,13 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 fileName: "SRC/components/Results/index.js",
                 lineNumber: 128,
                 columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "Fin des r\xe9sultats"
+            }, void 0, false, {
+                fileName: "SRC/components/Results/index.js",
+                lineNumber: 134,
+                columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
