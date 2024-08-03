@@ -80,7 +80,7 @@
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
-  padding: 20px;
+  padding: 15px;
 }
 
 @media screen and (width >= 60rem) {
@@ -110,7 +110,25 @@
 }
 
 .allCards .card .boxHeader .childBoxHeader {
+  color: #494848;
   height: min-content;
+}
+
+.allCards .card .boxHeader .childBoxHeader .calendarIcone, .allCards .card .boxHeader .childBoxHeader .userIcone {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.allCards .card .boxHeader .childBoxHeader .hatIcone {
+  margin-right: 6px;
+}
+
+.allCards .card .boxHeader .childBoxHeader .levelIcone {
+  margin-right: 8px;
+}
+
+.allCards .card .boxHeader .childBoxHeader .starsIcone {
+  margin-bottom: 30px;
 }
 
 .allCards .card .boxHeader .chil2dBoxHeader .category {
@@ -134,6 +152,30 @@
   margin-left: 10px;
   padding: 5px;
   display: flex;
+}
+
+.star-rating {
+  width: 60px;
+  margin-bottom: 13px;
+  display: flex;
+}
+
+.star-rating .star {
+  width: 15px;
+  height: 15px;
+  margin: 0 1px;
+}
+
+.star-rating .star.filled {
+  color: #ffc400;
+}
+
+.star-rating .star.half-filled {
+  color: gold;
+}
+
+.star-rating .star.empty {
+  color: #ccc;
 }
 
 .navHome {

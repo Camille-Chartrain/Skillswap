@@ -35487,6 +35487,8 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _styleScss = require("./style.scss");
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
+var _starRating = require("./StarRating");
+var _starRatingDefault = parcelHelpers.interopDefault(_starRating);
 function Cards({ dataCards, match, noMatch, loading }) {
     console.log("dataCards", dataCards);
     const truncateString = (str, num)=>{
@@ -35502,7 +35504,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                         children: "chargement..."
                     }, void 0, false, {
                         fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 27,
+                        lineNumber: 32,
                         columnNumber: 29
                     }, this),
                     match && dataCards && dataCards.resultCount == 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35513,7 +35515,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 29,
+                        lineNumber: 34,
                         columnNumber: 71
                     }, this),
                     match && dataCards && dataCards.resultCount > 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35524,7 +35526,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 31,
+                        lineNumber: 36,
                         columnNumber: 70
                     }, this),
                     noMatch && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35532,13 +35534,13 @@ function Cards({ dataCards, match, noMatch, loading }) {
                         children: "Pas encore de cours pour vos crit\xe8res, voici nos derni\xe8res nouveaut\xe9s:"
                     }, void 0, false, {
                         fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 33,
+                        lineNumber: 38,
                         columnNumber: 29
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 26,
+                lineNumber: 31,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35550,7 +35552,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                 children: card.title.toUpperCase()
                             }, void 0, false, {
                                 fileName: "SRC/components/Cards/index.js",
-                                lineNumber: 42,
+                                lineNumber: 47,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35559,75 +35561,86 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                         className: "childBoxHeader",
                                         children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _starRatingDefault.default), {
+                                                rating: card.averageMark
+                                            }, void 0, false, {
+                                                fileName: "SRC/components/Cards/index.js",
+                                                lineNumber: 53,
+                                                columnNumber: 33
+                                            }, this),
+                                            console.log("averageMark=", card.averageMark),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                 children: [
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                                        icon: (0, _freeSolidSvgIcons.faSignal)
+                                                        icon: (0, _freeSolidSvgIcons.faSignal),
+                                                        className: "levelIcone"
                                                     }, void 0, false, {
                                                         fileName: "SRC/components/Cards/index.js",
-                                                        lineNumber: 49,
+                                                        lineNumber: 60,
                                                         columnNumber: 37
                                                     }, this),
-                                                    "\xa0",
                                                     card.level
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 48,
-                                                columnNumber: 33
-                                            }, this),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                children: [
-                                                    "note globale: ",
-                                                    card.averageMark,
-                                                    "/5",
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                                        icon: (0, _freeSolidSvgIcons.faStar)
-                                                    }, void 0, false, {
-                                                        fileName: "SRC/components/Cards/index.js",
-                                                        lineNumber: 57,
-                                                        columnNumber: 37
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 56,
+                                                lineNumber: 59,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                 children: [
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                                        icon: (0, _freeSolidSvgIcons.faGraduationCap)
+                                                        icon: (0, _freeSolidSvgIcons.faUser),
+                                                        className: "userIcone"
                                                     }, void 0, false, {
                                                         fileName: "SRC/components/Cards/index.js",
-                                                        lineNumber: 63,
+                                                        lineNumber: 68,
                                                         columnNumber: 37
                                                     }, this),
-                                                    ` ${card.User.firstname} ${card.User.lastname}`
+                                                    `${card.User.firstname} ${card.User.lastname}`
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 62,
+                                                lineNumber: 67,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                children: card.availability
-                                            }, void 0, false, {
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                                        icon: (0, _freeSolidSvgIcons.faCalendarDays),
+                                                        className: "calendarIcone"
+                                                    }, void 0, false, {
+                                                        fileName: "SRC/components/Cards/index.js",
+                                                        lineNumber: 76,
+                                                        columnNumber: 37
+                                                    }, this),
+                                                    card.availability
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 69,
+                                                lineNumber: 75,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                children: card.transmission
-                                            }, void 0, false, {
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                                        icon: (0, _freeSolidSvgIcons.faGraduationCap),
+                                                        className: "hatIcone"
+                                                    }, void 0, false, {
+                                                        fileName: "SRC/components/Cards/index.js",
+                                                        lineNumber: 85,
+                                                        columnNumber: 37
+                                                    }, this),
+                                                    card.transmission
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 70,
+                                                lineNumber: 84,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 46,
+                                        lineNumber: 51,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35639,7 +35652,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                 alt: "photo des categories"
                                             }, void 0, false, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 74,
+                                                lineNumber: 96,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35651,19 +35664,19 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 79,
+                                                lineNumber: 101,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 73,
+                                        lineNumber: 95,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Cards/index.js",
-                                lineNumber: 44,
+                                lineNumber: 49,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35676,12 +35689,12 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "SRC/components/Cards/index.js",
-                                    lineNumber: 91,
+                                    lineNumber: 113,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "SRC/components/Cards/index.js",
-                                lineNumber: 84,
+                                lineNumber: 106,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35693,7 +35706,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                         children: "Voir profil"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 95,
+                                        lineNumber: 117,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35702,24 +35715,24 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                         children: "Participer"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 96,
+                                        lineNumber: 118,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Cards/index.js",
-                                lineNumber: 94,
+                                lineNumber: 116,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, card.id, true, {
                         fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 40,
+                        lineNumber: 45,
                         columnNumber: 21
                     }, this))
             }, void 0, false, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 36,
+                lineNumber: 41,
                 columnNumber: 13
             }, this)
         ]
@@ -35734,7 +35747,7 @@ $RefreshReg$(_c, "Cards");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.scss":"aktsk","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aktsk":[function() {},{}],"clIT3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.scss":"aktsk","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./StarRating":"9BKEa"}],"aktsk":[function() {},{}],"clIT3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "FontAwesomeIcon", ()=>FontAwesomeIcon);
@@ -61191,7 +61204,74 @@ var icons = {
     faLevelUpAlt
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8DCBt":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9BKEa":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$c300 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$c300.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactFontawesome = require("@fortawesome/react-fontawesome");
+var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
+var _styleScss = require("./style.scss");
+function StarRating({ rating }) {
+    // Arrondir la note à la demi-étoile la plus proche
+    const roundedRating = Math.round(rating * 2) / 2;
+    const getStars = (rating)=>{
+        const stars = [];
+        for(let i = 1; i <= 5; i++){
+            if (i <= rating) stars.push(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                icon: (0, _freeSolidSvgIcons.faStar),
+                className: "star filled"
+            }, i, false, {
+                fileName: "SRC/components/Cards/StarRating/index.js",
+                lineNumber: 18,
+                columnNumber: 28
+            }, this));
+            else if (i - rating === 0.5) stars.push(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                icon: (0, _freeSolidSvgIcons.faStarHalfStroke),
+                className: "star half-filled"
+            }, i, false, {
+                fileName: "SRC/components/Cards/StarRating/index.js",
+                lineNumber: 20,
+                columnNumber: 28
+            }, this));
+            else stars.push(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                icon: (0, _freeSolidSvgIcons.faStar),
+                className: "star empty"
+            }, i, false, {
+                fileName: "SRC/components/Cards/StarRating/index.js",
+                lineNumber: 22,
+                columnNumber: 28
+            }, this));
+        }
+        return stars;
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "star-rating",
+        children: getStars(roundedRating)
+    }, void 0, false, {
+        fileName: "SRC/components/Cards/StarRating/index.js",
+        lineNumber: 30,
+        columnNumber: 9
+    }, this);
+}
+_c = StarRating;
+exports.default = StarRating;
+var _c;
+$RefreshReg$(_c, "StarRating");
+
+  $parcel$ReactRefreshHelpers$c300.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@fortawesome/react-fontawesome":"clIT3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"k6cS0","@fortawesome/free-solid-svg-icons":"5lkdy"}],"k6cS0":[function() {},{}],"8DCBt":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3d66 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

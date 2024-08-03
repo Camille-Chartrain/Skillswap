@@ -24,7 +24,7 @@
 }
 
     .card{
-        padding: 20px;
+        padding: 15px;
         border: solid 1px var.$soft-grey-color;
         border-radius: 20px;
         background-color: var.$background-color;
@@ -56,6 +56,26 @@
 
             .childBoxHeader{
                 height: min-content;
+                color: var.$dark-grey-color;
+
+                .calendarIcone{
+                    margin-right: 10px;
+                    margin-left: 2px;
+                }
+                .userIcone{
+                    margin-right: 10px;
+                    margin-left: 2px;
+                }
+                .hatIcone{
+                    margin-right: 6px;
+                }
+                .levelIcone{
+                    margin-right: 8px;
+                }
+
+                .starsIcone{
+                    margin-bottom: 30px;
+                }
             }
 
             .chil2dBoxHeader{

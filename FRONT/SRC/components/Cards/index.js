@@ -1,7 +1,11 @@
 import React from "react";
 import './style.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faGraduationCap, faSignal } from '@fortawesome/free-solid-svg-icons';
+import { faGraduationCap, faSignal, faCalendarDays, faUser } from '@fortawesome/free-solid-svg-icons';
+import StarRating from "./StarRating";
+// import starSolid from "../../style/icones/starSolid.svg"
+// import starRegular from "../../style/icones/starRegular.svg"
+// import starHalf from "../../style/icones/starHalf.svg"
 
 export default function Cards({
     dataCards,
@@ -18,6 +22,7 @@ export default function Cards({
         }
         return str.slice(0, num) + '...';
     };
+
 
 
 
@@ -45,29 +50,46 @@ export default function Cards({
 
                             <div className="childBoxHeader">
 
+                                <StarRating
+                                    rating={card.averageMark}
+                                />
+                                {console.log("averageMark=", card.averageMark)
+                                }
+
                                 <p>
                                     <FontAwesomeIcon
-                                        icon={faSignal} />
-                                    {/* espace html */}
-                                    &nbsp;
+                                        icon={faSignal}
+                                        className="levelIcone"
+                                    />
                                     {card.level}
                                 </p>
 
-                                <p>note globale: {card.averageMark}/5
+                                <p>
                                     <FontAwesomeIcon
-                                        icon={faStar}
+                                        icon={faUser}
+                                        className="userIcone"
                                     />
+                                    {`${card.User.firstname} ${card.User.lastname}`}
+                                </p>
+
+                                <p >
+                                    <FontAwesomeIcon
+                                        icon={faCalendarDays}
+                                        className="calendarIcone"
+                                    />
+
+                                    {card.availability}
                                 </p>
 
                                 <p>
                                     <FontAwesomeIcon
                                         icon={faGraduationCap}
+                                        className="hatIcone"
                                     />
-                                    {` ${card.User.firstname} ${card.User.lastname}`}
-                                </p>
 
-                                <p>{card.availability}</p>
-                                <p>{card.transmission}</p>
+                                    {card.transmission}
+
+                                </p>
                             </div>
 
                             <div className="chil2dBoxHeader">

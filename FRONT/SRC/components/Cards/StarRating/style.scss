@@ -1,0 +1,29 @@
+// @use '../../style/var';
+// @use '../../style/mixin';
+
+
+.star-rating {
+    display: flex;
+    width: 60px;
+    margin-bottom: 13px;
+
+    .star {
+        width: 15px;  /* Largeur des étoiles */
+        height: 15px; /* Hauteur des étoiles */
+        margin: 0 1px; /* Espacement entre les étoiles */
+    }
+    
+    .star.filled {
+        color: #ffc400; /* Couleur dorée pour les étoiles remplies */
+    }  
+    
+    .star.half-filled {
+        color: #ffd700; /* Couleur dorée pour les demi-étoiles */
+    }
+
+    .star.empty {
+        color: #ccc; /* Couleur grise pour les étoiles vides */
+    }
+}
+
+
