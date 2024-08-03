@@ -53,6 +53,10 @@
   margin-bottom: 10px;
 }
 
+.loading {
+  color: #fff;
+}
+
 .allCards {
   flex-wrap: wrap;
   justify-content: center;
@@ -75,12 +79,14 @@
   background-color: #fff;
   border: 1px solid #817f7f;
   border-radius: 20px;
+  flex-direction: column;
   width: 95%;
-  height: 300px;
+  height: 360px;
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
-  padding: 15px;
+  padding: 10px 15px 13px;
+  display: flex;
 }
 
 @media screen and (width >= 60rem) {
@@ -100,30 +106,45 @@
 }
 
 .allCards .card img {
-  width: 100px;
+  width: 90px;
+}
+
+.allCards .card .starsCatSubCat {
+  justify-content: space-between;
+  display: flex;
+}
+
+.allCards .card .starsCatSubCat .category {
+  font-size: small;
 }
 
 .allCards .card .boxHeader {
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-end;
   display: flex;
 }
 
 .allCards .card .boxHeader .childBoxHeader {
   color: #494848;
   height: min-content;
+  margin-left: 30px;
+  padding-top: 5px;
 }
 
 .allCards .card .boxHeader .childBoxHeader .calendarIcone, .allCards .card .boxHeader .childBoxHeader .userIcone {
+  color: #e47900;
   margin-left: 2px;
   margin-right: 10px;
 }
 
 .allCards .card .boxHeader .childBoxHeader .hatIcone {
+  color: #e47900;
   margin-right: 6px;
 }
 
 .allCards .card .boxHeader .childBoxHeader .levelIcone {
+  color: #e47900;
   margin-right: 8px;
 }
 
@@ -131,11 +152,16 @@
   margin-bottom: 30px;
 }
 
-.allCards .card .boxHeader .chil2dBoxHeader .category {
-  font-size: small;
+.allCards .card .descrAndButton {
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  margin-top: 10px;
+  display: flex;
 }
 
 .allCards .card .boxContent {
+  color: #000;
   margin-top: 0%;
 }
 
@@ -149,6 +175,8 @@
   background-color: #008cff;
   border-radius: 10px;
   flex-flow: row;
+  justify-content: center;
+  width: 90px;
   margin-left: 10px;
   padding: 5px;
   display: flex;
@@ -156,7 +184,6 @@
 
 .star-rating {
   width: 60px;
-  margin-bottom: 13px;
   display: flex;
 }
 
