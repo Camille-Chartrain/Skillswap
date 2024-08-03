@@ -62,7 +62,7 @@ export default function Cards({
                                     <p>
                                         <FontAwesomeIcon
                                             icon={faSignal}
-                                            className="levelIcone"
+                                            className=" icone levelIcone"
                                         />
                                         {card.level}
                                     </p>
@@ -70,7 +70,7 @@ export default function Cards({
                                     <p>
                                         <FontAwesomeIcon
                                             icon={faUser}
-                                            className="userIcone"
+                                            className="icone userIcone"
                                         />
                                         {`${card.User.firstname} ${card.User.lastname}`}
                                     </p>
@@ -78,7 +78,7 @@ export default function Cards({
                                     <p >
                                         <FontAwesomeIcon
                                             icon={faCalendarDays}
-                                            className="calendarIcone"
+                                            className="icone calendarIcone"
                                         />
                                         {truncateString(card.availability, 13)}
                                     </p>
@@ -86,17 +86,13 @@ export default function Cards({
                                     <p>
                                         <FontAwesomeIcon
                                             icon={faGraduationCap}
-                                            className="hatIcone"
+                                            className="icone hatIcone"
                                         />
                                         {card.transmission}
                                     </p>
                                 </div>
 
                                 <div className="chil2dBoxHeader">
-                                    {/* <p className="category">
-                                        {truncateString(card.Category.name, 11)}
-                                        {truncateString(card.SubCategory.name, 4)}
-                                    </p> */}
                                     <img
                                         className="avatar"
                                         src={`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${card.Category.picture}`}

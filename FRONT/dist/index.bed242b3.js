@@ -35603,7 +35603,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                         children: [
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                                                 icon: (0, _freeSolidSvgIcons.faSignal),
-                                                                className: "levelIcone"
+                                                                className: " icone levelIcone"
                                                             }, void 0, false, {
                                                                 fileName: "SRC/components/Cards/index.js",
                                                                 lineNumber: 63,
@@ -35620,7 +35620,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                         children: [
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                                                 icon: (0, _freeSolidSvgIcons.faUser),
-                                                                className: "userIcone"
+                                                                className: "icone userIcone"
                                                             }, void 0, false, {
                                                                 fileName: "SRC/components/Cards/index.js",
                                                                 lineNumber: 71,
@@ -35637,7 +35637,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                         children: [
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                                                 icon: (0, _freeSolidSvgIcons.faCalendarDays),
-                                                                className: "calendarIcone"
+                                                                className: "icone calendarIcone"
                                                             }, void 0, false, {
                                                                 fileName: "SRC/components/Cards/index.js",
                                                                 lineNumber: 79,
@@ -35654,7 +35654,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                         children: [
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                                                 icon: (0, _freeSolidSvgIcons.faGraduationCap),
-                                                                className: "hatIcone"
+                                                                className: "icone hatIcone"
                                                             }, void 0, false, {
                                                                 fileName: "SRC/components/Cards/index.js",
                                                                 lineNumber: 87,
@@ -35681,7 +35681,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     alt: "photo des categories"
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 100,
+                                                    lineNumber: 96,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
@@ -35714,12 +35714,12 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 113,
+                                            lineNumber: 109,
                                             columnNumber: 33
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 111,
+                                        lineNumber: 107,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35731,7 +35731,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                 children: "D\xe9tails"
                                             }, void 0, false, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 117,
+                                                lineNumber: 113,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35740,19 +35740,19 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                 children: "Participer"
                                             }, void 0, false, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 118,
+                                                lineNumber: 114,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 116,
+                                        lineNumber: 112,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Cards/index.js",
-                                lineNumber: 110,
+                                lineNumber: 106,
                                 columnNumber: 25
                             }, this)
                         ]

@@ -106,7 +106,7 @@
 }
 
 .allCards .card img {
-  width: 90px;
+  width: 95px;
 }
 
 .allCards .card .starsCatSubCat {
@@ -130,6 +130,7 @@
   height: min-content;
   margin-left: 30px;
   padding-top: 5px;
+  font-size: .9rem;
 }
 
 .allCards .card .boxHeader .childBoxHeader .calendarIcone, .allCards .card .boxHeader .childBoxHeader .userIcone {
