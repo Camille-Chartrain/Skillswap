@@ -2,7 +2,17 @@ import React from "react";
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 
-export default function Logout({ setLogged }) {
+export default function Logout(
+    {
+        setLogged,
+        setSelectedCategory,
+        setSelectedSubCategory,
+        setSelectedLevel,
+        setSearchInput,
+        setNoMatch,
+        setMatch
+    }
+) {
     const navigate = useNavigate();
 
     const handleClick = async () => {
@@ -30,6 +40,14 @@ export default function Logout({ setLogged }) {
             thisToken = null
             if (thisToken == null) {
                 console.log("token", thisToken);
+
+                setSearchInput("");
+                setSelectedCategory(null);
+                setSelectedSubCategory(null);
+                setSelectedLevel("");
+                setNoMatch(false);
+                setMatch(false);
+
                 navigate("/");
             }
         }

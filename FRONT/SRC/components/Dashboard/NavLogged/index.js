@@ -38,6 +38,12 @@ export default function NavLogged(
             <Link to="/dashboard/results">recherche </Link>
             <Logout
                 setLogged={setLogged}
+                setSelectedCategory={setSelectedCategory}
+                setSelectedSubCategory={setSelectedSubCategory}
+                setSelectedLevel={setSelectedLevel}
+                setSearchInput={setSearchInput}
+                setNoMatch={setNoMatch}
+                setMatch={setMatch}
             />
             <p onClick={handleClickHome}>Accueil</p>
             <Outlet />

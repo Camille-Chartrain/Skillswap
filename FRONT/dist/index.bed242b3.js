@@ -61551,7 +61551,13 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
-                setLogged: setLogged
+                setLogged: setLogged,
+                setSelectedCategory: setSelectedCategory,
+                setSelectedSubCategory: setSelectedSubCategory,
+                setSelectedLevel: setSelectedLevel,
+                setSearchInput: setSearchInput,
+                setNoMatch: setNoMatch,
+                setMatch: setMatch
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
                 lineNumber: 39,
@@ -61562,12 +61568,12 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 children: "Accueil"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 42,
+                lineNumber: 48,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 43,
+                lineNumber: 49,
                 columnNumber: 13
             }, this)
         ]
@@ -61608,7 +61614,7 @@ var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
-function Logout({ setLogged }) {
+function Logout({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setNoMatch, setMatch }) {
     _s();
     const navigate = (0, _reactRouterDom.useNavigate)();
     const handleClick = async ()=>{
@@ -61632,6 +61638,12 @@ function Logout({ setLogged }) {
             thisToken = null;
             if (thisToken == null) {
                 console.log("token", thisToken);
+                setSearchInput("");
+                setSelectedCategory(null);
+                setSelectedSubCategory(null);
+                setSelectedLevel("");
+                setNoMatch(false);
+                setMatch(false);
                 navigate("/");
             }
         } catch (error) {
@@ -61643,7 +61655,7 @@ function Logout({ setLogged }) {
         children: "Deconnexion"
     }, void 0, false, {
         fileName: "SRC/components/Logout/index.js",
-        lineNumber: 42,
+        lineNumber: 60,
         columnNumber: 9
     }, this);
 }
