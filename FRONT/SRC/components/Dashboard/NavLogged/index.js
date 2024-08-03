@@ -10,7 +10,8 @@ export default function NavLogged(
         setSelectedSubCategory,
         setSelectedLevel,
         setSearchInput,
-        setNoMatch
+        setNoMatch,
+        setMatch
     }
 ) {
 
@@ -19,11 +20,12 @@ export default function NavLogged(
 
     function handleClickHome() {
         console.log('vers accueil!!!!!!!!!!!!!');
-        setSearchInput("")
-        setSelectedCategory(null)
-        setSelectedSubCategory(null)
-        setSelectedLevel("")
-        setNoMatch(false)
+        setSearchInput("");
+        setSelectedCategory(null);
+        setSelectedSubCategory(null);
+        setSelectedLevel("");
+        setNoMatch(false);
+        setMatch(false);
         navigate('/');
     }
 

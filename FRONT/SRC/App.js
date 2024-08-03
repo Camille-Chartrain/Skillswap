@@ -80,6 +80,7 @@ function App() {
                         setSelectedLevel={setSelectedLevel}
                         setSearchInput={setSearchInput}
                         setNoMatch={setNoMatch}
+                        setMatch={setMatch}
                     />}
                 >
                     <Route path="/dashboard/results"

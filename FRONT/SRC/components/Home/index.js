@@ -81,6 +81,12 @@ const Home = ({
         <div className="home">
             {logged && <NavLogged
                 setLogged={setLogged}
+                setSearchInput={setSearchInput}
+                setSelectedLevel={setSelectedLevel}
+                setSelectedSubCategory={setSelectedSubCategory}
+                setSelectedCategory={setSelectedCategory}
+                setNoMatch={setNoMatch}
+                setMatch={setMatch}
             />}
             {!logged && <NavHome />}
 
