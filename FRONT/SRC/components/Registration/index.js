@@ -143,6 +143,7 @@ export default function Registration() {
                     </form>
 
                     <p className="redirection_button">J'ai déjà un compte</p>
+
                     <button
                         type="button"
                         onClick={goLogin}

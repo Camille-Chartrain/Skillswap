@@ -470,10 +470,6 @@ body.react-confirm-alert-body-element {
   font-size: .7rem;
 }
 
-body {
-  background-color: #ff7b00;
-}
-
 .registration {
   flex-direction: column;
   align-items: center;
@@ -552,6 +548,116 @@ body {
 .registration .box_registration .redirection_button {
   border-top: 1px solid #000;
   margin-top: 50px;
+  padding-top: 20px;
+}
+
+.password_login {
+  margin-top: 10px;
+}
+
+.password_login .pwd_and_button {
+  display: flex;
+}
+
+.password_login .pwd_and_button button {
+  color: #494848;
+  background-color: #e0d9d9;
+  border-radius: 10px;
+  max-width: fit-content;
+  margin-left: 5px;
+  padding: 2px 5px;
+  transition: background-color .3s;
+}
+
+.password_login .pwd_and_button button:hover {
+  color: #fff;
+  background-color: #696868;
+}
+
+body {
+  background-color: #ff7b00;
+}
+
+.login {
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+  display: flex;
+}
+
+.login .box_login {
+  background-color: #fff;
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+  padding: 20px 40px 40px;
+  display: flex;
+}
+
+@media screen and (width >= 90rem) {
+  .login .box_login {
+    width: 32rem;
+  }
+}
+
+.login .box_login h2 {
+  letter-spacing: .1em;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.login .box_login .formLogin {
+  background-color: #fff;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.login .box_login .formLogin label {
+  margin-top: 10px;
+}
+
+.login .box_login .formLogin input {
+  border: 1px solid #817f7f;
+  border-radius: 5px;
+  padding: 9px;
+}
+
+.login .box_login .formLogin .blue_button {
+  color: #fff;
+  background-color: #008cff;
+  border-radius: 10px;
+  align-self: center;
+  max-width: fit-content;
+  margin-top: 20px;
+  padding: 5px 10px;
+  transition: background-color .3s;
+  display: flex;
+}
+
+.login .box_login .formLogin .blue_button:hover {
+  background-color: #0068bd;
+}
+
+.login .box_login .grey_button {
+  color: #494848;
+  background-color: #e0d9d9;
+  border-radius: 10px;
+  max-width: fit-content;
+  padding: 5px 10px;
+  transition: background-color .3s;
+}
+
+.login .box_login .grey_button:hover {
+  color: #fff;
+  background-color: #696868;
+}
+
+.login .box_login .redirection_button {
+  border-top: 1px solid #000;
+  margin-top: 70px;
   padding-top: 20px;
 }
 /*# sourceMappingURL=index.2a934962.css.map */

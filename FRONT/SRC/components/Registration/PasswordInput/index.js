@@ -48,7 +48,10 @@ export default function PasswordInput() {
                     required
                 />
 
-                <button type="button" onClick={toggleShowPassword} aria-label={showPassword ? "Cacher le mot de passe" : "Afficher le mot de passe"}>
+                <button
+                    type="button"
+                    onClick={toggleShowPassword}
+                    aria-label={showPassword ? "Cacher le mot de passe" : "Afficher le mot de passe"}>
                     {showPassword ? 'Cacher' : 'Afficher'}
                 </button>
             </div>

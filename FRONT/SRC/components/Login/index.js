@@ -3,6 +3,7 @@ import NavHome from "../NavHome";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 import PswdLogin from "./PswdLogin";
+import "./style.scss";
 
 export default function Login({ setNoMatch, setDataCards }) {
 
@@ -83,28 +84,47 @@ export default function Login({ setNoMatch, setDataCards }) {
     }, []);
 
     return (
-        <div>
+        <>
             <NavHome />
-            <h1>Connexion</h1>
-            {error && <p>{error}</p>}
+            <main className="login">
+                <div className="box_login">
+                    <h2>Connexion</h2>
+                    {error && <p>{error}</p>}
 
-            <form method="POST" onSubmit={handleSubmit} className="formLogin">
+                    <form
+                        method="POST"
+                        onSubmit={handleSubmit}
+                        className="formLogin"
+                    >
 
-                <label htmlFor="email">Email * :</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    maxLength="254"
-                    required />
+                        <label htmlFor="email">Email * :</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            maxLength="254"
+                            required />
 
-                <PswdLogin />
+                        <PswdLogin />
 
-                <button type="submit">Envoyer</button>
-            </form>
-            <p>Pas encore inscrit?</p>
+                        <button
+                            type="submit"
+                            className="blue_button"
+                        >
+                            Envoyer
+                        </button>
+                    </form>
+                    <p className="redirection_button">Pas encore inscrit?</p>
 
-            <button type="button" onClick={goRegistration}>S'inscrire</button>
-        </div>
+                    <button
+                        type="button"
+                        onClick={goRegistration}
+                        className="grey_button"
+                    >
+                        S'inscrire
+                    </button>
+                </div>
+            </main>
+        </>
     )
 }
