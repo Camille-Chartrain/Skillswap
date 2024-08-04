@@ -72,7 +72,7 @@ export default function NavLogged(
             <Outlet />
 
 
-            <nav className="logoUsers">
+            <nav className="nav_bottom">
                 <Link to="/dashboard/notifications">
                     <FontAwesomeIcon icon={faBell} />
                 </Link>

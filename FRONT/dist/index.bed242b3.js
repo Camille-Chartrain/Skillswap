@@ -61582,7 +61582,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-                className: "logoUsers",
+                className: "nav_bottom",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/dashboard/notifications",
