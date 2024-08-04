@@ -276,6 +276,14 @@
   height: 2.37rem;
 }
 
+.logout .iconeLogout {
+  border: .13rem solid #494848;
+  border-radius: 100%;
+  height: 18px;
+  margin-right: .7rem;
+  padding: .5rem .4rem;
+}
+
 .navLogged {
   background-color: #fff;
   border-bottom: .03125rem solid #979292;
@@ -307,23 +315,6 @@
   height: 4.5rem;
   margin-top: .4rem;
   margin-bottom: .1rem;
-}
-
-.navLogged button .icone {
-  color: #494848;
-  background-color: #fff;
-  margin-left: .5rem;
-}
-
-.navLogged button .iconeRegister {
-  border: .13rem solid #494848;
-  border-radius: 100%;
-  height: 18px;
-  padding: .5rem .4rem;
-}
-
-.navLogged button .iconeLogin {
-  height: 2.37rem;
 }
 
 .logoUsers {

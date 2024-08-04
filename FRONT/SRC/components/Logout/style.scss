@@ -1,0 +1,14 @@
+@use "../../style/var";
+@use "../../style/mixin";
+
+.logout{
+    
+    .iconeLogout{
+        height:18px; 
+        margin-right: 0.7rem;
+        border: 0.13rem solid var.$dark-grey-color;
+        padding: 0.5rem 0.4rem;
+        border-radius: 100%;
+    }
+}       
+

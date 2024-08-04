@@ -1,6 +1,9 @@
 import React from "react";
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserSlash } from '@fortawesome/free-solid-svg-icons';
+import "./style.scss"
 
 export default function Logout(
     {
@@ -57,6 +60,14 @@ export default function Logout(
     }
 
     return (
-        <p onClick={handleClick}>Deconnexion</p>
+        <button
+            className="logout"
+            onClick={handleClick}
+            aria-label="Deconnection">
+
+            <FontAwesomeIcon
+                icon={faUserSlash}
+                className="iconeLogout" />
+        </button >
     )
 }

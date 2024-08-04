@@ -35,59 +35,64 @@ export default function NavLogged(
     }
 
     return (
-        <nav className="navLogged">
+        <>
+            <nav className="navLogged">
 
-            <div className="navLeft">
-                <button
-                    onClick={handleClickHome}
-                    aria-label="Accueil"
-                    className="logo"
-                >
-                    <img
-                        src={idea_icone}
-                        alt="accueil-SkillSwap"
-                        className="logoIdea"
-                    />
+                <div className="navLeft">
+                    <button
+                        onClick={handleClickHome}
+                        aria-label="Accueil"
+                        className="logo"
+                    >
+                        <img
+                            src={idea_icone}
+                            alt="accueil-SkillSwap"
+                            className="logoIdea"
+                        />
 
-                    <img
-                        src={skillswap_icone}
-                        alt="accueil-SkillSwap"
-                        className="logoSkillswap"
-                    />
-                </button>
-            </div>
+                        <img
+                            src={skillswap_icone}
+                            alt="accueil-SkillSwap"
+                            className="logoSkillswap"
+                        />
+                    </button>
+                </div>
 
-            <Link to="/dashboard/notifications">
-                <FontAwesomeIcon icon={faBell} />
-            </Link>
-
-            <Link to="/dashboard/statistics">
-                <FontAwesomeIcon icon={faSignal} />
-            </Link>
-
-            <Link to="/dashboard/profile">
-                <FontAwesomeIcon icon={faUser} />
-            </Link>
-
-            <Link to="/dashboard/desk">
-                <FontAwesomeIcon icon={faGraduationCap} />
-            </Link>
-
-            <Link to="/dashboard/results">
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </Link>
-
-            <Logout
-                setLogged={setLogged}
-                setSelectedCategory={setSelectedCategory}
-                setSelectedSubCategory={setSelectedSubCategory}
-                setSelectedLevel={setSelectedLevel}
-                setSearchInput={setSearchInput}
-                setNoMatch={setNoMatch}
-                setMatch={setMatch}
-            />
+                <Logout
+                    setLogged={setLogged}
+                    setSelectedCategory={setSelectedCategory}
+                    setSelectedSubCategory={setSelectedSubCategory}
+                    setSelectedLevel={setSelectedLevel}
+                    setSearchInput={setSearchInput}
+                    setNoMatch={setNoMatch}
+                    setMatch={setMatch}
+                />
+            </nav>
 
             <Outlet />
-        </nav>
+
+
+            <nav className="logoUsers">
+                <Link to="/dashboard/notifications">
+                    <FontAwesomeIcon icon={faBell} />
+                </Link>
+
+                <Link to="/dashboard/statistics">
+                    <FontAwesomeIcon icon={faSignal} />
+                </Link>
+
+                <Link to="/dashboard/profile">
+                    <FontAwesomeIcon icon={faUser} />
+                </Link>
+
+                <Link to="/dashboard/desk">
+                    <FontAwesomeIcon icon={faGraduationCap} />
+                </Link>
+
+                <Link to="/dashboard/results">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                </Link>
+            </nav>
+        </>
     );
 }
