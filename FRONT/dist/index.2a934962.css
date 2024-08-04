@@ -514,8 +514,9 @@ body {
 }
 
 .registration .box_registration .formRegistration input {
+  border: 1px solid #817f7f;
   border-radius: 5px;
-  padding: 5px;
+  padding: 9px;
 }
 
 .registration .box_registration .formRegistration .blue_button {
