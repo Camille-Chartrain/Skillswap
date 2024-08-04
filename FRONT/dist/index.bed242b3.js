@@ -27266,8 +27266,10 @@ function App() {
         rows: [],
         count: 0,
         resultCount: 0,
-        isLogged: false
+        isLogged: false,
+        userSwappies: null
     });
+    const [swappies, setSwappies] = (0, _react.useState)(null);
     const [match, setMatch] = (0, _react.useState)(false);
     const [noMatch, setNoMatch] = (0, _react.useState)(false);
     const [loading, setLoading] = (0, _react.useState)(false);
@@ -27290,7 +27292,7 @@ function App() {
                 setOptionsHTML: setOptionsHTML
             }, void 0, false, {
                 fileName: "SRC/App.js",
-                lineNumber: 41,
+                lineNumber: 43,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
@@ -27316,15 +27318,17 @@ function App() {
                             setLoading: setLoading,
                             logged: logged,
                             setLogged: setLogged,
-                            optionsHTML: optionsHTML
+                            optionsHTML: optionsHTML,
+                            swappies: swappies,
+                            setSwappies: setSwappies
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 53,
+                            lineNumber: 55,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 52,
+                        lineNumber: 54,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27336,10 +27340,11 @@ function App() {
                             setSelectedLevel: setSelectedLevel,
                             setSearchInput: setSearchInput,
                             setNoMatch: setNoMatch,
-                            setMatch: setMatch
+                            setMatch: setMatch,
+                            swappies: swappies
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 76,
+                            lineNumber: 80,
                             columnNumber: 30
                         }, void 0),
                         children: [
@@ -27363,15 +27368,16 @@ function App() {
                                     loading: loading,
                                     setLoading: setLoading,
                                     setLogged: setLogged,
-                                    optionsHTML: optionsHTML
+                                    optionsHTML: optionsHTML,
+                                    setSwappies: setSwappies
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 87,
+                                    lineNumber: 93,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 86,
+                                lineNumber: 92,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27388,32 +27394,17 @@ function App() {
                                     optionsHTML: optionsHTML
                                 }, void 0, false, {
                                     fileName: "SRC/App.js",
-                                    lineNumber: 109,
+                                    lineNumber: 116,
                                     columnNumber: 34
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "SRC/App.js",
-                                lineNumber: 108,
+                                lineNumber: 115,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                 path: "/dashboard/statistics",
                                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statisticDefault.default), {
-                                    loading: loading,
-                                    setLoading: setLoading
-                                }, void 0, false, {
-                                    fileName: "SRC/App.js",
-                                    lineNumber: 123,
-                                    columnNumber: 34
-                                }, void 0)
-                            }, void 0, false, {
-                                fileName: "SRC/App.js",
-                                lineNumber: 122,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/dashboard/notifications",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _notificationDefault.default), {
                                     loading: loading,
                                     setLoading: setLoading
                                 }, void 0, false, {
@@ -27427,8 +27418,8 @@ function App() {
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/dashboard/desk",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deskDefault.default), {
+                                path: "/dashboard/notifications",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _notificationDefault.default), {
                                     loading: loading,
                                     setLoading: setLoading
                                 }, void 0, false, {
@@ -27440,23 +27431,38 @@ function App() {
                                 fileName: "SRC/App.js",
                                 lineNumber: 136,
                                 columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/dashboard/desk",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deskDefault.default), {
+                                    loading: loading,
+                                    setLoading: setLoading
+                                }, void 0, false, {
+                                    fileName: "SRC/App.js",
+                                    lineNumber: 144,
+                                    columnNumber: 34
+                                }, void 0)
+                            }, void 0, false, {
+                                fileName: "SRC/App.js",
+                                lineNumber: 143,
+                                columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "SRC/App.js",
-                        lineNumber: 75,
+                        lineNumber: 79,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/registration",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 146,
+                            lineNumber: 153,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 145,
+                        lineNumber: 152,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27466,12 +27472,12 @@ function App() {
                             setDataCards: setDataCards
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 149,
+                            lineNumber: 156,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 148,
+                        lineNumber: 155,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27488,40 +27494,40 @@ function App() {
                             setSelectedLevel: setSelectedLevel
                         }, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 155,
+                            lineNumber: 162,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 154,
+                        lineNumber: 161,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/admin",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminDefault.default), {}, void 0, false, {
                             fileName: "SRC/App.js",
-                            lineNumber: 170,
+                            lineNumber: 177,
                             columnNumber: 30
                         }, void 0)
                     }, void 0, false, {
                         fileName: "SRC/App.js",
-                        lineNumber: 169,
+                        lineNumber: 176,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/App.js",
-                lineNumber: 50,
+                lineNumber: 52,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/App.js",
-        lineNumber: 40,
+        lineNumber: 42,
         columnNumber: 9
     }, this);
 }
-_s(App, "JTZMEqR+cbMYEuT6MnY4UBk7N8I=");
+_s(App, "glDuBTxuX2JpJju/Kf3P/mmECaI=");
 _c = App;
 exports.default = App;
 var _c;
@@ -61503,7 +61509,7 @@ var _skillswapIconePngDefault = parcelHelpers.interopDefault(_skillswapIconePng)
 var _ideaIconePng = require("../../../style/icones/idea_icone.png");
 var _ideaIconePngDefault = parcelHelpers.interopDefault(_ideaIconePng);
 var _s = $RefreshSig$();
-function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setNoMatch, setMatch }) {
+function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setNoMatch, setMatch, swappies }) {
     _s();
     const navigate = (0, _reactRouterDom.useNavigate)();
     function handleClickHome() {
@@ -61534,7 +61540,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                     className: "logoIdea"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 47,
+                                    lineNumber: 48,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -61543,42 +61549,76 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                     className: "logoSkillswap"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 53,
+                                    lineNumber: 54,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                            lineNumber: 42,
+                            lineNumber: 43,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 41,
+                        lineNumber: 42,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
-                        setLogged: setLogged,
-                        setSelectedCategory: setSelectedCategory,
-                        setSelectedSubCategory: setSelectedSubCategory,
-                        setSelectedLevel: setSelectedLevel,
-                        setSearchInput: setSearchInput,
-                        setNoMatch: setNoMatch,
-                        setMatch: setMatch
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "logoUsers",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "logo_dollar",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "swappies",
+                                        children: swappies
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 64,
+                                        columnNumber: 25
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faDollarSign),
+                                        className: "icone"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 67,
+                                        columnNumber: 25
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 63,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
+                                setLogged: setLogged,
+                                setSelectedCategory: setSelectedCategory,
+                                setSelectedSubCategory: setSelectedSubCategory,
+                                setSelectedLevel: setSelectedLevel,
+                                setSearchInput: setSearchInput,
+                                setNoMatch: setNoMatch,
+                                setMatch: setMatch
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 72,
+                                columnNumber: 21
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 61,
+                        lineNumber: 62,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 39,
+                lineNumber: 40,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 72,
+                lineNumber: 84,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
@@ -61592,14 +61632,14 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 className: "icone"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 77,
+                                lineNumber: 89,
                                 columnNumber: 21
                             }, this),
                             "Notifications"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 76,
+                        lineNumber: 88,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61610,14 +61650,14 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 className: "icone"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 85,
+                                lineNumber: 97,
                                 columnNumber: 21
                             }, this),
                             "Statistiques"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 84,
+                        lineNumber: 96,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61628,14 +61668,14 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 className: "icone"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 93,
+                                lineNumber: 105,
                                 columnNumber: 21
                             }, this),
                             "Profil"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 92,
+                        lineNumber: 104,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61646,14 +61686,14 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 className: "icone"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 101,
+                                lineNumber: 113,
                                 columnNumber: 21
                             }, this),
                             "Bureau"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 100,
+                        lineNumber: 112,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61664,20 +61704,20 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 className: "icone"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 108,
+                                lineNumber: 120,
                                 columnNumber: 21
                             }, this),
                             "Recherche"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 107,
+                        lineNumber: 119,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 75,
+                lineNumber: 87,
                 columnNumber: 13
             }, this)
         ]
@@ -61800,7 +61840,7 @@ var _react = require("react");
 var _navLogged = require("./NavLogged");
 var _navLoggedDefault = parcelHelpers.interopDefault(_navLogged);
 var _s = $RefreshSig$();
-function Dashboard({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setNoMatch, setMatch }) {
+function Dashboard({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setNoMatch, setMatch, swappies }) {
     _s();
     (0, _react.useEffect)(()=>{
         setLogged(true);
@@ -61813,15 +61853,16 @@ function Dashboard({ setLogged, setSelectedCategory, setSelectedSubCategory, set
             setSelectedLevel: setSelectedLevel,
             setSearchInput: setSearchInput,
             setNoMatch: setNoMatch,
-            setMatch: setMatch
+            setMatch: setMatch,
+            swappies: swappies
         }, void 0, false, {
             fileName: "SRC/components/Dashboard/index.js",
-            lineNumber: 23,
+            lineNumber: 24,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "SRC/components/Dashboard/index.js",
-        lineNumber: 22,
+        lineNumber: 23,
         columnNumber: 9
     }, this);
 }
@@ -63936,7 +63977,7 @@ var _reactRouterDom = require("react-router-dom");
 var _searchBar = require("../SearchBar");
 var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _s = $RefreshSig$();
-function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged }) {
+function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged, setSwappies }) {
     _s();
     const navigate = (0, _reactRouterDom.useNavigate)();
     async function getData() {
@@ -63962,6 +64003,7 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 setMatch(false);
                 setNoMatch(true);
                 setLoading(false);
+                setSwappies(responseDataSearch.userSwappies.swappies);
                 console.log("NO MATCH state match dans Search", match);
                 console.log("NOT MATCH state noMatch dans Search", noMatch);
                 if (!responseDataSearch.isLogged) {
@@ -63975,6 +64017,7 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 setMatch(true);
                 setNoMatch(false);
                 setLoading(false);
+                setSwappies(responseDataSearch.userSwappies.swappies);
                 if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate("/");
@@ -64012,14 +64055,7 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 setLogged: setLogged
             }, void 0, false, {
                 fileName: "SRC/components/Results/index.js",
-                lineNumber: 109,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: "Results"
-            }, void 0, false, {
-                fileName: "SRC/components/Results/index.js",
-                lineNumber: 126,
+                lineNumber: 112,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
@@ -64029,20 +64065,20 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 loading: loading
             }, void 0, false, {
                 fileName: "SRC/components/Results/index.js",
-                lineNumber: 128,
+                lineNumber: 130,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Fin des r\xe9sultats"
             }, void 0, false, {
                 fileName: "SRC/components/Results/index.js",
-                lineNumber: 134,
+                lineNumber: 136,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Results/index.js",
-        lineNumber: 108,
+        lineNumber: 111,
         columnNumber: 9
     }, this);
 }

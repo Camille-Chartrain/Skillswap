@@ -9,7 +9,8 @@ export default function Dashboard(
         setSelectedLevel,
         setSearchInput,
         setNoMatch,
-        setMatch
+        setMatch,
+        swappies
     }
 ) {
 
@@ -28,6 +29,7 @@ export default function Dashboard(
                 setSearchInput={setSearchInput}
                 setNoMatch={setNoMatch}
                 setMatch={setMatch}
+                swappies={swappies}
             />
         </div>
     )

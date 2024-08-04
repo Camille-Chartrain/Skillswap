@@ -23,7 +23,8 @@ export default function Results(
         setNoMatch,
         loading,
         setLoading,
-        setLogged
+        setLogged,
+        setSwappies
     }
 ) {
 
@@ -60,6 +61,7 @@ export default function Results(
                 setMatch(false);
                 setNoMatch(true);
                 setLoading(false);
+                setSwappies(responseDataSearch.userSwappies.swappies)
                 console.log("NO MATCH state match dans Search", match);
                 console.log("NOT MATCH state noMatch dans Search", noMatch);
 
@@ -78,6 +80,7 @@ export default function Results(
                 setMatch(true);
                 setNoMatch(false);
                 setLoading(false);
+                setSwappies(responseDataSearch.userSwappies.swappies)
 
                 if (!responseDataSearch.isLogged) {
                     setLogged(false);
@@ -123,7 +126,6 @@ export default function Results(
                 setLoading={setLoading}
                 setLogged={setLogged} />
 
-            <h2>Results</h2>
 
             <Cards
                 dataCards={dataCards}

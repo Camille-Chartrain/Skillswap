@@ -21,8 +21,10 @@ function App() {
         rows: [],
         count: 0,
         resultCount: 0,
-        isLogged: false
+        isLogged: false,
+        userSwappies: (null),
     });
+    const [swappies, setSwappies] = useState(null);
     const [match, setMatch] = useState(false);
     const [noMatch, setNoMatch] = useState(false);
 
@@ -70,6 +72,8 @@ function App() {
                         logged={logged}
                         setLogged={setLogged}
                         optionsHTML={optionsHTML}
+                        swappies={swappies}
+                        setSwappies={setSwappies}
                     />}
                 />
                 <Route path="/dashboard"
@@ -81,6 +85,8 @@ function App() {
                         setSearchInput={setSearchInput}
                         setNoMatch={setNoMatch}
                         setMatch={setMatch}
+                        swappies={swappies}
+                    // setSwappies={setSwappies}
                     />}
                 >
                     <Route path="/dashboard/results"
@@ -103,6 +109,7 @@ function App() {
                             setLoading={setLoading}
                             setLogged={setLogged}
                             optionsHTML={optionsHTML}
+                            setSwappies={setSwappies}
                         />}
                     />
                     <Route path="/dashboard/profile"

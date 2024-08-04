@@ -8,10 +8,11 @@
     // left: 0;
     height: 81px; 
     display: flex;
+    justify-content: space-between;
     background-color:var.$background-color;
     border-bottom: 1px solid rgb(151, 146, 146);
     width: 100%;
-    justify-content: space-between;
+
 
     button{
         background-color:var.$background-color;
@@ -55,6 +56,44 @@
         // .iconeLogin{
         //     height:2.37rem; 
         // }
+    }
+
+    .logoUsers{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        margin-right: 0.7rem; 
+
+
+        .logo_dollar{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 100%;
+            border: solid 1px var.$soft-grey-color;
+            background-color:var.$yellow_color;  
+            padding: 0.3rem 0.6rem;   
+            color:var.$xtra-dark-grey;
+            margin-right: 5px;
+        }
+
+
+        .swappies{
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-right: 4px;
+            color:var.$xtra-dark-grey;
+        }
+
+        .icone{
+            // margin-right: 0.5rem; 
+            color:var.$xtra-dark-grey;
+            height:1.6rem; 
+            // width: 18px;
+            // padding: 0.5rem 0.5rem;
+            
+        }
     }
 }
 

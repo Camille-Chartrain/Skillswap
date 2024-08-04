@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Logout from "../../Logout";
 import { Link, Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGraduationCap, faSignal, faUser, faMagnifyingGlass, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faGraduationCap, faSignal, faUser, faMagnifyingGlass, faBell, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import "./style.scss";
 import skillswap_icone from '../../../style/icones/skillswap_icone.png';
 import idea_icone from '../../../style/icones/idea_icone.png';
@@ -16,7 +16,8 @@ export default function NavLogged(
         setSelectedLevel,
         setSearchInput,
         setNoMatch,
-        setMatch
+        setMatch,
+        swappies
     }
 ) {
 
@@ -58,15 +59,26 @@ export default function NavLogged(
                     </button>
                 </div>
 
-                <Logout
-                    setLogged={setLogged}
-                    setSelectedCategory={setSelectedCategory}
-                    setSelectedSubCategory={setSelectedSubCategory}
-                    setSelectedLevel={setSelectedLevel}
-                    setSearchInput={setSearchInput}
-                    setNoMatch={setNoMatch}
-                    setMatch={setMatch}
-                />
+                <div className="logoUsers">
+                    <div className="logo_dollar">
+                        <div className="swappies">
+                            {swappies}
+                        </div>
+                        <FontAwesomeIcon
+                            icon={faDollarSign}
+                            className="icone" />
+                    </div>
+
+                    <Logout
+                        setLogged={setLogged}
+                        setSelectedCategory={setSelectedCategory}
+                        setSelectedSubCategory={setSelectedSubCategory}
+                        setSelectedLevel={setSelectedLevel}
+                        setSearchInput={setSearchInput}
+                        setNoMatch={setNoMatch}
+                        setMatch={setMatch}
+                    />
+                </div>
             </nav>
 
             <Outlet />

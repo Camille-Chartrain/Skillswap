@@ -122,6 +122,7 @@ const homeController = {
             };
 
             let isLogged = false;
+            let userSwappies = null;
 
             console.log("req.user", req.user);
             if (!req.user) {
@@ -202,6 +203,26 @@ const homeController = {
                     skill.dataValues.Meetings = meetings;
                     console.log("log des meetings", meetings);
                 }
+
+
+                // recuperer le nombre de swappie de l'utilisateur
+
+                const userSwappiesData = await User.findByPk(req.user.id,
+                    {
+                        attributes:
+                            [
+                                'firstname',
+                                'lastname',
+                                "swappies"
+                            ],
+                    }
+                );
+                if (userSwappiesData === null) {
+                    console.log('User for number of swappies not found!');
+                }
+                else {
+                    userSwappies = userSwappiesData;
+                }
             }
 
             console.log("count", count);
@@ -212,7 +233,8 @@ const homeController = {
                 rows,
                 count,
                 resultCount,
-                isLogged
+                isLogged,
+                userSwappies
             });
         }
         catch (error) {
