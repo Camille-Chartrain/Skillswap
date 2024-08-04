@@ -8,4 +8,9 @@
     flex-direction: column;
     align-items: center;
 
+    @include mixin.big {
+        
+        padding-top: 80px;
+    }
+
 }

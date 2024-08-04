@@ -28,7 +28,7 @@ export default function Cards({
 
     return (
         <>
-            <div >
+            <div className="advertising">
                 {loading && <p className="loading">chargement...</p>}
 
                 {match && dataCards && dataCards.resultCount == 1 && (<p className="search-result">{dataCards.resultCount} résultat</p>)}
@@ -38,6 +38,7 @@ export default function Cards({
                 {noMatch && <p className="search-result">Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
             </div>
             <section className="cards_section">
+
                 <div className="allCards">
 
                     {dataCards && dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card) => (

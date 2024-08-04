@@ -10,8 +10,12 @@
 
 @media screen and (width >= 90rem) {
   .searchBar {
-    margin-top: 3%;
-    margin-right: 14%;
+    border-radius: 0;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    position: fixed;
   }
 }
 
@@ -24,6 +28,14 @@
   margin: auto;
   padding: .8rem;
   font-size: 1rem;
+}
+
+@media screen and (width >= 90rem) {
+  .searchBar .searchElement, .searchBar .searchButton {
+    width: 15rem;
+    margin-top: .5rem;
+    display: flex;
+  }
 }
 
 .searchBar .searchElement {
@@ -57,6 +69,10 @@
   color: #fff;
 }
 
+.advertising {
+  padding-top: 100px;
+}
+
 .cards_section {
   justify-content: center;
   display: flex;
@@ -66,6 +82,7 @@
   flex-wrap: wrap;
   justify-content: center;
   max-width: 90%;
+  padding-top: 100px;
   display: flex;
 }
 
@@ -81,6 +98,7 @@
   .allCards {
     flex-wrap: wrap;
     justify-content: flex-start;
+    padding-top: 0;
     display: flex;
   }
 }
@@ -789,5 +807,11 @@ body {
   align-items: center;
   padding-top: 130px;
   display: flex;
+}
+
+@media screen and (width >= 90rem) {
+  .results {
+    padding-top: 80px;
+  }
 }
 /*# sourceMappingURL=index.2a934962.css.map */

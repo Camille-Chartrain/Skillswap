@@ -34973,10 +34973,16 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 lineNumber: 141,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                className: "searchButton",
-                type: "submit",
-                children: "Rechercher"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "searchButton",
+                    type: "submit",
+                    children: "Rechercher"
+                }, void 0, false, {
+                    fileName: "SRC/components/SearchBar/index.js",
+                    lineNumber: 147,
+                    columnNumber: 17
+                }, this)
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
                 lineNumber: 146,
@@ -35505,6 +35511,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "advertising",
                 children: [
                     loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         className: "loading",
@@ -35563,7 +35570,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                             children: card.title.toUpperCase()
                                         }, void 0, false, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 47,
+                                            lineNumber: 48,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35573,7 +35580,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     rating: card.averageMark
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 49,
+                                                    lineNumber: 50,
                                                     columnNumber: 37
                                                 }, this),
                                                 console.log("averageMark=", card.averageMark),
@@ -35586,13 +35593,13 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 54,
+                                                    lineNumber: 55,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 48,
+                                            lineNumber: 49,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35608,14 +35615,14 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: " icone levelIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 63,
+                                                                    lineNumber: 64,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 card.level
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 62,
+                                                            lineNumber: 63,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35625,14 +35632,14 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: "icone userIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 71,
+                                                                    lineNumber: 72,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 `${card.User.firstname} ${card.User.lastname}`
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 70,
+                                                            lineNumber: 71,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35642,14 +35649,14 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: "icone calendarIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 79,
+                                                                    lineNumber: 80,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 truncateString(card.availability, 13)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 78,
+                                                            lineNumber: 79,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35659,20 +35666,20 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: "icone hatIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 87,
+                                                                    lineNumber: 88,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 card.transmission
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 86,
+                                                            lineNumber: 87,
                                                             columnNumber: 41
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 61,
+                                                    lineNumber: 62,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35683,24 +35690,24 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                         alt: "photo des categories"
                                                     }, void 0, false, {
                                                         fileName: "SRC/components/Cards/index.js",
-                                                        lineNumber: 96,
+                                                        lineNumber: 97,
                                                         columnNumber: 41
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 95,
+                                                    lineNumber: 96,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 59,
+                                            lineNumber: 60,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "SRC/components/Cards/index.js",
-                                    lineNumber: 46,
+                                    lineNumber: 47,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35716,12 +35723,12 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 109,
+                                                lineNumber: 110,
                                                 columnNumber: 37
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 107,
+                                            lineNumber: 108,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35733,7 +35740,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     children: "D\xe9tails"
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 113,
+                                                    lineNumber: 114,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35742,30 +35749,30 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     children: "Participer"
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 114,
+                                                    lineNumber: 115,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 112,
+                                            lineNumber: 113,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "SRC/components/Cards/index.js",
-                                    lineNumber: 106,
+                                    lineNumber: 107,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, card.id, true, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 45,
+                            lineNumber: 46,
                             columnNumber: 25
                         }, this))
                 }, void 0, false, {
                     fileName: "SRC/components/Cards/index.js",
-                    lineNumber: 41,
+                    lineNumber: 42,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {

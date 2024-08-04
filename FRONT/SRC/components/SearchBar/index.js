@@ -143,8 +143,9 @@ export default function SearchBar({
                     setSelectedLevel={setSelectedLevel}
                 />
             </div>
-            <button className="searchButton" type="submit">Rechercher</button>
-
+            <div>
+                <button className="searchButton" type="submit">Rechercher</button>
+            </div>
         </form >
     )
 }
