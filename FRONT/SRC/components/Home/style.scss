@@ -8,6 +8,7 @@
     flex-direction: column;
     background-color: var.$primary-color;
     align-items: center;
+    width: 100%;
     // justify-content: center;
         // background-image: url('../../style/base/icones/lampeBW2.png'); /* Chemin vers votre image */
         // background-position: top right; /* Positionner l'image en haut à droite */
@@ -28,10 +29,10 @@
         @include mixin.big {
                 display: flex;
                 flex-direction: row-reverse; 
-                justify-content: flex-end;
+                justify-content: center;
                 align-items: center;
                 width: 100%;
-                margin-left: 20%;
+                // margin-left: 20%;
                 height: 25rem;
         }
     }
