@@ -74,23 +74,41 @@ export default function NavLogged(
 
             <nav className="nav_bottom">
                 <Link to="/dashboard/notifications">
-                    <FontAwesomeIcon icon={faBell} />
+                    <FontAwesomeIcon
+                        icon={faBell}
+                        className="icone"
+                    />
+                    Notifications
                 </Link>
 
                 <Link to="/dashboard/statistics">
-                    <FontAwesomeIcon icon={faSignal} />
+                    <FontAwesomeIcon
+                        icon={faSignal}
+                        className="icone"
+                    />
+                    Statistiques
                 </Link>
 
                 <Link to="/dashboard/profile">
-                    <FontAwesomeIcon icon={faUser} />
+                    <FontAwesomeIcon
+                        icon={faUser}
+                        className="icone"
+                    />
+                    Profil
                 </Link>
 
                 <Link to="/dashboard/desk">
-                    <FontAwesomeIcon icon={faGraduationCap} />
+                    <FontAwesomeIcon
+                        icon={faGraduationCap}
+                        className="icone" />
+                    Bureau
                 </Link>
 
                 <Link to="/dashboard/results">
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    <FontAwesomeIcon
+                        icon={faMagnifyingGlass}
+                        className="icone" />
+                    Recherche
                 </Link>
             </nav>
         </>

@@ -61586,72 +61586,92 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/dashboard/notifications",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faBell)
-                        }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                            lineNumber: 77,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                icon: (0, _freeSolidSvgIcons.faBell),
+                                className: "icone"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 77,
+                                columnNumber: 21
+                            }, this),
+                            "Notifications"
+                        ]
+                    }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
                         lineNumber: 76,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/dashboard/statistics",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faSignal)
-                        }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                            lineNumber: 81,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 80,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/dashboard/profile",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faUser)
-                        }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                            lineNumber: 85,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                icon: (0, _freeSolidSvgIcons.faSignal),
+                                className: "icone"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 85,
+                                columnNumber: 21
+                            }, this),
+                            "Statistiques"
+                        ]
+                    }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
                         lineNumber: 84,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/dashboard/desk",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faGraduationCap)
-                        }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                            lineNumber: 89,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
+                        to: "/dashboard/profile",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                icon: (0, _freeSolidSvgIcons.faUser),
+                                className: "icone"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 93,
+                                columnNumber: 21
+                            }, this),
+                            "Profil"
+                        ]
+                    }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 88,
+                        lineNumber: 92,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: "/dashboard/desk",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                icon: (0, _freeSolidSvgIcons.faGraduationCap),
+                                className: "icone"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 101,
+                                columnNumber: 21
+                            }, this),
+                            "Bureau"
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                        lineNumber: 100,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/dashboard/results",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faMagnifyingGlass)
-                        }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                            lineNumber: 93,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                icon: (0, _freeSolidSvgIcons.faMagnifyingGlass),
+                                className: "icone"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 108,
+                                columnNumber: 21
+                            }, this),
+                            "Recherche"
+                        ]
+                    }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 92,
+                        lineNumber: 107,
                         columnNumber: 17
                     }, this)
                 ]
