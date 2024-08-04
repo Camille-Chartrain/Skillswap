@@ -86,7 +86,16 @@
   margin-left: 20px;
   margin-right: 20px;
   padding: 10px 15px 13px;
+  transition: box-shadow .3s;
   display: flex;
+}
+
+.allCards .card:hover {
+  box-shadow: 0 0 10px 5px #cf7805;
+}
+
+.allCards .card h3 {
+  font-size: 1.4rem;
 }
 
 @media screen and (width >= 60rem) {

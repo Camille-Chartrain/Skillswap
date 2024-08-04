@@ -38,6 +38,16 @@
         margin-left: 20px;
         width: 95%;
         height: 360px;
+        transition: box-shadow 0.3s ease; 
+        
+        &:hover {
+            box-shadow: 0 0 10px 5px rgb(207, 120, 5); 
+            /* Effet de survol avec une couleur dégradée */
+        }
+
+        h3{
+            font-size: 1.4rem;
+        }
 
         @include mixin.medium {
             width: 40%;
