@@ -3,6 +3,7 @@ import Cards from "../Cards";
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from "../SearchBar";
+import "./style.scss"
 
 
 export default function Results(
@@ -108,7 +109,7 @@ export default function Results(
     }, []);
 
     return (
-        <div>
+        <div className="results">
             <SearchBar
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}

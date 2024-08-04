@@ -63976,6 +63976,7 @@ var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _reactRouterDom = require("react-router-dom");
 var _searchBar = require("../SearchBar");
 var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
+var _styleScss = require("./style.scss");
 var _s = $RefreshSig$();
 function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged, setSwappies }) {
     _s();
@@ -64036,6 +64037,7 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
         getData();
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "results",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
                 selectedCategory: selectedCategory,
@@ -64055,7 +64057,7 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 setLogged: setLogged
             }, void 0, false, {
                 fileName: "SRC/components/Results/index.js",
-                lineNumber: 112,
+                lineNumber: 113,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
@@ -64065,20 +64067,20 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
                 loading: loading
             }, void 0, false, {
                 fileName: "SRC/components/Results/index.js",
-                lineNumber: 130,
+                lineNumber: 131,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Fin des r\xe9sultats"
             }, void 0, false, {
                 fileName: "SRC/components/Results/index.js",
-                lineNumber: 136,
+                lineNumber: 137,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Results/index.js",
-        lineNumber: 111,
+        lineNumber: 112,
         columnNumber: 9
     }, this);
 }
@@ -64096,7 +64098,7 @@ $RefreshReg$(_c, "Results");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../SearchBar":"kxQdC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4hke4":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../SearchBar":"kxQdC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"iHWRC"}],"iHWRC":[function() {},{}],"4hke4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d466 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

@@ -297,6 +297,7 @@
   height: 81px;
   display: flex;
   position: fixed;
+  top: 0;
 }
 
 .navLogged button {
@@ -781,5 +782,12 @@ body {
   border-top: 1px solid #000;
   margin-top: 70px;
   padding-top: 20px;
+}
+
+.results {
+  flex-direction: column;
+  align-items: center;
+  padding-top: 130px;
+  display: flex;
 }
 /*# sourceMappingURL=index.2a934962.css.map */

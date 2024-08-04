@@ -4,7 +4,7 @@
 
 .navLogged{
     position: fixed;
-    // top: 0;
+    top: 0;
     // left: 0;
     height: 81px; 
     display: flex;
@@ -36,26 +36,6 @@
             margin-top: 0.4rem;
             margin-bottom: 0.1rem;         
         }
-        
-        // .icone{
-        //     margin-left: 0.5rem;
-        //     // margin-right: 0.4rem;
-        //     // height:27px; 
-        //     color:var.$dark-grey-color;
-        //     background-color:var.$background-color;
-
-        // }
-    
-        // .iconeRegister{
-        //     height:18px; 
-        //     border: 0.13rem solid var.$dark-grey-color;
-        //     padding: 0.5rem 0.4rem;
-        //     border-radius: 100%;
-        // }
-
-        // .iconeLogin{
-        //     height:2.37rem; 
-        // }
     }
 
     .logoUsers{
