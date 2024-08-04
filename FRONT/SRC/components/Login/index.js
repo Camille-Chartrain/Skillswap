@@ -111,7 +111,7 @@ export default function Login({ setNoMatch, setDataCards }) {
                             type="submit"
                             className="blue_button"
                         >
-                            Envoyer
+                            Connexion
                         </button>
                     </form>
                     <p className="redirection_button">Pas encore inscrit?</p>

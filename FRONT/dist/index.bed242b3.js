@@ -61353,7 +61353,7 @@ function NavHome() {
                             className: "logoIdea"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 37,
+                            lineNumber: 36,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -61362,13 +61362,13 @@ function NavHome() {
                             className: "logoSkillswap"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 43,
+                            lineNumber: 42,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 32,
+                    lineNumber: 31,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
@@ -61387,12 +61387,12 @@ function NavHome() {
                             className: "icone iconeRegister"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 59,
+                            lineNumber: 55,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 55,
+                        lineNumber: 51,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -61403,18 +61403,18 @@ function NavHome() {
                             className: "icone iconeLogin"
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 69,
+                            lineNumber: 65,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 65,
+                        lineNumber: 61,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 53,
+                lineNumber: 50,
                 columnNumber: 13
             }, this)
         ]
@@ -61495,6 +61495,13 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _logout = require("../../Logout");
 var _logoutDefault = parcelHelpers.interopDefault(_logout);
+var _reactFontawesome = require("@fortawesome/react-fontawesome");
+var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
+var _styleScss = require("./style.scss");
+var _skillswapIconePng = require("../../../style/icones/skillswap_icone.png");
+var _skillswapIconePngDefault = parcelHelpers.interopDefault(_skillswapIconePng);
+var _ideaIconePng = require("../../../style/icones/idea_icone.png");
+var _ideaIconePngDefault = parcelHelpers.interopDefault(_ideaIconePng);
 var _s = $RefreshSig$();
 function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setNoMatch, setMatch }) {
     _s();
@@ -61510,45 +61517,112 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
         navigate("/");
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+        className: "navLogged",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                to: "/dashboard/notifications",
-                children: "Notifs "
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "navLeft",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: handleClickHome,
+                    "aria-label": "Accueil",
+                    className: "logo",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            src: (0, _ideaIconePngDefault.default),
+                            alt: "accueil-SkillSwap",
+                            className: "logoIdea"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                            lineNumber: 46,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            src: (0, _skillswapIconePngDefault.default),
+                            alt: "accueil-SkillSwap",
+                            className: "logoSkillswap"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                            lineNumber: 52,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                    lineNumber: 41,
+                    columnNumber: 17
+                }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 34,
+                lineNumber: 40,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                to: "/dashboard/notifications",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                    icon: (0, _freeSolidSvgIcons.faBell)
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                    lineNumber: 61,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                lineNumber: 60,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                 to: "/dashboard/statistics",
-                children: "Stats "
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                    icon: (0, _freeSolidSvgIcons.faSignal)
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                    lineNumber: 65,
+                    columnNumber: 17
+                }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 35,
+                lineNumber: 64,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                 to: "/dashboard/profile",
-                children: "Profil "
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                    icon: (0, _freeSolidSvgIcons.faUser)
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                    lineNumber: 69,
+                    columnNumber: 17
+                }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 36,
+                lineNumber: 68,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                 to: "/dashboard/desk",
-                children: "bureau "
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                    icon: (0, _freeSolidSvgIcons.faGraduationCap)
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                    lineNumber: 73,
+                    columnNumber: 17
+                }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 37,
+                lineNumber: 72,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                 to: "/dashboard/results",
-                children: "recherche "
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                    icon: (0, _freeSolidSvgIcons.faMagnifyingGlass)
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                    lineNumber: 77,
+                    columnNumber: 17
+                }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 38,
+                lineNumber: 76,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
@@ -61561,26 +61635,18 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                 setMatch: setMatch
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 39,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                onClick: handleClickHome,
-                children: "Accueil"
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 48,
+                lineNumber: 80,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 49,
+                lineNumber: 90,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-        lineNumber: 33,
+        lineNumber: 38,
         columnNumber: 9
     }, this);
 }
@@ -61598,7 +61664,7 @@ $RefreshReg$(_c, "NavLogged");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../../Logout":"5BNmm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5BNmm":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../../Logout":"5BNmm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"dmBTW","../../../style/icones/skillswap_icone.png":"jJZjR","../../../style/icones/idea_icone.png":"6DVFh"}],"5BNmm":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$fd5b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -61674,7 +61740,7 @@ $RefreshReg$(_c, "Logout");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8u0qZ":[function() {},{}],"7KL8w":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dmBTW":[function() {},{}],"8u0qZ":[function() {},{}],"7KL8w":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$93b3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -61695,29 +61761,20 @@ function Dashboard({ setLogged, setSelectedCategory, setSelectedSubCategory, set
         setLogged(true);
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Dashboard"
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 23,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
-                setLogged: setLogged,
-                setSelectedCategory: setSelectedCategory,
-                setSelectedSubCategory: setSelectedSubCategory,
-                setSelectedLevel: setSelectedLevel,
-                setSearchInput: setSearchInput,
-                setNoMatch: setNoMatch,
-                setMatch: setMatch
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/index.js",
-                lineNumber: 24,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true, {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
+            setLogged: setLogged,
+            setSelectedCategory: setSelectedCategory,
+            setSelectedSubCategory: setSelectedSubCategory,
+            setSelectedLevel: setSelectedLevel,
+            setSearchInput: setSearchInput,
+            setNoMatch: setNoMatch,
+            setMatch: setMatch
+        }, void 0, false, {
+            fileName: "SRC/components/Dashboard/index.js",
+            lineNumber: 23,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
         fileName: "SRC/components/Dashboard/index.js",
         lineNumber: 22,
         columnNumber: 9
@@ -63211,7 +63268,7 @@ function Registration() {
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                     type: "submit",
                                     className: "blue_button",
-                                    children: "S'inscrire"
+                                    children: "Inscription"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Registration/index.js",
                                     lineNumber: 137,
@@ -63566,7 +63623,7 @@ function Login({ setNoMatch, setDataCards }) {
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                     type: "submit",
                                     className: "blue_button",
-                                    children: "Envoyer"
+                                    children: "Connexion"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Login/index.js",
                                     lineNumber: 110,

@@ -138,7 +138,7 @@ export default function Registration() {
                             type="submit"
                             className="blue_button"
                         >
-                            S'inscrire
+                            Inscription
                         </button>
                     </form>
 

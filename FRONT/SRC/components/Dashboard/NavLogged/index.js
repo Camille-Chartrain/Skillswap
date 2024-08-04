@@ -2,6 +2,11 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import Logout from "../../Logout";
 import { Link, Outlet } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGraduationCap, faSignal, faUser, faMagnifyingGlass, faBell } from '@fortawesome/free-solid-svg-icons';
+import "./style.scss";
+import skillswap_icone from '../../../style/icones/skillswap_icone.png';
+import idea_icone from '../../../style/icones/idea_icone.png';
 
 export default function NavLogged(
     {
@@ -30,12 +35,48 @@ export default function NavLogged(
     }
 
     return (
-        <nav>
-            <Link to="/dashboard/notifications">Notifs </Link>
-            <Link to="/dashboard/statistics">Stats </Link>
-            <Link to="/dashboard/profile">Profil </Link>
-            <Link to="/dashboard/desk">bureau </Link>
-            <Link to="/dashboard/results">recherche </Link>
+        <nav className="navLogged">
+
+            <div className="navLeft">
+                <button
+                    onClick={handleClickHome}
+                    aria-label="Accueil"
+                    className="logo"
+                >
+                    <img
+                        src={idea_icone}
+                        alt="accueil-SkillSwap"
+                        className="logoIdea"
+                    />
+
+                    <img
+                        src={skillswap_icone}
+                        alt="accueil-SkillSwap"
+                        className="logoSkillswap"
+                    />
+                </button>
+            </div>
+
+            <Link to="/dashboard/notifications">
+                <FontAwesomeIcon icon={faBell} />
+            </Link>
+
+            <Link to="/dashboard/statistics">
+                <FontAwesomeIcon icon={faSignal} />
+            </Link>
+
+            <Link to="/dashboard/profile">
+                <FontAwesomeIcon icon={faUser} />
+            </Link>
+
+            <Link to="/dashboard/desk">
+                <FontAwesomeIcon icon={faGraduationCap} />
+            </Link>
+
+            <Link to="/dashboard/results">
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </Link>
+
             <Logout
                 setLogged={setLogged}
                 setSelectedCategory={setSelectedCategory}
@@ -45,7 +86,7 @@ export default function NavLogged(
                 setNoMatch={setNoMatch}
                 setMatch={setMatch}
             />
-            <p onClick={handleClickHome}>Accueil</p>
+
             <Outlet />
         </nav>
     );

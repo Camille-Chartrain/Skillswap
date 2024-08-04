@@ -276,6 +276,56 @@
   height: 2.37rem;
 }
 
+.navLogged {
+  background-color: #fff;
+  border-bottom: .03125rem solid #979292;
+  justify-content: space-between;
+  width: 100%;
+  height: 81px;
+  display: flex;
+  position: fixed;
+}
+
+.navLogged button {
+  background-color: #fff;
+  align-items: center;
+  display: flex;
+}
+
+.navLogged button .logo {
+  margin-right: auto;
+}
+
+.navLogged button .logoIdea {
+  width: 3rem;
+  margin-bottom: 5%;
+  margin-left: .7rem;
+  margin-right: .2rem;
+}
+
+.navLogged button .logoSkillswap {
+  height: 4.5rem;
+  margin-top: .4rem;
+  margin-bottom: .1rem;
+}
+
+.navLogged button .icone {
+  color: #494848;
+  background-color: #fff;
+  margin-left: .5rem;
+}
+
+.navLogged button .iconeRegister {
+  border: .13rem solid #494848;
+  border-radius: 100%;
+  height: 18px;
+  padding: .5rem .4rem;
+}
+
+.navLogged button .iconeLogin {
+  height: 2.37rem;
+}
+
 .logoUsers {
   flex-direction: row;
   justify-content: end;
@@ -452,12 +502,13 @@ body.react-confirm-alert-body-element {
 }
 
 .password .pwd_and_button button {
-  color: #494848;
+  color: #1f1e1e;
   background-color: #e0d9d9;
   border-radius: 10px;
   max-width: fit-content;
   margin-left: 5px;
-  padding: 2px 5px;
+  padding: 0 9px;
+  font-size: .8rem;
   transition: background-color .3s;
 }
 
@@ -531,6 +582,11 @@ body.react-confirm-alert-body-element {
   background-color: #0068bd;
 }
 
+.registration .box_registration .formRegistration .blue_button:active {
+  background-color: #0084f0;
+  transform: scale(.95);
+}
+
 .registration .box_registration .grey_button {
   color: #494848;
   background-color: #e0d9d9;
@@ -543,6 +599,11 @@ body.react-confirm-alert-body-element {
 .registration .box_registration .grey_button:hover {
   color: #fff;
   background-color: #696868;
+}
+
+.registration .box_registration .grey_button:active {
+  background-color: #838181;
+  transform: scale(.95);
 }
 
 .registration .box_registration .redirection_button {
@@ -560,12 +621,13 @@ body.react-confirm-alert-body-element {
 }
 
 .password_login .pwd_and_button button {
-  color: #494848;
+  color: #1f1e1e;
   background-color: #e0d9d9;
   border-radius: 10px;
   max-width: fit-content;
   margin-left: 5px;
-  padding: 2px 5px;
+  padding: 0 9px;
+  font-size: .8rem;
   transition: background-color .3s;
 }
 
@@ -641,6 +703,11 @@ body {
   background-color: #0068bd;
 }
 
+.login .box_login .formLogin .blue_button:active {
+  background-color: #0084f0;
+  transform: scale(.95);
+}
+
 .login .box_login .grey_button {
   color: #494848;
   background-color: #e0d9d9;
@@ -653,6 +720,11 @@ body {
 .login .box_login .grey_button:hover {
   color: #fff;
   background-color: #696868;
+}
+
+.login .box_login .grey_button:active {
+  background-color: #838181;
+  transform: scale(.95);
 }
 
 .login .box_login .redirection_button {

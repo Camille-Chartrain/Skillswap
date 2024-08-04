@@ -28,7 +28,6 @@ export default function NavHome() {
         <nav className="navHome">
 
             <div className="navLeft">
-
                 <button
                     onClick={handleClickHome}
                     aria-label="Accueil"
@@ -45,13 +44,10 @@ export default function NavHome() {
                         alt="accueil-SkillSwap"
                         className="logoSkillswap"
                     />
-
                 </button>
-
             </div>
 
             <div className="logoUsers">
-
                 <button
                     onClick={handleClickRegistration}
                     aria-label="Inscription"
@@ -71,9 +67,7 @@ export default function NavHome() {
                         className="icone iconeLogin"
                     />
                 </button>
-
             </div>
-
         </nav>
     );
 }
