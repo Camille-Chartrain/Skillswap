@@ -11,19 +11,32 @@
     color: var.$background-color;
 }
 
+
+.cards_section{
+    display: flex;
+    justify-content: center;
+    // width: 100%;
+}
+
+
 .allCards{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 90%;
+    // height: fit-content;
 
     @include mixin.medium {
-        
-        justify-content: space-evenly;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
     @include mixin.big {
-        justify-content: space-evenly;
-}
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
 
     .card{
         display: flex;
@@ -63,7 +76,7 @@
         margin-top: 30px;
         margin-right: 6px;
         margin-left: 6px;
-}
+    }
     
         img{
             width: 95px;

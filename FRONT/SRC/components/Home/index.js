@@ -122,14 +122,13 @@ const Home = ({
                 }
             </div>
 
-            <section>
-                <Cards
-                    dataCards={dataCards}
-                    match={match}
-                    noMatch={noMatch}
-                    loading={loading}
-                />
-            </section>
+            <Cards
+                dataCards={dataCards}
+                match={match}
+                noMatch={noMatch}
+                loading={loading}
+            />
+
             {
                 !loading && !logged &&
                 <button

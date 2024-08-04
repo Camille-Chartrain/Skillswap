@@ -37,90 +37,90 @@ export default function Cards({
 
                 {noMatch && <p className="search-result">Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
             </div>
+            <section className="cards_section">
+                <div className="allCards">
 
-            <div className="allCards">
+                    {dataCards && dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card) => (
 
-                {dataCards && dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card) => (
-
-                    <article key={card.id} className="card">
-                        <div>
-                            <h3>{card.title.toUpperCase()}</h3>
-                            <div className="starsCatSubCat">
-                                <StarRating
-                                    rating={card.averageMark}
-                                />
-                                {console.log("averageMark=", card.averageMark)
-                                }
-                                <p className="category">
-                                    {truncateString(card.Category.name, 11)}/
-                                    {truncateString(card.SubCategory.name, 4)}
-                                </p>
-                            </div>
-                            <div className="boxHeader">
-
-                                <div className="childBoxHeader">
-                                    <p>
-                                        <FontAwesomeIcon
-                                            icon={faSignal}
-                                            className=" icone levelIcone"
-                                        />
-                                        {card.level}
-                                    </p>
-
-                                    <p>
-                                        <FontAwesomeIcon
-                                            icon={faUser}
-                                            className="icone userIcone"
-                                        />
-                                        {`${card.User.firstname} ${card.User.lastname}`}
-                                    </p>
-
-                                    <p >
-                                        <FontAwesomeIcon
-                                            icon={faCalendarDays}
-                                            className="icone calendarIcone"
-                                        />
-                                        {truncateString(card.availability, 13)}
-                                    </p>
-
-                                    <p>
-                                        <FontAwesomeIcon
-                                            icon={faGraduationCap}
-                                            className="icone hatIcone"
-                                        />
-                                        {card.transmission}
+                        <article key={card.id} className="card">
+                            <div>
+                                <h3>{card.title.toUpperCase()}</h3>
+                                <div className="starsCatSubCat">
+                                    <StarRating
+                                        rating={card.averageMark}
+                                    />
+                                    {console.log("averageMark=", card.averageMark)
+                                    }
+                                    <p className="category">
+                                        {truncateString(card.Category.name, 11)}/
+                                        {truncateString(card.SubCategory.name, 4)}
                                     </p>
                                 </div>
+                                <div className="boxHeader">
 
-                                <div className="chil2dBoxHeader">
-                                    <img
-                                        className="avatar"
-                                        src={`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${card.Category.picture}`}
-                                        alt="photo des categories">
+                                    <div className="childBoxHeader">
+                                        <p>
+                                            <FontAwesomeIcon
+                                                icon={faSignal}
+                                                className=" icone levelIcone"
+                                            />
+                                            {card.level}
+                                        </p>
 
-                                    </img>
+                                        <p>
+                                            <FontAwesomeIcon
+                                                icon={faUser}
+                                                className="icone userIcone"
+                                            />
+                                            {`${card.User.firstname} ${card.User.lastname}`}
+                                        </p>
+
+                                        <p >
+                                            <FontAwesomeIcon
+                                                icon={faCalendarDays}
+                                                className="icone calendarIcone"
+                                            />
+                                            {truncateString(card.availability, 13)}
+                                        </p>
+
+                                        <p>
+                                            <FontAwesomeIcon
+                                                icon={faGraduationCap}
+                                                className="icone hatIcone"
+                                            />
+                                            {card.transmission}
+                                        </p>
+                                    </div>
+
+                                    <div className="chil2dBoxHeader">
+                                        <img
+                                            className="avatar"
+                                            src={`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${card.Category.picture}`}
+                                            alt="photo des categories">
+
+                                        </img>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="descrAndButton">
-                            <div className="boxContent">
-                                {/* <p>"{card.User.presentation}"</p> */}
-                                <p>"{truncateString(card.description, 170)}"</p>
+                            <div className="descrAndButton">
+                                <div className="boxContent">
+                                    {/* <p>"{card.User.presentation}"</p> */}
+                                    <p>"{truncateString(card.description, 170)}"</p>
+                                </div>
+
+                                <div className="boxButton">
+                                    <button className="boxButton1" type="button">Détails</button>
+                                    <button className="boxButton1" type="button">Participer</button>
+                                </div>
                             </div>
-
-                            <div className="boxButton">
-                                <button className="boxButton1" type="button">Détails</button>
-                                <button className="boxButton1" type="button">Participer</button>
-                            </div>
-                        </div>
-                    </article >
+                        </article >
 
 
-                ))
-                }
-            </div>
-
+                    ))
+                    }
+                </div>
+            </section>
         </>
     )
 }

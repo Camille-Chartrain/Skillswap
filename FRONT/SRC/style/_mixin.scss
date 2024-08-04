@@ -1,3 +1,6 @@
+@use './var';
+
+
 @mixin medium {
     @media screen and (min-width:60rem){
         @content;
@@ -8,4 +11,45 @@
     @media screen and (min-width:90rem){
         @content;
     } 
+}
+
+@mixin button_blue{
+    max-width: fit-content;
+    color: var.$background-color;
+    background-color: var.$secondary-color;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+
+    &:hover{
+        background-color: var.$dark-blue
+    }
+}
+
+@mixin button_grey{
+    max-width: fit-content;
+    color: var.$dark-grey-color;
+    background-color: var.$xtra-soft-grey;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+
+    &:hover{
+        background-color: var.$medium-grey-color;
+        color: var.$background-color;
+    }
+}
+
+@mixin small-button_grey{
+    max-width: fit-content;
+    color: var.$dark-grey-color;
+    background-color: var.$xtra-soft-grey;
+    border-radius: 10px;
+    padding: 2px 5px;
+    transition: background-color 0.3s ease;
+
+    &:hover{
+        background-color: var.$medium-grey-color;
+        color: var.$background-color;
+    }
 }

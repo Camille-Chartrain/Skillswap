@@ -25,10 +25,10 @@ const homeController = {
             // takes list of skill with a method in class Skill
             const { count, rows } = await Skill.findAndCountAll({
                 order: [['id', 'DESC']], // order by descent with id
-                limit: 4, // Limit to 4 results
+                limit: 8, // Limit to 8 results
                 include: [{
                     model: User, // Table to join
-                    attributes: ['firstname', 'lastname', "email", 'grade_level', "presentation"] // Select specified attributs of the table Commande
+                    attributes: ['firstname', 'lastname', 'grade_level', "presentation"] // Select specified attributs of the table Commande
                 }, {
                     model: Category,
                     attributes: ['picture', 'name']
@@ -126,7 +126,7 @@ const homeController = {
             console.log("req.user", req.user);
             if (!req.user) {
                 console.log("pas de req.user");
-                options.limit = 4;
+                options.limit = 8;
                 isLogged = false;
             }
             else if (req.user) {

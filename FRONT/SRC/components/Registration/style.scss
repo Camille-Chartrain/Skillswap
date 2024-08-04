@@ -1,0 +1,68 @@
+@use '../../style/var';
+@use '../../style/mixin';
+
+body{
+    background-color:var.$primary-color;
+}
+
+.registration{ 
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // width: 100%;
+    
+    .box_registration{
+        border-radius: 20px;
+        padding: 20px 40px 40px 40px;
+        background-color: var.$background-color;
+        display: flex;
+        flex-direction: column;  
+        align-items: center;
+        // max-width: 96%;
+        margin-bottom: 100px;
+
+        @include mixin.big {
+            width: 32rem;
+        }
+
+        h2{
+            font-size: 2rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 40px;
+        }
+
+        .formRegistration{
+            display: flex;
+            flex-direction: column;
+            background-color: var.$background-color;
+
+            label{
+                margin-top: 10px;
+            }
+            input{
+                border-radius: 5px;
+                padding: 5px
+            }
+
+            .blue_button{
+                @include mixin.button_blue;
+                display: flex;
+                align-self: center;
+                margin-top: 20px
+            }
+
+        }
+
+        .grey_button{
+            @include mixin.button_grey;
+        }
+
+        .redirection_button{
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid black;
+
+        }
+    }  
+}

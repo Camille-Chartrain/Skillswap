@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import NavHome from "../NavHome";
 import PasswordInput from "./PasswordInput";
+import "./style.scss"
 
 export default function Registration() {
 
     const navigate = useNavigate();
     const [error, setError] = useState("");
+
 
     async function handleSubmit(event) {
 
@@ -92,48 +94,63 @@ export default function Registration() {
     return (
         <>
             <NavHome />
-            <h2>Inscription</h2>
-            <main>
-                {error && <span className="error">{error}</span>}
 
-                <form
-                    method="POST"
-                    onSubmit={handleSubmit}
-                    className="formRegistration"
-                >
-                    <label htmlFor="firstname">Prénom * :</label>
-                    <input
-                        type="text"
-                        id="firstname"
-                        name="firstname"
-                        maxLength="50"
-                        required
-                    />
+            <main className="registration">
+                <div className="box_registration">
+                    <h2>Inscription</h2>
+                    {error && <span className="error">{error}</span>}
 
-                    <label htmlFor="lastname">Nom * :</label>
-                    <input
-                        type="text"
-                        id="lastname"
-                        name="lastname"
-                        maxLength="100"
-                        required
-                    />
+                    <form
+                        method="POST"
+                        onSubmit={handleSubmit}
+                        className="formRegistration"
+                    >
 
-                    <label htmlFor="email">Email * :</label>
-                    <input type="email"
-                        id="email"
-                        name="email"
-                        maxLength="254"
-                        required
-                    />
+                        <label htmlFor="lastname">Nom * :</label>
+                        <input
+                            type="text"
+                            id="lastname"
+                            name="lastname"
+                            maxLength="100"
+                            required
+                        />
+                        <label htmlFor="firstname">Prénom * :</label>
+                        <input
+                            type="text"
+                            id="firstname"
+                            name="firstname"
+                            maxLength="50"
+                            required
+                        />
 
-                    <PasswordInput />
 
-                    <button type="submit">Envoyer</button>
-                </form>
+                        <label htmlFor="email">Email * :</label>
+                        <input type="email"
+                            id="email"
+                            name="email"
+                            maxLength="254"
+                            required
+                        />
 
-                <p>J'ai déjà un compte</p>
-                <button type="button" onClick={goLogin}>Me connecter</button>
+                        <PasswordInput />
+
+                        <button
+                            type="submit"
+                            className="blue_button"
+                        >
+                            S'inscrire
+                        </button>
+                    </form>
+
+                    <p className="redirection_button">J'ai déjà un compte</p>
+                    <button
+                        type="button"
+                        onClick={goLogin}
+                        className="grey_button"
+                    >
+                        Me connecter
+                    </button>
+                </div>
             </main >
         </>
     )

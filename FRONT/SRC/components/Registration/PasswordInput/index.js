@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./style.scss";
 
 export default function PasswordInput() {
     const [password, setPassword] = useState('');
@@ -32,24 +33,27 @@ export default function PasswordInput() {
     };
 
     return (
-        <div>
+        <div className='password'>
+
             <label htmlFor="password">Mot de passe * :</label>
-            <input
-                type={showPassword ? 'text' : 'password'}
-                id="password"
-                name="password"
-                value={password}
-                onChange={handleChange}
-                minLength="12"
-                maxLength="64"
-                required
-            />
+            <div className='pwd_and_button'>
+                <input
+                    type={showPassword ? 'text' : 'password'}
+                    id="password"
+                    name="password"
+                    value={password}
+                    onChange={handleChange}
+                    minLength="12"
+                    maxLength="64"
+                    required
+                />
 
-            <button type="button" onClick={toggleShowPassword} aria-label={showPassword ? "Cacher le mot de passe" : "Afficher le mot de passe"}>
-                {showPassword ? 'Cacher' : 'Afficher'}
-            </button>
+                <button type="button" onClick={toggleShowPassword} aria-label={showPassword ? "Cacher le mot de passe" : "Afficher le mot de passe"}>
+                    {showPassword ? 'Cacher' : 'Afficher'}
+                </button>
+            </div>
 
-            <ul>
+            <ul className='validator'>
                 <li style={{ color: validations.hasUpperCase ? 'green' : 'red' }}>
                     {validations.hasUpperCase ? '✔' : '✖'} Contient une majuscule
                 </li>

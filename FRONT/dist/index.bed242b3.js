@@ -34765,17 +34765,11 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 lineNumber: 93,
                 columnNumber: 13
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
-                    dataCards: dataCards,
-                    match: match,
-                    noMatch: noMatch,
-                    loading: loading
-                }, void 0, false, {
-                    fileName: "SRC/components/Home/index.js",
-                    lineNumber: 126,
-                    columnNumber: 17
-                }, undefined)
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
+                dataCards: dataCards,
+                match: match,
+                noMatch: noMatch,
+                loading: loading
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
                 lineNumber: 125,
@@ -34788,7 +34782,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 children: "Rejoindre la communaut\xe9"
             }, void 0, false, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 135,
+                lineNumber: 134,
                 columnNumber: 17
             }, undefined)
         ]
@@ -35550,220 +35544,227 @@ function Cards({ dataCards, match, noMatch, loading }) {
                 lineNumber: 31,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "allCards",
-                children: dataCards && dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
-                        className: "card",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                        children: card.title.toUpperCase()
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 47,
-                                        columnNumber: 29
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "starsCatSubCat",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _starRatingDefault.default), {
-                                                rating: card.averageMark
-                                            }, void 0, false, {
-                                                fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 49,
-                                                columnNumber: 33
-                                            }, this),
-                                            console.log("averageMark=", card.averageMark),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                className: "category",
-                                                children: [
-                                                    truncateString(card.Category.name, 11),
-                                                    "/",
-                                                    truncateString(card.SubCategory.name, 4)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 54,
-                                                columnNumber: 33
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 48,
-                                        columnNumber: 29
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "boxHeader",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "childBoxHeader",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                                                icon: (0, _freeSolidSvgIcons.faSignal),
-                                                                className: " icone levelIcone"
-                                                            }, void 0, false, {
-                                                                fileName: "SRC/components/Cards/index.js",
-                                                                lineNumber: 63,
-                                                                columnNumber: 41
-                                                            }, this),
-                                                            card.level
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "SRC/components/Cards/index.js",
-                                                        lineNumber: 62,
-                                                        columnNumber: 37
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                                                icon: (0, _freeSolidSvgIcons.faUser),
-                                                                className: "icone userIcone"
-                                                            }, void 0, false, {
-                                                                fileName: "SRC/components/Cards/index.js",
-                                                                lineNumber: 71,
-                                                                columnNumber: 41
-                                                            }, this),
-                                                            `${card.User.firstname} ${card.User.lastname}`
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "SRC/components/Cards/index.js",
-                                                        lineNumber: 70,
-                                                        columnNumber: 37
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                                                icon: (0, _freeSolidSvgIcons.faCalendarDays),
-                                                                className: "icone calendarIcone"
-                                                            }, void 0, false, {
-                                                                fileName: "SRC/components/Cards/index.js",
-                                                                lineNumber: 79,
-                                                                columnNumber: 41
-                                                            }, this),
-                                                            truncateString(card.availability, 13)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "SRC/components/Cards/index.js",
-                                                        lineNumber: 78,
-                                                        columnNumber: 37
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                                                icon: (0, _freeSolidSvgIcons.faGraduationCap),
-                                                                className: "icone hatIcone"
-                                                            }, void 0, false, {
-                                                                fileName: "SRC/components/Cards/index.js",
-                                                                lineNumber: 87,
-                                                                columnNumber: 41
-                                                            }, this),
-                                                            card.transmission
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "SRC/components/Cards/index.js",
-                                                        lineNumber: 86,
-                                                        columnNumber: 37
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 61,
-                                                columnNumber: 33
-                                            }, this),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "chil2dBoxHeader",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                    className: "avatar",
-                                                    src: `http://${"localhost"}:${"3000"}/${card.Category.picture}`,
-                                                    alt: "photo des categories"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+                className: "cards_section",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "allCards",
+                    children: dataCards && dataCards.rows && dataCards.rows.length > 0 && dataCards.rows.map((card)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
+                            className: "card",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                            children: card.title.toUpperCase()
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Cards/index.js",
+                                            lineNumber: 47,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "starsCatSubCat",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _starRatingDefault.default), {
+                                                    rating: card.averageMark
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 96,
+                                                    lineNumber: 49,
+                                                    columnNumber: 37
+                                                }, this),
+                                                console.log("averageMark=", card.averageMark),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                    className: "category",
+                                                    children: [
+                                                        truncateString(card.Category.name, 11),
+                                                        "/",
+                                                        truncateString(card.SubCategory.name, 4)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "SRC/components/Cards/index.js",
+                                                    lineNumber: 54,
                                                     columnNumber: 37
                                                 }, this)
-                                            }, void 0, false, {
-                                                fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 95,
-                                                columnNumber: 33
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 59,
-                                        columnNumber: 29
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Cards/index.js",
-                                lineNumber: 46,
-                                columnNumber: 25
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "descrAndButton",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "boxContent",
-                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            children: [
-                                                '"',
-                                                truncateString(card.description, 170),
-                                                '"'
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 109,
+                                            lineNumber: 48,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "boxHeader",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "childBoxHeader",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                                                    icon: (0, _freeSolidSvgIcons.faSignal),
+                                                                    className: " icone levelIcone"
+                                                                }, void 0, false, {
+                                                                    fileName: "SRC/components/Cards/index.js",
+                                                                    lineNumber: 63,
+                                                                    columnNumber: 45
+                                                                }, this),
+                                                                card.level
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "SRC/components/Cards/index.js",
+                                                            lineNumber: 62,
+                                                            columnNumber: 41
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                                                    icon: (0, _freeSolidSvgIcons.faUser),
+                                                                    className: "icone userIcone"
+                                                                }, void 0, false, {
+                                                                    fileName: "SRC/components/Cards/index.js",
+                                                                    lineNumber: 71,
+                                                                    columnNumber: 45
+                                                                }, this),
+                                                                `${card.User.firstname} ${card.User.lastname}`
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "SRC/components/Cards/index.js",
+                                                            lineNumber: 70,
+                                                            columnNumber: 41
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                                                    icon: (0, _freeSolidSvgIcons.faCalendarDays),
+                                                                    className: "icone calendarIcone"
+                                                                }, void 0, false, {
+                                                                    fileName: "SRC/components/Cards/index.js",
+                                                                    lineNumber: 79,
+                                                                    columnNumber: 45
+                                                                }, this),
+                                                                truncateString(card.availability, 13)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "SRC/components/Cards/index.js",
+                                                            lineNumber: 78,
+                                                            columnNumber: 41
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                                                    icon: (0, _freeSolidSvgIcons.faGraduationCap),
+                                                                    className: "icone hatIcone"
+                                                                }, void 0, false, {
+                                                                    fileName: "SRC/components/Cards/index.js",
+                                                                    lineNumber: 87,
+                                                                    columnNumber: 45
+                                                                }, this),
+                                                                card.transmission
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "SRC/components/Cards/index.js",
+                                                            lineNumber: 86,
+                                                            columnNumber: 41
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "SRC/components/Cards/index.js",
+                                                    lineNumber: 61,
+                                                    columnNumber: 37
+                                                }, this),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "chil2dBoxHeader",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                        className: "avatar",
+                                                        src: `http://${"localhost"}:${"3000"}/${card.Category.picture}`,
+                                                        alt: "photo des categories"
+                                                    }, void 0, false, {
+                                                        fileName: "SRC/components/Cards/index.js",
+                                                        lineNumber: 96,
+                                                        columnNumber: 41
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "SRC/components/Cards/index.js",
+                                                    lineNumber: 95,
+                                                    columnNumber: 37
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "SRC/components/Cards/index.js",
+                                            lineNumber: 59,
                                             columnNumber: 33
                                         }, this)
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 107,
-                                        columnNumber: 29
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "boxButton",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                className: "boxButton1",
-                                                type: "button",
-                                                children: "D\xe9tails"
-                                            }, void 0, false, {
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Cards/index.js",
+                                    lineNumber: 46,
+                                    columnNumber: 29
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "descrAndButton",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "boxContent",
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                children: [
+                                                    '"',
+                                                    truncateString(card.description, 170),
+                                                    '"'
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 113,
-                                                columnNumber: 33
-                                            }, this),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                className: "boxButton1",
-                                                type: "button",
-                                                children: "Participer"
-                                            }, void 0, false, {
-                                                fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 114,
-                                                columnNumber: 33
+                                                lineNumber: 109,
+                                                columnNumber: 37
                                             }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "SRC/components/Cards/index.js",
-                                        lineNumber: 112,
-                                        columnNumber: 29
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Cards/index.js",
-                                lineNumber: 106,
-                                columnNumber: 25
-                            }, this)
-                        ]
-                    }, card.id, true, {
-                        fileName: "SRC/components/Cards/index.js",
-                        lineNumber: 45,
-                        columnNumber: 21
-                    }, this))
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Cards/index.js",
+                                            lineNumber: 107,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "boxButton",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                    className: "boxButton1",
+                                                    type: "button",
+                                                    children: "D\xe9tails"
+                                                }, void 0, false, {
+                                                    fileName: "SRC/components/Cards/index.js",
+                                                    lineNumber: 113,
+                                                    columnNumber: 37
+                                                }, this),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                    className: "boxButton1",
+                                                    type: "button",
+                                                    children: "Participer"
+                                                }, void 0, false, {
+                                                    fileName: "SRC/components/Cards/index.js",
+                                                    lineNumber: 114,
+                                                    columnNumber: 37
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "SRC/components/Cards/index.js",
+                                            lineNumber: 112,
+                                            columnNumber: 33
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Cards/index.js",
+                                    lineNumber: 106,
+                                    columnNumber: 29
+                                }, this)
+                            ]
+                        }, card.id, true, {
+                            fileName: "SRC/components/Cards/index.js",
+                            lineNumber: 45,
+                            columnNumber: 25
+                        }, this))
+                }, void 0, false, {
+                    fileName: "SRC/components/Cards/index.js",
+                    lineNumber: 41,
+                    columnNumber: 17
+                }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 41,
+                lineNumber: 40,
                 columnNumber: 13
             }, this)
         ]
@@ -63039,6 +63040,7 @@ var _navHome = require("../NavHome");
 var _navHomeDefault = parcelHelpers.interopDefault(_navHome);
 var _passwordInput = require("./PasswordInput");
 var _passwordInputDefault = parcelHelpers.interopDefault(_passwordInput);
+var _styleScss = require("./style.scss");
 var _s = $RefreshSig$();
 function Registration() {
     _s();
@@ -63099,7 +63101,7 @@ function Registration() {
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 77,
+                lineNumber: 79,
                 columnNumber: 20
             }, this);
         } catch (error) {
@@ -63116,127 +63118,138 @@ function Registration() {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 94,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: "Inscription"
-            }, void 0, false, {
-                fileName: "SRC/components/Registration/index.js",
-                lineNumber: 95,
+                lineNumber: 96,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-                children: [
-                    error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        className: "error",
-                        children: error
-                    }, void 0, false, {
-                        fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 97,
-                        columnNumber: 27
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                        method: "POST",
-                        onSubmit: handleSubmit,
-                        className: "formRegistration",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                htmlFor: "firstname",
-                                children: "Pr\xe9nom * :"
-                            }, void 0, false, {
-                                fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 104,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "text",
-                                id: "firstname",
-                                name: "firstname",
-                                maxLength: "50",
-                                required: true
-                            }, void 0, false, {
-                                fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 105,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                htmlFor: "lastname",
-                                children: "Nom * :"
-                            }, void 0, false, {
-                                fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 113,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "text",
-                                id: "lastname",
-                                name: "lastname",
-                                maxLength: "100",
-                                required: true
-                            }, void 0, false, {
-                                fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 114,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                htmlFor: "email",
-                                children: "Email * :"
-                            }, void 0, false, {
-                                fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 122,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "email",
-                                id: "email",
-                                name: "email",
-                                maxLength: "254",
-                                required: true
-                            }, void 0, false, {
-                                fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 123,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _passwordInputDefault.default), {}, void 0, false, {
-                                fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 130,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                type: "submit",
-                                children: "Envoyer"
-                            }, void 0, false, {
-                                fileName: "SRC/components/Registration/index.js",
-                                lineNumber: 132,
-                                columnNumber: 21
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 99,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        children: "J'ai d\xe9j\xe0 un compte"
-                    }, void 0, false, {
-                        fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 135,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        type: "button",
-                        onClick: goLogin,
-                        children: "Me connecter"
-                    }, void 0, false, {
-                        fileName: "SRC/components/Registration/index.js",
-                        lineNumber: 136,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
+                className: "registration",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "box_registration",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                            children: "Inscription"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 100,
+                            columnNumber: 21
+                        }, this),
+                        error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "error",
+                            children: error
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 101,
+                            columnNumber: 31
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                            method: "POST",
+                            onSubmit: handleSubmit,
+                            className: "formRegistration",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    htmlFor: "lastname",
+                                    children: "Nom * :"
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Registration/index.js",
+                                    lineNumber: 109,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    id: "lastname",
+                                    name: "lastname",
+                                    maxLength: "100",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Registration/index.js",
+                                    lineNumber: 110,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    htmlFor: "firstname",
+                                    children: "Pr\xe9nom * :"
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Registration/index.js",
+                                    lineNumber: 117,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    id: "firstname",
+                                    name: "firstname",
+                                    maxLength: "50",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Registration/index.js",
+                                    lineNumber: 118,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    htmlFor: "email",
+                                    children: "Email * :"
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Registration/index.js",
+                                    lineNumber: 127,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "email",
+                                    id: "email",
+                                    name: "email",
+                                    maxLength: "254",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Registration/index.js",
+                                    lineNumber: 128,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _passwordInputDefault.default), {}, void 0, false, {
+                                    fileName: "SRC/components/Registration/index.js",
+                                    lineNumber: 135,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    type: "submit",
+                                    className: "blue_button",
+                                    children: "S'inscrire"
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Registration/index.js",
+                                    lineNumber: 137,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 103,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "redirection_button",
+                            children: "J'ai d\xe9j\xe0 un compte"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 145,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            type: "button",
+                            onClick: goLogin,
+                            className: "grey_button",
+                            children: "Me connecter"
+                        }, void 0, false, {
+                            fileName: "SRC/components/Registration/index.js",
+                            lineNumber: 146,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "SRC/components/Registration/index.js",
+                    lineNumber: 99,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 96,
+                lineNumber: 98,
                 columnNumber: 13
             }, this)
         ]
@@ -63256,7 +63269,7 @@ $RefreshReg$(_c, "Registration");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../NavHome":"8DCBt","./PasswordInput":"4Q2t3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4Q2t3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../NavHome":"8DCBt","./PasswordInput":"4Q2t3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"dqyNg"}],"4Q2t3":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e21d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -63269,6 +63282,7 @@ parcelHelpers.export(exports, "default", ()=>PasswordInput);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _styleScss = require("./style.scss");
 var _s = $RefreshSig$();
 function PasswordInput() {
     _s();
@@ -63298,40 +63312,51 @@ function PasswordInput() {
         setShowPassword(!showPassword);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "password",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 htmlFor: "password",
                 children: "Mot de passe * :"
             }, void 0, false, {
                 fileName: "SRC/components/Registration/PasswordInput/index.js",
-                lineNumber: 36,
+                lineNumber: 38,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: showPassword ? "text" : "password",
-                id: "password",
-                name: "password",
-                value: password,
-                onChange: handleChange,
-                minLength: "12",
-                maxLength: "64",
-                required: true
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pwd_and_button",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: showPassword ? "text" : "password",
+                        id: "password",
+                        name: "password",
+                        value: password,
+                        onChange: handleChange,
+                        minLength: "12",
+                        maxLength: "64",
+                        required: true
+                    }, void 0, false, {
+                        fileName: "SRC/components/Registration/PasswordInput/index.js",
+                        lineNumber: 40,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        type: "button",
+                        onClick: toggleShowPassword,
+                        "aria-label": showPassword ? "Cacher le mot de passe" : "Afficher le mot de passe",
+                        children: showPassword ? "Cacher" : "Afficher"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Registration/PasswordInput/index.js",
+                        lineNumber: 51,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "SRC/components/Registration/PasswordInput/index.js",
-                lineNumber: 37,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                type: "button",
-                onClick: toggleShowPassword,
-                "aria-label": showPassword ? "Cacher le mot de passe" : "Afficher le mot de passe",
-                children: showPassword ? "Cacher" : "Afficher"
-            }, void 0, false, {
-                fileName: "SRC/components/Registration/PasswordInput/index.js",
-                lineNumber: 48,
+                lineNumber: 39,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                className: "validator",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                         style: {
@@ -63343,7 +63368,7 @@ function PasswordInput() {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Registration/PasswordInput/index.js",
-                        lineNumber: 53,
+                        lineNumber: 57,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -63356,7 +63381,7 @@ function PasswordInput() {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Registration/PasswordInput/index.js",
-                        lineNumber: 56,
+                        lineNumber: 60,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -63369,7 +63394,7 @@ function PasswordInput() {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Registration/PasswordInput/index.js",
-                        lineNumber: 59,
+                        lineNumber: 63,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -63382,19 +63407,19 @@ function PasswordInput() {
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Registration/PasswordInput/index.js",
-                        lineNumber: 62,
+                        lineNumber: 66,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Registration/PasswordInput/index.js",
-                lineNumber: 52,
+                lineNumber: 56,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/Registration/PasswordInput/index.js",
-        lineNumber: 35,
+        lineNumber: 36,
         columnNumber: 9
     }, this);
 }
@@ -63408,7 +63433,7 @@ $RefreshReg$(_c, "PasswordInput");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fVCjh":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"bkbiO"}],"bkbiO":[function() {},{}],"dqyNg":[function() {},{}],"fVCjh":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9e3d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

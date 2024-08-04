@@ -57,21 +57,31 @@
   color: #fff;
 }
 
+.cards_section {
+  justify-content: center;
+  display: flex;
+}
+
 .allCards {
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 90%;
   display: flex;
 }
 
 @media screen and (width >= 60rem) {
   .allCards {
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    display: flex;
   }
 }
 
 @media screen and (width >= 90rem) {
   .allCards {
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    display: flex;
   }
 }
 
@@ -431,5 +441,116 @@ body.react-confirm-alert-body-element {
   to {
     opacity: 1;
   }
+}
+
+.password {
+  margin-top: 10px;
+}
+
+.password .pwd_and_button {
+  display: flex;
+}
+
+.password .pwd_and_button button {
+  color: #494848;
+  background-color: #e0d9d9;
+  border-radius: 10px;
+  max-width: fit-content;
+  margin-left: 5px;
+  padding: 2px 5px;
+  transition: background-color .3s;
+}
+
+.password .pwd_and_button button:hover {
+  color: #fff;
+  background-color: #696868;
+}
+
+.password .validator {
+  font-size: .7rem;
+}
+
+body {
+  background-color: #ff7b00;
+}
+
+.registration {
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+  display: flex;
+}
+
+.registration .box_registration {
+  background-color: #fff;
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+  padding: 20px 40px 40px;
+  display: flex;
+}
+
+@media screen and (width >= 90rem) {
+  .registration .box_registration {
+    width: 32rem;
+  }
+}
+
+.registration .box_registration h2 {
+  letter-spacing: .1em;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.registration .box_registration .formRegistration {
+  background-color: #fff;
+  flex-direction: column;
+  display: flex;
+}
+
+.registration .box_registration .formRegistration label {
+  margin-top: 10px;
+}
+
+.registration .box_registration .formRegistration input {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.registration .box_registration .formRegistration .blue_button {
+  color: #fff;
+  background-color: #008cff;
+  border-radius: 10px;
+  align-self: center;
+  max-width: fit-content;
+  margin-top: 20px;
+  padding: 5px 10px;
+  transition: background-color .3s;
+  display: flex;
+}
+
+.registration .box_registration .formRegistration .blue_button:hover {
+  background-color: #0068bd;
+}
+
+.registration .box_registration .grey_button {
+  color: #494848;
+  background-color: #e0d9d9;
+  border-radius: 10px;
+  max-width: fit-content;
+  padding: 5px 10px;
+  transition: background-color .3s;
+}
+
+.registration .box_registration .grey_button:hover {
+  color: #fff;
+  background-color: #696868;
+}
+
+.registration .box_registration .redirection_button {
+  border-top: 1px solid #000;
+  margin-top: 50px;
+  padding-top: 20px;
 }
 /*# sourceMappingURL=index.2a934962.css.map */

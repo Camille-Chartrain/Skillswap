@@ -1,0 +1,18 @@
+@use '../../../style/var';
+@use '../../../style/mixin';
+
+.password{
+    margin-top: 10px;
+    
+    .pwd_and_button{
+        display: flex;
+
+        button{
+            @include mixin.small-button_grey;
+            margin-left: 5px;
+        }
+    }
+    .validator{
+        font-size: 0.7rem;
+    }
+}
