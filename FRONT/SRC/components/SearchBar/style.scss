@@ -12,7 +12,7 @@
 
     @include mixin.big {
         position: fixed;
-    
+        border-top: 1px solid var.$soft-grey-color;
         display: flex;
         flex-direction: row;
         justify-content: center;
