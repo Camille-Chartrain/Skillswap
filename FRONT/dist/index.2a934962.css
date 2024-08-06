@@ -584,8 +584,22 @@ body.react-confirm-alert-body-element {
 
 .all_cards .title_skills {
   text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+@media screen and (width >= 60rem) {
+  .all_cards .title_skills {
+    padding-bottom: 3rem;
+  }
+}
+
+@media screen and (width >= 90rem) {
+  .all_cards .title_skills {
+    padding-bottom: 3rem;
+  }
 }
 
 .all_cards .cards_skills {
@@ -624,13 +638,17 @@ body.react-confirm-alert-body-element {
 
 @media screen and (width >= 60rem) {
   .all_cards .cards_skills .card {
-    width: 30%;
+    width: 26rem;
+    margin-top: .5rem;
+    margin-right: .5rem;
   }
 }
 
 @media screen and (width >= 90rem) {
   .all_cards .cards_skills .card {
-    max-width: 26rem;
+    width: 23rem;
+    margin-top: .5rem;
+    margin-right: .5rem;
   }
 }
 

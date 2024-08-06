@@ -17,6 +17,16 @@
         font-size: 1.5rem;
         font-weight: bold;
         text-align: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        @include mixin.medium {
+            padding-bottom: 3rem;
+        }
+
+        @include mixin.big {
+            padding-bottom: 3rem;
+        }
     }
     .cards_skills{
         display: flex;
@@ -49,11 +59,15 @@
             flex-direction: column;
     
             @include mixin.medium {
-                width: 30%;
+                width: 26rem;
+                margin-right: 0.5rem;
+                margin-top: 0.5rem;
             }
         
             @include mixin.big {
-                max-width: 26rem;
+                width: 23rem;
+                margin-right: 0.5rem;
+                margin-top: 0.5rem;
             }
     
             .buttons{
