@@ -62911,13 +62911,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
             className: "skillUpDate",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                        children: "Cr\xe9ation de competence"
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
-                        lineNumber: 86,
-                        columnNumber: 25
-                    }, this)
+                    children: "Cr\xe9ation competence"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
                     lineNumber: 86,

@@ -613,6 +613,14 @@ body.react-confirm-alert-body-element {
   }
 }
 
+.profile form select {
+  border: 1px solid #e0d9d9;
+  border-radius: 10px;
+  max-width: 200px;
+  margin-bottom: .7rem;
+  padding: .6rem;
+}
+
 .profile form fieldset {
   flex-direction: column;
   display: flex;
@@ -638,6 +646,11 @@ body.react-confirm-alert-body-element {
   border-radius: 10px;
   margin-bottom: 1rem;
   padding: 9px;
+}
+
+.profile form fieldset textarea {
+  border: 1px solid #e0d9d9;
+  border-radius: 10px;
 }
 
 .profile form fieldset button {

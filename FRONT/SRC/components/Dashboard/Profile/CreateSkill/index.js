@@ -83,7 +83,7 @@ export default function CreateSkill(
             className="updateAskill">
 
             <fieldset className="skillUpDate">
-                <legend><h3>Création de competence</h3></legend>
+                <legend>Création competence</legend>
 
                 <label htmlFor="title">Titre * :</label>
                 <input
