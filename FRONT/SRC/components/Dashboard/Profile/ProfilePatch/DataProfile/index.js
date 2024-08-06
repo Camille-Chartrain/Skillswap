@@ -55,7 +55,7 @@ export default function DataProfile({
     return (
 
         <>
-            <label htmlFor="firstname">Prénom* :</label>
+            <label htmlFor="firstname">Prénom * :</label>
             <input
                 id="firstname"
                 type="text"
@@ -66,7 +66,7 @@ export default function DataProfile({
                 onChange={handleChange}
             />
 
-            <label htmlFor="lastname">Nom* :</label>
+            <label htmlFor="lastname">Nom * :</label>
             <input
                 id="lastname"
                 type="text"
@@ -87,7 +87,7 @@ export default function DataProfile({
                 onChange={handleChange}
             />
 
-            <label htmlFor="grade_level">Niveau d'etude :</label>
+            <label htmlFor="grade_level">Niveau d'étude :</label>
             <input
                 id="grade_level"
                 type="text"
@@ -97,7 +97,7 @@ export default function DataProfile({
                 onChange={handleChange}
             />
 
-            <label htmlFor="presentation">Presentez vous :</label>
+            <label htmlFor="presentation">Présentez-vous :</label>
             <textarea
                 id="presentation"
                 name="presentation"

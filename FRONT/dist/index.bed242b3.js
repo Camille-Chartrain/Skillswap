@@ -62039,7 +62039,6 @@ var _dataProfile = require("./DataProfile");
 var _dataProfileDefault = parcelHelpers.interopDefault(_dataProfile);
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _styleScss = require("./style.scss");
 function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, selectedCategories, setSelectedCategories }) {
     const handleSubmit = async (event)=>{
         event.preventDefault();
@@ -62143,7 +62142,7 @@ $RefreshReg$(_c, "ProfilePatch");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./CategoriesCheckboxes":"2ckmV","./DataProfile":"fYm9F","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"iWiW9"}],"2ckmV":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./CategoriesCheckboxes":"2ckmV","./DataProfile":"fYm9F","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2ckmV":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ce37 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -62302,7 +62301,7 @@ function DataProfile({ setLoading, dataProfile, setDataProfile, setSelectedCateg
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 htmlFor: "firstname",
-                children: "Pr\xe9nom* :"
+                children: "Pr\xe9nom * :"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/ProfilePatch/DataProfile/index.js",
                 lineNumber: 58,
@@ -62323,7 +62322,7 @@ function DataProfile({ setLoading, dataProfile, setDataProfile, setSelectedCateg
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 htmlFor: "lastname",
-                children: "Nom* :"
+                children: "Nom * :"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/ProfilePatch/DataProfile/index.js",
                 lineNumber: 69,
@@ -62364,7 +62363,7 @@ function DataProfile({ setLoading, dataProfile, setDataProfile, setSelectedCateg
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 htmlFor: "grade_level",
-                children: "Niveau d'etude :"
+                children: "Niveau d'\xe9tude :"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/ProfilePatch/DataProfile/index.js",
                 lineNumber: 90,
@@ -62384,7 +62383,7 @@ function DataProfile({ setLoading, dataProfile, setDataProfile, setSelectedCateg
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 htmlFor: "presentation",
-                children: "Presentez vous :"
+                children: "Pr\xe9sentez-vous :"
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/ProfilePatch/DataProfile/index.js",
                 lineNumber: 100,
@@ -62415,7 +62414,7 @@ $RefreshReg$(_c, "DataProfile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iWiW9":[function() {},{}],"bOaxI":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bOaxI":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a0c6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -62432,6 +62431,7 @@ var _reactConfirmAlert = require("react-confirm-alert"); // Import the library
 var _reactConfirmAlertCss = require("react-confirm-alert/src/react-confirm-alert.css"); // Import the css
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _styleScss = require("./style.scss");
 var _s = $RefreshSig$();
 function CardsSkills({ loading, setLoading, skills, getSkills }) {
     _s();
@@ -62487,94 +62487,117 @@ function CardsSkills({ loading, setLoading, skills, getSkills }) {
         });
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Chargement..."
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                lineNumber: 77,
-                columnNumber: 25
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-                children: skills?.map((skill)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
-                        className: "",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                className: "",
-                                children: [
-                                    skill?.title,
-                                    " "
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 85,
-                                columnNumber: 25
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: skill?.level
-                            }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 86,
-                                columnNumber: 25
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: skill?.Category.name
-                            }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 87,
-                                columnNumber: 25
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: skill?.SubCategory.name
-                            }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 88,
-                                columnNumber: 25
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: skill?.createdAt
-                            }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 89,
-                                columnNumber: 25
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                className: "",
-                                // type "button" n'a pas de comportement prédéfini => pour exécuter une action personnalisée JS.
-                                type: "button",
-                                "aria-label": "modifier la comp\xe9tence",
-                                // fonction fléchée pour ne pas executer la fonction directement
-                                onClick: ()=>handlePatchSkill(skill),
-                                children: "MODIFIER"
-                            }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 91,
-                                columnNumber: 25
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                className: "",
-                                "aria-label": "supprimer la comp\xe9tence",
-                                onClick: ()=>handleDeleteSkill(skill),
-                                type: "button",
-                                children: "SUPPRIMER"
-                            }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                                lineNumber: 102,
-                                columnNumber: 25
-                            }, this)
-                        ]
-                    }, skill?.id, true, {
-                        fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                        lineNumber: 81,
-                        columnNumber: 21
-                    }, this))
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
-                lineNumber: 78,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true);
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "all_cards",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    className: "title_skills",
+                    children: "Vos comp\xe9tences"
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                    lineNumber: 79,
+                    columnNumber: 17
+                }, this),
+                loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: "Chargement..."
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                    lineNumber: 80,
+                    columnNumber: 29
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+                    className: "cards_skills",
+                    children: skills?.map((skill)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
+                            className: "card",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                    className: "",
+                                    children: [
+                                        skill?.title,
+                                        " "
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                                    lineNumber: 88,
+                                    columnNumber: 29
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    children: skill?.level
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                                    lineNumber: 89,
+                                    columnNumber: 29
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    children: skill?.Category.name
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                                    lineNumber: 90,
+                                    columnNumber: 29
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    children: skill?.SubCategory.name
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                                    lineNumber: 91,
+                                    columnNumber: 29
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    children: skill?.createdAt
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                                    lineNumber: 92,
+                                    columnNumber: 29
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "buttons",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                            // type "button" n'a pas de comportement prédéfini => pour exécuter une action personnalisée JS.
+                                            type: "button",
+                                            "aria-label": "modifier la comp\xe9tence",
+                                            // fonction fléchée pour ne pas executer la fonction directement
+                                            onClick: ()=>handlePatchSkill(skill),
+                                            children: "MODIFIER"
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                                            lineNumber: 94,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                            "aria-label": "supprimer la comp\xe9tence",
+                                            onClick: ()=>handleDeleteSkill(skill),
+                                            type: "button",
+                                            children: "SUPPRIMER"
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                                            lineNumber: 104,
+                                            columnNumber: 33
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                                    lineNumber: 93,
+                                    columnNumber: 29
+                                }, this)
+                            ]
+                        }, skill?.id, true, {
+                            fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                            lineNumber: 84,
+                            columnNumber: 25
+                        }, this))
+                }, void 0, false, {
+                    fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+                    lineNumber: 81,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "SRC/components/Dashboard/Profile/CardsSkills/index.js",
+            lineNumber: 78,
+            columnNumber: 13
+        }, this)
+    }, void 0, false);
 }
 _s(CardsSkills, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
     return [
@@ -62590,7 +62613,7 @@ $RefreshReg$(_c, "CardsSkills");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","react-confirm-alert":"c1JOB","react-confirm-alert/src/react-confirm-alert.css":"81Zmr","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"c1JOB":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","react-confirm-alert":"c1JOB","react-confirm-alert/src/react-confirm-alert.css":"81Zmr","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"afcBC"}],"c1JOB":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -62840,7 +62863,7 @@ function confirmAlert(properties) {
     createElementReconfirm(properties);
 }
 
-},{"519f0ac8a347dac6":"21dqq","ce77b7fc3324c7e2":"7wKI2","b1d64730787307fc":"lOjBx"}],"81Zmr":[function() {},{}],"2JxV8":[function(require,module,exports) {
+},{"519f0ac8a347dac6":"21dqq","ce77b7fc3324c7e2":"7wKI2","b1d64730787307fc":"lOjBx"}],"81Zmr":[function() {},{}],"afcBC":[function() {},{}],"2JxV8":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2280 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -62911,7 +62934,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
             className: "skillUpDate",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                    children: "Cr\xe9ation competence"
+                    children: "Cr\xe9ation comp\xe9tence"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
                     lineNumber: 86,
@@ -62963,7 +62986,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                     htmlFor: "duration",
-                    children: "Duree * :"
+                    children: "Dur\xe9e * :"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
                     lineNumber: 113,
@@ -63019,7 +63042,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                     htmlFor: "availability",
-                    children: "Disponibilite * :"
+                    children: "Disponibilit\xe9 * :"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/CreateSkill/index.js",
                     lineNumber: 139,

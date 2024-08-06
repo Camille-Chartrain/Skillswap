@@ -1,0 +1,73 @@
+@use "../../../../style/var";
+@use "../../../../style/mixin";
+
+.all_cards{
+    background-color: var.$background-color;
+    width: 90%;
+    border-radius: 10px;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title_skills{
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+    }
+    .cards_skills{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    
+        @include mixin.medium {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+    
+        @include mixin.big {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+    
+        .card{
+            background-color: var.$background-color;
+            border-radius: 10px;
+            border: 1px solid var.$xtra-soft-grey;
+            margin-top: 2rem;
+            padding: 2rem;
+            max-width: 26rem;
+            display: flex;
+            flex-direction: column;
+    
+            @include mixin.medium {
+                width: 30%;
+            }
+        
+            @include mixin.big {
+                max-width: 26rem;
+            }
+    
+            .buttons{
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 20px;  
+    
+                button{
+                    @include mixin.button_blue;   
+                    margin-left: 0.5rem;           
+                }
+            }
+        }
+    }
+        
+}
+

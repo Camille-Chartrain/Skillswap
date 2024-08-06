@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { confirmAlert } from 'react-confirm-alert'; // Import the library
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the css
 import Cookies from 'js-cookie';
+import "./style.scss";
 
 
 export default function CardsSkills(
@@ -74,44 +75,46 @@ export default function CardsSkills(
 
     return (
         <>
-            {loading && <p>Chargement...</p>}
-            <section>
-                {skills?.map((skill) => (
+            <div className="all_cards">
+                <h3 className="title_skills">Vos compétences</h3>
+                {loading && <p>Chargement...</p>}
+                <section className="cards_skills">
+                    {skills?.map((skill) => (
 
-                    <article
-                        key={skill?.id}
-                        className="">
+                        <article
+                            key={skill?.id}
+                            className="card">
 
-                        <h3 className="">{skill?.title} </h3>
-                        <p>{skill?.level}</p>
-                        <p>{skill?.Category.name}</p>
-                        <p>{skill?.SubCategory.name}</p>
-                        <p>{skill?.createdAt}</p>
+                            <h3 className="">{skill?.title} </h3>
+                            <p>{skill?.level}</p>
+                            <p>{skill?.Category.name}</p>
+                            <p>{skill?.SubCategory.name}</p>
+                            <p>{skill?.createdAt}</p>
+                            <div className="buttons">
+                                <button
+                                    // type "button" n'a pas de comportement prédéfini => pour exécuter une action personnalisée JS.
+                                    type="button"
+                                    aria-label="modifier la compétence"
+                                    // fonction fléchée pour ne pas executer la fonction directement
+                                    onClick={() => handlePatchSkill(skill)}
+                                >
+                                    MODIFIER
+                                </button>
 
-                        <button
-                            className=""
-                            // type "button" n'a pas de comportement prédéfini => pour exécuter une action personnalisée JS.
-                            type="button"
-                            aria-label="modifier la compétence"
-                            // fonction fléchée pour ne pas executer la fonction directement
-                            onClick={() => handlePatchSkill(skill)}
-                        >
-                            MODIFIER
-                        </button>
+                                <button
+                                    aria-label="supprimer la compétence"
+                                    onClick={() => handleDeleteSkill(skill)}
+                                    type="button"
+                                >
+                                    SUPPRIMER
+                                </button>
+                            </div>
 
-                        <button
-                            className=""
-                            aria-label="supprimer la compétence"
-                            onClick={() => handleDeleteSkill(skill)}
-                            type="button"
-                        >
-                            SUPPRIMER
-                        </button>
-
-                    </article >
-                ))
-                }
-            </section>
+                        </article >
+                    ))
+                    }
+                </section>
+            </div>
         </>
     )
 }

@@ -83,7 +83,7 @@ export default function CreateSkill(
             className="updateAskill">
 
             <fieldset className="skillUpDate">
-                <legend>Création competence</legend>
+                <legend>Création compétence</legend>
 
                 <label htmlFor="title">Titre * :</label>
                 <input
@@ -110,7 +110,7 @@ export default function CreateSkill(
                     optionsHTML={optionsHTML}
                 />
 
-                <label htmlFor="duration">Duree * :</label>
+                <label htmlFor="duration">Durée * :</label>
                 <input
                     id="duration"
                     type="text"
@@ -136,7 +136,7 @@ export default function CreateSkill(
                     required
                 />
 
-                <label htmlFor="availability">Disponibilite * :</label>
+                <label htmlFor="availability">Disponibilité * :</label>
                 <input
                     id="availability"
                     type="text"

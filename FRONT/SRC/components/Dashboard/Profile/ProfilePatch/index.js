@@ -3,7 +3,7 @@ import { React } from "react";
 import CategoriesCheckboxes from "./CategoriesCheckboxes";
 import DataProfile from "./DataProfile";
 import Cookies from 'js-cookie';
-import "./style.scss";
+
 
 
 
