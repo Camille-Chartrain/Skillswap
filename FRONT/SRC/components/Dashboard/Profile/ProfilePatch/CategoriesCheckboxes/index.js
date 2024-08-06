@@ -56,8 +56,9 @@ export default function CategoriesCheckboxes({
 
 
     return (
-        <>
-            {/* {loading && <p>chargement...</p>} */}
+
+        <fieldset>
+            <legend className="cat_choices">Centre d'intérets:</legend>
             {categories && categories.length > 0 && categories.map((category) => {
                 console.log('Category ID:', typeof category.id); // Log the ID
                 return (
@@ -74,6 +75,6 @@ export default function CategoriesCheckboxes({
                     </label>
                 );
             })}
-        </>
+        </fieldset>
     )
 }

@@ -3,6 +3,7 @@ import ProfilePatch from "./ProfilePatch";
 import Cookies from 'js-cookie';
 import CardsSkills from "./CardsSkills";
 import CreateSkill from "./CreateSkill";
+import "./style.scss";
 
 
 
@@ -68,33 +69,31 @@ export default function Profile(
 
 
     return (
-        <>
-            <h2>
-                Profil
-            </h2>
-            <ProfilePatch
-                selectedCategories={selectedCategories}
-                setSelectedCategories={setSelectedCategories}
-                loading={loading}
-                setLoading={setLoading}
-                dataProfile={dataProfile}
-                setDataProfile={setDataProfile}
-            />
+        <div className="profile">
+            <div className="profile_skill">
+                <ProfilePatch
+                    selectedCategories={selectedCategories}
+                    setSelectedCategories={setSelectedCategories}
+                    loading={loading}
+                    setLoading={setLoading}
+                    dataProfile={dataProfile}
+                    setDataProfile={setDataProfile}
+                />
 
-            <CreateSkill
-                loading={loading}
-                setLoading={setLoading}
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                selectedSubCategory={selectedSubCategory}
-                setSelectedSubCategory={setSelectedSubCategory}
-                selectedLevel={selectedLevel}
-                setSelectedLevel={setSelectedLevel}
-                optionsHTML={optionsHTML}
-                setOptionsHTML={setOptionsHTML}
-                getSkills={getSkills}
-            />
-
+                <CreateSkill
+                    loading={loading}
+                    setLoading={setLoading}
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+                    selectedSubCategory={selectedSubCategory}
+                    setSelectedSubCategory={setSelectedSubCategory}
+                    selectedLevel={selectedLevel}
+                    setSelectedLevel={setSelectedLevel}
+                    optionsHTML={optionsHTML}
+                    setOptionsHTML={setOptionsHTML}
+                    getSkills={getSkills}
+                />
+            </div>
             <CardsSkills
                 loading={loading}
                 setLoading={setLoading}
@@ -109,6 +108,6 @@ export default function Profile(
                 skills={skills}
                 getSkills={getSkills}
             />
-        </>
+        </div>
     )
 }

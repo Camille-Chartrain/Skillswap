@@ -61903,6 +61903,7 @@ var _cardsSkills = require("./CardsSkills");
 var _cardsSkillsDefault = parcelHelpers.interopDefault(_cardsSkills);
 var _createSkill = require("./CreateSkill");
 var _createSkillDefault = parcelHelpers.interopDefault(_createSkill);
+var _styleScss = require("./style.scss");
 var _s = $RefreshSig$();
 function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML, setOptionsHTML }) {
     _s();
@@ -61944,42 +61945,45 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
     (0, _react.useEffect)(()=>{
         getSkills();
     }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "profile",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: "Profil"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "profile_skill",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profilePatchDefault.default), {
+                        selectedCategories: selectedCategories,
+                        setSelectedCategories: setSelectedCategories,
+                        loading: loading,
+                        setLoading: setLoading,
+                        dataProfile: dataProfile,
+                        setDataProfile: setDataProfile
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/index.js",
+                        lineNumber: 74,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _createSkillDefault.default), {
+                        loading: loading,
+                        setLoading: setLoading,
+                        selectedCategory: selectedCategory,
+                        setSelectedCategory: setSelectedCategory,
+                        selectedSubCategory: selectedSubCategory,
+                        setSelectedSubCategory: setSelectedSubCategory,
+                        selectedLevel: selectedLevel,
+                        setSelectedLevel: setSelectedLevel,
+                        optionsHTML: optionsHTML,
+                        setOptionsHTML: setOptionsHTML,
+                        getSkills: getSkills
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/index.js",
+                        lineNumber: 83,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 72,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profilePatchDefault.default), {
-                selectedCategories: selectedCategories,
-                setSelectedCategories: setSelectedCategories,
-                loading: loading,
-                setLoading: setLoading,
-                dataProfile: dataProfile,
-                setDataProfile: setDataProfile
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 75,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _createSkillDefault.default), {
-                loading: loading,
-                setLoading: setLoading,
-                selectedCategory: selectedCategory,
-                setSelectedCategory: setSelectedCategory,
-                selectedSubCategory: selectedSubCategory,
-                setSelectedSubCategory: setSelectedSubCategory,
-                selectedLevel: selectedLevel,
-                setSelectedLevel: setSelectedLevel,
-                optionsHTML: optionsHTML,
-                setOptionsHTML: setOptionsHTML,
-                getSkills: getSkills
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 84,
+                lineNumber: 73,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsSkillsDefault.default), {
@@ -61997,11 +62001,15 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
                 getSkills: getSkills
             }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 98,
+                lineNumber: 97,
                 columnNumber: 13
             }, this)
         ]
-    }, void 0, true);
+    }, void 0, true, {
+        fileName: "SRC/components/Dashboard/Profile/index.js",
+        lineNumber: 72,
+        columnNumber: 9
+    }, this);
 }
 _s(Profile, "hN4/NGFXWbK716tESbinUKi2ulg=");
 _c = Profile;
@@ -62013,7 +62021,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","js-cookie":"c8bBu","./CardsSkills":"bOaxI","./CreateSkill":"2JxV8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cLUE2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","js-cookie":"c8bBu","./CardsSkills":"bOaxI","./CreateSkill":"2JxV8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"dZlyp"}],"cLUE2":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1375 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -62031,6 +62039,7 @@ var _dataProfile = require("./DataProfile");
 var _dataProfileDefault = parcelHelpers.interopDefault(_dataProfile);
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _styleScss = require("./style.scss");
 function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, selectedCategories, setSelectedCategories }) {
     const handleSubmit = async (event)=>{
         event.preventDefault();
@@ -62066,13 +62075,14 @@ function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, select
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         method: "POST",
         onSubmit: handleSubmit,
+        className: "form",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
-                    children: "Modifier votre profil"
+                    children: "Modification profil"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-                    lineNumber: 66,
+                    lineNumber: 70,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dataProfileDefault.default), {
@@ -62084,7 +62094,7 @@ function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, select
                     setDataProfile: setDataProfile
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-                    lineNumber: 68,
+                    lineNumber: 72,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesCheckboxesDefault.default), {
@@ -62094,33 +62104,33 @@ function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, select
                     setLoading: setLoading
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-                    lineNumber: 77,
+                    lineNumber: 81,
                     columnNumber: 17
                 }, this),
                 loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: "chargement..."
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-                    lineNumber: 84,
+                    lineNumber: 88,
                     columnNumber: 29
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                     type: "submit",
-                    children: "Envoyer"
+                    children: "Valider"
                 }, void 0, false, {
                     fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-                    lineNumber: 86,
+                    lineNumber: 90,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-            lineNumber: 65,
+            lineNumber: 69,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "SRC/components/Dashboard/Profile/ProfilePatch/index.js",
-        lineNumber: 61,
+        lineNumber: 62,
         columnNumber: 9
     }, this);
 }
@@ -62133,7 +62143,7 @@ $RefreshReg$(_c, "ProfilePatch");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./CategoriesCheckboxes":"2ckmV","./DataProfile":"fYm9F","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2ckmV":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./CategoriesCheckboxes":"2ckmV","./DataProfile":"fYm9F","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"iWiW9"}],"2ckmV":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ce37 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -62187,32 +62197,46 @@ function CategoriesCheckboxes({ selectedCategories, setSelectedCategories, loadi
     (0, _react.useEffect)(()=>{
         getCategories();
     }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: categories && categories.length > 0 && categories.map((category)=>{
-            console.log("Category ID:", typeof category.id); // Log the ID
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        id: category.id,
-                        type: "checkbox",
-                        value: category.id,
-                        onChange: handleCheckboxChange,
-                        // includes renvoie une valeur booleenne donc je peux l'utiliser comme valeur de "checked"
-                        checked: selectedCategories.includes(category.id)
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/ProfilePatch/CategoriesCheckboxes/index.js",
-                        lineNumber: 65,
-                        columnNumber: 25
-                    }, this),
-                    category.name
-                ]
-            }, category.id, true, {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("fieldset", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("legend", {
+                className: "cat_choices",
+                children: "Centre d'int\xe9rets:"
+            }, void 0, false, {
                 fileName: "SRC/components/Dashboard/Profile/ProfilePatch/CategoriesCheckboxes/index.js",
-                lineNumber: 64,
-                columnNumber: 21
-            }, this);
-        })
-    }, void 0, false);
+                lineNumber: 61,
+                columnNumber: 13
+            }, this),
+            categories && categories.length > 0 && categories.map((category)=>{
+                console.log("Category ID:", typeof category.id); // Log the ID
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            id: category.id,
+                            type: "checkbox",
+                            value: category.id,
+                            onChange: handleCheckboxChange,
+                            // includes renvoie une valeur booleenne donc je peux l'utiliser comme valeur de "checked"
+                            checked: selectedCategories.includes(category.id)
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/Profile/ProfilePatch/CategoriesCheckboxes/index.js",
+                            lineNumber: 66,
+                            columnNumber: 25
+                        }, this),
+                        category.name
+                    ]
+                }, category.id, true, {
+                    fileName: "SRC/components/Dashboard/Profile/ProfilePatch/CategoriesCheckboxes/index.js",
+                    lineNumber: 65,
+                    columnNumber: 21
+                }, this);
+            })
+        ]
+    }, void 0, true, {
+        fileName: "SRC/components/Dashboard/Profile/ProfilePatch/CategoriesCheckboxes/index.js",
+        lineNumber: 60,
+        columnNumber: 9
+    }, this);
 }
 _s(CategoriesCheckboxes, "+ijgB8ROEl0Dkz53OTIi8GynN6s=");
 _c = CategoriesCheckboxes;
@@ -62391,7 +62415,7 @@ $RefreshReg$(_c, "DataProfile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bOaxI":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iWiW9":[function() {},{}],"bOaxI":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a0c6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -63048,7 +63072,7 @@ $RefreshReg$(_c, "CreateSkill");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","../../../SearchBar/Level":"8e1BU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"amOpm":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","../../../SearchBar/Level":"8e1BU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dZlyp":[function() {},{}],"amOpm":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d953 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

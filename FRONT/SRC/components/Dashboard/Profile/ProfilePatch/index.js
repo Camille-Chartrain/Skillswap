@@ -3,6 +3,7 @@ import { React } from "react";
 import CategoriesCheckboxes from "./CategoriesCheckboxes";
 import DataProfile from "./DataProfile";
 import Cookies from 'js-cookie';
+import "./style.scss";
 
 
 
@@ -58,12 +59,15 @@ export default function ProfilePatch(
 
 
     return (
-        <form method="POST"
-            onSubmit={handleSubmit}>
+        <form
+            method="POST"
+            onSubmit={handleSubmit}
+            className="form"
+        >
 
             {/* legend dans fieldset sert pour l'accessbilité => une légende pour un groupe de chammps */}
             <fieldset>
-                <legend>Modifier votre profil</legend>
+                <legend>Modification profil</legend>
 
                 <DataProfile
                     selectedCategories={selectedCategories}
@@ -83,7 +87,7 @@ export default function ProfilePatch(
 
                 {loading && <p>chargement...</p>}
 
-                <button type="submit">Envoyer</button>
+                <button type="submit">Valider</button>
             </fieldset>
         </form>
     )

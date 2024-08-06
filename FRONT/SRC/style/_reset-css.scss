@@ -57,9 +57,9 @@ button, input[type="button"], input[type="submit"] {
   }
 
   select, input {
-    appearance: none; /* Supprimer les styles par défaut spécifiques au navigateur */
-    -webkit-appearance: none; /* Pour les navigateurs Webkit comme Chrome */
-    -moz-appearance: none; /* Pour Firefox */
+    // appearance: none; /* Supprimer les styles par défaut spécifiques au navigateur */
+    // -webkit-appearance: none; /* Pour les navigateurs Webkit comme Chrome */
+    // -moz-appearance: none; /* Pour Firefox */
     // border: 1px solid #ccc; /* Ajouter une bordure simple */
     // border-radius: 10px; /* Ajouter un rayon de bordure si désiré */
     // background-color: #fff; /* Définir une couleur de fond */
@@ -74,4 +74,19 @@ button, input[type="button"], input[type="submit"] {
    
   select:not(:-internal-list-box) {
     overflow: hidden !important;
+}
+
+fieldset {
+  display: block;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-block-start: 0em;
+  padding-inline-start: 0em;
+  padding-inline-end: 0em;
+  padding-block-end: 0em;
+  min-inline-size: min-content;
+  border-width: 0px;
+  // border-style: groove;
+  // border-color: rgb(192, 192, 192);
+  // border-image: initial;
 }
