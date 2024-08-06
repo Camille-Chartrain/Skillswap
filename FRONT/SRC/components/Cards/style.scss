@@ -14,8 +14,7 @@
 .advertising{
         padding-top: 0px;
 
-        @include mixin.big {
-            
+        @include mixin.big {   
             padding-top: 100px;
         }
     }
@@ -34,18 +33,22 @@
     max-width: 90%;
     padding-top: 0px;
     // height: fit-content;
+    padding-bottom: 80px;
+
 
     @include mixin.medium {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: center;
+        padding-bottom: 80px;
     }
 
     @include mixin.big {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: center;
         padding-top: 0px;
+        padding-bottom: 100px;
     }
 
     .card{
