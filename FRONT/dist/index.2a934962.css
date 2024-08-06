@@ -485,13 +485,6 @@
   display: flex;
 }
 
-form {
-  flex-direction: column;
-  align-items: center;
-  margin-top: 7rem;
-  display: flex;
-}
-
 body.react-confirm-alert-body-element {
   overflow: hidden;
 }
@@ -579,7 +572,7 @@ body.react-confirm-alert-body-element {
 .profile {
   flex-direction: column;
   align-items: center;
-  margin-top: 7rem;
+  padding-top: 7rem;
   display: flex;
 }
 
@@ -604,6 +597,7 @@ body.react-confirm-alert-body-element {
   background-color: #fff;
   border-radius: 10px;
   width: 90%;
+  margin-bottom: 2rem;
   padding: 2rem;
 }
 
