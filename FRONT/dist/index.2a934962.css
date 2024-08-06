@@ -134,7 +134,24 @@
 }
 
 .allCards .card h3 {
-  font-size: 1.4rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  font-size: 1.1rem;
+  display: block;
+  overflow: hidden;
+}
+
+@media screen and (width >= 60rem) {
+  .allCards .card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (width >= 90rem) {
+  .allCards .card h3 {
+    font-size: 1.3rem;
+  }
 }
 
 @media screen and (width >= 60rem) {
@@ -212,6 +229,17 @@
 .allCards .card .boxContent {
   color: #000;
   margin-top: 0%;
+}
+
+.allCards .card .boxContent .description {
+  -webkit-line-clamp: 3;
+  text-overflow: ellipsis;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  overflow: hidden;
 }
 
 .allCards .card .boxButton {
@@ -630,6 +658,7 @@ body.react-confirm-alert-body-element {
   border: 1px solid #e0d9d9;
   border-radius: 10px;
   flex-direction: column;
+  width: 90%;
   max-width: 26rem;
   margin-top: 2rem;
   padding: 2rem;

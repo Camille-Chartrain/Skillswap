@@ -107,7 +107,7 @@ export default function Cards({
                             <div className="descrAndButton">
                                 <div className="boxContent">
                                     {/* <p>"{card.User.presentation}"</p> */}
-                                    <p>"{truncateString(card.description, 170)}"</p>
+                                    <p className="description">"{truncateString(card.description, 170)}"</p>
                                 </div>
 
                                 <div className="boxButton">

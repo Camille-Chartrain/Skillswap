@@ -35716,6 +35716,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "boxContent",
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                className: "description",
                                                 children: [
                                                     '"',
                                                     truncateString(card.description, 170),

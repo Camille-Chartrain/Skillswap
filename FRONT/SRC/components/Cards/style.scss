@@ -77,19 +77,33 @@
         }
 
         h3{
-            font-size: 1.4rem;
+            font-size: 1.1rem;
+            width: 100%; // Ensure the title takes up the full width of its parent
+    white-space: nowrap; // Prevent text from wrapping to the next line
+    overflow: hidden; // Hide overflow content
+    text-overflow: ellipsis; // Add ellipsis (...) for overflow text
+    display: block; // Ensure the element is a block element
+            
+            @include mixin.medium {
+                font-size: 1.3rem;
+            }
+
+            @include mixin.big {
+                font-size: 1.3rem;
+            }
         }
 
         @include mixin.medium {
             width: 40%;
             margin-top: 40px;
-    }
-    @include mixin.big {
-        width: 26rem;
-        margin-top: 30px;
-        margin-right: 6px;
-        margin-left: 6px;
-    }
+        }
+
+        @include mixin.big {
+            width: 26rem;
+            margin-top: 30px;
+            margin-right: 6px;
+            margin-left: 6px;
+        }
     
         img{
             width: 95px;
@@ -151,6 +165,17 @@
         .boxContent{
             margin-top: 0%;
             color: black;
+
+            .description{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3; // Number of lines to show
+                overflow: hidden; // Hide any overflow text
+                text-overflow: ellipsis; // Add ellipsis (...) to indicate overflow
+                white-space: normal; // Allow wrapping
+                line-height: 1.5; // Adjust line height if necessary
+                margin: 0; // Remove default margin
+            }
         }
 
         .boxButton{
