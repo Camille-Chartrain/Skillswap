@@ -20,7 +20,7 @@ body{
         flex-direction: column;  
         align-items: center;
         // max-width: 96%;
-        margin-bottom: 100px;
+        margin-bottom: 10rem;
 
         @include mixin.big {
             width: 32rem;
