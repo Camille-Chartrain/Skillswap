@@ -2,12 +2,17 @@
 @use "../../style/mixin";
 
 .logout{
-    
+
     .iconeLogout{
         height:18px; 
         border: 0.13rem solid var.$dark-grey-color;
         padding: 0.5rem 0.4rem;
         border-radius: 100%;
+        &:hover {
+            color: var.$metal-blue;
+            border: 0.13rem solid var.$metal-blue;
+            border-radius: 100%;
+        }
     }
 }       
 

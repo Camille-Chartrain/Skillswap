@@ -46,6 +46,11 @@
         align-items: center;
         margin-right: 0.7rem; 
 
+        @include mixin.big {   
+            width: 50%;
+            justify-content: space-around;
+        }
+
 
         .logo_dollar{
             display: flex;
@@ -75,11 +80,6 @@
         .nav_desktop{
             height:1.6rem; 
         }
-
-        // .icone:hover {
-        //     color: var.$metal-blue;
-        // }
-
         
         a {
             display: flex;
@@ -87,7 +87,16 @@
             align-items: center;
             color: var.$xtra-dark-grey;
             font-size: 0.7rem;
-                // padding: 14px 20px;
+            
+            @include mixin.small {   
+                display: none;
+            }
+            @include mixin.medium {   
+                display: none;
+            }
+            @include mixin.big {   
+                display: flex;
+            }
         }
                 
         a:hover {
@@ -95,16 +104,8 @@
         }
         
     }
-
-    // a:hover {
-    //     color: var.$metal-blue;
-    // }
 }
 
-
-@include mixin.big {   
-    
-}
 .nav_bottom {
     position: fixed;
     bottom: 0;

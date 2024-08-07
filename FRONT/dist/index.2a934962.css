@@ -345,6 +345,12 @@
   padding: .5rem .4rem;
 }
 
+.logout .iconeLogout:hover {
+  color: #06f;
+  border: .13rem solid #06f;
+  border-radius: 100%;
+}
+
 .navLogged {
   background-color: #fff;
   border-bottom: 1px solid #979292;
@@ -387,6 +393,13 @@
   display: flex;
 }
 
+@media screen and (width >= 90rem) {
+  .navLogged .logoUsers {
+    justify-content: space-around;
+    width: 50%;
+  }
+}
+
 .navLogged .logoUsers .logo_dollar {
   color: #1f1e1e;
   background-color: #ffe600;
@@ -421,6 +434,24 @@
   align-items: center;
   font-size: .7rem;
   display: flex;
+}
+
+@media screen and (width <= 60rem) {
+  .navLogged .logoUsers a {
+    display: none;
+  }
+}
+
+@media screen and (width >= 60rem) {
+  .navLogged .logoUsers a {
+    display: none;
+  }
+}
+
+@media screen and (width >= 90rem) {
+  .navLogged .logoUsers a {
+    display: flex;
+  }
 }
 
 .navLogged .logoUsers a:hover {
