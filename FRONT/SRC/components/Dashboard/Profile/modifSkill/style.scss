@@ -31,7 +31,8 @@
         .fieldset{
             display: flex;
             flex-direction: column;
-            align-content: center;
+            align-items: center;
+            width: 100%;
 
             legend{
                 font-size: 1.2rem;
@@ -40,8 +41,9 @@
                 padding-bottom: 2rem;
             }
 
-            label, input, select {
+            label, input, select, textarea{
                 width: 90%;
+                padding: 0.5rem
             }
 
             input, textarea, select{
@@ -51,23 +53,20 @@
                 padding: 0.5rem
             }
 
-            // input{
-            //     border: 1px solid var.$xtra-soft-grey;
-            //     border-radius: 10px;
-            //     padding: 0.5rem
-            // }
+            .description{
+                height: 10rem;
+            }
 
             button{
                 @include mixin.button_blue;
                 display: flex;
                 align-self: center;
                 margin-top: 1rem;
-            }
-            
+            }   
         }
     }
-
 }
+
 
 
 

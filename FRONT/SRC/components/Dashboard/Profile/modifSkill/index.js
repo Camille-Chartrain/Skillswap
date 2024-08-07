@@ -49,6 +49,10 @@ export default function ModifSkill({
         }));
     }
 
+    async function handleClick() {
+        console.log("dans le handleClick modifskill");
+        navigate('/dashboard/profile');
+    }
 
     async function handleSubmit(event) {
         event.preventDefault()
@@ -157,17 +161,23 @@ export default function ModifSkill({
                         />
 
                         <label htmlFor="transmission"> Mode de transmission * :</label>
-                        {/* <SearchTransmission  /> */}
+                        <textarea
+                            id="transmission"
+                            type="text"
+                            name="transmission"
+                            value={skillData.transmission}
+                            onChange={handleChange}
+                            required
+                        />
 
                         <label htmlFor="description">Descriptif * :</label>
                         <textarea
+                            className='description'
                             id="description"
                             type="text"
                             name="description"
                             value={skillData.description}
                             onChange={handleChange}
-                            rows="5"
-                            cols="33"
                             required
                         />
 
@@ -184,9 +194,16 @@ export default function ModifSkill({
 
 
                         <button
+                            type="button"
+                            onClick={handleClick}
+                        >
+                            Annuler
+                        </button>
+
+                        <button
                             type="submit"
                         >
-                            VALIDER
+                            Valider
                         </button>
 
                     </fieldset>

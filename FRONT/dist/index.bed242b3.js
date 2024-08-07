@@ -64219,6 +64219,10 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                 [name]: value
             }));
     }
+    async function handleClick() {
+        console.log("dans le handleClick modifskill");
+        navigate("/dashboard/profile");
+    }
     async function handleSubmit(event) {
         event.preventDefault();
         console.log("dans le handlesubmit modifskill");
@@ -64271,7 +64275,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         children: "Modification comp\xe9tence"
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 118,
+                        lineNumber: 122,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -64279,7 +64283,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         children: "Titre * :"
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 121,
+                        lineNumber: 125,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -64291,7 +64295,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         required: true
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 122,
+                        lineNumber: 126,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
@@ -64300,7 +64304,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         optionsHTML: optionsHTML
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 131,
+                        lineNumber: 135,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
@@ -64309,7 +64313,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         optionsHTML: optionsHTML
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 137,
+                        lineNumber: 141,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
@@ -64317,7 +64321,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         optionsHTML: optionsHTML
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 143,
+                        lineNumber: 147,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -64325,7 +64329,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         children: "Duree * :"
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 149,
+                        lineNumber: 153,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -64337,7 +64341,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         required: true
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 150,
+                        lineNumber: 154,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -64345,7 +64349,19 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         children: " Mode de transmission * :"
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 159,
+                        lineNumber: 163,
+                        columnNumber: 25
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                        id: "transmission",
+                        type: "text",
+                        name: "transmission",
+                        value: skillData.transmission,
+                        onChange: handleChange,
+                        required: true
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                        lineNumber: 164,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -64353,21 +64369,20 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         children: "Descriptif * :"
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 162,
+                        lineNumber: 173,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                        className: "description",
                         id: "description",
                         type: "text",
                         name: "description",
                         value: skillData.description,
                         onChange: handleChange,
-                        rows: "5",
-                        cols: "33",
                         required: true
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 163,
+                        lineNumber: 174,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -64375,7 +64390,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         children: "Disponibilit\xe9 * :"
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 174,
+                        lineNumber: 184,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -64388,37 +64403,46 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         required: true
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 175,
+                        lineNumber: 185,
+                        columnNumber: 25
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        type: "button",
+                        onClick: handleClick,
+                        children: "Annuler"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                        lineNumber: 196,
                         columnNumber: 25
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         type: "submit",
-                        children: "VALIDER"
+                        children: "Valider"
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 186,
+                        lineNumber: 203,
                         columnNumber: 25
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                lineNumber: 117,
+                lineNumber: 121,
                 columnNumber: 21
             }, this)
         }, void 0, false, {
             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-            lineNumber: 111,
+            lineNumber: 115,
             columnNumber: 17
         }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
             children: "Aucune comp\xe9tence trouv\xe9e."
         }, void 0, false, {
             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-            lineNumber: 196,
+            lineNumber: 213,
             columnNumber: 17
         }, this)
     }, void 0, false, {
         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-        lineNumber: 107,
+        lineNumber: 111,
         columnNumber: 9
     }, this);
 }

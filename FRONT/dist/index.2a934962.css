@@ -1099,7 +1099,8 @@ body {
 
 .modif_skill .form .fieldset {
   flex-direction: column;
-  align-content: center;
+  align-items: center;
+  width: 100%;
   display: flex;
 }
 
@@ -1110,8 +1111,9 @@ body {
   font-weight: bold;
 }
 
-.modif_skill .form .fieldset label, .modif_skill .form .fieldset input, .modif_skill .form .fieldset select {
+.modif_skill .form .fieldset label, .modif_skill .form .fieldset input, .modif_skill .form .fieldset select, .modif_skill .form .fieldset textarea {
   width: 90%;
+  padding: .5rem;
 }
 
 .modif_skill .form .fieldset input, .modif_skill .form .fieldset textarea, .modif_skill .form .fieldset select {
@@ -1119,6 +1121,10 @@ body {
   border-radius: 10px;
   margin-bottom: 1rem;
   padding: .5rem;
+}
+
+.modif_skill .form .fieldset .description {
+  height: 10rem;
 }
 
 .modif_skill .form .fieldset button {
