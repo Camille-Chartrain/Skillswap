@@ -61587,7 +61587,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                         icon: (0, _freeSolidSvgIcons.faDollarSign),
-                                        className: " nav_desktop"
+                                        className: " icone"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
                                         lineNumber: 67,

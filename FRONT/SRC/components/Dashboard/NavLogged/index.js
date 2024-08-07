@@ -66,7 +66,7 @@ export default function NavLogged(
                         </div>
                         <FontAwesomeIcon
                             icon={faDollarSign}
-                            className=" nav_desktop" />
+                            className=" icone" />
                     </div>
 
 
