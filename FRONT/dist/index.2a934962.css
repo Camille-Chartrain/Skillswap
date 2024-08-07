@@ -1065,4 +1065,80 @@ body {
     padding-top: 80px;
   }
 }
+
+.modif_skill {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.modif_skill .form {
+  background-color: #fff;
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  display: flex;
+}
+
+@media screen and (width >= 60rem) {
+  .modif_skill .form {
+    max-width: 30rem;
+  }
+}
+
+@media screen and (width >= 90rem) {
+  .modif_skill .form {
+    max-width: 30rem;
+  }
+}
+
+.modif_skill .form .fieldset {
+  flex-direction: column;
+  align-content: center;
+  display: flex;
+}
+
+.modif_skill .form .fieldset legend {
+  text-align: center;
+  padding-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.modif_skill .form .fieldset label, .modif_skill .form .fieldset input, .modif_skill .form .fieldset select {
+  width: 90%;
+}
+
+.modif_skill .form .fieldset input, .modif_skill .form .fieldset textarea, .modif_skill .form .fieldset select {
+  border: 1px solid #e0d9d9;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: .5rem;
+}
+
+.modif_skill .form .fieldset button {
+  color: #fff;
+  background-color: #008cff;
+  border-radius: 10px;
+  align-self: center;
+  max-width: fit-content;
+  margin-top: 1rem;
+  padding: 5px 10px;
+  transition: background-color .3s;
+  display: flex;
+}
+
+.modif_skill .form .fieldset button:hover {
+  background-color: #0068bd;
+}
+
+.modif_skill .form .fieldset button:active {
+  background-color: #0084f0;
+  transform: scale(.95);
+}
 /*# sourceMappingURL=index.2a934962.css.map */

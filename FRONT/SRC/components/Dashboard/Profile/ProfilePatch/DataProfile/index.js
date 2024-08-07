@@ -1,5 +1,6 @@
 import { React, useEffect } from "react";
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function DataProfile({
@@ -7,6 +8,8 @@ export default function DataProfile({
     dataProfile,
     setDataProfile,
     setSelectedCategories }) {
+
+    const navigate = useNavigate();
 
     async function getProfile() {
 
@@ -23,13 +26,23 @@ export default function DataProfile({
 
             const profileResponse = await response.json();
             console.log("response apres .json:", profileResponse);
+            console.log('profileResponse.error ', profileResponse.error);
 
-            const categoryIds = profileResponse.Categories.map(category => category.id);
 
-            setDataProfile(profileResponse);
-            setSelectedCategories(categoryIds);
+            if (profileResponse.error === 'Token invalide') {
+                console.log('dans le profileresponse.error');
 
-            console.log('donnees profile data du state:', dataProfile);
+                navigate("/");
+            }
+            else {
+                const categoryIds = profileResponse.Categories.map(category => category.id);
+
+                setDataProfile(profileResponse);
+                setSelectedCategories(categoryIds);
+
+                console.log('donnees profile data du state:', dataProfile);
+            }
+
 
         } catch (error) {
             console.error("error catch:", error.message);

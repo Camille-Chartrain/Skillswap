@@ -65,12 +65,16 @@ export default function Results(
                 setSwappies(responseDataSearch.userSwappies.swappies)
                 console.log("NO MATCH state match dans Search", match);
                 console.log("NOT MATCH state noMatch dans Search", noMatch);
+                console.log(" responseDataSearch.isLogged", responseDataSearch.isLogged);
 
                 if (!responseDataSearch.isLogged) {
+                    console.log(" dans  false !responseDataSearch.isLogged", responseDataSearch.isLogged);
+
                     setLogged(false);
                     navigate('/');
                 }
                 else if (responseDataSearch.isLogged) {
+                    console.log(" dans  true responseDataSearch.isLogged", responseDataSearch.isLogged);
                     setLogged(true);
                 }
             }
@@ -81,13 +85,19 @@ export default function Results(
                 setMatch(true);
                 setNoMatch(false);
                 setLoading(false);
-                setSwappies(responseDataSearch.userSwappies.swappies)
+
+                console.log(" responseDataSearch.isLogged", responseDataSearch.isLogged);
+                console.log("typeof responseDataSearch?islogged", typeof responseDataSearch.isLogged);
+
 
                 if (!responseDataSearch.isLogged) {
+                    console.log("dans  responseDataSearch.isLogged === false", responseDataSearch.isLogged);
                     setLogged(false);
                     navigate('/');
                 }
                 else if (responseDataSearch.isLogged) {
+                    console.log("dans  responseDataSearch.isLogged === true", responseDataSearch.isLogged);
+                    setSwappies(responseDataSearch.userSwappies.swappies)
                     setLogged(true);
                 }
 

@@ -5,6 +5,7 @@ import Level from '../../../SearchBar/Level';
 import Categories from '../../../SearchBar/Categories';
 import SubCategories from '../../../SearchBar/SubCategories';
 import Level from '../../../SearchBar/Level';
+import "./style.scss";
 
 export default function ModifSkill({
     // loading,
@@ -103,17 +104,19 @@ export default function ModifSkill({
 
 
     return (
-        <div>
-            <h1>Modifier Compétence</h1>
+        <div className='modif_skill'>
+
             {skill ? (
 
                 <form
                     ref={formRef} // Référence au formulaire
                     method="PATCH"
                     onSubmit={handleSubmit}
-                    className="updateAskill">
-                    <fieldset className="skillUpDate">
-                        <legend><h3>Modification de competence</h3></legend>
+                    className="form"
+                >
+                    <fieldset className="fieldset">
+                        <legend>Modification compétence</legend>
+
 
                         <label htmlFor="title">Titre * :</label>
                         <input
@@ -168,7 +171,7 @@ export default function ModifSkill({
                             required
                         />
 
-                        <label htmlFor="availability">Disponibilite * :</label>
+                        <label htmlFor="availability">Disponibilité * :</label>
                         <input
                             id="availability"
                             type="text"
@@ -178,6 +181,7 @@ export default function ModifSkill({
                             size="25"
                             required
                         />
+
 
                         <button
                             type="submit"
