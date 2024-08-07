@@ -61587,7 +61587,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                         icon: (0, _freeSolidSvgIcons.faDollarSign),
-                                        className: "icone"
+                                        className: " nav_desktop"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
                                         lineNumber: 67,
@@ -61597,6 +61597,96 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                             }, void 0, true, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
                                 lineNumber: 63,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/notifications",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faBell),
+                                        className: " nav_desktop"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 74,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Notifications"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 73,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/statistics",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faSignal),
+                                        className: " nav_desktop"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 82,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Statistiques"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 81,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/profile",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faUser),
+                                        className: " nav_desktop"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 90,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Profil"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 89,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/desk",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faGraduationCap),
+                                        className: " nav_desktop"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 98,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Bureau"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 97,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/results",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faMagnifyingGlass),
+                                        className: " nav_desktop"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 105,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Recherche"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 104,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
@@ -61609,7 +61699,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 setMatch: setMatch
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 72,
+                                lineNumber: 111,
                                 columnNumber: 21
                             }, this)
                         ]
@@ -61626,7 +61716,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 84,
+                lineNumber: 123,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
@@ -61637,17 +61727,17 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                 icon: (0, _freeSolidSvgIcons.faBell),
-                                className: "icone"
+                                className: "icone icone_bottom "
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 89,
+                                lineNumber: 128,
                                 columnNumber: 21
                             }, this),
                             "Notifications"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 88,
+                        lineNumber: 127,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61655,17 +61745,17 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                 icon: (0, _freeSolidSvgIcons.faSignal),
-                                className: "icone"
+                                className: "icone icone_bottom"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 97,
+                                lineNumber: 136,
                                 columnNumber: 21
                             }, this),
                             "Statistiques"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 96,
+                        lineNumber: 135,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61673,17 +61763,17 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                 icon: (0, _freeSolidSvgIcons.faUser),
-                                className: "icone"
+                                className: "icone icone_bottom"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 105,
+                                lineNumber: 144,
                                 columnNumber: 21
                             }, this),
                             "Profil"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 104,
+                        lineNumber: 143,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61691,17 +61781,17 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                 icon: (0, _freeSolidSvgIcons.faGraduationCap),
-                                className: "icone"
+                                className: "icone icone_bottom"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 113,
+                                lineNumber: 152,
                                 columnNumber: 21
                             }, this),
                             "Bureau"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 112,
+                        lineNumber: 151,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61709,23 +61799,23 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                 icon: (0, _freeSolidSvgIcons.faMagnifyingGlass),
-                                className: "icone"
+                                className: "icone icone_bottom"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 120,
+                                lineNumber: 159,
                                 columnNumber: 21
                             }, this),
                             "Recherche"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 119,
+                        lineNumber: 158,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 87,
+                lineNumber: 126,
                 columnNumber: 13
             }, this)
         ]
@@ -64406,21 +64496,32 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
                         lineNumber: 185,
                         columnNumber: 25
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        type: "button",
-                        onClick: handleClick,
-                        children: "Annuler"
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "buttons",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                type: "button",
+                                onClick: handleClick,
+                                className: "button_grey",
+                                children: "Annuler"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                                lineNumber: 196,
+                                columnNumber: 29
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                type: "submit",
+                                className: "button_blue",
+                                children: "Valider"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
+                                lineNumber: 204,
+                                columnNumber: 29
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 196,
-                        columnNumber: 25
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        type: "submit",
-                        children: "Valider"
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-                        lineNumber: 203,
+                        lineNumber: 195,
                         columnNumber: 25
                     }, this)
                 ]
@@ -64437,7 +64538,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
             children: "Aucune comp\xe9tence trouv\xe9e."
         }, void 0, false, {
             fileName: "SRC/components/Dashboard/Profile/ModifSkill/index.js",
-            lineNumber: 213,
+            lineNumber: 216,
             columnNumber: 17
         }, this)
     }, void 0, false, {

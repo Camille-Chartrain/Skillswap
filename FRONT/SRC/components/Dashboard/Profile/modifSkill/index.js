@@ -192,19 +192,22 @@ export default function ModifSkill({
                             required
                         />
 
+                        <div className='buttons'>
+                            <button
+                                type="button"
+                                onClick={handleClick}
+                                className='button_grey'
+                            >
+                                Annuler
+                            </button>
 
-                        <button
-                            type="button"
-                            onClick={handleClick}
-                        >
-                            Annuler
-                        </button>
-
-                        <button
-                            type="submit"
-                        >
-                            Valider
-                        </button>
+                            <button
+                                type="submit"
+                                className='button_blue'
+                            >
+                                Valider
+                            </button>
+                        </div>
 
                     </fieldset>
                 </form >
