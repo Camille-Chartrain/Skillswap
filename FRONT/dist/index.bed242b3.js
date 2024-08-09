@@ -35757,7 +35757,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                    className: "boxButton1",
+                                                    className: "boxButton2",
                                                     type: "button",
                                                     children: "Participer"
                                                 }, void 0, false, {

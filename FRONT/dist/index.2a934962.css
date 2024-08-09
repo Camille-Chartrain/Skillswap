@@ -248,15 +248,42 @@
 }
 
 .allCards .card .boxButton .boxButton1 {
-  color: #fff;
-  background-color: #008cff;
+  color: #bb4109;
+  background-color: #f8ead1;
   border-radius: 10px;
-  flex-flow: row;
-  justify-content: center;
-  width: 90px;
+  max-width: fit-content;
+  padding: 5px 10px;
+  transition: background-color .3s;
+}
+
+.allCards .card .boxButton .boxButton1:hover {
+  color: #fff;
+  background-color: #ff6d33;
+}
+
+.allCards .card .boxButton .boxButton1:active {
+  background-color: #ff9266;
+  transform: scale(.95);
+}
+
+.allCards .card .boxButton .boxButton2 {
+  color: #303070;
+  background-color: #b6dbf8;
+  border-radius: 10px;
+  max-width: fit-content;
   margin-left: 10px;
-  padding: 5px;
-  display: flex;
+  padding: 5px 10px;
+  transition: background-color .3s;
+}
+
+.allCards .card .boxButton .boxButton2:hover {
+  color: #fff;
+  background-color: #06f;
+}
+
+.allCards .card .boxButton .boxButton2:active {
+  background-color: #0084f0;
+  transform: scale(.95);
 }
 
 .star-rating {
@@ -896,7 +923,7 @@ body.react-confirm-alert-body-element {
 }
 
 body {
-  background-color: #fff;
+  background-color: #ff6d33;
 }
 
 .registration {

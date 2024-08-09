@@ -113,7 +113,7 @@ export default function Cards({
 
                                 <div className="boxButton">
                                     <button className="boxButton1" type="button">Détails</button>
-                                    <button className="boxButton1" type="button">Participer</button>
+                                    <button className="boxButton2" type="button">Participer</button>
                                 </div>
                             </div>
                         </article >

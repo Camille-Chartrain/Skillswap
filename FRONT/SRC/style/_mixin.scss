@@ -73,3 +73,41 @@
     //     transform: scale(0.95); // Effet de réduction de la taille
     // }
 }
+
+@mixin button_light_blue{
+    max-width: fit-content;
+    color: var.$font-blue;
+    background-color: var.$clear-blue;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+
+    &:hover{
+        background-color: var.$metal-blue;
+        color: white;
+    }
+
+    &:active {
+        background-color: lighten(var.$dark-blue, 10%); // Change la couleur de fond lorsqu'on clique
+        transform: scale(0.95); // Effet de réduction de la taille
+    }
+}
+
+@mixin button_light_orange{
+    max-width: fit-content;
+    color: var.$font-orange;
+    background-color: var.$light-orange;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+
+    &:hover{
+        background-color: var.$primary-color;
+        color: white;
+    }
+
+    &:active {
+        background-color: lighten(var.$primary-color, 10%); // Change la couleur de fond lorsqu'on clique
+        transform: scale(0.95); // Effet de réduction de la taille
+    }
+}
