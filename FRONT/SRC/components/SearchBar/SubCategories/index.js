@@ -51,6 +51,7 @@ export default function SubCategories(
 
     return (
         <select
+            aria-label="sous-catégorie"
             className="searchElement"
             onChange={handleSubCategoryChange}
             required={optionsHTML}

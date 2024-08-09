@@ -59,14 +59,20 @@ export default function NavLogged(
                     </button>
                 </div>
 
-                <div className="logoUsers">
-                    <div className="logo_dollar">
-                        <div className="swappies">
+                <div className="logoUsers" >
+
+                    <div className="logo_dollar"
+                        role="group"
+                        aria-label="Information sur l'utilisateur">
+
+                        <div className="swappies" aria-label="total swappies">
                             {swappies}
                         </div>
                         <FontAwesomeIcon
                             icon={faDollarSign}
-                            className=" icone" />
+                            className=" icone"
+                            aria-label="symbole dollar"
+                        />
                     </div>
 
 
@@ -74,6 +80,7 @@ export default function NavLogged(
                         <FontAwesomeIcon
                             icon={faBell}
                             className=" nav_desktop"
+                            aria-label="icone notification"
                         />
                         Notifications
                     </Link>
@@ -82,6 +89,7 @@ export default function NavLogged(
                         <FontAwesomeIcon
                             icon={faSignal}
                             className=" nav_desktop"
+                            aria-label="icone statistique"
                         />
                         Statistiques
                     </Link>
@@ -90,6 +98,7 @@ export default function NavLogged(
                         <FontAwesomeIcon
                             icon={faUser}
                             className=" nav_desktop"
+                            aria-label="icone utilisateur"
                         />
                         Profil
                     </Link>
@@ -97,14 +106,18 @@ export default function NavLogged(
                     <Link to="/dashboard/desk">
                         <FontAwesomeIcon
                             icon={faGraduationCap}
-                            className=" nav_desktop" />
+                            className=" nav_desktop"
+                            aria-label="icone bureau"
+                        />
                         Bureau
                     </Link>
 
                     <Link to="/dashboard/results">
                         <FontAwesomeIcon
                             icon={faMagnifyingGlass}
-                            className=" nav_desktop" />
+                            className=" nav_desktop"
+                            aria-label="icone bureau"
+                        />
                         Recherche
                     </Link>
 
@@ -127,7 +140,8 @@ export default function NavLogged(
                 <Link to="/dashboard/notifications">
                     <FontAwesomeIcon
                         icon={faBell}
-                        className="icone icone_bottom "
+                        className="icone icone_bottom"
+                        aria-label="icone notification"
                     />
                     Notifications
                 </Link>
@@ -136,6 +150,7 @@ export default function NavLogged(
                     <FontAwesomeIcon
                         icon={faSignal}
                         className="icone icone_bottom"
+                        aria-label="icone statistique"
                     />
                     Statistiques
                 </Link>
@@ -144,6 +159,7 @@ export default function NavLogged(
                     <FontAwesomeIcon
                         icon={faUser}
                         className="icone icone_bottom"
+                        aria-label="icone utilisateur"
                     />
                     Profil
                 </Link>
@@ -151,14 +167,18 @@ export default function NavLogged(
                 <Link to="/dashboard/desk">
                     <FontAwesomeIcon
                         icon={faGraduationCap}
-                        className="icone icone_bottom" />
+                        className="icone icone_bottom"
+                        aria-label="icone bureau"
+                    />
                     Bureau
                 </Link>
 
                 <Link to="/dashboard/results">
                     <FontAwesomeIcon
                         icon={faMagnifyingGlass}
-                        className="icone icone_bottom" />
+                        className="icone icone_bottom"
+                        aria-label="icone recherche"
+                    />
                     Recherche
                 </Link>
             </nav>

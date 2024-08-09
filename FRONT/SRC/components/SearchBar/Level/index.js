@@ -17,6 +17,7 @@ export default function Level(
 
     return (
         <select
+            aria-label="niveau"
             className="searchElement"
             onChange={handleLevelChange}
             required={optionsHTML}

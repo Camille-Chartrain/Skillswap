@@ -47,7 +47,9 @@ export default function Categories(
     };
 
     return (
+
         <select
+            aria-label="Catégorie"
             className="searchElement"
             onChange={handleCategoryChange}
             required={optionsHTML}
@@ -65,5 +67,6 @@ export default function Categories(
                 ))
             }
         </select >
+
     )
 }

@@ -119,7 +119,7 @@ export default function Results(
     }, []);
 
     return (
-        <div className="results">
+        <main className="results">
             <SearchBar
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
@@ -145,6 +145,6 @@ export default function Results(
                 loading={loading}
             />
             <p>Fin des résultats</p>
-        </div>
+        </main>
     )
 }

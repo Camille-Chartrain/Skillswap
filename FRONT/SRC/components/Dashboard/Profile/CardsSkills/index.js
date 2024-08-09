@@ -75,10 +75,10 @@ export default function CardsSkills(
 
     return (
         <>
-            <div className="all_cards">
+            <section className="all_cards">
                 <h3 className="title_skills">Vos compétences</h3>
                 {loading && <p>Chargement...</p>}
-                <section className="cards_skills">
+                <div className="cards_skills">
                     {skills?.map((skill) => (
 
                         <article
@@ -113,8 +113,8 @@ export default function CardsSkills(
                         </article >
                     ))
                     }
-                </section>
-            </div>
+                </div>
+            </section>
         </>
     )
 }

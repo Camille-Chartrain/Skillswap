@@ -494,7 +494,7 @@
   }
 }
 
-.home {
+.home .main {
   background-position: center;
   flex-direction: column;
   align-items: center;
@@ -502,7 +502,7 @@
   display: flex;
 }
 
-.home .pres_search {
+.home .main .pres_search {
   flex-direction: column;
   align-items: center;
   margin-top: 140px;
@@ -511,7 +511,7 @@
 }
 
 @media screen and (width >= 90rem) {
-  .home .pres_search {
+  .home .main .pres_search {
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -520,7 +520,7 @@
   }
 }
 
-.home .presentation {
+.home .main .presentation {
   color: #fff;
   flex-direction: column;
   align-items: center;
@@ -531,7 +531,7 @@
 }
 
 @media screen and (width >= 90rem) {
-  .home .presentation {
+  .home .main .presentation {
     align-items: flex-start;
     width: auto;
     margin-top: 13rem;
@@ -539,17 +539,17 @@
   }
 }
 
-.home .presentation .border-display {
+.home .main .presentation .border-display {
   margin-left: 2rem;
 }
 
 @media screen and (width >= 90rem) {
-  .home .presentation .border-display {
+  .home .main .presentation .border-display {
     margin-left: 1rem;
   }
 }
 
-.home .presentation .display {
+.home .main .presentation .display {
   background-color: #008cff;
   border: 1px solid #008cff;
   border-radius: 30px;
@@ -558,7 +558,7 @@
   padding-left: .8rem;
 }
 
-.home .join_button {
+.home .main .join_button {
   background-color: #fff;
   border-radius: 10px;
   align-self: center;

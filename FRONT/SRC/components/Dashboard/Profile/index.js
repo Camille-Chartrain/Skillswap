@@ -69,7 +69,7 @@ export default function Profile(
 
 
     return (
-        <div className="profile">
+        <main className="profile">
             <div className="profile_skill">
                 <ProfilePatch
                     selectedCategories={selectedCategories}
@@ -108,6 +108,6 @@ export default function Profile(
                 skills={skills}
                 getSkills={getSkills}
             />
-        </div>
+        </main>
     )
 }

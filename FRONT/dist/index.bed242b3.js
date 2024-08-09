@@ -34706,36 +34706,67 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 lineNumber: 91,
                 columnNumber: 25
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "pres_search",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+                className: "main",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-                        className: "presentation",
+                        className: "pres_search",
                         children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "border-display",
-                                children: "Dilettants, passionn\xe9s, professionnels,"
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                className: "presentation",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "border-display",
+                                        children: "Dilettants, passionn\xe9s, professionnels,"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Home/index.js",
+                                        lineNumber: 96,
+                                        columnNumber: 25
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "display",
+                                                children: "partagez "
+                                            }, void 0, false, {
+                                                fileName: "SRC/components/Home/index.js",
+                                                lineNumber: 100,
+                                                columnNumber: 29
+                                            }, undefined),
+                                            "vos talents  !"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "SRC/components/Home/index.js",
+                                        lineNumber: 99,
+                                        columnNumber: 25
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
                                 fileName: "SRC/components/Home/index.js",
                                 lineNumber: 95,
                                 columnNumber: 21
                             }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                        className: "display",
-                                        children: "partagez "
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Home/index.js",
-                                        lineNumber: 99,
-                                        columnNumber: 25
-                                    }, undefined),
-                                    "vos talents  !"
-                                ]
-                            }, void 0, true, {
+                            !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                                selectedCategory: selectedCategory,
+                                setSelectedCategory: setSelectedCategory,
+                                selectedSubCategory: selectedSubCategory,
+                                setSelectedSubCategory: setSelectedSubCategory,
+                                selectedLevel: selectedLevel,
+                                setSelectedLevel: setSelectedLevel,
+                                searchInput: searchInput,
+                                setSearchInput: setSearchInput,
+                                dataCards: dataCards,
+                                setDataCards: setDataCards,
+                                match: match,
+                                setMatch: setMatch,
+                                noMatch: noMatch,
+                                setNoMatch: setNoMatch,
+                                setLoading: setLoading,
+                                setLogged: setLogged
+                            }, void 0, false, {
                                 fileName: "SRC/components/Home/index.js",
-                                lineNumber: 98,
-                                columnNumber: 21
+                                lineNumber: 105,
+                                columnNumber: 33
                             }, undefined)
                         ]
                     }, void 0, true, {
@@ -34743,53 +34774,31 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                         lineNumber: 94,
                         columnNumber: 17
                     }, undefined),
-                    !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
-                        selectedCategory: selectedCategory,
-                        setSelectedCategory: setSelectedCategory,
-                        selectedSubCategory: selectedSubCategory,
-                        setSelectedSubCategory: setSelectedSubCategory,
-                        selectedLevel: selectedLevel,
-                        setSelectedLevel: setSelectedLevel,
-                        searchInput: searchInput,
-                        setSearchInput: setSearchInput,
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
                         dataCards: dataCards,
-                        setDataCards: setDataCards,
                         match: match,
-                        setMatch: setMatch,
                         noMatch: noMatch,
-                        setNoMatch: setNoMatch,
-                        setLoading: setLoading,
-                        setLogged: setLogged
+                        loading: loading
                     }, void 0, false, {
                         fileName: "SRC/components/Home/index.js",
-                        lineNumber: 104,
-                        columnNumber: 29
+                        lineNumber: 126,
+                        columnNumber: 17
+                    }, undefined),
+                    !loading && !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "join_button",
+                        onClick: handleClickRegistration,
+                        "aria-label": "Inscription",
+                        children: "Rejoindre la communaut\xe9"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Home/index.js",
+                        lineNumber: 135,
+                        columnNumber: 21
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Home/index.js",
                 lineNumber: 93,
                 columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
-                dataCards: dataCards,
-                match: match,
-                noMatch: noMatch,
-                loading: loading
-            }, void 0, false, {
-                fileName: "SRC/components/Home/index.js",
-                lineNumber: 125,
-                columnNumber: 13
-            }, undefined),
-            !loading && !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                className: "join_button",
-                onClick: handleClickRegistration,
-                "aria-label": "Inscription",
-                children: "Rejoindre la communaut\xe9"
-            }, void 0, false, {
-                fileName: "SRC/components/Home/index.js",
-                lineNumber: 134,
-                columnNumber: 17
             }, undefined)
         ]
     }, void 0, true, {
@@ -35058,6 +35067,7 @@ function Categories({ setSelectedCategory, optionsHTML }) {
         console.log("Cat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+        "aria-label": "Cat\xe9gorie",
         className: "searchElement",
         onChange: handleCategoryChange,
         required: optionsHTML,
@@ -35067,7 +35077,7 @@ function Categories({ setSelectedCategory, optionsHTML }) {
                 children: "cat\xe9gorie"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Categories/index.js",
-                lineNumber: 55,
+                lineNumber: 57,
                 columnNumber: 13
             }, this),
             categories && categories.length > 0 && categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35075,13 +35085,13 @@ function Categories({ setSelectedCategory, optionsHTML }) {
                     children: category.name
                 }, category.id, false, {
                     fileName: "SRC/components/SearchBar/Categories/index.js",
-                    lineNumber: 59,
+                    lineNumber: 61,
                     columnNumber: 21
                 }, this))
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/Categories/index.js",
-        lineNumber: 50,
+        lineNumber: 51,
         columnNumber: 9
     }, this);
 }
@@ -35376,6 +35386,7 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
         console.log("SousCat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+        "aria-label": "sous-cat\xe9gorie",
         className: "searchElement",
         onChange: handleSubCategoryChange,
         required: optionsHTML,
@@ -35385,7 +35396,7 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
                 children: "sous-cat\xe9gorie"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/SubCategories/index.js",
-                lineNumber: 58,
+                lineNumber: 59,
                 columnNumber: 13
             }, this),
             subCategories && subCategories.length > 0 && subCategories.map((subCategory)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35393,7 +35404,7 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
                     children: subCategory.name
                 }, subCategory.id, false, {
                     fileName: "SRC/components/SearchBar/SubCategories/index.js",
-                    lineNumber: 60,
+                    lineNumber: 61,
                     columnNumber: 17
                 }, this))
         ]
@@ -35432,6 +35443,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
         console.log("Level s\xe9lectionn\xe9e :", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+        "aria-label": "niveau",
         className: "searchElement",
         onChange: handleLevelChange,
         required: optionsHTML,
@@ -35441,7 +35453,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "Niveau"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 24,
+                lineNumber: 25,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35449,7 +35461,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "D\xe9butant"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 25,
+                lineNumber: 26,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35457,7 +35469,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "Interm\xe9diaire"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 26,
+                lineNumber: 27,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35465,7 +35477,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "Avanc\xe9"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 27,
+                lineNumber: 28,
                 columnNumber: 13
             }, this)
         ]
@@ -35510,7 +35522,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 className: "advertising",
                 children: [
                     loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35570,7 +35582,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                             children: card.title.toUpperCase()
                                         }, void 0, false, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 48,
+                                            lineNumber: 49,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35580,7 +35592,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     rating: card.averageMark
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 50,
+                                                    lineNumber: 51,
                                                     columnNumber: 37
                                                 }, this),
                                                 console.log("averageMark=", card.averageMark),
@@ -35593,13 +35605,13 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 55,
+                                                    lineNumber: 56,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 49,
+                                            lineNumber: 50,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35615,14 +35627,14 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: " icone levelIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 64,
+                                                                    lineNumber: 65,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 card.level
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 63,
+                                                            lineNumber: 64,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35632,14 +35644,14 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: "icone userIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 72,
+                                                                    lineNumber: 73,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 `${card.User.firstname} ${card.User.lastname}`
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 71,
+                                                            lineNumber: 72,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35649,14 +35661,14 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: "icone calendarIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 80,
+                                                                    lineNumber: 81,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 truncateString(card.availability, 13)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 79,
+                                                            lineNumber: 80,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35666,20 +35678,20 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: "icone hatIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 88,
+                                                                    lineNumber: 89,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 card.transmission
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 87,
+                                                            lineNumber: 88,
                                                             columnNumber: 41
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 62,
+                                                    lineNumber: 63,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35690,24 +35702,24 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                         alt: "photo des categories"
                                                     }, void 0, false, {
                                                         fileName: "SRC/components/Cards/index.js",
-                                                        lineNumber: 97,
+                                                        lineNumber: 98,
                                                         columnNumber: 41
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 96,
+                                                    lineNumber: 97,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 60,
+                                            lineNumber: 61,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "SRC/components/Cards/index.js",
-                                    lineNumber: 47,
+                                    lineNumber: 48,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35724,12 +35736,12 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 110,
+                                                lineNumber: 111,
                                                 columnNumber: 37
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 108,
+                                            lineNumber: 109,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35741,7 +35753,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     children: "D\xe9tails"
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 114,
+                                                    lineNumber: 115,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35750,35 +35762,35 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     children: "Participer"
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 115,
+                                                    lineNumber: 116,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 113,
+                                            lineNumber: 114,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "SRC/components/Cards/index.js",
-                                    lineNumber: 107,
+                                    lineNumber: 108,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, card.id, true, {
                             fileName: "SRC/components/Cards/index.js",
-                            lineNumber: 46,
+                            lineNumber: 47,
                             columnNumber: 25
                         }, this))
                 }, void 0, false, {
                     fileName: "SRC/components/Cards/index.js",
-                    lineNumber: 42,
+                    lineNumber: 43,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Cards/index.js",
-                lineNumber: 40,
+                lineNumber: 41,
                 columnNumber: 13
             }, this)
         ]
@@ -61576,27 +61588,31 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "logo_dollar",
+                                role: "group",
+                                "aria-label": "Information sur l'utilisateur",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                         className: "swappies",
+                                        "aria-label": "total swappies",
                                         children: swappies
                                     }, void 0, false, {
                                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 64,
+                                        lineNumber: 68,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                         icon: (0, _freeSolidSvgIcons.faDollarSign),
-                                        className: " icone"
+                                        className: " icone",
+                                        "aria-label": "symbole dollar"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 67,
+                                        lineNumber: 71,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 63,
+                                lineNumber: 64,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61604,17 +61620,18 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                         icon: (0, _freeSolidSvgIcons.faBell),
-                                        className: " nav_desktop"
+                                        className: " nav_desktop",
+                                        "aria-label": "icone notification"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 74,
+                                        lineNumber: 80,
                                         columnNumber: 25
                                     }, this),
                                     "Notifications"
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 73,
+                                lineNumber: 79,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61622,17 +61639,18 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                         icon: (0, _freeSolidSvgIcons.faSignal),
-                                        className: " nav_desktop"
+                                        className: " nav_desktop",
+                                        "aria-label": "icone statistique"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 82,
+                                        lineNumber: 89,
                                         columnNumber: 25
                                     }, this),
                                     "Statistiques"
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 81,
+                                lineNumber: 88,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61640,31 +61658,14 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                         icon: (0, _freeSolidSvgIcons.faUser),
-                                        className: " nav_desktop"
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 90,
-                                        columnNumber: 25
-                                    }, this),
-                                    "Profil"
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 89,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: "/dashboard/desk",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                        icon: (0, _freeSolidSvgIcons.faGraduationCap),
-                                        className: " nav_desktop"
+                                        className: " nav_desktop",
+                                        "aria-label": "icone utilisateur"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
                                         lineNumber: 98,
                                         columnNumber: 25
                                     }, this),
-                                    "Bureau"
+                                    "Profil"
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
@@ -61672,21 +61673,41 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/desk",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faGraduationCap),
+                                        className: " nav_desktop",
+                                        "aria-label": "icone bureau"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 107,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Bureau"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 106,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: "/dashboard/results",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                         icon: (0, _freeSolidSvgIcons.faMagnifyingGlass),
-                                        className: " nav_desktop"
+                                        className: " nav_desktop",
+                                        "aria-label": "icone bureau"
                                     }, void 0, false, {
                                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 105,
+                                        lineNumber: 116,
                                         columnNumber: 25
                                     }, this),
                                     "Recherche"
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 104,
+                                lineNumber: 115,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
@@ -61699,7 +61720,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 setMatch: setMatch
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 111,
+                                lineNumber: 124,
                                 columnNumber: 21
                             }, this)
                         ]
@@ -61716,7 +61737,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 123,
+                lineNumber: 136,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
@@ -61727,17 +61748,18 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                 icon: (0, _freeSolidSvgIcons.faBell),
-                                className: "icone icone_bottom "
+                                className: "icone icone_bottom",
+                                "aria-label": "icone notification"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 128,
+                                lineNumber: 141,
                                 columnNumber: 21
                             }, this),
                             "Notifications"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 127,
+                        lineNumber: 140,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61745,17 +61767,18 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                 icon: (0, _freeSolidSvgIcons.faSignal),
-                                className: "icone icone_bottom"
+                                className: "icone icone_bottom",
+                                "aria-label": "icone statistique"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 136,
+                                lineNumber: 150,
                                 columnNumber: 21
                             }, this),
                             "Statistiques"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 135,
+                        lineNumber: 149,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61763,17 +61786,18 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                 icon: (0, _freeSolidSvgIcons.faUser),
-                                className: "icone icone_bottom"
+                                className: "icone icone_bottom",
+                                "aria-label": "icone utilisateur"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 144,
+                                lineNumber: 159,
                                 columnNumber: 21
                             }, this),
                             "Profil"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 143,
+                        lineNumber: 158,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61781,17 +61805,18 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                 icon: (0, _freeSolidSvgIcons.faGraduationCap),
-                                className: "icone icone_bottom"
+                                className: "icone icone_bottom",
+                                "aria-label": "icone bureau"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 152,
+                                lineNumber: 168,
                                 columnNumber: 21
                             }, this),
                             "Bureau"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 151,
+                        lineNumber: 167,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61799,23 +61824,24 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
                                 icon: (0, _freeSolidSvgIcons.faMagnifyingGlass),
-                                className: "icone icone_bottom"
+                                className: "icone icone_bottom",
+                                "aria-label": "icone recherche"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 159,
+                                lineNumber: 177,
                                 columnNumber: 21
                             }, this),
                             "Recherche"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 158,
+                        lineNumber: 176,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 126,
+                lineNumber: 139,
                 columnNumber: 13
             }, this)
         ]
@@ -62036,7 +62062,7 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
     (0, _react.useEffect)(()=>{
         getSkills();
     }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
         className: "profile",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -62590,7 +62616,7 @@ function CardsSkills({ loading, setLoading, skills, getSkills }) {
         });
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
             className: "all_cards",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -62608,7 +62634,7 @@ function CardsSkills({ loading, setLoading, skills, getSkills }) {
                     lineNumber: 80,
                     columnNumber: 29
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "cards_skills",
                     children: skills?.map((skill)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
                             className: "card",
@@ -64198,7 +64224,7 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
     (0, _react.useEffect)(()=>{
         getData();
     }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
         className: "results",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {

@@ -90,56 +90,58 @@ const Home = ({
             />}
             {!logged && <NavHome />}
 
-            <div className="pres_search">
-                <section className="presentation">
-                    <div className="border-display">
-                        Dilettants, passionnés, professionnels,
-                    </div>
-                    <div >
-                        <span className="display">
-                            partagez </span>vos talents  !
-                    </div>
-                </section >
+            <main className="main">
+                <section className="pres_search">
+                    <p className="presentation">
+                        <div className="border-display">
+                            Dilettants, passionnés, professionnels,
+                        </div>
+                        <div >
+                            <span className="display">
+                                partagez </span>vos talents  !
+                        </div>
+                    </p>
 
-                {!logged && <SearchBar
-                    selectedCategory={selectedCategory}
-                    setSelectedCategory={setSelectedCategory}
-                    selectedSubCategory={selectedSubCategory}
-                    setSelectedSubCategory={setSelectedSubCategory}
-                    selectedLevel={selectedLevel}
-                    setSelectedLevel={setSelectedLevel}
-                    searchInput={searchInput}
-                    setSearchInput={setSearchInput}
+                    {!logged && <SearchBar
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                        selectedSubCategory={selectedSubCategory}
+                        setSelectedSubCategory={setSelectedSubCategory}
+                        selectedLevel={selectedLevel}
+                        setSelectedLevel={setSelectedLevel}
+                        searchInput={searchInput}
+                        setSearchInput={setSearchInput}
+                        dataCards={dataCards}
+                        setDataCards={setDataCards}
+                        match={match}
+                        setMatch={setMatch}
+                        noMatch={noMatch}
+                        setNoMatch={setNoMatch}
+                        setLoading={setLoading}
+                        setLogged={setLogged}
+                    />
+                    }
+                </section>
+
+                <Cards
                     dataCards={dataCards}
-                    setDataCards={setDataCards}
                     match={match}
-                    setMatch={setMatch}
                     noMatch={noMatch}
-                    setNoMatch={setNoMatch}
-                    setLoading={setLoading}
-                    setLogged={setLogged}
+                    loading={loading}
                 />
+
+                {
+                    !loading && !logged &&
+                    <button
+                        className="join_button"
+                        onClick={handleClickRegistration}
+                        aria-label="Inscription"
+                    >
+                        Rejoindre la communauté
+
+                    </button>
                 }
-            </div>
-
-            <Cards
-                dataCards={dataCards}
-                match={match}
-                noMatch={noMatch}
-                loading={loading}
-            />
-
-            {
-                !loading && !logged &&
-                <button
-                    className="join_button"
-                    onClick={handleClickRegistration}
-                    aria-label="Inscription"
-                >
-                    Rejoindre la communauté
-
-                </button>
-            }
+            </main >
         </div >
     )
 
