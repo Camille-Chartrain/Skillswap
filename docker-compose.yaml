@@ -26,7 +26,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./BACK:/home/server/Skillswap/BACK
+      # - ./BACK:/home/server/Skillswap/BACK
+      - ./BACK:/Skillswap/BACK
       - node_modules_back:/home/server/Skillswap/BACK/node_modules
     command: >
       sh -c "ls -al /home/server/Skillswap/BACK && npm install && npm run dev"
@@ -39,7 +40,8 @@ services:
     ports:
       - "1234:1234"
     volumes:
-      - ./FRONT:/home/server/Skillswap/FRONT
+      # - ./FRONT:/home/server/Skillswap/FRONT
+      - ./FRONT:/Skillswap/FRONT
       - node_modules_front:/home/server/Skillswap/FRONT/node_modules
     command: >
       sh -c "ls -al /home/server/Skillswap/FRONT && npm install && npm start"
