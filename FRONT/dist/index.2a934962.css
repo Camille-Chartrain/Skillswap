@@ -116,7 +116,7 @@
 .allCards .card {
   background-color: #fff;
   border: 1px solid #817f7f;
-  border-radius: 20px;
+  border-radius: 10px;
   flex-direction: column;
   width: 95%;
   max-width: 29rem;
@@ -430,7 +430,7 @@
 .navLogged .logoUsers .logo_dollar {
   color: #1f1e1e;
   background-color: #ffe600;
-  border: 1px solid #817f7f;
+  border: 1px solid #1f1e1e;
   border-radius: 100%;
   flex-direction: row;
   align-items: center;

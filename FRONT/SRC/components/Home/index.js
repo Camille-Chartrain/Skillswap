@@ -92,7 +92,7 @@ const Home = ({
 
             <main className="main">
                 <section className="pres_search">
-                    <p className="presentation">
+                    <div className="presentation">
                         <div className="border-display">
                             Dilettants, passionnés, professionnels,
                         </div>
@@ -100,7 +100,7 @@ const Home = ({
                             <span className="display">
                                 partagez </span>vos talents  !
                         </div>
-                    </p>
+                    </div>
 
                     {!logged && <SearchBar
                         selectedCategory={selectedCategory}

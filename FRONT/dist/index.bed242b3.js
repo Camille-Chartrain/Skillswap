@@ -34712,7 +34712,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
                         className: "pres_search",
                         children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "presentation",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
