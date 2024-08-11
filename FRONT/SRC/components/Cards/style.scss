@@ -56,7 +56,7 @@
         flex-direction: column;
         // justify-content: flex-start;
         padding: 10px 15px 13px 15px;
-        border: solid 1px var.$soft-grey-color;
+        // border: solid 1px var.$soft-grey-color;
         border-radius: 10px;
         background-color: var.$background-color;
         margin-top: 20px;
@@ -79,10 +79,10 @@
         h3{
             font-size: 1.1rem;
             width: 100%; // Ensure the title takes up the full width of its parent
-    white-space: nowrap; // Prevent text from wrapping to the next line
-    overflow: hidden; // Hide overflow content
-    text-overflow: ellipsis; // Add ellipsis (...) for overflow text
-    display: block; // Ensure the element is a block element
+            white-space: nowrap; // Prevent text from wrapping to the next line
+            overflow: hidden; // Hide overflow content
+            text-overflow: ellipsis; // Add ellipsis (...) for overflow text
+            display: block; // Ensure the element is a block element
             
             @include mixin.medium {
                 font-size: 1.3rem;
@@ -114,7 +114,7 @@
             justify-content: space-between;
 
             .category{
-                font-size: small;
+                font-size: 1rem;
             }
         }
         .boxHeader{
@@ -128,7 +128,7 @@
                 color: var.$dark-grey-color;
                 margin-left: 30px;
                 padding-top: 5px;
-                font-size: 0.9rem;
+                font-size: 1rem;
 
                 .calendarIcone{
                     margin-right: 10px;

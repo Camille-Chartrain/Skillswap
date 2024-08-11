@@ -48,7 +48,7 @@
 
 .searchBar .searchButton {
   color: #fff;
-  background-color: #008cff;
+  background-color: #0573cc;
   border: none;
   justify-content: center;
   align-self: center;
@@ -115,7 +115,6 @@
 
 .allCards .card {
   background-color: #fff;
-  border: 1px solid #817f7f;
   border-radius: 10px;
   flex-direction: column;
   width: 95%;
@@ -180,7 +179,7 @@
 }
 
 .allCards .card .starsCatSubCat .category {
-  font-size: small;
+  font-size: 1rem;
 }
 
 .allCards .card .boxHeader {
@@ -195,7 +194,7 @@
   height: min-content;
   margin-left: 30px;
   padding-top: 5px;
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 .allCards .card .boxHeader .childBoxHeader .calendarIcone, .allCards .card .boxHeader .childBoxHeader .userIcone {
@@ -248,7 +247,7 @@
 }
 
 .allCards .card .boxButton .boxButton1 {
-  color: #bb4109;
+  color: #a53400;
   background-color: #f8ead1;
   border-radius: 10px;
   max-width: fit-content;
@@ -577,8 +576,8 @@
 }
 
 .home .main .presentation .display {
-  background-color: #008cff;
-  border: 1px solid #008cff;
+  background-color: #0573cc;
+  border: 1px solid #0573cc;
   border-radius: 30px;
   margin-right: .3rem;
   padding-bottom: .3rem;
@@ -770,7 +769,7 @@ body.react-confirm-alert-body-element {
 
 .all_cards .cards_skills .card .buttons button {
   color: #fff;
-  background-color: #008cff;
+  background-color: #0573cc;
   border-radius: 10px;
   max-width: fit-content;
   margin-left: .5rem;
@@ -875,7 +874,7 @@ body.react-confirm-alert-body-element {
 
 .profile form fieldset button {
   color: #fff;
-  background-color: #008cff;
+  background-color: #0573cc;
   border-radius: 10px;
   align-self: center;
   max-width: fit-content;
@@ -973,7 +972,7 @@ body {
 
 .registration .box_registration .formRegistration .blue_button {
   color: #fff;
-  background-color: #008cff;
+  background-color: #0573cc;
   border-radius: 10px;
   align-self: center;
   max-width: fit-content;
@@ -1092,7 +1091,7 @@ body {
 
 .login .box_login .formLogin .blue_button {
   color: #fff;
-  background-color: #008cff;
+  background-color: #0573cc;
   border-radius: 10px;
   align-self: center;
   max-width: fit-content;
@@ -1139,6 +1138,7 @@ body {
 .results {
   flex-direction: column;
   align-items: center;
+  margin-bottom: 6rem;
   padding-top: 130px;
   display: flex;
 }
@@ -1218,7 +1218,7 @@ body {
 
 .modif_skill .form .fieldset .buttons .button_blue {
   color: #fff;
-  background-color: #008cff;
+  background-color: #0573cc;
   border-radius: 10px;
   max-width: fit-content;
   margin-top: 1rem;
