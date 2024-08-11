@@ -61363,88 +61363,94 @@ function NavHome() {
     function handleClickHome() {
         navigate("/");
     }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-        className: "navHome",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "navLeft",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: handleClickHome,
-                    "aria-label": "Accueil",
-                    className: "logo",
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+            className: "navHome",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "navLeft",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: handleClickHome,
+                        "aria-label": "Accueil",
+                        className: "logo",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                src: (0, _ideaIconePngDefault.default),
+                                alt: "accueil-SkillSwap",
+                                className: "logoIdea"
+                            }, void 0, false, {
+                                fileName: "SRC/components/NavHome/index.js",
+                                lineNumber: 37,
+                                columnNumber: 25
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                src: (0, _skillswapIconePngDefault.default),
+                                alt: "accueil-SkillSwap",
+                                className: "logoSkillswap"
+                            }, void 0, false, {
+                                fileName: "SRC/components/NavHome/index.js",
+                                lineNumber: 43,
+                                columnNumber: 25
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/NavHome/index.js",
+                        lineNumber: 32,
+                        columnNumber: 21
+                    }, this)
+                }, void 0, false, {
+                    fileName: "SRC/components/NavHome/index.js",
+                    lineNumber: 31,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "logoUsers",
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            src: (0, _ideaIconePngDefault.default),
-                            alt: "accueil-SkillSwap",
-                            className: "logoIdea"
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            onClick: handleClickRegistration,
+                            "aria-label": "Inscription",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                icon: (0, _freeSolidSvgIcons.faUserPlus),
+                                className: "icone iconeRegister"
+                            }, void 0, false, {
+                                fileName: "SRC/components/NavHome/index.js",
+                                lineNumber: 56,
+                                columnNumber: 25
+                            }, this)
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 36,
+                            lineNumber: 52,
                             columnNumber: 21
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            src: (0, _skillswapIconePngDefault.default),
-                            alt: "accueil-SkillSwap",
-                            className: "logoSkillswap"
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            onClick: handleClickLogin,
+                            "aria-label": "connection",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                icon: (0, _freeSolidSvgIcons.faCircleUser),
+                                className: "icone iconeLogin"
+                            }, void 0, false, {
+                                fileName: "SRC/components/NavHome/index.js",
+                                lineNumber: 66,
+                                columnNumber: 25
+                            }, this)
                         }, void 0, false, {
                             fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 42,
+                            lineNumber: 62,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "SRC/components/NavHome/index.js",
-                    lineNumber: 31,
+                    lineNumber: 51,
                     columnNumber: 17
                 }, this)
-            }, void 0, false, {
-                fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 30,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "logoUsers",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        onClick: handleClickRegistration,
-                        "aria-label": "Inscription",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faUserPlus),
-                            className: "icone iconeRegister"
-                        }, void 0, false, {
-                            fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 55,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 51,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        onClick: handleClickLogin,
-                        "aria-label": "connection",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                            icon: (0, _freeSolidSvgIcons.faCircleUser),
-                            className: "icone iconeLogin"
-                        }, void 0, false, {
-                            fileName: "SRC/components/NavHome/index.js",
-                            lineNumber: 65,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "SRC/components/NavHome/index.js",
-                        lineNumber: 61,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/NavHome/index.js",
-                lineNumber: 50,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true, {
+            ]
+        }, void 0, true, {
+            fileName: "SRC/components/NavHome/index.js",
+            lineNumber: 29,
+            columnNumber: 13
+        }, this)
+    }, void 0, false, {
         fileName: "SRC/components/NavHome/index.js",
         lineNumber: 28,
         columnNumber: 9
@@ -61544,200 +61550,206 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-                className: "navLogged",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "navLeft",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: handleClickHome,
-                            "aria-label": "Accueil",
-                            className: "logo",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+                    className: "navLogged",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "navLeft",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                onClick: handleClickHome,
+                                "aria-label": "Accueil",
+                                className: "logo",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        src: (0, _ideaIconePngDefault.default),
+                                        alt: "accueil-SkillSwap",
+                                        className: "logoIdea"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 49,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        src: (0, _skillswapIconePngDefault.default),
+                                        alt: "accueil-SkillSwap",
+                                        className: "logoSkillswap"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 55,
+                                        columnNumber: 29
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 44,
+                                columnNumber: 25
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                            lineNumber: 43,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "logoUsers",
                             children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    src: (0, _ideaIconePngDefault.default),
-                                    alt: "accueil-SkillSwap",
-                                    className: "logoIdea"
-                                }, void 0, false, {
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "logo_dollar",
+                                    role: "group",
+                                    "aria-label": "Information sur l'utilisateur",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "swappies",
+                                            "aria-label": "total swappies",
+                                            children: swappies
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                            lineNumber: 69,
+                                            columnNumber: 29
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                            icon: (0, _freeSolidSvgIcons.faDollarSign),
+                                            className: " icone",
+                                            "aria-label": "symbole dollar"
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                            lineNumber: 72,
+                                            columnNumber: 29
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 48,
+                                    lineNumber: 65,
                                     columnNumber: 25
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    src: (0, _skillswapIconePngDefault.default),
-                                    alt: "accueil-SkillSwap",
-                                    className: "logoSkillswap"
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/dashboard/notifications",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                            icon: (0, _freeSolidSvgIcons.faBell),
+                                            className: " nav_desktop",
+                                            "aria-label": "icone notification"
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                            lineNumber: 81,
+                                            columnNumber: 29
+                                        }, this),
+                                        "Notifications"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                    lineNumber: 80,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/dashboard/statistics",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                            icon: (0, _freeSolidSvgIcons.faSignal),
+                                            className: " nav_desktop",
+                                            "aria-label": "icone statistique"
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                            lineNumber: 90,
+                                            columnNumber: 29
+                                        }, this),
+                                        "Statistiques"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                    lineNumber: 89,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/dashboard/profile",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                            icon: (0, _freeSolidSvgIcons.faUser),
+                                            className: " nav_desktop",
+                                            "aria-label": "icone utilisateur"
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                            lineNumber: 99,
+                                            columnNumber: 29
+                                        }, this),
+                                        "Profil"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                    lineNumber: 98,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/dashboard/desk",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                            icon: (0, _freeSolidSvgIcons.faGraduationCap),
+                                            className: " nav_desktop",
+                                            "aria-label": "icone bureau"
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                            lineNumber: 108,
+                                            columnNumber: 29
+                                        }, this),
+                                        "Bureau"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                    lineNumber: 107,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/dashboard/results",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                            icon: (0, _freeSolidSvgIcons.faMagnifyingGlass),
+                                            className: " nav_desktop",
+                                            "aria-label": "icone bureau"
+                                        }, void 0, false, {
+                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                            lineNumber: 117,
+                                            columnNumber: 29
+                                        }, this),
+                                        "Recherche"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                    lineNumber: 116,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
+                                    setLogged: setLogged,
+                                    setSelectedCategory: setSelectedCategory,
+                                    setSelectedSubCategory: setSelectedSubCategory,
+                                    setSelectedLevel: setSelectedLevel,
+                                    setSearchInput: setSearchInput,
+                                    setNoMatch: setNoMatch,
+                                    setMatch: setMatch
                                 }, void 0, false, {
                                     fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 54,
+                                    lineNumber: 125,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                            lineNumber: 43,
+                            lineNumber: 63,
                             columnNumber: 21
                         }, this)
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 42,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "logoUsers",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "logo_dollar",
-                                role: "group",
-                                "aria-label": "Information sur l'utilisateur",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "swappies",
-                                        "aria-label": "total swappies",
-                                        children: swappies
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 68,
-                                        columnNumber: 25
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                        icon: (0, _freeSolidSvgIcons.faDollarSign),
-                                        className: " icone",
-                                        "aria-label": "symbole dollar"
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 71,
-                                        columnNumber: 25
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 64,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: "/dashboard/notifications",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                        icon: (0, _freeSolidSvgIcons.faBell),
-                                        className: " nav_desktop",
-                                        "aria-label": "icone notification"
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 80,
-                                        columnNumber: 25
-                                    }, this),
-                                    "Notifications"
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 79,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: "/dashboard/statistics",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                        icon: (0, _freeSolidSvgIcons.faSignal),
-                                        className: " nav_desktop",
-                                        "aria-label": "icone statistique"
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 89,
-                                        columnNumber: 25
-                                    }, this),
-                                    "Statistiques"
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 88,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: "/dashboard/profile",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                        icon: (0, _freeSolidSvgIcons.faUser),
-                                        className: " nav_desktop",
-                                        "aria-label": "icone utilisateur"
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 98,
-                                        columnNumber: 25
-                                    }, this),
-                                    "Profil"
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 97,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: "/dashboard/desk",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                        icon: (0, _freeSolidSvgIcons.faGraduationCap),
-                                        className: " nav_desktop",
-                                        "aria-label": "icone bureau"
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 107,
-                                        columnNumber: 25
-                                    }, this),
-                                    "Bureau"
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 106,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: "/dashboard/results",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                        icon: (0, _freeSolidSvgIcons.faMagnifyingGlass),
-                                        className: " nav_desktop",
-                                        "aria-label": "icone bureau"
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 116,
-                                        columnNumber: 25
-                                    }, this),
-                                    "Recherche"
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 115,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
-                                setLogged: setLogged,
-                                setSelectedCategory: setSelectedCategory,
-                                setSelectedSubCategory: setSelectedSubCategory,
-                                setSelectedLevel: setSelectedLevel,
-                                setSearchInput: setSearchInput,
-                                setNoMatch: setNoMatch,
-                                setMatch: setMatch
-                            }, void 0, false, {
-                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 124,
-                                columnNumber: 21
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 62,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
+                    ]
+                }, void 0, true, {
+                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                    lineNumber: 41,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
                 lineNumber: 40,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 136,
+                lineNumber: 138,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
@@ -61752,14 +61764,14 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 "aria-label": "icone notification"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 141,
+                                lineNumber: 143,
                                 columnNumber: 21
                             }, this),
                             "Notifications"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 140,
+                        lineNumber: 142,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61771,14 +61783,14 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 "aria-label": "icone statistique"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 150,
+                                lineNumber: 152,
                                 columnNumber: 21
                             }, this),
                             "Statistiques"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 149,
+                        lineNumber: 151,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61790,14 +61802,14 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 "aria-label": "icone utilisateur"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 159,
+                                lineNumber: 161,
                                 columnNumber: 21
                             }, this),
                             "Profil"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 158,
+                        lineNumber: 160,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61809,14 +61821,14 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 "aria-label": "icone bureau"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 168,
+                                lineNumber: 170,
                                 columnNumber: 21
                             }, this),
                             "Bureau"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 167,
+                        lineNumber: 169,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -61828,20 +61840,20 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 "aria-label": "icone recherche"
                             }, void 0, false, {
                                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 177,
+                                lineNumber: 179,
                                 columnNumber: 21
                             }, this),
                             "Recherche"
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                        lineNumber: 176,
+                        lineNumber: 178,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 139,
+                lineNumber: 141,
                 columnNumber: 13
             }, this)
         ]

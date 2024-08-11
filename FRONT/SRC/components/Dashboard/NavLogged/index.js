@@ -37,101 +37,103 @@ export default function NavLogged(
 
     return (
         <>
-            <nav className="navLogged">
+            <header>
+                <nav className="navLogged">
 
-                <div className="navLeft">
-                    <button
-                        onClick={handleClickHome}
-                        aria-label="Accueil"
-                        className="logo"
-                    >
-                        <img
-                            src={idea_icone}
-                            alt="accueil-SkillSwap"
-                            className="logoIdea"
-                        />
+                    <div className="navLeft">
+                        <button
+                            onClick={handleClickHome}
+                            aria-label="Accueil"
+                            className="logo"
+                        >
+                            <img
+                                src={idea_icone}
+                                alt="accueil-SkillSwap"
+                                className="logoIdea"
+                            />
 
-                        <img
-                            src={skillswap_icone}
-                            alt="accueil-SkillSwap"
-                            className="logoSkillswap"
-                        />
-                    </button>
-                </div>
-
-                <div className="logoUsers" >
-
-                    <div className="logo_dollar"
-                        role="group"
-                        aria-label="Information sur l'utilisateur">
-
-                        <div className="swappies" aria-label="total swappies">
-                            {swappies}
-                        </div>
-                        <FontAwesomeIcon
-                            icon={faDollarSign}
-                            className=" icone"
-                            aria-label="symbole dollar"
-                        />
+                            <img
+                                src={skillswap_icone}
+                                alt="accueil-SkillSwap"
+                                className="logoSkillswap"
+                            />
+                        </button>
                     </div>
 
+                    <div className="logoUsers" >
 
-                    <Link to="/dashboard/notifications">
-                        <FontAwesomeIcon
-                            icon={faBell}
-                            className=" nav_desktop"
-                            aria-label="icone notification"
+                        <div className="logo_dollar"
+                            role="group"
+                            aria-label="Information sur l'utilisateur">
+
+                            <div className="swappies" aria-label="total swappies">
+                                {swappies}
+                            </div>
+                            <FontAwesomeIcon
+                                icon={faDollarSign}
+                                className=" icone"
+                                aria-label="symbole dollar"
+                            />
+                        </div>
+
+
+                        <Link to="/dashboard/notifications">
+                            <FontAwesomeIcon
+                                icon={faBell}
+                                className=" nav_desktop"
+                                aria-label="icone notification"
+                            />
+                            Notifications
+                        </Link>
+
+                        <Link to="/dashboard/statistics">
+                            <FontAwesomeIcon
+                                icon={faSignal}
+                                className=" nav_desktop"
+                                aria-label="icone statistique"
+                            />
+                            Statistiques
+                        </Link>
+
+                        <Link to="/dashboard/profile">
+                            <FontAwesomeIcon
+                                icon={faUser}
+                                className=" nav_desktop"
+                                aria-label="icone utilisateur"
+                            />
+                            Profil
+                        </Link>
+
+                        <Link to="/dashboard/desk">
+                            <FontAwesomeIcon
+                                icon={faGraduationCap}
+                                className=" nav_desktop"
+                                aria-label="icone bureau"
+                            />
+                            Bureau
+                        </Link>
+
+                        <Link to="/dashboard/results">
+                            <FontAwesomeIcon
+                                icon={faMagnifyingGlass}
+                                className=" nav_desktop"
+                                aria-label="icone bureau"
+                            />
+                            Recherche
+                        </Link>
+
+                        <Logout
+                            setLogged={setLogged}
+                            setSelectedCategory={setSelectedCategory}
+                            setSelectedSubCategory={setSelectedSubCategory}
+                            setSelectedLevel={setSelectedLevel}
+                            setSearchInput={setSearchInput}
+                            setNoMatch={setNoMatch}
+                            setMatch={setMatch}
                         />
-                        Notifications
-                    </Link>
-
-                    <Link to="/dashboard/statistics">
-                        <FontAwesomeIcon
-                            icon={faSignal}
-                            className=" nav_desktop"
-                            aria-label="icone statistique"
-                        />
-                        Statistiques
-                    </Link>
-
-                    <Link to="/dashboard/profile">
-                        <FontAwesomeIcon
-                            icon={faUser}
-                            className=" nav_desktop"
-                            aria-label="icone utilisateur"
-                        />
-                        Profil
-                    </Link>
-
-                    <Link to="/dashboard/desk">
-                        <FontAwesomeIcon
-                            icon={faGraduationCap}
-                            className=" nav_desktop"
-                            aria-label="icone bureau"
-                        />
-                        Bureau
-                    </Link>
-
-                    <Link to="/dashboard/results">
-                        <FontAwesomeIcon
-                            icon={faMagnifyingGlass}
-                            className=" nav_desktop"
-                            aria-label="icone bureau"
-                        />
-                        Recherche
-                    </Link>
-
-                    <Logout
-                        setLogged={setLogged}
-                        setSelectedCategory={setSelectedCategory}
-                        setSelectedSubCategory={setSelectedSubCategory}
-                        setSelectedLevel={setSelectedLevel}
-                        setSearchInput={setSearchInput}
-                        setNoMatch={setNoMatch}
-                        setMatch={setMatch}
-                    />
-                </div>
-            </nav>
+                    </div>
+                </nav>
+            </header>
 
             <Outlet />
 

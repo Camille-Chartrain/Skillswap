@@ -25,49 +25,51 @@ export default function NavHome() {
     }
 
     return (
-        <nav className="navHome">
+        <header>
+            <nav className="navHome">
 
-            <div className="navLeft">
-                <button
-                    onClick={handleClickHome}
-                    aria-label="Accueil"
-                    className="logo"
-                >
-                    <img
-                        src={idea_icone}
-                        alt="accueil-SkillSwap"
-                        className="logoIdea"
-                    />
+                <div className="navLeft">
+                    <button
+                        onClick={handleClickHome}
+                        aria-label="Accueil"
+                        className="logo"
+                    >
+                        <img
+                            src={idea_icone}
+                            alt="accueil-SkillSwap"
+                            className="logoIdea"
+                        />
 
-                    <img
-                        src={skillswap_icone}
-                        alt="accueil-SkillSwap"
-                        className="logoSkillswap"
-                    />
-                </button>
-            </div>
+                        <img
+                            src={skillswap_icone}
+                            alt="accueil-SkillSwap"
+                            className="logoSkillswap"
+                        />
+                    </button>
+                </div>
 
-            <div className="logoUsers">
-                <button
-                    onClick={handleClickRegistration}
-                    aria-label="Inscription"
-                >
-                    <FontAwesomeIcon
-                        icon={faUserPlus}
-                        className="icone iconeRegister"
-                    />
-                </button>
+                <div className="logoUsers">
+                    <button
+                        onClick={handleClickRegistration}
+                        aria-label="Inscription"
+                    >
+                        <FontAwesomeIcon
+                            icon={faUserPlus}
+                            className="icone iconeRegister"
+                        />
+                    </button>
 
-                <button
-                    onClick={handleClickLogin}
-                    aria-label="connection"
-                >
-                    <FontAwesomeIcon
-                        icon={faCircleUser}
-                        className="icone iconeLogin"
-                    />
-                </button>
-            </div>
-        </nav>
+                    <button
+                        onClick={handleClickLogin}
+                        aria-label="connection"
+                    >
+                        <FontAwesomeIcon
+                            icon={faCircleUser}
+                            className="icone iconeLogin"
+                        />
+                    </button>
+                </div>
+            </nav>
+        </header>
     );
 }
