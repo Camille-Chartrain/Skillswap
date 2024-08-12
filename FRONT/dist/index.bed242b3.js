@@ -27255,7 +27255,7 @@ var _admin = require("./components/Admin");
 var _adminDefault = parcelHelpers.interopDefault(_admin);
 var _pageTracking = require("./components/PageTracking");
 var _pageTrackingDefault = parcelHelpers.interopDefault(_pageTracking);
-var _results = require("./components/Results");
+var _results = require("./components/Dashboard/Results");
 var _resultsDefault = parcelHelpers.interopDefault(_results);
 var _modifSkill = require("./components/Dashboard/Profile/ModifSkill");
 var _modifSkillDefault = parcelHelpers.interopDefault(_modifSkill);
@@ -27538,7 +27538,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","./components/Home":"ggupi","./components/Dashboard":"7KL8w","./components/Dashboard/Profile":"lfwej","./components/Dashboard/statistic":"amOpm","./components/Dashboard/Notification":"dADDe","./components/Dashboard/Desk":"b9wt4","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Admin":"78PF1","./components/PageTracking":"bO3q7","./components/Results":"3QFc6","./components/Dashboard/Profile/ModifSkill":"4hke4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","./components/Home":"ggupi","./components/Dashboard":"7KL8w","./components/Dashboard/Profile":"lfwej","./components/Dashboard/statistic":"amOpm","./components/Dashboard/Notification":"dADDe","./components/Dashboard/Desk":"b9wt4","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Admin":"78PF1","./components/PageTracking":"bO3q7","./components/Dashboard/Profile/ModifSkill":"4hke4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/Dashboard/Results":"3bfxL"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.25.1
  *
@@ -65167,187 +65167,7 @@ $RefreshReg$(_c, "PageTracking");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3QFc6":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$c151 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$c151.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Results);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _cards = require("../Cards");
-var _cardsDefault = parcelHelpers.interopDefault(_cards);
-var _jsCookie = require("js-cookie");
-var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _reactRouterDom = require("react-router-dom");
-var _searchBar = require("../SearchBar");
-var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
-var _styleScss = require("./style.scss");
-var _reactHelmet = require("react-helmet");
-var _s = $RefreshSig$();
-function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged, setSwappies }) {
-    _s();
-    const navigate = (0, _reactRouterDom.useNavigate)();
-    async function getData() {
-        try {
-            console.log("d\xe9clenchement fonction getData comp Result");
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectedLevel);
-            console.log("searchInput dans try", searchInput);
-            const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
-                method: "get",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            const responseDataSearch = await response.json();
-            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
-            console.log("typeof responseDataSearch", typeof responseDataSearch);
-            if (responseDataSearch.error === "Token invalide") navigate("/login");
-            if (responseDataSearch.message === "no match") {
-                setMatch(false);
-                setNoMatch(true);
-                setLoading(false);
-                setSwappies(responseDataSearch.userSwappies.swappies);
-                console.log("NO MATCH state match dans Search", match);
-                console.log("NOT MATCH state noMatch dans Search", noMatch);
-                console.log(" responseDataSearch.isLogged", responseDataSearch.isLogged);
-                if (!responseDataSearch.isLogged) {
-                    console.log(" dans  false !responseDataSearch.isLogged", responseDataSearch.isLogged);
-                    setLogged(false);
-                    navigate("/");
-                } else if (responseDataSearch.isLogged) {
-                    console.log(" dans  true responseDataSearch.isLogged", responseDataSearch.isLogged);
-                    setLogged(true);
-                }
-            } else if (responseDataSearch) {
-                console.log("on est dans la condition il y a match");
-                console.log("responseDataseaarch", responseDataSearch);
-                setDataCards(responseDataSearch);
-                setMatch(true);
-                setNoMatch(false);
-                setLoading(false);
-                console.log(" responseDataSearch.isLogged", responseDataSearch.isLogged);
-                console.log("typeof responseDataSearch?islogged", typeof responseDataSearch.isLogged);
-                if (!responseDataSearch.isLogged) {
-                    console.log("dans  responseDataSearch.isLogged === false", responseDataSearch.isLogged);
-                    setLogged(false);
-                    navigate("/");
-                } else if (responseDataSearch.isLogged) {
-                    console.log("dans  responseDataSearch.isLogged === true", responseDataSearch.isLogged);
-                    setSwappies(responseDataSearch.userSwappies.swappies);
-                    setLogged(true);
-                }
-            // console.log("MATCH State dataSearch", dataSearch);
-            // console.log("MATCH state Match dans Search", match);
-            // console.log("MATCH state noMatch dans Search", noMatch);
-            }
-        } catch (error) {
-            console.log("erreur du catch GetSearch:", error);
-        // setError("Votre recherche n'aq pas pu aboutir");
-        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
-        }
-    }
-    (0, _react.useEffect)(()=>{
-        getData();
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
-                        name: "description",
-                        content: "Page de recherche de comp\xe9tences propos\xe9es sur la plateforme selon plusieurs crit\xe8res: mot cl\xe9, cat\xe9gories, sous-cat\xe9gories, et niveau."
-                    }, void 0, false, {
-                        fileName: "SRC/components/Results/index.js",
-                        lineNumber: 125,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
-                        children: "Recherche - Skillswap"
-                    }, void 0, false, {
-                        fileName: "SRC/components/Results/index.js",
-                        lineNumber: 126,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Results/index.js",
-                lineNumber: 124,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-                className: "results",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
-                        selectedCategory: selectedCategory,
-                        setSelectedCategory: setSelectedCategory,
-                        selectedSubCategory: selectedSubCategory,
-                        setSelectedSubCategory: setSelectedSubCategory,
-                        selectedLevel: selectedLevel,
-                        setSelectedLevel: setSelectedLevel,
-                        searchInput: searchInput,
-                        setSearchInput: setSearchInput,
-                        setDataCards: setDataCards,
-                        match: match,
-                        setMatch: setMatch,
-                        noMatch: noMatch,
-                        setNoMatch: setNoMatch,
-                        setLoading: setLoading,
-                        setLogged: setLogged
-                    }, void 0, false, {
-                        fileName: "SRC/components/Results/index.js",
-                        lineNumber: 129,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
-                        dataCards: dataCards,
-                        match: match,
-                        noMatch: noMatch,
-                        loading: loading
-                    }, void 0, false, {
-                        fileName: "SRC/components/Results/index.js",
-                        lineNumber: 147,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        children: "Fin des r\xe9sultats"
-                    }, void 0, false, {
-                        fileName: "SRC/components/Results/index.js",
-                        lineNumber: 153,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Results/index.js",
-                lineNumber: 128,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true);
-}
-_s(Results, "0pNeyzXk/ByIxyERsdaIrG6js9s=", false, function() {
-    return [
-        (0, _reactRouterDom.useNavigate)
-    ];
-});
-_c = Results;
-var _c;
-$RefreshReg$(_c, "Results");
-
-  $parcel$ReactRefreshHelpers$c151.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../SearchBar":"kxQdC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"iHWRC","react-helmet":"fcX6K"}],"iHWRC":[function() {},{}],"4hke4":[function(require,module,exports) {
+},{"react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4hke4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d466 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -65649,6 +65469,186 @@ $RefreshReg$(_c, "ModifSkill");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../../../SearchBar/Level":"8e1BU","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"kuJlX"}],"kuJlX":[function() {},{}]},["5l8qM","1xC6H","hQ0Dx"], "hQ0Dx", "parcelRequireb2c8")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../../../SearchBar/Level":"8e1BU","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"kuJlX"}],"kuJlX":[function() {},{}],"3bfxL":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$bec0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$bec0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Results);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _cards = require("../../Cards");
+var _cardsDefault = parcelHelpers.interopDefault(_cards);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _reactRouterDom = require("react-router-dom");
+var _searchBar = require("../../SearchBar");
+var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
+var _styleScss = require("./style.scss");
+var _reactHelmet = require("react-helmet");
+var _s = $RefreshSig$();
+function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged, setSwappies }) {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    async function getData() {
+        try {
+            console.log("d\xe9clenchement fonction getData comp Result");
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
+            console.log("selectLevel dans try", selectedLevel);
+            console.log("searchInput dans try", searchInput);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const responseDataSearch = await response.json();
+            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
+            console.log("typeof responseDataSearch", typeof responseDataSearch);
+            if (responseDataSearch.error === "Token invalide") navigate("/login");
+            if (responseDataSearch.message === "no match") {
+                setMatch(false);
+                setNoMatch(true);
+                setLoading(false);
+                setSwappies(responseDataSearch.userSwappies.swappies);
+                console.log("NO MATCH state match dans Search", match);
+                console.log("NOT MATCH state noMatch dans Search", noMatch);
+                console.log(" responseDataSearch.isLogged", responseDataSearch.isLogged);
+                if (!responseDataSearch.isLogged) {
+                    console.log(" dans  false !responseDataSearch.isLogged", responseDataSearch.isLogged);
+                    setLogged(false);
+                    navigate("/");
+                } else if (responseDataSearch.isLogged) {
+                    console.log(" dans  true responseDataSearch.isLogged", responseDataSearch.isLogged);
+                    setLogged(true);
+                }
+            } else if (responseDataSearch) {
+                console.log("on est dans la condition il y a match");
+                console.log("responseDataseaarch", responseDataSearch);
+                setDataCards(responseDataSearch);
+                setMatch(true);
+                setNoMatch(false);
+                setLoading(false);
+                console.log(" responseDataSearch.isLogged", responseDataSearch.isLogged);
+                console.log("typeof responseDataSearch?islogged", typeof responseDataSearch.isLogged);
+                if (!responseDataSearch.isLogged) {
+                    console.log("dans  responseDataSearch.isLogged === false", responseDataSearch.isLogged);
+                    setLogged(false);
+                    navigate("/");
+                } else if (responseDataSearch.isLogged) {
+                    console.log("dans  responseDataSearch.isLogged === true", responseDataSearch.isLogged);
+                    setSwappies(responseDataSearch.userSwappies.swappies);
+                    setLogged(true);
+                }
+            // console.log("MATCH State dataSearch", dataSearch);
+            // console.log("MATCH state Match dans Search", match);
+            // console.log("MATCH state noMatch dans Search", noMatch);
+            }
+        } catch (error) {
+            console.log("erreur du catch GetSearch:", error);
+        // setError("Votre recherche n'aq pas pu aboutir");
+        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+        }
+    }
+    (0, _react.useEffect)(()=>{
+        getData();
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
+                        name: "description",
+                        content: "Page de recherche de comp\xe9tences propos\xe9es sur la plateforme selon plusieurs crit\xe8res: mot cl\xe9, cat\xe9gories, sous-cat\xe9gories, et niveau."
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Results/index.js",
+                        lineNumber: 125,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
+                        children: "Recherche - Skillswap"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Results/index.js",
+                        lineNumber: 126,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Results/index.js",
+                lineNumber: 124,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+                className: "results",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                        selectedCategory: selectedCategory,
+                        setSelectedCategory: setSelectedCategory,
+                        selectedSubCategory: selectedSubCategory,
+                        setSelectedSubCategory: setSelectedSubCategory,
+                        selectedLevel: selectedLevel,
+                        setSelectedLevel: setSelectedLevel,
+                        searchInput: searchInput,
+                        setSearchInput: setSearchInput,
+                        setDataCards: setDataCards,
+                        match: match,
+                        setMatch: setMatch,
+                        noMatch: noMatch,
+                        setNoMatch: setNoMatch,
+                        setLoading: setLoading,
+                        setLogged: setLogged
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Results/index.js",
+                        lineNumber: 129,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
+                        dataCards: dataCards,
+                        match: match,
+                        noMatch: noMatch,
+                        loading: loading
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Results/index.js",
+                        lineNumber: 147,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        children: "Fin des r\xe9sultats"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Results/index.js",
+                        lineNumber: 153,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Results/index.js",
+                lineNumber: 128,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true);
+}
+_s(Results, "0pNeyzXk/ByIxyERsdaIrG6js9s=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = Results;
+var _c;
+$RefreshReg$(_c, "Results");
+
+  $parcel$ReactRefreshHelpers$bec0.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../../SearchBar":"kxQdC","./style.scss":"kzcIv","react-helmet":"fcX6K","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kzcIv":[function() {},{}]},["5l8qM","1xC6H","hQ0Dx"], "hQ0Dx", "parcelRequireb2c8")
 
 //# sourceMappingURL=index.bed242b3.js.map

@@ -10,7 +10,7 @@ import Registration from "./components/Registration";
 import Login from "./components/Login";
 import Admin from "./components/Admin";
 import PageTracking from "./components/PageTracking";
-import Results from "./components/Results";
+import Results from "./components/Dashboard/Results";
 import ModifSkill from "./components/Dashboard/Profile/ModifSkill";
 
 

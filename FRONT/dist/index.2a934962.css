@@ -1140,20 +1140,6 @@ body {
   padding-top: 20px;
 }
 
-.results {
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 6rem;
-  padding-top: 130px;
-  display: flex;
-}
-
-@media screen and (width >= 90rem) {
-  .results {
-    padding-top: 80px;
-  }
-}
-
 .modif_skill {
   flex-direction: column;
   align-items: center;
@@ -1261,5 +1247,19 @@ body {
 .modif_skill .form .fieldset .buttons .button_grey:active {
   background-color: #838181;
   transform: scale(.95);
+}
+
+.results {
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 6rem;
+  padding-top: 130px;
+  display: flex;
+}
+
+@media screen and (width >= 90rem) {
+  .results {
+    padding-top: 80px;
+  }
 }
 /*# sourceMappingURL=index.2a934962.css.map */

@@ -1,8 +1,8 @@
 import { React, useEffect } from "react";
-import Cards from "../Cards";
+import Cards from "../../Cards";
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
-import SearchBar from "../SearchBar";
+import SearchBar from "../../SearchBar";
 import "./style.scss";
 import { Helmet } from 'react-helmet';
 
