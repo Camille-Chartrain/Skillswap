@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 import PswdLogin from "./PswdLogin";
 import "./style.scss";
+import { Helmet } from 'react-helmet';
 
 export default function Login({ setNoMatch, setDataCards }) {
 
@@ -85,6 +86,10 @@ export default function Login({ setNoMatch, setDataCards }) {
 
     return (
         <>
+            <Helmet>
+                <meta name="description" content="Page de connexion sur le site Skillswap'" />
+                <title>Connexion - Skillswap</title>
+            </Helmet>
             <NavHome />
             <main className="login">
                 <div className="box_login">

@@ -28,7 +28,7 @@ export default function Cards({
 
     return (
         <>
-            <p className="advertising">
+            <div className="advertising">
                 {loading && <p className="loading">chargement...</p>}
 
                 {match && dataCards && dataCards.resultCount == 1 && (<p className="search-result">{dataCards.resultCount} résultat</p>)}
@@ -36,7 +36,7 @@ export default function Cards({
                 {match && dataCards && dataCards.resultCount > 1 && (<p className="search-result">{dataCards.resultCount} résultats</p>)}
 
                 {noMatch && <p className="search-result">Pas encore de cours pour vos critères, voici nos dernières nouveautés:</p>}
-            </p>
+            </div>
 
             <section className="cards_section">
 
@@ -98,8 +98,9 @@ export default function Cards({
                                         <img
                                             className="avatar"
                                             src={`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${card.Category.picture}`}
-                                            alt="photo des categories">
-
+                                            alt="photo des categories"
+                                            loading="lazy"
+                                        >
                                         </img>
                                     </div>
                                 </div>

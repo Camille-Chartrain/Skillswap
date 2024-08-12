@@ -250,3 +250,42 @@ const homeController = {
 };
 
 export default homeController;
+
+// searchVisitor requete SQL:
+
+// SELECT
+// "Skill"."id",
+// "Skill"."title",
+// "Skill"."duration",
+// "Skill"."price",
+// "Skill"."averageMark",
+// "Skill"."sumOfMarks",
+// "Skill"."numberOfRating",
+// "Skill"."level",
+// "Skill"."transmission",
+// "Skill"."description",
+// "Skill"."availability",
+// "Skill"."SubCategoryId",
+// "Skill"."CategoryId",
+// "User"."id" AS "User.id",
+// "User"."firstname" AS "User.firstname",
+// "User"."lastname" AS "User.lastname",
+// "User"."email" AS "User.email",
+// "User"."grade_level" AS "User.grade_level",
+// "User"."presentation" AS "User.presentation",
+// "Category"."id" AS "Category.id",
+// "Category"."picture" AS "Category.picture",
+// "Category"."name" AS "Category.name",
+// "SubCategory"."id" AS "SubCategory.id",
+// "SubCategory"."name" AS "SubCategory.name"
+// FROM
+// "skill" AS "Skill"
+// LEFT OUTER JOIN
+// "user" AS "User" ON "Skill"."UserId" = "User"."id"
+// LEFT OUTER JOIN
+// "category" AS "Category" ON "Skill"."CategoryId" = "Category"."id"
+// LEFT OUTER JOIN
+// "subcategory" AS "SubCategory" ON "Skill"."SubCategoryId" = "SubCategory"."id"
+// WHERE
+// ("Skill"."title" ILIKE '%%' OR "Skill"."description" ILIKE '%%')
+// LIMIT 8;

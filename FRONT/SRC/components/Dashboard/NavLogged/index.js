@@ -5,8 +5,8 @@ import { Link, Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap, faSignal, faUser, faMagnifyingGlass, faBell, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import "./style.scss";
-import skillswap_icone from '../../../style/icones/skillswap_icone.png';
-import idea_icone from '../../../style/icones/idea_icone.png';
+import Skillswap_logo_bgRemoved from '../../../style/icones/Skillswap_logo_bgRemoved.webp';
+import idea_icone from '../../../style/icones/idea_icone.webp';
 
 export default function NavLogged(
     {
@@ -37,103 +37,103 @@ export default function NavLogged(
 
     return (
         <>
-            <header>
-                <nav className="navLogged">
+            {/* <header> */}
+            <nav className="navLogged">
 
-                    <div className="navLeft">
-                        <button
-                            onClick={handleClickHome}
-                            aria-label="Accueil"
-                            className="logo"
-                        >
-                            <img
-                                src={idea_icone}
-                                alt="accueil-SkillSwap"
-                                className="logoIdea"
-                            />
+                <div className="navLeft">
+                    <button
+                        onClick={handleClickHome}
+                        aria-label="Accueil"
+                        className="logo"
+                    >
+                        <img
+                            src={idea_icone}
+                            alt="accueil-SkillSwap"
+                            className="logoIdea"
+                        />
 
-                            <img
-                                src={skillswap_icone}
-                                alt="accueil-SkillSwap"
-                                className="logoSkillswap"
-                            />
-                        </button>
-                    </div>
+                        <img
+                            src={Skillswap_logo_bgRemoved}
+                            alt="accueil-SkillSwap"
+                            className="logoSkillswap"
+                        />
+                    </button>
+                </div>
 
-                    <div className="logoUsers" >
+                <div className="logoUsers" >
 
-                        <div className="logo_dollar"
-                            role="group"
-                            aria-label="Information sur l'utilisateur">
+                    <div className="logo_dollar"
+                        role="group"
+                        aria-label="Information sur l'utilisateur">
 
-                            <div className="swappies" aria-label="total swappies">
-                                {swappies}
-                            </div>
-                            <FontAwesomeIcon
-                                icon={faDollarSign}
-                                className=" icone"
-                                aria-label="symbole dollar"
-                            />
+                        <div className="swappies" aria-label="total swappies">
+                            {swappies}
                         </div>
-
-
-                        <Link to="/dashboard/notifications">
-                            <FontAwesomeIcon
-                                icon={faBell}
-                                className=" nav_desktop"
-                                aria-label="icone notification"
-                            />
-                            Notifications
-                        </Link>
-
-                        <Link to="/dashboard/statistics">
-                            <FontAwesomeIcon
-                                icon={faSignal}
-                                className=" nav_desktop"
-                                aria-label="icone statistique"
-                            />
-                            Statistiques
-                        </Link>
-
-                        <Link to="/dashboard/profile">
-                            <FontAwesomeIcon
-                                icon={faUser}
-                                className=" nav_desktop"
-                                aria-label="icone utilisateur"
-                            />
-                            Profil
-                        </Link>
-
-                        <Link to="/dashboard/desk">
-                            <FontAwesomeIcon
-                                icon={faGraduationCap}
-                                className=" nav_desktop"
-                                aria-label="icone bureau"
-                            />
-                            Bureau
-                        </Link>
-
-                        <Link to="/dashboard/results">
-                            <FontAwesomeIcon
-                                icon={faMagnifyingGlass}
-                                className=" nav_desktop"
-                                aria-label="icone bureau"
-                            />
-                            Recherche
-                        </Link>
-
-                        <Logout
-                            setLogged={setLogged}
-                            setSelectedCategory={setSelectedCategory}
-                            setSelectedSubCategory={setSelectedSubCategory}
-                            setSelectedLevel={setSelectedLevel}
-                            setSearchInput={setSearchInput}
-                            setNoMatch={setNoMatch}
-                            setMatch={setMatch}
+                        <FontAwesomeIcon
+                            icon={faDollarSign}
+                            className=" icone"
+                            aria-label="symbole dollar"
                         />
                     </div>
-                </nav>
-            </header>
+
+
+                    <Link to="/dashboard/notifications">
+                        <FontAwesomeIcon
+                            icon={faBell}
+                            className=" nav_desktop"
+                            aria-label="icone notification"
+                        />
+                        Notifications
+                    </Link>
+
+                    <Link to="/dashboard/statistics">
+                        <FontAwesomeIcon
+                            icon={faSignal}
+                            className=" nav_desktop"
+                            aria-label="icone statistique"
+                        />
+                        Statistiques
+                    </Link>
+
+                    <Link to="/dashboard/profile">
+                        <FontAwesomeIcon
+                            icon={faUser}
+                            className=" nav_desktop"
+                            aria-label="icone utilisateur"
+                        />
+                        Profil
+                    </Link>
+
+                    <Link to="/dashboard/desk">
+                        <FontAwesomeIcon
+                            icon={faGraduationCap}
+                            className=" nav_desktop"
+                            aria-label="icone bureau"
+                        />
+                        Bureau
+                    </Link>
+
+                    <Link to="/dashboard/results">
+                        <FontAwesomeIcon
+                            icon={faMagnifyingGlass}
+                            className=" nav_desktop"
+                            aria-label="icone bureau"
+                        />
+                        Recherche
+                    </Link>
+
+                    <Logout
+                        setLogged={setLogged}
+                        setSelectedCategory={setSelectedCategory}
+                        setSelectedSubCategory={setSelectedSubCategory}
+                        setSelectedLevel={setSelectedLevel}
+                        setSearchInput={setSearchInput}
+                        setNoMatch={setNoMatch}
+                        setMatch={setMatch}
+                    />
+                </div>
+            </nav>
+            {/* </header> */}
 
             <Outlet />
 

@@ -171,6 +171,7 @@
 
 .allCards .card img {
   width: 95px;
+  height: 95px;
 }
 
 .allCards .card .starsCatSubCat {
@@ -330,12 +331,14 @@
 
 .navHome button .logoIdea {
   width: 3rem;
+  height: 3rem;
   margin-bottom: 5%;
   margin-left: .7rem;
   margin-right: .2rem;
 }
 
 .navHome button .logoSkillswap {
+  width: 10.5625rem;
   height: 4.5rem;
   margin-top: .4rem;
   margin-bottom: .1rem;
@@ -400,12 +403,14 @@
 
 .navLogged button .logoIdea {
   width: 3rem;
+  height: 3rem;
   margin-bottom: 5%;
   margin-left: .7rem;
   margin-right: .2rem;
 }
 
 .navLogged button .logoSkillswap {
+  width: 10.5625rem;
   height: 4.5rem;
   margin-top: .4rem;
   margin-bottom: .1rem;

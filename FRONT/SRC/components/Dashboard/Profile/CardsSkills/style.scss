@@ -77,8 +77,8 @@
                 margin-top: 20px;  
     
                 button{
-                    @include mixin.button_blue;   
-                    margin-left: 0.5rem;           
+                    margin-left: 0.5rem; 
+                    @include mixin.button_blue;             
                 }
             }
         }

@@ -8,7 +8,8 @@ TRUNCATE TABLE "user",
 "category",
 "subcategory",
 "meeting",
-"interest" RESTART IDENTITY CASCADE;
+"interest"
+RESTART IDENTITY CASCADE;
 
 INSERT INTO
     "category" ("name", "picture")
@@ -16,32 +17,32 @@ VALUES
     -- premier categorie
     (
         'Langage',
-        'imageCategory/languageSkillswap.jpg'
+        'imageCategory/languageSkillswap.webp'
     ),
     -- deuxième categorie
     (
         'Bricolage',
-        'imageCategory/handiworkSkillswap.jpg'
+        'imageCategory/handiworkSkillswap.webp'
     ),
     -- troisième categorie
     (
         'DIY',
-        'imageCategory/dyiSkillswap.jpg'
+        'imageCategory/dyiSkillswap.webp'
     ),
     -- quatrième categorie
     (
         'Cuisine',
-        'imageCategory/kitchenSkillswap.jpg'
+        'imageCategory/kitchenSkillswap.webp'
     ),
     -- cinquième categorie
     (
         'Art',
-        'imageCategory/artSkillswap.jpg'
+        'imageCategory/artSkillswap.webp'
     ),
     -- sixième categorie
     (
         'Scolaire',
-        'imageCategory/schoolSkillswap.jpg'
+        'imageCategory/schoolSkillswap.webp'
     );
 
 INSERT INTO

@@ -8,8 +8,8 @@
         display: flex;
 
         button{
-            @include mixin.small-button_grey;
             margin-left: 5px;
+            @include mixin.small-button_grey;
         }
     }
 }

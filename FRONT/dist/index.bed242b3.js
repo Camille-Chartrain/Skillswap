@@ -34649,6 +34649,7 @@ var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _styleScss = require("./style.scss");
 var _reactRouterDom = require("react-router-dom");
+var _reactHelmet = require("react-helmet");
 var _s = $RefreshSig$();
 const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, dataCards, setDataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, logged, setLogged })=>{
     _s();
@@ -34685,127 +34686,154 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
     function handleClickRegistration() {
         navigate("/registration");
     }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "home",
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
-                setLogged: setLogged,
-                setSearchInput: setSearchInput,
-                setSelectedLevel: setSelectedLevel,
-                setSelectedSubCategory: setSelectedSubCategory,
-                setSelectedCategory: setSelectedCategory,
-                setNoMatch: setNoMatch,
-                setMatch: setMatch
-            }, void 0, false, {
-                fileName: "SRC/components/Home/index.js",
-                lineNumber: 82,
-                columnNumber: 24
-            }, undefined),
-            !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
-                fileName: "SRC/components/Home/index.js",
-                lineNumber: 91,
-                columnNumber: 25
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-                className: "main",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-                        className: "pres_search",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "presentation",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "border-display",
-                                        children: "Dilettants, passionn\xe9s, professionnels,"
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Home/index.js",
-                                        lineNumber: 96,
-                                        columnNumber: 25
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                className: "display",
-                                                children: "partagez "
-                                            }, void 0, false, {
-                                                fileName: "SRC/components/Home/index.js",
-                                                lineNumber: 100,
-                                                columnNumber: 29
-                                            }, undefined),
-                                            "vos talents  !"
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "SRC/components/Home/index.js",
-                                        lineNumber: 99,
-                                        columnNumber: 25
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Home/index.js",
-                                lineNumber: 95,
-                                columnNumber: 21
-                            }, undefined),
-                            !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
-                                selectedCategory: selectedCategory,
-                                setSelectedCategory: setSelectedCategory,
-                                selectedSubCategory: selectedSubCategory,
-                                setSelectedSubCategory: setSelectedSubCategory,
-                                selectedLevel: selectedLevel,
-                                setSelectedLevel: setSelectedLevel,
-                                searchInput: searchInput,
-                                setSearchInput: setSearchInput,
-                                dataCards: dataCards,
-                                setDataCards: setDataCards,
-                                match: match,
-                                setMatch: setMatch,
-                                noMatch: noMatch,
-                                setNoMatch: setNoMatch,
-                                setLoading: setLoading,
-                                setLogged: setLogged
-                            }, void 0, false, {
-                                fileName: "SRC/components/Home/index.js",
-                                lineNumber: 105,
-                                columnNumber: 33
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "SRC/components/Home/index.js",
-                        lineNumber: 94,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
-                        dataCards: dataCards,
-                        match: match,
-                        noMatch: noMatch,
-                        loading: loading
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
+                        name: "description",
+                        content: "Bienvenue sur la page d'accueil de Skillswap. D\xe9couvrez des comp\xe9tences que vous aimeriez acqu\xe9rir gr\xe2ce \xe0 notre communaut\xe9."
                     }, void 0, false, {
                         fileName: "SRC/components/Home/index.js",
-                        lineNumber: 126,
+                        lineNumber: 84,
                         columnNumber: 17
                     }, undefined),
-                    !loading && !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "join_button",
-                        onClick: handleClickRegistration,
-                        "aria-label": "Inscription",
-                        children: "Rejoindre la communaut\xe9"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
+                        children: "Accueil - Skillswap"
                     }, void 0, false, {
                         fileName: "SRC/components/Home/index.js",
-                        lineNumber: 135,
-                        columnNumber: 21
+                        lineNumber: 85,
+                        columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 93,
+                lineNumber: 83,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "home",
+                children: [
+                    logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
+                        setLogged: setLogged,
+                        setSearchInput: setSearchInput,
+                        setSelectedLevel: setSelectedLevel,
+                        setSelectedSubCategory: setSelectedSubCategory,
+                        setSelectedCategory: setSelectedCategory,
+                        setNoMatch: setNoMatch,
+                        setMatch: setMatch
+                    }, void 0, false, {
+                        fileName: "SRC/components/Home/index.js",
+                        lineNumber: 89,
+                        columnNumber: 28
+                    }, undefined),
+                    !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
+                        fileName: "SRC/components/Home/index.js",
+                        lineNumber: 98,
+                        columnNumber: 29
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+                        className: "main",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+                                className: "pres_search",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "presentation",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "border-display",
+                                                children: "Dilettants, passionn\xe9s, professionnels,"
+                                            }, void 0, false, {
+                                                fileName: "SRC/components/Home/index.js",
+                                                lineNumber: 103,
+                                                columnNumber: 29
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        className: "display",
+                                                        children: "partagez "
+                                                    }, void 0, false, {
+                                                        fileName: "SRC/components/Home/index.js",
+                                                        lineNumber: 107,
+                                                        columnNumber: 33
+                                                    }, undefined),
+                                                    "vos talents  !"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "SRC/components/Home/index.js",
+                                                lineNumber: 106,
+                                                columnNumber: 29
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "SRC/components/Home/index.js",
+                                        lineNumber: 102,
+                                        columnNumber: 25
+                                    }, undefined),
+                                    !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                                        selectedCategory: selectedCategory,
+                                        setSelectedCategory: setSelectedCategory,
+                                        selectedSubCategory: selectedSubCategory,
+                                        setSelectedSubCategory: setSelectedSubCategory,
+                                        selectedLevel: selectedLevel,
+                                        setSelectedLevel: setSelectedLevel,
+                                        searchInput: searchInput,
+                                        setSearchInput: setSearchInput,
+                                        dataCards: dataCards,
+                                        setDataCards: setDataCards,
+                                        match: match,
+                                        setMatch: setMatch,
+                                        noMatch: noMatch,
+                                        setNoMatch: setNoMatch,
+                                        setLoading: setLoading,
+                                        setLogged: setLogged
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Home/index.js",
+                                        lineNumber: 112,
+                                        columnNumber: 37
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Home/index.js",
+                                lineNumber: 101,
+                                columnNumber: 21
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
+                                dataCards: dataCards,
+                                match: match,
+                                noMatch: noMatch,
+                                loading: loading
+                            }, void 0, false, {
+                                fileName: "SRC/components/Home/index.js",
+                                lineNumber: 133,
+                                columnNumber: 21
+                            }, undefined),
+                            !loading && !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "join_button",
+                                onClick: handleClickRegistration,
+                                "aria-label": "Inscription",
+                                children: "Rejoindre la communaut\xe9"
+                            }, void 0, false, {
+                                fileName: "SRC/components/Home/index.js",
+                                lineNumber: 142,
+                                columnNumber: 25
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Home/index.js",
+                        lineNumber: 100,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Home/index.js",
+                lineNumber: 88,
                 columnNumber: 13
             }, undefined)
         ]
-    }, void 0, true, {
-        fileName: "SRC/components/Home/index.js",
-        lineNumber: 81,
-        columnNumber: 9
-    }, undefined);
+    }, void 0, true);
 };
 _s(Home, "ozcc7agSozDt5Ds+4CzVCamyzlI=", false, function() {
     return [
@@ -34822,7 +34850,7 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../SearchBar":"kxQdC","../Cards":"jUXwJ","../NavHome":"8DCBt","../Dashboard/NavLogged":"dYmlb","js-cookie":"c8bBu","./style.scss":"8u0qZ","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kxQdC":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../SearchBar":"kxQdC","../Cards":"jUXwJ","../NavHome":"8DCBt","../Dashboard/NavLogged":"dYmlb","js-cookie":"c8bBu","./style.scss":"8u0qZ","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-helmet":"fcX6K"}],"kxQdC":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2835 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35522,7 +35550,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "advertising",
                 children: [
                     loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35699,7 +35727,8 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                         className: "avatar",
                                                         src: `http://${"localhost"}:${"3000"}/${card.Category.picture}`,
-                                                        alt: "photo des categories"
+                                                        alt: "photo des categories",
+                                                        loading: "lazy"
                                                     }, void 0, false, {
                                                         fileName: "SRC/components/Cards/index.js",
                                                         lineNumber: 98,
@@ -35736,12 +35765,12 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 111,
+                                                lineNumber: 112,
                                                 columnNumber: 37
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 109,
+                                            lineNumber: 110,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35753,7 +35782,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     children: "D\xe9tails"
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 115,
+                                                    lineNumber: 116,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35762,19 +35791,19 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     children: "Participer"
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 116,
+                                                    lineNumber: 117,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 114,
+                                            lineNumber: 115,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "SRC/components/Cards/index.js",
-                                    lineNumber: 108,
+                                    lineNumber: 109,
                                     columnNumber: 29
                                 }, this)
                             ]
@@ -61346,10 +61375,10 @@ var _reactRouterDom = require("react-router-dom");
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
 var _styleScss = require("./style.scss");
-var _skillswapIconePng = require("../../style/icones/skillswap_icone.png");
-var _skillswapIconePngDefault = parcelHelpers.interopDefault(_skillswapIconePng);
-var _ideaIconePng = require("../../style/icones/idea_icone.png");
-var _ideaIconePngDefault = parcelHelpers.interopDefault(_ideaIconePng);
+var _skillswapLogoBgRemovedWebp = require("../../style/icones/Skillswap_logo_bgRemoved.webp");
+var _skillswapLogoBgRemovedWebpDefault = parcelHelpers.interopDefault(_skillswapLogoBgRemovedWebp);
+var _ideaIconeWebp = require("../../style/icones/idea_icone.webp");
+var _ideaIconeWebpDefault = parcelHelpers.interopDefault(_ideaIconeWebp);
 var _s = $RefreshSig$();
 function NavHome() {
     _s();
@@ -61375,7 +61404,7 @@ function NavHome() {
                         className: "logo",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                src: (0, _ideaIconePngDefault.default),
+                                src: (0, _ideaIconeWebpDefault.default),
                                 alt: "accueil-SkillSwap",
                                 className: "logoIdea"
                             }, void 0, false, {
@@ -61384,7 +61413,7 @@ function NavHome() {
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                src: (0, _skillswapIconePngDefault.default),
+                                src: (0, _skillswapLogoBgRemovedWebpDefault.default),
                                 alt: "accueil-SkillSwap",
                                 className: "logoSkillswap"
                             }, void 0, false, {
@@ -61470,10 +61499,10 @@ $RefreshReg$(_c, "NavHome");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"bPS58","../../style/icones/skillswap_icone.png":"jJZjR","../../style/icones/idea_icone.png":"6DVFh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bPS58":[function() {},{}],"jJZjR":[function(require,module,exports) {
-module.exports = require("b7e66ae45c6d70a1").getBundleURL("c2MLH") + "skillswap_icone.aa6d1d7a.png" + "?" + Date.now();
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"bPS58","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../style/icones/Skillswap_logo_bgRemoved.webp":"3U2xG","../../style/icones/idea_icone.webp":"2RbJl"}],"bPS58":[function() {},{}],"3U2xG":[function(require,module,exports) {
+module.exports = require("1e1e5777c4a0e3f5").getBundleURL("c2MLH") + "Skillswap_logo_bgRemoved.882e941f.webp" + "?" + Date.now();
 
-},{"b7e66ae45c6d70a1":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"1e1e5777c4a0e3f5":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -61508,10 +61537,10 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"6DVFh":[function(require,module,exports) {
-module.exports = require("762cec6c89425929").getBundleURL("c2MLH") + "idea_icone.621f21a9.png" + "?" + Date.now();
+},{}],"2RbJl":[function(require,module,exports) {
+module.exports = require("1f9ce63b8583abd7").getBundleURL("c2MLH") + "idea_icone.596104d1.webp" + "?" + Date.now();
 
-},{"762cec6c89425929":"lgJ39"}],"dYmlb":[function(require,module,exports) {
+},{"1f9ce63b8583abd7":"lgJ39"}],"dYmlb":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$77af = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -61530,10 +61559,10 @@ var _logoutDefault = parcelHelpers.interopDefault(_logout);
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
 var _styleScss = require("./style.scss");
-var _skillswapIconePng = require("../../../style/icones/skillswap_icone.png");
-var _skillswapIconePngDefault = parcelHelpers.interopDefault(_skillswapIconePng);
-var _ideaIconePng = require("../../../style/icones/idea_icone.png");
-var _ideaIconePngDefault = parcelHelpers.interopDefault(_ideaIconePng);
+var _skillswapLogoBgRemovedWebp = require("../../../style/icones/Skillswap_logo_bgRemoved.webp");
+var _skillswapLogoBgRemovedWebpDefault = parcelHelpers.interopDefault(_skillswapLogoBgRemovedWebp);
+var _ideaIconeWebp = require("../../../style/icones/idea_icone.webp");
+var _ideaIconeWebpDefault = parcelHelpers.interopDefault(_ideaIconeWebp);
 var _s = $RefreshSig$();
 function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, setSelectedLevel, setSearchInput, setNoMatch, setMatch, swappies }) {
     _s();
@@ -61550,201 +61579,195 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-                    className: "navLogged",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "navLeft",
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                onClick: handleClickHome,
-                                "aria-label": "Accueil",
-                                className: "logo",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                        src: (0, _ideaIconePngDefault.default),
-                                        alt: "accueil-SkillSwap",
-                                        className: "logoIdea"
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 49,
-                                        columnNumber: 29
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                        src: (0, _skillswapIconePngDefault.default),
-                                        alt: "accueil-SkillSwap",
-                                        className: "logoSkillswap"
-                                    }, void 0, false, {
-                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                        lineNumber: 55,
-                                        columnNumber: 29
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                lineNumber: 44,
-                                columnNumber: 25
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                            lineNumber: 43,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "logoUsers",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+                className: "navLogged",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "navLeft",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            onClick: handleClickHome,
+                            "aria-label": "Accueil",
+                            className: "logo",
                             children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "logo_dollar",
-                                    role: "group",
-                                    "aria-label": "Information sur l'utilisateur",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "swappies",
-                                            "aria-label": "total swappies",
-                                            children: swappies
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                            lineNumber: 69,
-                                            columnNumber: 29
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                            icon: (0, _freeSolidSvgIcons.faDollarSign),
-                                            className: " icone",
-                                            "aria-label": "symbole dollar"
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                            lineNumber: 72,
-                                            columnNumber: 29
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 65,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/dashboard/notifications",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                            icon: (0, _freeSolidSvgIcons.faBell),
-                                            className: " nav_desktop",
-                                            "aria-label": "icone notification"
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                            lineNumber: 81,
-                                            columnNumber: 29
-                                        }, this),
-                                        "Notifications"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 80,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/dashboard/statistics",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                            icon: (0, _freeSolidSvgIcons.faSignal),
-                                            className: " nav_desktop",
-                                            "aria-label": "icone statistique"
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                            lineNumber: 90,
-                                            columnNumber: 29
-                                        }, this),
-                                        "Statistiques"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 89,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/dashboard/profile",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                            icon: (0, _freeSolidSvgIcons.faUser),
-                                            className: " nav_desktop",
-                                            "aria-label": "icone utilisateur"
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                            lineNumber: 99,
-                                            columnNumber: 29
-                                        }, this),
-                                        "Profil"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 98,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/dashboard/desk",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                            icon: (0, _freeSolidSvgIcons.faGraduationCap),
-                                            className: " nav_desktop",
-                                            "aria-label": "icone bureau"
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                            lineNumber: 108,
-                                            columnNumber: 29
-                                        }, this),
-                                        "Bureau"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 107,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/dashboard/results",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
-                                            icon: (0, _freeSolidSvgIcons.faMagnifyingGlass),
-                                            className: " nav_desktop",
-                                            "aria-label": "icone bureau"
-                                        }, void 0, false, {
-                                            fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                            lineNumber: 117,
-                                            columnNumber: 29
-                                        }, this),
-                                        "Recherche"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 116,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
-                                    setLogged: setLogged,
-                                    setSelectedCategory: setSelectedCategory,
-                                    setSelectedSubCategory: setSelectedSubCategory,
-                                    setSelectedLevel: setSelectedLevel,
-                                    setSearchInput: setSearchInput,
-                                    setNoMatch: setNoMatch,
-                                    setMatch: setMatch
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    src: (0, _ideaIconeWebpDefault.default),
+                                    alt: "accueil-SkillSwap",
+                                    className: "logoIdea"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                                    lineNumber: 125,
+                                    lineNumber: 49,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    src: (0, _skillswapLogoBgRemovedWebpDefault.default),
+                                    alt: "accueil-SkillSwap",
+                                    className: "logoSkillswap"
+                                }, void 0, false, {
+                                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                    lineNumber: 55,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                            lineNumber: 63,
+                            lineNumber: 44,
                             columnNumber: 21
                         }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                    lineNumber: 41,
-                    columnNumber: 17
-                }, this)
-            }, void 0, false, {
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                        lineNumber: 43,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "logoUsers",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "logo_dollar",
+                                role: "group",
+                                "aria-label": "Information sur l'utilisateur",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "swappies",
+                                        "aria-label": "total swappies",
+                                        children: swappies
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 69,
+                                        columnNumber: 25
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faDollarSign),
+                                        className: " icone",
+                                        "aria-label": "symbole dollar"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 72,
+                                        columnNumber: 25
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 65,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/notifications",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faBell),
+                                        className: " nav_desktop",
+                                        "aria-label": "icone notification"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 81,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Notifications"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 80,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/statistics",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faSignal),
+                                        className: " nav_desktop",
+                                        "aria-label": "icone statistique"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 90,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Statistiques"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 89,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/profile",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faUser),
+                                        className: " nav_desktop",
+                                        "aria-label": "icone utilisateur"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 99,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Profil"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 98,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/desk",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faGraduationCap),
+                                        className: " nav_desktop",
+                                        "aria-label": "icone bureau"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 108,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Bureau"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 107,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/dashboard/results",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFontawesome.FontAwesomeIcon), {
+                                        icon: (0, _freeSolidSvgIcons.faMagnifyingGlass),
+                                        className: " nav_desktop",
+                                        "aria-label": "icone bureau"
+                                    }, void 0, false, {
+                                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                        lineNumber: 117,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Recherche"
+                                ]
+                            }, void 0, true, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 116,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logoutDefault.default), {
+                                setLogged: setLogged,
+                                setSelectedCategory: setSelectedCategory,
+                                setSelectedSubCategory: setSelectedSubCategory,
+                                setSelectedLevel: setSelectedLevel,
+                                setSearchInput: setSearchInput,
+                                setNoMatch: setNoMatch,
+                                setMatch: setMatch
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                                lineNumber: 125,
+                                columnNumber: 21
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Dashboard/NavLogged/index.js",
+                        lineNumber: 63,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "SRC/components/Dashboard/NavLogged/index.js",
-                lineNumber: 40,
+                lineNumber: 41,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
@@ -61873,7 +61896,7 @@ $RefreshReg$(_c, "NavLogged");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../../Logout":"5BNmm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"dmBTW","../../../style/icones/skillswap_icone.png":"jJZjR","../../../style/icones/idea_icone.png":"6DVFh"}],"5BNmm":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../../Logout":"5BNmm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"dmBTW","../../../style/icones/Skillswap_logo_bgRemoved.webp":"3U2xG","../../../style/icones/idea_icone.webp":"2RbJl"}],"5BNmm":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$fd5b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -61961,7 +61984,887 @@ $RefreshReg$(_c, "Logout");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"83khe"}],"83khe":[function() {},{}],"dmBTW":[function() {},{}],"8u0qZ":[function() {},{}],"7KL8w":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"83khe"}],"83khe":[function() {},{}],"dmBTW":[function() {},{}],"8u0qZ":[function() {},{}],"fcX6K":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Helmet", ()=>HelmetExport);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _reactSideEffect = require("react-side-effect");
+var _reactSideEffectDefault = parcelHelpers.interopDefault(_reactSideEffect);
+var _reactFastCompare = require("react-fast-compare");
+var _reactFastCompareDefault = parcelHelpers.interopDefault(_reactFastCompare);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _objectAssign = require("object-assign");
+var _objectAssignDefault = parcelHelpers.interopDefault(_objectAssign);
+var global = arguments[3];
+var ATTRIBUTE_NAMES = {
+    BODY: "bodyAttributes",
+    HTML: "htmlAttributes",
+    TITLE: "titleAttributes"
+};
+var TAG_NAMES = {
+    BASE: "base",
+    BODY: "body",
+    HEAD: "head",
+    HTML: "html",
+    LINK: "link",
+    META: "meta",
+    NOSCRIPT: "noscript",
+    SCRIPT: "script",
+    STYLE: "style",
+    TITLE: "title"
+};
+var VALID_TAG_NAMES = Object.keys(TAG_NAMES).map(function(name) {
+    return TAG_NAMES[name];
+});
+var TAG_PROPERTIES = {
+    CHARSET: "charset",
+    CSS_TEXT: "cssText",
+    HREF: "href",
+    HTTPEQUIV: "http-equiv",
+    INNER_HTML: "innerHTML",
+    ITEM_PROP: "itemprop",
+    NAME: "name",
+    PROPERTY: "property",
+    REL: "rel",
+    SRC: "src",
+    TARGET: "target"
+};
+var REACT_TAG_MAP = {
+    accesskey: "accessKey",
+    charset: "charSet",
+    class: "className",
+    contenteditable: "contentEditable",
+    contextmenu: "contextMenu",
+    "http-equiv": "httpEquiv",
+    itemprop: "itemProp",
+    tabindex: "tabIndex"
+};
+var HELMET_PROPS = {
+    DEFAULT_TITLE: "defaultTitle",
+    DEFER: "defer",
+    ENCODE_SPECIAL_CHARACTERS: "encodeSpecialCharacters",
+    ON_CHANGE_CLIENT_STATE: "onChangeClientState",
+    TITLE_TEMPLATE: "titleTemplate"
+};
+var HTML_TAG_MAP = Object.keys(REACT_TAG_MAP).reduce(function(obj, key) {
+    obj[REACT_TAG_MAP[key]] = key;
+    return obj;
+}, {});
+var SELF_CLOSING_TAGS = [
+    TAG_NAMES.NOSCRIPT,
+    TAG_NAMES.SCRIPT,
+    TAG_NAMES.STYLE
+];
+var HELMET_ATTRIBUTE = "data-react-helmet";
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
+    return typeof obj;
+} : function(obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+var classCallCheck = function(instance, Constructor) {
+    if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+};
+var createClass = function() {
+    function defineProperties(target, props) {
+        for(var i = 0; i < props.length; i++){
+            var descriptor = props[i];
+            descriptor.enumerable = descriptor.enumerable || false;
+            descriptor.configurable = true;
+            if ("value" in descriptor) descriptor.writable = true;
+            Object.defineProperty(target, descriptor.key, descriptor);
+        }
+    }
+    return function(Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);
+        if (staticProps) defineProperties(Constructor, staticProps);
+        return Constructor;
+    };
+}();
+var _extends = Object.assign || function(target) {
+    for(var i = 1; i < arguments.length; i++){
+        var source = arguments[i];
+        for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
+    }
+    return target;
+};
+var inherits = function(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+        constructor: {
+            value: subClass,
+            enumerable: false,
+            writable: true,
+            configurable: true
+        }
+    });
+    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
+var objectWithoutProperties = function(obj, keys) {
+    var target = {};
+    for(var i in obj){
+        if (keys.indexOf(i) >= 0) continue;
+        if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+        target[i] = obj[i];
+    }
+    return target;
+};
+var possibleConstructorReturn = function(self, call) {
+    if (!self) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+var encodeSpecialCharacters = function encodeSpecialCharacters(str) {
+    var encode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+    if (encode === false) return String(str);
+    return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;");
+};
+var getTitleFromPropsList = function getTitleFromPropsList(propsList) {
+    var innermostTitle = getInnermostProperty(propsList, TAG_NAMES.TITLE);
+    var innermostTemplate = getInnermostProperty(propsList, HELMET_PROPS.TITLE_TEMPLATE);
+    if (innermostTemplate && innermostTitle) // use function arg to avoid need to escape $ characters
+    return innermostTemplate.replace(/%s/g, function() {
+        return Array.isArray(innermostTitle) ? innermostTitle.join("") : innermostTitle;
+    });
+    var innermostDefaultTitle = getInnermostProperty(propsList, HELMET_PROPS.DEFAULT_TITLE);
+    return innermostTitle || innermostDefaultTitle || undefined;
+};
+var getOnChangeClientState = function getOnChangeClientState(propsList) {
+    return getInnermostProperty(propsList, HELMET_PROPS.ON_CHANGE_CLIENT_STATE) || function() {};
+};
+var getAttributesFromPropsList = function getAttributesFromPropsList(tagType, propsList) {
+    return propsList.filter(function(props) {
+        return typeof props[tagType] !== "undefined";
+    }).map(function(props) {
+        return props[tagType];
+    }).reduce(function(tagAttrs, current) {
+        return _extends({}, tagAttrs, current);
+    }, {});
+};
+var getBaseTagFromPropsList = function getBaseTagFromPropsList(primaryAttributes, propsList) {
+    return propsList.filter(function(props) {
+        return typeof props[TAG_NAMES.BASE] !== "undefined";
+    }).map(function(props) {
+        return props[TAG_NAMES.BASE];
+    }).reverse().reduce(function(innermostBaseTag, tag) {
+        if (!innermostBaseTag.length) {
+            var keys = Object.keys(tag);
+            for(var i = 0; i < keys.length; i++){
+                var attributeKey = keys[i];
+                var lowerCaseAttributeKey = attributeKey.toLowerCase();
+                if (primaryAttributes.indexOf(lowerCaseAttributeKey) !== -1 && tag[lowerCaseAttributeKey]) return innermostBaseTag.concat(tag);
+            }
+        }
+        return innermostBaseTag;
+    }, []);
+};
+var getTagsFromPropsList = function getTagsFromPropsList(tagName, primaryAttributes, propsList) {
+    // Calculate list of tags, giving priority innermost component (end of the propslist)
+    var approvedSeenTags = {};
+    return propsList.filter(function(props) {
+        if (Array.isArray(props[tagName])) return true;
+        if (typeof props[tagName] !== "undefined") warn("Helmet: " + tagName + ' should be of type "Array". Instead found type "' + _typeof(props[tagName]) + '"');
+        return false;
+    }).map(function(props) {
+        return props[tagName];
+    }).reverse().reduce(function(approvedTags, instanceTags) {
+        var instanceSeenTags = {};
+        instanceTags.filter(function(tag) {
+            var primaryAttributeKey = void 0;
+            var keys = Object.keys(tag);
+            for(var i = 0; i < keys.length; i++){
+                var attributeKey = keys[i];
+                var lowerCaseAttributeKey = attributeKey.toLowerCase();
+                // Special rule with link tags, since rel and href are both primary tags, rel takes priority
+                if (primaryAttributes.indexOf(lowerCaseAttributeKey) !== -1 && !(primaryAttributeKey === TAG_PROPERTIES.REL && tag[primaryAttributeKey].toLowerCase() === "canonical") && !(lowerCaseAttributeKey === TAG_PROPERTIES.REL && tag[lowerCaseAttributeKey].toLowerCase() === "stylesheet")) primaryAttributeKey = lowerCaseAttributeKey;
+                // Special case for innerHTML which doesn't work lowercased
+                if (primaryAttributes.indexOf(attributeKey) !== -1 && (attributeKey === TAG_PROPERTIES.INNER_HTML || attributeKey === TAG_PROPERTIES.CSS_TEXT || attributeKey === TAG_PROPERTIES.ITEM_PROP)) primaryAttributeKey = attributeKey;
+            }
+            if (!primaryAttributeKey || !tag[primaryAttributeKey]) return false;
+            var value = tag[primaryAttributeKey].toLowerCase();
+            if (!approvedSeenTags[primaryAttributeKey]) approvedSeenTags[primaryAttributeKey] = {};
+            if (!instanceSeenTags[primaryAttributeKey]) instanceSeenTags[primaryAttributeKey] = {};
+            if (!approvedSeenTags[primaryAttributeKey][value]) {
+                instanceSeenTags[primaryAttributeKey][value] = true;
+                return true;
+            }
+            return false;
+        }).reverse().forEach(function(tag) {
+            return approvedTags.push(tag);
+        });
+        // Update seen tags with tags from this instance
+        var keys = Object.keys(instanceSeenTags);
+        for(var i = 0; i < keys.length; i++){
+            var attributeKey = keys[i];
+            var tagUnion = (0, _objectAssignDefault.default)({}, approvedSeenTags[attributeKey], instanceSeenTags[attributeKey]);
+            approvedSeenTags[attributeKey] = tagUnion;
+        }
+        return approvedTags;
+    }, []).reverse();
+};
+var getInnermostProperty = function getInnermostProperty(propsList, property) {
+    for(var i = propsList.length - 1; i >= 0; i--){
+        var props = propsList[i];
+        if (props.hasOwnProperty(property)) return props[property];
+    }
+    return null;
+};
+var reducePropsToState = function reducePropsToState(propsList) {
+    return {
+        baseTag: getBaseTagFromPropsList([
+            TAG_PROPERTIES.HREF,
+            TAG_PROPERTIES.TARGET
+        ], propsList),
+        bodyAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.BODY, propsList),
+        defer: getInnermostProperty(propsList, HELMET_PROPS.DEFER),
+        encode: getInnermostProperty(propsList, HELMET_PROPS.ENCODE_SPECIAL_CHARACTERS),
+        htmlAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.HTML, propsList),
+        linkTags: getTagsFromPropsList(TAG_NAMES.LINK, [
+            TAG_PROPERTIES.REL,
+            TAG_PROPERTIES.HREF
+        ], propsList),
+        metaTags: getTagsFromPropsList(TAG_NAMES.META, [
+            TAG_PROPERTIES.NAME,
+            TAG_PROPERTIES.CHARSET,
+            TAG_PROPERTIES.HTTPEQUIV,
+            TAG_PROPERTIES.PROPERTY,
+            TAG_PROPERTIES.ITEM_PROP
+        ], propsList),
+        noscriptTags: getTagsFromPropsList(TAG_NAMES.NOSCRIPT, [
+            TAG_PROPERTIES.INNER_HTML
+        ], propsList),
+        onChangeClientState: getOnChangeClientState(propsList),
+        scriptTags: getTagsFromPropsList(TAG_NAMES.SCRIPT, [
+            TAG_PROPERTIES.SRC,
+            TAG_PROPERTIES.INNER_HTML
+        ], propsList),
+        styleTags: getTagsFromPropsList(TAG_NAMES.STYLE, [
+            TAG_PROPERTIES.CSS_TEXT
+        ], propsList),
+        title: getTitleFromPropsList(propsList),
+        titleAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.TITLE, propsList)
+    };
+};
+var rafPolyfill = function() {
+    var clock = Date.now();
+    return function(callback) {
+        var currentTime = Date.now();
+        if (currentTime - clock > 16) {
+            clock = currentTime;
+            callback(currentTime);
+        } else setTimeout(function() {
+            rafPolyfill(callback);
+        }, 0);
+    };
+}();
+var cafPolyfill = function cafPolyfill(id) {
+    return clearTimeout(id);
+};
+var requestAnimationFrame = typeof window !== "undefined" ? window.requestAnimationFrame && window.requestAnimationFrame.bind(window) || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || rafPolyfill : global.requestAnimationFrame || rafPolyfill;
+var cancelAnimationFrame = typeof window !== "undefined" ? window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || cafPolyfill : global.cancelAnimationFrame || cafPolyfill;
+var warn = function warn(msg) {
+    return console && typeof console.warn === "function" && console.warn(msg);
+};
+var _helmetCallback = null;
+var handleClientStateChange = function handleClientStateChange(newState) {
+    if (_helmetCallback) cancelAnimationFrame(_helmetCallback);
+    if (newState.defer) _helmetCallback = requestAnimationFrame(function() {
+        commitTagChanges(newState, function() {
+            _helmetCallback = null;
+        });
+    });
+    else {
+        commitTagChanges(newState);
+        _helmetCallback = null;
+    }
+};
+var commitTagChanges = function commitTagChanges(newState, cb) {
+    var baseTag = newState.baseTag, bodyAttributes = newState.bodyAttributes, htmlAttributes = newState.htmlAttributes, linkTags = newState.linkTags, metaTags = newState.metaTags, noscriptTags = newState.noscriptTags, onChangeClientState = newState.onChangeClientState, scriptTags = newState.scriptTags, styleTags = newState.styleTags, title = newState.title, titleAttributes = newState.titleAttributes;
+    updateAttributes(TAG_NAMES.BODY, bodyAttributes);
+    updateAttributes(TAG_NAMES.HTML, htmlAttributes);
+    updateTitle(title, titleAttributes);
+    var tagUpdates = {
+        baseTag: updateTags(TAG_NAMES.BASE, baseTag),
+        linkTags: updateTags(TAG_NAMES.LINK, linkTags),
+        metaTags: updateTags(TAG_NAMES.META, metaTags),
+        noscriptTags: updateTags(TAG_NAMES.NOSCRIPT, noscriptTags),
+        scriptTags: updateTags(TAG_NAMES.SCRIPT, scriptTags),
+        styleTags: updateTags(TAG_NAMES.STYLE, styleTags)
+    };
+    var addedTags = {};
+    var removedTags = {};
+    Object.keys(tagUpdates).forEach(function(tagType) {
+        var _tagUpdates$tagType = tagUpdates[tagType], newTags = _tagUpdates$tagType.newTags, oldTags = _tagUpdates$tagType.oldTags;
+        if (newTags.length) addedTags[tagType] = newTags;
+        if (oldTags.length) removedTags[tagType] = tagUpdates[tagType].oldTags;
+    });
+    cb && cb();
+    onChangeClientState(newState, addedTags, removedTags);
+};
+var flattenArray = function flattenArray(possibleArray) {
+    return Array.isArray(possibleArray) ? possibleArray.join("") : possibleArray;
+};
+var updateTitle = function updateTitle(title, attributes) {
+    if (typeof title !== "undefined" && document.title !== title) document.title = flattenArray(title);
+    updateAttributes(TAG_NAMES.TITLE, attributes);
+};
+var updateAttributes = function updateAttributes(tagName, attributes) {
+    var elementTag = document.getElementsByTagName(tagName)[0];
+    if (!elementTag) return;
+    var helmetAttributeString = elementTag.getAttribute(HELMET_ATTRIBUTE);
+    var helmetAttributes = helmetAttributeString ? helmetAttributeString.split(",") : [];
+    var attributesToRemove = [].concat(helmetAttributes);
+    var attributeKeys = Object.keys(attributes);
+    for(var i = 0; i < attributeKeys.length; i++){
+        var attribute = attributeKeys[i];
+        var value = attributes[attribute] || "";
+        if (elementTag.getAttribute(attribute) !== value) elementTag.setAttribute(attribute, value);
+        if (helmetAttributes.indexOf(attribute) === -1) helmetAttributes.push(attribute);
+        var indexToSave = attributesToRemove.indexOf(attribute);
+        if (indexToSave !== -1) attributesToRemove.splice(indexToSave, 1);
+    }
+    for(var _i = attributesToRemove.length - 1; _i >= 0; _i--)elementTag.removeAttribute(attributesToRemove[_i]);
+    if (helmetAttributes.length === attributesToRemove.length) elementTag.removeAttribute(HELMET_ATTRIBUTE);
+    else if (elementTag.getAttribute(HELMET_ATTRIBUTE) !== attributeKeys.join(",")) elementTag.setAttribute(HELMET_ATTRIBUTE, attributeKeys.join(","));
+};
+var updateTags = function updateTags(type, tags) {
+    var headElement = document.head || document.querySelector(TAG_NAMES.HEAD);
+    var tagNodes = headElement.querySelectorAll(type + "[" + HELMET_ATTRIBUTE + "]");
+    var oldTags = Array.prototype.slice.call(tagNodes);
+    var newTags = [];
+    var indexToDelete = void 0;
+    if (tags && tags.length) tags.forEach(function(tag) {
+        var newElement = document.createElement(type);
+        for(var attribute in tag)if (tag.hasOwnProperty(attribute)) {
+            if (attribute === TAG_PROPERTIES.INNER_HTML) newElement.innerHTML = tag.innerHTML;
+            else if (attribute === TAG_PROPERTIES.CSS_TEXT) {
+                if (newElement.styleSheet) newElement.styleSheet.cssText = tag.cssText;
+                else newElement.appendChild(document.createTextNode(tag.cssText));
+            } else {
+                var value = typeof tag[attribute] === "undefined" ? "" : tag[attribute];
+                newElement.setAttribute(attribute, value);
+            }
+        }
+        newElement.setAttribute(HELMET_ATTRIBUTE, "true");
+        // Remove a duplicate tag from domTagstoRemove, so it isn't cleared.
+        if (oldTags.some(function(existingTag, index) {
+            indexToDelete = index;
+            return newElement.isEqualNode(existingTag);
+        })) oldTags.splice(indexToDelete, 1);
+        else newTags.push(newElement);
+    });
+    oldTags.forEach(function(tag) {
+        return tag.parentNode.removeChild(tag);
+    });
+    newTags.forEach(function(tag) {
+        return headElement.appendChild(tag);
+    });
+    return {
+        oldTags: oldTags,
+        newTags: newTags
+    };
+};
+var generateElementAttributesAsString = function generateElementAttributesAsString(attributes) {
+    return Object.keys(attributes).reduce(function(str, key) {
+        var attr = typeof attributes[key] !== "undefined" ? key + '="' + attributes[key] + '"' : "" + key;
+        return str ? str + " " + attr : attr;
+    }, "");
+};
+var generateTitleAsString = function generateTitleAsString(type, title, attributes, encode) {
+    var attributeString = generateElementAttributesAsString(attributes);
+    var flattenedTitle = flattenArray(title);
+    return attributeString ? "<" + type + " " + HELMET_ATTRIBUTE + '="true" ' + attributeString + ">" + encodeSpecialCharacters(flattenedTitle, encode) + "</" + type + ">" : "<" + type + " " + HELMET_ATTRIBUTE + '="true">' + encodeSpecialCharacters(flattenedTitle, encode) + "</" + type + ">";
+};
+var generateTagsAsString = function generateTagsAsString(type, tags, encode) {
+    return tags.reduce(function(str, tag) {
+        var attributeHtml = Object.keys(tag).filter(function(attribute) {
+            return !(attribute === TAG_PROPERTIES.INNER_HTML || attribute === TAG_PROPERTIES.CSS_TEXT);
+        }).reduce(function(string, attribute) {
+            var attr = typeof tag[attribute] === "undefined" ? attribute : attribute + '="' + encodeSpecialCharacters(tag[attribute], encode) + '"';
+            return string ? string + " " + attr : attr;
+        }, "");
+        var tagContent = tag.innerHTML || tag.cssText || "";
+        var isSelfClosing = SELF_CLOSING_TAGS.indexOf(type) === -1;
+        return str + "<" + type + " " + HELMET_ATTRIBUTE + '="true" ' + attributeHtml + (isSelfClosing ? "/>" : ">" + tagContent + "</" + type + ">");
+    }, "");
+};
+var convertElementAttributestoReactProps = function convertElementAttributestoReactProps(attributes) {
+    var initProps = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return Object.keys(attributes).reduce(function(obj, key) {
+        obj[REACT_TAG_MAP[key] || key] = attributes[key];
+        return obj;
+    }, initProps);
+};
+var convertReactPropstoHtmlAttributes = function convertReactPropstoHtmlAttributes(props) {
+    var initAttributes = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return Object.keys(props).reduce(function(obj, key) {
+        obj[HTML_TAG_MAP[key] || key] = props[key];
+        return obj;
+    }, initAttributes);
+};
+var generateTitleAsReactComponent = function generateTitleAsReactComponent(type, title, attributes) {
+    var _initProps;
+    // assigning into an array to define toString function on it
+    var initProps = (_initProps = {
+        key: title
+    }, _initProps[HELMET_ATTRIBUTE] = true, _initProps);
+    var props = convertElementAttributestoReactProps(attributes, initProps);
+    return [
+        (0, _reactDefault.default).createElement(TAG_NAMES.TITLE, props, title)
+    ];
+};
+var generateTagsAsReactComponent = function generateTagsAsReactComponent(type, tags) {
+    return tags.map(function(tag, i) {
+        var _mappedTag;
+        var mappedTag = (_mappedTag = {
+            key: i
+        }, _mappedTag[HELMET_ATTRIBUTE] = true, _mappedTag);
+        Object.keys(tag).forEach(function(attribute) {
+            var mappedAttribute = REACT_TAG_MAP[attribute] || attribute;
+            if (mappedAttribute === TAG_PROPERTIES.INNER_HTML || mappedAttribute === TAG_PROPERTIES.CSS_TEXT) {
+                var content = tag.innerHTML || tag.cssText;
+                mappedTag.dangerouslySetInnerHTML = {
+                    __html: content
+                };
+            } else mappedTag[mappedAttribute] = tag[attribute];
+        });
+        return (0, _reactDefault.default).createElement(type, mappedTag);
+    });
+};
+var getMethodsForTag = function getMethodsForTag(type, tags, encode) {
+    switch(type){
+        case TAG_NAMES.TITLE:
+            return {
+                toComponent: function toComponent() {
+                    return generateTitleAsReactComponent(type, tags.title, tags.titleAttributes, encode);
+                },
+                toString: function toString() {
+                    return generateTitleAsString(type, tags.title, tags.titleAttributes, encode);
+                }
+            };
+        case ATTRIBUTE_NAMES.BODY:
+        case ATTRIBUTE_NAMES.HTML:
+            return {
+                toComponent: function toComponent() {
+                    return convertElementAttributestoReactProps(tags);
+                },
+                toString: function toString() {
+                    return generateElementAttributesAsString(tags);
+                }
+            };
+        default:
+            return {
+                toComponent: function toComponent() {
+                    return generateTagsAsReactComponent(type, tags);
+                },
+                toString: function toString() {
+                    return generateTagsAsString(type, tags, encode);
+                }
+            };
+    }
+};
+var mapStateOnServer = function mapStateOnServer(_ref) {
+    var baseTag = _ref.baseTag, bodyAttributes = _ref.bodyAttributes, encode = _ref.encode, htmlAttributes = _ref.htmlAttributes, linkTags = _ref.linkTags, metaTags = _ref.metaTags, noscriptTags = _ref.noscriptTags, scriptTags = _ref.scriptTags, styleTags = _ref.styleTags, _ref$title = _ref.title, title = _ref$title === undefined ? "" : _ref$title, titleAttributes = _ref.titleAttributes;
+    return {
+        base: getMethodsForTag(TAG_NAMES.BASE, baseTag, encode),
+        bodyAttributes: getMethodsForTag(ATTRIBUTE_NAMES.BODY, bodyAttributes, encode),
+        htmlAttributes: getMethodsForTag(ATTRIBUTE_NAMES.HTML, htmlAttributes, encode),
+        link: getMethodsForTag(TAG_NAMES.LINK, linkTags, encode),
+        meta: getMethodsForTag(TAG_NAMES.META, metaTags, encode),
+        noscript: getMethodsForTag(TAG_NAMES.NOSCRIPT, noscriptTags, encode),
+        script: getMethodsForTag(TAG_NAMES.SCRIPT, scriptTags, encode),
+        style: getMethodsForTag(TAG_NAMES.STYLE, styleTags, encode),
+        title: getMethodsForTag(TAG_NAMES.TITLE, {
+            title: title,
+            titleAttributes: titleAttributes
+        }, encode)
+    };
+};
+var Helmet = function Helmet(Component) {
+    var _class, _temp;
+    return _temp = _class = function(_React$Component) {
+        inherits(HelmetWrapper, _React$Component);
+        function HelmetWrapper() {
+            classCallCheck(this, HelmetWrapper);
+            return possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+        }
+        HelmetWrapper.prototype.shouldComponentUpdate = function shouldComponentUpdate(nextProps) {
+            return !(0, _reactFastCompareDefault.default)(this.props, nextProps);
+        };
+        HelmetWrapper.prototype.mapNestedChildrenToProps = function mapNestedChildrenToProps(child, nestedChildren) {
+            if (!nestedChildren) return null;
+            switch(child.type){
+                case TAG_NAMES.SCRIPT:
+                case TAG_NAMES.NOSCRIPT:
+                    return {
+                        innerHTML: nestedChildren
+                    };
+                case TAG_NAMES.STYLE:
+                    return {
+                        cssText: nestedChildren
+                    };
+            }
+            throw new Error("<" + child.type + " /> elements are self-closing and can not contain children. Refer to our API for more information.");
+        };
+        HelmetWrapper.prototype.flattenArrayTypeChildren = function flattenArrayTypeChildren(_ref) {
+            var _babelHelpers$extends;
+            var child = _ref.child, arrayTypeChildren = _ref.arrayTypeChildren, newChildProps = _ref.newChildProps, nestedChildren = _ref.nestedChildren;
+            return _extends({}, arrayTypeChildren, (_babelHelpers$extends = {}, _babelHelpers$extends[child.type] = [].concat(arrayTypeChildren[child.type] || [], [
+                _extends({}, newChildProps, this.mapNestedChildrenToProps(child, nestedChildren))
+            ]), _babelHelpers$extends));
+        };
+        HelmetWrapper.prototype.mapObjectTypeChildren = function mapObjectTypeChildren(_ref2) {
+            var _babelHelpers$extends2, _babelHelpers$extends3;
+            var child = _ref2.child, newProps = _ref2.newProps, newChildProps = _ref2.newChildProps, nestedChildren = _ref2.nestedChildren;
+            switch(child.type){
+                case TAG_NAMES.TITLE:
+                    return _extends({}, newProps, (_babelHelpers$extends2 = {}, _babelHelpers$extends2[child.type] = nestedChildren, _babelHelpers$extends2.titleAttributes = _extends({}, newChildProps), _babelHelpers$extends2));
+                case TAG_NAMES.BODY:
+                    return _extends({}, newProps, {
+                        bodyAttributes: _extends({}, newChildProps)
+                    });
+                case TAG_NAMES.HTML:
+                    return _extends({}, newProps, {
+                        htmlAttributes: _extends({}, newChildProps)
+                    });
+            }
+            return _extends({}, newProps, (_babelHelpers$extends3 = {}, _babelHelpers$extends3[child.type] = _extends({}, newChildProps), _babelHelpers$extends3));
+        };
+        HelmetWrapper.prototype.mapArrayTypeChildrenToProps = function mapArrayTypeChildrenToProps(arrayTypeChildren, newProps) {
+            var newFlattenedProps = _extends({}, newProps);
+            Object.keys(arrayTypeChildren).forEach(function(arrayChildName) {
+                var _babelHelpers$extends4;
+                newFlattenedProps = _extends({}, newFlattenedProps, (_babelHelpers$extends4 = {}, _babelHelpers$extends4[arrayChildName] = arrayTypeChildren[arrayChildName], _babelHelpers$extends4));
+            });
+            return newFlattenedProps;
+        };
+        HelmetWrapper.prototype.warnOnInvalidChildren = function warnOnInvalidChildren(child, nestedChildren) {
+            if (!VALID_TAG_NAMES.some(function(name) {
+                return child.type === name;
+            })) {
+                if (typeof child.type === "function") return warn("You may be attempting to nest <Helmet> components within each other, which is not allowed. Refer to our API for more information.");
+                return warn("Only elements types " + VALID_TAG_NAMES.join(", ") + " are allowed. Helmet does not support rendering <" + child.type + "> elements. Refer to our API for more information.");
+            }
+            if (nestedChildren && typeof nestedChildren !== "string" && (!Array.isArray(nestedChildren) || nestedChildren.some(function(nestedChild) {
+                return typeof nestedChild !== "string";
+            }))) throw new Error("Helmet expects a string as a child of <" + child.type + ">. Did you forget to wrap your children in braces? ( <" + child.type + ">{``}</" + child.type + "> ) Refer to our API for more information.");
+            return true;
+        };
+        HelmetWrapper.prototype.mapChildrenToProps = function mapChildrenToProps(children, newProps) {
+            var _this2 = this;
+            var arrayTypeChildren = {};
+            (0, _reactDefault.default).Children.forEach(children, function(child) {
+                if (!child || !child.props) return;
+                var _child$props = child.props, nestedChildren = _child$props.children, childProps = objectWithoutProperties(_child$props, [
+                    "children"
+                ]);
+                var newChildProps = convertReactPropstoHtmlAttributes(childProps);
+                _this2.warnOnInvalidChildren(child, nestedChildren);
+                switch(child.type){
+                    case TAG_NAMES.LINK:
+                    case TAG_NAMES.META:
+                    case TAG_NAMES.NOSCRIPT:
+                    case TAG_NAMES.SCRIPT:
+                    case TAG_NAMES.STYLE:
+                        arrayTypeChildren = _this2.flattenArrayTypeChildren({
+                            child: child,
+                            arrayTypeChildren: arrayTypeChildren,
+                            newChildProps: newChildProps,
+                            nestedChildren: nestedChildren
+                        });
+                        break;
+                    default:
+                        newProps = _this2.mapObjectTypeChildren({
+                            child: child,
+                            newProps: newProps,
+                            newChildProps: newChildProps,
+                            nestedChildren: nestedChildren
+                        });
+                        break;
+                }
+            });
+            newProps = this.mapArrayTypeChildrenToProps(arrayTypeChildren, newProps);
+            return newProps;
+        };
+        HelmetWrapper.prototype.render = function render() {
+            var _props = this.props, children = _props.children, props = objectWithoutProperties(_props, [
+                "children"
+            ]);
+            var newProps = _extends({}, props);
+            if (children) newProps = this.mapChildrenToProps(children, newProps);
+            return (0, _reactDefault.default).createElement(Component, newProps);
+        };
+        createClass(HelmetWrapper, null, [
+            {
+                key: "canUseDOM",
+                // Component.peek comes from react-side-effect:
+                // For testing, you may use a static peek() method available on the returned component.
+                // It lets you get the current state without resetting the mounted instance stack.
+                // Don’t use it for anything other than testing.
+                /**
+             * @param {Object} base: {"target": "_blank", "href": "http://mysite.com/"}
+             * @param {Object} bodyAttributes: {"className": "root"}
+             * @param {String} defaultTitle: "Default Title"
+             * @param {Boolean} defer: true
+             * @param {Boolean} encodeSpecialCharacters: true
+             * @param {Object} htmlAttributes: {"lang": "en", "amp": undefined}
+             * @param {Array} link: [{"rel": "canonical", "href": "http://mysite.com/example"}]
+             * @param {Array} meta: [{"name": "description", "content": "Test description"}]
+             * @param {Array} noscript: [{"innerHTML": "<img src='http://mysite.com/js/test.js'"}]
+             * @param {Function} onChangeClientState: "(newState) => console.log(newState)"
+             * @param {Array} script: [{"type": "text/javascript", "src": "http://mysite.com/js/test.js"}]
+             * @param {Array} style: [{"type": "text/css", "cssText": "div { display: block; color: blue; }"}]
+             * @param {String} title: "Title"
+             * @param {Object} titleAttributes: {"itemprop": "name"}
+             * @param {String} titleTemplate: "MySite.com - %s"
+             */ set: function set$$1(canUseDOM) {
+                    Component.canUseDOM = canUseDOM;
+                }
+            }
+        ]);
+        return HelmetWrapper;
+    }((0, _reactDefault.default).Component), _class.propTypes = {
+        base: (0, _propTypesDefault.default).object,
+        bodyAttributes: (0, _propTypesDefault.default).object,
+        children: (0, _propTypesDefault.default).oneOfType([
+            (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).node),
+            (0, _propTypesDefault.default).node
+        ]),
+        defaultTitle: (0, _propTypesDefault.default).string,
+        defer: (0, _propTypesDefault.default).bool,
+        encodeSpecialCharacters: (0, _propTypesDefault.default).bool,
+        htmlAttributes: (0, _propTypesDefault.default).object,
+        link: (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).object),
+        meta: (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).object),
+        noscript: (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).object),
+        onChangeClientState: (0, _propTypesDefault.default).func,
+        script: (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).object),
+        style: (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).object),
+        title: (0, _propTypesDefault.default).string,
+        titleAttributes: (0, _propTypesDefault.default).object,
+        titleTemplate: (0, _propTypesDefault.default).string
+    }, _class.defaultProps = {
+        defer: true,
+        encodeSpecialCharacters: true
+    }, _class.peek = Component.peek, _class.rewind = function() {
+        var mappedState = Component.rewind();
+        if (!mappedState) // provide fallback if mappedState is undefined
+        mappedState = mapStateOnServer({
+            baseTag: [],
+            bodyAttributes: {},
+            encodeSpecialCharacters: true,
+            htmlAttributes: {},
+            linkTags: [],
+            metaTags: [],
+            noscriptTags: [],
+            scriptTags: [],
+            styleTags: [],
+            title: "",
+            titleAttributes: {}
+        });
+        return mappedState;
+    }, _temp;
+};
+var NullComponent = function NullComponent() {
+    return null;
+};
+var HelmetSideEffects = (0, _reactSideEffectDefault.default)(reducePropsToState, handleClientStateChange, mapStateOnServer)(NullComponent);
+var HelmetExport = Helmet(HelmetSideEffects);
+HelmetExport.renderStatic = HelmetExport.rewind;
+exports.default = HelmetExport;
+
+},{"prop-types":"7wKI2","react-side-effect":"12ePA","react-fast-compare":"isHbY","react":"21dqq","object-assign":"7OXxh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"12ePA":[function(require,module,exports) {
+"use strict";
+function _interopDefault(ex) {
+    return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
+}
+var React = require("85d8b04033ce6109");
+var React__default = _interopDefault(React);
+function _defineProperty(obj, key, value) {
+    if (key in obj) Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+    });
+    else obj[key] = value;
+    return obj;
+}
+function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+}
+var canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+function withSideEffect(reducePropsToState, handleStateChangeOnClient, mapStateOnServer) {
+    if (typeof reducePropsToState !== "function") throw new Error("Expected reducePropsToState to be a function.");
+    if (typeof handleStateChangeOnClient !== "function") throw new Error("Expected handleStateChangeOnClient to be a function.");
+    if (typeof mapStateOnServer !== "undefined" && typeof mapStateOnServer !== "function") throw new Error("Expected mapStateOnServer to either be undefined or a function.");
+    function getDisplayName(WrappedComponent) {
+        return WrappedComponent.displayName || WrappedComponent.name || "Component";
+    }
+    return function wrap(WrappedComponent) {
+        if (typeof WrappedComponent !== "function") throw new Error("Expected WrappedComponent to be a React component.");
+        var mountedInstances = [];
+        var state;
+        function emitChange() {
+            state = reducePropsToState(mountedInstances.map(function(instance) {
+                return instance.props;
+            }));
+            if (SideEffect.canUseDOM) handleStateChangeOnClient(state);
+            else if (mapStateOnServer) state = mapStateOnServer(state);
+        }
+        var SideEffect = /*#__PURE__*/ function(_PureComponent) {
+            _inheritsLoose(SideEffect, _PureComponent);
+            function SideEffect() {
+                return _PureComponent.apply(this, arguments) || this;
+            }
+            // Try to use displayName of wrapped component
+            // Expose canUseDOM so tests can monkeypatch it
+            SideEffect.peek = function peek() {
+                return state;
+            };
+            SideEffect.rewind = function rewind() {
+                if (SideEffect.canUseDOM) throw new Error("You may only call rewind() on the server. Call peek() to read the current state.");
+                var recordedState = state;
+                state = undefined;
+                mountedInstances = [];
+                return recordedState;
+            };
+            var _proto = SideEffect.prototype;
+            _proto.UNSAFE_componentWillMount = function UNSAFE_componentWillMount() {
+                mountedInstances.push(this);
+                emitChange();
+            };
+            _proto.componentDidUpdate = function componentDidUpdate() {
+                emitChange();
+            };
+            _proto.componentWillUnmount = function componentWillUnmount() {
+                var index = mountedInstances.indexOf(this);
+                mountedInstances.splice(index, 1);
+                emitChange();
+            };
+            _proto.render = function render() {
+                return React__default.createElement(WrappedComponent, this.props);
+            };
+            return SideEffect;
+        }(React.PureComponent);
+        _defineProperty(SideEffect, "displayName", "SideEffect(" + getDisplayName(WrappedComponent) + ")");
+        _defineProperty(SideEffect, "canUseDOM", canUseDOM);
+        return SideEffect;
+    };
+}
+module.exports = withSideEffect;
+
+},{"85d8b04033ce6109":"21dqq"}],"isHbY":[function(require,module,exports) {
+/* global Map:readonly, Set:readonly, ArrayBuffer:readonly */ var hasElementType = typeof Element !== "undefined";
+var hasMap = typeof Map === "function";
+var hasSet = typeof Set === "function";
+var hasArrayBuffer = typeof ArrayBuffer === "function" && !!ArrayBuffer.isView;
+// Note: We **don't** need `envHasBigInt64Array` in fde es6/index.js
+function equal(a, b) {
+    // START: fast-deep-equal es6/index.js 3.1.3
+    if (a === b) return true;
+    if (a && b && typeof a == "object" && typeof b == "object") {
+        if (a.constructor !== b.constructor) return false;
+        var length, i, keys;
+        if (Array.isArray(a)) {
+            length = a.length;
+            if (length != b.length) return false;
+            for(i = length; i-- !== 0;)if (!equal(a[i], b[i])) return false;
+            return true;
+        }
+        // START: Modifications:
+        // 1. Extra `has<Type> &&` helpers in initial condition allow es6 code
+        //    to co-exist with es5.
+        // 2. Replace `for of` with es5 compliant iteration using `for`.
+        //    Basically, take:
+        //
+        //    ```js
+        //    for (i of a.entries())
+        //      if (!b.has(i[0])) return false;
+        //    ```
+        //
+        //    ... and convert to:
+        //
+        //    ```js
+        //    it = a.entries();
+        //    while (!(i = it.next()).done)
+        //      if (!b.has(i.value[0])) return false;
+        //    ```
+        //
+        //    **Note**: `i` access switches to `i.value`.
+        var it;
+        if (hasMap && a instanceof Map && b instanceof Map) {
+            if (a.size !== b.size) return false;
+            it = a.entries();
+            while(!(i = it.next()).done)if (!b.has(i.value[0])) return false;
+            it = a.entries();
+            while(!(i = it.next()).done)if (!equal(i.value[1], b.get(i.value[0]))) return false;
+            return true;
+        }
+        if (hasSet && a instanceof Set && b instanceof Set) {
+            if (a.size !== b.size) return false;
+            it = a.entries();
+            while(!(i = it.next()).done)if (!b.has(i.value[0])) return false;
+            return true;
+        }
+        // END: Modifications
+        if (hasArrayBuffer && ArrayBuffer.isView(a) && ArrayBuffer.isView(b)) {
+            length = a.length;
+            if (length != b.length) return false;
+            for(i = length; i-- !== 0;)if (a[i] !== b[i]) return false;
+            return true;
+        }
+        if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
+        // START: Modifications:
+        // Apply guards for `Object.create(null)` handling. See:
+        // - https://github.com/FormidableLabs/react-fast-compare/issues/64
+        // - https://github.com/epoberezkin/fast-deep-equal/issues/49
+        if (a.valueOf !== Object.prototype.valueOf && typeof a.valueOf === "function" && typeof b.valueOf === "function") return a.valueOf() === b.valueOf();
+        if (a.toString !== Object.prototype.toString && typeof a.toString === "function" && typeof b.toString === "function") return a.toString() === b.toString();
+        // END: Modifications
+        keys = Object.keys(a);
+        length = keys.length;
+        if (length !== Object.keys(b).length) return false;
+        for(i = length; i-- !== 0;)if (!Object.prototype.hasOwnProperty.call(b, keys[i])) return false;
+        // END: fast-deep-equal
+        // START: react-fast-compare
+        // custom handling for DOM elements
+        if (hasElementType && a instanceof Element) return false;
+        // custom handling for React/Preact
+        for(i = length; i-- !== 0;){
+            if ((keys[i] === "_owner" || keys[i] === "__v" || keys[i] === "__o") && a.$$typeof) continue;
+            // all other properties should be traversed as usual
+            if (!equal(a[keys[i]], b[keys[i]])) return false;
+        }
+        // END: react-fast-compare
+        // START: fast-deep-equal
+        return true;
+    }
+    return a !== a && b !== b;
+}
+// end fast-deep-equal
+module.exports = function isEqual(a, b) {
+    try {
+        return equal(a, b);
+    } catch (error) {
+        if ((error.message || "").match(/stack|recursion/i)) {
+            // warn on circular references, don't crash
+            // browsers give this different errors name and messages:
+            // chrome/safari: "RangeError", "Maximum call stack size exceeded"
+            // firefox: "InternalError", too much recursion"
+            // edge: "Error", "Out of stack space"
+            console.warn("react-fast-compare cannot handle circular refs");
+            return false;
+        }
+        // some other error. we should definitely know about these
+        throw error;
+    }
+};
+
+},{}],"7KL8w":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$93b3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -61981,7 +62884,7 @@ function Dashboard({ setLogged, setSelectedCategory, setSelectedSubCategory, set
     (0, _react.useEffect)(()=>{
         setLogged(true);
     }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
             setLogged: setLogged,
             setSelectedCategory: setSelectedCategory,
@@ -61996,11 +62899,7 @@ function Dashboard({ setLogged, setSelectedCategory, setSelectedSubCategory, set
             lineNumber: 24,
             columnNumber: 13
         }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/Dashboard/index.js",
-        lineNumber: 23,
-        columnNumber: 9
-    }, this);
+    }, void 0, false);
 }
 _s(Dashboard, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = Dashboard;
@@ -62033,6 +62932,9 @@ var _cardsSkillsDefault = parcelHelpers.interopDefault(_cardsSkills);
 var _createSkill = require("./CreateSkill");
 var _createSkillDefault = parcelHelpers.interopDefault(_createSkill);
 var _styleScss = require("./style.scss");
+var _reactHelmet = require("react-helmet");
+var _navLogged = require("../NavLogged");
+var _navLoggedDefault = parcelHelpers.interopDefault(_navLogged);
 var _s = $RefreshSig$();
 function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, optionsHTML, setOptionsHTML }) {
     _s();
@@ -62074,25 +62976,73 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
     (0, _react.useEffect)(()=>{
         getSkills();
     }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-        className: "profile",
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "profile_skill",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profilePatchDefault.default), {
-                        selectedCategories: selectedCategories,
-                        setSelectedCategories: setSelectedCategories,
-                        loading: loading,
-                        setLoading: setLoading,
-                        dataProfile: dataProfile,
-                        setDataProfile: setDataProfile
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
+                        name: "description",
+                        content: "Page de gestion de profil utilisateur du site skillswap. Modification des donn\xe9es utilisateurs et de leurs comp\xe9tences."
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/index.js",
-                        lineNumber: 74,
+                        lineNumber: 76,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _createSkillDefault.default), {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
+                        children: "Profil - Skillswap"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Profile/index.js",
+                        lineNumber: 77,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Profile/index.js",
+                lineNumber: 75,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+                className: "profile",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "profile_skill",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profilePatchDefault.default), {
+                                selectedCategories: selectedCategories,
+                                setSelectedCategories: setSelectedCategories,
+                                loading: loading,
+                                setLoading: setLoading,
+                                dataProfile: dataProfile,
+                                setDataProfile: setDataProfile
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/Profile/index.js",
+                                lineNumber: 83,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _createSkillDefault.default), {
+                                loading: loading,
+                                setLoading: setLoading,
+                                selectedCategory: selectedCategory,
+                                setSelectedCategory: setSelectedCategory,
+                                selectedSubCategory: selectedSubCategory,
+                                setSelectedSubCategory: setSelectedSubCategory,
+                                selectedLevel: selectedLevel,
+                                setSelectedLevel: setSelectedLevel,
+                                optionsHTML: optionsHTML,
+                                setOptionsHTML: setOptionsHTML,
+                                getSkills: getSkills
+                            }, void 0, false, {
+                                fileName: "SRC/components/Dashboard/Profile/index.js",
+                                lineNumber: 92,
+                                columnNumber: 21
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "SRC/components/Dashboard/Profile/index.js",
+                        lineNumber: 82,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsSkillsDefault.default), {
                         loading: loading,
                         setLoading: setLoading,
                         selectedCategory: selectedCategory,
@@ -62103,42 +63053,21 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
                         setSelectedLevel: setSelectedLevel,
                         optionsHTML: optionsHTML,
                         setOptionsHTML: setOptionsHTML,
+                        skills: skills,
                         getSkills: getSkills
                     }, void 0, false, {
                         fileName: "SRC/components/Dashboard/Profile/index.js",
-                        lineNumber: 83,
+                        lineNumber: 106,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 73,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsSkillsDefault.default), {
-                loading: loading,
-                setLoading: setLoading,
-                selectedCategory: selectedCategory,
-                setSelectedCategory: setSelectedCategory,
-                selectedSubCategory: selectedSubCategory,
-                setSelectedSubCategory: setSelectedSubCategory,
-                selectedLevel: selectedLevel,
-                setSelectedLevel: setSelectedLevel,
-                optionsHTML: optionsHTML,
-                setOptionsHTML: setOptionsHTML,
-                skills: skills,
-                getSkills: getSkills
-            }, void 0, false, {
-                fileName: "SRC/components/Dashboard/Profile/index.js",
-                lineNumber: 97,
+                lineNumber: 81,
                 columnNumber: 13
             }, this)
         ]
-    }, void 0, true, {
-        fileName: "SRC/components/Dashboard/Profile/index.js",
-        lineNumber: 72,
-        columnNumber: 9
-    }, this);
+    }, void 0, true);
 }
 _s(Profile, "hN4/NGFXWbK716tESbinUKi2ulg=");
 _c = Profile;
@@ -62150,7 +63079,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","js-cookie":"c8bBu","./CardsSkills":"bOaxI","./CreateSkill":"2JxV8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"dZlyp"}],"cLUE2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","js-cookie":"c8bBu","./CardsSkills":"bOaxI","./CreateSkill":"2JxV8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"dZlyp","react-helmet":"fcX6K","../NavLogged":"dYmlb"}],"cLUE2":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1375 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -63243,23 +64172,45 @@ parcelHelpers.export(exports, "default", ()=>Statistics);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactHelmet = require("react-helmet");
 var _s = $RefreshSig$();
 function Statistics({}) {
     _s();
     (0, _react.useEffect)(()=>{}, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Statistiques"
-        }, void 0, false, {
-            fileName: "SRC/components/Dashboard/statistic/index.js",
-            lineNumber: 11,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/Dashboard/statistic/index.js",
-        lineNumber: 10,
-        columnNumber: 9
-    }, this);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
+                        name: "description",
+                        content: "Pages repertoriant les statistiques de l'utilisateur, son nombre de swappies, le nombre de cours qu'il a pris et donn\xe9 etc."
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/statistic/index.js",
+                        lineNumber: 13,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
+                        children: "Statistiques - Skillswap"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/statistic/index.js",
+                        lineNumber: 14,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/statistic/index.js",
+                lineNumber: 12,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Statistiques"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/statistic/index.js",
+                lineNumber: 17,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true);
 }
 _s(Statistics, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = Statistics;
@@ -63271,7 +64222,7 @@ $RefreshReg$(_c, "Statistics");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dADDe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-helmet":"fcX6K"}],"dADDe":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7167 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -63325,23 +64276,45 @@ parcelHelpers.export(exports, "default", ()=>Desk);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactHelmet = require("react-helmet");
 var _s = $RefreshSig$();
 function Desk({}) {
     _s();
     (0, _react.useEffect)(()=>{}, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Espace prof eleve"
-        }, void 0, false, {
-            fileName: "SRC/components/Dashboard/Desk/index.js",
-            lineNumber: 10,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "SRC/components/Dashboard/Desk/index.js",
-        lineNumber: 9,
-        columnNumber: 9
-    }, this);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
+                        name: "description",
+                        content: "Page d'historiques des cours pris et donn\xe9s par l'utilisateur. Permet de refuser ou accepter des demandes de cours, noter des cours que l'on a pris et suivre les demandes que l'on a envoy\xe9 aux autres utilisateurs."
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Desk/index.js",
+                        lineNumber: 12,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
+                        children: "Bureau - Skillswap"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Desk/index.js",
+                        lineNumber: 13,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Desk/index.js",
+                lineNumber: 11,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Espace prof eleve"
+            }, void 0, false, {
+                fileName: "SRC/components/Dashboard/Desk/index.js",
+                lineNumber: 16,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true);
 }
 _s(Desk, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = Desk;
@@ -63353,7 +64326,7 @@ $RefreshReg$(_c, "Desk");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9HgkV":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-helmet":"fcX6K"}],"9HgkV":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8f0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -63373,6 +64346,7 @@ var _navHomeDefault = parcelHelpers.interopDefault(_navHome);
 var _passwordInput = require("./PasswordInput");
 var _passwordInputDefault = parcelHelpers.interopDefault(_passwordInput);
 var _styleScss = require("./style.scss");
+var _reactHelmet = require("react-helmet");
 var _s = $RefreshSig$();
 function Registration() {
     _s();
@@ -63433,7 +64407,7 @@ function Registration() {
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 79,
+                lineNumber: 80,
                 columnNumber: 20
             }, this);
         } catch (error) {
@@ -63448,9 +64422,32 @@ function Registration() {
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
+                        name: "description",
+                        content: "Page d'inscription sur le site Skillswap'"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Registration/index.js",
+                        lineNumber: 98,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
+                        children: "Inscription - Skillswap"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Registration/index.js",
+                        lineNumber: 99,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Registration/index.js",
+                lineNumber: 97,
+                columnNumber: 13
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 96,
+                lineNumber: 101,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
@@ -63462,7 +64459,7 @@ function Registration() {
                             children: "Inscription"
                         }, void 0, false, {
                             fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 100,
+                            lineNumber: 105,
                             columnNumber: 21
                         }, this),
                         error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -63470,7 +64467,7 @@ function Registration() {
                             children: error
                         }, void 0, false, {
                             fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 101,
+                            lineNumber: 106,
                             columnNumber: 31
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -63483,7 +64480,7 @@ function Registration() {
                                     children: "Nom * :"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Registration/index.js",
-                                    lineNumber: 109,
+                                    lineNumber: 114,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -63494,7 +64491,7 @@ function Registration() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "SRC/components/Registration/index.js",
-                                    lineNumber: 110,
+                                    lineNumber: 115,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -63502,7 +64499,7 @@ function Registration() {
                                     children: "Pr\xe9nom * :"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Registration/index.js",
-                                    lineNumber: 117,
+                                    lineNumber: 122,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -63513,7 +64510,7 @@ function Registration() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "SRC/components/Registration/index.js",
-                                    lineNumber: 118,
+                                    lineNumber: 123,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -63521,7 +64518,7 @@ function Registration() {
                                     children: "Email * :"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Registration/index.js",
-                                    lineNumber: 127,
+                                    lineNumber: 132,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -63532,12 +64529,12 @@ function Registration() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "SRC/components/Registration/index.js",
-                                    lineNumber: 128,
+                                    lineNumber: 133,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _passwordInputDefault.default), {}, void 0, false, {
                                     fileName: "SRC/components/Registration/index.js",
-                                    lineNumber: 135,
+                                    lineNumber: 140,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -63546,13 +64543,13 @@ function Registration() {
                                     children: "Inscription"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Registration/index.js",
-                                    lineNumber: 137,
+                                    lineNumber: 142,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 103,
+                            lineNumber: 108,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -63560,7 +64557,7 @@ function Registration() {
                             children: "J'ai d\xe9j\xe0 un compte"
                         }, void 0, false, {
                             fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 145,
+                            lineNumber: 150,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -63570,18 +64567,18 @@ function Registration() {
                             children: "Me connecter"
                         }, void 0, false, {
                             fileName: "SRC/components/Registration/index.js",
-                            lineNumber: 147,
+                            lineNumber: 152,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "SRC/components/Registration/index.js",
-                    lineNumber: 99,
+                    lineNumber: 104,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Registration/index.js",
-                lineNumber: 98,
+                lineNumber: 103,
                 columnNumber: 13
             }, this)
         ]
@@ -63601,7 +64598,7 @@ $RefreshReg$(_c, "Registration");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../NavHome":"8DCBt","./PasswordInput":"4Q2t3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"dqyNg"}],"4Q2t3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../NavHome":"8DCBt","./PasswordInput":"4Q2t3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"dqyNg","react-helmet":"fcX6K"}],"4Q2t3":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e21d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -63785,6 +64782,7 @@ var _reactRouterDom = require("react-router-dom");
 var _pswdLogin = require("./PswdLogin");
 var _pswdLoginDefault = parcelHelpers.interopDefault(_pswdLogin);
 var _styleScss = require("./style.scss");
+var _reactHelmet = require("react-helmet");
 var _s = $RefreshSig$();
 function Login({ setNoMatch, setDataCards }) {
     _s();
@@ -63842,9 +64840,32 @@ function Login({ setNoMatch, setDataCards }) {
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
+                        name: "description",
+                        content: "Page de connexion sur le site Skillswap'"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Login/index.js",
+                        lineNumber: 90,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
+                        children: "Connexion - Skillswap"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Login/index.js",
+                        lineNumber: 91,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Login/index.js",
+                lineNumber: 89,
+                columnNumber: 13
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 88,
+                lineNumber: 93,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
@@ -63856,14 +64877,14 @@ function Login({ setNoMatch, setDataCards }) {
                             children: "Connexion"
                         }, void 0, false, {
                             fileName: "SRC/components/Login/index.js",
-                            lineNumber: 91,
+                            lineNumber: 96,
                             columnNumber: 21
                         }, this),
                         error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: error
                         }, void 0, false, {
                             fileName: "SRC/components/Login/index.js",
-                            lineNumber: 92,
+                            lineNumber: 97,
                             columnNumber: 31
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -63876,7 +64897,7 @@ function Login({ setNoMatch, setDataCards }) {
                                     children: "Email * :"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Login/index.js",
-                                    lineNumber: 100,
+                                    lineNumber: 105,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -63887,12 +64908,12 @@ function Login({ setNoMatch, setDataCards }) {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "SRC/components/Login/index.js",
-                                    lineNumber: 101,
+                                    lineNumber: 106,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _pswdLoginDefault.default), {}, void 0, false, {
                                     fileName: "SRC/components/Login/index.js",
-                                    lineNumber: 108,
+                                    lineNumber: 113,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -63901,13 +64922,13 @@ function Login({ setNoMatch, setDataCards }) {
                                     children: "Connexion"
                                 }, void 0, false, {
                                     fileName: "SRC/components/Login/index.js",
-                                    lineNumber: 110,
+                                    lineNumber: 115,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "SRC/components/Login/index.js",
-                            lineNumber: 94,
+                            lineNumber: 99,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -63915,7 +64936,7 @@ function Login({ setNoMatch, setDataCards }) {
                             children: "Pas encore inscrit?"
                         }, void 0, false, {
                             fileName: "SRC/components/Login/index.js",
-                            lineNumber: 117,
+                            lineNumber: 122,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -63925,18 +64946,18 @@ function Login({ setNoMatch, setDataCards }) {
                             children: "S'inscrire"
                         }, void 0, false, {
                             fileName: "SRC/components/Login/index.js",
-                            lineNumber: 119,
+                            lineNumber: 124,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "SRC/components/Login/index.js",
-                    lineNumber: 90,
+                    lineNumber: 95,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/Login/index.js",
-                lineNumber: 89,
+                lineNumber: 94,
                 columnNumber: 13
             }, this)
         ]
@@ -63956,7 +64977,7 @@ $RefreshReg$(_c, "Login");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../NavHome":"8DCBt","js-cookie":"c8bBu","react-router-dom":"9xmpe","./PswdLogin":"8UCBO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"eniQk"}],"8UCBO":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../NavHome":"8DCBt","js-cookie":"c8bBu","react-router-dom":"9xmpe","./PswdLogin":"8UCBO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"eniQk","react-helmet":"fcX6K"}],"8UCBO":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d6b8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -64166,6 +65187,7 @@ var _reactRouterDom = require("react-router-dom");
 var _searchBar = require("../SearchBar");
 var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _styleScss = require("./style.scss");
+var _reactHelmet = require("react-helmet");
 var _s = $RefreshSig$();
 function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged, setSwappies }) {
     _s();
@@ -64236,53 +65258,80 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
     (0, _react.useEffect)(()=>{
         getData();
     }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-        className: "results",
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
-                selectedCategory: selectedCategory,
-                setSelectedCategory: setSelectedCategory,
-                selectedSubCategory: selectedSubCategory,
-                setSelectedSubCategory: setSelectedSubCategory,
-                selectedLevel: selectedLevel,
-                setSelectedLevel: setSelectedLevel,
-                searchInput: searchInput,
-                setSearchInput: setSearchInput,
-                setDataCards: setDataCards,
-                match: match,
-                setMatch: setMatch,
-                noMatch: noMatch,
-                setNoMatch: setNoMatch,
-                setLoading: setLoading,
-                setLogged: setLogged
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
+                        name: "description",
+                        content: "Page de recherche de comp\xe9tences propos\xe9es sur la plateforme selon plusieurs crit\xe8res: mot cl\xe9, cat\xe9gories, sous-cat\xe9gories, et niveau."
+                    }, void 0, false, {
+                        fileName: "SRC/components/Results/index.js",
+                        lineNumber: 125,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
+                        children: "Recherche - Skillswap"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Results/index.js",
+                        lineNumber: 126,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "SRC/components/Results/index.js",
-                lineNumber: 123,
+                lineNumber: 124,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
-                dataCards: dataCards,
-                match: match,
-                noMatch: noMatch,
-                loading: loading
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+                className: "results",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                        selectedCategory: selectedCategory,
+                        setSelectedCategory: setSelectedCategory,
+                        selectedSubCategory: selectedSubCategory,
+                        setSelectedSubCategory: setSelectedSubCategory,
+                        selectedLevel: selectedLevel,
+                        setSelectedLevel: setSelectedLevel,
+                        searchInput: searchInput,
+                        setSearchInput: setSearchInput,
+                        setDataCards: setDataCards,
+                        match: match,
+                        setMatch: setMatch,
+                        noMatch: noMatch,
+                        setNoMatch: setNoMatch,
+                        setLoading: setLoading,
+                        setLogged: setLogged
+                    }, void 0, false, {
+                        fileName: "SRC/components/Results/index.js",
+                        lineNumber: 129,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
+                        dataCards: dataCards,
+                        match: match,
+                        noMatch: noMatch,
+                        loading: loading
+                    }, void 0, false, {
+                        fileName: "SRC/components/Results/index.js",
+                        lineNumber: 147,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        children: "Fin des r\xe9sultats"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Results/index.js",
+                        lineNumber: 153,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "SRC/components/Results/index.js",
-                lineNumber: 141,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Fin des r\xe9sultats"
-            }, void 0, false, {
-                fileName: "SRC/components/Results/index.js",
-                lineNumber: 147,
+                lineNumber: 128,
                 columnNumber: 13
             }, this)
         ]
-    }, void 0, true, {
-        fileName: "SRC/components/Results/index.js",
-        lineNumber: 122,
-        columnNumber: 9
-    }, this);
+    }, void 0, true);
 }
 _s(Results, "0pNeyzXk/ByIxyERsdaIrG6js9s=", false, function() {
     return [
@@ -64298,7 +65347,7 @@ $RefreshReg$(_c, "Results");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../SearchBar":"kxQdC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"iHWRC"}],"iHWRC":[function() {},{}],"4hke4":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../SearchBar":"kxQdC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"iHWRC","react-helmet":"fcX6K"}],"iHWRC":[function() {},{}],"4hke4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d466 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

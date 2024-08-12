@@ -107,6 +107,7 @@
     
         img{
             width: 95px;
+            height:95px;
         }
         
         .starsCatSubCat{
@@ -184,31 +185,10 @@
 
             .boxButton1{ 
                 @include mixin.button_light_orange; 
-                
-
-                // display: flex;
-                // flex-direction: row;
-                // justify-content: center;
-                // width: 90px;
-                // color: var.$background-color;
-                // background-color: var.$secondary-color;
-                // border-radius: 10px;
-                // padding: 5px;
-                // flex-wrap: nowrap ;
-                // margin-left: 10px;
             } 
             .boxButton2{ 
-                @include mixin.button_light_blue;
-                // display: flex;
-                // flex-direction: row;
-                // justify-content: center;
-                // width: 90px;
-                // color: var.$background-color;
-                // background-color: var.$secondary-color;
-                // border-radius: 10px;
-                // padding: 5px;
-                // flex-wrap: nowrap ;
                 margin-left: 10px;
+                @include mixin.button_light_blue;
             } 
         }
     }

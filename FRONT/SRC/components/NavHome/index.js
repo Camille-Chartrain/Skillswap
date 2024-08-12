@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faHome, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
-import skillswap_icone from '../../style/icones/skillswap_icone.png';
-import idea_icone from '../../style/icones/idea_icone.png';
+import Skillswap_logo_bgRemoved from '../../style/icones/Skillswap_logo_bgRemoved.webp';
+import idea_icone from '../../style/icones/idea_icone.webp';
 
 
 
@@ -41,7 +41,7 @@ export default function NavHome() {
                         />
 
                         <img
-                            src={skillswap_icone}
+                            src={Skillswap_logo_bgRemoved}
                             alt="accueil-SkillSwap"
                             className="logoSkillswap"
                         />

@@ -82,10 +82,10 @@
             }
 
             button{
-                @include mixin.button_blue;
                 display: flex;
                 align-self: center;
-                margin-top: 20px;                
+                margin-top: 20px; 
+                @include mixin.button_blue;
             }
         }
     }

@@ -3,7 +3,8 @@ import Cards from "../Cards";
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from "../SearchBar";
-import "./style.scss"
+import "./style.scss";
+import { Helmet } from 'react-helmet';
 
 
 export default function Results(
@@ -119,32 +120,38 @@ export default function Results(
     }, []);
 
     return (
-        <main className="results">
-            <SearchBar
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                selectedSubCategory={selectedSubCategory}
-                setSelectedSubCategory={setSelectedSubCategory}
-                selectedLevel={selectedLevel}
-                setSelectedLevel={setSelectedLevel}
-                searchInput={searchInput}
-                setSearchInput={setSearchInput}
-                setDataCards={setDataCards}
-                match={match}
-                setMatch={setMatch}
-                noMatch={noMatch}
-                setNoMatch={setNoMatch}
-                setLoading={setLoading}
-                setLogged={setLogged} />
+        <>
+            <Helmet>
+                <meta name="description" content="Page de recherche de compétences proposées sur la plateforme selon plusieurs critères: mot clé, catégories, sous-catégories, et niveau." />
+                <title>Recherche - Skillswap</title>
+            </Helmet>
+            <main className="results">
+                <SearchBar
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+                    selectedSubCategory={selectedSubCategory}
+                    setSelectedSubCategory={setSelectedSubCategory}
+                    selectedLevel={selectedLevel}
+                    setSelectedLevel={setSelectedLevel}
+                    searchInput={searchInput}
+                    setSearchInput={setSearchInput}
+                    setDataCards={setDataCards}
+                    match={match}
+                    setMatch={setMatch}
+                    noMatch={noMatch}
+                    setNoMatch={setNoMatch}
+                    setLoading={setLoading}
+                    setLogged={setLogged} />
 
 
-            <Cards
-                dataCards={dataCards}
-                match={match}
-                noMatch={noMatch}
-                loading={loading}
-            />
-            <p>Fin des résultats</p>
-        </main>
+                <Cards
+                    dataCards={dataCards}
+                    match={match}
+                    noMatch={noMatch}
+                    loading={loading}
+                />
+                <p>Fin des résultats</p>
+            </main>
+        </>
     )
 }

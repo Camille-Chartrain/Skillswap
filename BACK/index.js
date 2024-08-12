@@ -81,6 +81,16 @@ app.use(express.json())
 
 app.use(express.static('./public'));
 
+app.get('/robots.txt', (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'public', 'robots.txt'), err => {
+        if (err) {
+            console.log('erreur robot.txt');
+
+            res.status(404).send(); // Send a 404 response if robots.txt is not found
+        }
+    });
+});
+
 app.use(router);
 
 app.listen(port, () => {

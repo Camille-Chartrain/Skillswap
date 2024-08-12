@@ -47,13 +47,11 @@ body{
             }
 
             .blue_button{
-                @include mixin.button_blue;
                 display: flex;
                 align-self: center;
                 margin-top: 20px;
-                // font-size: 1.2rem;
+                @include mixin.button_blue;
             }
-
         }
 
         .grey_button{

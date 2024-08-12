@@ -63,16 +63,16 @@
                 justify-content: flex-end;
 
                 .button_blue{
-                    @include mixin.button_blue;
                     display: flex;
                     margin-top: 1rem;
                     margin-left: 1rem;
+                    @include mixin.button_blue;
                 }  
                 
                 .button_grey{
-                    @include mixin.button_grey;
                     display: flex;
                     margin-top: 1rem;
+                    @include mixin.button_grey;
                 } 
             }
         }

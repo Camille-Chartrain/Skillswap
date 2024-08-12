@@ -4,6 +4,8 @@ import Cookies from 'js-cookie';
 import CardsSkills from "./CardsSkills";
 import CreateSkill from "./CreateSkill";
 import "./style.scss";
+import { Helmet } from 'react-helmet';
+import NavLogged from "../NavLogged";
 
 
 
@@ -69,18 +71,39 @@ export default function Profile(
 
 
     return (
-        <main className="profile">
-            <div className="profile_skill">
-                <ProfilePatch
-                    selectedCategories={selectedCategories}
-                    setSelectedCategories={setSelectedCategories}
-                    loading={loading}
-                    setLoading={setLoading}
-                    dataProfile={dataProfile}
-                    setDataProfile={setDataProfile}
-                />
+        <>
+            <Helmet>
+                <meta name="description" content="Page de gestion de profil utilisateur du site skillswap. Modification des données utilisateurs et de leurs compétences." />
+                <title>Profil - Skillswap</title>
+            </Helmet>
 
-                <CreateSkill
+            {/* <NavLogged /> */}
+            <main className="profile">
+                <div className="profile_skill">
+                    <ProfilePatch
+                        selectedCategories={selectedCategories}
+                        setSelectedCategories={setSelectedCategories}
+                        loading={loading}
+                        setLoading={setLoading}
+                        dataProfile={dataProfile}
+                        setDataProfile={setDataProfile}
+                    />
+
+                    <CreateSkill
+                        loading={loading}
+                        setLoading={setLoading}
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                        selectedSubCategory={selectedSubCategory}
+                        setSelectedSubCategory={setSelectedSubCategory}
+                        selectedLevel={selectedLevel}
+                        setSelectedLevel={setSelectedLevel}
+                        optionsHTML={optionsHTML}
+                        setOptionsHTML={setOptionsHTML}
+                        getSkills={getSkills}
+                    />
+                </div>
+                <CardsSkills
                     loading={loading}
                     setLoading={setLoading}
                     selectedCategory={selectedCategory}
@@ -91,23 +114,10 @@ export default function Profile(
                     setSelectedLevel={setSelectedLevel}
                     optionsHTML={optionsHTML}
                     setOptionsHTML={setOptionsHTML}
+                    skills={skills}
                     getSkills={getSkills}
                 />
-            </div>
-            <CardsSkills
-                loading={loading}
-                setLoading={setLoading}
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                selectedSubCategory={selectedSubCategory}
-                setSelectedSubCategory={setSelectedSubCategory}
-                selectedLevel={selectedLevel}
-                setSelectedLevel={setSelectedLevel}
-                optionsHTML={optionsHTML}
-                setOptionsHTML={setOptionsHTML}
-                skills={skills}
-                getSkills={getSkills}
-            />
-        </main>
+            </main>
+        </>
     )
 }

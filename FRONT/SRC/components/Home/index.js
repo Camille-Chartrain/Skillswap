@@ -6,6 +6,7 @@ import NavLogged from "../Dashboard/NavLogged";
 import Cookies from 'js-cookie';
 import './style.scss';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Home = ({
     selectedCategory,
@@ -78,71 +79,78 @@ const Home = ({
 
 
     return (
-        <div className="home">
-            {logged && <NavLogged
-                setLogged={setLogged}
-                setSearchInput={setSearchInput}
-                setSelectedLevel={setSelectedLevel}
-                setSelectedSubCategory={setSelectedSubCategory}
-                setSelectedCategory={setSelectedCategory}
-                setNoMatch={setNoMatch}
-                setMatch={setMatch}
-            />}
-            {!logged && <NavHome />}
+        <>
+            <Helmet>
+                <meta name="description" content="Bienvenue sur la page d'accueil de Skillswap. Découvrez des compétences que vous aimeriez acquérir grâce à notre communauté." />
+                <title>Accueil - Skillswap</title>
+            </Helmet>
 
-            <main className="main">
-                <section className="pres_search">
-                    <div className="presentation">
-                        <div className="border-display">
-                            Dilettants, passionnés, professionnels,
-                        </div>
-                        <div >
-                            <span className="display">
-                                partagez </span>vos talents  !
-                        </div>
-                    </div>
+            <div className="home">
+                {logged && <NavLogged
+                    setLogged={setLogged}
+                    setSearchInput={setSearchInput}
+                    setSelectedLevel={setSelectedLevel}
+                    setSelectedSubCategory={setSelectedSubCategory}
+                    setSelectedCategory={setSelectedCategory}
+                    setNoMatch={setNoMatch}
+                    setMatch={setMatch}
+                />}
+                {!logged && <NavHome />}
 
-                    {!logged && <SearchBar
-                        selectedCategory={selectedCategory}
-                        setSelectedCategory={setSelectedCategory}
-                        selectedSubCategory={selectedSubCategory}
-                        setSelectedSubCategory={setSelectedSubCategory}
-                        selectedLevel={selectedLevel}
-                        setSelectedLevel={setSelectedLevel}
-                        searchInput={searchInput}
-                        setSearchInput={setSearchInput}
+                <main className="main">
+                    <section className="pres_search">
+                        <div className="presentation">
+                            <div className="border-display">
+                                Dilettants, passionnés, professionnels,
+                            </div>
+                            <div >
+                                <span className="display">
+                                    partagez </span>vos talents  !
+                            </div>
+                        </div>
+
+                        {!logged && <SearchBar
+                            selectedCategory={selectedCategory}
+                            setSelectedCategory={setSelectedCategory}
+                            selectedSubCategory={selectedSubCategory}
+                            setSelectedSubCategory={setSelectedSubCategory}
+                            selectedLevel={selectedLevel}
+                            setSelectedLevel={setSelectedLevel}
+                            searchInput={searchInput}
+                            setSearchInput={setSearchInput}
+                            dataCards={dataCards}
+                            setDataCards={setDataCards}
+                            match={match}
+                            setMatch={setMatch}
+                            noMatch={noMatch}
+                            setNoMatch={setNoMatch}
+                            setLoading={setLoading}
+                            setLogged={setLogged}
+                        />
+                        }
+                    </section>
+
+                    <Cards
                         dataCards={dataCards}
-                        setDataCards={setDataCards}
                         match={match}
-                        setMatch={setMatch}
                         noMatch={noMatch}
-                        setNoMatch={setNoMatch}
-                        setLoading={setLoading}
-                        setLogged={setLogged}
+                        loading={loading}
                     />
+
+                    {
+                        !loading && !logged &&
+                        <button
+                            className="join_button"
+                            onClick={handleClickRegistration}
+                            aria-label="Inscription"
+                        >
+                            Rejoindre la communauté
+
+                        </button>
                     }
-                </section>
-
-                <Cards
-                    dataCards={dataCards}
-                    match={match}
-                    noMatch={noMatch}
-                    loading={loading}
-                />
-
-                {
-                    !loading && !logged &&
-                    <button
-                        className="join_button"
-                        onClick={handleClickRegistration}
-                        aria-label="Inscription"
-                    >
-                        Rejoindre la communauté
-
-                    </button>
-                }
-            </main >
-        </div >
+                </main >
+            </div >
+        </>
     )
 
 }

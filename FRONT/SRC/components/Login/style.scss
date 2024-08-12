@@ -48,14 +48,14 @@
             input{
                 border-radius: 5px;
                 padding: 9px;
-                border: 1px solid var.$soft-grey-color
+                border: 1px solid var.$soft-grey-color;
             }
 
             .blue_button{
-                @include mixin.button_blue;
                 display: flex;
                 align-self: center;
-                margin-top: 20px
+                margin-top: 20px;
+                @include mixin.button_blue;
             }
         }
 

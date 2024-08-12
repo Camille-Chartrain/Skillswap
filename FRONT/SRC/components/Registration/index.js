@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import NavHome from "../NavHome";
 import PasswordInput from "./PasswordInput";
-import "./style.scss"
+import "./style.scss";
+import { Helmet } from 'react-helmet';
 
 export default function Registration() {
 
@@ -93,6 +94,10 @@ export default function Registration() {
 
     return (
         <>
+            <Helmet>
+                <meta name="description" content="Page d'inscription sur le site Skillswap'" />
+                <title>Inscription - Skillswap</title>
+            </Helmet>
             <NavHome />
 
             <main className="registration">

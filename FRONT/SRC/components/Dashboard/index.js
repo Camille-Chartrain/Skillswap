@@ -20,7 +20,7 @@ export default function Dashboard(
     }, []);
 
     return (
-        <div>
+        <>
             <NavLogged
                 setLogged={setLogged}
                 setSelectedCategory={setSelectedCategory}
@@ -31,6 +31,6 @@ export default function Dashboard(
                 setMatch={setMatch}
                 swappies={swappies}
             />
-        </div>
+        </>
     )
 }
