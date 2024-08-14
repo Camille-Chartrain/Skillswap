@@ -15,10 +15,10 @@ export default function SubCategories(
 
     async function getSubCategories() {
         try {
-            console.log("essai de fetch subategories");
-            console.log("valeur de selectedCategory:", selectedCategory);
+            // console.log("essai de fetch subategories");
+            // console.log("valeur de selectedCategory:", selectedCategory);
             const token = Cookies.get('token');
-            console.log(`http://localhost:3000/subCategories/${selectedCategory}`);
+            // console.log(`http://localhost:3000/subCategories/${selectedCategory}`);
             const response = await fetch(`http://localhost:3000/subCategories/${selectedCategory}`, {
                 method: "get",
                 headers: {
@@ -28,25 +28,24 @@ export default function SubCategories(
             });
             const dataSubCategories = await response.json();
             setSubCategories(dataSubCategories);
-            console.log("recup liste des cat après JSON:", dataSubCategories);
+            // console.log("dataSubcategories après JSON:", dataSubCategories);
         }
         catch (error) {
             console.error("erreur lors de la récup des catégories:", error.message);
-            // setError("Selectionnez une categorie");
-            // handleNotFoundError("Selectionnez une categorie");
         }
     }
 
-    // Je veux appeler du code lors du premier chargement du composant et pas lorsque le composant se recharge de nouveau (on limite ainsi les effets de bords et donc une boucle infinie)
+    // la fonction getSubCategories sera appelé au montage initial du composant
+    // et à chaque fois que le state selectedCategory change de valeur
+    // comme il est indiqué dans le tableau de dépendances
     useEffect(() => {
-
         getSubCategories();
-        console.log('selectedCategory has been updated:', selectedCategory);
+        // console.log('selectedCategory has been updated:', selectedCategory);
     }, [selectedCategory]);
 
     const handleSubCategoryChange = (event) => {
         setSelectedSubCategory(event.target.value);
-        console.log("SousCatégorie sélectionnée :", event.target.value);
+        // console.log("SousCatégorie sélectionnée :", event.target.value);
     };
 
     return (
@@ -58,7 +57,12 @@ export default function SubCategories(
         >
             <option value="">sous-catégorie</option>
             {subCategories && subCategories.length > 0 && subCategories.map((subCategory) => (
-                <option key={subCategory.id} value={subCategory.id}>{subCategory.name}</option>
+                <option
+                    key={subCategory.id}
+                    value={subCategory.id}
+                >
+                    {subCategory.name}
+                </option>
             ))}
         </select>
     )

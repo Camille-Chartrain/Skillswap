@@ -8,7 +8,6 @@ export default function Level(
     }
 ) {
 
-
     const handleLevelChange = (event) => {
         setSelectedLevel(event.target.value);
         console.log("Level sélectionnée :", event.target.value);

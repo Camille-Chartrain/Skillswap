@@ -12,7 +12,6 @@ export default function Categories(
 
     const [categories, setCategories] = useState([]);
 
-
     async function getCategories() {
         try {
             // console.log("essai de fetch categories");
@@ -26,24 +25,23 @@ export default function Categories(
             });
             const dataCategories = await response.json();
             setCategories(dataCategories);
-            // console.log("recup liste des cat après JSON:", dataCategories);
+            // console.log("dataCategories après JSON:", dataCategories);
         }
         catch (error) {
             console.error("erreur lors de la récup des catégories:", error.message);
-            // setError("Selectionnez une categorie");
-            // handleNotFoundError("Selectionnez une categorie");
         }
     }
 
-    // Je veux appeler du code lors du premier chargement du composant et pas lorsque le composant se recharge de nouveau (on limite ainsi les effets de bords et donc une boucle infinie)
+    // Je veux appeler getCategories uniquement lors du premier chargement du composant 
+    // => tableau vide
     useEffect(() => {
         getCategories();
     }, [])
 
     const handleCategoryChange = (event) => {
-        console.log("Catégorie sélectionnée :", event.target.value);
+        // console.log("Catégorie sélectionnée :", event.target.value);
         setSelectedCategory(event.target.value);
-        console.log("Catégorie sélectionnée :", event.target.value);
+        // console.log("Catégorie sélectionnée :", event.target.value);
     };
 
     return (
@@ -67,6 +65,5 @@ export default function Categories(
                 ))
             }
         </select >
-
     )
 }

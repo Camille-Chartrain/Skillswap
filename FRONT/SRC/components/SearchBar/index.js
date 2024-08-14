@@ -17,9 +17,7 @@ export default function SearchBar({
     searchInput,
     setSearchInput,
     setDataCards,
-    match,
     setMatch,
-    noMatch,
     setNoMatch,
     setLoading,
     setLogged
@@ -27,18 +25,16 @@ export default function SearchBar({
 
     const navigate = useNavigate();
 
-
     async function handleSearch(event) {
 
         event.preventDefault();
 
         try {
-
-            console.log("nous sommes dans la fonction handleSearch");
+            // console.log("nous sommes dans la fonction handleSearch deSearchbar");
+            // console.log("selectedCategory dans try", selectedCategory);
+            // console.log("selectedSubCategory dans try", selectedSubCategory);
+            // console.log("selectLevel dans try", selectedLevel);
             setLoading(true)
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectedLevel);
 
             const token = Cookies.get('token');
 
@@ -51,17 +47,16 @@ export default function SearchBar({
             });
 
             const responseDataSearch = await response.json();
-            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
-            console.log("responseDataSearch.message", responseDataSearch.message);
-            console.log("typeof responseDataSearch", typeof responseDataSearch);
-
+            // console.log("reponse GetSearch responseDataSearch", responseDataSearch);
+            // console.log("responseDataSearch.message", responseDataSearch.message);
+            // console.log("typeof responseDataSearch", typeof responseDataSearch);
 
             if (responseDataSearch.message === "no match") {
                 setMatch(false);
                 setNoMatch(true);
                 setLoading(false);
-                console.log("NO MATCH state match dans Search", match);
-                console.log("NOT MATCH state noMatch dans Search", noMatch);
+                // console.log("NO MATCH state match dans Search", match);
+                // console.log("NOT MATCH state noMatch dans Search", noMatch);
 
                 if (!responseDataSearch.isLogged) {
                     setLogged(false);
@@ -73,8 +68,8 @@ export default function SearchBar({
                 }
             }
             else if (responseDataSearch) {
-                console.log("on est dans la condition il y a match");
-                console.log("responseDataseaarch", responseDataSearch);
+                // console.log("on est dans la condition il y a match");
+                // console.log("responseDataseaarch", responseDataSearch);
                 setDataCards(responseDataSearch);
                 setMatch(true);
                 setNoMatch(false);
@@ -92,14 +87,13 @@ export default function SearchBar({
         }
         catch (error) {
             console.log('erreur du catch GetSearch:', error);
-            // setError("Votre recherche n'aq pas pu aboutir");
-            // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+            // prévoir une gestion des erreurs
         }
     }
 
     const handleChangeInput = (event) => {
         setSearchInput(event.target.value);
-        console.log("input:", event.target.value);
+        // console.log("input:", event.target.value);
     };
 
     return (
@@ -144,7 +138,12 @@ export default function SearchBar({
                 />
             </div>
             <div>
-                <button className="searchButton" type="submit">Rechercher</button>
+                <button
+                    className="searchButton"
+                    type="submit"
+                >
+                    Rechercher
+                </button>
             </div>
         </form >
     )
