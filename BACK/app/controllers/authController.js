@@ -155,7 +155,12 @@ const authController = {
                             console.log("back token: ", token);
 
                             const verifiedUser = await verifyToken(token, process.env.TOKEN_SECRET);
+                            if (verifiedUser === "jwt expired") {
+                                console.log('verifiedUser', verifiedUser);
+
+                            }
                             req.user = verifiedUser;
+
                             console.log("notre user apres validation du token -req.user-", req.user);
 
                             // Compare the emails

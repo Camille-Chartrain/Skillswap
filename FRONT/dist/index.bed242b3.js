@@ -34692,7 +34692,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
                         name: "description",
-                        content: "Bienvenue sur la page d'accueil de Skillswap. D\xe9couvrez des comp\xe9tences que vous aimeriez acqu\xe9rir gr\xe2ce \xe0 notre communaut\xe9."
+                        content: "Bienvenue sur la page d'accueil de Skillswap.    D\xe9couvrez des comp\xe9tences que vous aimeriez acqu\xe9rir gr\xe2ce \xe0 notre communaut\xe9."
                     }, void 0, false, {
                         fileName: "SRC/components/Home/index.js",
                         lineNumber: 84,
@@ -34702,7 +34702,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                         children: "Accueil - Skillswap"
                     }, void 0, false, {
                         fileName: "SRC/components/Home/index.js",
-                        lineNumber: 85,
+                        lineNumber: 86,
                         columnNumber: 17
                     }, undefined)
                 ]
@@ -34714,23 +34714,31 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "home",
                 children: [
-                    logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
-                        setLogged: setLogged,
-                        setSearchInput: setSearchInput,
-                        setSelectedLevel: setSelectedLevel,
-                        setSelectedSubCategory: setSelectedSubCategory,
-                        setSelectedCategory: setSelectedCategory,
-                        setNoMatch: setNoMatch,
-                        setMatch: setMatch
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
+                        children: [
+                            logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navLoggedDefault.default), {
+                                setLogged: setLogged,
+                                setSearchInput: setSearchInput,
+                                setSelectedLevel: setSelectedLevel,
+                                setSelectedSubCategory: setSelectedSubCategory,
+                                setSelectedCategory: setSelectedCategory,
+                                setNoMatch: setNoMatch,
+                                setMatch: setMatch
+                            }, void 0, false, {
+                                fileName: "SRC/components/Home/index.js",
+                                lineNumber: 91,
+                                columnNumber: 32
+                            }, undefined),
+                            !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
+                                fileName: "SRC/components/Home/index.js",
+                                lineNumber: 100,
+                                columnNumber: 33
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "SRC/components/Home/index.js",
-                        lineNumber: 89,
-                        columnNumber: 28
-                    }, undefined),
-                    !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navHomeDefault.default), {}, void 0, false, {
-                        fileName: "SRC/components/Home/index.js",
-                        lineNumber: 98,
-                        columnNumber: 29
+                        lineNumber: 90,
+                        columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
                         className: "main",
@@ -34746,7 +34754,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                                                 children: "Dilettants, passionn\xe9s, professionnels,"
                                             }, void 0, false, {
                                                 fileName: "SRC/components/Home/index.js",
-                                                lineNumber: 103,
+                                                lineNumber: 106,
                                                 columnNumber: 29
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34756,20 +34764,20 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                                                         children: "partagez "
                                                     }, void 0, false, {
                                                         fileName: "SRC/components/Home/index.js",
-                                                        lineNumber: 107,
+                                                        lineNumber: 110,
                                                         columnNumber: 33
                                                     }, undefined),
                                                     "vos talents  !"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "SRC/components/Home/index.js",
-                                                lineNumber: 106,
+                                                lineNumber: 109,
                                                 columnNumber: 29
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "SRC/components/Home/index.js",
-                                        lineNumber: 102,
+                                        lineNumber: 105,
                                         columnNumber: 25
                                     }, undefined),
                                     !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
@@ -34791,13 +34799,13 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                                         setLogged: setLogged
                                     }, void 0, false, {
                                         fileName: "SRC/components/Home/index.js",
-                                        lineNumber: 112,
+                                        lineNumber: 115,
                                         columnNumber: 37
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "SRC/components/Home/index.js",
-                                lineNumber: 101,
+                                lineNumber: 104,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
@@ -34807,7 +34815,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                                 loading: loading
                             }, void 0, false, {
                                 fileName: "SRC/components/Home/index.js",
-                                lineNumber: 133,
+                                lineNumber: 136,
                                 columnNumber: 21
                             }, undefined),
                             !loading && !logged && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34817,19 +34825,19 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                                 children: "Rejoindre la communaut\xe9"
                             }, void 0, false, {
                                 fileName: "SRC/components/Home/index.js",
-                                lineNumber: 142,
+                                lineNumber: 145,
                                 columnNumber: 25
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "SRC/components/Home/index.js",
-                        lineNumber: 100,
+                        lineNumber: 103,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/Home/index.js",
-                lineNumber: 88,
+                lineNumber: 89,
                 columnNumber: 13
             }, undefined)
         ]
@@ -34874,35 +34882,35 @@ var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _styleScss = require("./style.scss");
 var _s = $RefreshSig$();
-function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, match, setMatch, noMatch, setNoMatch, setLoading, setLogged }) {
+function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, setMatch, setNoMatch, setLoading, setLogged }) {
     _s();
     const navigate = (0, _reactRouterDom.useNavigate)();
     async function handleSearch(event) {
         event.preventDefault();
         try {
-            console.log("nous sommes dans la fonction handleSearch");
+            // console.log("nous sommes dans la fonction handleSearch deSearchbar");
+            // console.log("selectedCategory dans try", selectedCategory);
+            // console.log("selectedSubCategory dans try", selectedSubCategory);
+            // console.log("selectLevel dans try", selectedLevel);
             setLoading(true);
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectedLevel);
             const token = (0, _jsCookieDefault.default).get("token");
             const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
                 method: "get",
                 headers: {
-                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/json',
                     "Authorization": `Bearer ${token}`
                 }
             });
             const responseDataSearch = await response.json();
-            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
-            console.log("responseDataSearch.message", responseDataSearch.message);
-            console.log("typeof responseDataSearch", typeof responseDataSearch);
+            // console.log("reponse GetSearch responseDataSearch", responseDataSearch);
+            // console.log("responseDataSearch.message", responseDataSearch.message);
+            // console.log("typeof responseDataSearch", typeof responseDataSearch);
+            setLoading(false);
             if (responseDataSearch.message === "no match") {
                 setMatch(false);
                 setNoMatch(true);
-                setLoading(false);
-                console.log("NO MATCH state match dans Search", match);
-                console.log("NOT MATCH state noMatch dans Search", noMatch);
+                // console.log("NO MATCH state match dans Search", match);
+                // console.log("NOT MATCH state noMatch dans Search", noMatch);
                 if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate("/");
@@ -34911,12 +34919,11 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                     navigate("/dashboard/results");
                 }
             } else if (responseDataSearch) {
-                console.log("on est dans la condition il y a match");
-                console.log("responseDataseaarch", responseDataSearch);
+                // console.log("on est dans la condition il y a match");
+                // console.log("responseDataseaarch", responseDataSearch);
                 setDataCards(responseDataSearch);
                 setMatch(true);
                 setNoMatch(false);
-                setLoading(false);
                 if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate("/");
@@ -34927,13 +34934,12 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
             }
         } catch (error) {
             console.log("erreur du catch GetSearch:", error);
-        // setError("Votre recherche n'aq pas pu aboutir");
-        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+        // prévoir une gestion des erreurs
         }
     }
     const handleChangeInput = (event)=>{
         setSearchInput(event.target.value);
-        console.log("input:", event.target.value);
+    // console.log("input:", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         className: "searchBar",
@@ -34953,26 +34959,40 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         onChange: handleChangeInput
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 114,
+                        lineNumber: 107,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         htmlFor: "keyWord"
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 124,
+                        lineNumber: 117,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 113,
+                lineNumber: 106,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoriesDefault.default), {
                     selectedCategory: selectedCategory,
                     setSelectedCategory: setSelectedCategory
+                }, void 0, false, {
+                    fileName: "SRC/components/SearchBar/index.js",
+                    lineNumber: 121,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "SRC/components/SearchBar/index.js",
+                lineNumber: 120,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
+                    selectedCategory: selectedCategory,
+                    setSelectedSubCategory: setSelectedSubCategory
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
                     lineNumber: 128,
@@ -34984,9 +35004,8 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _subCategoriesDefault.default), {
-                    selectedCategory: selectedCategory,
-                    setSelectedSubCategory: setSelectedSubCategory
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
+                    setSelectedLevel: setSelectedLevel
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
                     lineNumber: 135,
@@ -34998,37 +35017,24 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _levelDefault.default), {
-                    setSelectedLevel: setSelectedLevel
-                }, void 0, false, {
-                    fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 142,
-                    columnNumber: 17
-                }, this)
-            }, void 0, false, {
-                fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 141,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                     className: "searchButton",
                     type: "submit",
                     children: "Rechercher"
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 147,
+                    lineNumber: 140,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 146,
+                lineNumber: 139,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/index.js",
-        lineNumber: 106,
+        lineNumber: 99,
         columnNumber: 9
     }, this);
 }
@@ -35078,21 +35084,20 @@ function Categories({ setSelectedCategory, optionsHTML }) {
             });
             const dataCategories = await response.json();
             setCategories(dataCategories);
-        // console.log("recup liste des cat après JSON:", dataCategories);
+        // console.log("dataCategories après JSON:", dataCategories);
         } catch (error) {
             console.error("erreur lors de la r\xe9cup des cat\xe9gories:", error.message);
-        // setError("Selectionnez une categorie");
-        // handleNotFoundError("Selectionnez une categorie");
         }
     }
-    // Je veux appeler du code lors du premier chargement du composant et pas lorsque le composant se recharge de nouveau (on limite ainsi les effets de bords et donc une boucle infinie)
+    // Je veux appeler getCategories uniquement lors du premier chargement du composant 
+    // => tableau vide
     (0, _react.useEffect)(()=>{
         getCategories();
     }, []);
     const handleCategoryChange = (event)=>{
-        console.log("Cat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
+        // console.log("Catégorie sélectionnée :", event.target.value);
         setSelectedCategory(event.target.value);
-        console.log("Cat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
+    // console.log("Catégorie sélectionnée :", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
         "aria-label": "Cat\xe9gorie",
@@ -35105,7 +35110,7 @@ function Categories({ setSelectedCategory, optionsHTML }) {
                 children: "cat\xe9gorie"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Categories/index.js",
-                lineNumber: 57,
+                lineNumber: 55,
                 columnNumber: 13
             }, this),
             categories && categories.length > 0 && categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35113,13 +35118,13 @@ function Categories({ setSelectedCategory, optionsHTML }) {
                     children: category.name
                 }, category.id, false, {
                     fileName: "SRC/components/SearchBar/Categories/index.js",
-                    lineNumber: 61,
+                    lineNumber: 59,
                     columnNumber: 21
                 }, this))
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/Categories/index.js",
-        lineNumber: 51,
+        lineNumber: 49,
         columnNumber: 9
     }, this);
 }
@@ -35382,10 +35387,10 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
     const [subCategories, setSubCategories] = (0, _react.useState)([]);
     async function getSubCategories() {
         try {
-            console.log("essai de fetch subategories");
-            console.log("valeur de selectedCategory:", selectedCategory);
+            // console.log("essai de fetch subategories");
+            // console.log("valeur de selectedCategory:", selectedCategory);
             const token = (0, _jsCookieDefault.default).get("token");
-            console.log(`http://localhost:3000/subCategories/${selectedCategory}`);
+            // console.log(`http://localhost:3000/subCategories/${selectedCategory}`);
             const response = await fetch(`http://localhost:3000/subCategories/${selectedCategory}`, {
                 method: "get",
                 headers: {
@@ -35395,23 +35400,23 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
             });
             const dataSubCategories = await response.json();
             setSubCategories(dataSubCategories);
-            console.log("recup liste des cat apr\xe8s JSON:", dataSubCategories);
+        // console.log("dataSubcategories après JSON:", dataSubCategories);
         } catch (error) {
             console.error("erreur lors de la r\xe9cup des cat\xe9gories:", error.message);
-        // setError("Selectionnez une categorie");
-        // handleNotFoundError("Selectionnez une categorie");
         }
     }
-    // Je veux appeler du code lors du premier chargement du composant et pas lorsque le composant se recharge de nouveau (on limite ainsi les effets de bords et donc une boucle infinie)
+    // la fonction getSubCategories sera appelé au montage initial du composant
+    // et à chaque fois que le state selectedCategory change de valeur
+    // comme il est indiqué dans le tableau de dépendances
     (0, _react.useEffect)(()=>{
         getSubCategories();
-        console.log("selectedCategory has been updated:", selectedCategory);
+    // console.log('selectedCategory has been updated:', selectedCategory);
     }, [
         selectedCategory
     ]);
     const handleSubCategoryChange = (event)=>{
         setSelectedSubCategory(event.target.value);
-        console.log("SousCat\xe9gorie s\xe9lectionn\xe9e :", event.target.value);
+    // console.log("SousCatégorie sélectionnée :", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
         "aria-label": "sous-cat\xe9gorie",
@@ -35424,7 +35429,7 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
                 children: "sous-cat\xe9gorie"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/SubCategories/index.js",
-                lineNumber: 59,
+                lineNumber: 58,
                 columnNumber: 13
             }, this),
             subCategories && subCategories.length > 0 && subCategories.map((subCategory)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35432,13 +35437,13 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
                     children: subCategory.name
                 }, subCategory.id, false, {
                     fileName: "SRC/components/SearchBar/SubCategories/index.js",
-                    lineNumber: 61,
+                    lineNumber: 60,
                     columnNumber: 17
                 }, this))
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/SubCategories/index.js",
-        lineNumber: 53,
+        lineNumber: 52,
         columnNumber: 9
     }, this);
 }
@@ -35481,7 +35486,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "Niveau"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 25,
+                lineNumber: 24,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35489,7 +35494,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "D\xe9butant"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 26,
+                lineNumber: 25,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35497,7 +35502,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "Interm\xe9diaire"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 27,
+                lineNumber: 26,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -35505,13 +35510,13 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 children: "Avanc\xe9"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
-                lineNumber: 28,
+                lineNumber: 27,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/Level/index.js",
-        lineNumber: 19,
+        lineNumber: 18,
         columnNumber: 9
     }, this);
 }
@@ -61568,7 +61573,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
     _s();
     const navigate = (0, _reactRouterDom.useNavigate)();
     function handleClickHome() {
-        console.log("vers accueil!!!!!!!!!!!!!");
+        // console.log('vers accueil!!!!!!!!!!!!!');
         setSearchInput("");
         setSelectedCategory(null);
         setSelectedSubCategory(null);

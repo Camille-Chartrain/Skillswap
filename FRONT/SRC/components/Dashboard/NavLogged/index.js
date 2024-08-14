@@ -25,7 +25,7 @@ export default function NavLogged(
 
 
     function handleClickHome() {
-        console.log('vers accueil!!!!!!!!!!!!!');
+        // console.log('vers accueil!!!!!!!!!!!!!');
         setSearchInput("");
         setSelectedCategory(null);
         setSelectedSubCategory(null);

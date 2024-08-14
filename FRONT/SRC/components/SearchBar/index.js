@@ -41,7 +41,7 @@ export default function SearchBar({
             const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
                 method: "get",
                 headers: {
-                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
             });
@@ -50,11 +50,11 @@ export default function SearchBar({
             // console.log("reponse GetSearch responseDataSearch", responseDataSearch);
             // console.log("responseDataSearch.message", responseDataSearch.message);
             // console.log("typeof responseDataSearch", typeof responseDataSearch);
+            setLoading(false);
 
             if (responseDataSearch.message === "no match") {
                 setMatch(false);
                 setNoMatch(true);
-                setLoading(false);
                 // console.log("NO MATCH state match dans Search", match);
                 // console.log("NOT MATCH state noMatch dans Search", noMatch);
 
@@ -73,7 +73,6 @@ export default function SearchBar({
                 setDataCards(responseDataSearch);
                 setMatch(true);
                 setNoMatch(false);
-                setLoading(false);
 
                 if (!responseDataSearch.isLogged) {
                     setLogged(false);

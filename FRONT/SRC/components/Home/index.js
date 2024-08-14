@@ -81,21 +81,24 @@ const Home = ({
     return (
         <>
             <Helmet>
-                <meta name="description" content="Bienvenue sur la page d'accueil de Skillswap. Découvrez des compétences que vous aimeriez acquérir grâce à notre communauté." />
+                <meta name="description" content="Bienvenue sur la page d'accueil de Skillswap. 
+                Découvrez des compétences que vous aimeriez acquérir grâce à notre communauté." />
                 <title>Accueil - Skillswap</title>
             </Helmet>
 
             <div className="home">
-                {logged && <NavLogged
-                    setLogged={setLogged}
-                    setSearchInput={setSearchInput}
-                    setSelectedLevel={setSelectedLevel}
-                    setSelectedSubCategory={setSelectedSubCategory}
-                    setSelectedCategory={setSelectedCategory}
-                    setNoMatch={setNoMatch}
-                    setMatch={setMatch}
-                />}
-                {!logged && <NavHome />}
+                <header>
+                    {logged && <NavLogged
+                        setLogged={setLogged}
+                        setSearchInput={setSearchInput}
+                        setSelectedLevel={setSelectedLevel}
+                        setSelectedSubCategory={setSelectedSubCategory}
+                        setSelectedCategory={setSelectedCategory}
+                        setNoMatch={setNoMatch}
+                        setMatch={setMatch}
+                    />}
+                    {!logged && <NavHome />}
+                </header>
 
                 <main className="main">
                     <section className="pres_search">
