@@ -526,7 +526,6 @@
 }
 
 .home .main {
-  background-position: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -536,18 +535,13 @@
 .home .main .pres_search {
   flex-direction: column;
   align-items: center;
-  margin-top: 140px;
-  font-weight: 500;
+  margin-top: 8.5rem;
   display: flex;
 }
 
 @media screen and (width >= 90rem) {
   .home .main .pres_search {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 80px;
-    display: flex;
+    margin-top: 5rem;
   }
 }
 
@@ -558,6 +552,7 @@
   width: 21rem;
   margin-bottom: 60px;
   font-size: 1.7rem;
+  font-weight: 500;
   display: flex;
 }
 
@@ -571,7 +566,7 @@
 }
 
 .home .main .presentation .border-display {
-  margin-left: 2rem;
+  margin-left: 1.85rem;
 }
 
 @media screen and (width >= 90rem) {
@@ -592,7 +587,6 @@
 .home .main .join_button {
   background-color: #fff;
   border-radius: 10px;
-  align-self: center;
   margin-bottom: 2rem;
   padding: .5rem .7rem;
   display: flex;

@@ -4,41 +4,28 @@
 
 .home {
     .main{
-    // pour pouvoir aligner l'enfant join_button
+    // pour centrer enfant pres_search et enfant join_button 
+    // (bouton en bas de page)
     display: flex;
     flex-direction: column;
-    // background-color: var.$primary-color;
-    // background-image: url('../../style/icones/orange-background.png');
-    // background-size: cover; // Ajuste l'image pour qu'elle couvre tout le conteneur
-    background-position: center; 
     align-items: center;
     width: 100%;
-    // justify-content: center;
-        // background-image: url('../../style/base/icones/lampeBW2.png'); /* Chemin vers votre image */
-        // background-position: top right; /* Positionner l'image en haut à droite */
-        // background-repeat: no-repeat; /* Empêcher la répétition de l'image */
-        // // background-size: contain; /* Garder la taille originale de l'image, vous pouvez utiliser 'cover' ou 'contain' selon le besoin */
 
-        // @include mixin.big {
-        //     flex-direction: row;
-        // }
     .pres_search{
         display: flex;
-        flex-direction: column;
+        flex-direction: column; 
         align-items: center;
-        font-weight: 500;
-        // background-color: var.$orange-color;
-        // pour contrebalancer la nav fixe
-        margin-top: 140px;
+        // pour ne pas être caché derrière la nav fixe
+        margin-top: 8.5rem;
 
         @include mixin.big {
-                display: flex;
-                flex-direction: column; 
-                align-items: center;
-                width: 100%;
-                // margin-left: 20%;
-                // height: 25rem;
-                margin-top: 80px;
+                // display: flex;
+                // flex-direction: column; 
+                // align-items: center;
+                // width: 100%;
+                // pour que le bloc soit directement 
+                // à la suite de la nav
+                margin-top: 5rem;
         }
     }
     .presentation {
@@ -46,10 +33,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        // margin-top:40px;
         margin-bottom: 60px;
         color: var.$background-color;
         font-size: 1.7rem;
+        font-weight: 500;
     
         @include mixin.big {
             display: flex;
@@ -58,7 +45,7 @@
             align-items: flex-start;
     }
             .border-display{
-                margin-left: 2rem;  
+                margin-left: 1.85rem;  
 
                 @include mixin.big {
                     margin-left: 1rem;  
@@ -66,7 +53,6 @@
             }
 
             .display{
-              // box-sizing: content-box;
                 background-color: var.$secondary-color;
                 border: solid 1px var.$secondary-color;
                 border-radius: 30px; 
@@ -78,11 +64,9 @@
 
         .join_button{
             display: flex;
-            align-self: center;
             background-color: var.$background-color;
             border-radius: 10px;
             padding: 0.5rem 0.7rem;
-            // margin-top: 4rem;
             margin-bottom: 2rem;
         }
     }

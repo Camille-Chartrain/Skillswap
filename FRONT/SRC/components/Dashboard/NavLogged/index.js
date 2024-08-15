@@ -62,8 +62,8 @@ export default function NavLogged(
                         role="group"
                         aria-label="Information sur l'utilisateur">
                         <div
-                            className="swappies" a
-                            ria-label="total swappies"
+                            className="swappies"
+                            aria-label="total swappies"
                         >
                             {swappies}
                         </div>

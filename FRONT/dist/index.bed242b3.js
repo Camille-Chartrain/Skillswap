@@ -34743,10 +34743,10 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
                         className: "main",
                         children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "pres_search",
                                 children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
                                         className: "presentation",
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -61633,8 +61633,7 @@ function NavLogged({ setLogged, setSelectedCategory, setSelectedSubCategory, set
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                         className: "swappies",
-                                        a: true,
-                                        "ria-label": "total swappies",
+                                        "aria-label": "total swappies",
                                         children: swappies
                                     }, void 0, false, {
                                         fileName: "SRC/components/Dashboard/NavLogged/index.js",

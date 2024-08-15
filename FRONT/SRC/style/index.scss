@@ -6,20 +6,20 @@
 
 
 body {
-    margin: 0;
-    padding: 0;
     height: 100%;
     width: 100%;
     font-size: 1.2rem;
-    // background-image: url("./icones/orange-background.png");
-    // background-image: url("./icones/blue_orange_background.jpg");
     background-image: url("./icones/orange-background.webp");
-    // background-repeat: no-repeat;
-    // background-position: center top;
-    // background-size: 100% 100%;
+
+    // l'image sera fixe et le contenu defilera 
+    // par dessus: parallax.
     background-attachment: fixed;
+
+    // indique que l'image doit être centrée à la fois horizontalement
+    //  et verticalement dans le conteneur.
     background-position: center;
-    background-repeat: no-repeat;
+
+    // Ajuste l'image pour qu'elle couvre tout le conteneur
     background-size: cover;
 }
 

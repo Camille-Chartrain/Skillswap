@@ -101,8 +101,8 @@ const Home = ({
                 </header>
 
                 <main className="main">
-                    <section className="pres_search">
-                        <div className="presentation">
+                    <div className="pres_search">
+                        <section className="presentation">
                             <div className="border-display">
                                 Dilettants, passionnés, professionnels,
                             </div>
@@ -110,7 +110,7 @@ const Home = ({
                                 <span className="display">
                                     partagez </span>vos talents  !
                             </div>
-                        </div>
+                        </section>
 
                         {!logged && <SearchBar
                             selectedCategory={selectedCategory}
@@ -131,7 +131,7 @@ const Home = ({
                             setLogged={setLogged}
                         />
                         }
-                    </section>
+                    </div>
 
                     <Cards
                         dataCards={dataCards}
