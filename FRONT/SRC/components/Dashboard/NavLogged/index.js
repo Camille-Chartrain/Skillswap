@@ -37,9 +37,7 @@ export default function NavLogged(
 
     return (
         <>
-            {/* <header> */}
             <nav className="navLogged">
-
                 <div className="navLeft">
                     <button
                         onClick={handleClickHome}
@@ -51,7 +49,6 @@ export default function NavLogged(
                             alt="accueil-SkillSwap"
                             className="logoIdea"
                         />
-
                         <img
                             src={Skillswap_logo_bgRemoved}
                             alt="accueil-SkillSwap"
@@ -61,12 +58,13 @@ export default function NavLogged(
                 </div>
 
                 <div className="logoUsers" >
-
                     <div className="logo_dollar"
                         role="group"
                         aria-label="Information sur l'utilisateur">
-
-                        <div className="swappies" aria-label="total swappies">
+                        <div
+                            className="swappies" a
+                            ria-label="total swappies"
+                        >
                             {swappies}
                         </div>
                         <FontAwesomeIcon
@@ -75,7 +73,6 @@ export default function NavLogged(
                             aria-label="symbole dollar"
                         />
                     </div>
-
 
                     <Link to="/dashboard/notifications">
                         <FontAwesomeIcon
@@ -133,10 +130,7 @@ export default function NavLogged(
                     />
                 </div>
             </nav>
-            {/* </header> */}
-
             <Outlet />
-
 
             <nav className="nav_bottom">
                 <Link to="/dashboard/notifications">

@@ -5,8 +5,6 @@ import CardsSkills from "./CardsSkills";
 import CreateSkill from "./CreateSkill";
 import "./style.scss";
 import { Helmet } from 'react-helmet';
-import NavLogged from "../NavLogged";
-
 
 
 export default function Profile(
@@ -77,7 +75,6 @@ export default function Profile(
                 <title>Profil - Skillswap</title>
             </Helmet>
 
-            {/* <NavLogged /> */}
             <main className="profile">
                 <div className="profile_skill">
                     <ProfilePatch

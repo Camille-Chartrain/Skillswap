@@ -139,6 +139,7 @@ const homeController = {
 
             const { count, rows } = await Skill.findAndCountAll({
                 ...options,
+                order: [['id', 'DESC']],
                 attributes: [
                     "id",
                     "title",
