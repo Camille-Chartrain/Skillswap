@@ -3,6 +3,7 @@
 
 
 .home {
+
     .main{
     // pour centrer enfant pres_search et enfant join_button 
     // (bouton en bas de page)
@@ -15,8 +16,9 @@
         display: flex;
         flex-direction: column; 
         align-items: center;
+        width: 100%;
         // pour ne pas être caché derrière la nav fixe
-        margin-top: 8.5rem;
+        margin-top: 130px;
 
         @include mixin.big {
                 // display: flex;
@@ -25,7 +27,7 @@
                 // width: 100%;
                 // pour que le bloc soit directement 
                 // à la suite de la nav
-                margin-top: 5rem;
+                margin-top: 80px;
         }
     }
     .presentation {

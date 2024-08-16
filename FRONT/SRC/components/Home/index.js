@@ -103,13 +103,13 @@ const Home = ({
                 <main className="main">
                     <div className="pres_search">
                         <section className="presentation">
-                            <div className="border-display">
+                            <p className="border-display">
                                 Dilettants, passionnés, professionnels,
-                            </div>
-                            <div >
+                            </p>
+                            <p >
                                 <span className="display">
                                     partagez </span>vos talents  !
-                            </div>
+                            </p>
                         </section>
 
                         {!logged && <SearchBar

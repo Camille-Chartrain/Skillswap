@@ -34749,7 +34749,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
                                         className: "presentation",
                                         children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                 className: "border-display",
                                                 children: "Dilettants, passionn\xe9s, professionnels,"
                                             }, void 0, false, {
@@ -34757,7 +34757,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                                                 lineNumber: 106,
                                                 columnNumber: 29
                                             }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                 children: [
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         className: "display",

@@ -60,12 +60,19 @@
         border-radius: 10px;
         background-color: var.$background-color;
         margin-top: 20px;
-        margin-right: 20px;
-        margin-left: 20px;
+        // margin-right: 20px;
+        // margin-left: 20px;
         width: 95%;
         height: 360px;
         max-width: 29rem;
-        transition: box-shadow 0.3s ease; 
+        transition: box-shadow 0.3s ease;
+        flex-shrink: 0;
+
+        @include mixin.medium {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+       
         
         &:hover {
             box-shadow: 0 0 10px 5px rgb(207, 120, 5); 
@@ -75,6 +82,7 @@
             // 10 zone de portée de l'ombre
             // 5 zone de dégradé flou de l'ombre
         }
+      
 
         h3{
             font-size: 1.1rem;
