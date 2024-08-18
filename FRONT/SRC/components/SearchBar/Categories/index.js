@@ -16,7 +16,7 @@ export default function Categories(
         try {
             // console.log("essai de fetch categories");
             const token = Cookies.get('token');
-            const response = await fetch(`http://localhost:3000/categories`, {
+            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/categories`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
