@@ -52,15 +52,14 @@
 ### liste des problemes et de leur resolution
 
 - resoudre les pbm que recontre coolify pour le deploiement :
-	1. il commence par creer des dossier ./BACK/db/migration.sql/ et ./BACK/db/seeding.sql/ au lieu de fichiers, parce qu'il les voit dans le docker-compose.yml en tant que "bind mount files" et il croit que ce sont des volumes
-	2. puis il ne parvient pas a les remplacer par les fichiers quand il synchronise avec github
-	3. ensuite il n'arrive pas toujours a creer la base de donnee, parce qu'il a copié le dossier psql depuis github donc il saute l'etape de recreer la base de donnee, et il lui manque des choses
-	4. à ce stade, le site s'affiche, mais pas toujours sur le meme port, c'est encore mysterieux
-	5. ensuite il n'a pas les variables d'environnement pour les fetchs
-	6. à un moment il y a le pbm de la base de donnee qui doit etre cree en 2 etapes en de-commentant des lignes, je ne sais pas encore comment resoudre ca
-	7. et après il y a encore des problemes non-identifiés
+	1. **volumes :** il creer des dossier ./BACK/db/migration.sql/ et ./BACK/db/seeding.sql/ au lieu de fichiers, parce qu'il les voit dans le docker-compose.yml en tant que "bind mount files" et il croit que ce sont des volumes, puis il ne parvient pas a les remplacer par les fichiers quand il synchronise avec github
+	3. **psql/ :** ensuite il n'arrive pas toujours a creer la base de donnee, parce qu'il a copié le dossier psql depuis github donc il saute l'etape de recreer la base de donnee, et il lui manque des choses
+	4. **ports :** à ce stade, le site s'affiche, mais pas toujours sur le meme port, c'est encore mysterieux
+	5. **.env :** ensuite il n'a pas les variables d'environnement pour les fetchs
+	6. **dist/ :** parfois les fetchs sont fait sur l'url trouvee dans la variable d'env, et d'autres fois sur localhost, à cause du dossier dist/
+	7. **bdd sync & seed :** à un moment il y a le pbm de la base de donnee qui doit etre cree en 2 etapes en de-commentant des lignes, je ne sais pas encore comment resoudre ca
 
-#### pbm 1 et 2 :
+#### pbm 1 et 2 **volumes** et **sync github** :
 
 - dans le docker-compose.yml, au lieu d'avoir 2 fichier "bind mount", on va mettre un volume qui contient les 2 fichiers :
 	- avant :
@@ -77,7 +76,7 @@
 - aussi on change le nom de `migration.sql` pour `create_tables.sql` puisqu'il doit s'appeller comme ca dans le container
 - ok
 
-#### pbm 3 :
+#### pbm 3 **psql/** :
 
 - on a tout simplement pas besoin de synchroniser le dossier psql dans github
 	- donc on l'enleve de github : `git rm -r psql/`
@@ -85,9 +84,9 @@
 - la base de donnee se recreer correctement si on deploi
 - ok
 
-#### pbm 4 : ?
+#### pbm 4 **ports** : ?
 
-#### pbm 5 :
+#### pbm 5 **.env** :
 
 - pour l'instant chaque dossier FRONT et BACK possede son fichier .env avec ses variables d'environnements
 - mais coolify ne nous laisse pas creer des variables d'environnement localisées dans tel ou tel fichier (à ma connaissance)
@@ -129,6 +128,18 @@
 - il ne reste plus qu'à les rentrer dans coolify avant de deployer
 - ok
 
+#### pbm 6 **dist/** :
+
+- en fait react cree des fichiers dans le dossier dist/ qui ont ete envoyé sur github
+- ils ne sont du coup pas bien recrees dans le server
+- il suffit de les enlever de git et github avec une regle dans .gitignore
+
+#### pbm 7 **bdd sync & seed** :
+
+- 
+
+
+---
 
 # securité :
 
