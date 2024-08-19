@@ -16,16 +16,20 @@ import router from './app/router.js';
 import redis from 'redis';
 
 
-// import sequelize from './app/database.js';
+import { syncDataBase } from "./app/sync_database.js";
 
-// sequelize.sync({ alter: true }).then(() => {
-//     console.log("table and model synced successfully!")
-// }).then((data) => {
-//     console.log(data);
-// }).catch((err) => {
-//     console.log("Error syncing the table and model!");
-//     console.log(err);
-// })
+await syncDataBase();
+
+//import sequelize from './app/database.js';
+//
+//sequelize.sync({ alter: true }).then(() => {
+//    console.log("table and model synced successfully!")
+//}).then((data) => {
+//    console.log(data);
+//}).catch((err) => {
+//    console.log("Error syncing the table and model!");
+//    console.log(err);
+//})
 
 
 // const redis = require('redis');
