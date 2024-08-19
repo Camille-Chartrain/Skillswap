@@ -1,5 +1,5 @@
 import sequelize from './database.js';
-import { User } from "./models/index.js";
+import { User, Skill, Meeting, Interest } from "./models/index.js";
 
 
 async function hasBeenSynced() {
