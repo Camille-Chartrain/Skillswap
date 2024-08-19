@@ -17,7 +17,7 @@ services:
     working_dir: /home/server/Skillswap/BACK
     environment:
       PORT: ${PORT}
-      SECRET: ${SECRET
+      SECRET: ${SECRET}
       PUBLIC_URL: ${PUBLIC_URL}
       TOKEN_SECRET: ${TOKEN_SECRET}
       SECRET_POUR_EXPRESS_SESSION: ${SECRET_POUR_EXPRESS_SESSION}
