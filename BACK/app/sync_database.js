@@ -122,7 +122,7 @@ async function createData() {
 	}
 }
 
-export async function syncDatabase() {
+export async function syncDataBase() {
 	try {
 		const synced = await hasBeenSynced();
 		if (!synced) {
