@@ -138,6 +138,31 @@
 
 - 
 
+before sync :
+```
+skillswap=# select * from user;
+user  
+-------
+admin
+(1 row)
+
+skillswap=# select * from meeting;
+id | date | skill_id | user_id 
+----+------+----------+---------
+(0 rows)
+
+skillswap=# select * from skill;
+id | title | duration | price | mark | level | transmission | description | availability | subcategory_id | category_id | user_id 
+----+-------+----------+-------+------+-------+--------------+-------------+--------------+----------------+-------------+---------
+(0 rows)
+
+skillswap=# select * from interest;
+category_id | user_id 
+-------------+---------
+(0 rows)
+```
+
+
 
 ---
 
