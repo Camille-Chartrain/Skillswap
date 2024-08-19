@@ -5,7 +5,7 @@ import { User, Skill, Meeting, Interest } from "./models/index.js";
 async function hasBeenSynced() {
 	try {
 		const count = await User.count();
-		return true;
+		return false;
 		return count > 0;
 	} catch (error) {
 		console.error('Error checking sync status:', error);
