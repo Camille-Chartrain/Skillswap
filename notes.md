@@ -138,30 +138,87 @@
 
 - 
 
-before sync :
-```
-skillswap=# select * from user;
-user  
--------
-admin
-(1 row)
+- before sync :
+	```
+	skillswap=# \d
+								 List of relations
+	 Schema |        Name        |   Type   | Owner
+	--------+--------------------+----------+-------
+	 public | category           | table    | admin
+	 public | category_id_seq    | sequence | admin
+	 public | interest           | table    | admin
+	 public | meeting            | table    | admin
+	 public | meeting_id_seq     | sequence | admin
+	 public | skill              | table    | admin
+	 public | skill_id_seq       | sequence | admin
+	 public | subcategory        | table    | admin
+	 public | subcategory_id_seq | sequence | admin
+	 public | user               | table    | admin
+	 public | user_id_seq        | sequence | admin
+	(11 rows)   
 
-skillswap=# select * from meeting;
-id | date | skill_id | user_id 
-----+------+----------+---------
-(0 rows)
 
-skillswap=# select * from skill;
-id | title | duration | price | mark | level | transmission | description | availability | subcategory_id | category_id | user_id 
-----+-------+----------+-------+------+-------+--------------+-------------+--------------+----------------+-------------+---------
-(0 rows)
+	skillswap=# select * from user;
+	user  
+	-------
+	admin
+	(1 row)
 
-skillswap=# select * from interest;
-category_id | user_id 
--------------+---------
-(0 rows)
-```
+	skillswap=# select * from meeting;
+	id | date | skill_id | user_id 
+	----+------+----------+---------
+	(0 rows)
 
+	skillswap=# select * from skill;
+	id | title | duration | price | mark | level | transmission | description | availability | subcategory_id | category_id | user_id 
+	----+-------+----------+-------+------+-------+--------------+-------------+--------------+----------------+-------------+---------
+	(0 rows)
+
+	skillswap=# select * from interest;
+	category_id | user_id 
+	-------------+---------
+	(0 rows)
+	```
+- after sync :
+	```
+	skillswap=# \d
+								 List of relations
+	 Schema |        Name        |   Type   | Owner
+	--------+--------------------+----------+-------
+	 public | category           | table    | admin
+	 public | category_id_seq    | sequence | admin
+	 public | interest           | table    | admin
+	 public | meeting            | table    | admin
+	 public | meeting_id_seq     | sequence | admin
+	 public | skill              | table    | admin
+	 public | skill_id_seq       | sequence | admin
+	 public | subcategory        | table    | admin
+	 public | subcategory_id_seq | sequence | admin
+	 public | user               | table    | admin
+	 public | user_id_seq        | sequence | admin
+	(11 rows)
+
+	skillswap=# select * from user;
+	 user
+	-------
+	 admin
+	(1 row)
+
+	skillswap=# select * from meeting;
+	 id | date | status | mark | createdAt | updatedAt | UserId | SkillId 
+	----+------+--------+------+-----------+-----------+--------+---------
+	(0 rows)
+
+	skillswap=# select * from skill;
+	 id | title | duration | price | level | transmission | description | availability | averageMark | sumOfMarks | numberOfRating | SubCategoryId | CategoryId | UserId | createdAt | updatedAt 
+	----+-------+----------+-------+-------+--------------+-------------+--------------+-------------+------------+----------------+---------------+------------+--------+-----------+-----------
+	(0 rows)
+
+	skillswap=# select * from interest;
+	 UserId | CategoryId 
+	--------+------------
+	(0 rows)
+	```
 
 
 ---
