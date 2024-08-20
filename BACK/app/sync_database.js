@@ -2,22 +2,25 @@ import sequelize from './database.js';
 import { User, Skill, Meeting, Interest } from "./models/index.js";
 
 
-async function hasBeenSynced() {
+async function columnExist(tableName, columnName) {
 	try {
 		const [results] = await sequelize.query(`
-			SELECT EXISTS (
-				SELECT 1
-				FROM information_schema.columns
-				WHERE table_name = 'meetings' AND column_name = 'mark'
-			) AS exists
+			SELECT column_name
+			FROM information_schema.columns
+			WHERE table_name = :tableName AND column_name = :columnName
 		`, {
+			replacements: { tableName, columnName },
 			type: Sequelize.QueryTypes.SELECT
 		});
-		return results.exists;
+		return results.length > 0;
 	} catch (error) {
 		console.error('Error checking sync status:', error);
 		return false;
 	}
+}
+
+async function hasBeenSynced() {
+	return columnExist("meeting", "mark");
 }
 
 async function createData() {
