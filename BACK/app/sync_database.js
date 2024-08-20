@@ -5,12 +5,14 @@ import { User, Skill, Meeting, Interest } from "./models/index.js";
 async function columnExist(tableName, columnName) {
 	try {
 		console.log("------------------------------");
+		console.log("------------------------------");
 		console.log(`checking for column [${columnName}] in table [${tableName}]`);
 		const result = await sequelize.query(`
 			SELECT column_name
 			FROM information_schema.columns
-			WHERE table_name = 'meeting' AND column_name = 'mark'
+			WHERE table_name = :tableName AND column_name = :columnName
 		`, {
+			replacements: { tableName, columnName },
 			type: sequelize.QueryTypes.SELECT
 		});
 		console.log('result: ', result);
