@@ -136,89 +136,25 @@
 
 #### pbm 7 **bdd sync & seed** :
 
-- 
-
-- before sync :
+- je vais simplement comparer la bdd avant et apres sync, pour voir un critere que je pourrais utiliser pour savoir si elle a deja ete sync :
 	```
-	skillswap=# \d
-								 List of relations
-	 Schema |        Name        |   Type   | Owner
-	--------+--------------------+----------+-------
-	 public | category           | table    | admin
-	 public | category_id_seq    | sequence | admin
-	 public | interest           | table    | admin
-	 public | meeting            | table    | admin
-	 public | meeting_id_seq     | sequence | admin
-	 public | skill              | table    | admin
-	 public | skill_id_seq       | sequence | admin
-	 public | subcategory        | table    | admin
-	 public | subcategory_id_seq | sequence | admin
-	 public | user               | table    | admin
-	 public | user_id_seq        | sequence | admin
-	(11 rows)   
+	user table :
+		before sync : user  
+		after sync  : user
 
+	skill table :
+		before sync : id | title | duration | price | mark | level | transmission | description | availability                                             | subcategory_id | category_id | user_id 
+		after sync  : id | title | duration | price        | level | transmission | description | availability | averageMark | sumOfMarks | numberOfRating | SubCategoryId  | CategoryId  | UserId | createdAt | updatedAt 
 
-	skillswap=# select * from user;
-	user  
-	-------
-	admin
-	(1 row)
+	meeting table :
+		before sync : id | date                                         | skill_id | user_id 
+		after sync  : id | date | status | mark | createdAt | updatedAt | UserId   | SkillId 
 
-	skillswap=# select * from meeting;
-	id | date | skill_id | user_id 
-	----+------+----------+---------
-	(0 rows)
-
-	skillswap=# select * from skill;
-	id | title | duration | price | mark | level | transmission | description | availability | subcategory_id | category_id | user_id 
-	----+-------+----------+-------+------+-------+--------------+-------------+--------------+----------------+-------------+---------
-	(0 rows)
-
-	skillswap=# select * from interest;
-	category_id | user_id 
-	-------------+---------
-	(0 rows)
+	interest table :
+		before sync : category_id | user_id 
+		after sync  : UserId      | CategoryId 
 	```
-- after sync :
-	```
-	skillswap=# \d
-								 List of relations
-	 Schema |        Name        |   Type   | Owner
-	--------+--------------------+----------+-------
-	 public | category           | table    | admin
-	 public | category_id_seq    | sequence | admin
-	 public | interest           | table    | admin
-	 public | meeting            | table    | admin
-	 public | meeting_id_seq     | sequence | admin
-	 public | skill              | table    | admin
-	 public | skill_id_seq       | sequence | admin
-	 public | subcategory        | table    | admin
-	 public | subcategory_id_seq | sequence | admin
-	 public | user               | table    | admin
-	 public | user_id_seq        | sequence | admin
-	(11 rows)
-
-	skillswap=# select * from user;
-	 user
-	-------
-	 admin
-	(1 row)
-
-	skillswap=# select * from meeting;
-	 id | date | status | mark | createdAt | updatedAt | UserId | SkillId 
-	----+------+--------+------+-----------+-----------+--------+---------
-	(0 rows)
-
-	skillswap=# select * from skill;
-	 id | title | duration | price | level | transmission | description | availability | averageMark | sumOfMarks | numberOfRating | SubCategoryId | CategoryId | UserId | createdAt | updatedAt 
-	----+-------+----------+-------+-------+--------------+-------------+--------------+-------------+------------+----------------+---------------+------------+--------+-----------+-----------
-	(0 rows)
-
-	skillswap=# select * from interest;
-	 UserId | CategoryId 
-	--------+------------
-	(0 rows)
-	```
+- on peut utiliser la presence de la colonne "status" dans la table meeting par exemple
 
 
 ---
@@ -260,4 +196,5 @@
 6. **ddos**
    
 7. **idor**
-   
+  
+api abuse

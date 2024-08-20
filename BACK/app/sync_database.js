@@ -4,8 +4,16 @@ import { User, Skill, Meeting, Interest } from "./models/index.js";
 
 async function hasBeenSynced() {
 	try {
-		const count = await User.count();
-		return count > 0;
+		const [results] = await sequelize.query(`
+			SELECT EXISTS (
+				SELECT 1
+				FROM information_schema.columns
+				WHERE table_name = 'meetings' AND column_name = 'mark'
+			) AS exists
+		`, {
+			type: Sequelize.QueryTypes.SELECT
+		});
+		return results.exists;
 	} catch (error) {
 		console.error('Error checking sync status:', error);
 		return false;
@@ -15,7 +23,7 @@ async function hasBeenSynced() {
 async function createData() {
 	try {
 		const count = await User.count();
-		if (count > 0) {
+		if (count > 1) { // 1 because there already is admin user
 			await User.bulkCreate([
 				{ firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!', presentation: " j'adore gagner" },
 				{ firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Azertyuiop12!', presentation: "toujours de bonne humeur" },
