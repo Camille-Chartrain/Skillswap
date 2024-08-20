@@ -35,6 +35,7 @@ async function hasBeenSynced() {
 async function createData() {
 	try {
 		const count = await User.count();
+		console.log("User.count: ", count);
 		if (count > 1) { // 1 because there already is admin user
 			await User.bulkCreate([
 				{ firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!', presentation: " j'adore gagner" },
@@ -59,6 +60,7 @@ async function createData() {
 
 	try {
 		const count = await Skill.count();
+		console.log("Skill.count: ", count);
 		if (count > 0) {
 			await Skill.bulkCreate([
 				{ title: "self-defense", level: "intermediaire", transmission: 'presentiel', description: 'apprenez à vous sortir des pires situations', availability: 'soir et we', CategoryId: 5, SubCategoryId: 29, UserId: 5, averageMark: 4, duration: "1h30" },
@@ -82,6 +84,7 @@ async function createData() {
 
 	try {
 		const count = await Meeting.count();
+		console.log("Meeting.count: ", count);
 		if (count > 0) {
 			await Meeting.bulkCreate([
 				{ status: 'en attente', UserId: "1", SkillId: '1' },
@@ -136,6 +139,7 @@ async function createData() {
 
 	try {
 		const count = await Interest.count();
+		console.log("Interest.count: ", count);
 		if (count > 0) {
 			await Interest.bulkCreate([
 				{ UserId: "1", CategoryId: "1" },
