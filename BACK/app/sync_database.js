@@ -8,9 +8,8 @@ async function columnExist(tableName, columnName) {
 		const [results] = await sequelize.query(`
 			SELECT column_name
 			FROM information_schema.columns
-			WHERE table_name = :tableName AND column_name = :columnName
+			WHERE table_name = 'meeting' AND column_name = 'mark'
 		`, {
-			replacements: { tableName, columnName },
 			type: sequelize.QueryTypes.SELECT
 		});
 		console.log('results: ', results);
