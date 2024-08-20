@@ -37,6 +37,9 @@ async function createData() {
 		const count = await User.count();
 		console.log("User.count: ", count);
 		if (count > 1) { // 1 because there already is admin user
+			console.log("users already seeded");
+		}
+		else {
 			await User.bulkCreate([
 				{ firstname: "Victoire", lastname: "Hourra", email: 'onAUneBddEnSequelize@gmail.com', hash: 'Azertyuiop12!', presentation: " j'adore gagner" },
 				{ firstname: "marie", lastname: "Edenlané", email: 'diamant@gmail.com', hash: 'Azertyuiop12!', presentation: "toujours de bonne humeur" },
@@ -50,9 +53,6 @@ async function createData() {
 			]);
 			console.log("users seeded");
 		}
-		else {
-			console.log("users already seeded");
-		}
 	} catch (err) {
 		console.log("Error creating users!");
 		console.log(err);
@@ -62,6 +62,9 @@ async function createData() {
 		const count = await Skill.count();
 		console.log("Skill.count: ", count);
 		if (count > 0) {
+			console.log("skills already seeded");
+		}
+		else {
 			await Skill.bulkCreate([
 				{ title: "self-defense", level: "intermediaire", transmission: 'presentiel', description: 'apprenez à vous sortir des pires situations', availability: 'soir et we', CategoryId: 5, SubCategoryId: 29, UserId: 5, averageMark: 4, duration: "1h30" },
 				{ title: "Histoires des Guerres", level: "avancé", transmission: 'visio', description: 'Découvrez comment les victoires ont été obtenues', availability: 'soir et we', CategoryId: 6, SubCategoryId: 33, UserId: 1, averageMark: 3, duration: "2h" },
@@ -74,9 +77,6 @@ async function createData() {
 			]);
 			console.log("skills seeded");
 		}
-		else {
-			console.log("skills already seeded");
-		}
 	} catch (err) {
 		console.log("Error creating skills!");
 		console.log(err);
@@ -86,6 +86,9 @@ async function createData() {
 		const count = await Meeting.count();
 		console.log("Meeting.count: ", count);
 		if (count > 0) {
+			console.log("meetings already seeded");
+		}
+		else {
 			await Meeting.bulkCreate([
 				{ status: 'en attente', UserId: "1", SkillId: '1' },
 				{ status: 'en cours', UserId: "1", SkillId: '3' },
@@ -129,9 +132,6 @@ async function createData() {
 			])
 			console.log("meetings seeded");
 		}
-		else {
-			console.log("meetings already seeded");
-		}
 	} catch (err) {
 		console.log("Error creating meetings!");
 		console.log(err);
@@ -141,6 +141,9 @@ async function createData() {
 		const count = await Interest.count();
 		console.log("Interest.count: ", count);
 		if (count > 0) {
+			console.log("intersts already seeded");
+		}
+		else {
 			await Interest.bulkCreate([
 				{ UserId: "1", CategoryId: "1" },
 				{ UserId: "2", CategoryId: "2" },
@@ -160,9 +163,6 @@ async function createData() {
 				{ UserId: '8', CategoryId: "3" }
 			])
 			console.log("interests seeded");
-		}
-		else {
-			console.log("intersts already seeded");
 		}
 	} catch (err) {
 		console.log("Error creating interests!");
