@@ -2,7 +2,7 @@ services:
   bdd:
     image: "postgres:14-alpine"
     ports:
-      - "5433:5432"
+      - "${PGPORT}:${PGPORT}"
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -16,7 +16,7 @@ services:
     image: "node:18"
     working_dir: /home/server/Skillswap/BACK
     environment:
-      PORT: ${PORT}
+      PORT: ${PORT_BACK}
       SECRET: ${SECRET}
       PUBLIC_URL: ${PUBLIC_URL}
       TOKEN_SECRET: ${TOKEN_SECRET}
@@ -27,7 +27,7 @@ services:
       PGDATABASE: ${PGDATABASE}
       PGPORT: ${PGPORT}
     ports:
-      - "3000:3000"
+      - "${PORT_BACK}:${PORT_BACK}"
     volumes:
       - ./BACK:/home/server/Skillswap/BACK
       # - ./BACK:/Skillswap/BACK
@@ -41,11 +41,11 @@ services:
     image: "node:18"
     working_dir: /home/server/Skillswap/FRONT
     environment:
-      PORT: ${PORT}
+      PORT: ${PORT_FRONT}
       REACT_APP_URL: ${REACT_APP_URL}
       REACT_APP_PORT: ${REACT_APP_PORT}
     ports:
-      - "1234:1234"
+      - "${PORT_FRONT}:${PORT_FRONT}"
     volumes:
       - ./FRONT:/home/server/Skillswap/FRONT
       # - ./FRONT:/Skillswap/FRONT

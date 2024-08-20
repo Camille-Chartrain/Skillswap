@@ -5,7 +5,6 @@ import { User, Skill, Meeting, Interest } from "./models/index.js";
 async function hasBeenSynced() {
 	try {
 		// after syncing, the table 'meeting' possess a new column 'mark'
-		console.log("+ + + + + + + + + + + + + + +");
 		const tableName = 'meeting';
 		const columnName = 'mark';
 		console.log(`checking for column [${columnName}] in table [${tableName}]`);
@@ -31,6 +30,7 @@ async function hasBeenSynced() {
 		return false;
 	}
 }
+
 
 async function createData() {
 	try {
