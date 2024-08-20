@@ -61342,12 +61342,38 @@ function StarRating({ rating }) {
                 columnNumber: 28
             }, this));
         }
+        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+            class: "sr-only",
+            children: [
+                "Note : $",
+                stars,
+                " \xe9toiles sur 5"
+            ]
+        }, void 0, true, {
+            fileName: "SRC/components/Cards/StarRating/index.js",
+            lineNumber: 25,
+            columnNumber: 9
+        }, this);
         return stars;
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "star-rating",
-        children: getStars(roundedRating)
-    }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                className: "sr-only",
+                children: [
+                    "Note : ",
+                    roundedRating,
+                    " \xe9toiles sur 5"
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Cards/StarRating/index.js",
+                lineNumber: 31,
+                columnNumber: 13
+            }, this),
+            getStars(roundedRating)
+        ]
+    }, void 0, true, {
         fileName: "SRC/components/Cards/StarRating/index.js",
         lineNumber: 30,
         columnNumber: 9

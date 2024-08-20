@@ -3,7 +3,6 @@
 
 
 .home {
-
     .main{
     // pour centrer enfant pres_search et enfant join_button 
     // (bouton en bas de page)
@@ -12,40 +11,37 @@
     align-items: center;
     width: 100%;
 
-    .pres_search{
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        width: 100%;
-        // pour ne pas être caché derrière la nav fixe
-        margin-top: 130px;
-
-        @include mixin.big {
-                // display: flex;
-                // flex-direction: column; 
-                // align-items: center;
-                // width: 100%;
-                // pour que le bloc soit directement 
-                // à la suite de la nav
-                margin-top: 80px;
-        }
-    }
-    .presentation {
-        width: 21rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 60px;
-        color: var.$background-color;
-        font-size: 1.7rem;
-        font-weight: 500;
-    
-        @include mixin.big {
+        .pres_search{
             display: flex;
-            width: auto; 
-            margin-top: 13rem;
-            align-items: flex-start;
-    }
+            flex-direction: column; 
+            align-items: center;
+            width: 100%;
+            // pour ne pas être caché derrière la nav fixe
+            margin-top: 130px;
+
+            @include mixin.big {
+                    // pour que le bloc soit directement 
+                    // à la suite de la nav
+                    margin-top: 80px;
+            }
+        }
+        .presentation {
+            width: 21rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 60px;
+            color: var.$background-color;
+            font-size: 1.7rem;
+            font-weight: 500;
+        
+            @include mixin.big {
+                display: flex;
+                width: auto; 
+                margin-top: 13rem;
+                align-items: flex-start;
+            }
+
             .border-display{
                 margin-left: 1.85rem;  
 
@@ -62,10 +58,10 @@
                 padding-bottom: 0.3rem;
                 margin-right: 0.3rem;
             }
-    }
-
+        }
+        
         .join_button{
-            display: flex;
+            display: flex;            
             background-color: var.$background-color;
             border-radius: 10px;
             padding: 0.5rem 0.7rem;

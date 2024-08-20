@@ -22,12 +22,13 @@ function StarRating({ rating }) {
                 stars.push(<FontAwesomeIcon icon={faStar} key={i} className="star empty" />);
             }
         }
-
+        <span class="sr-only">Note : ${stars} étoiles sur 5</span>
         return stars;
     };
 
     return (
         <div className="star-rating">
+            <span className="sr-only">Note : {roundedRating} étoiles sur 5</span>
             {getStars(roundedRating)}
         </div>
     );

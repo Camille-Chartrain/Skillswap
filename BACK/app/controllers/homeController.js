@@ -116,7 +116,7 @@ const homeController = {
                 ];
             }
 
-
+            // Options pour la requête
             const options = {
                 where: whereClause,
             };
@@ -128,11 +128,24 @@ const homeController = {
             if (!req.user) {
                 console.log("pas de req.user");
                 options.limit = 8;
+                // no need to precise false but i do it anyway
                 isLogged = false;
             }
             else if (req.user) {
                 console.log("req.user", req.user);
                 isLogged = true;
+            }
+
+            // Configuration des attributs à récupérer
+            const userAttributes = [
+                'firstname',
+                'lastname',
+                'grade_level',
+                'presentation'
+            ];
+
+            if (isLogged) {
+                userAttributes.push('email');
             }
 
             // options.attributes = ['id', 'title', 'description', 'level', "CategoryId", "SubCategoryId", 'firstname', 'lastname', "email", 'grade_level', "presentation"]
@@ -157,13 +170,14 @@ const homeController = {
                 ],
                 include: [{
                     model: User,
-                    attributes: [
-                        'firstname',
-                        'lastname',
-                        "email",
-                        'grade_level',
-                        "presentation"
-                    ]
+                    attributes: userAttributes
+                    // attributes: [
+                    //     'firstname',
+                    //     'lastname',
+                    //     "email",
+                    //     'grade_level',
+                    //     "presentation"
+                    // ]
                 },
                 {
                     model: Category,
