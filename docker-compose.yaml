@@ -43,7 +43,7 @@ services:
     environment:
       PORT: ${PORT_FRONT}
       REACT_APP_URL: ${PUBLIC_URL}
-      REACT_APP_PORT: ${REACT_APP_PORT}
+      REACT_APP_PORT: ${PORT_BACK}
     ports:
       - "${PORT_FRONT}:${PORT_FRONT}"
     volumes:
