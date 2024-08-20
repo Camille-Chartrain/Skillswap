@@ -2,7 +2,7 @@ services:
   bdd:
     image: "postgres:14-alpine"
     ports:
-      - "${PGPORT}:${PGPORT}"
+      - "${PG_PORT}:${PG_PORT}"
     environment:
       POSTGRES_DB: ${PG_DB}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
