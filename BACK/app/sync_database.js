@@ -2,10 +2,12 @@ import sequelize from './database.js';
 import { User, Skill, Meeting, Interest } from "./models/index.js";
 
 
-async function columnExist(tableName, columnName) {
+async function hasBeenSynced() {
 	try {
-		console.log("------------------------------");
-		console.log("------------------------------");
+		// after syncing, the table 'meeting' possess a new column 'mark'
+		console.log("+ + + + + + + + + + + + + + +");
+		const tableName = 'meeting';
+		const columnName = 'mark';
 		console.log(`checking for column [${columnName}] in table [${tableName}]`);
 		const result = await sequelize.query(`
 			SELECT column_name
@@ -28,10 +30,6 @@ async function columnExist(tableName, columnName) {
 		console.error('Error checking sync status:', error);
 		return false;
 	}
-}
-
-async function hasBeenSynced() {
-	return columnExist("meeting", "mark");
 }
 
 async function createData() {
