@@ -4,6 +4,7 @@ import { User, Skill, Meeting, Interest } from "./models/index.js";
 
 async function columnExist(tableName, columnName) {
 	try {
+		console.log(`checking for column [${columnName}] in table [${tableName}]`);
 		const [results] = await sequelize.query(`
 			SELECT column_name
 			FROM information_schema.columns
@@ -12,7 +13,15 @@ async function columnExist(tableName, columnName) {
 			replacements: { tableName, columnName },
 			type: sequelize.QueryTypes.SELECT
 		});
-		return results.length > 0;
+		console.log('results: ', results);
+		if (results.length > 0) {
+			console.log('it exists');
+			return true;
+		}
+		else {
+			console.log('it does not exist');
+			return false;
+		}
 	} catch (error) {
 		console.error('Error checking sync status:', error);
 		return false;
