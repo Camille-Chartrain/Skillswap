@@ -10,7 +10,7 @@ async function columnExist(tableName, columnName) {
 			WHERE table_name = :tableName AND column_name = :columnName
 		`, {
 			replacements: { tableName, columnName },
-			type: Sequelize.QueryTypes.SELECT
+			type: sequelize.QueryTypes.SELECT
 		});
 		return results.length > 0;
 	} catch (error) {
