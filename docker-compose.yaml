@@ -58,7 +58,7 @@ services:
   adminer:
     image: adminer
     ports:
-      - 8081:8080
+      - ${ADMINER_PORT}:${ADMINER_PORT}
     environment:
       ADMINER_DEFAULT_SERVER: ${ADMINER_DEFAULT_SERVER}
     depends_on:
