@@ -229,11 +229,18 @@ sommaire :
 5. **man in the middle**
    une personne arrive à se placer sur le reseau entre votre ordinateur et le site web que vous visitez
 	 elle peut alors modifier, et peut-etre meme decripter, tous ce que vous envoyez et recevez
-	 ca peut servir à voler des cookies de sessions,
-	 voir vos mots de passes ou informations sensibles,
-	 ajouter du code malveillant dans vos echanges
-6. **ddos**
-   
+	 - ca peut servir à voler des cookies de sessions,
+	 - voir vos mots de passes ou informations sensibles,
+	 - ajouter du code malveillant dans vos echanges
+6. **dos & ddos**
+   Distributed Denial of Service
+	 c'est une attaque qui consiste en gros à empecher un server de fonctionner
+	 elle est pratiquée en "accablant" le server avec bcp trop de requettes pour qu'il ne puisse plus faire ses taches habituelles
+	 le but peut etre :
+	 - de demander une rancon
+	 - activisme politique
+	 - diversion
+	 - avantage competitif en business
 7. **idor**
   
 8. **api abuse**
