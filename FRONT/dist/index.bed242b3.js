@@ -34888,10 +34888,11 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
     async function handleSearch(event) {
         event.preventDefault();
         try {
-            // console.log("nous sommes dans la fonction handleSearch deSearchbar");
-            // console.log("selectedCategory dans try", selectedCategory);
-            // console.log("selectedSubCategory dans try", selectedSubCategory);
-            // console.log("selectLevel dans try", selectedLevel);
+            console.log("nous sommes dans la fonction handleSearch deSearchbar");
+            console.log("searchInput dans try", searchInput);
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
+            console.log("selectLevel dans try", selectedLevel);
             setLoading(true);
             const token = (0, _jsCookieDefault.default).get("token");
             const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
@@ -34906,11 +34907,17 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
             // console.log("responseDataSearch.message", responseDataSearch.message);
             // console.log("typeof responseDataSearch", typeof responseDataSearch);
             setLoading(false);
+            setSearchInput("");
+            // setSelectedCategory(null);
+            // setSelectedSubCategory(null);
+            // setSelectedLevel("");
             if (responseDataSearch.message === "no match") {
                 setMatch(false);
                 setNoMatch(true);
                 // console.log("NO MATCH state match dans Search", match);
                 // console.log("NOT MATCH state noMatch dans Search", noMatch);
+                console.log("responseDataSearch", responseDataSearch);
+                setDataCards(responseDataSearch);
                 if (!responseDataSearch.isLogged) {
                     setLogged(false);
                     navigate("/");
@@ -34939,7 +34946,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
     }
     const handleChangeInput = (event)=>{
         setSearchInput(event.target.value);
-    // console.log("input:", event.target.value);
+        console.log("input:", event.target.value);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         className: "searchBar",
@@ -34959,20 +34966,20 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                         onChange: handleChangeInput
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 107,
+                        lineNumber: 115,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         htmlFor: "keyWord"
                     }, void 0, false, {
                         fileName: "SRC/components/SearchBar/index.js",
-                        lineNumber: 117,
+                        lineNumber: 125,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 106,
+                lineNumber: 114,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34981,12 +34988,12 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                     setSelectedCategory: setSelectedCategory
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 121,
+                    lineNumber: 129,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 120,
+                lineNumber: 128,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34995,12 +35002,12 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                     setSelectedSubCategory: setSelectedSubCategory
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 128,
+                    lineNumber: 136,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 127,
+                lineNumber: 135,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35008,12 +35015,12 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                     setSelectedLevel: setSelectedLevel
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 135,
+                    lineNumber: 143,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 134,
+                lineNumber: 142,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35023,18 +35030,18 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
                     children: "Rechercher"
                 }, void 0, false, {
                     fileName: "SRC/components/SearchBar/index.js",
-                    lineNumber: 140,
+                    lineNumber: 148,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/index.js",
-                lineNumber: 139,
+                lineNumber: 147,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "SRC/components/SearchBar/index.js",
-        lineNumber: 99,
+        lineNumber: 107,
         columnNumber: 9
     }, this);
 }
@@ -35506,7 +35513,7 @@ function Level({ setSelectedLevel, optionsHTML }) {
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                value: "avanc\xe9e",
+                value: "avanc\xe9",
                 children: "Avanc\xe9"
             }, void 0, false, {
                 fileName: "SRC/components/SearchBar/Level/index.js",
@@ -35628,7 +35635,6 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     lineNumber: 51,
                                                     columnNumber: 37
                                                 }, this),
-                                                console.log("averageMark=", card.averageMark),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                     className: "category",
                                                     children: [
@@ -35638,7 +35644,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 56,
+                                                    lineNumber: 54,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
@@ -35660,14 +35666,14 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: " icone levelIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 65,
+                                                                    lineNumber: 63,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 card.level
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 64,
+                                                            lineNumber: 62,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35677,14 +35683,14 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: "icone userIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 73,
+                                                                    lineNumber: 71,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 `${card.User.firstname} ${card.User.lastname}`
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 72,
+                                                            lineNumber: 70,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35694,14 +35700,14 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: "icone calendarIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 81,
+                                                                    lineNumber: 79,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 truncateString(card.availability, 13)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 80,
+                                                            lineNumber: 78,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35711,20 +35717,20 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                                     className: "icone hatIcone"
                                                                 }, void 0, false, {
                                                                     fileName: "SRC/components/Cards/index.js",
-                                                                    lineNumber: 89,
+                                                                    lineNumber: 87,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 card.transmission
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "SRC/components/Cards/index.js",
-                                                            lineNumber: 88,
+                                                            lineNumber: 86,
                                                             columnNumber: 41
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 63,
+                                                    lineNumber: 61,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35736,18 +35742,18 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                         loading: "lazy"
                                                     }, void 0, false, {
                                                         fileName: "SRC/components/Cards/index.js",
-                                                        lineNumber: 98,
+                                                        lineNumber: 96,
                                                         columnNumber: 41
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 97,
+                                                    lineNumber: 95,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 61,
+                                            lineNumber: 59,
                                             columnNumber: 33
                                         }, this)
                                     ]
@@ -35770,12 +35776,12 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "SRC/components/Cards/index.js",
-                                                lineNumber: 112,
+                                                lineNumber: 110,
                                                 columnNumber: 37
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 110,
+                                            lineNumber: 108,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35787,7 +35793,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     children: "D\xe9tails"
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 116,
+                                                    lineNumber: 114,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35796,19 +35802,19 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     children: "Participer"
                                                 }, void 0, false, {
                                                     fileName: "SRC/components/Cards/index.js",
-                                                    lineNumber: 117,
+                                                    lineNumber: 115,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "SRC/components/Cards/index.js",
-                                            lineNumber: 115,
+                                            lineNumber: 113,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "SRC/components/Cards/index.js",
-                                    lineNumber: 109,
+                                    lineNumber: 107,
                                     columnNumber: 29
                                 }, this)
                             ]
