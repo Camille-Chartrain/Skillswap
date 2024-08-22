@@ -1,16 +1,16 @@
 sommaire :
 
-1. deploiement
-1.1. historique des actions et pbm rencontrés
-1.2. liste des problemes et de leur resolution
-1.2.1. pbm 1 et 2 **volumes** et **sync github**
-1.2.2. pbm 3 **psql/**
-1.2.3. pbm 4 **ports**
-1.2.4. pbm 5 **.env**
-1.2.5. pbm 6 **dist/**
-1.2.6. pbm 7 **bdd sync & seed**
-2. securité
-2.1 types de failles de securité
+- 1. deploiement
+- 1.1. historique des actions et pbm rencontrés
+- 1.2. liste des problemes et de leur resolution
+- 1.2.1. pbm 1 **volumes**
+- 1.2.2. pbm 2 **psql/**
+- 1.2.4. pbm 3 **.env**
+- 1.2.5. pbm 4 **dist/**
+- 1.2.6. pbm 5 **bdd sync & seed**
+- 1.2.3. pbm 6 **ports**
+- 2. securité
+- 2.1 types de failles de securité
 
 ---
 
@@ -79,7 +79,7 @@ sommaire :
 	5. **bdd sync & seed :** à un moment il y a le pbm de la base de donnee qui doit etre cree en 2 etapes en de-commentant des lignes, je ne sais pas encore comment resoudre ca
 	6. **ports :** à ce stade, le site s'affiche mais il ne recupere pas les donnees du back
 
-#### pbm 1 **volumes** et **sync github** :
+#### pbm 1 **volumes** :
 
 - dans le docker-compose.yml, au lieu d'avoir 2 fichier "bind mount", on va mettre un volume qui contient les 2 fichiers :
 	- avant :
