@@ -59,6 +59,8 @@ app.use(cookieParser());
 //     res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
 // });
 
+app.set('trust proxy', true);
+
 // gestion of CORS
 app.use(cors({
     //origin: ['http://localhost:1234', `http://${process.env.PUBLIC_URL}:${process.env.PORT}'], // Autoriser les requêtes uniquement à partir de ce domaine
