@@ -65,6 +65,7 @@ app.use(cors({
 		origin: 'https://skillswap.camille.cloud:3000',
 		*/
 		origin: function (origin, callback) {
+			console.log("-------------------- inside cors");
 			const allowedOrigins = [
 				'http://localhost',
 				'http://localhost:3000',
@@ -78,7 +79,7 @@ app.use(cors({
 			if (allowedOrigins.includes(origin)) {
 				callback(null, true);
 			} else {
-				callback(new Error('Not allowed by CORS'));
+				callback(new Error('----------Not allowed by CORS'));
 			}
 		},
     methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
