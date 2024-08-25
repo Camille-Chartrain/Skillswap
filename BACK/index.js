@@ -16,20 +16,9 @@ import router from './app/router.js';
 import redis from 'redis';
 
 
+// this is used to both sync and seed the database the first time it is installed, it will not do it again after that
 import { syncDataBase } from "./app/sync_database.js";
-
 await syncDataBase();
-
-//import sequelize from './app/database.js';
-//
-//sequelize.sync({ alter: true }).then(() => {
-//    console.log("table and model synced successfully!")
-//}).then((data) => {
-//    console.log(data);
-//}).catch((err) => {
-//    console.log("Error syncing the table and model!");
-//    console.log(err);
-//})
 
 
 // const redis = require('redis');
@@ -59,26 +48,39 @@ app.use(cookieParser());
 //     res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
 // });
 
-app.set('trust proxy', true);
+// trying this to make https works with coolify
+//app.set('trust proxy', true);
 
 // gestion of CORS
 app.use(cors({
     //origin: ['http://localhost:1234', `http://${process.env.PUBLIC_URL}:${process.env.PORT}'], // Autoriser les requêtes uniquement à partir de ce domaine
-    origin: [
-			'http://localhost',
-			'http://localhost:3000',
-			`http://skillswap.camille.cloud`,
-			`http://skillswap.camille.cloud:3000`,
-			'https://localhost',
-			'https://localhost:3000',
-			`https://skillswap.camille.cloud`,
-			`https://skillswap.camille.cloud:3000`,
-		], // Autoriser les requêtes uniquement à partir de ces domaine
-    //origin: '*',
-			// PORT: ${PORT_BACK}
-			// PUBLIC_URL: ${PUBLIC_URL}
-    //origin: `https://skillswap.camille.cloud:3000/`, // Autoriser les requêtes uniquement à partir de ce domaine
-    //origin: `http://localhost:3000`, // Autoriser les requêtes uniquement à partir de ce domaine
+		/*
+		origin: 'http://localhost',
+		origin: 'http://localhost:3000',
+		origin: 'http://skillswap.camille.cloud',
+		origin: 'http://skillswap.camille.cloud:3000',
+		origin: 'https://localhost',
+		origin: 'https://localhost:3000',
+		origin: 'https://skillswap.camille.cloud',
+		origin: 'https://skillswap.camille.cloud:3000',
+		*/
+		origin: function (origin, callback) {
+			const allowedOrigins = [
+				'http://localhost',
+				'http://localhost:3000',
+				'http://skillswap.camille.cloud',
+				'http://skillswap.camille.cloud:3000',
+				'https://localhost',
+				'https://localhost:3000',
+				'https://skillswap.camille.cloud',
+				'https://skillswap.camille.cloud:3000',
+			];
+			if (allowedOrigins.includes(origin)) {
+				callback(null, true);
+			} else {
+				callback(new Error('Not allowed by CORS'));
+			}
+		},
     methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
     credentials: true
 }));
