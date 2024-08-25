@@ -61,12 +61,21 @@ app.use(cookieParser());
 
 // gestion of CORS
 app.use(cors({
-    //origin: ['http://localhost:1234', `http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}'], // Autoriser les requêtes uniquement à partir de ce domaine
+    //origin: ['http://localhost:1234', `http://${process.env.PUBLIC_URL}:${process.env.PORT}'], // Autoriser les requêtes uniquement à partir de ce domaine
+    origin: [
+			'http://localhost',
+			'http://localhost:3000',
+			`http://skillswap.camille.cloud`,
+			`http://skillswap.camille.cloud:3000`,
+			'https://localhost',
+			'https://localhost:3000',
+			`https://skillswap.camille.cloud`,
+			`https://skillswap.camille.cloud:3000`,
+		], // Autoriser les requêtes uniquement à partir de ces domaine
     //origin: '*',
 			// PORT: ${PORT_BACK}
-			// SECRET: ${SECRET}
 			// PUBLIC_URL: ${PUBLIC_URL}
-    origin: `https://skillswap.camille.cloud/`, // Autoriser les requêtes uniquement à partir de ce domaine
+    //origin: `https://skillswap.camille.cloud:3000/`, // Autoriser les requêtes uniquement à partir de ce domaine
     //origin: `http://localhost:3000`, // Autoriser les requêtes uniquement à partir de ce domaine
     methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
     credentials: true
