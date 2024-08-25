@@ -30,7 +30,9 @@ client.on('error', (err) => {
 
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3001;
+const port_proxy = process.env.PORT_PROXY;
+const url = process.env.PUBLIC_URL;
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
@@ -53,7 +55,7 @@ app.use(cookieParser());
 
 // gestion of CORS
 app.use(cors({
-    //origin: ['http://localhost:1234', `http://${process.env.PUBLIC_URL}:${process.env.PORT}'], // Autoriser les requêtes uniquement à partir de ce domaine
+    //origin: `https://${url}:${port_proxy}`, // Autoriser les requêtes uniquement à partir de ce domaine
 		/*
 		origin: 'http://localhost',
 		origin: 'http://localhost:3000',
@@ -64,6 +66,7 @@ app.use(cors({
 		origin: 'https://skillswap.camille.cloud',
 		origin: 'https://skillswap.camille.cloud:3000',
 		*/
+		// trying to allow multiple origins :
 		origin: function (origin, callback) {
 			console.log("-------------------- inside cors");
 			const allowedOrigins = [
@@ -71,10 +74,12 @@ app.use(cors({
 				'http://localhost:3000',
 				'http://skillswap.camille.cloud',
 				'http://skillswap.camille.cloud:3000',
+				'http://skillswap.camille.cloud:443',
 				'https://localhost',
 				'https://localhost:3000',
 				'https://skillswap.camille.cloud',
 				'https://skillswap.camille.cloud:3000',
+				'https://skillswap.camille.cloud:443',
 			];
 			if (allowedOrigins.includes(origin)) {
 				callback(null, true);
@@ -117,5 +122,5 @@ app.get('/robots.txt', (req, res, next) => {
 app.use(router);
 
 app.listen(port, () => {
-    console.log(`Serveur démarré sur http://localhost:${port}`);
+    console.log(`Serveur démarré sur http://${url}:${port}`);
 });

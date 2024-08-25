@@ -17,6 +17,7 @@ services:
     working_dir: /home/server/Skillswap/BACK
     environment:
       PORT: ${PORT_BACK}
+      PORT_PROXY: ${PORT_PROXY}
       SECRET: ${SECRET}
       PUBLIC_URL: ${PUBLIC_URL}
       TOKEN_SECRET: ${TOKEN_SECRET}
@@ -43,7 +44,7 @@ services:
     environment:
       PORT: ${PORT_FRONT}
       REACT_APP_URL: ${PUBLIC_URL}
-      REACT_APP_PORT: 443
+      REACT_APP_PORT: ${PORT_PROXY}
     ports:
       - "${PORT_FRONT}:${PORT_FRONT}"
     volumes:

@@ -68,9 +68,36 @@ sommaire :
 - ça marche !
 - on force maintenant le https avec coolify
 	- donc on ne creer pas un server https dans le back, on garde le server http
-	- mais coolify sert de proxy pour recevoir les requettes https et les transmettre en http au back, enfin je crois
+	- mais coolify sert de proxy pour recevoir les requettes https et les transmettre en http au back, normalement
+	- c'est coolify qui gere les certificats ssl aussi
 - **erreur :**
 	- probleme de cors
+	- j'essaye d'autoriser plusieurs URL dans les cors origin de express :
+		- http://localhost,
+		- http://localhost:3000,
+		- http://skillswap.camille.cloud,
+		- http://skillswap.camille.cloud:3000,
+		- https://localhost,
+		- https://localhost:3000,
+		- https://skillswap.camille.cloud,
+		- https://skillswap.camille.cloud:3000,
+	- mais je n'arrive pas à avoir de logs de ce que je fais, je ne sais pas pourquoi
+	- j'essaye d'atteindre directement l'adresse dans le terminal avec curl :
+		- `curl -I https://skillswap.camille.cloud:3000/categories`
+		- `error : curl: (35) error:0A00010B:SSL routines::wrong version number`
+	- je verifie si le certificat ssl pose probleme avec cette commande :
+		- `openssl s_client -connect skillswap.camille.cloud`
+		- aucune reponse
+		- `openssl s_client -connect skillswap.camille.cloud:3000`
+		- aucune reponse
+		- `openssl s_client -connect skillswap.camille.cloud:443`
+		- reponse ! tout va bien
+	- le probleme c'etait le port, il fallait utiliser 443 maintenant
+	- je change les appels fetch de react avec le port 443
+- ça marche !
+- **erreur :**
+	- `JSON.parse: unexpected character at line 1 column 1 of the JSON data`
+
 
 
 
