@@ -40,7 +40,7 @@ const Home = ({
 
             const token = Cookies.get('token');
 
-            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`, {
+            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',

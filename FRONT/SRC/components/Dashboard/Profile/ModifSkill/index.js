@@ -72,7 +72,7 @@ export default function ModifSkill({
 
             const token = Cookies.get('token');
 
-            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/${skill.id}`, {
+            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/${skill.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {

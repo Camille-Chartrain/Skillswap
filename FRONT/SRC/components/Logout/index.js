@@ -25,7 +25,7 @@ export default function Logout(
         try {
             console.log("deconnection => supprimer cookie. (composant Logout)");
             const token = Cookies.get('token');
-            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/logout`, {
+            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/logout`, {
                 method: "POST",
                 status: 200,
                 headers: {

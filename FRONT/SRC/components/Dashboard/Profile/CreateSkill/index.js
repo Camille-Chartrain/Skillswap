@@ -42,7 +42,7 @@ export default function CreateSkill(
             // console.log('formDataEncoded CreateSkill:', formDataEncoded);
 
             const token = Cookies.get('token');
-            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
                 method: "POST",
                 status: 200,
                 headers: {

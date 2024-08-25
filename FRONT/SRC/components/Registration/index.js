@@ -49,7 +49,7 @@ export default function Registration() {
         try {
             console.log('try data:', formDataEncoded);
             // console.log('try myformdata:', myFormData);
-            const response = await fetch(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/registration`, {
+            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/registration`, {
                 method: "post",
                 status: 200,
                 headers: {
