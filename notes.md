@@ -66,6 +66,12 @@ sommaire :
 	- les requetes n'aboutissent pas, ca pourrait etre les ports
 	- effectivement, j'ai mal géré les variables .env quand je les aient toutes mises dans le compose file..................
 - ça marche !
+- on force maintenant le https avec coolify
+	- donc on ne creer pas un server https dans le back, on garde le server http
+	- mais coolify sert de proxy pour recevoir les requettes https et les transmettre en http au back, enfin je crois
+- **erreur :**
+	- probleme de cors
+
 
 
 

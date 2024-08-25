@@ -63,7 +63,7 @@ app.use(cookieParser());
 app.use(cors({
     //origin: ['http://localhost:1234', `http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}'], // Autoriser les requêtes uniquement à partir de ce domaine
     //origin: '*',
-    origin: `http://${process.env.REACT_APP_URL}`, // Autoriser les requêtes uniquement à partir de ce domaine
+    origin: `https://${process.env.REACT_APP_URL}`, // Autoriser les requêtes uniquement à partir de ce domaine
     methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
     credentials: true
 }));
