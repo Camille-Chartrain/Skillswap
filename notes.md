@@ -43,7 +43,7 @@ sommaire :
 	- le site s'affiche, mais pas les infos de la ddb
 	- les fetch sont fait sur http://localhost:3000 -> pas bon
 	- pbm avec le nom de domaine : les variables .env ne sont pas remplies
-	- pour que les variables soient prises en compte il faut rebuild react
+	- pour que les variables soient prises en compte il faut rebuild react...................
 - **erreur :**
 	- npm run build ne marche pas
 	- pbm vient de la ligne "main: index.js" : parcel ne sait pas quoi en faire, je l'enleve
@@ -54,7 +54,7 @@ sommaire :
 	- les donnees n'ont pas ete seedées, je les seed manuellement
 - **erreur :**
 	- les fetch se font à nouveau sur localhost, peut-etre qu'en seedant les donnees j'ai perdu les variables d'env en relancant le container ? bizarre
-	- je change les .env pour mettre toutes les variables d'env dans le compose file, et les donner à coolify
+	- je change les .env pour mettre toutes les variables d'env dans le compose file................., et les donner à coolify
 	- c'est bon les variables sont bien transmises aux containers
 - **erreur :**
 	- les appels fetch marchent une fois, puis passent à nouveau sur localhost, il faut inverstiguer
@@ -64,7 +64,7 @@ sommaire :
 	- on à perdu les donnees de la base de donnee, je vais automatiser leur seeding
 - **erreur :**
 	- les requetes n'aboutissent pas, ca pourrait etre les ports
-	- effectivement, j'ai mal géré les variables .env quand je les aient toutes mises dans le compose file
+	- effectivement, j'ai mal géré les variables .env quand je les aient toutes mises dans le compose file..................
 - ça marche !
 
 
