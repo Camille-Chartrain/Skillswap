@@ -54,8 +54,8 @@ app.use(cookieParser());
 
 // gestion of CORS
 app.use(cors({
-		origin: '*',
-    //origin: `https://${url}`, // Autoriser les requêtes uniquement à partir de ce domaine
+		//origin: '*',
+    origin: `https://${url}`, // Autoriser les requêtes uniquement à partir de ce domaine
 		/*
 		origin: 'http://localhost',
 		origin: 'http://localhost:3000',
