@@ -18,8 +18,8 @@ export default function SubCategories(
             // console.log("essai de fetch subategories");
             // console.log("valeur de selectedCategory:", selectedCategory);
             const token = Cookies.get('token');
-            // console.log(`http://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/subCategories/${selectedCategory}`);
-            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${REACT_APP_API}/subCategories/${selectedCategory}`, {
+            // console.log(`http://${process.env.REACT_APP_API_URL}/subCategories/${selectedCategory}`);
+            const response = await fetch(`https://${process.env.REACT_APP_API_URL}/subCategories/${selectedCategory}`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',

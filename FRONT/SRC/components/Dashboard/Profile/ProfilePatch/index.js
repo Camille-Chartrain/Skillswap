@@ -31,7 +31,7 @@ export default function ProfilePatch(
 
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${REACT_APP_API}/profile`, {
+            const response = await fetch(`https://${process.env.REACT_APP_API_URL}/profile`, {
                 method: 'PATCH',
                 status: 200,
                 headers: {

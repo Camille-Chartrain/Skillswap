@@ -16,7 +16,7 @@ export default function DataProfile({
         try {
             setLoading(true);
             const token = Cookies.get('token');
-            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${REACT_APP_API}/profile`, {
+            const response = await fetch(`https://${process.env.REACT_APP_API_URL}/profile`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
