@@ -66,8 +66,8 @@ sommaire :
 	- les requetes n'aboutissent pas, ca pourrait etre les ports
 	- effectivement, j'ai mal géré les variables .env quand je les aient toutes mises dans le compose file..................
 - ça marche !
-- on force maintenant le https avec coolify
-	- donc on ne creer pas un server https dans le back, on garde le server http
+- je force maintenant le https avec coolify
+	- donc je ne creer pas un server https dans le back, on garde le server http
 	- mais coolify sert de proxy pour recevoir les requettes https et les transmettre en http au back, normalement
 	- c'est coolify qui gere les certificats ssl aussi
 - **erreur :**
@@ -93,6 +93,12 @@ sommaire :
 		- `openssl s_client -connect skillswap.camille.cloud:443`
 		- reponse, tout va bien, mais c'est le port du front
 	- je pense qu'il faut soit trouver le moyen de faire utiliser le port 3000 à coolify, soit utiliser une autre route, genre `/api`
+	- je met l'adresse `https://skillswap.camille.cloud:3000` dans coolify pour le back
+- **erreur :**
+	- maintenant, le back fonctionne, mais plus le front :p
+		- quand on va a l'adresse `skillswap.camille.cloud` on obtient les donnees de la ddb en json
+		- pourquoi ? no lo se
+	- je vais essayer une route pour l'api, `/api`, en esperant que coolify la transmette bien sur la bonne route dans docker
 
 
 
