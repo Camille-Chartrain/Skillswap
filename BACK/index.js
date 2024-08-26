@@ -50,7 +50,7 @@ app.use(cookieParser());
 // });
 
 // trying this to make https works with coolify
-//app.set('trust proxy', true);
+app.set('trust proxy', true);
 
 // gestion of CORS
 app.use(cors({
