@@ -2,11 +2,11 @@ services:
   bdd:
     image: "postgres:14-alpine"
     ports:
-      - "${PG_PORT}:${PG_PORT}"
+      - '${PG_PORT}:${PG_PORT}'
     environment:
-      POSTGRES_DB: ${PG_DB}
-      POSTGRES_PASSWORD: ${PG_PASSWORD}
-      POSTGRES_USER: ${PG_USER}
+      POSTGRES_DB: '${PG_DB}'
+      POSTGRES_PASSWORD: '${PG_PASSWORD}'
+      POSTGRES_USER: '${PG_USER}'
     volumes:
       - ./BACK/db/:/docker-entrypoint-initdb.d/
       - ./psql:/var/lib/postgresql/data
@@ -16,18 +16,18 @@ services:
     image: "node:18"
     working_dir: /home/server/Skillswap/BACK
     environment:
-      PORT: ${PORT_BACK}
-      SECRET: ${SECRET}
-      PUBLIC_URL: ${PUBLIC_URL}
-      TOKEN_SECRET: ${TOKEN_SECRET}
-      SECRET_POUR_EXPRESS_SESSION: ${SECRET_POUR_EXPRESS_SESSION}
-      PGUSER: ${PG_USER}
-      PGHOST: ${PG_HOST}
-      PGPASSWORD: ${PG_PASSWORD}
-      PGDATABASE: ${PG_DB}
-      PGPORT: ${PG_PORT}
+      PORT: '${PORT_BACK}'
+      SECRET: '${SECRET}'
+      PUBLIC_URL: '${PUBLIC_URL}'
+      TOKEN_SECRET: '${TOKEN_SECRET}'
+      SECRET_POUR_EXPRESS_SESSION: '${SECRET_POUR_EXPRESS_SESSION}'
+      PGUSER: '${PG_USER}'
+      PGHOST: '${PG_HOST}'
+      PGPASSWORD: '${PG_PASSWORD}'
+      PGDATABASE: '${PG_DB}'
+      PGPORT: '${PG_PORT}'
     ports:
-      - "${PORT_BACK}:${PORT_BACK}"
+      - '${PORT_BACK}:${PORT_BACK}'
     volumes:
       - ./BACK:/home/server/Skillswap/BACK
       # - ./BACK:/Skillswap/BACK
@@ -41,10 +41,10 @@ services:
     image: "node:18"
     working_dir: /home/server/Skillswap/FRONT
     environment:
-      PORT: ${PORT_FRONT}
-      REACT_APP_API_URL: ${PUBLIC_URL}:${PORT_BACK}/${API_ROUTE}
+      PORT: '${PORT_FRONT}'
+      REACT_APP_API_URL: '${PUBLIC_URL}/${API_ROUTE}'
     ports:
-      - "${PORT_FRONT}:${PORT_FRONT}"
+      - '${PORT_FRONT}:${PORT_FRONT}'
     volumes:
       - ./FRONT:/home/server/Skillswap/FRONT
       # - ./FRONT:/Skillswap/FRONT
@@ -57,9 +57,9 @@ services:
   adminer:
     image: adminer
     ports:
-      - ${ADMINER_PORT}:${ADMINER_PORT}
+      - '${ADMINER_PORT}:${ADMINER_PORT}'
     environment:
-      ADMINER_DEFAULT_SERVER: ${ADMINER_DEFAULT_SERVER}
+      ADMINER_DEFAULT_SERVER: '${ADMINER_DEFAULT_SERVER}'
     depends_on:
       - bdd
 
