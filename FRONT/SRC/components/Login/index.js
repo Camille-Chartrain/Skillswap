@@ -26,7 +26,7 @@ export default function Login({ setNoMatch, setDataCards }) {
             console.log('try data:', formDataEncoded);
 
             const token = Cookies.get('token');
-            const response = await fetch(`https://${process.env.REACT_APP_API_URL}/login`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
                 method: "post",
                 status: 200,
                 headers: {

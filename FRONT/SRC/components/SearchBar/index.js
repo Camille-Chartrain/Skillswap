@@ -38,7 +38,7 @@ export default function SearchBar({
 
             const token = Cookies.get('token');
 
-            const response = await fetch(`https://${process.env.REACT_APP_API_URL}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
                 method: "get",
                 headers: {
                     // 'Content-Type': 'application/json',

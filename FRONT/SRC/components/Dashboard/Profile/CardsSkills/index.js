@@ -29,7 +29,7 @@ export default function CardsSkills(
     async function deleteSkill(skill) {
         try {
             const token = Cookies.get('token');
-            const response = await fetch(`https://${process.env.REACT_APP_API_URL}/skill/${skill.id}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/skill/${skill.id}`, {
                 method: "delete",
                 status: 200,
                 headers: {
