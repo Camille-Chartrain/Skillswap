@@ -91,12 +91,9 @@ sommaire :
 		- `openssl s_client -connect skillswap.camille.cloud:3000`
 		- aucune reponse
 		- `openssl s_client -connect skillswap.camille.cloud:443`
-		- reponse ! tout va bien
-	- le probleme c'etait le port, il fallait utiliser 443 maintenant
-	- je change les appels fetch de react avec le port 443
-- ça marche !
-- **erreur :**
-	- `JSON.parse: unexpected character at line 1 column 1 of the JSON data`
+		- reponse, tout va bien, mais c'est le port du front
+	- je pense qu'il faut soit trouver le moyen de faire utiliser le port 3000 à coolify, soit utiliser une autre route, genre `/api`
+
 
 
 
