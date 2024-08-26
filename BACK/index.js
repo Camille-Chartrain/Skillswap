@@ -55,7 +55,7 @@ app.use(cookieParser());
 // gestion of CORS
 app.use(cors({
 		//origin: '*',
-    origin: `https://${url}:443`,
+    origin: `https://${url}`,
 		/*
 		origin: 'http://localhost',
 		origin: 'http://localhost:3000',
