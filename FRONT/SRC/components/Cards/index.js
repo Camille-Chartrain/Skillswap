@@ -97,7 +97,7 @@ export default function Cards({
                                     <div className="chil2dBoxHeader">
                                         <img
                                             className="avatar"
-                                            src={`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${card.Category.picture}`}
+                                            src={`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${REACT_APP_API}/${card.Category.picture}`}
                                             alt="photo des categories"
                                             loading="lazy"
                                         >

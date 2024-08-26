@@ -42,7 +42,8 @@ services:
     working_dir: /home/server/Skillswap/FRONT
     environment:
       PORT: ${PORT_FRONT}
-      REACT_APP_URL: ${API_URL}
+      REACT_APP_URL: ${PUBLIC_URL}
+      REACT_APP_API: ${API_ROUTE}
       REACT_APP_PORT: ${PORT_BACK}
     ports:
       - "${PORT_FRONT}:${PORT_FRONT}"

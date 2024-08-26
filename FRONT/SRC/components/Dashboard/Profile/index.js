@@ -41,7 +41,7 @@ export default function Profile(
             console.log("dans getsskills()");
             setLoading(true)
             const token = Cookies.get('token');
-            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/skill`, {
+            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${REACT_APP_API}/skill`, {
                 method: "get",
                 status: 200,
                 headers: {

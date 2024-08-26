@@ -19,7 +19,7 @@ export default function CategoriesCheckboxes({
         try {
             console.log("essai de fetch categories");
             const token = Cookies.get('token');
-            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/categories`, {
+            const response = await fetch(`https://${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/${REACT_APP_API}/categories`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
