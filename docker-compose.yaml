@@ -16,7 +16,7 @@ services:
     image: "node:18"
     working_dir: /home/server/Skillswap/BACK
     environment:
-      PORT: '${PORT_BACK}'
+#      PORT: '${PORT_BACK}'
       SECRET: '${SECRET}'
       PUBLIC_URL: '${PUBLIC_URL}'
       TOKEN_SECRET: '${TOKEN_SECRET}'
@@ -42,7 +42,7 @@ services:
     working_dir: /home/server/Skillswap/FRONT
     environment:
       PORT: '${PORT_FRONT}'
-      REACT_APP_API_URL: 'https://${PUBLIC_URL}/${API_ROUTE}'
+      REACT_APP_API_URL: 'http://back/${API_ROUTE}'
     ports:
       - '${PORT_FRONT}:${PORT_FRONT}'
     volumes:
