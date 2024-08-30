@@ -43,7 +43,7 @@ services:
     environment:
       PORT: '${PORT_FRONT}'
       REACT_APP_API_URL: 'http://back/${PORT_BACK}'
-    ports
+    ports:
       - '${PORT_FRONT}:${PORT_FRONT}'
     volumes:
       - ./FRONT:/home/server/Skillswap/FRONT
