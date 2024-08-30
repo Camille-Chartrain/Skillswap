@@ -17,56 +17,56 @@ import isLogged from './middlewares.js/isLogged.js';
 const router = express.Router();
 
 // home search visitors
-router.get('/api', isLogged, homeController.home);
-router.get('/api/searchVisitor', authSearch, homeController.searchVisitor);
+router.get('/', isLogged, homeController.home);
+router.get('/searchVisitor', authSearch, homeController.searchVisitor);
 
 // authorisations membre
-router.post('/api/registration', authController.registration);
-router.post('/api/login', authController.login);
-router.get('/api/dashboard', dashboardController.dashboard);
-router.post('/api/logout', authController.logout);
+router.post('/registration', authController.registration);
+router.post('/login', authController.login);
+router.get('/dashboard', dashboardController.dashboard);
+router.post('/logout', authController.logout);
 
 //profile
-router.get('/api/profile', verifyToken, profileController.profile);
-router.patch('/api/profile', verifyToken, profileController.modifProfile);
-router.delete('/api/profile', verifyToken, profileController.deleteProfile);
+router.get('/profile', verifyToken, profileController.profile);
+router.patch('/profile', verifyToken, profileController.modifProfile);
+router.delete('/profile', verifyToken, profileController.deleteProfile);
 
 //skill
-router.get('/api/skill', verifyToken, skillController.skill);
-router.get('/api/oneSkill/:skillId', verifyToken, skillController.oneSkill);
-router.post('/api/skill/:category?/:subCategory?', verifyToken, skillController.createSkill);
-router.patch('/api/skill/:skillId', verifyToken, skillController.modifSkill);
-router.delete('/api/skill/:skillId', verifyToken, skillController.deleteSkill);
+router.get('/skill', verifyToken, skillController.skill);
+router.get('/oneSkill/:skillId', verifyToken, skillController.oneSkill);
+router.post('/skill/:category?/:subCategory?', verifyToken, skillController.createSkill);
+router.patch('/skill/:skillId', verifyToken, skillController.modifSkill);
+router.delete('/skill/:skillId', verifyToken, skillController.deleteSkill);
 
 //statistics
-router.get('/api/statistic', verifyToken, statisticController.statistic);
+router.get('/statistic', verifyToken, statisticController.statistic);
 
 //communication
-router.get('/api/communication', verifyToken, communicationController.communicationInterests);
-router.get('/api/communicationSkillToRate', verifyToken, communicationController.communicationSkillToRate);
-router.patch('/api/communication/:skillId', verifyToken, communicationController.rateSkill)
+router.get('/communication', verifyToken, communicationController.communicationInterests);
+router.get('/communicationSkillToRate', verifyToken, communicationController.communicationSkillToRate);
+router.patch('/communication/:skillId', verifyToken, communicationController.rateSkill)
 
 // //learning
-router.get('/api/studentLearning', verifyToken, learningController.studentLearning);
-router.get('/api/teacherLearning', verifyToken, learningController.teacherLearning);
-router.post('/api/learning/:skillId', verifyToken, learningController.createLearning);
-router.patch('/api/acceptLearning/:meetingId', verifyToken, learningController.acceptLearning);
-router.patch('/api/declineLearning/:meetingId', verifyToken, learningController.declineLearning);
-router.patch('/api/closeLearning/:meetingId', verifyToken, learningController.closeLearning);
-router.delete('/api/learning/:meetingId', verifyToken, learningController.deleteLearning);
+router.get('/studentLearning', verifyToken, learningController.studentLearning);
+router.get('/teacherLearning', verifyToken, learningController.teacherLearning);
+router.post('/learning/:skillId', verifyToken, learningController.createLearning);
+router.patch('/acceptLearning/:meetingId', verifyToken, learningController.acceptLearning);
+router.patch('/declineLearning/:meetingId', verifyToken, learningController.declineLearning);
+router.patch('/closeLearning/:meetingId', verifyToken, learningController.closeLearning);
+router.delete('/learning/:meetingId', verifyToken, learningController.deleteLearning);
 
 //categories
-router.get('/api/categories', categoryController.getAllCategories);
-router.get('/api/subCategories/:categoryId?', categoryController.getSubCategories);
+router.get('/categories', categoryController.getAllCategories);
+router.get('/subCategories/:categoryId?', categoryController.getSubCategories);
 
 
 //admin
-router.get('/api/admin', adminController.admin);
-router.get('/api/admin/:userId', adminController.adminGetSkillsOfOneUser);
-router.patch('/api/admin/:userId', adminController.adminModifUser);
-router.patch('/api/admin/skill/:skillId', adminController.adminModifSkill);
-router.delete('/api/admin/:userId', adminController.adminDeleteUser);
-router.delete('/api/admin/skill/:skillId', adminController.adminDeleteOneSkill);
+router.get('/admin', adminController.admin);
+router.get('/admin/:userId', adminController.adminGetSkillsOfOneUser);
+router.patch('/admin/:userId', adminController.adminModifUser);
+router.patch('/admin/skill/:skillId', adminController.adminModifSkill);
+router.delete('/admin/:userId', adminController.adminDeleteUser);
+router.delete('/admin/skill/:skillId', adminController.adminDeleteOneSkill);
 
 
 export default router;
