@@ -52,8 +52,9 @@ app.use(cookieParser());
 
 // Middleware to log the origin of incoming requests
 app.use((req, res, next) => {
-  const origin = req.headers.origin;
-	console.log('-----------Request Origin:', origin);
+	console.log('----------- req:', req.headers);
+	console.log('          + req.headers:', req.headers);
+	console.log('          + req.headers.rigin:', req.headers.origin);
 	next();
 });
 
