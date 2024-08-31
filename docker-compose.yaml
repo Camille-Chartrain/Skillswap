@@ -42,7 +42,7 @@ services:
       #REACT_APP_API_URL: 'https://${PUBLIC_URL}:${PORT_BACK}'
       REACT_APP_API_URL: 'http://${PUBLIC_URL}:${PORT_BACK}'
     ports:
-      - '${PORT_FRONT}:1234'
+      - '${PORT_FRONT}:${PARCELL_PORT}'
     volumes:
       - ./FRONT:/home/server/Skillswap/FRONT
       - node_modules_front:/home/server/Skillswap/FRONT/node_modules
