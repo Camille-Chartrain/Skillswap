@@ -50,6 +50,13 @@ app.use(cookieParser());
 //     res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
 // });
 
+// Middleware to log the origin of incoming requests
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+	console.log('-----------Request Origin:', origin);
+	next();
+});
+
 // trying this to make https works with coolify
 app.set('trust proxy', true);
 
