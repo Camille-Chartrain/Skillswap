@@ -17,6 +17,7 @@ export default function Categories(
             // console.log("essai de fetch categories");
             const token = Cookies.get('token');
             const response = await fetch(`${process.env.REACT_APP_API_URL}/categories`, {
+								credentials: 'include',
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',
