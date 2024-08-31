@@ -10,7 +10,7 @@ services:
     volumes:
       - ./BACK/db/:/docker-entrypoint-initdb.d/
       - ./psql:/var/lib/postgresql/data
-    container_name: bddLucileCam
+    container_name: bddLucileCam_https
 
   back:
     image: "node:18"
