@@ -57,9 +57,13 @@ app.use(cors({
 		//origin: '*',
 		origin: [
 			'http://front',
-			'https://front',
 			'http://front:1234',
+			'http://skillswap.camille.cloud',
+			'http://skillswap.camille.cloud:1234',
+			'https://front',
 			'https://front:1234',
+			'https://skillswap.camille.cloud',
+			'https://skillswap.camille.cloud:1234',
 		],
     //origin: `https://${url}`,
 		/*
