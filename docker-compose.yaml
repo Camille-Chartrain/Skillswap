@@ -44,8 +44,8 @@ services:
       REACT_APP_API_URL: 'https://${API_URL}'
       #REACT_APP_API_URL: 'https://${PUBLIC_URL}:${PORT_BACK}'
       #REACT_APP_API_URL: 'http://${PUBLIC_URL}:${PORT_BACK}'
-    ports:
-      - '${PORT_FRONT}:${PORT_FRONT}'
+#    ports:
+#      - '${PORT_FRONT}:${PORT_FRONT}'
     volumes:
       - ./FRONT:/home/server/Skillswap/FRONT
       # - ./FRONT:/Skillswap/FRONT
