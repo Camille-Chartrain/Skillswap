@@ -55,13 +55,13 @@ app.set('trust proxy', true);
 
 // gestion of CORS
 app.use(cors({
-		origin: [
-			'*',
+		origin: '*',
+		//origin: [
 			//`http://${url}`,
 			//'http://localhost',
 			//'http://front',
 			//'http://skillswap.camille.cloud',
-		],
+		//],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
     credentials: true
 }));
