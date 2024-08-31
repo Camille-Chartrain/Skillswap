@@ -30,7 +30,6 @@ services:
       - '${PORT_BACK}:${PORT_BACK}'
     volumes:
       - ./BACK:/home/server/Skillswap/BACK
-      # - ./BACK:/Skillswap/BACK
       - node_modules_back:/home/server/Skillswap/BACK/node_modules
     command: >
       sh -c "ls -al /home/server/Skillswap/BACK && npm install && npm run dev"
