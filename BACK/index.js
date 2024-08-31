@@ -56,17 +56,18 @@ app.use((req, res, next) => {
 	next();
 });
 
-// CORS
-app.use(cors({
-		//origin: '*',
-		origin: [
-			`http://${url}`,
-			`https://${url}`,
-			`https://${url}:443`,
-		],
-    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-    credentials: true
-}));
+app.use(cors());
+//// CORS
+//app.use(cors({
+//		//origin: '*',
+//		origin: [
+//			`http://${url}`,
+//			`https://${url}`,
+//			`https://${url}:443`,
+//		],
+//    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+//    credentials: true
+//}));
 
 
 // // Read SSL certificate and key files
