@@ -2,7 +2,7 @@ services:
   bdd:
     image: "postgres:14-alpine"
     ports:
-      - '${PG_PORT}:${PG_PORT}'
+      - '${PG_PORT}:5432'
     environment:
       POSTGRES_DB: '${PG_DB}'
       POSTGRES_PASSWORD: '${PG_PASSWORD}'
@@ -10,7 +10,7 @@ services:
     volumes:
       - ./BACK/db/:/docker-entrypoint-initdb.d/
       - ./psql:/var/lib/postgresql/data
-    container_name: bddLucileCam_https
+    container_name: bddLucileCam
 
   back:
     image: "node:18"
@@ -48,7 +48,6 @@ services:
 #      - '${PORT_FRONT}:${PORT_FRONT}'
     volumes:
       - ./FRONT:/home/server/Skillswap/FRONT
-      # - ./FRONT:/Skillswap/FRONT
       - node_modules_front:/home/server/Skillswap/FRONT/node_modules
     command: >
       sh -c "ls -al /home/server/Skillswap/FRONT && npm install && npm start"
