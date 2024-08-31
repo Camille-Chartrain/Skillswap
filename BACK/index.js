@@ -32,6 +32,14 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 const url = process.env.PUBLIC_URL;
+
+// Middleware to log the origin of incoming requests
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+	console.log('-----------Request Origin:', origin);
+	next();
+});
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
@@ -48,13 +56,6 @@ app.use(cookieParser());
 // app.get("/", (req, res) => {
 //     res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
 // });
-
-// Middleware to log the origin of incoming requests
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-	console.log('-----------Request Origin:', origin);
-	next();
-});
 
 // trying this to make https works with coolify
 app.set('trust proxy', true);
@@ -138,5 +139,5 @@ app.get('/robots.txt', (req, res, next) => {
 app.use(router);
 
 app.listen(port, () => {
-    console.log(`Serveur démarré 0000000 sur https://${url}:${port}`);
+    console.log(`Serveur démarré sur https://${url}:${port}`);
 });
