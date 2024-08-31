@@ -50,10 +50,9 @@ app.use(cookieParser());
 //     res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
 // });
 
-// Middleware to log the origin of incoming requests
+// log before cors
 app.use((req, res, next) => {
-	console.log('----------- req:', req);
-	console.log('----------- req.get("Origin"):', req.get('Origin'));
+	console.log('----------- origin:', req.get('Origin'));
 	next();
 });
 
