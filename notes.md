@@ -100,6 +100,8 @@ sommaire :
 		- pourquoi ? no lo se
 	- je vais essayer une route pour l'api, `/api`, en esperant que coolify la transmette bien sur la bonne route dans docker
 	- c'est le chaos j'y comprends rien au niveau des domains et des ports avec coolify, pour l'instant ça ne marche pas
+	- en fait pas besoin de mettre l'url du back dans la section "domains" de coolify, c'est uniquement si on veut que le back soit accessible par tous le monde
+	- comme on ne le veut accessible que par le front, on peut fetch directement http://back:3000 (back est le nom du service de docker compose)
 **error :**
 - "blocked loadind mixed active content"
 

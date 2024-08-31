@@ -54,8 +54,8 @@ app.set('trust proxy', true);
 
 // gestion of CORS
 app.use(cors({
-		//origin: '*',
-    origin: `https://${url}`,
+		origin: '*',
+    //origin: `https://${url}`,
 		/*
 		origin: 'http://localhost',
 		origin: 'http://localhost:3000',
