@@ -38,9 +38,9 @@ services:
     image: "node:18"
     working_dir: /home/server/Skillswap/FRONT
     environment:
-      REACT_APP_API_URL: 'https://${API_URL}'
+      #REACT_APP_API_URL: 'https://${API_URL}'
       #REACT_APP_API_URL: 'https://${PUBLIC_URL}:${PORT_BACK}'
-      #REACT_APP_API_URL: 'http://${PUBLIC_URL}:${PORT_BACK}'
+      REACT_APP_API_URL: 'http://${PUBLIC_URL}:${PORT_BACK}'
     volumes:
       - ./FRONT:/home/server/Skillswap/FRONT
       - node_modules_front:/home/server/Skillswap/FRONT/node_modules
