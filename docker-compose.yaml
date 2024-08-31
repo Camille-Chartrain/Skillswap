@@ -26,8 +26,8 @@ services:
       PGPASSWORD: '${PG_PASSWORD}'
       PGDATABASE: '${PG_DB}'
       PGPORT: '${PG_PORT}'
-#    ports:
-#      - '${PORT_BACK}:${PORT_BACK}'
+    ports:
+      - '${PORT_BACK}:${PORT_BACK}'
     volumes:
       - ./BACK:/home/server/Skillswap/BACK
       # - ./BACK:/Skillswap/BACK

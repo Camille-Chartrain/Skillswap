@@ -57,21 +57,15 @@ app.use((req, res, next) => {
 	next();
 });
 
-// trying this to make https works with coolify
-app.set('trust proxy', true);
-
-// gestion of CORS
+// CORS
 app.use(cors({
 		//origin: '*',
 		origin: [
 			`http://${url}`,
 			`https://${url}`,
 			`https://${url}:443`,
-			//'http://localhost',
-			//'http://front',
-			//'http://skillswap.camille.cloud',
 		],
-    methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true
 }));
 
