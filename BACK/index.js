@@ -55,26 +55,13 @@ app.set('trust proxy', true);
 
 // gestion of CORS
 app.use(cors({
-		//origin: '*',
 		origin: [
-			'http://front',
-			//'http://front:1234',
-			'http://skillswap.camille.cloud',
-			//'http://skillswap.camille.cloud:1234',
-			//'https://front',
-			//'https://front:1234',
-			//'https://skillswap.camille.cloud',
-			//'https://skillswap.camille.cloud:1234',
+			//'*',
+			`http://${url}`,
+			//'http://localhost',
+			//'http://front',
+			//'http://skillswap.camille.cloud',
 		],
-    //origin: `https://${url}`,
-		//origin: 'http://localhost',
-		//origin: 'http://localhost:3000',
-		//origin: 'http://skillswap.camille.cloud',
-		//origin: 'http://skillswap.camille.cloud:3000',
-		//origin: 'https://localhost',
-		//origin: 'https://localhost:3000',
-		//origin: 'https://skillswap.camille.cloud',
-		//origin: 'https://skillswap.camille.cloud:3000',
     methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
     credentials: true
 }));
