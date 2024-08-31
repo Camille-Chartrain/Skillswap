@@ -33,13 +33,6 @@ const app = express();
 const port = process.env.PORT || 3001;
 const url = process.env.PUBLIC_URL;
 
-// Middleware to log the origin of incoming requests
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-	console.log('-----------Request Origin:', origin);
-	next();
-});
-
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
@@ -63,48 +56,25 @@ app.set('trust proxy', true);
 // gestion of CORS
 app.use(cors({
 		//origin: '*',
-		origin: [
-			'http://front',
-			'http://front:1234',
-			'http://skillswap.camille.cloud',
-			'http://skillswap.camille.cloud:1234',
-			'https://front',
-			'https://front:1234',
-			'https://skillswap.camille.cloud',
-			'https://skillswap.camille.cloud:1234',
-		],
+		//origin: [
+		//	'http://front',
+		//	'http://front:1234',
+		//	'http://skillswap.camille.cloud',
+		//	'http://skillswap.camille.cloud:1234',
+		//	'https://front',
+		//	'https://front:1234',
+		//	'https://skillswap.camille.cloud',
+		//	'https://skillswap.camille.cloud:1234',
+		//],
     //origin: `https://${url}`,
-		/*
-		origin: 'http://localhost',
-		origin: 'http://localhost:3000',
-		origin: 'http://skillswap.camille.cloud',
-		origin: 'http://skillswap.camille.cloud:3000',
-		origin: 'https://localhost',
-		origin: 'https://localhost:3000',
+		//origin: 'http://localhost',
+		//origin: 'http://localhost:3000',
+		//origin: 'http://skillswap.camille.cloud',
+		//origin: 'http://skillswap.camille.cloud:3000',
+		//origin: 'https://localhost',
+		//origin: 'https://localhost:3000',
 		origin: 'https://skillswap.camille.cloud',
-		origin: 'https://skillswap.camille.cloud:3000',
-		// trying to allow multiple origins :
-		origin: function (origin, callback) {
-			console.log("-------------------- inside cors");
-			const allowedOrigins = [
-				'http://localhost',
-				'http://localhost:3000',
-				'http://skillswap.camille.cloud',
-				'http://skillswap.camille.cloud:3000',
-				'http://skillswap.camille.cloud:443',
-				'https://localhost',
-				'https://localhost:3000',
-				'https://skillswap.camille.cloud',
-				'https://skillswap.camille.cloud:3000',
-				'https://skillswap.camille.cloud:443',
-			];
-			if (allowedOrigins.includes(origin)) {
-				callback(null, true);
-			} else {
-				callback(new Error('----------Not allowed by CORS'));
-			}
-		},
-		*/
+		//origin: 'https://skillswap.camille.cloud:3000',
     methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
     credentials: true
 }));
