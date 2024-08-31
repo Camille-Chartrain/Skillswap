@@ -59,7 +59,7 @@ app.use(cors({
 		origin: [
 			'http://front',
 			//'http://front:1234',
-			//'http://skillswap.camille.cloud',
+			'http://skillswap.camille.cloud',
 			//'http://skillswap.camille.cloud:1234',
 			//'https://front',
 			//'https://front:1234',
