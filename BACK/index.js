@@ -69,11 +69,11 @@ app.use(cors({
     //origin: `https://${url}`,
 		//origin: 'http://localhost',
 		//origin: 'http://localhost:3000',
-		//origin: 'http://skillswap.camille.cloud',
+		origin: 'http://skillswap.camille.cloud',
 		//origin: 'http://skillswap.camille.cloud:3000',
 		//origin: 'https://localhost',
 		//origin: 'https://localhost:3000',
-		origin: 'https://skillswap.camille.cloud',
+		//origin: 'https://skillswap.camille.cloud',
 		//origin: 'https://skillswap.camille.cloud:3000',
     methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Autoriser uniquement les méthodes précisées
     credentials: true
