@@ -59,6 +59,8 @@ app.use(cors({
 		origin: [
 			`http://${url}`,
 			`https://${url}`,
+			`https://${url}:443`,
+			`https://${url}:1234`,
 			//'http://localhost',
 			//'http://front',
 			//'http://skillswap.camille.cloud',
