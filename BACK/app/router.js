@@ -17,8 +17,8 @@ import isLogged from './middlewares.js/isLogged.js';
 const router = express.Router();
 
 // home search visitors
-router.get('/', isLogged, homeController.home);
-router.get('/searchVisitor', authSearch, homeController.searchVisitor);
+router.get('/', isLogged, homeController.home.bind(homeController));
+router.get('/searchVisitor', authSearch, homeController.searchVisitor.bind(homeController));
 
 // authorisations membre
 router.post('/registration', authController.registration);

@@ -3,15 +3,14 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-
 //connection to the db with client sequelize, with our identifiers written in the .env
-console.log("Dans le fichier DATABASE.js, essai de sequelize");
+// console.log("Dans le fichier DATABASE.js, essai de sequelize");
 const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER, process.env.PGPASSWORD, {
     host: process.env.PGHOST,
     dialect: 'postgres',
     port: process.env.PGPORT,
 });
-console.log("on est apres const sequelize");
+// console.log("on est apres const sequelize");
 
 
 //test of the connection to the db 

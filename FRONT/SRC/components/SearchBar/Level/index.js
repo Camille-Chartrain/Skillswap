@@ -24,7 +24,7 @@ export default function Level(
             <option value="">Niveau</option>
             <option value="débutant">Débutant</option>
             <option value="intermédiaire">Intermédiaire</option>
-            <option value="avancée">Avancé</option>
+            <option value="avancé">Avancé</option>
         </select >
     )
 }

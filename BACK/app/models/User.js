@@ -28,7 +28,7 @@ User.init(
             type: DataTypes.TEXT,
 
             unique: true,
-            allowNull: false, // we configurate constraints that will be place on the db
+            allowNull: false, // we configurate constraints that will be placed on the db
             validate: { // we can put validators that will act on the level of setters
                 notEmpty: true,
                 isEmail: true,

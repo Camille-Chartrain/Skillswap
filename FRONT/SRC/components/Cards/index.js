@@ -51,8 +51,6 @@ export default function Cards({
                                     <StarRating
                                         rating={card.averageMark}
                                     />
-                                    {console.log("averageMark=", card.averageMark)
-                                    }
                                     <p className="category">
                                         {truncateString(card.Category.name, 11)}/
                                         {truncateString(card.SubCategory.name, 4)}

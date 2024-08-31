@@ -4,16 +4,11 @@ import * as dotenv from 'dotenv';
 // import fs from "fs";
 import cors from "cors";
 import cookieParser from 'cookie-parser';
-//option possible: activer HSTS (Strict Transport Security HSTS est utilisé pour indiquer aux navigateurs de toujours utiliser HTTPS pour accéder à votre site, même si l'utilisateur saisit http:// dans la barre d'adresse.) 
+// option possible: activer HSTS (Strict Transport Security HSTS est utilisé pour indiquer aux 
+// navigateurs de toujours utiliser HTTPS pour accéder à votre site, même si l'utilisateur saisit 
+// http:// dans la barre d'adresse.) 
 
-// import SubCategory from './app/models/SubCategory.js';
-// import Category from './app/models/Category.js';
-// import User from './app/models/User.js';
-// import Meeting from './app/models/Meeting.js';
-// import Skill from './app/models/skill.js';
-// import Interest from './app/models/Interest.js';
 import router from './app/router.js';
-import redis from 'redis';
 
 
 // this is used to both sync and seed the database the first time it is installed, it will not do it again after that
@@ -37,13 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 
-// the defined model is the class itself => true
-// console.log(Category === sequelize.models.Category);
-// console.log(SubCategory === sequelize.models.SubCategory);
-// console.log(User === sequelize.models.User);
-// console.log(Skill === sequelize.models.Skill);
-// console.log(Meeting === sequelize.models.Meeting);
-// console.log(Interest === sequelize.models.Interest);
 
 // // Route to test https
 // app.get("/", (req, res) => {

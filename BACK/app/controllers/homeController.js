@@ -1,62 +1,121 @@
-import { Sequelize, Op } from "sequelize";
+import { Op } from "sequelize";
 import { User, Category, Skill, SubCategory, Meeting } from "../models/index.js";
-import sequelize from "../database.js";
 
-// import SubCategory from "../models/SubCategory.js";
 
 const homeController = {
 
-    home: async function (req, res) {
-        try {
-            console.log("req.user dans homeCOntroller home", req.user);
+    // home: async function (req, res) {
+    //     try {
+    //         // console.log("req.user dans homeController home", req.user);
 
+    //         let isLogged = false;
+
+    //         if (!req.user) {
+    //             // console.log("pas de req.user");
+    //         }
+    //         else if (req.user) {
+    //             // console.log("il y a un req.user", req.user);
+    //             isLogged = true;
+    //         }
+
+
+    //         // takes list of skill with a method in class Skill
+    //         const { count, rows } = await Skill.findAndCountAll({
+    //             order: [['id', 'DESC']], // order by descent with id
+    //             limit: 8, // Limit to 8 results
+    //             include: [{
+    //                 model: User, // Table to join
+    //                 // Select specified attributs of the table Commande
+    //                 attributes: ['firstname', 'lastname', 'grade_level', "presentation"]
+    //             }, {
+    //                 model: Category,
+    //                 attributes: ['picture', 'name']
+    //             },
+    //             {
+    //                 model: SubCategory,
+    //                 attributes: ['name']
+    //             }],
+    //         });
+    //         //send the answer to the front
+    //         // console.log("count", count);
+    //         const resultCount = rows.length;
+    //         // console.log(resultCount);
+    //         // console.log("les skills avec rows:", rows);
+    //         res.send(
+    //             {
+    //                 rows,
+    //                 count,
+    //                 resultCount,
+    //                 isLogged
+    //             }
+    //         );
+    //     } catch (error) {
+    //         // console.log('je suis ds la catch');
+    //         console.error(error.message);
+    //         res.render('error');
+    //     }
+    // },
+
+    fetchHomeData: async function (req) {
+        try {
+            console.log('dans la fonction fetchHomeData');
+
+            // const isLogged = !!req.user;
             let isLogged = false;
 
             if (!req.user) {
-                console.log("pas de req.user");
-                isLogged = false;
+                // console.log("pas de req.user");
             }
             else if (req.user) {
-                console.log("il y a un req.user", req.user);
+                // console.log("il y a un req.user", req.user);
                 isLogged = true;
             }
 
-
-            // takes list of skill with a method in class Skill
+            // Fetch the skills with associated user, category, and subcategory
             const { count, rows } = await Skill.findAndCountAll({
-                order: [['id', 'DESC']], // order by descent with id
-                limit: 8, // Limit to 8 results
+                order: [['id', 'DESC']],
+                limit: 8,
                 include: [{
-                    model: User, // Table to join
-                    attributes: ['firstname', 'lastname', 'grade_level', "presentation"] // Select specified attributs of the table Commande
+                    model: User,
+                    attributes: ['firstname', 'lastname', 'grade_level', 'presentation']
                 }, {
                     model: Category,
                     attributes: ['picture', 'name']
-                },
-                {
+                }, {
                     model: SubCategory,
                     attributes: ['name']
                 }],
             });
-            //send the answer to the front
-            console.log("count", count);
+
             const resultCount = rows.length;
-            console.log(resultCount);
-            // console.log("les skills avec rows:::::::::::::::::::::::::::::::::::", rows);
-            res.send(
-                {
-                    rows,
-                    count,
-                    resultCount,
-                    isLogged
-                }
-            );
+
+            return {
+                rows,
+                count,
+                resultCount,
+                isLogged
+            };
         } catch (error) {
-            console.log('je suis ds la catch');
             console.error(error.message);
-            res.render('error');
+            throw error;
         }
     },
+
+    // Home controller function
+    home: async function (req, res) {  // Arrow function here so "this." can be contextualized
+        try {
+            console.log('dans la fonction home 11');
+            const homeData = await this.fetchHomeData(req);
+            console.log('dans la fonction home2');
+            console.log('homeData', homeData);
+            res.send(homeData);
+        } catch (error) {
+            res.render('error');
+            console.log('error', error);
+
+        }
+    },
+
 
     searchVisitor: async function (req, res) {
 
@@ -85,7 +144,7 @@ const homeController = {
             // Construire la clause WHERE avec plusieurs conditions
             const whereClause = {};
 
-            if (CategoryId !== "undefined" && CategoryId !== null && CategoryId !== "" && CategoryId !== "null") {
+            if (CategoryId !== "undefined" && CategoryId !== null && CategoryId !== "" && CategoryId !== "null" && CategoryId !== "") {
                 console.log("'''''''''''''''''''''''''''rentré dans categoryId != undefined");
                 console.log("typeof CategoryId", typeof CategoryId);
 
@@ -95,7 +154,7 @@ const homeController = {
 
                 whereClause.CategoryId = categoryIdNumber;
             }
-            if (SubCategoryId !== "undefined" && SubCategoryId !== "null") {
+            if (SubCategoryId !== "undefined" && SubCategoryId !== "null" && SubCategoryId !== "") {
                 console.log("'''''''''''''''''''''''''''rentré dans subcategoryId != 'undefined'");
                 console.log("type of subcategoryid", typeof SubCategoryId);
 
@@ -116,7 +175,7 @@ const homeController = {
                 ];
             }
 
-
+            // Options pour la requête
             const options = {
                 where: whereClause,
             };
@@ -128,11 +187,24 @@ const homeController = {
             if (!req.user) {
                 console.log("pas de req.user");
                 options.limit = 8;
+                // no need to precise false but i do it anyway
                 isLogged = false;
             }
             else if (req.user) {
                 console.log("req.user", req.user);
                 isLogged = true;
+            }
+
+            // Configuration des attributs à récupérer
+            const userAttributes = [
+                'firstname',
+                'lastname',
+                'grade_level',
+                'presentation'
+            ];
+
+            if (isLogged) {
+                userAttributes.push('email');
             }
 
             // options.attributes = ['id', 'title', 'description', 'level', "CategoryId", "SubCategoryId", 'firstname', 'lastname', "email", 'grade_level', "presentation"]
@@ -157,13 +229,14 @@ const homeController = {
                 ],
                 include: [{
                     model: User,
-                    attributes: [
-                        'firstname',
-                        'lastname',
-                        "email",
-                        'grade_level',
-                        "presentation"
-                    ]
+                    attributes: userAttributes
+                    // attributes: [
+                    //     'firstname',
+                    //     'lastname',
+                    //     "email",
+                    //     'grade_level',
+                    //     "presentation"
+                    // ]
                 },
                 {
                     model: Category,
@@ -180,14 +253,31 @@ const homeController = {
                 // required: true,
             });
 
+            // if (!rows || rows.length === 0) {
+            //     console.log('no match');
+            //     res.status(200).json({
+            //         message: 'no match',
+            //         isLogged: isLogged
+            //     });
+            //     return;
+            // }
+            console.log("rows?", rows);
+
             if (!rows || rows.length === 0) {
-                console.log('no match');
+                // Fetch and send the home data along with a "no match" message
+                console.log("dans le rows.lentgh ==0");
+
+                const homeData = await this.fetchHomeData(req);
                 res.status(200).json({
+                    ...homeData,
                     message: 'no match',
-                    isLogged: isLogged
                 });
+                console.log("on renvoie la réponsedu fetchHomeData apres rows==0");
+                console.log("homedata", homeData);
+
                 return;
             }
+            console.log("sommes nous sortis de la fonction?");
 
             // addition of table meeting to keep tracks of the courses the user already applied to
             if (req.user) {
@@ -290,3 +380,38 @@ export default homeController;
 // WHERE
 // ("Skill"."title" ILIKE '%%' OR "Skill"."description" ILIKE '%%')
 // LIMIT 8;
+
+
+// /home requete SQL
+
+// SELECT "id", "name", "category_id"
+// FROM "subcategory" AS "SubCategory";
+
+// SELECT count("Skill"."id") AS "count"
+// FROM "skill" AS "Skill"
+// LEFT OUTER JOIN "user" AS "User" ON "Skill"."UserId" = "User"."id"
+// LEFT OUTER JOIN "category" AS "Category" ON "Skill"."CategoryId" = "Category"."id"
+// LEFT OUTER JOIN "subcategory" AS "SubCategory" ON "Skill"."SubCategoryId" = "SubCategory"."id";
+
+// SELECT "Skill"."id",
+//         "Skill"."title",
+//         "Skill"."duration", "Skill"."price", "Skill"."averageMark", "Skill"."sumOfMarks",
+//         "Skill"."numberOfRating", "Skill"."level", "Skill"."transmission",
+//         "Skill"."description", "Skill"."availability", "Skill"."SubCategoryId",
+//         "Skill"."CategoryId", "Skill"."UserId", "Skill"."createdAt", "Skill"."updatedAt",
+//         "User"."id" AS "User.id", "User"."firstname" AS "User.firstname",
+//         "User"."lastname" AS "User.lastname",
+//         "User"."grade_level" AS "User.grade_level",
+//         "User"."presentation" AS "User.presentation",
+//         "Category"."id" AS "Category.id",
+//         "Category"."picture" AS "Category.picture",
+//         "Category"."name" AS "Category.name",
+//         "SubCategory"."id" AS "SubCategory.id",
+//         "SubCategory"."name" AS "SubCategory.name" FROM "skill" AS "Skill"
+// LEFT OUTER JOIN "user" AS "User" ON "Skill"."UserId" = "User"."id"
+// LEFT OUTER JOIN "category" AS "Category" ON "Skill"."CategoryId" = "Category"."id"
+// LEFT OUTER JOIN "subcategory" AS "SubCategory" ON "Skill"."SubCategoryId" = "SubCategory"."id"
+// ORDER BY "Skill"."id"
+// DESC LIMIT 8;
+
+// SELECT "id", "name", "picture" FROM "category" AS "Category";

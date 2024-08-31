@@ -30,10 +30,11 @@ export default function SearchBar({
         event.preventDefault();
 
         try {
-            // console.log("nous sommes dans la fonction handleSearch deSearchbar");
-            // console.log("selectedCategory dans try", selectedCategory);
-            // console.log("selectedSubCategory dans try", selectedSubCategory);
-            // console.log("selectLevel dans try", selectedLevel);
+            console.log("nous sommes dans la fonction handleSearch deSearchbar");
+            console.log("searchInput dans try", searchInput);
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
+            console.log("selectLevel dans try", selectedLevel);
             setLoading(true)
 
             const token = Cookies.get('token');
@@ -51,12 +52,19 @@ export default function SearchBar({
             // console.log("responseDataSearch.message", responseDataSearch.message);
             // console.log("typeof responseDataSearch", typeof responseDataSearch);
             setLoading(false);
+            setSearchInput("");
+            // setSelectedCategory(null);
+            // setSelectedSubCategory(null);
+            // setSelectedLevel("");
 
             if (responseDataSearch.message === "no match") {
                 setMatch(false);
                 setNoMatch(true);
                 // console.log("NO MATCH state match dans Search", match);
                 // console.log("NOT MATCH state noMatch dans Search", noMatch);
+                console.log("responseDataSearch", responseDataSearch);
+                setDataCards(responseDataSearch);
+
 
                 if (!responseDataSearch.isLogged) {
                     setLogged(false);
@@ -92,7 +100,7 @@ export default function SearchBar({
 
     const handleChangeInput = (event) => {
         setSearchInput(event.target.value);
-        // console.log("input:", event.target.value);
+        console.log("input:", event.target.value);
     };
 
     return (
