@@ -53,6 +53,7 @@ app.use(cookieParser());
 // Middleware to log the origin of incoming requests
 app.use((req, res, next) => {
 	console.log('----------- req:', req);
+	console.log('----------- req.get("Origin"):', req.get('Origin'));
 	next();
 });
 
@@ -65,6 +66,7 @@ app.use(cors({
 		origin: [
 			`http://${url}`,
 			`https://${url}`,
+			`https://${url}:443`,
 			//'http://localhost',
 			//'http://front',
 			//'http://skillswap.camille.cloud',
