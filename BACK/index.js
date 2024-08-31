@@ -56,8 +56,8 @@ app.set('trust proxy', true);
 // gestion of CORS
 app.use(cors({
 		origin: [
-			//'*',
-			`http://${url}`,
+			'*',
+			//`http://${url}`,
 			//'http://localhost',
 			//'http://front',
 			//'http://skillswap.camille.cloud',
