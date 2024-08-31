@@ -100,6 +100,8 @@ sommaire :
 		- pourquoi ? no lo se
 	- je vais essayer une route pour l'api, `/api`, en esperant que coolify la transmette bien sur la bonne route dans docker
 	- c'est le chaos j'y comprends rien au niveau des domains et des ports avec coolify, pour l'instant ça ne marche pas
+**error :**
+- "blocked loadind mixed active content"
 
 
 
