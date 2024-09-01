@@ -113,7 +113,7 @@ sommaire :
 2. il faut que coolify connaisse le port dans le container back, on peut lui dire a deux endroits, mais il faut le dire au moins à un des deux :
 	- mapper le port dans le compose, ex : 3001:3000
 	- le mettre dans le domain du back sur coolify : https://api.camille.cloud:3000
-3. dans les appels fetch, il ne faut pas mettre le port, car coolify recoit sur le domain du back, et s'occupe ensuite de l'envoyer sur le bon port dans le container
+3. dans les appels fetch, il ne faut pas mettre le port, ni du container ni de l'hote, pas hyper sur de pourquoi, mais sinon coolify ne fait pas bien son reverse proxy
 
 
 
