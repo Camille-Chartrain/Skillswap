@@ -104,6 +104,14 @@ sommaire :
 	- comme on ne le veut accessible que par le front, on peut fetch directement http://back:3000 (back est le nom du service de docker compose)
 **error :**
 	- "blocked loadind mixed active content"
+	- difficile de comprendre ce qui se passe avec coolify + docker pour les ports
+	- j'essaye toutes le configurations possibles
+- j'ai trouvé !
+1. il faut utiliser un sous-domaine different pour le back et le front, et les remplir dans coolify :
+	- back : api.camille.cloud
+	- front: skillswap.camille.cloud
+2. dans les appels fetch, il ne faut pas mettre le port
+3. dans le compose, il faut bien mettre le mapping des ports pour le front et le back
 
 
 
