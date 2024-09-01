@@ -108,10 +108,13 @@ sommaire :
 	- j'essaye toutes le configurations possibles
 - j'ai trouvé !
 1. il faut utiliser un sous-domaine different pour le back et le front, et les remplir dans coolify :
-	- back : api.camille.cloud
-	- front: skillswap.camille.cloud
-2. dans les appels fetch, il ne faut pas mettre le port
-3. dans le compose, il faut bien mettre le mapping des ports pour le front et le back
+	- back : https://api.camille.cloud
+	- front: https://skillswap.camille.cloud
+2. il faut que coolify connaisse le port dans le container back, donc :
+	- soit il faut mettre le mapping dans le compose, ex : 3001:3000
+	- soit il faut le mettre dans le domain du back sur coolify : https://api.camille.cloud:3000
+		(dans les deux cas, on peut le mettre dans coolify, mais si on l'a mis dans compose c'est facultatif)
+3. dans les appels fetch, il ne faut pas mettre le port, car coolify recoit sur le domain du back, et s'occupe ensuite de l'envoyer sur le bon port dans le container
 
 
 
