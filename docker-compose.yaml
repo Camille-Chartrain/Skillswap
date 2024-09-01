@@ -16,7 +16,7 @@ services:
     image: "node:18"
     working_dir: /home/server/Skillswap/BACK
     environment:
-      PORT: '${PORT_BACK}'
+      PORT: '${PORT_EXPRESS}'
       SECRET: '${SECRET}'
       PUBLIC_URL: '${PUBLIC_URL}'
       TOKEN_SECRET: '${TOKEN_SECRET}'
@@ -26,6 +26,8 @@ services:
       PGPASSWORD: '${PG_PASSWORD}'
       PGDATABASE: '${PG_DB}'
       PGPORT: '${PG_PORT}'
+    ports:
+      - '${PORT_BACK}:${PORT_EXPRESS}'
     volumes:
       - ./BACK:/home/server/Skillswap/BACK
       - node_modules_back:/home/server/Skillswap/BACK/node_modules
