@@ -2,7 +2,7 @@ services:
   bdd:
     image: "postgres:14-alpine"
     ports:
-      - '${DDB_PORT}:${PG_PORT}'
+      - '${PORT_BDD}:${PG_PORT}'
     environment:
       POSTGRES_DB: '${PG_DB}'
       POSTGRES_PASSWORD: '${PG_PASSWORD}'
@@ -44,7 +44,7 @@ services:
       #REACT_APP_API_URL: 'https://${PUBLIC_URL}:${PORT_BACK}'
       REACT_APP_API_URL: 'http://${PUBLIC_URL}:${PORT_BACK}'
     ports:
-      - '${PORT_FRONT}:${PARCELL_PORT}'
+      - '${PORT_FRONT}:${PORT_PARCEL}'
     volumes:
       - ./FRONT:/home/server/Skillswap/FRONT
       - node_modules_front:/home/server/Skillswap/FRONT/node_modules
