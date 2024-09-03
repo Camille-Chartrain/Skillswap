@@ -6,14 +6,23 @@
 -- Dumped by pg_dump version 14.12
 
 SET statement_timeout = 0;
+
 SET lock_timeout = 0;
+
 SET idle_in_transaction_session_timeout = 0;
+
 SET client_encoding = 'UTF8';
+
 SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
+
+SELECT pg_catalog.set_config ('search_path', '', false);
+
 SET check_function_bodies = false;
+
 SET xmloption = content;
+
 SET client_min_messages = warning;
+
 SET row_security = off;
 
 SET default_tablespace = '';
@@ -30,22 +39,19 @@ CREATE TABLE public.category (
     picture text NOT NULL
 );
 
-
 ALTER TABLE public.category OWNER TO admin;
 
 --
 -- Name: category_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
 --
 
-ALTER TABLE public.category ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.category_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1
+ALTER TABLE public.category
+ALTER COLUMN id
+ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.category_id_seq START
+    WITH
+        1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1
 );
-
 
 --
 -- Name: interest; Type: TABLE; Schema: public; Owner: admin
@@ -56,7 +62,6 @@ CREATE TABLE public.interest (
     "CategoryId" integer
 );
 
-
 ALTER TABLE public.interest OWNER TO admin;
 
 --
@@ -65,15 +70,20 @@ ALTER TABLE public.interest OWNER TO admin;
 
 CREATE TABLE public.meeting (
     id integer NOT NULL,
-    date timestamp with time zone NOT NULL,
-    status text,
-    mark integer,
-    "createdAt" timestamp with time zone NOT NULL,
-    "updatedAt" timestamp with time zone NOT NULL,
-    "UserId" integer,
-    "SkillId" integer
+    date timestamp
+    with
+        time zone NOT NULL,
+        status text,
+        mark integer,
+        "createdAt" timestamp
+    with
+        time zone NOT NULL,
+        "updatedAt" timestamp
+    with
+        time zone NOT NULL,
+        "UserId" integer,
+        "SkillId" integer
 );
-
 
 ALTER TABLE public.meeting OWNER TO admin;
 
@@ -81,15 +91,13 @@ ALTER TABLE public.meeting OWNER TO admin;
 -- Name: meeting_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
 --
 
-ALTER TABLE public.meeting ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.meeting_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1
+ALTER TABLE public.meeting
+ALTER COLUMN id
+ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.meeting_id_seq START
+    WITH
+        1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1
 );
-
 
 --
 -- Name: skill; Type: TABLE; Schema: public; Owner: admin
@@ -110,10 +118,13 @@ CREATE TABLE public.skill (
     "SubCategoryId" integer NOT NULL,
     "CategoryId" integer NOT NULL,
     "UserId" integer NOT NULL,
-    "createdAt" timestamp with time zone NOT NULL,
-    "updatedAt" timestamp with time zone NOT NULL
+    "createdAt" timestamp
+    with
+        time zone NOT NULL,
+        "updatedAt" timestamp
+    with
+        time zone NOT NULL
 );
-
 
 ALTER TABLE public.skill OWNER TO admin;
 
@@ -121,15 +132,13 @@ ALTER TABLE public.skill OWNER TO admin;
 -- Name: skill_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
 --
 
-ALTER TABLE public.skill ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.skill_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1
+ALTER TABLE public.skill
+ALTER COLUMN id
+ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.skill_id_seq START
+    WITH
+        1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1
 );
-
 
 --
 -- Name: subcategory; Type: TABLE; Schema: public; Owner: admin
@@ -141,22 +150,19 @@ CREATE TABLE public.subcategory (
     category_id integer NOT NULL
 );
 
-
 ALTER TABLE public.subcategory OWNER TO admin;
 
 --
 -- Name: subcategory_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
 --
 
-ALTER TABLE public.subcategory ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.subcategory_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1
+ALTER TABLE public.subcategory
+ALTER COLUMN id
+ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.subcategory_id_seq START
+    WITH
+        1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1
 );
-
 
 --
 -- Name: user; Type: TABLE; Schema: public; Owner: admin
@@ -179,7 +185,6 @@ CREATE TABLE public."user" (
     "updatedAt" timestamp with time zone NOT NULL
 );
 
-
 ALTER TABLE public."user" OWNER TO admin;
 
 --
@@ -195,12 +200,12 @@ ALTER TABLE public."user" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
     CACHE 1
 );
 
-
 --
 -- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: admin
 --
 
 COPY public.category (id, name, picture) FROM stdin;
+
 1	Langage	imageCategory/languageSkillswap.webp
 2	Bricolage	imageCategory/handiworkSkillswap.webp
 3	DIY	imageCategory/dyiSkillswap.webp
@@ -215,30 +220,25 @@ COPY public.category (id, name, picture) FROM stdin;
 --
 
 COPY public.interest ("UserId", "CategoryId") FROM stdin;
-1	1
-2	2
-3	3
-4	4
-5	5
-6	6
-7	1
-8	2
-1	2
-2	3
-3	4
-4	5
-5	6
-6	5
-7	4
-8	3
-\.
 
+1 1 2 2 3 3 4 4 5 5 6 6 7 1 8 2 1 2 2 3 3 4 4 5 5 6 6 5 7 4 8 3 \. 
 
 --
 -- Data for Name: meeting; Type: TABLE DATA; Schema: public; Owner: admin
 --
 
-COPY public.meeting (id, date, status, mark, "createdAt", "updatedAt", "UserId", "SkillId") FROM stdin;
+COPY public.meeting (
+    id,
+    date,
+    status,
+    mark,
+    "createdAt",
+    "updatedAt",
+    "UserId",
+    "SkillId"
+)
+FROM stdin;
+
 1	2024-08-12 17:00:18.547+00	en attente	\N	2024-08-12 17:00:18.547+00	2024-08-12 17:00:18.547+00	1	1
 2	2024-08-12 17:00:18.548+00	en cours	\N	2024-08-12 17:00:18.547+00	2024-08-12 17:00:18.547+00	1	3
 3	2024-08-12 17:00:18.548+00	refusé	\N	2024-08-12 17:00:18.547+00	2024-08-12 17:00:18.547+00	1	4
@@ -278,7 +278,26 @@ COPY public.meeting (id, date, status, mark, "createdAt", "updatedAt", "UserId",
 -- Data for Name: skill; Type: TABLE DATA; Schema: public; Owner: admin
 --
 
-COPY public.skill (id, title, duration, price, level, transmission, description, availability, "averageMark", "sumOfMarks", "numberOfRating", "SubCategoryId", "CategoryId", "UserId", "createdAt", "updatedAt") FROM stdin;
+COPY public.skill (
+    id,
+    title,
+    duration,
+    price,
+    level,
+    transmission,
+    description,
+    availability,
+    "averageMark",
+    "sumOfMarks",
+    "numberOfRating",
+    "SubCategoryId",
+    "CategoryId",
+    "UserId",
+    "createdAt",
+    "updatedAt"
+)
+FROM stdin;
+
 1	self-defense	1h30	1	intermediaire	presentiel	apprenez à vous sortir des pires situations	soir et we	4	\N	\N	29	5	5	2024-08-12 17:00:18.488+00	2024-08-12 17:00:18.488+00
 2	Histoires des Guerres	2h	1	avancé	visio	Découvrez comment les victoires ont été obtenues	soir et we	3	\N	\N	33	6	1	2024-08-12 17:00:18.488+00	2024-08-12 17:00:18.488+00
 3	Bouture de basilic	15mn	1	débutant	presentiel et visio	Apprenez à faire vos propres boutures de basilic pour avoir des tonnes de basilic tout l'été	dimanche matin	4	\N	\N	11	2	8	2024-08-12 17:00:18.488+00	2024-08-12 17:00:18.488+00
@@ -296,6 +315,7 @@ COPY public.skill (id, title, duration, price, level, transmission, description,
 --
 
 COPY public.subcategory (id, name, category_id) FROM stdin;
+
 1	Langues etrangeres (anglais, francais, espagnol, etc.)	1
 2	Grammaire et orthographe	1
 3	Langage des signes	1
@@ -340,6 +360,7 @@ COPY public.subcategory (id, name, category_id) FROM stdin;
 --
 
 COPY public."user" (id, firstname, lastname, birthday, email, grade_level, presentation, role, swappies, "swappiesWinned", "swappiesSpent", hash, "createdAt", "updatedAt") FROM stdin;
+
 1	Victoire	Hourra	\N	onAUneBddEnSequelize@gmail.com	\N	 j'adore gagner	member	2	2	0	$2b$12$MLiHhojZr4vqCuBMuwp8R.3wgnErTEPWcivjx5eCnuhdWAsAvFWjy	2024-08-12 17:00:13.608+00	2024-08-12 17:00:13.608+00
 2	marie	Edenlané	\N	diamant@gmail.com	\N	toujours de bonne humeur	member	2	2	0	$2b$12$AssGEysGMTeRymHzB7zyROQRUF6H00FqBeKEGqxUHGC4vEl.dTW5e	2024-08-12 17:00:13.608+00	2024-08-12 17:00:13.608+00
 3	José	Paledire	\N	chut@gmail.com	\N	discret mais solide	member	2	2	0	$2b$12$fBOzARYyRanxJUOuTTUI3.mAPj.HSOCmoN26yQ8DLGCqimiqHPbby	2024-08-12 17:00:13.608+00	2024-08-12 17:00:13.608+00
@@ -349,75 +370,66 @@ COPY public."user" (id, firstname, lastname, birthday, email, grade_level, prese
 7	Elodie	toujournon	\N	pasfun@gmail.com	\N	Vous pouvez me contacter je vous répondrai si je suis disponible	member	2	2	0	$2b$12$ls3Fl56R/DOPw.B7gvnrv.HBbYzHt6yCQeKPYhYUbMWodIPPNgxy2	2024-08-12 17:00:13.608+00	2024-08-12 17:00:13.608+00
 8	Olivier	Vert	\N	belarbuste@gmail.com	\N	Mains toutes vertes et vie en rose	member	2	2	0	$2b$12$dJAFpMAeqKJ/531hiV3bsO1FITuwVWgA5OcgVteHJ1nA/dZuIdPS6	2024-08-12 17:00:13.608+00	2024-08-12 17:00:13.608+00
 9	Ali	Baba	\N	tapis@gmail.com	\N	\N	admin	2	2	0	$2b$12$Ib2s6Rcmb6X7YdXBPC.jJ.7pvCMJHQGHHyv0AsujkSWpEAkj0HPbK	2024-08-12 17:00:13.608+00	2024-08-12 17:00:13.608+00
-\.
+\.x
 
 
 --
 -- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
 --
 
-SELECT pg_catalog.setval('public.category_id_seq', 6, true);
-
+SELECT pg_catalog.setval ( 'public.category_id_seq', 6, true );
 
 --
 -- Name: meeting_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
 --
 
-SELECT pg_catalog.setval('public.meeting_id_seq', 32, true);
-
+SELECT pg_catalog.setval ( 'public.meeting_id_seq', 32, true );
 
 --
 -- Name: skill_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
 --
 
-SELECT pg_catalog.setval('public.skill_id_seq', 9, true);
-
+SELECT pg_catalog.setval ( 'public.skill_id_seq', 9, true );
 
 --
 -- Name: subcategory_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
 --
 
-SELECT pg_catalog.setval('public.subcategory_id_seq', 36, true);
-
+SELECT pg_catalog.setval ( 'public.subcategory_id_seq', 36, true );
 
 --
 -- Name: user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
 --
 
-SELECT pg_catalog.setval('public.user_id_seq', 9, true);
-
+SELECT pg_catalog.setval ('public.user_id_seq', 9, true);
 
 --
 -- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.category
-    ADD CONSTRAINT category_pkey PRIMARY KEY (id);
-
+ADD CONSTRAINT category_pkey PRIMARY KEY (id);
 
 --
 -- Name: meeting meeting_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.meeting
-    ADD CONSTRAINT meeting_pkey PRIMARY KEY (id);
-
+ADD CONSTRAINT meeting_pkey PRIMARY KEY (id);
 
 --
 -- Name: skill skill_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.skill
-    ADD CONSTRAINT skill_pkey PRIMARY KEY (id);
-
+ADD CONSTRAINT skill_pkey PRIMARY KEY (id);
 
 --
 -- Name: subcategory subcategory_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.subcategory
-    ADD CONSTRAINT subcategory_pkey PRIMARY KEY (id);
-
+ADD CONSTRAINT subcategory_pkey PRIMARY KEY (id);
 
 --
 -- Name: user user_email_key; Type: CONSTRAINT; Schema: public; Owner: admin
@@ -426,14 +438,12 @@ ALTER TABLE ONLY public.subcategory
 ALTER TABLE ONLY public."user"
     ADD CONSTRAINT user_email_key UNIQUE (email);
 
-
 --
 -- Name: user user_email_key1; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public."user"
     ADD CONSTRAINT user_email_key1 UNIQUE (email);
-
 
 --
 -- Name: user user_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
@@ -442,14 +452,12 @@ ALTER TABLE ONLY public."user"
 ALTER TABLE ONLY public."user"
     ADD CONSTRAINT user_pkey PRIMARY KEY (id);
 
-
 --
 -- Name: interest interest_CategoryId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.interest
-    ADD CONSTRAINT "interest_CategoryId_fkey" FOREIGN KEY ("CategoryId") REFERENCES public.category(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
+ADD CONSTRAINT "interest_CategoryId_fkey" FOREIGN KEY ("CategoryId") REFERENCES public.category (id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 --
 -- Name: interest interest_UserId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admin
@@ -458,14 +466,12 @@ ALTER TABLE ONLY public.interest
 ALTER TABLE ONLY public.interest
     ADD CONSTRAINT "interest_UserId_fkey" FOREIGN KEY ("UserId") REFERENCES public."user"(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
-
 --
 -- Name: meeting meeting_SkillId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.meeting
-    ADD CONSTRAINT "meeting_SkillId_fkey" FOREIGN KEY ("SkillId") REFERENCES public.skill(id) ON UPDATE CASCADE ON DELETE SET NULL;
-
+ADD CONSTRAINT "meeting_SkillId_fkey" FOREIGN KEY ("SkillId") REFERENCES public.skill (id) ON UPDATE CASCADE ON DELETE SET NULL;
 
 --
 -- Name: meeting meeting_UserId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admin
@@ -474,22 +480,19 @@ ALTER TABLE ONLY public.meeting
 ALTER TABLE ONLY public.meeting
     ADD CONSTRAINT "meeting_UserId_fkey" FOREIGN KEY ("UserId") REFERENCES public."user"(id) ON UPDATE CASCADE ON DELETE SET NULL;
 
-
 --
 -- Name: skill skill_CategoryId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.skill
-    ADD CONSTRAINT "skill_CategoryId_fkey" FOREIGN KEY ("CategoryId") REFERENCES public.category(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
+ADD CONSTRAINT "skill_CategoryId_fkey" FOREIGN KEY ("CategoryId") REFERENCES public.category (id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 --
 -- Name: skill skill_SubCategoryId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.skill
-    ADD CONSTRAINT "skill_SubCategoryId_fkey" FOREIGN KEY ("SubCategoryId") REFERENCES public.subcategory(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
+ADD CONSTRAINT "skill_SubCategoryId_fkey" FOREIGN KEY ("SubCategoryId") REFERENCES public.subcategory (id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 --
 -- Name: skill skill_UserId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admin
@@ -498,16 +501,13 @@ ALTER TABLE ONLY public.skill
 ALTER TABLE ONLY public.skill
     ADD CONSTRAINT "skill_UserId_fkey" FOREIGN KEY ("UserId") REFERENCES public."user"(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
-
 --
 -- Name: subcategory subcategory_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.subcategory
-    ADD CONSTRAINT subcategory_category_id_fkey FOREIGN KEY (category_id) REFERENCES public.category(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
+ADD CONSTRAINT subcategory_category_id_fkey FOREIGN KEY (category_id) REFERENCES public.category (id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 --
 -- PostgreSQL database dump complete
 --
-

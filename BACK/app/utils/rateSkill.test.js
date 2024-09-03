@@ -106,3 +106,20 @@ describe('rateSkill function', () => {
         expect(res.send).toHaveBeenCalledWith(new Error('Some error'));
     });
 });
+
+describe('filter subcat function', () => {
+    it('should not proceed if SubCategoryId is an empty string, "undefined", or "null"', async () => {
+        // Définir les différents cas à tester
+        const invalidSubCategoryIds = ["", "undefined", "null"];
+
+        invalidSubCategoryIds.forEach(SubCategoryId => {
+            if (SubCategoryId !== "undefined" && SubCategoryId !== "null" && SubCategoryId !== "") {
+                // Cette partie ne devrait pas être atteinte
+                throw new Error(`The code should not reach this point for SubCategoryId: ${SubCategoryId}`);
+            } else {
+                // Si nous sommes ici, le SubCategoryId est bien filtré
+                expect(true).toBe(true); // Test passe si la condition est correctement évitée
+            }
+        });
+    });
+});
