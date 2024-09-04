@@ -312,9 +312,7 @@ Pour que le projet soit accessible en ligne, il faut qu'on précise à coolify q
 
 En effet, coolify utilise son propre reverse proxy, ce qui nous évite d'en mettre un an place nous-même.
 
-Le reverse proxy est un server, celui de coolify s'appelle "traefik", qui reçoit les requetes web avant notre server en node.js.
-
-L'utilité est de pouvoir dire "si je reçois une requete pour telle url, je la redirige vers tel container".
+Le reverse proxy est un server, celui de coolify s'appelle "traefik", qui reçoit les requetes web avant notre server en node.js, et il les redirige vers le bon container, le bon port, le bon service sur la machine.
 
 Dans notre cas, on veut que notre nom de domaine redirige vers notre container FRONT, il faut donc qu'on informe coolify que le container FRONT est accessible depuis telle url.
 
@@ -333,9 +331,31 @@ Les difficultés rencontrés ont été les suivantes :
 - Organiser toutes la variables d'environnement à la racine.
 - Comprendre les options de coolify pour le reverse proxy qui permet d'acceder au site depuis le bon sous-domaine.
 
-Une fois ces difficultés dépassées, le deploiement est très simple.
+Une fois ces difficultés dépassées, le deploiement avec coolify est très simple.
 
 ### https
+
+Pour passer du déploiement en http au déploiement en https, il n'y a pas beaucoup de modifications à faire, mais il faut bien comprendre comment fonctionnent les ports et le proxy.
+
+#### le certificat ssl
+
+Nous n'avons pas besoin de génerer de certificat ssl, en effet :
+- c'est coolify qui s'occupe de générer le certificat,
+- c'est coolify aussi qui configure son reverse proxy pour pouvoir recevoir des requettes https,
+- et c'est coolify egalement qui s'occupe de forcer les requetes http en https.
+
+#### les noms de domaines et les ports
+
+Contrairement au deploiement en http, pour le https il ne suffit pas d'indiquer le nom de domaine du FRONT, il faut aussi indiquer celui du BACK.
+
+Et contrairement au http, en https il a fallut utiliser un sous-domaine different pour le BACK : "https://api.camille.cloud", plutot que le meme sous-domaine avec un port different (https://skillswap.camille.cloud:3001 par exemple).
+
+La raison pour laquelle on doit declarer le domaine du BACK, c'est à cause des politiques de securité des navigateurs :
+- en http, avoir la meme adresse avec un port different n'est pas considéré comme une faille de securité, mais en https si.
+
+
+
+
 
 
 ---
