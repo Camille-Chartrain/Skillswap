@@ -9,6 +9,9 @@ sommaire :
 - 1.2.5. pbm 4 **dist/**
 - 1.2.6. pbm 5 **bdd sync & seed**
 - 1.2.3. pbm 6 **ports**
+- 1.3. explication du deploiement
+- 1.3.1. http
+- 1.3.2. https
 - 2. securité
 - 2.1 types de failles de securité
 
@@ -16,7 +19,7 @@ sommaire :
 
 # deploiement :
 
-### historique des actions et pbm rencontrés
+## historique des actions et pbm rencontrés
 
 - lancement du deploiement sur coolify à partir du repo github publique
 - **erreur :**
@@ -120,7 +123,7 @@ sommaire :
 
 
 
-### liste des problemes et de leur resolution
+## liste des problemes et de leur resolution
 
 - resoudre les pbm que recontre coolify pour le deploiement :
 	1. **volumes :** il creer des dossier ./BACK/db/migration.sql/ et ./BACK/db/seeding.sql/ au lieu de fichiers, parce qu'il les voit dans le docker-compose.yml en tant que "bind mount files" et il croit que ce sont des volumes, puis il ne parvient pas a les remplacer par les fichiers quand il synchronise avec github
@@ -130,7 +133,7 @@ sommaire :
 	5. **bdd sync & seed :** à un moment il y a le pbm de la base de donnee qui doit etre cree en 2 etapes en de-commentant des lignes, je ne sais pas encore comment resoudre ca
 	6. **ports :** à ce stade, le site s'affiche mais il ne recupere pas les donnees du back
 
-#### pbm 1 **volumes** :
+### pbm 1 **volumes** :
 
 - dans le docker-compose.yml, au lieu d'avoir 2 fichier "bind mount", on va mettre un volume qui contient les 2 fichiers :
 	- avant :
@@ -147,7 +150,7 @@ sommaire :
 - aussi on change le nom de `migration.sql` pour `create_tables.sql` puisqu'il doit s'appeller comme ca dans le container
 - ok
 
-#### pbm 2 **psql/** :
+### pbm 2 **psql/** :
 
 - on a tout simplement pas besoin de synchroniser le dossier psql dans github
 	- donc on l'enleve de github : `git rm -r psql/`
@@ -155,7 +158,7 @@ sommaire :
 - la base de donnee se recreer correctement si on deploi
 - ok
 
-#### pbm 3 **.env** :
+### pbm 3 **.env** :
 
 - pour l'instant chaque dossier FRONT et BACK possede son fichier .env avec ses variables d'environnements
 - mais coolify ne nous laisse pas creer des variables d'environnement localisées dans tel ou tel fichier (à ma connaissance)
@@ -197,13 +200,13 @@ sommaire :
 - il ne reste plus qu'à les rentrer dans coolify avant de deployer
 - ok
 
-#### pbm 4 **dist/** :
+### pbm 4 **dist/** :
 
 - en fait react cree des fichiers dans le dossier dist/ qui ont ete envoyé sur github
 - ils ne sont du coup pas bien recrees dans le server
 - il suffit de les enlever de git et github avec une regle dans .gitignore
 
-#### pbm 5 **bdd sync & seed** :
+### pbm 5 **bdd sync & seed** :
 
 - je vais simplement comparer la bdd avant et apres sync, pour voir un critere que je pourrais utiliser pour savoir si elle a deja ete sync :
 	```
@@ -225,11 +228,98 @@ sommaire :
 	```
 - on peut utiliser la presence de la colonne "status" dans la table meeting par exemple
 
-#### pbm 6 **ports** :
+### pbm 6 **ports** :
 
 - les ports n'etaient pas bien mis dans les variables .env
 - ex: le port `REACT_APP_URL` n'etait pas le meme que le `PORT_FRONT` alors qu'en fait c'est le meme
 - j'ai un peu ordonné toutes les variables d'environnement pour eviter des doublons et des melanges
+
+
+
+
+
+
+## explication du deploiement
+
+### http
+
+Pour deployer en http avec coolify, il a fallut suivre quelques étapes et configurations.
+
+#### prerequis : projet docker sur repo github publique
+
+la premiere etape était très simple, grâce aux conditions suivantes :
+
+- le projet est fait avec docker compose
+- le code source est en publique sur github
+
+Il a suffit de donner le lien du repo github à coolify pour qu'il prépare le déploiement.
+
+On peut préciser la branche grâce à l'url.
+
+#### copier les volumes
+
+Par defaut, coolify va seulement récupérer le fichier compose, car il s'attend à un projet neuf.
+
+Dans notre cas, nous avons dejà tout un projet mis en place dans des dossiers, en tant que volumes, donc nous voulons que coolify les prenne en compte aussi.
+
+Pour faire ça, nous cochons la case "preserve repository during deploiement", et coolify va copier tous le contenu du repo github.
+
+Malheureusement, cette option possède un défaut : dans notre docker-compose.yml nous utilisions un volume non standard, que coolify ne savait pas gérer, nous avons donc changé légèrement l'organisation du projet pour résoudre ce probleme :
+- Nous utilisions deux fichiers "bind mount", c'est à dire que nous déclarions les fichiers directement en tant que volumes.
+- Cette façon de faire ne fonctionne de toute façon pas sur toutes les machines, c'est pourquoi elle n'est pas documenté dans la doc de docker.
+- Pour résoudre ce probleme, nous avons simplement déclaré comme volume le dossier contenant ces deux fichiers :
+- code :
+	- avant :
+	```
+  volumes:
+    - ./BACK/db/migration.sql:/docker-entrypoint-initdb.d/create_tables.sql 
+    - ./BACK/db/seeding.sql:/docker-entrypoint-initdb.d/seeding.sql
+	```
+	- apres :
+	```
+  volumes:
+    - ./BACK/db/:/docker-entrypoint-initdb.d/
+	```
+
+Après ça, la copie du projet depuis github fonctionne parfaitement.
+
+#### variables d'environnement
+
+Pour des raisons de sécurité, nous ne synchronisons pas nos fichiers .env sur github.
+
+Donc il faut copier le contenu de ces fichiers dans l'onglet "environment variables" de coolify.
+
+Ici encore nous avons rencontré un léger probleme : coolify ne supporte que des variables d'environnement à la racine du projet, l'equivalent d'avoir un fichier .env à côté du fichier docker-compose.yml.
+
+Mais notre projet utilisait des fichiers .env directement dans les containers FRONT et BACK, utilisés dans le code node.js.
+
+Il a donc fallut restructurer le projet pour qu'il utilise les variables d'environnement à la racine.
+
+Notre solution etait la suivante :
+- mettre toutes les variables dans un fichier .env à la racine,
+- et utiliser la directive "environment" du fichier compose pour ajouter ces variables directement dans les environnement des containers.
+
+Il ne reste plus qu'à copier manuellement ces variables dans coolify, qui supporte le simple copier-coller d'un fichier .env, donc c'est très rapide et simple à faire.
+
+#### nom de domaine
+
+Pour que le projet soit accessible en ligne, il faut qu'on précise à coolify quel nom de domaine il doit utiliser.
+
+En effet, coolify utilise son propre reverse proxy, ce qui nous évite d'en mettre un an place nous-même.
+
+Le reverse proxy est un server, celui de coolify s'appelle "traefik", qui reçoit les requetes web avant notre server en node.js.
+
+L'utilité est de pouvoir dire "si je reçois une requete pour telle url, je la redirige vers tel container".
+
+Dans notre cas, on veut que notre nom de domaine redirige vers notre container FRONT, il faut donc qu'on informe coolify que le container FRONT est accessible depuis telle url.
+
+Comme nous possedons un domaine "camille.cloud", nous avons crée un sous-domaine (cela se fait directement sur le site de notre hebergeur web) "skillswap.camille.cloud".
+
+Il ne nous reste plus qu'à rentrer l'adresse "http://skillswap.camille.cloud" dans le champ "domains for front" de coolify.
+
+Sans cette étape, notre site n'aurait pas éte accessible 
+
+### https
 
 
 ---
