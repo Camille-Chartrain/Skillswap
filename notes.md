@@ -346,12 +346,23 @@ Nous n'avons pas besoin de génerer de certificat ssl, en effet :
 
 #### les noms de domaines et les ports
 
+En http, on avait la configuration suivante :
+- champs "domains" sur coolify :
+	- BACK  : ""
+	- FRONT : "http://skillswap.camille.cloud"
+- url fetch dans FRONT :
+	- "http://skillswap.camille.cloud:3000"
+- cors origin dans BACK :
+	- "http://skillswap.camille.cloud"
+
 Contrairement au deploiement en http, pour le https il ne suffit pas d'indiquer le nom de domaine du FRONT, il faut aussi indiquer celui du BACK.
 
 Et contrairement au http, en https il a fallut utiliser un sous-domaine different pour le BACK : "https://api.camille.cloud", plutot que le meme sous-domaine avec un port different (https://skillswap.camille.cloud:3001 par exemple).
 
 La raison pour laquelle on doit declarer le domaine du BACK, c'est à cause des politiques de securité des navigateurs :
 - en http, avoir la meme adresse avec un port different n'est pas considéré comme une faille de securité, mais en https si.
+
+
 
 
 
