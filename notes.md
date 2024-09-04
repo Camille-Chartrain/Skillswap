@@ -11,6 +11,11 @@ sommaire :
 - 1.2.3. pbm 6 **ports**
 - 1.3. explication du deploiement
 - 1.3.1. http
+- 1.3.1.1. prerequis : projet docker sur repo github publique
+- 1.3.1.2. copier les volumes
+- 1.3.1.3. variables d'environnement
+- 1.3.1.4. nom de domaine
+- 1.3.1.5. conclusion
 - 1.3.2. https
 - 2. securité
 - 2.1 types de failles de securité
@@ -317,7 +322,13 @@ Comme nous possedons un domaine "camille.cloud", nous avons crée un sous-domain
 
 Il ne nous reste plus qu'à rentrer l'adresse "http://skillswap.camille.cloud" dans le champ "domains for front" de coolify.
 
-Sans cette étape, notre site n'aurait pas éte accessible 
+Sans cette étape, notre site n'aurait pas éte accessible depuis notre sous-domaine, mais depuis notre domaine principale sur le bon port, exemple : "http://camille.cloud:1234"
+
+#### conclusion
+
+Coolify simplifie beaucoup le déployement, mais il rajoute aussi une couche de complexité, qui fait que les erreurs peuvent être plus difficiles à démeler quand on ne connait pas encore bien le déploiement.
+Les difficultés rencontrés ont été les suivantes :
+- 
 
 ### https
 
