@@ -271,16 +271,17 @@ Pour faire ça, nous cochons la case "preserve repository during deploiement", e
 
 Malheureusement, cette option possède un défaut : dans notre docker-compose.yml nous utilisions un volume non standard, que coolify ne savait pas gérer, nous avons donc changé légèrement l'organisation du projet pour résoudre ce probleme :
 - Nous utilisions deux fichiers "bind mount", c'est à dire que nous déclarions les fichiers directement en tant que volumes.
-- Cette façon de faire ne fonctionne de toute façon pas sur toutes les machines, c'est pourquoi elle n'est pas documenté dans la doc de docker.
+- Mais coolify ne gère pas bien cette situation, il creer des dossiers à la place des fichiers, et donc le deploiement echoue.
+- Cette façon de faire ne fonctionne de toute façon pas sur toutes les machines, c'est pourquoi elle n'est pas documentée dans la doc de docker.
 - Pour résoudre ce probleme, nous avons simplement déclaré comme volume le dossier contenant ces deux fichiers :
 - code :
-	- avant :
+	- avant (bind mount) :
 	```
   volumes:
     - ./BACK/db/migration.sql:/docker-entrypoint-initdb.d/create_tables.sql 
     - ./BACK/db/seeding.sql:/docker-entrypoint-initdb.d/seeding.sql
 	```
-	- apres :
+	- apres (volume classique) :
 	```
   volumes:
     - ./BACK/db/:/docker-entrypoint-initdb.d/
