@@ -63,7 +63,6 @@ app.use(cors({
 		origin: [
 			`http://${url}`,
 			`https://${url}`,
-			`https://${url}:443`,
 		],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true
