@@ -311,7 +311,7 @@ Il ne reste plus qu'à copier manuellement ces variables dans coolify, qui suppo
 
 Pour que le projet soit accessible en ligne, il faut qu'on précise à coolify quel nom de domaine il doit utiliser.
 
-En effet, coolify utilise son propre reverse proxy, ce qui nous évite d'en mettre un an place nous-même.
+En effet, coolify utilise son propre reverse proxy, ce qui nous évite d'en mettre un en place nous-même.
 
 Le reverse proxy est un server, celui de coolify s'appelle "traefik", qui reçoit les requetes web avant notre server en node.js, et il les redirige vers le bon container, le bon port, le bon service sur la machine.
 
@@ -370,15 +370,15 @@ La raison est que pour le navigateur, deux url http identiques mais avec un port
 
 Pour pouvoir permettre au FRONT de faire un fetch au BACK avec seulement un port different, il faudrait pouvoir controller plus finement les reglages du reverse proxy de coolify.
 
-Seulement, coolify ne permet pas un reglage fin de son reverse proxy. Par exemple, si on indique cette adresse dans coolify :" domain BACK: https://skillswap.camille.cloud:3000", alors coolify ne l'interprete pas comme "tout appel à l'addresse skillswap.camille.cloud sur le port 3000 sera redirigé vers le conteneur BACK", mais comme : "tout appel à l'addresse skillswap.camille.cloud sera mappé au port 3000 à l'intérieur du conteneur BACK, qui lui tourne sur le port XXXX". Donc, pour coolify on a donné la meme adresse au FRONT et au BACK, et pour une raison quelconque le BACK prend le dessus, résultat quand on essaye d'atteindre le site sur l'adresse FRONT "https://skillswap.camille.cloud", le revers proxy croit qu'on essaye d'atteindre le BACK,, et donc on reçoit le json sur notre navigateur, au lieu du site.
+Seulement, coolify ne permet pas un reglage fin de son reverse proxy. Par exemple, si on indique cette adresse dans coolify : "domain BACK: https://skillswap.camille.cloud:3000", alors coolify ne l'interprete pas comme "tout appel à l'addresse skillswap.camille.cloud sur le port 3000 sera redirigé vers le conteneur BACK", mais comme : "tout appel à l'addresse skillswap.camille.cloud sera mappé au port 3000 à l'intérieur du conteneur BACK, qui tourne sur le port XXXX". Donc, pour coolify on a donné la meme adresse au FRONT et au BACK, et pour une raison quelconque le BACK prend le dessus, résultat quand on essaye d'atteindre le site sur l'adresse FRONT "https://skillswap.camille.cloud", le revers proxy croit qu'on essaye d'atteindre le BACK,, et donc on reçoit le json sur notre navigateur, au lieu du site.
 
 Nous ne pouvons donc pas :
-- ni fetch sur la meme adresse que le front mais avec un autre port : erreur de cors dans le navigateur.
-- ni declarer un domain pour le back identique au front mais avec un autre port : coolify ne permet pas ce reglage, il l'interprete comme avoir declaré le meme domaine tout court.
+- ni fetch sur la meme adresse que le FRONT mais avec un autre port : erreur de cors dans le navigateur.
+- ni declarer un domain pour le BACK identique au front mais avec un autre port : coolify ne permet pas ce reglage, il l'interprete comme avoir declaré le meme domaine tout court.
 
 #### la bonne configuration
 
-La solution consiste simplement à utiliser un autre domaine pour le back : "api.camille.cloud", et les réglages deviennent très simples :
+La solution consiste simplement à utiliser un autre domaine pour le BACK : "api.camille.cloud", et les réglages deviennent très simples :
 - champs "domains" sur coolify :
 	- BACK  : "https://api.camille.cloud:3000"
 	- FRONT : "https://skillswap.camille.cloud"
@@ -387,7 +387,7 @@ La solution consiste simplement à utiliser un autre domaine pour le back : "api
 - cors origin dans BACK :
 	- "https://skillswap.camille.cloud"
 
-On remarque que l'adresse du BACK est associée à un port. Comme nous l'avons précisé avant, ce port n'indique pas l'adresse du BACK à proprement parler, mais sur quel port le back doit être mappé dans le container. Autrement dit, le BACK est joignable sur "api.camille.cloud" et non pas sur "api.camille.cloud:3000", par contre dans le container, express doit ecouter le port 3000 pour recevoir les requettes.
+On remarque que l'adresse du BACK est associée à un port. Comme nous l'avons précisé avant, ce port n'indique pas l'adresse du BACK à proprement parler, mais sur quel port le BACK doit être mappé dans le container. Autrement dit, le BACK est joignable sur "api.camille.cloud" et non pas sur "api.camille.cloud:3000", par contre dans le container, express doit ecouter le port 3000 pour recevoir les requettes.
 
 Un autre solution pour cette ligne, serait de mettre simplement le domain sans le port : "https://api.camille.cloud", et de préciser le mappage du port dans le docker-compose.yaml, et c'est ce que nous avons fait :
 ```
