@@ -327,8 +327,13 @@ Sans cette étape, notre site n'aurait pas éte accessible depuis notre sous-dom
 #### conclusion
 
 Coolify simplifie beaucoup le déployement, mais il rajoute aussi une couche de complexité, qui fait que les erreurs peuvent être plus difficiles à démeler quand on ne connait pas encore bien le déploiement.
+
 Les difficultés rencontrés ont été les suivantes :
-- 
+- Copier les volumes, en évitant les fichiers "bind mount".
+- Organiser toutes la variables d'environnement à la racine.
+- Comprendre les options de coolify pour le reverse proxy qui permet d'acceder au site depuis le bon sous-domaine.
+
+Une fois ces difficultés dépassées, le deploiement est très simple.
 
 ### https
 

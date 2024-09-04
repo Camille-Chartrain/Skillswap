@@ -62,7 +62,6 @@ app.use(cors({
 		//origin: '*',
 		origin: [
 			`http://${url}`,
-			`http://${url}:1235`,
 			`https://${url}`,
 			`https://${url}:443`,
 		],
