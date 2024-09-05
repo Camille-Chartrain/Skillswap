@@ -1,24 +1,24 @@
 sommaire :
 
-- 1. deploiement
-- 1.1. historique des actions et pbm rencontrés
-- 1.2. liste des problemes et de leur resolution
-- 1.2.1. pbm 1 **volumes**
-- 1.2.2. pbm 2 **psql/**
-- 1.2.4. pbm 3 **.env**
-- 1.2.5. pbm 4 **dist/**
-- 1.2.6. pbm 5 **bdd sync & seed**
-- 1.2.3. pbm 6 **ports**
-- 1.3. explication du deploiement
-- 1.3.1. http
-- 1.3.1.1. prerequis : projet docker sur repo github publique
-- 1.3.1.2. copier les volumes
-- 1.3.1.3. variables d'environnement
-- 1.3.1.4. nom de domaine
-- 1.3.1.5. conclusion
-- 1.3.2. https
-- 2. securité
-- 2.1 types de failles de securité
+- deploiement
+	- historique des actions et pbm rencontrés
+	- liste des problemes et de leur resolution
+		- pbm 1 **volumes**
+		- pbm 2 **psql/**
+		- pbm 3 **.env**
+		- pbm 4 **dist/**
+		- pbm 5 **bdd sync & seed**
+		- pbm 6 **ports**
+	- explication du deploiement
+		- http
+		- prerequis : projet docker sur repo github publique
+		- copier les volumes
+		- variables d'environnement
+		- nom de domaine
+		- conclusion
+	- https
+- securité
+	- types de failles de securité
 
 ---
 
