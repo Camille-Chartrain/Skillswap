@@ -1,24 +1,28 @@
 sommaire :
 
-- deploiement
-	- historique des actions et pbm rencontrés
-	- liste des problemes et de leur resolution
-		- pbm 1 **volumes**
-		- pbm 2 **psql/**
-		- pbm 3 **.env**
-		- pbm 4 **dist/**
-		- pbm 5 **bdd sync & seed**
-		- pbm 6 **ports**
-	- explication du deploiement
-		- http
-		- prerequis : projet docker sur repo github publique
-		- copier les volumes
-		- variables d'environnement
-		- nom de domaine
-		- conclusion
-	- https
-- securité
-	- types de failles de securité
+- [deploiement](#deploiement-)
+	- [historique des actions et pbm rencontrés](#historique-des-actions-et-pbm-rencontrés)
+	- [liste des problemes et de leur resolution](#liste-des-problemes-et-de-leur-resolution)
+		- [pbm 1 **volumes**](#pbm-1-volumes-)
+		- [pbm 2 **psql/**](#pbm-2-psql-)
+		- [pbm 3 **.env**](#pbm-3-env-)
+		- [pbm 4 **dist/**](#pbm-4-dist-)
+		- [pbm 5 **bdd sync & seed**](#pbm-5-bdd-sync--seed-)
+		- [pbm 6 **ports**](#pbm-6-ports-)
+	- [explication du deploiement](#explication-du-deploiement)
+		- [http](#http)
+		- [prerequis : projet docker sur repo github publique](#prerequis--projet-docker-sur-repo-github-publique)
+		- [copier les volumes](#copier-les-volumes)
+		- [variables d'environnement](#variables-denvironnement)
+		- [nom de domaine](#nom-de-domaine)
+		- [conclusion](#conclusion)
+	- [https](#https)
+		- [le certificat ssl](#le-certificat-ssl)
+		- [probleme avec les noms de domaines et les ports](#probleme-avec-les-noms-de-domaines-et-les-ports)
+		- [la bonne configuration](#la-bonne-configuration)
+- [securité](#securité-)
+	- [types de failles de securité](#types-de-failles-de-sécurité-)
+	- [Descriptions des failles de sécurité](#descriptions-des-failles-de-sécurité-)
 
 ---
 
