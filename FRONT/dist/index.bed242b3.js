@@ -27527,7 +27527,7 @@ function App() {
         columnNumber: 9
     }, this);
 }
-_s(App, "glDuBTxuX2JpJju/Kf3P/mmECaI=");
+_s(App, "d2TERzDshNVyna6mz6lg2HwzTAk=");
 _c = App;
 exports.default = App;
 var _c;
@@ -27538,7 +27538,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","./components/Home":"ggupi","./components/Dashboard":"7KL8w","./components/Dashboard/Profile":"lfwej","./components/Dashboard/statistic":"amOpm","./components/Dashboard/Notification":"dADDe","./components/Dashboard/Desk":"b9wt4","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Admin":"78PF1","./components/PageTracking":"bO3q7","./components/Dashboard/Profile/ModifSkill":"4hke4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/Dashboard/Results":"3bfxL"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react":"21dqq","./components/Home":"ggupi","./components/Dashboard":"7KL8w","./components/Dashboard/Profile":"lfwej","./components/Dashboard/statistic":"amOpm","./components/Dashboard/Notification":"dADDe","./components/Dashboard/Desk":"b9wt4","./components/Registration":"9HgkV","./components/Login":"fVCjh","./components/Admin":"78PF1","./components/PageTracking":"bO3q7","./components/Dashboard/Results":"3bfxL","./components/Dashboard/Profile/ModifSkill":"4hke4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.25.1
  *
@@ -34659,7 +34659,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
         setLoading(true);
         try {
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}`, {
+            const response = await fetch(`${"https://api.camille.cloud"}`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -34692,7 +34692,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
                         name: "description",
-                        content: "Bienvenue sur la page d'accueil de Skillswap.    D\xe9couvrez des comp\xe9tences que vous aimeriez acqu\xe9rir gr\xe2ce \xe0 notre communaut\xe9."
+                        content: "Bienvenue sur la page d'accueil de Skillswap.  D\xe9couvrez des comp\xe9tences que vous aimeriez acqu\xe9rir gr\xe2ce \xe0 notre communaut\xe9."
                     }, void 0, false, {
                         fileName: "SRC/components/Home/index.js",
                         lineNumber: 84,
@@ -34858,7 +34858,7 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../SearchBar":"kxQdC","../Cards":"jUXwJ","../NavHome":"8DCBt","../Dashboard/NavLogged":"dYmlb","js-cookie":"c8bBu","./style.scss":"8u0qZ","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-helmet":"fcX6K"}],"kxQdC":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../SearchBar":"kxQdC","../Cards":"jUXwJ","../NavHome":"8DCBt","../Dashboard/NavLogged":"dYmlb","js-cookie":"c8bBu","./style.scss":"8u0qZ","react-router-dom":"9xmpe","react-helmet":"fcX6K","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kxQdC":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2835 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34895,7 +34895,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
             console.log("selectLevel dans try", selectedLevel);
             setLoading(true);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
                 method: "get",
                 headers: {
                     // 'Content-Type': 'application/json',
@@ -35082,7 +35082,7 @@ function Categories({ setSelectedCategory, optionsHTML }) {
         try {
             // console.log("essai de fetch categories");
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://localhost:3000/categories`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/categories`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -35397,8 +35397,8 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
             // console.log("essai de fetch subategories");
             // console.log("valeur de selectedCategory:", selectedCategory);
             const token = (0, _jsCookieDefault.default).get("token");
-            // console.log(`http://localhost:3000/subCategories/${selectedCategory}`);
-            const response = await fetch(`http://localhost:3000/subCategories/${selectedCategory}`, {
+            // console.log(`${process.env.REACT_APP_API_URL}/subCategories/${selectedCategory}`);
+            const response = await fetch(`${"https://api.camille.cloud"}/subCategories/${selectedCategory}`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -35737,7 +35737,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     className: "chil2dBoxHeader",
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                         className: "avatar",
-                                                        src: `http://${"localhost"}:${"3000"}/${card.Category.picture}`,
+                                                        src: `${"https://api.camille.cloud"}/${card.Category.picture}`,
                                                         alt: "photo des categories",
                                                         loading: "lazy"
                                                     }, void 0, false, {
@@ -35845,7 +35845,7 @@ $RefreshReg$(_c, "Cards");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.scss":"aktsk","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./StarRating":"9BKEa"}],"aktsk":[function() {},{}],"clIT3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.scss":"aktsk","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./StarRating":"9BKEa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aktsk":[function() {},{}],"clIT3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "FontAwesomeIcon", ()=>FontAwesomeIcon);
@@ -61395,7 +61395,7 @@ $RefreshReg$(_c, "StarRating");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@fortawesome/react-fontawesome":"clIT3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"k6cS0","@fortawesome/free-solid-svg-icons":"5lkdy"}],"k6cS0":[function() {},{}],"8DCBt":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"k6cS0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"k6cS0":[function() {},{}],"8DCBt":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3d66 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -61536,7 +61536,7 @@ $RefreshReg$(_c, "NavHome");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"bPS58","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../style/icones/Skillswap_logo_bgRemoved.webp":"3U2xG","../../style/icones/idea_icone.webp":"2RbJl"}],"bPS58":[function() {},{}],"3U2xG":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"bPS58","../../style/icones/Skillswap_logo_bgRemoved.webp":"3U2xG","../../style/icones/idea_icone.webp":"2RbJl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bPS58":[function() {},{}],"3U2xG":[function(require,module,exports) {
 module.exports = require("1e1e5777c4a0e3f5").getBundleURL("c2MLH") + "Skillswap_logo_bgRemoved.882e941f.webp" + "?" + Date.now();
 
 },{"1e1e5777c4a0e3f5":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -61933,7 +61933,7 @@ $RefreshReg$(_c, "NavLogged");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../../Logout":"5BNmm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"dmBTW","../../../style/icones/Skillswap_logo_bgRemoved.webp":"3U2xG","../../../style/icones/idea_icone.webp":"2RbJl"}],"5BNmm":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../../Logout":"5BNmm","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"dmBTW","../../../style/icones/Skillswap_logo_bgRemoved.webp":"3U2xG","../../../style/icones/idea_icone.webp":"2RbJl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5BNmm":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$fd5b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -61961,7 +61961,7 @@ function Logout({ setLogged, setSelectedCategory, setSelectedSubCategory, setSel
         try {
             console.log("deconnection => supprimer cookie. (composant Logout)");
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/logout`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/logout`, {
                 method: "POST",
                 status: 200,
                 headers: {
@@ -62021,7 +62021,7 @@ $RefreshReg$(_c, "Logout");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"83khe"}],"83khe":[function() {},{}],"dmBTW":[function() {},{}],"8u0qZ":[function() {},{}],"fcX6K":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","./style.scss":"83khe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"83khe":[function() {},{}],"dmBTW":[function() {},{}],"8u0qZ":[function() {},{}],"fcX6K":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Helmet", ()=>HelmetExport);
@@ -62988,7 +62988,7 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
             console.log("dans getsskills()");
             setLoading(true);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/skill`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/skill`, {
                 method: "get",
                 status: 200,
                 headers: {
@@ -63104,7 +63104,7 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
         ]
     }, void 0, true);
 }
-_s(Profile, "hN4/NGFXWbK716tESbinUKi2ulg=");
+_s(Profile, "hgys08M25B+tIzsWr0B5MNh3lSE=");
 _c = Profile;
 var _c;
 $RefreshReg$(_c, "Profile");
@@ -63114,7 +63114,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","js-cookie":"c8bBu","./CardsSkills":"bOaxI","./CreateSkill":"2JxV8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"dZlyp","react-helmet":"fcX6K"}],"cLUE2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./ProfilePatch":"cLUE2","js-cookie":"c8bBu","./CardsSkills":"bOaxI","./CreateSkill":"2JxV8","./style.scss":"dZlyp","react-helmet":"fcX6K","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cLUE2":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1375 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -63143,7 +63143,7 @@ function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, select
         console.log("profileData", profileData);
         try {
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/profile`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/profile`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
@@ -63260,7 +63260,7 @@ function CategoriesCheckboxes({ selectedCategories, setSelectedCategories, loadi
         try {
             console.log("essai de fetch categories");
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://localhost:3000/categories`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/categories`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -63363,7 +63363,7 @@ function DataProfile({ setLoading, dataProfile, setDataProfile, setSelectedCateg
         try {
             setLoading(true);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/profile`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/profile`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -63519,7 +63519,7 @@ $RefreshReg$(_c, "DataProfile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"bOaxI":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","js-cookie":"c8bBu","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bOaxI":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a0c6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -63553,7 +63553,7 @@ function CardsSkills({ loading, setLoading, skills, getSkills }) {
     async function deleteSkill(skill) {
         try {
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/${skill.id}`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/skill/${skill.id}`, {
                 method: "delete",
                 status: 200,
                 headers: {
@@ -63718,7 +63718,7 @@ $RefreshReg$(_c, "CardsSkills");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","react-confirm-alert":"c1JOB","react-confirm-alert/src/react-confirm-alert.css":"81Zmr","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"afcBC"}],"c1JOB":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","react-confirm-alert":"c1JOB","react-confirm-alert/src/react-confirm-alert.css":"81Zmr","js-cookie":"c8bBu","./style.scss":"afcBC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"c1JOB":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -64004,7 +64004,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
             // console.log("selectLevel dans CreateSkill", selectedLevel);
             // console.log('formDataEncoded CreateSkill:', formDataEncoded);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
                 method: "POST",
                 status: 200,
                 headers: {
@@ -64257,7 +64257,7 @@ $RefreshReg$(_c, "Statistics");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-helmet":"fcX6K"}],"dADDe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-helmet":"fcX6K","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dADDe":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7167 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -64361,7 +64361,7 @@ $RefreshReg$(_c, "Desk");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-helmet":"fcX6K"}],"9HgkV":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-helmet":"fcX6K","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9HgkV":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8f0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -64413,7 +64413,7 @@ function Registration() {
         try {
             console.log("try data:", formDataEncoded);
             // console.log('try myformdata:', myFormData);
-            const response = await fetch(`http://${"localhost"}:${"3000"}/registration`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/registration`, {
                 method: "post",
                 status: 200,
                 headers: {
@@ -64633,7 +64633,7 @@ $RefreshReg$(_c, "Registration");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../NavHome":"8DCBt","./PasswordInput":"4Q2t3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"dqyNg","react-helmet":"fcX6K"}],"4Q2t3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../NavHome":"8DCBt","./PasswordInput":"4Q2t3","./style.scss":"dqyNg","react-helmet":"fcX6K","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4Q2t3":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e21d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -64787,7 +64787,7 @@ function PasswordInput() {
         columnNumber: 9
     }, this);
 }
-_s(PasswordInput, "v5rPl3YO04NYEjpaNmfSAQ84r/M=");
+_s(PasswordInput, "Ichg3v+amqIvAQYWQID8/SkESaA=");
 _c = PasswordInput;
 var _c;
 $RefreshReg$(_c, "PasswordInput");
@@ -64797,7 +64797,7 @@ $RefreshReg$(_c, "PasswordInput");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"bkbiO"}],"bkbiO":[function() {},{}],"dqyNg":[function() {},{}],"fVCjh":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.scss":"bkbiO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bkbiO":[function() {},{}],"dqyNg":[function() {},{}],"fVCjh":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9e3d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -64832,7 +64832,7 @@ function Login({ setNoMatch, setDataCards }) {
         try {
             console.log("try data:", formDataEncoded);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/login`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/login`, {
                 method: "post",
                 status: 200,
                 headers: {
@@ -65012,7 +65012,7 @@ $RefreshReg$(_c, "Login");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../NavHome":"8DCBt","js-cookie":"c8bBu","react-router-dom":"9xmpe","./PswdLogin":"8UCBO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"eniQk","react-helmet":"fcX6K"}],"8UCBO":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../NavHome":"8DCBt","js-cookie":"c8bBu","react-router-dom":"9xmpe","./PswdLogin":"8UCBO","./style.scss":"eniQk","react-helmet":"fcX6K","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8UCBO":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d6b8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -65092,7 +65092,7 @@ $RefreshReg$(_c, "PswdLogin");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"harMT"}],"harMT":[function() {},{}],"eniQk":[function() {},{}],"78PF1":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.scss":"harMT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"harMT":[function() {},{}],"eniQk":[function() {},{}],"78PF1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d771 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -65202,7 +65202,187 @@ $RefreshReg$(_c, "PageTracking");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4hke4":[function(require,module,exports) {
+},{"react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3bfxL":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$bec0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$bec0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Results);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _cards = require("../../Cards");
+var _cardsDefault = parcelHelpers.interopDefault(_cards);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _reactRouterDom = require("react-router-dom");
+var _searchBar = require("../../SearchBar");
+var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
+var _styleScss = require("./style.scss");
+var _reactHelmet = require("react-helmet");
+var _s = $RefreshSig$();
+function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged, setSwappies }) {
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    async function getData() {
+        try {
+            console.log("d\xe9clenchement fonction getData comp Result");
+            console.log("selectedCategory dans try", selectedCategory);
+            console.log("selectedSubCategory dans try", selectedSubCategory);
+            console.log("selectLevel dans try", selectedLevel);
+            console.log("searchInput dans try", searchInput);
+            const token = (0, _jsCookieDefault.default).get("token");
+            const response = await fetch(`${"https://api.camille.cloud"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const responseDataSearch = await response.json();
+            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
+            console.log("typeof responseDataSearch", typeof responseDataSearch);
+            if (responseDataSearch.error === "Token invalide") navigate("/login");
+            if (responseDataSearch.message === "no match") {
+                setMatch(false);
+                setNoMatch(true);
+                setLoading(false);
+                setSwappies(responseDataSearch.userSwappies.swappies);
+                console.log("NO MATCH state match dans Search", match);
+                console.log("NOT MATCH state noMatch dans Search", noMatch);
+                console.log(" responseDataSearch.isLogged", responseDataSearch.isLogged);
+                if (!responseDataSearch.isLogged) {
+                    console.log(" dans  false !responseDataSearch.isLogged", responseDataSearch.isLogged);
+                    setLogged(false);
+                    navigate("/");
+                } else if (responseDataSearch.isLogged) {
+                    console.log(" dans  true responseDataSearch.isLogged", responseDataSearch.isLogged);
+                    setLogged(true);
+                }
+            } else if (responseDataSearch) {
+                console.log("on est dans la condition il y a match");
+                console.log("responseDataseaarch", responseDataSearch);
+                setDataCards(responseDataSearch);
+                setMatch(true);
+                setNoMatch(false);
+                setLoading(false);
+                console.log(" responseDataSearch.isLogged", responseDataSearch.isLogged);
+                console.log("typeof responseDataSearch?islogged", typeof responseDataSearch.isLogged);
+                if (!responseDataSearch.isLogged) {
+                    console.log("dans  responseDataSearch.isLogged === false", responseDataSearch.isLogged);
+                    setLogged(false);
+                    navigate("/");
+                } else if (responseDataSearch.isLogged) {
+                    console.log("dans  responseDataSearch.isLogged === true", responseDataSearch.isLogged);
+                    setSwappies(responseDataSearch.userSwappies.swappies);
+                    setLogged(true);
+                }
+            // console.log("MATCH State dataSearch", dataSearch);
+            // console.log("MATCH state Match dans Search", match);
+            // console.log("MATCH state noMatch dans Search", noMatch);
+            }
+        } catch (error) {
+            console.log("erreur du catch GetSearch:", error);
+        // setError("Votre recherche n'aq pas pu aboutir");
+        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
+        }
+    }
+    (0, _react.useEffect)(()=>{
+        getData();
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
+                        name: "description",
+                        content: "Page de recherche de comp\xe9tences propos\xe9es sur la plateforme selon plusieurs crit\xe8res: mot cl\xe9, cat\xe9gories, sous-cat\xe9gories, et niveau."
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Results/index.js",
+                        lineNumber: 125,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
+                        children: "Recherche - Skillswap"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Results/index.js",
+                        lineNumber: 126,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Results/index.js",
+                lineNumber: 124,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+                className: "results",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                        selectedCategory: selectedCategory,
+                        setSelectedCategory: setSelectedCategory,
+                        selectedSubCategory: selectedSubCategory,
+                        setSelectedSubCategory: setSelectedSubCategory,
+                        selectedLevel: selectedLevel,
+                        setSelectedLevel: setSelectedLevel,
+                        searchInput: searchInput,
+                        setSearchInput: setSearchInput,
+                        setDataCards: setDataCards,
+                        match: match,
+                        setMatch: setMatch,
+                        noMatch: noMatch,
+                        setNoMatch: setNoMatch,
+                        setLoading: setLoading,
+                        setLogged: setLogged
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Results/index.js",
+                        lineNumber: 129,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
+                        dataCards: dataCards,
+                        match: match,
+                        noMatch: noMatch,
+                        loading: loading
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Results/index.js",
+                        lineNumber: 147,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        children: "Fin des r\xe9sultats"
+                    }, void 0, false, {
+                        fileName: "SRC/components/Dashboard/Results/index.js",
+                        lineNumber: 153,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "SRC/components/Dashboard/Results/index.js",
+                lineNumber: 128,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true);
+}
+_s(Results, "0pNeyzXk/ByIxyERsdaIrG6js9s=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = Results;
+var _c;
+$RefreshReg$(_c, "Results");
+
+  $parcel$ReactRefreshHelpers$bec0.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../../SearchBar":"kxQdC","./style.scss":"kzcIv","react-helmet":"fcX6K","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kzcIv":[function() {},{}],"4hke4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d466 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -65268,7 +65448,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
         try {
             console.log("dans le try modifskill");
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/skill/${skill.id}`, {
+            const response = await fetch(`${"https://api.camille.cloud"}/skill/${skill.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
@@ -65489,7 +65669,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
         columnNumber: 9
     }, this);
 }
-_s(ModifSkill, "PHX5ooPaH3XOMhcl3A+nJCYw62U=", false, function() {
+_s(ModifSkill, "5B/9aCpHSOj5Tx0RD5puC2s1d6g=", false, function() {
     return [
         (0, _reactRouterDom.useNavigate),
         (0, _reactRouterDom.useLocation)
@@ -65504,186 +65684,6 @@ $RefreshReg$(_c, "ModifSkill");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../../../SearchBar/Level":"8e1BU","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./style.scss":"kuJlX"}],"kuJlX":[function() {},{}],"3bfxL":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$bec0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$bec0.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Results);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _cards = require("../../Cards");
-var _cardsDefault = parcelHelpers.interopDefault(_cards);
-var _jsCookie = require("js-cookie");
-var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
-var _reactRouterDom = require("react-router-dom");
-var _searchBar = require("../../SearchBar");
-var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
-var _styleScss = require("./style.scss");
-var _reactHelmet = require("react-helmet");
-var _s = $RefreshSig$();
-function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory, selectedLevel, setSelectedLevel, searchInput, setSearchInput, setDataCards, dataCards, match, setMatch, noMatch, setNoMatch, loading, setLoading, setLogged, setSwappies }) {
-    _s();
-    const navigate = (0, _reactRouterDom.useNavigate)();
-    async function getData() {
-        try {
-            console.log("d\xe9clenchement fonction getData comp Result");
-            console.log("selectedCategory dans try", selectedCategory);
-            console.log("selectedSubCategory dans try", selectedSubCategory);
-            console.log("selectLevel dans try", selectedLevel);
-            console.log("searchInput dans try", searchInput);
-            const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`http://${"localhost"}:${"3000"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
-                method: "get",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            const responseDataSearch = await response.json();
-            console.log("reponse GetSearch responseDataSearch", responseDataSearch);
-            console.log("typeof responseDataSearch", typeof responseDataSearch);
-            if (responseDataSearch.error === "Token invalide") navigate("/login");
-            if (responseDataSearch.message === "no match") {
-                setMatch(false);
-                setNoMatch(true);
-                setLoading(false);
-                setSwappies(responseDataSearch.userSwappies.swappies);
-                console.log("NO MATCH state match dans Search", match);
-                console.log("NOT MATCH state noMatch dans Search", noMatch);
-                console.log(" responseDataSearch.isLogged", responseDataSearch.isLogged);
-                if (!responseDataSearch.isLogged) {
-                    console.log(" dans  false !responseDataSearch.isLogged", responseDataSearch.isLogged);
-                    setLogged(false);
-                    navigate("/");
-                } else if (responseDataSearch.isLogged) {
-                    console.log(" dans  true responseDataSearch.isLogged", responseDataSearch.isLogged);
-                    setLogged(true);
-                }
-            } else if (responseDataSearch) {
-                console.log("on est dans la condition il y a match");
-                console.log("responseDataseaarch", responseDataSearch);
-                setDataCards(responseDataSearch);
-                setMatch(true);
-                setNoMatch(false);
-                setLoading(false);
-                console.log(" responseDataSearch.isLogged", responseDataSearch.isLogged);
-                console.log("typeof responseDataSearch?islogged", typeof responseDataSearch.isLogged);
-                if (!responseDataSearch.isLogged) {
-                    console.log("dans  responseDataSearch.isLogged === false", responseDataSearch.isLogged);
-                    setLogged(false);
-                    navigate("/");
-                } else if (responseDataSearch.isLogged) {
-                    console.log("dans  responseDataSearch.isLogged === true", responseDataSearch.isLogged);
-                    setSwappies(responseDataSearch.userSwappies.swappies);
-                    setLogged(true);
-                }
-            // console.log("MATCH State dataSearch", dataSearch);
-            // console.log("MATCH state Match dans Search", match);
-            // console.log("MATCH state noMatch dans Search", noMatch);
-            }
-        } catch (error) {
-            console.log("erreur du catch GetSearch:", error);
-        // setError("Votre recherche n'aq pas pu aboutir");
-        // handleNotFoundError("Votre recherche n'aq pas pu aboutir");
-        }
-    }
-    (0, _react.useEffect)(()=>{
-        getData();
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactHelmet.Helmet), {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("meta", {
-                        name: "description",
-                        content: "Page de recherche de comp\xe9tences propos\xe9es sur la plateforme selon plusieurs crit\xe8res: mot cl\xe9, cat\xe9gories, sous-cat\xe9gories, et niveau."
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Results/index.js",
-                        lineNumber: 125,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("title", {
-                        children: "Recherche - Skillswap"
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Results/index.js",
-                        lineNumber: 126,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Dashboard/Results/index.js",
-                lineNumber: 124,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-                className: "results",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
-                        selectedCategory: selectedCategory,
-                        setSelectedCategory: setSelectedCategory,
-                        selectedSubCategory: selectedSubCategory,
-                        setSelectedSubCategory: setSelectedSubCategory,
-                        selectedLevel: selectedLevel,
-                        setSelectedLevel: setSelectedLevel,
-                        searchInput: searchInput,
-                        setSearchInput: setSearchInput,
-                        setDataCards: setDataCards,
-                        match: match,
-                        setMatch: setMatch,
-                        noMatch: noMatch,
-                        setNoMatch: setNoMatch,
-                        setLoading: setLoading,
-                        setLogged: setLogged
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Results/index.js",
-                        lineNumber: 129,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardsDefault.default), {
-                        dataCards: dataCards,
-                        match: match,
-                        noMatch: noMatch,
-                        loading: loading
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Results/index.js",
-                        lineNumber: 147,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        children: "Fin des r\xe9sultats"
-                    }, void 0, false, {
-                        fileName: "SRC/components/Dashboard/Results/index.js",
-                        lineNumber: 153,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "SRC/components/Dashboard/Results/index.js",
-                lineNumber: 128,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true);
-}
-_s(Results, "0pNeyzXk/ByIxyERsdaIrG6js9s=", false, function() {
-    return [
-        (0, _reactRouterDom.useNavigate)
-    ];
-});
-_c = Results;
-var _c;
-$RefreshReg$(_c, "Results");
-
-  $parcel$ReactRefreshHelpers$bec0.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../Cards":"jUXwJ","js-cookie":"c8bBu","react-router-dom":"9xmpe","../../SearchBar":"kxQdC","./style.scss":"kzcIv","react-helmet":"fcX6K","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kzcIv":[function() {},{}]},["5l8qM","1xC6H","hQ0Dx"], "hQ0Dx", "parcelRequireb2c8")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","js-cookie":"c8bBu","../../../SearchBar/Level":"8e1BU","../../../SearchBar/Categories":"04ePd","../../../SearchBar/SubCategories":"laIPr","./style.scss":"kuJlX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kuJlX":[function() {},{}]},["5l8qM","1xC6H","hQ0Dx"], "hQ0Dx", "parcelRequireb2c8")
 
 //# sourceMappingURL=index.bed242b3.js.map
