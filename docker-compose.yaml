@@ -25,6 +25,7 @@ services:
     environment:
       PORT: '${PORT_EXPRESS}'
       PORT_CONTAINER: '${PORT_BACK}'
+      PORT_FRONT: '${PORT_FRONT}'
       SECRET: '${SECRET}'
       FRONT_URL: '${FRONT_URL}'
       API_URL: '${API_URL}'
@@ -67,7 +68,9 @@ services:
       - node_modules_front:/home/server/Skillswap/FRONT/node_modules
     command: >
       sh -c "ls -al /home/server/Skillswap/FRONT && npm install && npm start"
-    restart: unless-stopped
+#      sh -c "ls -al /home/server/Skillswap/FRONT && rm -rf /home/server/Skillswap/FRONT/node_modules"
+#      sh -c "ls -al /home/server/Skillswap/FRONT && npm install"
+#    restart: unless-stopped
     depends_on:
       - back
 #      back:

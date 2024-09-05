@@ -27,6 +27,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 const port_container = process.env.PORT_CONTAINER;
+const port_front = process.env.PORT_FRONT;
 const front_url = process.env.FRONT_URL;
 const api_url = process.env.API_URL;
 
@@ -52,6 +53,8 @@ app.use(cors({
 		//origin: '*',
 		origin: [
 			`http://${front_url}`,
+			`http://${front_url}:1234`,
+			`http://${front_url}:${port_front}`,
 			`https://${front_url}`,
 		],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
