@@ -18,10 +18,10 @@ await syncDataBase();
 
 // const redis = require('redis');
 const client = redis.createClient();
-
 client.on('error', (err) => {
     console.error('Redis error:', err);
 });
+
 
 dotenv.config();
 const app = express();
@@ -38,6 +38,7 @@ app.use(cookieParser());
 //     res.send("WELCOME TO THE BASIC EXPRESS APP WITH AN HTTPS SERVER");
 // });
 
+
 // log before cors
 app.use((req, res, next) => {
 	console.log('----------- origin:', req.get('Origin'));
@@ -50,7 +51,6 @@ app.use(cors({
 		origin: [
 			`http://${url}`,
 			`https://${url}`,
-			`https://${url}:443`,
 		],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true

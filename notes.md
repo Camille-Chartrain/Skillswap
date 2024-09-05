@@ -1,22 +1,34 @@
 sommaire :
 
-- 1. deploiement
-- 1.1. historique des actions et pbm rencontrés
-- 1.2. liste des problemes et de leur resolution
-- 1.2.1. pbm 1 **volumes**
-- 1.2.2. pbm 2 **psql/**
-- 1.2.4. pbm 3 **.env**
-- 1.2.5. pbm 4 **dist/**
-- 1.2.6. pbm 5 **bdd sync & seed**
-- 1.2.3. pbm 6 **ports**
-- 2. securité
-- 2.1 types de failles de securité
+- [deploiement](#deploiement-)
+	- [historique des actions et pbm rencontrés](#historique-des-actions-et-pbm-rencontrés)
+	- [liste des problemes et de leur resolution](#liste-des-problemes-et-de-leur-resolution)
+		- [pbm 1 **volumes**](#pbm-1-volumes-)
+		- [pbm 2 **psql/**](#pbm-2-psql-)
+		- [pbm 3 **.env**](#pbm-3-env-)
+		- [pbm 4 **dist/**](#pbm-4-dist-)
+		- [pbm 5 **bdd sync & seed**](#pbm-5-bdd-sync--seed-)
+		- [pbm 6 **ports**](#pbm-6-ports-)
+	- [explication du deploiement](#explication-du-deploiement)
+		- [http](#http)
+		- [prerequis : projet docker sur repo github publique](#prerequis--projet-docker-sur-repo-github-publique)
+		- [copier les volumes](#copier-les-volumes)
+		- [variables d'environnement](#variables-denvironnement)
+		- [nom de domaine](#nom-de-domaine)
+		- [conclusion](#conclusion)
+	- [https](#https)
+		- [le certificat ssl](#le-certificat-ssl)
+		- [probleme avec les noms de domaines et les ports](#probleme-avec-les-noms-de-domaines-et-les-ports)
+		- [la bonne configuration](#la-bonne-configuration)
+- [securité](#securité-)
+	- [types de failles de securité](#types-de-failles-de-sécurité-)
+	- [Descriptions des failles de sécurité](#descriptions-des-failles-de-sécurité-)
 
 ---
 
 # deploiement :
 
-### historique des actions et pbm rencontrés
+## historique des actions et pbm rencontrés
 
 - lancement du deploiement sur coolify à partir du repo github publique
 - **erreur :**
@@ -104,13 +116,23 @@ sommaire :
 	- comme on ne le veut accessible que par le front, on peut fetch directement http://back:3000 (back est le nom du service de docker compose)
 **error :**
 	- "blocked loadind mixed active content"
+	- difficile de comprendre ce qui se passe avec coolify + docker pour les ports
+	- j'essaye toutes le configurations possibles
+- j'ai trouvé !
+1. il faut utiliser un sous-domaine different pour le back et le front, et les remplir dans coolify :
+	- back : https://api.camille.cloud
+	- front: https://skillswap.camille.cloud
+2. il faut que coolify connaisse le port dans le container back, on peut lui dire a deux endroits, mais il faut le dire au moins à un des deux :
+	- mapper le port dans le compose, ex : 3001:3000
+	- le mettre dans le domain du back sur coolify : https://api.camille.cloud:3000
+3. dans les appels fetch, il ne faut pas mettre le port, ni du container ni de l'hote, pas hyper sur de pourquoi, mais sinon coolify ne fait pas bien son reverse proxy
 
 
 
 
 
 
-### liste des problemes et de leur resolution
+## liste des problemes et de leur resolution
 
 - resoudre les pbm que recontre coolify pour le deploiement :
 	1. **volumes :** il creer des dossier ./BACK/db/migration.sql/ et ./BACK/db/seeding.sql/ au lieu de fichiers, parce qu'il les voit dans le docker-compose.yml en tant que "bind mount files" et il croit que ce sont des volumes, puis il ne parvient pas a les remplacer par les fichiers quand il synchronise avec github
@@ -120,7 +142,7 @@ sommaire :
 	5. **bdd sync & seed :** à un moment il y a le pbm de la base de donnee qui doit etre cree en 2 etapes en de-commentant des lignes, je ne sais pas encore comment resoudre ca
 	6. **ports :** à ce stade, le site s'affiche mais il ne recupere pas les donnees du back
 
-#### pbm 1 **volumes** :
+### pbm 1 **volumes** :
 
 - dans le docker-compose.yml, au lieu d'avoir 2 fichier "bind mount", on va mettre un volume qui contient les 2 fichiers :
 	- avant :
@@ -137,7 +159,7 @@ sommaire :
 - aussi on change le nom de `migration.sql` pour `create_tables.sql` puisqu'il doit s'appeller comme ca dans le container
 - ok
 
-#### pbm 2 **psql/** :
+### pbm 2 **psql/** :
 
 - on a tout simplement pas besoin de synchroniser le dossier psql dans github
 	- donc on l'enleve de github : `git rm -r psql/`
@@ -145,7 +167,7 @@ sommaire :
 - la base de donnee se recreer correctement si on deploi
 - ok
 
-#### pbm 3 **.env** :
+### pbm 3 **.env** :
 
 - pour l'instant chaque dossier FRONT et BACK possede son fichier .env avec ses variables d'environnements
 - mais coolify ne nous laisse pas creer des variables d'environnement localisées dans tel ou tel fichier (à ma connaissance)
@@ -187,13 +209,13 @@ sommaire :
 - il ne reste plus qu'à les rentrer dans coolify avant de deployer
 - ok
 
-#### pbm 4 **dist/** :
+### pbm 4 **dist/** :
 
 - en fait react cree des fichiers dans le dossier dist/ qui ont ete envoyé sur github
 - ils ne sont du coup pas bien recrees dans le server
 - il suffit de les enlever de git et github avec une regle dans .gitignore
 
-#### pbm 5 **bdd sync & seed** :
+### pbm 5 **bdd sync & seed** :
 
 - je vais simplement comparer la bdd avant et apres sync, pour voir un critere que je pourrais utiliser pour savoir si elle a deja ete sync :
 	```
@@ -215,11 +237,181 @@ sommaire :
 	```
 - on peut utiliser la presence de la colonne "status" dans la table meeting par exemple
 
-#### pbm 6 **ports** :
+### pbm 6 **ports** :
 
 - les ports n'etaient pas bien mis dans les variables .env
 - ex: le port `REACT_APP_URL` n'etait pas le meme que le `PORT_FRONT` alors qu'en fait c'est le meme
 - j'ai un peu ordonné toutes les variables d'environnement pour eviter des doublons et des melanges
+
+
+
+
+
+
+## explication du deploiement
+
+### http
+
+Pour deployer en http avec coolify, il a fallut suivre quelques étapes et configurations.
+
+#### prerequis : projet docker sur repo github publique
+
+la premiere etape était très simple, grâce aux conditions suivantes :
+
+- le projet est fait avec docker compose
+- le code source est en publique sur github
+
+Il a suffit de donner le lien du repo github à coolify pour qu'il prépare le déploiement.
+
+On peut préciser la branche grâce à l'url.
+
+#### copier les volumes
+
+Par defaut, coolify va seulement récupérer le fichier compose, car il s'attend à un projet neuf.
+
+Dans notre cas, nous avons dejà tout un projet mis en place dans des dossiers, en tant que volumes, donc nous voulons que coolify les prenne en compte aussi.
+
+Pour faire ça, nous cochons la case "preserve repository during deploiement", et coolify va copier tous le contenu du repo github.
+
+Malheureusement, cette option possède un défaut : dans notre docker-compose.yml nous utilisions un volume non standard, que coolify ne savait pas gérer, nous avons donc changé légèrement l'organisation du projet pour résoudre ce probleme :
+- Nous utilisions deux fichiers "bind mount", c'est à dire que nous déclarions les fichiers directement en tant que volumes.
+- Mais coolify ne gère pas bien cette situation, il creer des dossiers à la place des fichiers, et donc le deploiement echoue.
+- Cette façon de faire ne fonctionne de toute façon pas sur toutes les machines, c'est pourquoi elle n'est pas documentée dans la doc de docker.
+- Pour résoudre ce probleme, nous avons simplement déclaré comme volume le dossier contenant ces deux fichiers :
+- code :
+	- avant (bind mount) :
+	```
+  volumes:
+    - ./BACK/db/migration.sql:/docker-entrypoint-initdb.d/create_tables.sql 
+    - ./BACK/db/seeding.sql:/docker-entrypoint-initdb.d/seeding.sql
+	```
+	- apres (volume classique) :
+	```
+  volumes:
+    - ./BACK/db/:/docker-entrypoint-initdb.d/
+	```
+
+Après ça, la copie du projet depuis github fonctionne parfaitement.
+
+#### variables d'environnement
+
+Pour des raisons de sécurité, nous ne synchronisons pas nos fichiers .env sur github.
+
+Donc il faut copier le contenu de ces fichiers dans l'onglet "environment variables" de coolify.
+
+Ici encore nous avons rencontré un léger probleme : coolify ne supporte que des variables d'environnement à la racine du projet, l'equivalent d'avoir un fichier .env à côté du fichier docker-compose.yml.
+
+Mais notre projet utilisait des fichiers .env directement dans les containers FRONT et BACK, utilisés dans le code node.js.
+
+Il a donc fallut restructurer le projet pour qu'il utilise les variables d'environnement à la racine.
+
+Notre solution etait la suivante :
+- mettre toutes les variables dans un fichier .env à la racine,
+- et utiliser la directive "environment" du fichier compose pour ajouter ces variables directement dans les environnement des containers.
+
+Il ne reste plus qu'à copier manuellement ces variables dans coolify, qui supporte le simple copier-coller d'un fichier .env, donc c'est très rapide et simple à faire.
+
+#### nom de domaine
+
+Pour que le projet soit accessible en ligne, il faut qu'on précise à coolify quel nom de domaine il doit utiliser.
+
+En effet, coolify utilise son propre reverse proxy, ce qui nous évite d'en mettre un en place nous-même.
+
+Le reverse proxy est un server, celui de coolify s'appelle "traefik", qui reçoit les requetes web avant notre server en node.js, et il les redirige vers le bon container, le bon port, le bon service sur la machine.
+
+Dans notre cas, on veut que notre nom de domaine redirige vers notre container FRONT, il faut donc qu'on informe coolify que le container FRONT est accessible depuis telle url.
+
+Comme nous possedons un domaine "camille.cloud", nous avons crée un sous-domaine (cela se fait directement sur le site de notre hebergeur web) "skillswap.camille.cloud".
+
+Il ne nous reste plus qu'à rentrer l'adresse "http://skillswap.camille.cloud" dans le champ "domains for front" de coolify.
+
+Sans cette étape, notre site n'aurait pas éte accessible depuis notre sous-domaine, mais depuis notre domaine principale sur le bon port, exemple : "http://camille.cloud:1234"
+
+#### conclusion
+
+Coolify simplifie beaucoup le déployement, mais il rajoute aussi une couche de complexité, qui fait que les erreurs peuvent être plus difficiles à démeler quand on ne connait pas encore bien le déploiement.
+
+Les difficultés rencontrés ont été les suivantes :
+- Copier les volumes, en évitant les fichiers "bind mount".
+- Organiser toutes la variables d'environnement à la racine.
+- Comprendre les options de coolify pour le reverse proxy qui permet d'acceder au site depuis le bon sous-domaine.
+
+Une fois ces difficultés dépassées, le deploiement avec coolify est très simple.
+
+### https
+
+Pour passer du déploiement en http au déploiement en https, il n'y a pas beaucoup de modifications à faire, mais il faut bien comprendre comment fonctionnent les ports et le reverse proxy.
+
+#### le certificat ssl
+
+Nous n'avons pas besoin de génerer de certificat ssl, en effet :
+- c'est coolify qui s'occupe de générer le certificat,
+- c'est coolify aussi qui configure son reverse proxy pour pouvoir recevoir des requettes https,
+- et c'est coolify egalement qui s'occupe de forcer les requetes http en https.
+
+#### probleme avec les noms de domaines et les ports
+
+En http, on avait la configuration suivante :
+- champs "domains" sur coolify :
+	- BACK  : ""
+	- FRONT : "http://skillswap.camille.cloud"
+- url fetch dans FRONT :
+	- "http://skillswap.camille.cloud:3000"
+- cors origin dans BACK :
+	- "http://skillswap.camille.cloud"
+
+Cette configuration ne convient plus en https, c'est à dire qu'on ne peut pas simplement rajouter un "s" aux "http" precedents.
+
+La raison est que pour le navigateur, deux url http identiques mais avec un port different ne sont pas un probleme, mais en https ça le devient :
+- le navigateur accept que le FRONT fetch le BACK avec ces adresses :
+	- adresse FRONT: "http://skillswap.camille.cloud"
+	- fetch        : "http://skillswap.camille.cloud:3000"
+	- navigateur   : ok
+- mais il n'accepte pas la meme chose en https :
+	- adresse FRONT: "https://skillswap.camille.cloud"
+	- fetch        : "https://skillswap.camille.cloud:3000"
+	- navigateur   : cors error, cross-origin
+
+Pour pouvoir permettre au FRONT de faire un fetch au BACK avec seulement un port different, il faudrait pouvoir controller plus finement les reglages du reverse proxy de coolify.
+
+Seulement, coolify ne permet pas un reglage fin de son reverse proxy. Par exemple, si on indique cette adresse dans coolify : "domain BACK: https://skillswap.camille.cloud:3000", alors coolify ne l'interprete pas comme "tout appel à l'addresse skillswap.camille.cloud sur le port 3000 sera redirigé vers le conteneur BACK", mais comme : "tout appel à l'addresse skillswap.camille.cloud sera mappé au port 3000 à l'intérieur du conteneur BACK, qui tourne sur le port XXXX". Donc, pour coolify on a donné la meme adresse au FRONT et au BACK, et pour une raison quelconque le BACK prend le dessus, résultat quand on essaye d'atteindre le site sur l'adresse FRONT "https://skillswap.camille.cloud", le revers proxy croit qu'on essaye d'atteindre le BACK,, et donc on reçoit le json sur notre navigateur, au lieu du site.
+
+Nous ne pouvons donc pas :
+- ni fetch sur la meme adresse que le FRONT mais avec un autre port : erreur de cors dans le navigateur.
+- ni declarer un domain pour le BACK identique au front mais avec un autre port : coolify ne permet pas ce reglage, il l'interprete comme avoir declaré le meme domaine tout court.
+
+#### la bonne configuration
+
+La solution consiste simplement à utiliser un autre domaine pour le BACK : "api.camille.cloud", et les réglages deviennent très simples :
+- champs "domains" sur coolify :
+	- BACK  : "https://api.camille.cloud:3000"
+	- FRONT : "https://skillswap.camille.cloud"
+- url fetch dans FRONT :
+	- "https://api.camille.cloud"
+- cors origin dans BACK :
+	- "https://skillswap.camille.cloud"
+
+On remarque que l'adresse du BACK est associée à un port. Comme nous l'avons précisé avant, ce port n'indique pas l'adresse du BACK à proprement parler, mais sur quel port le BACK doit être mappé dans le container. Autrement dit, le BACK est joignable sur "api.camille.cloud" et non pas sur "api.camille.cloud:3000", par contre dans le container, express doit ecouter le port 3000 pour recevoir les requettes.
+
+Un autre solution pour cette ligne, serait de mettre simplement le domain sans le port : "https://api.camille.cloud", et de préciser le mappage du port dans le docker-compose.yaml, et c'est ce que nous avons fait :
+```
+ports:
+	- '3001:3000'
+```
+
+Avec ces réglages, voila ce qui se passe quand nous entrons l'url "https://api.camille.cloud" dans un navigateur :
+- elle va arriver dans le reverse proxy de coolify,
+- il va rediriger la requette vers le port 3001,
+- le conteneur BACK ecoute ce port 3001 donc il va recevoir la requette,
+- et il va la transmettre à l'interieur du conteneur sur le port 3000,
+- et express, qui tourne à l'interieur du conteneur, écoute le port 3000,
+- donc express traite la requete comme on lui a ecrit de le faire.
+
+
+
+
+
+
 
 
 ---
