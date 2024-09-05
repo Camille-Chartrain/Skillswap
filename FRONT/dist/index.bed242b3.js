@@ -34659,7 +34659,7 @@ const Home = ({ selectedCategory, setSelectedCategory, selectedSubCategory, setS
         setLoading(true);
         try {
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}`, {
+            const response = await fetch(`${"http://localhost:3001"}`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -34895,7 +34895,7 @@ function SearchBar({ selectedCategory, setSelectedCategory, selectedSubCategory,
             console.log("selectLevel dans try", selectedLevel);
             setLoading(true);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+            const response = await fetch(`${"http://localhost:3001"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
                 method: "get",
                 headers: {
                     // 'Content-Type': 'application/json',
@@ -35082,7 +35082,7 @@ function Categories({ setSelectedCategory, optionsHTML }) {
         try {
             // console.log("essai de fetch categories");
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/categories`, {
+            const response = await fetch(`${"http://localhost:3001"}/categories`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -35398,7 +35398,7 @@ function SubCategories({ selectedCategory, setSelectedSubCategory, optionsHTML }
             // console.log("valeur de selectedCategory:", selectedCategory);
             const token = (0, _jsCookieDefault.default).get("token");
             // console.log(`${process.env.REACT_APP_API_URL}/subCategories/${selectedCategory}`);
-            const response = await fetch(`${"https://api.camille.cloud"}/subCategories/${selectedCategory}`, {
+            const response = await fetch(`${"http://localhost:3001"}/subCategories/${selectedCategory}`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -35737,7 +35737,7 @@ function Cards({ dataCards, match, noMatch, loading }) {
                                                     className: "chil2dBoxHeader",
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                         className: "avatar",
-                                                        src: `${"https://api.camille.cloud"}/${card.Category.picture}`,
+                                                        src: `${"http://localhost:3001"}/${card.Category.picture}`,
                                                         alt: "photo des categories",
                                                         loading: "lazy"
                                                     }, void 0, false, {
@@ -61961,7 +61961,7 @@ function Logout({ setLogged, setSelectedCategory, setSelectedSubCategory, setSel
         try {
             console.log("deconnection => supprimer cookie. (composant Logout)");
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/logout`, {
+            const response = await fetch(`${"http://localhost:3001"}/logout`, {
                 method: "POST",
                 status: 200,
                 headers: {
@@ -62988,7 +62988,7 @@ function Profile({ loading, setLoading, selectedCategory, setSelectedCategory, s
             console.log("dans getsskills()");
             setLoading(true);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/skill`, {
+            const response = await fetch(`${"http://localhost:3001"}/skill`, {
                 method: "get",
                 status: 200,
                 headers: {
@@ -63143,7 +63143,7 @@ function ProfilePatch({ loading, setLoading, dataProfile, setDataProfile, select
         console.log("profileData", profileData);
         try {
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/profile`, {
+            const response = await fetch(`${"http://localhost:3001"}/profile`, {
                 method: "PATCH",
                 status: 200,
                 headers: {
@@ -63260,7 +63260,7 @@ function CategoriesCheckboxes({ selectedCategories, setSelectedCategories, loadi
         try {
             console.log("essai de fetch categories");
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/categories`, {
+            const response = await fetch(`${"http://localhost:3001"}/categories`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -63363,7 +63363,7 @@ function DataProfile({ setLoading, dataProfile, setDataProfile, setSelectedCateg
         try {
             setLoading(true);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/profile`, {
+            const response = await fetch(`${"http://localhost:3001"}/profile`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -63553,7 +63553,7 @@ function CardsSkills({ loading, setLoading, skills, getSkills }) {
     async function deleteSkill(skill) {
         try {
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/skill/${skill.id}`, {
+            const response = await fetch(`${"http://localhost:3001"}/skill/${skill.id}`, {
                 method: "delete",
                 status: 200,
                 headers: {
@@ -64004,7 +64004,7 @@ function CreateSkill({ loading, setLoading, selectedCategory, setSelectedCategor
             // console.log("selectLevel dans CreateSkill", selectedLevel);
             // console.log('formDataEncoded CreateSkill:', formDataEncoded);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+            const response = await fetch(`${"http://localhost:3001"}/skill/?&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
                 method: "POST",
                 status: 200,
                 headers: {
@@ -64413,7 +64413,7 @@ function Registration() {
         try {
             console.log("try data:", formDataEncoded);
             // console.log('try myformdata:', myFormData);
-            const response = await fetch(`${"https://api.camille.cloud"}/registration`, {
+            const response = await fetch(`${"http://localhost:3001"}/registration`, {
                 method: "post",
                 status: 200,
                 headers: {
@@ -64832,7 +64832,7 @@ function Login({ setNoMatch, setDataCards }) {
         try {
             console.log("try data:", formDataEncoded);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/login`, {
+            const response = await fetch(`${"http://localhost:3001"}/login`, {
                 method: "post",
                 status: 200,
                 headers: {
@@ -65235,7 +65235,7 @@ function Results({ selectedCategory, setSelectedCategory, selectedSubCategory, s
             console.log("selectLevel dans try", selectedLevel);
             console.log("searchInput dans try", searchInput);
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
+            const response = await fetch(`${"http://localhost:3001"}/searchVisitor?input=${searchInput}&level=${selectedLevel}&CategoryId=${selectedCategory}&SubCategoryId=${selectedSubCategory}`, {
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -65448,7 +65448,7 @@ selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCatego
         try {
             console.log("dans le try modifskill");
             const token = (0, _jsCookieDefault.default).get("token");
-            const response = await fetch(`${"https://api.camille.cloud"}/skill/${skill.id}`, {
+            const response = await fetch(`${"http://localhost:3001"}/skill/${skill.id}`, {
                 method: "PATCH",
                 status: 200,
                 headers: {

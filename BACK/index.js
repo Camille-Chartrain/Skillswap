@@ -17,16 +17,18 @@ await syncDataBase();
 
 
 // const redis = require('redis');
-const client = redis.createClient();
-client.on('error', (err) => {
-    console.error('Redis error:', err);
-});
+//const client = redis.createClient();
+//client.on('error', (err) => {
+//    console.error('Redis error:', err);
+//});
 
 
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 3001;
-const url = process.env.PUBLIC_URL;
+const port = process.env.PORT || 3000;
+const port_container = process.env.PORT_CONTAINER;
+const front_url = process.env.FRONT_URL;
+const api_url = process.env.API_URL;
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -49,8 +51,8 @@ app.use((req, res, next) => {
 app.use(cors({
 		//origin: '*',
 		origin: [
-			`http://${url}`,
-			`https://${url}`,
+			`http://${front_url}`,
+			`https://${front_url}`,
 		],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true
@@ -86,5 +88,5 @@ app.get('/robots.txt', (req, res, next) => {
 app.use(router);
 
 app.listen(port, () => {
-    console.log(`Serveur démarré sur https://${url}:${port}`);
+    console.log(`Serveur démarré sur https://${api_url}:${port_container}`);
 });

@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: '${PG_USER}'
     volumes:
       - ./BACK/db/:/docker-entrypoint-initdb.d/
-      - ./PSQL/:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/data/
     restart: unless-stopped
 #    healthcheck:
 #      test: ["CMD-SHELL", "nc -z localhost $PG_PORT"]
@@ -24,8 +24,10 @@ services:
     working_dir: /home/server/Skillswap/BACK
     environment:
       PORT: '${PORT_EXPRESS}'
+      PORT_CONTAINER: '${PORT_BACK}'
       SECRET: '${SECRET}'
-      PUBLIC_URL: '${PUBLIC_URL}'
+      FRONT_URL: '${FRONT_URL}'
+      API_URL: '${API_URL}'
       TOKEN_SECRET: '${TOKEN_SECRET}'
       SECRET_POUR_EXPRESS_SESSION: '${SECRET_POUR_EXPRESS_SESSION}'
       PGUSER: '${PG_USER}'
@@ -48,18 +50,16 @@ services:
 #      start_period: 30s
 #      timeout: 5s
     depends_on:
-      bdd:
-        condition: service_healthy
+      - bdd
+#      bdd:
+#        condition: service_healthy
 
   front:
     image: "node:18"
     working_dir: /home/server/Skillswap/FRONT
     environment:
-      REACT_APP_API_URL: 'https://${API_URL}'
-      #REACT_APP_API_URL: 'https://${API_URL}:${PORT_EXPRESS}'
-      #REACT_APP_API_URL: 'https://${API_URL}:${PORT_BACK}'
-      #REACT_APP_API_URL: 'https://${PUBLIC_URL}:${PORT_BACK}'
-      #REACT_APP_API_URL: 'http://${PUBLIC_URL}:${PORT_BACK}'
+      #REACT_APP_API_URL: 'https://${API_URL}'
+      REACT_APP_API_URL: 'http://${FRONT_URL}:${PORT_BACK}'
     ports:
       - '${PORT_FRONT}:${PORT_PARCEL}'
     volumes:
@@ -69,8 +69,9 @@ services:
       sh -c "ls -al /home/server/Skillswap/FRONT && npm install && npm start"
     restart: unless-stopped
     depends_on:
-      back:
-        condition: service_healthy
+      - back
+#      back:
+#        condition: service_healthy
 
   adminer:
     image: adminer
@@ -80,10 +81,12 @@ services:
       ADMINER_DEFAULT_SERVER: '${ADMINER_DEFAULT_SERVER}'
     restart: unless-stopped
     depends_on:
-      bdd:
-        condition: service_healthy
+      - bdd
+#      bdd:
+#        condition: service_healthy
 
 volumes:
   
   node_modules_back:
   node_modules_front:
+  postgres_data:
