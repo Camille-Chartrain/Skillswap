@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "parcel SRC/index.html",
-    "build": "dotenv -e ../.env parcel build"
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,6 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "ajax": "^0.0.4",
     "docker": "^1.0.0",
-    "dotenv-cli": "^7.4.2",
     "js-cookie": "^3.0.5",
     "jsx": "^0.9.89",
     "lmdb": "^3.0.12",
