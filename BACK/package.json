@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Camille-Chartrain/Skillswap#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.25.4",
     "jest": "^29.7.0",
     "node-dev": "^8.0.0"
   },
