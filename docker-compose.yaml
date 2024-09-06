@@ -27,8 +27,8 @@ services:
       PORT_CONTAINER: '${PORT_BACK}'
       PORT_FRONT: '${PORT_FRONT}'
       SECRET: '${SECRET}'
-      FRONT_URL: '${FRONT_URL}'
-      API_URL: '${API_URL}'
+      FRONT_URL: '${URL_FRONT}'
+      API_URL: '${URL_API}'
       TOKEN_SECRET: '${TOKEN_SECRET}'
       SECRET_POUR_EXPRESS_SESSION: '${SECRET_POUR_EXPRESS_SESSION}'
       PGUSER: '${PG_USER}'
@@ -59,8 +59,8 @@ services:
     image: "node:18"
     working_dir: /home/server/Skillswap/FRONT
     environment:
-      #REACT_APP_API_URL: 'https://${API_URL}'
-      REACT_APP_API_URL: 'http://${API_URL}:${PORT_BACK}'
+      #REACT_APP_API_URL: 'https://${URL_API}'
+      REACT_APP_API_URL: 'http://${URL_API}:${PORT_BACK}'
     ports:
       - '${PORT_FRONT}:${PORT_PARCEL}'
     volumes:
@@ -68,9 +68,7 @@ services:
       - node_modules_front:/home/server/Skillswap/FRONT/node_modules
     command: >
       sh -c "ls -al /home/server/Skillswap/FRONT && npm install && npm start"
-#      sh -c "ls -al /home/server/Skillswap/FRONT && rm -rf /home/server/Skillswap/FRONT/node_modules"
-#      sh -c "ls -al /home/server/Skillswap/FRONT && npm install"
-#    restart: unless-stopped
+    restart: unless-stopped
     depends_on:
       - back
 #      back:
